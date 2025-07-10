@@ -19,11 +19,11 @@
 						<xsl:with-param name="RootElement" select="local-name($FormData)"/>
 					</xsl:call-template>
 				</title>
-				<!-- No Browser Caching -->
+				<!-- No Browser Caching  -->
 				<meta http-equiv="Pragma" content="no-cache"/>
 				<meta http-equiv="Cache-Control" content="no-cache"/>
 				<meta http-equiv="Expires" content="0"/>
-				<!-- No Proxy Caching -->
+				<!-- No Proxy Caching   -->
 				<meta http-equiv="Cache-Control" content="private"/>
 				<!-- Define Character Set  -->
 				<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
@@ -31,11 +31,11 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-					<!-- PRINT statement-->
-					<!--<xsl:if test="not($Print) or $Print=''">-->
+					<!-- PRINT statement -->
+					<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS1120FSchedulePStyle"/>
 						<xsl:call-template name="AddOnStyle"/>
-					<!--</xsl:if>-->
+					</xsl:if>
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
@@ -46,7 +46,8 @@
 						<xsl:call-template name="DocumentHeader"/>
 					</div>
 					<!-- END WARNING LINE -->
-					<!--Begin Header-->
+					<!-- Begin Header -->					
+					<!-- Begin Header -->
 					<div class="styBB" style="width: 187mm">
 						<!-- Form Name -->
 						<div class="styFNBox" style="height: 18mm;width:28mm;">
@@ -199,8 +200,9 @@
 															<xsl:otherwise>width:5mm;border-right:0;</xsl:otherwise>
 														</xsl:choose>
 													</xsl:attribute>
-													<span class="styLNLeftNumBoxSD" style="width:5mm;height:12mm;">
+													<span class="styLNLeftNumBoxSD" style="width:8mm;height:12mm;">
 														<xsl:number format="A" value="position()"/>
+														<xsl:number format="A" value="position()"/>														
 													</span>
 												</td>
 												<!--Name-->
@@ -3019,6 +3021,7 @@
 		<xsl:param name="Stop"/>
 		<xsl:if test="$Start &lt; $Stop">
 			<td class="styTableCellHeader" style="width:26mm;font-weight:bold;border-top-width:1px;">
+				<xsl:number format="A" value="$Start"/>
 				<xsl:number format="A" value="$Start"/>
 			</td>
 			<xsl:call-template name="CreateTableHeaderCells">

@@ -51,7 +51,7 @@
 							<br/>
 							<div class="styAgency" style="padding-top:2mm;padding:bottom:0mm;">
 								Department of the Treasury<br/>
-								Internal Revenue Service (99)
+								Internal Revenue Service
 							</div>
 						</div>
 						<div class="styFTBox" style="width:124mm;height:20mm;">
@@ -77,7 +77,7 @@
 					<!-- Name(s) shown on return -->
 					<div class="styBB" style="width:187mm;">
 						<div class="styFNBox" style="width:140mm;height:9mm;padding-top:.25mm;">
-							Name(s) shown on Form 1040, 1040-SR, or 1040NR<br/>
+							Name(s) shown on Form 1040, 1040-SR, or 1040-NR<br/>
 							<xsl:call-template name="PopulateReturnHeaderFiler">
 								<xsl:with-param name="TargetNode">NameLine1Txt</xsl:with-param>
 							</xsl:call-template>
@@ -748,15 +748,13 @@
 						<div class="styLNLeftNumBox" style="font-size:7pt;height:4mm;padding-top:1.25mm;padding-bottom:0mm;padding-left:3mm;">13</div>
 						<div class="styLNDesc" style="width:135mm;height:4mm;padding-top:1mm;padding-bottom:0mm;">
 					  Enter the amount from line 4 of the Qualified Dividends and Capital Gain Tax Worksheet in the
-					  Instructions for Form 1040 and 1040-SR or the amount from line 13 of the Schedule D Tax Worksheet in
-     				  the Instructions for Schedule D (Form 1040), whichever applies (as refigured for the AMT,<br/>
-     				  if necessary) (see instructions). If you are filing Form 2555, see instructions for the<br/>
-     				  amount to enter 
+					  Instructions for Form 1040 or the amount from line 13 of the Schedule D (Form 1040), whichever applies (as refigured for the AMT,
+     				  if necessary). See instructions. If you are filing Form 2555, see instructions for the amount to enter 
 					<!--Dotted Line-->
 							<span class="styDotLn" style="float:none;clear:none;padding-left:1mm;">...........................</span>
 						</div>
-						<div class="styLNRightNumBox" style="height:17mm;padding-top:14mm;padding-bottom:0mm;border-bottom:1px solid black;">13</div>
-						<div class="styLNAmountBox" style="width:36mm;height:17mm;padding-top:14mm;padding-bottom:0mm;border-bottom:1px solid black;">
+						<div class="styLNRightNumBox" style="height:15mm;padding-top:12mm;padding-bottom:0mm;border-bottom:1px solid black;">13</div>
+						<div class="styLNAmountBox" style="width:36mm;height:15mm;padding-top:12mm;padding-bottom:0mm;border-bottom:1px solid black;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CapitalGainsWorksheetAmt"/>
 							</xsl:call-template>
@@ -766,10 +764,10 @@
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox" style="font-size:7pt;height:4mm;padding-top:.5mm;padding-bottom:0mm;padding-left:3mm;">14</div>
 						<div class="styLNDesc" style="width:135mm;height:4mm;padding-top:.5mm;padding-bottom:0mm;">
-					  Enter the amount from Schedule D (Form 1040), line 19 (as refigured for the AMT, if necessary)
-					  (see instructions). If you are filing Form 2555, see instructions for the amount to enter
+					  Enter the amount from Schedule D (Form 1040), line 19 (as refigured for the AMT, if necessary).
+					  See instructions. If you are filing Form 2555, see instructions for the amount to enter
 					  <!--Dotted Line-->
-							<span class="styDotLn" style="float:none;clear:none;padding-left:1mm;">..</span>					  
+							<span class="styDotLn" style="float:none;clear:none;padding-left:1mm;">........</span>					  
 					</div>
 						<div class="styLNRightNumBox" style="height:7.5mm;padding-top:4mm;padding-bottom:0mm;border-bottom:1px solid black;">14</div>
 						<div class="styLNAmountBox" style="width:36mm;height:7.5mm;padding-top:4mm;padding-bottom:0mm;border-bottom:1px solid black;">

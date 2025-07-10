@@ -67,7 +67,7 @@
 							20<span class="styTYColor">23</span>
 							</div>
 							<div style="float:left;text-align:left;padding-left:1mm;padding-top:2mm;">
-								<img src="{$ImagePath}/1042S_Bullet_Md.gif" alt="MediumBullet"/>
+						    <!--<img src="{$ImagePath}/1042S_Bullet_Md.gif" alt="MediumBullet"/>-->
 								<b> Go to <a style="text-decoration:none;color:black;" href="http://www.irs.gov/form1042s">
 										<i>www.irs.gov/Form1042S</i>
 									</a>

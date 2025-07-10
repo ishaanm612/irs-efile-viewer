@@ -8,6 +8,7 @@
 <!-- 10/27/2022 - Made changes per UWR 864945 - Jeremy Nichols -->
 <!-- 12/23/2022 - Made changes per KISAM IM02186453 - Jeremy Nichols -->
 <!-- 01/12/2023 - Made changes per KISAM IM02195581 - Jeremy Nichols -->
+<!-- 04/08/2024 - UWR 981665 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="CommonPathRef.xsl"/>
   <xsl:include href="PopulateTemplate.xsl"/>
@@ -57,7 +58,7 @@
               <span class="styFormText" style="font-size:7pt;width:1mm;"></span>      
               <span class="styFormNumber" style="font-size:20pt;font-weight:bold;">6627</span>      
               <br/>      
-              <span class="styAgency" style="font-weight:normal;">(Rev. January 2023)</span><br/> 
+              <span class="styAgency" style="font-weight:normal;">(Rev. January 2024)</span><br/> 
               <span class="styAgency" style="font-weight:normal;padding-top:0.5mm;">Department of the Treasury</span><br />
               <span class="styAgency" style="font-weight:normal;">Internal Revenue Service</span>
             </div>
@@ -1428,7 +1429,7 @@
             <span style="text-align:center;width:6mm;font-weight:bold;font-size:7pt;">
             6627</span> 
             <span style="text-align:right;width:18.5mm;font-weight:normal;font-size:6pt;padding-right:1mm;">
-            (Rev. 1-2023)</span> 
+            (Rev. 1-2024)</span> 
           </div>
           <div class="pageEnd"/>
   
@@ -1437,7 +1438,7 @@
           <!--Page to Header-->
           <div  style="width:187mm;border-bottom:1px black solid;">
             <span style="width:140mm;font-weight:normal;text-align:left;font-size:7pt;display:inline;"> 
-              Form 6627 (Rev. 1-2023)<span style="width:140mm;"/>
+              Form 6627 (Rev. 1-2024)<span style="width:140mm;"/>
             </span>
             <span style="text-align:right;width:40mm;font-weight:normal;font-size:7pt;display:inline;">
               Page
@@ -2273,7 +2274,7 @@
             <span style="text-align:center;width:7mm;font-weight:bold;font-size:7pt;">
             6627</span> 
             <span style="text-align:right;width:18mm;font-weight:normal;font-size:6pt;padding-right:1mm;">
-            (Rev. 1-2023)</span>       
+            (Rev. 1-2024)</span>       
           </div>
           <div class="pageEnd"/>
             

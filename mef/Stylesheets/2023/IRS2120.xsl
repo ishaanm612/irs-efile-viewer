@@ -52,8 +52,8 @@
 						<div class="styFTBox" style="width:125mm;height:22mm;">
 							<div class="styMainTitle" style="padding-top:2mm;">Multiple Support Declaration</div><br/>
 						<div class="styFST" style="font-size:7pt;padding-top:4.5mm;">
-							<img src="{$ImagePath}/2120_Bullet.gif" width="9" height="9" alt="bullet image"/> Attach to Form 1040 or Form 1040A.<br/>
-							<img src="{$ImagePath}/2120_Bullet.gif" width="9" height="9" alt="bullet image"/> Go to <i>www.irs.gov/Form2120</i> for the latest information.</div>							
+							 Attach to Form 1040<br/>
+							<!--<img src="{$ImagePath}/2120_Bullet.gif" width="9" height="9" alt="bullet image"/>--> Go to <i>www.irs.gov/Form2120</i> for the latest information.</div>							
 						</div>
 						<div class="styTYBox" style="width:31mm;height:22mm;">
 							<div class="styOMB" style="padding-top:3mm;padding-bottom:4mm;">OMB No. 1545-0074</div>
@@ -99,21 +99,21 @@
 						</div>
 					</div>
 					<!-- End Names and Identifying number section -->
-						<div style="width:187mm;font-size:8pt;"><span style="line-height:8mm;">During the calendar year 
-						<span style="border-bottom:1px dashed black;width:30mm;">
+						<div style="width:187mm;font-size:8pt;"><span style="line-height:6mm;">During the calendar year 
+						<span style="border-bottom:0px dashed black;padding-top:3mm;width:30mm;">
 							<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$Form2120Data/CalendarYr"/>
 							</xsl:call-template>
 						</span>, the eligible persons listed below each paid over 10% of the support of:</span>
 						</div>
-						<div style="width:187mm;border-bottom:1px dashed black;"><span style="line-height:8mm;">
-							<xsl:call-template name="PopulateText">
+						<div style="width:187mm;border-bottom:1px dashed black;"><span style="line-height:10mm;">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$Form2120Data/QualifyingPersonName/PersonFirstNm"/>
 							</xsl:call-template>
 							<span style="width:1mm;"/>
 							<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$Form2120Data/QualifyingPersonName/PersonLastNm"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</span></div>
 						<div style="width:187mm;text-align:center;">Name of your qualifying relative</div>
 						<div style="width:187mm;font-size:8pt;padding:2mm 0mm;">
@@ -167,8 +167,8 @@
 	
 	<xsl:template name="makeRow">
 		<xsl:param name="TargetNode"/>
-		<div style="width:135mm;float:left;">
-			<div style="width:135mm;border-bottom:1px dashed black;">
+		<div style="width:130mm;float:left;">
+			<div style="width:130mm;border-bottom:1px dashed black;">
 				<xsl:call-template name="PopulateText">
 					<xsl:with-param name="TargetNode" select="$TargetNode/PersonFullName/PersonFirstNm"/>
 				</xsl:call-template>
@@ -179,13 +179,13 @@
 			</div>
 			Eligible person's name
 		</div>
-		<div style="width:55mm;text-align:center;padding-left:10mm">
+		<div style="width:55mm;text-align:center;padding-left:5mm;">
 			<div style="width:35mm;border-bottom:1px dashed black;padding-left:10mm;">
 				<xsl:call-template name="PopulateSSN">
 					<xsl:with-param name="TargetNode" select="$TargetNode/SSN"/>
 				</xsl:call-template>
 			</div>
-			<span  style="padding-left:3mm;"> Social security number</span>
+			<span  style="padding-left:2mm;"> Social security number</span>
 		</div>
 		<div style="width:187mm;clear:both;padding-top:1.5mm;padding-bottom:4mm;">
 			<div style="width:187mm;border-bottom:1px dashed black;">

@@ -31,10 +31,10 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-<!--					<xsl:if test="not($Print) or $Print=''">-->
+					<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS8283Style"/>
 						<xsl:call-template name="AddOnStyle"/>
-<!--					</xsl:if>-->
+					</xsl:if>
 				</style>
 			</head>
 			<body class="styBodyClass" style="width:187mm">
@@ -114,25 +114,51 @@
 					<!--End Name(s) & EIN Box -->
 					</div>
 					
-					<div  style="width:187mm;border-top-width:0px;height:10mm;">
+					<div  style="width:187mm;border-top-width:0px;height:12mm;">
 						Enter the entity name and identifying number from the tax return where the noncash charitable contribution was 
 originally reported, if different from above. <br/>
-						
-						<div>
-							Name:			
-							<span style="width:130mm;border-bottom:1px solid black;">
-								<xsl:call-template name="PopulateText">
-									<xsl:with-param name="TargetNode"  select="$Form8283Data/OriginalNoncashPersonNm"/>
-								</xsl:call-template>
-							</span>			
-							
-							identifying number:		
-							<span style="width:20mm;border-bottom:1px solid black;">
-								<xsl:call-template name="PopulateSSN">
-									<xsl:with-param name="TargetNode"  select="$Form8283Data/OriginalNoncashSSN"/>
-								</xsl:call-template>
-							</span>							
-						</div>						
+					<xsl:choose>
+						<xsl:when test="$Form8283Data/OriginalNoncashPersonNm">
+							<div>
+								Name:			
+								<span style="width:130mm;border-bottom:1px solid black;">
+									<xsl:call-template name="PopulateText">
+										<xsl:with-param name="TargetNode"  select="$Form8283Data/OriginalNoncashPersonNm"/>
+									</xsl:call-template>
+								</span>			
+								
+								identifying number:		
+								<span style="width:20mm;border-bottom:1px solid black;">
+									<xsl:call-template name="PopulateSSN">
+										<xsl:with-param name="TargetNode"  select="$Form8283Data/OriginalNoncashSSN"/>
+									</xsl:call-template>
+								</span>							
+							</div>					
+						</xsl:when>
+						<xsl:otherwise>
+							<div>
+								Name:			
+								<span style="width:130mm;border-bottom:1px solid black;">
+									<xsl:call-template name="PopulateText">
+										<xsl:with-param name="TargetNode"  select="$Form8283Data/OriginalNoncashBusinessName/BusinessNameLine1Txt"/>
+									</xsl:call-template>
+									<xsl:if test="$Form8283Data/OriginalNoncashBusinessName/BusinessNameLine2Txt">
+										<br/>
+										<xsl:call-template name="PopulateText">
+											<xsl:with-param name="TargetNode" select="$Form8283Data/OriginalNoncashBusinessName/BusinessNameLine2Txt"/>
+										</xsl:call-template>
+									</xsl:if>
+								</span>			
+								
+								identifying number:		
+								<span style="width:20mm;border-bottom:1px solid black;">
+									<xsl:call-template name="PopulateSSN">
+										<xsl:with-param name="TargetNode"  select="$Form8283Data/OriginalNoncashEIN"/>
+									</xsl:call-template>
+								</span>							
+							</div>					
+						</xsl:otherwise>
+					</xsl:choose> 						
 					</div>
 						<div class="styBB" style="width:187mm;">						
 						Check this box if a family pass-through entity made the noncash charitable contribution. See instructions  

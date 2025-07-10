@@ -41,12 +41,12 @@
 			<body class="styBodyClass">
 				<form name="Form3800" style="font-size:7pt;">
 					<!-- BEGIN WARNING LINE -->
-					<div class="styGenericDiv" style=" width:187mm;">
-						<xsl:call-template name="DocumentHeader"/>
+					<div class="styGenericDiv" style=" width:256mm;">
+						<xsl:call-template name="DocumentHeaderLandscape"/>
 					</div>
 					<!-- END WARNING LINE -->
 					<!-- Begin Form Number and Name -->
-					<div class="styTBB" style="width:187mm;height:21mm;">
+					<div class="styTBB" style="width:256mm;height:21mm;">
 						<div class="styFNBox" style="width:29mm;height:21mm;">
 							<div style="height:13mm;">
                Form<span class="styFormNumber"> 3800</span>
@@ -63,7 +63,7 @@
 								</span>
 							</div>
 						</div>
-						<div class="styFTBox" style="width:128mm;height:21mm;">
+						<div class="styFTBox" style="width:175mm;height:21mm;">
 							<div class="styMainTitle" style="padding-top:2mm;">General Business Credit</div>
 							<div class="styFST" style="padding-top:6mm;">
 								Go to <a style="text-decoration:none;color:black;" href="http://www.irs.gov/Form3800" title="Link to irs.gov/Form3800">
@@ -74,20 +74,20 @@
                  You must include all pages of Form 3800 with your return.
               </div>
 						</div>
-						<div class="styTYBox" style="width:30mm;height:21mm;">
+						<div class="styTYBox" style="width:41mm;height:21mm;">
 							<div class="styOMB">
                 OMB No. 1545-0895
               </div>
 							<div class="styTaxYear" style="height:9mm;padding-top:0;">20<span class="styTYColor">23</span>
 							</div>
 							<div style="text-align:left;padding-left:3mm;">Attachment Sequence No. <span class="styBoldText">22</span>
-							</div>
+							</div> 
 						</div>
 					</div>
 					<!-- End Form Number and Name section -->
 					<!-- Begin Names and Identifying number section -->
-					<div class="styBB" style="width:187mm;">
-						<div class="styNameBox" style="width:150mm;font-size:7pt;font-weight:normal;">
+					<div class="styBB" style="width:256mm;">
+						<div class="styNameBox" style="width:190mm;font-size:7pt;font-weight:normal;">
               Name(s) shown on return<br/>
 							<span>
 								<xsl:call-template name="PopulateFilerName">
@@ -106,15 +106,15 @@
 						</div>
 					</div>
 					<!-- End Names and Identifying number section -->
-					<div style="width:187mm;">
+					<div style="width:256mm;">
 						<div class="styLNLeftNumBoxSD" style="padding-top:0.5mm;font-size:8pt;">A</div>
-						<div style="width:179mm;height:12mm;font-size:8pt;padding-top:0.5mm;">
-							<div style="height:12mm;width:174mm;">
+						<div style="width:245mm;height:12mm;font-size:8pt;padding-top:0.5mm;">
+							<div style="height:12mm;width:245mm;">
 								<b>Corporate Alternative Minimum Tax (CAMT) and Base Erosion Anti-Abuse Tax (BEAT). </b> Are you both (a) an 
 							"applicable corporation" within the meaning of IRC 59(k)(1) for the CAMT, and (b) an "applicable taxpayer" within the 
 							meaning of IRC 59A(e) for the BEAT? See instructions 
-							<span style="width:95mm;font-size:7pt;font-weight:normal;float:right;">
-									<span class="styDotLn" style="float:left;">..................</span>
+							<span style="width:66mm;font-size:7pt;font-weight:normal;float:right;">
+									<span class="styDotLn" style="float:left;">...........</span>
 									<span style="float:right;">
 										<input type="checkbox" class="styCkboxNM" alt="Are you both an applicable corporation within the meaning of IRC 59(k)(1) for the CAMT and (b) an applicable taxpayer within the meaning of IRC 59A(e) for the BEAT? Inddicator Yes">
 											<xsl:call-template name="PopulateYesCheckbox">
@@ -151,7 +151,7 @@
 						</div>
 					</div>
 					<!-- Begin Part I (Tentative Credit) Section -->
-					<div class="styBB" style="width:187mm;height:8mm;border-top-width:2px;">
+					<div class="styBB" style="width:256mm;height:8mm;border-top-width:2px;">
 						<div class="styPartName" style="background-color:black;height:4mm;">Part I</div>
 						<div class="styPartDesc">
 							<span style="width:158mm;">Current Year Credit for Credits Not Allowed Against Tentative Minimum Tax (TMT)</span>
@@ -159,12 +159,12 @@
 						</div>
 					</div>
 					<!-- Part I, Line 1-->
-					<div style="width:187mm;">
+					<div style="width:256mm;">
 						<div class="styLNLeftNumBoxSD">1</div>
-						<div class="styLNDesc" style="width:139mm;">
+						<div class="styLNDesc" style="width:208mm;">
 							<span style="float:left;">General business credit from Part III, line 2, column (e) </span>
 							<!--Dotted Line-->
-							<div class="styDotLn" style="float:right;">...........</div>
+							<div class="styDotLn" style="float:right;">..................................</div>
 						</div>
 						<div class="styLNRightNumBox">1</div>
 						<div class="styLNAmountBox">
@@ -174,12 +174,13 @@
 						</div>
 					</div>
 					<!-- Part I, Line 2-->
-					<div style="width:187mm;">
+					<div style="width:256mm;">
 						<div class="styLNLeftNumBoxSD">2</div>
-						<div class="styLNDesc" style="width:99mm;">
+						<div class="styLNDesc" style="width:168mm;">
 							<span style="float:left;">Passive activity credits from Part III, line 2, column (f) </span>
 							<!--Dotted Line-->
-							<div class="styDotLn" style="float:right;padding-right:1mm;"/>
+							<!--<div class="styDotLn" style="float:right;padding-right:1mm;"/>-->
+							<div class="styDotLn" style="float:right;">........................</div>
 						</div>
 						<div class="styLNRightNumBox">2</div>
 						<div class="styLNAmountBox">
@@ -191,13 +192,13 @@
 						<div class="styLNAmountBoxNBB" style="height:4.5mm;"/>
 					</div>
 					<!-- Part I, Line 3-->
-					<div style="width:187mm;">
+					<div style="width:256mm;">
 						<!-- extra space -->
 						<div class="styLNLeftNumBoxSD">3</div>
-						<div class="styLNDesc" style="width:139mm;">
+						<div class="styLNDesc" style="width:208mm;">
 							<span style="float:left;">Enter the applicable passive activity credits allowed for 2023. See instructions </span>
 							<!--Dotted Line-->
-							<div class="styDotLn" style="float:right;">.........</div>
+							<div class="styDotLn" style="float:right;">...........................</div>
 						</div>
 						<div class="styLNRightNumBox" style="width:8mm;">3</div>
 						<div class="styLNAmountBox">
@@ -207,17 +208,17 @@
 						</div>
 					</div>
 					<!-- Part I, Line 4-->
-					<div style="width:187mm;">
+					<div style="width:256mm;">
 						<!-- extra space -->
 						<div class="styLNLeftNumBoxSD">4</div>
-						<div class="styLNDesc" style="width:139mm;">
+						<div class="styLNDesc" style="width:208mm;">
 							<span style="float:left;">Carryforward of general business credit to 2023.  See instructions for statement to attach. 
 									<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" select="$Form3800Data/CYGeneralBusCrCarryforwardAmt"/>
 								</xsl:call-template>
 							</span>
 							<!--Dotted Line-->
-							<div class="styDotLn" style="float:right;">.....</div>
+							<div class="styDotLn" style="float:right;">......................</div>
 						</div>
 						<div class="styLNRightNumBox" style="width:8mm;">4</div>
 						<div class="styLNAmountBox">
@@ -227,14 +228,14 @@
 						</div>
 					</div>
 					<!-- Part I, Line 4 Checkbox -->
-					<div style="width:187mm;">
+					<div style="width:256mm;">
 						<div class="styLNLeftNumBoxSD"/>
-						<div class="styLNDesc" style="width:139mm;">
+						<div class="styLNDesc" style="width:208mm;">
 							<span style="float:left;">
 								Check this box if the carryforward was changed or revised from the original reported amount
 								</span>
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:left;padding-left:3.2mm;">...</span>
+							<span class="styDotLn" style="float:left;padding-left:3.2mm;">....................</span>
 							<div style="width:6mm;float:right;">
 								<input type="checkbox" class="styCkbox" style="padding-top:1mm;" alt="Indicates allowed carryforward amount was changed or revised from original amount">
 									<xsl:call-template name="PopulateCheckbox">
@@ -258,13 +259,13 @@
 						<div class="styLNAmountBoxNBB" style="height:4.5mm;"/>
 					</div>
 					<!-- Part I, Line 5-->
-					<div style="width:187mm;">
+					<div style="width:256mm;">
 						<!-- extra space -->
 						<div class="styLNLeftNumBoxSD">5</div>
-						<div class="styLNDesc" style="width:139mm;">
+						<div class="styLNDesc" style="width:208mm;">
 							<span style="float:left;">Carryback of general business credit from 2024. See instructions </span>
 							<!--Dotted Line-->
-							<div class="styDotLn" style="float:right;">..............</div>
+							<div class="styDotLn" style="float:right;">...............................</div>
 						</div>
 						<div class="styLNRightNumBox" style="width:8mm;">5</div>
 						<div class="styLNAmountBox">
@@ -274,14 +275,14 @@
 						</div>
 					</div>
 					<!-- Part I, Line 6-->
-					<div style="width:187mm;">
+					<div style="width:256mm;">
 						<div class="styLNLeftNumBoxSD">6</div>
-						<div class="styLNDesc" style="width:139mm;">
+						<div class="styLNDesc" style="width:208mm;">
 							<!-- Revisit: Changing year 2002 to 2003 -->
 							<!--Passive activity credits allowed for 2002-->
 							<span style="float:left;">Add lines 1, 3, 4, and 5</span>
 							<!--Dotted Line-->
-							<div class="styDotLn" style="float:right;">...........................</div>
+							<div class="styDotLn" style="float:right;">............................................</div>
 						</div>
 						<div class="styLNRightNumBoxNBB" style="height:4mm;">6</div>
 						<div class="styLNAmountBoxNBB" style="height:4mm;">
@@ -291,26 +292,26 @@
 						</div>
 					</div>
 					<!--  Begin Part II Title -->
-					<div class="styBB" style="width:187mm;border-top-width:2px;">
+					<div class="styBB" style="width:256mm;border-top-width:2px;">
 						<div class="styPartName" style="background-color:black;height:4mm;">Part II</div>
 						<div class="styPartDesc">
 							<span style="width:8px;"/>Allowable Credit
             </div>
 					</div>
-					<div class="styGenericDiv" style="width:187mm;clear:all;height:auto;">
+					<div class="styGenericDiv" style="width:256mm;clear:all;height:auto;">
 						<!-- Part II, Line 7 -->
-						<div style="width:187mm">
+						<div style="width:256mm">
 							<div class="styLNLeftNumBoxSD">7</div>
-							<div class="styLNDesc" style="width:114.8mm;">
+							<div class="styLNDesc" style="width:184.6mm;">
 		       Regular tax before credits:
 								<ul style="padding-left:0;margin-left:4mm;margin-top:0;">
-									<li style="padding-top:1mm;"> Individuals.  Enter the sum of the amounts from Form 1040, 1040-SR, or 1040-NR, line 
+									<li style="padding-top:1mm; width: 180mm;"> Individuals.  Enter the sum of the amounts from Form 1040, 1040-SR, or 1040-NR, line 
 									16; and Schedule 2 (Form 1040), line 2.
 									</li>
-									<li style="padding-top:1mm;"> Corporations. Enter the amount from Form 1120, Schedule J, Part I, line 1; or the 
+									<li style="padding-top:1mm; width: 180mm;"> Corporations. Enter the amount from Form 1120, Schedule J, Part I, line 1; or the 
 									applicable line of your return.
 									</li>
-									<li style="padding-top:1mm;"> Estates and trusts. Enter the sum of the amounts from Form 1041, Schedule G, lines 1a 
+									<li style="padding-top:1mm; width: 180mm;"> Estates and trusts. Enter the sum of the amounts from Form 1041, Schedule G, lines 1a 
 									and 1b, plus any Form 8978 amount included on line 1d; or the amount from the 
 									applicable line of your return.
 									</li>
@@ -319,22 +320,24 @@
 							<div class="styLNDesc" style="width:5mm;padding-top:4mm;">
 								<img src="{$ImagePath}/3800_Bracket_Lger.gif" height="85mm;" alt="Curly Bracket Image"/>
 							</div>
-							<span class="styDotLn" style="height:21mm;width:19.2mm;padding-top:14mm;">.....</span>
+							<span class="styDotLn" style="height:21mm;width:18.2mm;padding-top:14mm;">.....</span>
 							<div class="styLNRightNumBox" style="height:13mm;border-bottom-width:0px;background-color:lightgrey;padding-top:5mm;"/>
 							<div class="styLNAmountBox" style="height:13mm;border-left-width:0px;border-bottom-width:0px;border-left-width:1px;padding-top:5mm;"/>
 							<div class="styLNRightNumBox" style="height:4.5mm;">7</div>
-							<div class="styLNAmountBox" style="height:4.5mm;">
+								
+								<div class="styLNAmountBox" style="height:4.5mm;">
 								<xsl:call-template name="PopulateAmount">
 									<xsl:with-param name="TargetNode" select="$Form3800Data/RegularTaxBeforeCreditsAmt"/>
 								</xsl:call-template>
-							</div>
+								</div>
 							<div class="styLNRightNumBox" style="height:11mm;border-bottom-width:0px;background-color:lightgrey;padding-top:5mm;"/>
 							<div class="styLNAmountBox" style="height:11mm;border-left-width:0px;border-bottom-width:0px;border-left-width:1px;padding-top:5mm;"/>
 						</div>
+
 						<!-- Part II, Line 8 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBoxSD">8</div>
-							<div class="styLNDesc" style="width:114.8mm;height:3mm;">
+							<div class="styLNDesc" style="width:156.9mm;height:3mm;">
                  Alternative minimum tax: 
 								<ul style="padding-left:0;margin-left:4mm;margin-top:0;">
 									<li style="padding-top:1mm;">
@@ -348,7 +351,7 @@
 									</li>
 								</ul>
 							</div>
-							<div class="styLNDesc" style="width:5mm;">
+							<div class="styLNDesc" style="width:5mm; margin-left: 101px;">
 								<img src="{$ImagePath}/3800_Bracket_Sm.gif" height="50mm" alt="Curly Bracket Image"/>
 							</div>
 							<span class="styDotLn" style="height:15mm;width:19.2mm;padding-top:5mm;">.....</span>
@@ -364,12 +367,12 @@
 							<div class="styLNAmountBox" style="height:8mm;border-left-width:0px;border-bottom-width:0px;border-left-width:1px;padding-top:1mm;"/>
 						</div>
 						<!-- Part II, Line 9 -->
-						<div style="width:187mm;clear:none;height:4mm;">
+						<div style="width:256mm;clear:none;height:4mm;">
 							<div class="styLNLeftNumBoxSD">9</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Add lines 7 and 8 </span>
 								<!--Dotted Line-->
-								<div class="styDotLn" style="float:right;">.............................</div>
+								<div class="styDotLn" style="float:right;">..............................................</div>
 							</div>
 							<div class="styLNRightNumBox">9</div>
 							<div class="styLNAmountBox">
@@ -380,20 +383,20 @@
 						</div>
 						<!-- Part II, Line 10a -->
 						<!-- The following form element does not have a matching element in the schema -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<!--     Extra Space   -->
 							<div class="styLNLeftNumBox" style="height:3mm;"/>
-							<div class="styLNDesc" style="width:107mm;height:3mm;"/>
+							<div class="styLNDesc" style="width:175.8mm;height:3mm;"/>
 							<div class="styLNAmountBox" style="height:3mm;border-left-width:0px;border-bottom-width:0px;border-left-width:0px;"/>
 							<div class="styLNRightNumBox" style="height:3mm;border-bottom-width:0px;padding-top:.5mm;background-color:lightgray;"/>
 							<div class="styLNAmountBox" style="height:3mm;border-left-width:0px;border-bottom-width:0px;border-left-width:1px;padding-top:.5mm;"/>
 							<!-- extra space -->
 						</div>
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">10a</div>
-							<div class="styLNDesc" style="width:99mm;">
+							<div class="styLNDesc" style="width:167.8mm;">
 								<span style="float:left;">Foreign tax credit </span>
-								<div class="styDotLn" style="float:right;">..................</div>
+								<div class="styDotLn" style="float:right;">....................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">10a</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -405,12 +408,12 @@
 							<div class="styLNAmountBoxNBB" style="height:4.5mm;"/>
 						</div>
 						<!-- Part II, Line 10b -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox" style="padding-left:4.5mm">b</div>
-							<div class="styLNDesc" style="width:99mm;">
+							<div class="styLNDesc" style="width:167.8mm;">
 								<span style="float:left;">Certain allowable credits (see instructions) </span>
 								<!--Dotted Line-->
-								<div class="styDotLn" style="float:right;">..........</div>
+								<div class="styDotLn" style="float:right;">............................</div>
 							</div>
 							<div class="styLNRightNumBox">10b</div>
 							<div class="styLNAmountBox">
@@ -422,12 +425,12 @@
 							<div class="styLNAmountBoxNBB" style="height:4.5mm;"/>
 						</div>
 						<!-- Part II, Line 10c -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox" style="padding-left:4.5mm;">c</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Add lines 10a and 10b </span>
 								<!--Dotted Line-->
-								<div class="styDotLn" style="float:right;">...........................</div>
+								<div class="styDotLn" style="float:right;">.............................................</div>
 							</div>
 							<div class="styLNRightNumBox">10c</div>
 							<div class="styLNAmountBox">
@@ -437,9 +440,9 @@
 							</div>
 						</div>
 						<!-- Part II, Line 11 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox" style="height:6mm;padding-top:3mm;">11</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="height:6mm;padding-top:2.5mm;">
 									<b>Net income tax.</b> Subtract line 10c from line 9. If zero, skip lines 12 through 15 and enter -0- on line 16</span>
 								<!--Dotted Line-->
@@ -453,9 +456,9 @@
 							</div>
 						</div>
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox" style="height:4mm;"/>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="height:4mm;"/>
 								<!--Dotted Line-->
 								<div class="styDotLn" style="float:right;"/>
@@ -465,12 +468,12 @@
 						</div>
 						<!-- extra space -->
 						<!-- Part II, Line 12 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">12</div>
-							<div class="styLNDesc" style="width:99mm;">
+							<div class="styLNDesc" style="width:167.8mm;">
 								<span style="float:left;">
 									<b> Net regular tax.</b> Subtract line 10c from line 7.  If zero or less, enter -0- </span>
-								<div class="styDotLn" style="float:right;">..</div>
+								<div class="styDotLn" style="float:right;">...................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">12</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -482,14 +485,14 @@
 							<div class="styLNAmountBoxNBB" style="height:4.5mm;"/>
 						</div>
 						<!-- Part II, Line 13 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox" style="height:8mm;">13</div>
-							<div class="styLNDesc" style="height:8mm;width:99mm;">
+							<div class="styLNDesc" style="height:8mm;width:167.8mm;">
 								Enter 25% (0.25) of the excess, if any, of line 12 (line 11 for corporations) 
 								<span style="float:left;">
 								over $25,000. See instructions
 								</span>
-								<span class="styDotLn" style="float:right;">..............</span>
+								<span class="styDotLn" style="float:right;">........</span>
 							</div>
 							<div class="styLNRightNumBox" style="height:8mm;">
 								<div style="background-color: lightgrey;height:8mm;"/>
@@ -504,9 +507,9 @@
 							<div class="styLNAmountBoxNBB" style="height:8mm;"/>
 						</div>
 						<!-- Part II, Line 14 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">14</div>
-							<div class="styLNDesc" style="width:85.8mm;">
+							<div class="styLNDesc" style="width:154.6mm;">
              Tentative minimum tax: 
 								<ul style="padding-left:0;margin-left:4mm;margin-top:0;">
 									<li style="padding-top:1mm;">
@@ -536,11 +539,11 @@
 							<div class="styLNAmountBoxNBB" style="height:17mm;"/>
 						</div>
 						<!-- Part II, Line 15.-->
-						<div style="width:187mm;height:7mm;">
+						<div style="width:256mm;height:7mm;">
 							<div class="styLNLeftNumBox" style="padding-top:3mm;">15</div>
-							<div class="styLNDesc" style="width:139mm;padding-top:3mm;">
+							<div class="styLNDesc" style="width:207.8mm;padding-top:3mm;">
 								<span style="float:left;">Enter the greater of line 13 or line 14 </span>
-								<div class="styDotLn" style="float:right;">......................</div>
+								<div class="styDotLn" style="float:right;">........................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:7mm;padding-top:3mm;">15</div>
 							<div class="styLNAmountBox" style="height:7mm;padding-top:3mm;">
@@ -549,12 +552,12 @@
 								</xsl:call-template>
 							</div>
 						</div>
-						<!-- Part II, Line 16a -->
-						<div style="width:187mm;">
+						<!-- Part II, Line 16 -->
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">16</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Subtract line 15 from line 11. If zero or less, enter -0- </span>
-								<div class="styDotLn" style="float:right;">.................</div>
+								<div class="styDotLn" style="float:right;">..................................</div>
 							</div>
 							<div class="styLNRightNumBox">16</div>
 							<div class="styLNAmountBox">
@@ -564,9 +567,9 @@
 							</div>
 						</div>
 						<!-- Part II, Line 17 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">17</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Enter the <b>smaller</b> of line 6 or line 16
 								<!--Pen and ink image -->
 									<xsl:call-template name="LinkToLeftoverDataTableInline">
@@ -574,7 +577,7 @@
 										<xsl:with-param name="TargetNode" select="$Form3800Data/SmllrCYNotAllwTMTOrTotAdjAmt/@section383Or384IndicatorCd"/>
 									</xsl:call-template>
 								</span>
-								<div class="styDotLn" style="float:right;">......................</div>
+								<div class="styDotLn" style="float:right;">.......................................</div>
 							</div>
 							<div class="styLNRightNumBox">17</div>
 							<div class="styLNAmountBox">
@@ -584,9 +587,9 @@
 							</div>
 						</div>
 						<!-- Part II, Line 17 -->
-						<div class="styBB" style="width:187mm;border-bottom-width:2px;">
+						<div class="styBB" style="width:256mm;border-bottom-width:2px;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span class="styBoldText">C corporations:</span> See the line 17 instructions if there has been an ownership change, acquisition, or reorganization. 
 						</div>
 							<div class="styLNRightNumBoxNBB" style="height:7.5mm;padding-top:0mm;width:8mm;background-color:lightgray;"/>
@@ -594,20 +597,20 @@
 						</div>
 					</div>
 					<!--Page 1 Footer -->
-					<div class="styStdDiv pageEnd">
+					<div class="styStdDiv pageEnd" style="width: 256mm;">
 						<span style="font-weight:bold;">For Paperwork Reduction Act Notice, see separate instructions.</span>
 						<span style="margin-left:24mm;">Cat. No. 12392F</span>
 						<span style="float:right;">Form <b>3800</b> (2023)</span>
 					</div>
 					<!-- Page 2 Header -->
-					<div style="width:187mm;clear:both;padding-bottom:.5mm;" class="styNBB">
+					<div style="width:256mm;clear:both;padding-bottom:.5mm;" class="styNBB">
 						<div style="width:90mm;" class="styGenericDiv">Form 3800 (2023)</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;">2</span>
 						</div>
 					</div>
 					<!--  Begin Part II Title -->
-					<div class="styBB" style="width:187mm;border-top-width:2px;">
+					<div class="styBB" style="width:256mm;border-top-width:2px;">
 						<div class="styPartName" style="background-color:black;height:4mm;">Part II</div>
 						<div class="styPartDesc">
 							<span style="width:8px;"/>Allowable Credit <span style="font-weight:normal;">
@@ -616,25 +619,25 @@
 						</div>
 					</div>
 					<!--Part II Continue, Note Line -->
-					<div class="styBB" style="width:187mm;border-bottom-width:1px;">
-						<div class="styPartDesc" style="width:187mm;padding-left:0mm;font-weight:normal;height:4mm;">
+					<div class="styBB" style="width:256mm;border-bottom-width:1px;">
+						<div class="styPartDesc" style="width:256mm;padding-left:0mm;font-weight:normal;height:4mm;">
 							<b>Note:</b> If you are not required to report any amounts on lines 22 or 24 below, skip lines 18 through 25 and enter -0- on line 26.</div>
 					</div>
-					<div class="styGenericDiv" style="width:187mm;clear:all;height:auto;">
+					<div class="styGenericDiv" style="width:256mm;clear:all;height:auto;">
 						<!-- Part II, Line 18 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">18</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Multiply line 14 by 75% (0.75). See instructions </span>
-								<div class="styDotLn" style="float:right;">...................</div>
+								<div class="styDotLn" style="float:right;">.....................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">18</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -645,19 +648,19 @@
 						</div>
 						<!-- Part II, Line 19 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">19</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Enter the greater of line 13 or line 18 </span>
-								<div class="styDotLn" style="float:right;">.....................</div>
+								<div class="styDotLn" style="float:right;">........................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">19</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -668,19 +671,19 @@
 						</div>
 						<!-- Part II, Line 20 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">20</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Subtract line 19 from line 11. If zero or less, enter -0- </span>
-								<div class="styDotLn" style="float:right;">.................</div>
+								<div class="styDotLn" style="float:right;">...................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">20</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -691,19 +694,19 @@
 						</div>
 						<!-- Part II, Line 21 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">21</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Subtract line 17 from line 20. If zero or less, enter -0- </span>
-								<div class="styDotLn" style="float:right;">.................</div>
+								<div class="styDotLn" style="float:right;">...................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">21</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -713,19 +716,19 @@
 							</div>
 						</div>
 						<!-- Part II, Line 22 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">22</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">
 									Combine the amounts from line 3 of Part III, column (e), and line 2zz of Part IV, columns (e) and (f)
 								</span>
-								<div class="styDotLn" style="float:right;">..</div>
+								<div class="styDotLn" style="float:right;">....................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">22</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -735,20 +738,20 @@
 							</div>
 						</div>
 						<!-- Part II, Line 23 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox" style="height:1mm;"/>
-							<div class="styLNDesc" style="width:107mm;height:1mm;"/>
+							<div class="styLNDesc" style="width:175.8mm;height:1mm;"/>
 							<div class="styLNAmountBox" style="height:3mm;border-left-width:0px;border-bottom-width:0px;border-left-width:0px;"/>
 							<div class="styLNRightNumBox" style="height:3mm;border-bottom-width:0px;padding-top:.5mm;background-color:lightgrey;width:8mm"/>
 							<div class="styLNAmountBox" style="height:3mm;border-left-width:0px;border-bottom-width:0px;border-left-width:1px;padding-top:.5mm;"/>
 						</div>
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">23</div>
-							<div class="styLNDesc" style="width:99mm;">
+							<div class="styLNDesc" style="width:167.8mm;">
 								<span style="float:left;">
 									Passive activity credit from line 3 of Part III, column (f)
 								</span>
-								<div class="styDotLn" style="float:right;">......</div>
+								<div class="styDotLn" style="float:right;">........................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4mm;">23</div>
 							<div class="styLNAmountBox" style="height:4mm;">
@@ -761,19 +764,19 @@
 						</div>
 						<!-- Part II, Line 24 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">24</div>
-							<div class="styLNDesc" style="width:139mm;">
-								<span style="float:left;">Enter the applicable passive activity credit allowed for 2023. See instructions</span>
-								<div class="styDotLn" style="float:right;">.........</div>
+							<div class="styLNDesc" style="width:207.8mm;">
+								<span style="float:left;">Enter the applicable passive activity credit allowed for 2024. See instructions</span>
+								<div class="styDotLn" style="float:right;">...........................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">24</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -784,19 +787,19 @@
 						</div>
 						<!-- Part II, Line 25 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">25</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Add lines 22 and 24</span>
-								<div class="styDotLn" style="float:right;">...........................</div>
+								<div class="styDotLn" style="float:right;">.............................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">25</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -807,18 +810,19 @@
 						</div>
 						<!-- Part II, Line 26-->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">26</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								Empowerment zone and renewal community employment credit allowed. Enter the smaller of line 21 or line 25
+								<div class="styDotLn" style="float:right;">.................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">26</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -829,19 +833,19 @@
 						</div>
 						<!-- Part II, Line 27 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">27</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Subtract line 13 from line 11. If zero or less, enter -0- </span>
-								<div class="styDotLn" style="float:right;">.................</div>
+								<div class="styDotLn" style="float:right;">...................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">27</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -852,19 +856,19 @@
 						</div>
 						<!-- Part II, Line 28 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">28</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Add lines 17 and 26 </span>
-								<div class="styDotLn" style="float:right;">...........................</div>
+								<div class="styDotLn" style="float:right;">.............................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">28</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -875,19 +879,19 @@
 						</div>
 						<!-- Part II, Line 29 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">29</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Subtract line 28 from line 27. If zero or less, enter -0- </span>
-								<div class="styDotLn" style="float:right;">.................</div>
+								<div class="styDotLn" style="float:right;">...................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">29</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -898,19 +902,19 @@
 						</div>
 						<!-- Part II, Line 30 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">30</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Enter the general business credit from line 5 of Part III, column (e)</span>
-								<div class="styDotLn" style="float:right;">.............</div>
+								<div class="styDotLn" style="float:right;">..............................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">30</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -923,39 +927,39 @@
 						<!--     Extra Space   -->
 						<!-- Part II, Line 31-->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-bottom-width:0px;background-color:lightgrey;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">31</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Reserved</span>
-								<span class="styDotLn" style="float:right;">...............................</span>
+								<span class="styDotLn" style="float:right;">................................................</span>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">31</div>
 							<div class="styLNAmountBox" style="height:4.5mm;background-color:lightgrey;"/>
 						</div>
 						<!-- Part II, Line 32 -->
 						<!-- The following form element does not have a matching element in the schema -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<!--     Extra Space   -->
 							<div class="styLNLeftNumBox" style="height:1mm;"/>
-							<div class="styLNDesc" style="width:107mm;height:1mm;"/>
+							<div class="styLNDesc" style="width:175.8mm;height:1mm;"/>
 							<div class="styLNAmountBox" style="height:3mm;border-left-width:0px;border-bottom-width:0px;border-left-width:0px;"/>
 							<div class="styLNRightNumBox" style="height:3mm;border-bottom-width:0px;padding-top:.5mm;background-color:lightgrey;width:8mm"/>
 							<div class="styLNAmountBox" style="height:3mm;border-left-width:0px;border-bottom-width:0px;border-left-width:1px;padding-top:.5mm;"/>
 							<!-- extra space -->
 						</div>
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox" style="padding-top:1mm">32</div>
-							<div class="styLNDesc" style="width:99mm;padding-top:1mm;">
+							<div class="styLNDesc" style="width:167.8mm;padding-top:1mm;">
 								<span style="float:left;">Passive activity credits from line 5 of Part III, column (f)</span>
-								<span class="styDotLn" style="float:right;">......</span>
+								<span class="styDotLn" style="float:right;">........................</span>
 							</div>
 							<div class="styLNRightNumBox" style="height:4mm;">32</div>
 							<div class="styLNAmountBox" style="height:4mm;">
@@ -968,19 +972,19 @@
 						</div>
 						<!-- Part II, Line 33 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;background-color:lightgrey;"/>
 							<div class="styLNAmountBox" style="border-bottom-width:0px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">33</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Enter the applicable passive activity credits allowed for 2023. See instructions</span>
-								<div class="styDotLn" style="float:right;">.........</div>
+								<div class="styDotLn" style="float:right;">...........................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">33</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -991,25 +995,24 @@
 						</div>
 						<!-- Part II, Line 34 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">34</div>
-							<div class="styLNDesc" style="width:139mm;">
-								Carryforward of business credit to 2023. Enter the amount from line 5 of Part IV, column (f), and line 6 of 
-								<span style="float:left;padding-top:1mm;">Part IV, column (g). See instructions for statement to attach
+							<div class="styLNDesc" style="width:207.8mm;">
+								 Carryforward of business credit to 2023. Enter the amount from line 5 of Part IV, column (f), and line 6 of Part IV, column (g). See instructions for statement to attach
+								<span>
 								<!-- Push Pin image -->
 									<xsl:call-template name="SetFormLinkInline">
 										<xsl:with-param name="TargetNode" select="$Form3800Data/AllwGenAndEligSmllBusCfwdCrAmt"/>
 									</xsl:call-template>
 								</span>
-								<div class="styDotLn" style="float:right;">...............</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:8mm;padding-top:4mm;">34</div>
 							<div class="styLNAmountBox" style="height:8mm;padding-top:4mm;">
@@ -1019,14 +1022,14 @@
 							</div>
 						</div>
 						<!-- Part II, Line 34 Checkbox -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBoxSD"/>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">
 								Check this box if the carryforward was changed or revised from the original reported amount
 								</span>
 								<!--Dotted Line-->
-								<span class="styDotLn" style="float:left;padding-left:3.2mm;">...</span>
+								<span class="styDotLn" style="float:left;padding-left:3.2mm;">....................</span>
 								<div style="width:6mm;float:right;">
 									<input type="checkbox" class="styCkbox" alt="Indicates allowed carryforward amount was changed or revised from original amount">
 										<xsl:call-template name="PopulateCheckbox">
@@ -1051,27 +1054,27 @@
 						</div>
 						<!-- Part II, Line 35-->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;background-color:lightgrey;"/>
 							<div class="styLNAmountBox" style="border-bottom-width:0px;"/>
 						</div>
 						<!-- extra space -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">35</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								Carryback of business credit from 2024. Enter the amount from line 5 of Part IV, column (e). See
 							</div>
 							<div class="styLNRightNumBox" style="background-color:lightgrey;border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-bottom-width:0px;"/>
 						</div>
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;"> instructions
 							</span>
-								<div class="styDotLn" style="float:right;">..............................</div>
+								<div class="styDotLn" style="float:right;">................................................</div>
 							</div>
 							<div class="styLNRightNumBox">35</div>
 							<div class="styLNAmountBox">
@@ -1082,19 +1085,19 @@
 						</div>
 						<!-- Part II, Line 36 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-left-width:0px;border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">36</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Add lines 30, 33, 34, and 35</span>
-								<div class="styDotLn" style="float:right;">.........................</div>
+								<div class="styDotLn" style="float:right;">...........................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">36</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -1105,19 +1108,19 @@
 						</div>
 						<!-- Part II, Line 37 -->
 						<!--     Extra Space   -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
 						<!-- extra space -->
 						<!-- check here -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">37</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="float:left;">Enter the <b>smaller</b> of line 29 or line 36 </span>
-								<div class="styDotLn" style="float:right;">.....................</div>
+								<div class="styDotLn" style="float:right;">........................................</div>
 							</div>
 							<div class="styLNRightNumBox" style="height:4.5mm;">37</div>
 							<div class="styLNAmountBox" style="height:4.5mm;">
@@ -1127,15 +1130,15 @@
 							</div>
 						</div>
 						<!-- Part II, Line 38 -->
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:139mm;"/>
+							<div class="styLNDesc" style="width:207.8mm;"/>
 							<div class="styLNRightNumBox" style="border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="border-bottom-width:0px;border-left-width:1px;"/>
 						</div>
-						<div style="width:187mm;">
+						<div style="width:256mm;">
 							<div class="styLNLeftNumBox">38</div>
-							<div class="styLNDesc" style="width:139mm;">
+							<div class="styLNDesc" style="width:207.8mm;">
 								<span style="styBoldText">
 									<b>Credit allowed for the current year.</b>
 								</span> Add lines 28 and 37. 
@@ -1150,9 +1153,9 @@
 							<div class="styLNRightNumBox" style="height:10.9mm;border-bottom-width:0px;padding-top:1.5mm;"/>
 							<div class="styLNAmountBox" style="height:10.9mm;border-bottom-width:0px;border-left-width:1px;padding-top:1.5mm;"/>
 						</div>
-						<div class="styBB" style="width:187mm;border-bottom-width:2px;">
+						<div class="styBB" style="width:256mm;border-bottom-width:2px;">
 							<div class="styLNLeftNumBox"/>
-							<div class="styLNDesc" style="width:75mm;">
+							<div class="styLNDesc" style="width:143.8mm;">
 								<ul style="padding-left:0;margin-left:4mm;margin-top:0;">
 									<li>Individuals. Schedule 3 (Form 1040),  line 6a.
 								</li>
@@ -1177,7 +1180,7 @@
 						</div>
 						<!--Page 2 Footer -->
 					</div>
-					<div class="styStdDiv pageEnd">
+					<div class="styStdDiv pageEnd" style="width: 256mm;">
 						<span style="font-weight:bold;"/>
 						<span style="margin-left:24mm;"/>
 						<span style="float:right;">Form <b>3800</b> (2023)</span>
@@ -1592,7 +1595,7 @@
 									<xsl:with-param name="RowNumber">v</xsl:with-param>
 									<xsl:with-param name="Dots">......</xsl:with-param>
 									<xsl:with-param name="ColA">Form 3468, Part V</xsl:with-param>
-									<xsl:with-param name="ColB"/>
+									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColD">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColE">lightgrey</xsl:with-param>
@@ -2242,51 +2245,51 @@
 					<!-- ========================================== Part IV Table 1 START ============================================== -->
 					<!-- =============================================================================================================== -->
 					<!-- Page 5 Header -->
-					<div style="width:187mm;clear:both;padding-bottom:.5mm;" class="styNBB">
+					<div style="width:256mm;clear:both;padding-bottom:.5mm;" class="styNBB">
 						<div style="width:90mm;" class="styGenericDiv">Form 3800 (2023)</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;">5</span>
 						</div>
 					</div>
-					<div class="styBB" style="width:187mm;border-top-width:2px;border-bottom-width:0px;">
-						<div class="styGenericDiv" style="width:187mm;height:8mm;">
+					<div class="styBB" style="width:256mm;border-top-width:2px;border-bottom-width:0px;">
+						<div class="styGenericDiv" style="width:256mm;height:8mm;">
 							<div class="styPartName" style="width:15mm;">Part IV</div>
-							<div class="styPartDesc" style="padding-left:3mm;width:170mm;">
+							<div class="styPartDesc" style="padding-left:3mm;width:190mm;">
                 Carryovers of General Business Credits (GBCs) or Eligible Small Business Credits (ESBCs)
 					<span class="styNormalText"> (see instructions)</span>
 							</div>
 						</div>
 					</div>
-					<div class="styTableContainer" id="PartIVTable1Ctn" style="height:auto;display:block;border-bottom-width:2px;">
+					<div class="styTableContainerLandscape" id="PartIVTable1Ctn" style="height:auto;display:block;border-bottom-width:2px;">
 						<table class="styTable" cellspacing="0" name="PartIVTable1" id="PartIVTable1">
 							<thead class="styTableThead">
 								<tr style="min-height:13mm;">
-									<th class="styIRS3800PartIVTableCellHeader" style="width:8mm;border-right-width:0px;" scope="col"/>
-									<th class="styIRS3800PartIVTableCellHeader" style="width:63mm;" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:11mm;border-right-width:0px;" scope="col"/>
+									<th class="styIRS3800PartIVTableCellHeader" style="width:87mm;" scope="col">
 										<b>(a)</b>
 										<br/>Credits carried over to tax year 2023 
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" style="width:10mm;" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(b)</b>
 										<br/>Check if non-passive
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" style="width:10mm;" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(c)</b>
 										<br/>Year
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(d)</b>
 										<br/>Pass-through entity EIN
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(e)</b>
 										<br/>Credit carrybacks to current year
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(f)</b>
 										<br/>Carryforwards (excluding ESBCs)
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" style="border-right-width:0px;" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="border-right-width:0px; width:20mm;" scope="col">
 										<b>(g)</b>
 										<br/>Eligible small business credit (ESBC) carryforwards 
 									</th>
@@ -2298,7 +2301,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm3468PartIICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">1a</xsl:with-param>
-									<xsl:with-param name="Dots">.....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 3468, Part II (coal, gasification)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2311,7 +2314,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm7207CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">b</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 7207 (manufacturing production)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2324,7 +2327,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm6765CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">c</xsl:with-param>
-									<xsl:with-param name="Dots">.........</xsl:with-param>
+									<xsl:with-param name="Dots">..............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 6765 (research)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2337,7 +2340,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm3468PartIIICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">d</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 3468, Part III (advanced energy)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2350,7 +2353,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8826CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">e</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8826 (disabled access)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2363,7 +2366,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8835PartIICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">f</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8835, Part II (renewable electricity)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2376,7 +2379,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm7210CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">g</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">.............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 7210 (clean hydrogen)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2389,7 +2392,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8820CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">h</xsl:with-param>
-									<xsl:with-param name="Dots">........</xsl:with-param>
+									<xsl:with-param name="Dots">.............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8820 (orphan drug)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2402,7 +2405,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8874CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">i</xsl:with-param>
-									<xsl:with-param name="Dots">........</xsl:with-param>
+									<xsl:with-param name="Dots">.............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8874 (new markets)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2415,7 +2418,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8881PartICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">j</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8881, Part I (pension plan startup)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2428,7 +2431,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8882CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">k</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8882 (employer-provided child care)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2441,7 +2444,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8864BiodieselCYCreditsGrp"/>
 									<xsl:with-param name="RowNumber">l</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8864 (biodiesel and renewable diesel)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2454,7 +2457,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8896CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">m</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">...........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8896 (low sulfur diesel fuel)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2467,7 +2470,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8906CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">n</xsl:with-param>
-									<xsl:with-param name="Dots">........</xsl:with-param>
+									<xsl:with-param name="Dots">.............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8906 (distilled spirits)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2480,7 +2483,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm3468PartIVCYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">o</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 3468, Part IV (advanced manufacturing)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2493,7 +2496,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8908CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">p</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">...........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8908 (energy-efficient home)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2506,7 +2509,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">q</xsl:with-param>
-									<xsl:with-param name="Dots">.............</xsl:with-param>
+									<xsl:with-param name="Dots">.................</xsl:with-param>
 									<xsl:with-param name="ColA">Reserved</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -2519,7 +2522,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8910CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">r</xsl:with-param>
-									<xsl:with-param name="Dots">.....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8910 (alternative motor vehicle)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2532,7 +2535,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8911PartIICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">s</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8911, Part II (alternative fuel refueling)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2545,7 +2548,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8830CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">t</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">...........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8830 (enhanced oil recovery)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2558,7 +2561,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm7213PartIICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">u</xsl:with-param>
-									<xsl:with-param name="Dots">.</xsl:with-param>
+									<xsl:with-param name="Dots">......</xsl:with-param>
 									<xsl:with-param name="ColA">Form 7213, Part II (zero-emission nuclear production)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2571,7 +2574,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">v</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 3468, Part V (Reserved)</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -2584,7 +2587,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8932CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">w</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8932 (differential wage)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2597,7 +2600,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8933CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">x</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8933 (carbon oxide sequestration)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2610,7 +2613,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8936PartIICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">y</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">...........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8936, Part II (clean vehicle)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2623,7 +2626,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">z</xsl:with-param>
-									<xsl:with-param name="Dots">.............</xsl:with-param>
+									<xsl:with-param name="Dots">..................</xsl:with-param>
 									<xsl:with-param name="ColA">Reserved</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -2636,7 +2639,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8936PartVCYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">aa</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8936, Part V (commercial clean vehicle)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2649,7 +2652,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8904CYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">bb</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8904 (oil and gas production)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2662,7 +2665,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm7213PartICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">cc</xsl:with-param>
-									<xsl:with-param name="Dots">..</xsl:with-param>
+									<xsl:with-param name="Dots">.......</xsl:with-param>
 									<xsl:with-param name="ColA">Form 7213, Part I (advanced nuclear production)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2675,7 +2678,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8881PartIICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">dd</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8881, Part II (pension auto enrollment)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2688,7 +2691,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8881PartIIICYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">ee</xsl:with-param>
-									<xsl:with-param name="Dots">.....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8881, Part III (military spouse)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2701,7 +2704,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8864SAFCYCyovCrGrp"/>
 									<xsl:with-param name="RowNumber">ff</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8864 (sustainable aviation fuel mixture)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2714,7 +2717,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">gg</xsl:with-param>
-									<xsl:with-param name="Dots">.............</xsl:with-param>
+									<xsl:with-param name="Dots">..................</xsl:with-param>
 									<xsl:with-param name="ColA">Reserved</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -2727,7 +2730,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">hh</xsl:with-param>
-									<xsl:with-param name="Dots">.............</xsl:with-param>
+									<xsl:with-param name="Dots">..................</xsl:with-param>
 									<xsl:with-param name="ColA">Reserved</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -2740,7 +2743,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">ii</xsl:with-param>
-									<xsl:with-param name="Dots">.............</xsl:with-param>
+									<xsl:with-param name="Dots">..................</xsl:with-param>
 									<xsl:with-param name="ColA">Reserved</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -2753,7 +2756,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">jj</xsl:with-param>
-									<xsl:with-param name="Dots">.............</xsl:with-param>
+									<xsl:with-param name="Dots">..................</xsl:with-param>
 									<xsl:with-param name="ColA">Reserved</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -2766,7 +2769,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYCyovOtherBusCreditsGrp"/>
 									<xsl:with-param name="RowNumber">zz</xsl:with-param>
-									<xsl:with-param name="Dots">..............</xsl:with-param>
+									<xsl:with-param name="Dots">..................</xsl:with-param>
 									<xsl:with-param name="ColA">Other</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2792,7 +2795,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm5884ACYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">a</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 5884-A (employee retention)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2805,7 +2808,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8586CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">b</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8586 (low-income housing)(pre-2008)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2818,7 +2821,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8845CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">c</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">...........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8845 (Indian employment)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2831,7 +2834,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8907CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">d</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8907 (nonconventional source fuel)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2844,7 +2847,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8909CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">e</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8909 (energy efficient appliance)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2857,7 +2860,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8923CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">f</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8923 (mine rescue team training)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2870,7 +2873,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8834PartICYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">g</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8834 (qualified plug-in electric vehicle)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2883,7 +2886,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8931CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">h</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8931 (agricultural chemicals security)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2896,7 +2899,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm1065BCYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">i</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 1065-B (GBCs from electing partnership)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2909,7 +2912,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm5884CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">j</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 5884 (work opportunity pre-2007)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2922,7 +2925,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm6478CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">k</xsl:with-param>
-									<xsl:with-param name="Dots">.....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 6478 (alcohol fuel pre-2005)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2935,7 +2938,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8846CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">l</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8846 (employer taxes pre-2007)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -2948,7 +2951,7 @@
 						</table>
 					</div>
 					<!--Page 5 Footer -->
-					<div class="styStdDiv pageEnd" style="width:187mm;">
+					<div class="styStdDiv pageEnd" style="width:256mm;">
 						<span style="font-weight:bold;"/>
 						<span style="margin-left:24mm;"/>
 						<span style="float:right;">Form <b>3800</b> (2023)</span>
@@ -2957,52 +2960,52 @@
 					<!-- ========================================== Part IV Table 1 START ============================================== -->
 					<!-- =============================================================================================================== -->
 					<!-- Page 6 Header -->
-					<div style="width:187mm;clear:both;padding-bottom:.5mm;" class="styNBB">
+					<div style="width:256mm;clear:both;padding-bottom:.5mm;" class="styNBB">
 						<div style="width:90mm;" class="styGenericDiv">Form 3800 (2023)</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;">6</span>
 						</div>
 					</div>
-					<div class="styBB" style="width:187mm;border-top-width:2px;border-bottom-width:0px;">
-						<div class="styGenericDiv" style="width:187mm;height:8mm;">
+					<div class="styBB" style="width:256mm;border-top-width:2px;border-bottom-width:0px;">
+						<div class="styGenericDiv" style="width:256mm;height:8mm;">
 							<div class="styPartName" style="width:15mm;">Part IV</div>
-							<div class="styPartDesc" style="padding-left:3mm;width:170mm;">
+							<div class="styPartDesc" style="padding-left:3mm;width:190mm;">
                 Carryovers of General Business Credits (GBCs) or Eligible Small Business Credits (ESBCs)
 					<span class="styNormalText"> (see instructions) <i> (continued) </i>
 								</span>
 							</div>
 						</div>
 					</div>
-					<div class="styTableContainer" id="PartIVTable2Ctn" style="height:auto;display:block;border-bottom-width:2px;">
+					<div class="styTableContainerLandscape" id="PartIVTable2Ctn" style="height:auto;display:block;border-bottom-width:2px;">
 						<table class="styTable" cellspacing="0" name="PartIVTable2" id="PartIVTable2">
 							<thead class="styTableThead">
 								<tr style="min-height:13mm;">
-									<th class="styIRS3800PartIVTableCellHeader" style="width:8mm;border-right-width:0px;" scope="col"/>
-									<th class="styIRS3800PartIVTableCellHeader" style="width:63mm;" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:11mm;border-right-width:0px;" scope="col"/>
+									<th class="styIRS3800PartIVTableCellHeader" style="width:87mm;" scope="col">
 										<b>(a)</b>
 										<br/>Credits carried over to tax year 2023 
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" style="width:10mm;" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(b)</b>
 										<br/>Check if non-passive
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" style="width:10mm;" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(c)</b>
 										<br/>Year
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(d)</b>
 										<br/>Pass-through entity EIN
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(e)</b>
 										<br/>Credit carrybacks to current year
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="width:30mm;" scope="col">
 										<b>(f)</b>
 										<br/>Carryforwards (excluding ESBCs)
 									</th>
-									<th class="styIRS3800PartIVTableCellHeader" style="border-right-width:0px;" scope="col">
+									<th class="styIRS3800PartIVTableCellHeader" style="border-right-width:0px; width: 20mm;" scope="col">
 										<b>(g)</b>
 										<br/>Eligible small business credit (ESBC) carryforwards 
 									</th>
@@ -3014,7 +3017,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8900CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">m</xsl:with-param>
-									<xsl:with-param name="Dots">..</xsl:with-param>
+									<xsl:with-param name="Dots">.......</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8900 (railroad track maintenance pre-2008)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3027,7 +3030,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYCfwdAllwCrTransAKPipelineGrp"/>
 									<xsl:with-param name="RowNumber">n</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Trans-Alaska pipeline liability fund credit</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3040,7 +3043,7 @@
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYCfwdAllwCrEmplrAffctHrrcnGrp"/>
 									<xsl:with-param name="RowNumber">o</xsl:with-param>
-									<xsl:with-param name="Dots">.........</xsl:with-param>
+									<xsl:with-param name="Dots">..................</xsl:with-param>
 									<xsl:with-param name="ColA">Form 5884-A, Section A (employers affected by
 Hurricane Katrina, Rita, or Wilma)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
@@ -3054,7 +3057,7 @@ Hurricane Katrina, Rita, or Wilma)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYCfwdAllwCrHrrcnKtrnHsngGrp"/>
 									<xsl:with-param name="RowNumber">p</xsl:with-param>
-									<xsl:with-param name="Dots">.</xsl:with-param>
+									<xsl:with-param name="Dots">......</xsl:with-param>
 									<xsl:with-param name="ColA">Form 5884-A, Section B (Hurricane Katrina housing)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3067,7 +3070,7 @@ Hurricane Katrina, Rita, or Wilma)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYCfwdAllwCrMwdDsstrEmplrGrp"/>
 									<xsl:with-param name="RowNumber">q</xsl:with-param>
-									<xsl:with-param name="Dots">...........</xsl:with-param>
+									<xsl:with-param name="Dots">.</xsl:with-param>
 									<xsl:with-param name="ColA">Form 5884-A, Section A (affected Midwestern disaster
 area employers)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
@@ -3081,7 +3084,7 @@ area employers)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYCfwdAllwCrEmplrHsngGrp"/>
 									<xsl:with-param name="RowNumber">r</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 5884-A, Section B (employer housing)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3094,7 +3097,7 @@ area employers)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm5884BCYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">s</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">...........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 5884-B (new hire retention)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3107,7 +3110,7 @@ area employers)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8847CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">t</xsl:with-param>
-									<xsl:with-param name="Dots">........</xsl:with-param>
+									<xsl:with-param name="Dots"/>
 									<xsl:with-param name="ColA">Form 8847 (contributions to selected community
 development corporations)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
@@ -3121,7 +3124,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8861CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">u</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8861 (welfare to work)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3134,7 +3137,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8884CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">v</xsl:with-param>
-									<xsl:with-param name="Dots"/>
+									<xsl:with-param name="Dots">.....</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8884 (New York Liberty Zone business employee)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3147,7 +3150,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8942CYCfwdAllwCrGrp"/>
 									<xsl:with-param name="RowNumber">w</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8942 (therapeutic drug)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3160,7 +3163,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYCfwdAllwOtherBusCreditsGrp"/>
 									<xsl:with-param name="RowNumber">yy</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">...........</xsl:with-param>
 									<xsl:with-param name="ColA">yy Other credits (see instructions)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3173,7 +3176,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYCyovCfwdGBCSubTotGrp"/>
 									<xsl:with-param name="RowNumber">zz</xsl:with-param>
-									<xsl:with-param name="Dots">...</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Add lines 1a through 1zz and 2a through 2yy</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -3186,7 +3189,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8844CYCrovCrGrp"/>
 									<xsl:with-param name="RowNumber">3</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">...........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8844 (empowerment zone)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3212,7 +3215,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm3468PartVICYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">a</xsl:with-param>
-									<xsl:with-param name="Dots">........</xsl:with-param>
+									<xsl:with-param name="Dots">.............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 3468, Part VI (energy)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3225,7 +3228,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm5884CYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">b</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 5884 (work opportunity)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3238,7 +3241,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm6478CYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">c</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 6478 (biofuel producer)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3251,7 +3254,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8586CYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">d</xsl:with-param>
-									<xsl:with-param name="Dots">..</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8586 (low-income housing)(post-2007)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3264,7 +3267,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8835CYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">e</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8835 (renewable electricity)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3277,7 +3280,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8846CYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">f</xsl:with-param>
-									<xsl:with-param name="Dots">.......</xsl:with-param>
+									<xsl:with-param name="Dots">.............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8846 (employer taxes)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3290,7 +3293,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8900CYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">g</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8900 (railroad track maintenance)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3303,7 +3306,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8941CYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">h</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">..........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8941 (employer health insurance)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3316,7 +3319,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm6765ESBCYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">i</xsl:with-param>
-									<xsl:with-param name="Dots">......</xsl:with-param>
+									<xsl:with-param name="Dots">............</xsl:with-param>
 									<xsl:with-param name="ColA">Form 6765 ESB credit (research)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3329,7 +3332,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm8994CYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">j</xsl:with-param>
-									<xsl:with-param name="Dots">....</xsl:with-param>
+									<xsl:with-param name="Dots">.........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 8994 (paid family and medical leave)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3342,7 +3345,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/Frm3468PartVIICYSpcfdCrGrp"/>
 									<xsl:with-param name="RowNumber">k</xsl:with-param>
-									<xsl:with-param name="Dots">..</xsl:with-param>
+									<xsl:with-param name="Dots">........</xsl:with-param>
 									<xsl:with-param name="ColA">Form 3468, Part VII (rehabilitation)(post-2007)</xsl:with-param>
 									<xsl:with-param name="ColB"/>
 									<xsl:with-param name="ColC"/>
@@ -3355,7 +3358,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">l</xsl:with-param>
-									<xsl:with-param name="Dots">............</xsl:with-param>
+									<xsl:with-param name="Dots">.................</xsl:with-param>
 									<xsl:with-param name="ColA">Reserved (4l)</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -3368,7 +3371,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath"/>
 									<xsl:with-param name="RowNumber">m</xsl:with-param>
-									<xsl:with-param name="Dots">...........</xsl:with-param>
+									<xsl:with-param name="Dots">................</xsl:with-param>
 									<xsl:with-param name="ColA">Reserved (4m)</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -3381,7 +3384,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYOtherSpcfdCreditsGrp"/>
 									<xsl:with-param name="RowNumber">z</xsl:with-param>
-									<xsl:with-param name="Dots">.........</xsl:with-param>
+									<xsl:with-param name="Dots">..............</xsl:with-param>
 									<xsl:with-param name="ColA">Other specified credits</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC"/>
@@ -3394,7 +3397,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/CYOtherSpcfdCreditsSubTotGrp"/>
 									<xsl:with-param name="RowNumber">5</xsl:with-param>
-									<xsl:with-param name="Dots">.........</xsl:with-param>
+									<xsl:with-param name="Dots">..............</xsl:with-param>
 									<xsl:with-param name="ColA">Add lines 4a through 4z</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -3407,7 +3410,7 @@ development corporations)</xsl:with-param>
 								<xsl:call-template name="Part4TableRows">
 									<xsl:with-param name="GroupPath" select="$Form3800Data/TotCYGBCOrESBCAmtGrp"/>
 									<xsl:with-param name="RowNumber">6</xsl:with-param>
-									<xsl:with-param name="Dots">.........</xsl:with-param>
+									<xsl:with-param name="Dots">..............</xsl:with-param>
 									<xsl:with-param name="ColA">Add lines 2zz, 3, and 5</xsl:with-param>
 									<xsl:with-param name="ColB">lightgrey</xsl:with-param>
 									<xsl:with-param name="ColC">lightgrey</xsl:with-param>
@@ -3420,7 +3423,7 @@ development corporations)</xsl:with-param>
 						</table>
 					</div>
 					<!--Page 5 Footer -->
-					<div class="styStdDiv pageEnd" style="width:187mm;">
+					<div class="styStdDiv pageEnd" style="width:256mm;">
 						<span style="font-weight:bold;"/>
 						<span style="margin-left:24mm;"/>
 						<span style="float:right;">Form <b>3800</b> (2023)</span>
@@ -3619,17 +3622,17 @@ development corporations)</xsl:with-param>
 					<xsl:variable name="PartVIGroups" select="$Form3800Data/*[contains(name(),'AggrgtGrp') or contains(name(),'AggrgGrp')]"/>
 					<xsl:variable name="PartVIGroupCount" select="count($PartVIGroups)"/>
 					<!-- Page 5 Header -->
-					<div style="width:187mm;clear:both;padding-bottom:.5mm;" class="styNBB">
+					<div style="width:256mm;clear:both;padding-bottom:.5mm;" class="styNBB">
 						<div style="width:90mm;" class="styGenericDiv">Form 3800 (2023)</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;">8</span>
 						</div>
 					</div>
 					<!-- Begin Part VI - Breakdown of Aggregate Amounts in Part IV -->
-					<div style="width:187mm;border-top-width:2px;" class="styBB">
-						<div class="styGenericDiv" style="width:187mm;">
+					<div style="width:256mm;border-top-width:2px;" class="styBB">
+						<div class="styGenericDiv" style="width:256mm;">
 							<div class="styPartName" style="width:15mm;">Part VI</div>
-							<div class="styPartDesc" style="padding-left:3mm;width:100mm;">
+							<div class="styPartDesc" style="padding-left:3mm;width:190mm;">
                 Breakdown of Aggregate Amounts in Part IV <span class="styNormalText"> (see instructions)</span>
 							</div>
 							<div style="float:right;">
@@ -3642,31 +3645,31 @@ development corporations)</xsl:with-param>
 							</div>
 						</div>
 					</div>
-					<div class="styTableContainer" style="height:auto;display:block;" id="PartVITableCtn">
+					<div class="styTableContainerLandscape" style="height:auto;display:block;" id="PartVITableCtn">
 						<xsl:call-template name="SetInitialState"/>
 						<table class="styTable" cellspacing="0" name="PartVITable" id="PartVITable">
 							<thead class="styTableThead">
 								<tr style="min-height:13mm;">
 									<th class="styTableCellHeader" style="width:12mm;border:none;" scope="col"/>
-									<th class="styTableCellHeader" style="width:32mm;" scope="col">
+									<th class="styTableCellHeader" style="width:44mm;" scope="col">
 										(a)<br/>Line number <br/> from Part IV 
 									</th>
-									<th class="styTableCellHeader" style="width:15mm;" scope="col">
+									<th class="styTableCellHeader" style="width:20mm;" scope="col">
 										(b)<br/>Check if non-passive
 									</th>
-									<th class="styTableCellHeader" style="width:15mm;" scope="col">
+									<th class="styTableCellHeader" style="width:21mm;" scope="col">
 										(c)<br/>Year
 									</th>
-									<th class="styTableCellHeader" style="width:26mm;" scope="col">
+									<th class="styTableCellHeader" style="width:36mm;" scope="col">
 										(d)<br/>Pass-through entity EIN
 									</th>
-									<th class="styTableCellHeader" style="width:28mm;" scope="col">
+									<th class="styTableCellHeader" style="width:39mm;" scope="col">
 										(e)<br/>Credit carrybacks to current year
 									</th>
-									<th class="styTableCellHeader" style="width:28mm;" scope="col">
+									<th class="styTableCellHeader" style="width:39mm;" scope="col">
 										(f)<br/>Carryforwards (excluding ESBCs)
 									</th>
-									<th class="styTableCellHeader" style="width:31mm;border-right-width:0px;" scope="col">
+									<th class="styTableCellHeader" style="width:45mm;border-right-width:0px;" scope="col">
 										(g)<br/>Eligible small business credit (ESBC) carryforwards 
 									</th>
 								</tr>
@@ -3684,33 +3687,33 @@ development corporations)</xsl:with-param>
 													<xsl:value-of select="position()"/>
 												</span>
 											</td>
-											<td class="styTableCell" style="width:32mm;vertical-align:top;text-align:left;">
+											<td class="styTableCell" style="width:44mm;vertical-align:top;text-align:left;">
 												<xsl:if test="position() = last() and position() &gt;= 50">
-													<xsl:attribute name="style">width:32mm;vertical-align:top;text-align:left;border-bottom-width:1px;</xsl:attribute>
+													<xsl:attribute name="style">width:44mm;vertical-align:top;text-align:left;border-bottom-width:1px;</xsl:attribute>
 												</xsl:if>
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="./@lineNumberTxt"/>
 												</xsl:call-template>
 											</td>
-											<td class="styTableCell" style="width:15mm;text-align:center;vertical-align:middle;">
+											<td class="styTableCell" style="width:20mm;text-align:center;vertical-align:middle;">
 												<xsl:if test="position() = last() and position() &gt; 50">
-													<xsl:attribute name="style">width:15mm;text-align:center;vertical-align:middle;border-bottom-width:1px;</xsl:attribute>
+													<xsl:attribute name="style">width:20mm;text-align:center;vertical-align:middle;border-bottom-width:1px;</xsl:attribute>
 												</xsl:if>
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="NonpassiveInd"/>
 												</xsl:call-template>
 											</td>
-											<td class="styTableCell" style="width:15mm;text-align:center;vertical-align:middle;">
+											<td class="styTableCell" style="width:21mm;text-align:center;vertical-align:middle;">
 												<xsl:if test="position() = last() and position() &gt; 50">
-													<xsl:attribute name="style">width:15mm;text-align:center;vertical-align:middle;border-bottom-width:1px;</xsl:attribute>
+													<xsl:attribute name="style">width:21mm;text-align:center;vertical-align:middle;border-bottom-width:1px;</xsl:attribute>
 												</xsl:if>
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="Yr"/>
 												</xsl:call-template>
 											</td>
-											<td class="styTableCell" style="width:26mm;text-align:center;vertical-align:middle;">
+											<td class="styTableCell" style="width:36mm;text-align:center;vertical-align:middle;">
 												<xsl:if test="position() = last() and position() &gt; 50">
-													<xsl:attribute name="style">width:26mm;text-align:center;vertical-align:middle;border-bottom-width:1px; </xsl:attribute>
+													<xsl:attribute name="style">width:36mm;text-align:center;vertical-align:middle;border-bottom-width:1px; </xsl:attribute>
 												</xsl:if>
 												<xsl:choose>
 													<xsl:when test="PassThroughEntityEIN">
@@ -3725,17 +3728,17 @@ development corporations)</xsl:with-param>
 													</xsl:otherwise>
 												</xsl:choose>
 											</td>
-											<td class="styTableCell" style="width:28mm;">
+											<td class="styTableCell" style="width:39mm;">
 												<xsl:if test="position() = last() and position() &gt;50">
-													<xsl:attribute name="style">width:28mm;border-bottom-width:1px; </xsl:attribute>
+													<xsl:attribute name="style">width:39mm;border-bottom-width:1px; </xsl:attribute>
 												</xsl:if>
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="CarryBackGeneralBusinessCrAmt"/>
 												</xsl:call-template>
 											</td>
-											<td class="styTableCell" style="width:28mm;">
+											<td class="styTableCell" style="width:39mm;">
 												<xsl:if test="position() = last() and position() &gt;50">
-													<xsl:attribute name="style">width:28mm;border-bottom-width:1px; </xsl:attribute>
+													<xsl:attribute name="style">width:39mm;border-bottom-width:1px; </xsl:attribute>
 												</xsl:if>
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="CYGeneralBusCrCarryforwardAmt"/>
@@ -3772,7 +3775,7 @@ development corporations)</xsl:with-param>
 						<xsl:with-param name="containerID" select=" 'PartVITableCtn' "/>
 					</xsl:call-template>
 					<!--Page 8 Footer -->
-					<div class="styStdDiv pageEnd" style="width:187mm;">
+					<div class="styStdDiv pageEnd" style="width:256mm;">
 						<span style="font-weight:bold;"/>
 						<span style="margin-left:24mm;"/>
 						<span style="float:right;">Form <b>3800</b> (2023)</span>
@@ -3780,9 +3783,9 @@ development corporations)</xsl:with-param>
 					<!-- =============================================================================================================== -->
 					<!-- ===============================================Part 6 END ===================================================== -->
 					<!-- =============================================================================================================== -->
-					<div class="styGenericDiv" style="width:187mm;clear:all;">
+					<div class="styGenericDiv" style="width:256mm;clear:all;">
 						<!--ADDITIONAL DATA SECTION-->
-						<div class="styLeftOverTitleLine" id="LeftoverData">
+						<div class="styLeftOverTitleLine" id="LeftoverData" style="width: 256mm;">
 							<div class="styLeftOverTitle">
         Additional Data      
       </div>
@@ -3944,33 +3947,33 @@ development corporations)</xsl:with-param>
 						<!-- ============================================ Part VI SRD Table ================================================ -->
 						<!-- =============================================================================================================== -->
 						<xsl:if test="($Print = $Separated) and ($PartVIGroupCount &gt; 50)">
-							<div class="styStdDiv pageEnd"/>
-							<div class="styGenericDiv" style="width:187mm;font-size:8pt;font-weight:bold;padding-bottom:1mm;">
+							<div class="styStdDiv pageEnd" style="width: 256mm;"/>
+							<div class="styGenericDiv" style="width:256mm;font-size:8pt;font-weight:bold;padding-bottom:1mm;">
 								Part VI - Breakdown of Aggregate Amounts in Part IV
 							</div>
-							<table class="styDepTbl" cellspacing="0" name="PartVISRDTable" id="PartVISRDTable">
+							<table class="styDepTbl" cellspacing="0" name="PartVISRDTable" id="PartVISRDTable" style="width: 256mm;">
 								<thead class="styTableThead">
 									<tr class="styDepTblHdr" style="font-size:7pt;">
 										<th class="styDepTblCell" style="width:12mm;" scope="col"/>
-										<th class="styDepTblCell" style="width:32mm;vertical-align:middle;" scope="col">
+										<th class="styDepTblCell" style="width:44mm;vertical-align:middle;" scope="col">
 										(a)<br/>Line number <br/> from Part IV 
 									</th>
-										<th class="styDepTblCell" style="width:15mm;vertical-align:middle;" scope="col">
+										<th class="styDepTblCell" style="width:20mm;vertical-align:middle;" scope="col">
 										(b)<br/>Check if non-passive
 									</th>
-										<th class="styDepTblCell" style="width:15mm;vertical-align:middle;" scope="col">
+										<th class="styDepTblCell" style="width:21mm;vertical-align:middle;" scope="col">
 										(c)<br/>Year
 									</th>
-										<th class="styDepTblCell" style="width:26mm;vertical-align:middle;" scope="col">
+										<th class="styDepTblCell" style="width:36mm;vertical-align:middle;" scope="col">
 										(d)<br/>Pass-through entity EIN
 									</th>
-										<th class="styDepTblCell" style="width:28mm;vertical-align:middle;" scope="col">
+										<th class="styDepTblCell" style="width:39mm;vertical-align:middle;" scope="col">
 										(e)<br/>Credit carrybacks to current year
 									</th>
-										<th class="styDepTblCell" style="width:28mm;vertical-align:middle;" scope="col">
+										<th class="styDepTblCell" style="width:39mm;vertical-align:middle;" scope="col">
 										(f)<br/>Carryforwards (excluding ESBCs)
 									</th>
-										<th class="styDepTblCell" style="width:31mm;border-right-width:0px;vertical-align:middle;" scope="col">
+										<th class="styDepTblCell" style="width:45mm;border-right-width:0px;vertical-align:middle;" scope="col">
 										(g)<br/>Eligible small business credit (ESBC) carryforwards 
 									</th>
 									</tr>

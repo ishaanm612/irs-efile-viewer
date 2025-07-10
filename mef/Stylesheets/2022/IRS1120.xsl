@@ -39,8 +39,8 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-					<!--HINTS 1: Tester will insist that the header is incorrected with ", TY, and ending".  
-                         This is invalid claim, the , TY is part of the begining and ending date. DO NOT update your Code per tester invalid claim. -->					
+					<!-- HINTS 1: Tester will insist that the header is incorrected with ", TY, and ending".  
+                         This is invalid claim, the , TY is part of the begining and ending date. DO NOT update your Code per tester invalid claim.  -->					
 					<!-- Exception: Contained shortPeriodReason112011120FInd whre 1120 E&A does not -->
 					<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS1120Style"/>
@@ -178,11 +178,7 @@
 										<xsl:with-param name="TargetNode" 	select="$Form1120Data/ConsolidatedReturnInd"/>
 									</xsl:call-template>
 									</div>
-									<label>
-										<xsl:call-template name="PopulateLabel">
-											<xsl:with-param name="TargetNode" select="$Form1120Data/ConsolidatedReturnInd"/>
-											<xsl:with-param name="BackupName">IRS1120ConsolidatedReturn</xsl:with-param>
-										</xsl:call-template>
+									
 										<br/>
 										<xsl:call-template name="LinkToLeftoverCheckboxDataTableInline">
 											<xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Parent Return</xsl:with-param>
@@ -194,7 +190,14 @@
 											<xsl:with-param name="TargetNode" select="$Form1120Data/SubsidiaryReturnInd"/>
 											<xsl:with-param name="Style">padding-left:9mm;</xsl:with-param>
 										</xsl:call-template>
-									</label>&#160;
+									
+									<label>
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$Form1120Data/ConsolidatedReturnInd"/>
+											<xsl:with-param name="BackupName">IRS1120ConsolidatedReturn</xsl:with-param>
+										</xsl:call-template>
+									
+								</label>&#160;
 									<!-- Form to Form Link -->
 									<div style="float:right;height:3mm;">
 										<input type="checkbox"  alt="ConsolidatedReturn" class="styCkbox">
@@ -237,7 +240,7 @@
 											<xsl:with-param name="BackupName">IRS1120PersonalHoldingCompany</xsl:with-param>
 										</xsl:call-template>
 									</label>
-									<!-- Form to Form Link -->
+									<!-- Form to Form Link  -->
 									<div style="height:3mm;">
 										<xsl:call-template name="SetFormLinkInline">
 											<xsl:with-param name="TargetNode" select="$Form1120Data/PersonalHoldingCompanyInd"/>
@@ -833,7 +836,7 @@
 									</span>
 									<span style="width:1mm;"/>
 									<!--Dotted Line-->
-									<div class="styDotLn" style="float:right;padding-right:1mm;">...........</div>									
+									<div class="styDotLn" style="float:right;padding-right:1mm;">............</div>									
 									<!--<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="right pointing arrow"/>-->
 									<span style="width:1mm;"/>
 								</div>
@@ -3623,8 +3626,7 @@
 							</xsl:call-template> 
                            </div>   
 						</div>
-						
-						<div class="styGenericDiv">
+		                 <div class="styGenericDiv">
 							<div class="styShadingCell" style="width:6mm;height:6mm;"/>
 							<div class="styShadingCellRB" style="width:6mm;height:6mm;border-right-width:0px;"/>
 						</div>
@@ -6180,7 +6182,7 @@ reported on page 1, line 29a.)
                                           <span style="font-size:6pt;"/>$	 				                		  
 										</div>
 										<div class="styIRS1120BBText" 
-										style="width:24mm;text-align:right;font-size:6pt;padding-top:3mm;">
+										style="width:24mm;text-align:right;font-size:7pt;padding-top:3mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1120ScheduleM1/TravelEntertainmentAmt"/>
 											</xsl:call-template>
@@ -6257,7 +6259,7 @@ reported on page 1, line 29a.)
 											<xsl:with-param name="TargetNode" select="$Form1120ScheduleM1/TotIncmRecordedNotIncludedAmt"/>
 										</xsl:call-template>
 										<span style="border-bottom:1px solid black;text-align:right;float:right;
-										width:21mm;font-size:6pt;">
+										width:21mm;font-size:7pt;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1120ScheduleM1/TaxExemptInterestAmt"/>
 											</xsl:call-template>
@@ -6344,7 +6346,7 @@ reported on page 1, line 29a.)
 										Charitable contributions<span style="width:1mm;"/>$											
 										</div>
 										<div class="styIRS1120BBText" 
-										style="width:29.5mm;height:6.5mm;float:left;text-align:right;font-size:6pt;
+										style="width:29.5mm;height:6.5mm;float:left;text-align:right;font-size:7pt;
 										padding-top:3mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" 
@@ -6711,48 +6713,23 @@ reported on page 1, line 29a.)
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<!-- not display -->
-						<!--11/25/2014 CJ: The customer (Wallace Kendell E) approved for the exception. 
-                              The new template (LinkToLeftoverCheckboxDataTableInline) is created 
-                                  for a Pen and ink to display yes and no instead of “x”. -->
-						<xsl:choose>
-							<xsl:when test="$Form1120Data/ParentReturnInd = 'X'">
-								<tr>
-									<td class="styLeftOverTableRowDesc"
-									 style="width:100mm;" scope="row">
-									 Form 1120, Section A, Line 1a - Is Parent Return:</td>
-									<td class="styLeftOverTableRowAmount" style="width:100mm;">Yes</td>
-								</tr>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:call-template name="PopulateLeftoverRow">
-									<xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Parent Return
-									</xsl:with-param>
-									<xsl:with-param name="TargetNode" select="$Form1120Data/ParentReturnInd"/>
-									<xsl:with-param name="DescWidth" select="100"/>
-								</xsl:call-template>
-							</xsl:otherwise>
-						</xsl:choose>
-						<!-- not display -->
-						<!--11/25/2014 CJ: The customer (Wallace Kendell E) approved for the exception. 
-                         The new template (LinkToLeftoverCheckboxDataTableInline) is created for a Pen and ink 
-                            to display yes and no instead of “x”. -->
-						<xsl:choose>
-							<xsl:when test="$Form1120Data/SubsidiaryReturnInd = 'X'">
-								<tr>
-									<td class="styLeftOverTableRowDesc" style="width:100mm;" scope="row">
-									Form 1120, Section A, Line 1a - Is Subsidiary Return:</td>
-									<td class="styLeftOverTableRowAmount" style="width:100mm;">Yes</td>
-								</tr>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:call-template name="PopulateLeftoverRow">
-									<xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Subsidiary Return
-									</xsl:with-param>
-									<xsl:with-param name="TargetNode" select="$Form1120Data/SubsidiaryReturnInd"/>
-									<xsl:with-param name="DescWidth" select="100"/>
-								</xsl:call-template>
-							</xsl:otherwise>
-						</xsl:choose>
+				
+						      <xsl:if test="$Form1120Data/ParentReturnInd">
+                                        <xsl:call-template name="PopulateLeftoverRowCheckbox">
+                                               <xsl:with-param name="TargetNode" select="$Form1120Data/ParentReturnInd"/>
+                                               <xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Parent Return</xsl:with-param>
+                                        </xsl:call-template>
+                                 </xsl:if>
+
+
+                                 <xsl:if test="$Form1120Data/SubsidiaryReturnInd">
+                                        <xsl:call-template name="PopulateLeftoverRowCheckbox">
+                                               <xsl:with-param name="TargetNode" select="$Form1120Data/SubsidiaryReturnInd"/>
+                                               <xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Subsidiary Return</xsl:with-param>
+                                        </xsl:call-template>
+                                 </xsl:if>
+
+						
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">Form 1120, Page 1, Line 9 - Form 4684 Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/TotalOrdinaryGainLossAmt/@form4684Cd"/>

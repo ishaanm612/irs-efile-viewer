@@ -2711,7 +2711,7 @@ Log:
 	</xsl:template>
 	<!--
 ***************************************************************************************************************************************************************
-Name:           SetFormLinkInlineRRD (RRD version)
+Name:            SetFormLinkInlineRRD (RRD version)
 Description:    Template to display the form link image (usually pushpin image); image is displayed inline (normally) using img tags
 Req Param:  
 Opt Param:   
@@ -2879,7 +2879,6 @@ Log:
 			</script>
 		</xsl:if>
 	</xsl:template>
-	
 	<!--
 ***************************************************************************************************************************************************************
 Name:           SetFormLinkInline

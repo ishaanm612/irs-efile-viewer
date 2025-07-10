@@ -32,10 +32,10 @@
 				<style type="text/css">
 				<!-- Hint:  05/21/2014 Per Schema: Special Condition Desc does not require a pen/ink image on the top left of the style sheet.  
 			    The data is	displayed in the additional data area at the end of form -->
-					<xsl:if test="not($Print) or $Print=''">
+<!--					<xsl:if test="not($Print) or $Print='separated'">-->
 						<xsl:call-template name="IRS1120FStyle"/>
 						<xsl:call-template name="AddOnStyle"/>
-					</xsl:if>
+<!--					</xsl:if>-->
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
@@ -1519,15 +1519,15 @@
 					<!-- ***********************************************************************-->
 					<p style="page-break-before: always"/>
 					<!-- End Page 1 break and footer  -->
-<!--					--><!-- BEGIN Page 2 header --><!--
+					<!-- BEGIN Page 2 header -->
 					<div class="styBB" style="width:187mm; padding-top:.5mm; border-bottom-width:2px;">
 						<div style="float:left;">Form 1120-F (2023)<span style="width:148mm;"/>
 						</div>
 						<div style="float:right;">Page <span style="font-weight:bold; font-size:8pt;">2</span>
 						</div>
 					</div>
-					--><!--</div>--><!--
-					--><!-- END Page 2 header -->
+					<!--</div>-->
+					<!-- END Page 2 header -->
 					<div class="styGenericDiv" style="width:187mm;">
 						<table border="0" cellpadding="0" cellspacing="0" class="styTable" style="width:187mm; clear:both; float:none; font-size:7pt;">
 							<tr>

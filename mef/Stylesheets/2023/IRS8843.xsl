@@ -532,8 +532,8 @@
 					<div class="styStdDiv">
 						<div class="styLNLeftNumBoxSD">8</div>
 						<div class="sty8843DescA" style="width:179mm;">
-							Were you present in the United States as a teacher, trainee, or student for any part of 2 of the 6 prior <br/>
-							calendar years (2017 through 2022)? <span style="letter-spacing:3.3mm;font-weight:bold;padding-left:8px;">.........................</span>
+							Were you exempt as a teacher, trainee, or student for any part of 2 of the preceding 6 calendar years (2017 through 2022)? 
+							<!--<span style="letter-spacing:3.3mm;font-weight:bold;padding-left:8px;">.........................</span>-->
 							<span style="float:right;">
 								<xsl:call-template name="PopulateSpan">
 									<xsl:with-param name="TargetNode" select="$FormData/TeacherTraineeStdnt2of6PrCYInd"/>
@@ -828,12 +828,11 @@
 					<div class="styStdDiv">
 						<div class="styLNLeftNumBox">12</div>
 						<div class="sty8843DescA" style="width:179mm;">
-							Were you present in the United States as a teacher, trainee, or student for any part of more than 5 calendar <br/>
-							years? 
-							<xsl:call-template name="SetFormLinkInline">
+							Were you exempt as a teacher, trainee, or student for any part of more than 5 calendar years? 
+							<!--<xsl:call-template name="SetFormLinkInline">
 								<xsl:with-param name="TargetNode" select="$FormData/TeacherTraineeStdntGrtr5CYInd"/>
-							</xsl:call-template>
-							<span style="letter-spacing:3.3mm;font-weight:bold;padding-left:8px;">.................................</span>
+							</xsl:call-template>-->
+							<span style="letter-spacing:3.3mm;font-weight:bold;padding-left:8px;">........</span>
 							<span style="float:right;">
 								<xsl:call-template name="PopulateSpan">
 									<xsl:with-param name="TargetNode" select="$FormData/TeacherTraineeStdntGrtr5CYInd"/>

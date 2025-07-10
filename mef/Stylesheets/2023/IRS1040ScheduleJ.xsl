@@ -255,8 +255,7 @@
 								<br/>
 								&#8226; 2020 but not 2021 or 2022, enter the amount from your 2020 <br/> 
 								<span style="width:2mm;"/>Schedule J, line 3.
-								<br/>Otherwise, enter the taxable income from your <b>2020</b> Form 1040,<br/>
-								line 10; Form 1040-NR, line 41. If zero or less, see instructions.
+								<br/>Otherwise, enter the taxable income from your <b>2020</b> Form 1040, 1040-NR, line 15. If zero or less, see instructions.
 							</div>
 							<div class="styGenericDiv" style="width:4mm;height:100%;padding-top:4mm;">
 								<img alt="Curly Brace" src="{$ImagePath}/CurlyBrace1.77x22.97mm.png" style="width:1.77mm;height:22.97mm;"/>
@@ -354,7 +353,7 @@
 								&#8226; 2022, enter the amount from your 2022 Schedule J, line 15.<br/>
 								&#8226; 2021 but not 2022, enter the amount from your 2021 Schedule J, line 3.<br/>
 								Otherwise, enter the taxable income from your <b>2021</b> Form 1040, <br/>
-								line 11b; Form 1040-NR, line 41. If zero or less, see instructions.
+								1040-NR, line 15. If zero or less, see instructions.
 							</div>
 							<div class="styGenericDiv" style="width:4mm;height:100%;padding-top:2mm;">
 								<img alt="Curly Brace" src="{$ImagePath}/CurlyBrace1.77x18.11mm.png" style="width:1.77mm;height:18mm;"/>
@@ -607,8 +606,7 @@
 								<span style="width:2mm;"/>line 16. <br/>
 								&#8226; 2020 but not 2021 or 2022, enter the amount from your 2020 <br/> 
 								<span style="width:2mm;"/>Schedule J, line 4.<br/>
-								Otherwise, enter the tax from your <b>2020</b> Form 1040, line 11a,<br/>
-								Form 1040-NR, line 42.
+								Otherwise, enter the tax from your <b>2020</b> Form 1040, 1040-NR line 16.
 							</div>
 							<div class="styGenericDiv" style="width:4mm;height:100%;padding-top:4mm;">
 								<img alt="Curly Brace" src="{$ImagePath}/CurlyBrace1.77x22.97mm.png" style="width:1.77mm;height:22.97mm;"/>
@@ -646,8 +644,7 @@
 								&#8226; 2022, enter the amount from your 2022 Schedule J, line 16.<br/>
 								&#8226; 2021 but not 2022, enter the amount from your 2021 Schedule J, <br/>
 								<span style="width:2mm;"/>line 4. <br/>
-								Otherwise, enter the tax from your <b>2021</b> Form 1040 and 1040-SR, line 12a;*
-								 Form 1040-NR, line 42.
+								Otherwise, enter the tax from your <b>2021</b> Form 1040, 1040-SR, or 1040-NR, line 16.
 							</div>
 							<div class="styGenericDiv" style="width:4mm;height:100%;padding-top:2mm;">
 								<img alt="Curly Brace" src="{$ImagePath}/CurlyBrace1.77x18.11mm.png" style="width:1.77mm;height:18.11mm;"/>

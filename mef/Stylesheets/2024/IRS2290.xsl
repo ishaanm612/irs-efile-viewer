@@ -2,6 +2,8 @@
 <!-- 03/14/2019 - Made changes per UWR 2018147 - Jeremy Nichols -->
 <!-- 01/10/2020 - Made changes per UWR 230746 - Jeremy Nichols -->
 <!-- 02/28/2023 - Made changes per UWR 966553 - Jeremy Nichols -->
+<!-- 03/15/2024 - UWR 977710 - Jeremy Nichols -->
+<!-- 03/13/2025 - UWR 995935 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="CommonPathRef.xsl"/>
   <xsl:include href="PopulateTemplate.xsl"/>
@@ -59,7 +61,7 @@
 				<xsl:with-param name="TargetNode" select="$Form2290/@AmendedMonthNum"/>
               </xsl:call-template>
               <br/>
-              <span class="styAgency">(Rev. July 2023)
+              <span class="styAgency">(Rev. July 2025)
           <br/> Department of the Treasury
         </span>
               <br/>
@@ -68,7 +70,7 @@
             <div class="styFTBox" style="width:128mm;height:18mm;">
               <div class="styMainTitle" style="">Heavy Highway Vehicle Use Tax Return</div>
               <div style="font-family: ';Arial'font-size:10pt;">
-          For the period July 1, 2023, through June 30, 2024
+          For the period July 1, 2025, through June 30, 2026
         </div>
               <div class="styFBT" style="height:2.5mm;">
                 <img src="{$ImagePath}/2290_Bullet_Md.gif" alt="MediumBullet"/> 
@@ -325,7 +327,7 @@ Check if applicable:</div>
           <!-- Line 1 -->
           <div style="width:187mm;">
             <div class="styLNLeftNumBox" style="">1</div>
-            <div class="styLNDesc" style="width:135mm;">Was the vehicle(s) reported on this return used on public highways during <b>July</b> 2023? If YES,</div>
+            <div class="styLNDesc" style="width:135mm;">Was the vehicle(s) reported on this return used on public highways during <b>July</b> 2025? If YES,</div>
             <div style="float:right">
                <div class="styLNRightNumBox" style="padding-left:.25mm;width:8.25mm;border-bottom-width:0;border-right-width:1px;"/>
                <div class="styLNAmountBox" style="padding-left:.25mm;width:33.75mm;border-bottom-width:0;border-left-width:0px;">
@@ -334,7 +336,7 @@ Check if applicable:</div>
           </div>
 <div style="width:187mm;">
   <div class="styLNLeftNumBox" style=""/>
-  <div class="styLNDesc" style="width:117mm;">enter <span class="styBoldText">202307</span> in the boxes to the right. If NO, see the table on page 3 of the instructions</div>
+  <div class="styLNDesc" style="width:117mm;">enter <span class="styBoldText">202507</span> in the boxes to the right. If NO, see the table on page 3 of the instructions</div>
   <div class="styLNAmountBox" style="width:34mm;height:4.5mm;float:right">      
     <xsl:call-template name="PopulateYear">
       <xsl:with-param name="TargetNode" select="$RtnHdrData/FirstUsedDt"/>
@@ -511,14 +513,14 @@ Check if applicable:</div>
         7,500 miles or less for agricultural vehicles</label>
               </span>
               <br/>
-during the period July 1, 2023, through June 30, 2024, and are suspended from the tax. Complete and attach Schedule 1.
+during the period July 1, 2025, through June 30, 2026, and are suspended from the tax. Complete and attach Schedule 1.
        </div>
           </div>
           <!-- Line 8a -->
           <div style="height:8mm;width:187mm;padding-top:1mm;">
             <div class="styLNLeftNumBox" style="">8a</div>
             <div class="styLNDesc" style="width:178mm;;">        
-            I declare that the vehicles listed as suspended on the Form 2290 filed for the period July 1, 2022, through June 30, 2023, were not
+            I declare that the vehicles listed as suspended on the Form 2290 filed for the period July 1, 2024, through June 30, 2025, were not
 subject to the tax for that period except for any vehicles listed on line 8b. <span class="styBoldText">Check this box if applicable.</span>
               <span style="width:3mm"/>
               <img src="{$ImagePath}/2290_Bullet_Md.gif" alt="MediumBullet"/>
@@ -562,7 +564,7 @@ subject to the tax for that period except for any vehicles listed on line 8b. <s
                 </xsl:call-template>
               </span>
               <br/>
-were listed as suspended on the Form 2290 filed for the period July 1, 2022, through June 30, 2023. These vehicles were sold or
+were listed as suspended on the Form 2290 filed for the period July 1, 2024, through June 30, 2025. These vehicles were sold or
 <br/>transferred to
 <span style="width:90mm;border-bottom:1px black solid"></span>
 
@@ -842,7 +844,7 @@ Telephone number
             <span>
               <span class="styBoldText" style="padding-right:5mm">For Privacy Act and Paperwork Reduction Act Notice, see the separate instructions.</span>
               <span style="padding-right:5mm;">Cat. No. 11250O</span>
-              <span>Form <span class="styBoldText" style="font-size:8pt">2290</span> (Rev. 7-2023)</span>
+              <span>Form <span class="styBoldText" style="font-size:8pt">2290</span> (Rev. 7-2025)</span>
             </span>
           </div>
           <div class="pageEnd" />
@@ -851,7 +853,7 @@ Telephone number
           <!-- PAGE 2  BEGIN -->
           <div style="display:block;">
           <div class="styBB" style="width:187mm;text-align:right;">
-            <span style="float:left">Form <span class="styBoldText" style="font-size:8pt">2290</span> (Rev. 7-2023)</span>Page <span class="styBoldtext" style="font-size:8pt">2</span>
+            <span style="float:left">Form <span class="styBoldText" style="font-size:8pt">2290</span> (Rev. 7-2025)</span>Page <span class="styBoldtext" style="font-size:8pt">2</span>
           </div>
           <!--******************************************************************************************************************************************-->
           <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
@@ -1009,7 +1011,7 @@ Tax Computation
                   </td>
                 </tr>
                 <tr>
-                  <td class="styLNCtrNumBox" style="border-left-width:0px;height:12mm;vertical-align:middle">W</td>
+                  <td class="styLNCtrNumBox" style="border-left-width:0px;height:13.75mm;vertical-align:middle">W</td>
                   <td class="styTableCellText" style="width:22mm;font-size:6pt">
 						Tax-Suspended Vehicles
 						(See <i>Part II</i> on page 7 of the instructions.)
@@ -1030,7 +1032,7 @@ Tax Computation
                   <td class="styTableCell" style="height:12mm;width:30mm;background-color:lightgrey;border-right-width:0px">
                     <span style="width:1px"/>
                   </td>
-                  <td class="styLNCtrNumBox" style="height:12mm;border-left-width:0px;border-right-width:0px;border-bottom-width:0px;background-color:lightgrey" colspan="2">
+                  <td class="styLNCtrNumBox" style="height:13.75mm;border-left-width:0px;border-right-width:0px;border-bottom-width:0px;background-color:lightgrey" colspan="2">
                     <span style="width:1px"/>
                   </td>
                 </tr>
@@ -1052,7 +1054,7 @@ Tax Computation
           </div>
           </div>
           <div style="width:187mm">
-            <span style="float:right"> Form <span class="styBoldText" style="font-size:8pt">2290</span> (Rev. 7-2023)</span>
+            <span style="float:right"> Form <span class="styBoldText" style="font-size:8pt">2290</span> (Rev. 7-2025)</span>
           </div>
           <div class="pageEnd" />
           <!-- BEGIN Left Over Table -->

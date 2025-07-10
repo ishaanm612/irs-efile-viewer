@@ -49,17 +49,19 @@
 				  <div style="height:mm;">
 					Form<span class="styFormNumber">  8308</span>
 				  </div>
+				  	<xsl:call-template name="SetFormLinkInline">
+						<xsl:with-param name="TargetNode" select="$Form8308Data"/>
+					</xsl:call-template>		
 				 <div style="height:7mm;font-size:7pt;font-family:arial;">(Rev. October 2023)
 						<span style="width:3px;"/>
 						<span style="width:3px;"/>
-					<xsl:call-template name="LinkToLeftoverDataTableInline">
+					<!--<xsl:call-template name="LinkToLeftoverDataTableInline">
 					<xsl:with-param name="Desc">Form 8308, Top Left Margin - Summary Dormant FDE Indicator</xsl:with-param>
 					<xsl:with-param name="TargetNode" select="$Form8308Data/@summaryDormantFDEIndicator"/>
-					</xsl:call-template>	                
-							   
-								<span class="styAgency"  style="padding-top:1mm;">Department of the Treasury</span>
-								<br/>
-								<span class="styAgency">Internal Revenue Service</span>
+					</xsl:call-template>	-->                
+					<span class="styAgency"  style="padding-top:1mm;">Department of the Treasury</span>
+					<br/>
+					<span class="styAgency">Internal Revenue Service</span>
 			   </div>
          </div>
          <div class="styFTBox" style="width:126mm;height:19mm;padding-top:2mm;">
@@ -427,7 +429,7 @@
 					<b>Statement by Transferor:</b>
 					<i>The transferor in a section 751(a) exchange is required under Regulations section
 					 1.751-1(a)(3) to attach a statement relating to the sale or exchange to his or her return.
-					 See Instructions to Transferors for more details.
+					 See Instructions to Transferors on page 3 for more details.
 					</i> 
 				</div>
 		   </div>      
@@ -660,7 +662,7 @@
        <span class="styPartName" style="width: 14mm;">Part III</span>
        <span class="styPartDesc" style="width: 92mm;">Transfer of Partnership Interest</span>
     </div>
- 		<div class="styBB" style="width:187mm;">
+ 		<div  class="styBB"  style="width:187mm;">
 			<div  style="width:187mm;">
 				<div class="styLNLeftNumBoxSD">1</div>
 				<div class="styLNDesc" style="height:auto;width:80mm;">Date of Sale or Exchange of Partnership Interest:</div>
@@ -670,118 +672,142 @@
 					</xsl:call-template>
 				</div>
 			</div> 
-			
 			<div  style="width:187mm;">
 				<div class="styLNLeftNumBoxSD">2</div>
 				<div class="styLNDesc" style="height:auto;width:80mm;">Type of partnership interest transferred:</div>
+			</div>
+			<div  style="width:187mm;">	
 				<div class="styLNDesc" style="height:auto;width:40mm;">		    
-                     <span style="width:5mm"/>
-                      <span>
-						  <xsl:call-template name="PopulateSpan">
-								<xsl:with-param name="TargetNode" select="$Form8308Data/CapitalPrtshpIntTrnsfrInd"/>
-								<xsl:with-param name="BackupName">IRS8308CapitalPrtshpIntTrnsfrInd</xsl:with-param>
-						  </xsl:call-template>
-						  <input type="checkbox" class="styCkbox" alt="A. Capital">
-								<xsl:call-template name="PopulateYesCheckbox">
-								  <xsl:with-param name="TargetNode" select="$Form8308Data/CapitalPrtshpIntTrnsfrInd"/>
-								  <xsl:with-param name="BackupName">IRS8308CapitalPrtshpIntTrnsfrInd</xsl:with-param>
-								</xsl:call-template>
-						  </input>
-                      </span>
-                      <span style="width:5mm"/>
+                  <span style="width:8mm"/>
+                  <span>
+					   <xsl:call-template name="PopulateSpan">
+							<xsl:with-param name="TargetNode" select="$Form8308Data/CapitalPrtshpIntTrnsfrInd"/>
+							<xsl:with-param name="BackupName">IRS8308CapitalPrtshpIntTrnsfrInd</xsl:with-param>
+						</xsl:call-template>
                       <label>
                         <xsl:call-template name="PopulateLabel">
                           <xsl:with-param name="TargetNode" select="$Form8308Data/CapitalPrtshpIntTrnsfrInd"/>
                           <xsl:with-param name="BackupName">IRS8308CapitalPrtshpIntTrnsfrInd</xsl:with-param>
                         </xsl:call-template>
                       </label>A. Capital
+                      <span style="width:3.5mm"/>
+						<input type="checkbox" class="styCkbox" alt="A. Capital">
+							<xsl:call-template name="PopulateYesCheckbox">
+								<xsl:with-param name="TargetNode" select="$Form8308Data/CapitalPrtshpIntTrnsfrInd"/>
+								<xsl:with-param name="BackupName">IRS8308CapitalPrtshpIntTrnsfrInd</xsl:with-param>
+							</xsl:call-template>
+						</input>
+                  </span>
 				</div>
 			</div> 
 
 			<div  style="width:187mm;">
-				<div class="styLNLeftNumBoxSD"/>
-				<div class="styLNDesc" style="height:auto;width:80mm;"/>
 				<div class="styLNDesc" style="height:auto;width:40mm;">		    
-                     <span style="width:5mm"/>
-                      <span>
-						  <xsl:call-template name="PopulateSpan">
+                  <span style="width:8mm"/>
+                  <span>
+						<xsl:call-template name="PopulateSpan">
+							<xsl:with-param name="TargetNode" select="$Form8308Data/PreferredPrtshpIntTrnsfrInd"/>
+							<xsl:with-param name="BackupName">IRS8308PreferredPrtshpIntTrnsfrInd</xsl:with-param>
+						</xsl:call-template>
+                      <label>
+							<xsl:call-template name="PopulateLabel">
+							  <xsl:with-param name="TargetNode" select="$Form8308Data/PreferredPrtshpIntTrnsfrInd"/>
+							  <xsl:with-param name="BackupName">IRS8308PreferredPrtshpIntTrnsfrInd</xsl:with-param>
+							</xsl:call-template>
+                      </label>B. Preferred 
+                      <span style="width:.5mm"/> 
+						<input type="checkbox" class="styCkbox" alt="B. Preferred">
+							<xsl:call-template name="PopulateYesCheckbox">
 								<xsl:with-param name="TargetNode" select="$Form8308Data/PreferredPrtshpIntTrnsfrInd"/>
 								<xsl:with-param name="BackupName">IRS8308PreferredPrtshpIntTrnsfrInd</xsl:with-param>
-						  </xsl:call-template>
-						  <input type="checkbox" class="styCkbox" alt="B. Preferred">
-								<xsl:call-template name="PopulateYesCheckbox">
-								  <xsl:with-param name="TargetNode" select="$Form8308Data/PreferredPrtshpIntTrnsfrInd"/>
-								  <xsl:with-param name="BackupName">IRS8308PreferredPrtshpIntTrnsfrInd</xsl:with-param>
-								</xsl:call-template>
-						  </input>
-                      </span>
-                      <span style="width:5mm"/>
-                      <label>
-                        <xsl:call-template name="PopulateLabel">
-                          <xsl:with-param name="TargetNode" select="$Form8308Data/PreferredPrtshpIntTrnsfrInd"/>
-                          <xsl:with-param name="BackupName">IRS8308PreferredPrtshpIntTrnsfrInd</xsl:with-param>
-                        </xsl:call-template>
-                      </label>B. Preferred  
+							</xsl:call-template>
+						</input>
+                  </span>
 				</div>
 			</div> 
 
 			<div  style="width:187mm;">
-				<div class="styLNLeftNumBoxSD"/>
-				<div class="styLNDesc" style="height:auto;width:80mm;"/>
 				<div class="styLNDesc" style="height:auto;width:40mm;">		    
-                     <span style="width:5mm"/>
-                      <span>
-						  <xsl:call-template name="PopulateSpan">
+                  <span style="width:8mm"/>
+                  <span>
+						<xsl:call-template name="PopulateSpan">
+							<xsl:with-param name="TargetNode" select="$Form8308Data/ProfitsPrtshpIntTrnsfrInd"/>
+							<xsl:with-param name="BackupName">IRS8308ProfitsPrtshpIntTrnsfrInd</xsl:with-param>
+						</xsl:call-template>
+                      <label>
+							<xsl:call-template name="PopulateLabel">
 								<xsl:with-param name="TargetNode" select="$Form8308Data/ProfitsPrtshpIntTrnsfrInd"/>
 								<xsl:with-param name="BackupName">IRS8308ProfitsPrtshpIntTrnsfrInd</xsl:with-param>
-						  </xsl:call-template>
-						  <input type="checkbox" class="styCkbox" alt="C. Profits">
-								<xsl:call-template name="PopulateYesCheckbox">
-								  <xsl:with-param name="TargetNode" select="$Form8308Data/ProfitsPrtshpIntTrnsfrInd"/>
-								  <xsl:with-param name="BackupName">IRS8308ProfitsPrtshpIntTrnsfrInd</xsl:with-param>
-								</xsl:call-template>
-						  </input>
-                      </span>
-                      <span style="width:5mm"/>
-                      <label>
-                        <xsl:call-template name="PopulateLabel">
-                          <xsl:with-param name="TargetNode" select="$Form8308Data/ProfitsPrtshpIntTrnsfrInd"/>
-                          <xsl:with-param name="BackupName">IRS8308ProfitsPrtshpIntTrnsfrInd</xsl:with-param>
-                        </xsl:call-template>
+                         </xsl:call-template>
                       </label>C. Profits
-				</div>
+                      <span style="width:4mm"/>
+						<input type="checkbox" class="styCkbox" alt="C. Profits">
+							<xsl:call-template name="PopulateYesCheckbox">
+								<xsl:with-param name="TargetNode" select="$Form8308Data/ProfitsPrtshpIntTrnsfrInd"/>
+								<xsl:with-param name="BackupName">IRS8308ProfitsPrtshpIntTrnsfrInd</xsl:with-param>
+							</xsl:call-template>
+						</input>
+                  </span>
+ 				</div>
 			</div> 
 
 			<div  style="width:187mm;">
-				<div class="styLNLeftNumBoxSD"/>
-				<div class="styLNDesc" style="height:auto;width:80mm;"/>
 				<div class="styLNDesc" style="height:auto;width:40mm;">		    
-                     <span style="width:5mm"/>
-                      <span>
-						  <xsl:call-template name="PopulateSpan">
+                  <span style="width:8mm"/>
+                  <span>
+						<xsl:call-template name="PopulateSpan">
+							<xsl:with-param name="TargetNode" select="$Form8308Data/OtherPrtshpIntTrnsfrInd"/>
+							<xsl:with-param name="BackupName">IRS8308OtherPrtshpIntTrnsfrInd</xsl:with-param>
+						</xsl:call-template>
+                      <label>
+							<xsl:call-template name="PopulateLabel">
 								<xsl:with-param name="TargetNode" select="$Form8308Data/OtherPrtshpIntTrnsfrInd"/>
 								<xsl:with-param name="BackupName">IRS8308OtherPrtshpIntTrnsfrInd</xsl:with-param>
-						  </xsl:call-template>
-						  <input type="checkbox" class="styCkbox" alt="D. Other">
-								<xsl:call-template name="PopulateYesCheckbox">
-								  <xsl:with-param name="TargetNode" select="$Form8308Data/OtherPrtshpIntTrnsfrInd"/>
-								  <xsl:with-param name="BackupName">IRS8308OtherPrtshpIntTrnsfrInd</xsl:with-param>
-								</xsl:call-template>
-						  </input>
-                      </span>
-                      <span style="width:5mm"/>
-                      <label>
-                        <xsl:call-template name="PopulateLabel">
-                          <xsl:with-param name="TargetNode" select="$Form8308Data/OtherPrtshpIntTrnsfrInd"/>
-                          <xsl:with-param name="BackupName">IRS8308OtherPrtshpIntTrnsfrInd</xsl:with-param>
-                        </xsl:call-template>
+                         </xsl:call-template>
                       </label>D. Other
-				</div>
+                      <span style="width:4.5mm"/>
+						<input type="checkbox" class="styCkbox" alt="D. Other">
+							<xsl:call-template name="PopulateYesCheckbox">
+								<xsl:with-param name="TargetNode" select="$Form8308Data/OtherPrtshpIntTrnsfrInd"/>
+								<xsl:with-param name="BackupName">IRS8308OtherPrtshpIntTrnsfrInd</xsl:with-param>
+							</xsl:call-template>
+						</input>
+                  </span>
+ 				</div>
 			</div> 
 		</div>			 
+          <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+          <!-- Page Break and Footer-->
+			<div style="width:187mm;float:none;clear:both;">
+            <div style="float:left;">
+              <span class="styBoldText">
+                For Paperwork Reduction Act Notice, see instructions.
+              </span>
+            </div>
+            <div style="text-align:right;width:33mm;font-size:7pt;">
+              Cat. No. 62503I
+            </div> 
+            <div style="float:right;">
+              <span style="width:30px;"/>  
+                Form 
+              <span class="styBoldText" style="font-size:8pt;">8308</span> (Rev. 10-2023)
+            </div>
+          </div>
+          	<p style="page-break-before: always"/> 
+          <!-- END Page Break and Footer-->
+          <!-- BEGIN Page Header -->
+          <div style="width:187mm;">
+            <div style="float:left;">
+              Form 8308 (Rev. 10-2023)<span style="width:140mm;"/>
+            </div>
+            <div style="float:right;">
+              Page <span style="font-weight:bold;font-size:8pt;">2</span>
+            </div>
+          </div>
+          <!-- END Page Header -->
 
     <!-- Part IV, Partners' share of gain (loss) required by sections 751(a) and (1)(h)(5) and (6) -->
-    <div class="styBB" style="height:4mm;width:187mm;float:none;clear:both;">
+    <div class="styBB" style="height:4mm;width:187mm;border-top-width: 1px;float:none;clear:both;">
        <span class="styPartName" style="width: 14mm;">Part IV</span>
        <span class="styPartDesc" style="width: 173mm;">Partners' share of gain (loss) required by sections 751(a) and (1)(h)(5) and (6)</span>
     </div>  
@@ -809,7 +835,10 @@
 	<!-- Part IV, Section 751a Gain Loss Group -->
 		<div class="styLNDesc" style="height:7mm;width:187mm;">
 			<div class="styLNLeftNumBoxSD" style="padding-top:3.5mm;">1</div>
-			<div class="styLNDesc" style="height:7mm;width:60mm;padding-top:3.5mm;">Section 751(a) gain (loss)</div>
+			<div class="styLNDesc" style="height:7mm;width:60mm;padding-top:3.5mm;">Section 751(a) gain (loss)
+				<!--Dotted Line-->
+					<span class="styDotLn" style="float:right;">......</span>
+			</div>
 		
 			<div class="styLNAmountBox" style="height:7mm;width:27mm;padding-top:3.5mm;padding-right:.5mm;border-top-width:1px;border-bottom-width:0px;">
 				<xsl:call-template name="PopulateAmount">
@@ -831,41 +860,47 @@
 					<xsl:with-param name="TargetNode" select="$Form8308Data/Section751aGainLossGrp/PrtnrLvlDeemedSaleGainLossAmt"/>
 				</xsl:call-template>
 			</div>		
-			<div class="styLNDesc" style="height:7mm;width:11mm;border-style:solid;border-color:black;border-width:1px 1px 0px 1px;"/>
+			<div class="styLNDesc" style="height:7mm;width:11mm;text-align:center;padding-top:2mm;border-style:solid;border-color:black;border-width:1px 1px 0px 1px;">AB</div>
 		</div>
 
 	<!-- Part IV, Section 1h5 Gain Loss Group -->
 		<div class="styLNDesc" style="height:7mm;width:187mm;">
 			<div class="styLNLeftNumBoxSD" style="padding-top:3.5mm;">2</div>
-			<div class="styLNDesc" style="height:7mm;width:60mm;padding-top:3.5mm;">Section 1(h)(5) gain (loss)</div>
+			<div class="styLNDesc" style="height:7mm;width:60mm;padding-top:3.5mm;">Section 1(h)(5) gain
+				<!--Dotted Line-->
+					<span class="styDotLn" style="float:right;">........</span>
+			</div>
 		
 			<div class="styLNAmountBox" style="height:7mm;width:27mm;padding-top:3.5mm;padding-right:.5mm;border-top-width:1px;border-bottom-width:0px;">
 				<xsl:call-template name="PopulateAmount">
-					<xsl:with-param name="TargetNode" select="$Form8308Data/Section1h5GainLossGrp/PrtshpLvlDeemedSaleGainLossAmt"/>
+					<xsl:with-param name="TargetNode" select="$Form8308Data/Section1h5GainGrp/PrtshpLvlDeemedSaleGainLossAmt"/>
 				</xsl:call-template>
 			</div>
 			<div class="styLNAmountBox" style="height:7mm;width:27mm;border-top-width:1px;border-bottom-width:0px;word-break:break-all;">
 				<xsl:call-template name="PopulateAmount">
-					<xsl:with-param name="TargetNode" select="$Form8308Data/Section1h5GainLossGrp/PrtshpInterestTransferredPct"/>
+					<xsl:with-param name="TargetNode" select="$Form8308Data/Section1h5GainGrp/PrtshpInterestTransferredPct"/>
 				</xsl:call-template>
 			</div>
 			<div class="styLNAmountBox" style="height:7mm;width:27mm;border-top-width:1px;border-bottom-width:0px;word-break:break-all;">
 				<xsl:call-template name="PopulateAmount">
-					<xsl:with-param name="TargetNode" select="$Form8308Data/Section1h5GainLossGrp/TotalPrtshpUnitsTransferredCnt"/>
+					<xsl:with-param name="TargetNode" select="$Form8308Data/Section1h5GainGrp/TotalPrtshpUnitsTransferredCnt"/>
 				</xsl:call-template>
 			</div>
 			<div class="styLNAmountBox" style="height:7mm;width:27mm;padding-top:3.5mm;padding-right:.5mm;border-top-width:1px;border-bottom-width:0px;">
 				<xsl:call-template name="PopulateAmount">
-					<xsl:with-param name="TargetNode" select="$Form8308Data/Section1h5GainLossGrp/PrtnrLvlDeemedSaleGainLossAmt"/>
+					<xsl:with-param name="TargetNode" select="$Form8308Data/Section1h5GainGrp/PrtnrLvlDeemedSaleGainLossAmt"/>
 				</xsl:call-template>
 			</div>		
-			<div class="styLNDesc" style="height:7mm;width:11mm;border-style:solid;border-color:black;border-width:1px 1px 0px 1px;"/>
+			<div class="styLNDesc" style="height:7mm;width:11mm;text-align:center;padding-top:2mm;border-style:solid;border-color:black;border-width:1px 1px 0px 1px;">AC</div>
 		</div>
  
 	<!-- Part IV, Deemed Section 1250 Unrecaptured Gain Group -->
 		<div class="styLNDesc" style="height:7mm;width:187mm;">
 			<div class="styLNLeftNumBoxSD" style="padding-top:3.5mm;">3</div>
-			<div class="styLNDesc" style="height:7mm;width:60mm;padding-top:3.5mm;">Deemed section 1250 unrecaptured gain</div>
+			<div class="styLNDesc" style="height:7mm;width:60mm;padding-top:3.5mm;">Deemed section 1250 unrecaptured gain
+				<!--Dotted Line-->
+					<span class="styDotLn" style="float:right;">..</span>
+			</div>
 		
 			<div class="styLNAmountBox" style="height:7mm;width:27mm;padding-top:3.5mm;padding-right:.5mm;border-top-width:1px;border-bottom-width:0px;">
 				<xsl:call-template name="PopulateAmount">
@@ -887,10 +922,10 @@
 					<xsl:with-param name="TargetNode" select="$Form8308Data/DmdSect1250UnrcptrGainLossGrp/PrtnrLvlDeemedSaleGainLossAmt"/>
 				</xsl:call-template>
 			</div>		
-			<div class="styLNDesc" style="height:7mm;width:11mm;border-style:solid;border-color:black;border-width:1px 1px 0px 1px;"/>
+			<div class="styLNDesc" style="height:7mm;width:11mm;text-align:center;padding-top:2mm;border-style:solid;border-color:black;border-width:1px 1px 0px 1px;">AD</div>
 		</div>
 	</div>
-                                           
+                                
     <div class="styBB" style="height:auto;width:187mm;float:none;clear:both;"> 
 		<div style="height:17mm;width: 38mm; float:left;border-right: thin solid black;font-size: 7pt;padding-right: 4mm;padding-top: 2mm;padding-bottom: 2mm;">
 			<b>Sign here only if you are filing this form by itself and not with Form 1065</b>

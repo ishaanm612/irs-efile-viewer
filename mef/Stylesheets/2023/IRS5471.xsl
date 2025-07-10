@@ -589,13 +589,18 @@
 									</th>
 									<th scope="col" class="styTableCellHeader" style="width: 42mm; border-color: black; font-size: 7pt;border-right-width: 0px" colspan="3">
 										(4)<span class="styNormalText">&#160;Check applicable box(es)</span>
-									</th>
-								</tr>
-								<tr>
+										<tr>
 									<th scope="col" class="styTableCellHeader" style="border-color: black; width: 17mm; font-weight: normal">Shareholder</th>
 									<th scope="col" class="styTableCellHeader" style="border-color: black; width: 11mm; font-weight: normal">Officer</th>
 									<th scope="col" class="styTableCellHeader" style="border-color: black; border-right-width:0px; width: 14mm; font-weight: normal">Director</th>
 								</tr>
+									</th>
+								</tr>
+<!--								<tr>
+									<th scope="col" class="styTableCellHeader" style="border-color: black; width: 17mm; font-weight: normal">Shareholder</th>
+									<th scope="col" class="styTableCellHeader" style="border-color: black; width: 11mm; font-weight: normal">Officer</th>
+									<th scope="col" class="styTableCellHeader" style="border-color: black; border-right-width:0px; width: 14mm; font-weight: normal">Director</th>
+								</tr>-->
 							</thead>
 							<tfoot/>
 							<tbody>
@@ -973,7 +978,7 @@
 									<!--</span>-->
 								</span>
 									<div class="styIRS5471TableContainer" id="FEIdctn1" style="height:9mm;border-top-width:1px;width:187mm;padding-left:110.3mm">
-									<xsl:call-template name="SetInitialState"/>
+									<!--<xsl:call-template name="SetInitialState"/>--> <!-- commented out due to issues printing inline 02/20/2024 AMM-->
 									<table class="styTable" cellspacing="0" style="font-size: 7pt;">
 										<tbody>
 											<xsl:choose>
@@ -1191,9 +1196,7 @@
 									<b>b</b>&#160;
 									<span style="font-weight:normal">If a U.S. income tax return was filed, enter:</span>
 								</span>
-							</td>
-						</tr>
-						<tr>
+								<tr>
 							<td scope="col" class="styTableCellHeader " style="font-weight: normal; border-color: black;width:39mm;">
 								<div class="styBB" style="width:39mm;height:11mm;border-right-width:0px;padding-top:3mm;">
 									<i>(i)</i>
@@ -1217,6 +1220,32 @@
 								</div>
 							</td>
 						</tr>
+							</td>
+						</tr>
+						<!--<tr>
+							<td scope="col" class="styTableCellHeader " style="font-weight: normal; border-color: black;width:39mm;">
+								<div class="styBB" style="width:39mm;height:11mm;border-right-width:0px;padding-top:3mm;">
+									<i>(i)</i>
+									<span style="width:1mm"/>Taxable income or (loss)
+								</div>
+								<div style="width:39mm;border-top-width:1px;padding-top:15.5mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
+										<xsl:with-param name="TargetNode" select="$IRS5471Data/TaxableIncomeOrNetLossAmt"/>
+									</xsl:call-template>
+								</div>
+							</td>
+							<td scope="col" class="styTableCellHeader " style="font-weight: normal; border-color: black;border-right-width:0px;width:39mm;">
+								<div class="styBB" style="width:39mm;height:11mm;border-right-width:0px;padding-top:2mm;">
+									<i>(ii)</i>
+									<span style="width: 1mm"/>U.S. income tax paid (after all credits)
+								</div>
+								<div style="width:39mm;border-top-width:1px;padding-top:15.5mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
+										<xsl:with-param name="TargetNode" select="$IRS5471Data/USIncomeTaxPaidAfterCrAmt"/>
+									</xsl:call-template>
+								</div>
+							</td>
+						</tr>-->
 						<tr>
 					</tr>
 					</table>
@@ -1459,9 +1488,7 @@
 									<th scope="col" class="styTableCellHeader" style="border-color:black; width: 96mm;
 									 text-align: center; border-right-width: 0px;" colspan="2">
                     (b)<span class="styNormalText">&#160;Number of shares issued and outstanding</span>
-									</th>
-								</tr>
-								<tr>
+                    								<tr>
 									<th scope="col" class="styTableCellHeader" style="border-color:black; width: 48mm;
 									 text-align: center;">
 										<span class="styNormalText">
@@ -1473,6 +1500,20 @@
 											<span class="styItalicText">(ii)</span> End of annual accounting period</span>
 									</th>
 								</tr>
+									</th>
+								</tr>
+<!--								<tr>
+									<th scope="col" class="styTableCellHeader" style="border-color:black; width: 48mm;
+									 text-align: center;">
+										<span class="styNormalText">
+											<span class="styItalicText">(i)</span> Beginning of annual accounting period</span>
+									</th>
+									<th scope="col" class="styTableCellHeader" style="border-color:black; 
+									width: 48mm; border-right-width:0px;">
+										<span class="styNormalText">
+											<span class="styItalicText">(ii)</span> End of annual accounting period</span>
+									</th>
+								</tr>-->
 							</thead>
 							<tfoot/>
 							<tbody>

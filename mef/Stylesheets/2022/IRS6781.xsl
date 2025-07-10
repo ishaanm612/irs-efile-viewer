@@ -205,6 +205,7 @@
 									</th>
 									<th class="styTableCellHeader" scope="col" style="width:100mm;">
 										<span style="font-weight:bold;">(a)</span>
+										<span style="padding-left: 1mm;"/>
 										<span class="styNormalText"> Identification of account</span>
 									</th>
 									<th class="styTableCellHeader" scope="col" style="width:35.4mm;">
@@ -339,7 +340,7 @@
 							<span style="float:left;">Add the amounts on line 1 in columns (b) and (c)</span>
 						</div>
 						<div class="styLNRightNumBox" style="height:4.5mm;">2</div>
-						<div class="styLNAmountBox" style="width:31.5mm;height:4.5mm;padding-right:1mm; ">
+						<div class="styLNAmountBox" style="width:32mm;height:4.5mm;padding-right:1mm; ">
 							<xsl:call-template name="PopulateNegativeNumber">
 								<xsl:with-param name="TargetNode" select="$Form6781Data/TotalSection1256CntrctsLossAmt"/>
 							</xsl:call-template>

@@ -28,11 +28,11 @@
 						<xsl:with-param name="RootElement" select="local-name($Form1120Data)"/>
 					</xsl:call-template>
 				</title>
-				<!--   No Browser Caching  -->
+				<!--   No Browser Caching    -->
 				<meta http-equiv="Pragma" content="no-cache"/>
 				<meta http-equiv="Cache-Control" content="no-cache"/>
 				<meta http-equiv="Expires" content="0"/>
-				<!-- No Proxy Caching -->
+				<!-- No Proxy Caching  -->
 				<meta http-equiv="Cache-Control" content="private"/>
 				<!-- Define Character Set  -->
 				<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
@@ -40,22 +40,22 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-					<!--HINTS 1: Tester will insist that the header is incorrected with ", TY, and ending".  
-                         This is invalid claim, the , TY is part of the begining and ending date. DO NOT update your Code per tester invalid claim. -->					
-					<!-- Exception: Contained shortPeriodReason112011120FInd whre 1120 E&A does not  --> 
-					
-					<xsl:if test="not($Print) or $Print=''">
-						<xsl:call-template name="IRS1120Style"/>
+					<!-- HINTS 1: Tester will insist that the header is incorrected with ", TY, and ending".  
+                         This is invalid claim, the , TY is part of the begining and ending date. DO NOT update your Code per tester invalid claim.  -->					
+					<!-- Exception: Contained shortPeriodReason112011120FInd whre 1120 E&A does not   --> 
+				<xsl:if test="not($Print) or $Print=''">
+					<xsl:call-template name="IRS1120Style"/>
 						<xsl:call-template name="AddOnStyle"/>
-					</xsl:if>
+				</xsl:if>
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
 			<body class="styBodyClass" style="width:187mm;">
 				<form name="IRS1120">
-				<!-- ******************************************************************************************************* -->
-				<!-- *****************************************   For F1120 E & A  copy 	********************************     -->
-				<!-- ******************************************************************************************************* -->		
+				<!-- *******************************************************************************************************    -->
+				<!-- *******************************************************************************************************    -->
+				<!-- *****************************************   For F1120 E & A  copy 	********************************       -->
+				<!-- *******************************************************************************************************   -->		
 					<xsl:call-template name="DocumentHeader"/>
 					<div class="styBB" style="width:187mm;border-bottom-width:1px;">
 						<div class="styFNBox" style="width:33mm;height:19mm;border-right-width:2px;">Form <span class="styFormNumber">1120</span>
@@ -180,11 +180,6 @@
 										<xsl:with-param name="TargetNode" 	select="$Form1120Data/ConsolidatedReturnInd"/>
 									</xsl:call-template>
 									</div>
-									<label>
-										<xsl:call-template name="PopulateLabel">
-											<xsl:with-param name="TargetNode" select="$Form1120Data/ConsolidatedReturnInd"/>
-											<xsl:with-param name="BackupName">IRS1120ConsolidatedReturn</xsl:with-param>
-										</xsl:call-template>
 										<br/>
 										<xsl:call-template name="LinkToLeftoverCheckboxDataTableInline">
 											<xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Parent Return</xsl:with-param>
@@ -196,7 +191,13 @@
 											<xsl:with-param name="TargetNode" select="$Form1120Data/SubsidiaryReturnInd"/>
 											<xsl:with-param name="Style">padding-left:9mm;</xsl:with-param>
 										</xsl:call-template>
-									</label>&#160;
+									
+							<label>
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$Form1120Data/ConsolidatedReturnInd"/>
+											<xsl:with-param name="BackupName">IRS1120ConsolidatedReturn</xsl:with-param>
+										</xsl:call-template>
+								</label>&#160;
 									<!-- Form to Form Link -->
 									<div style="float:right;height:3mm;">
 										<input type="checkbox"  alt="Consolidated Return" class="styCkbox">
@@ -515,7 +516,7 @@
 						<span class="styIRS1120VTImageBox"  style="width:6mm;height:59mm;padding-top:30mm;text-align:center">
 							<img src="{$ImagePath}/1120_Income.gif" alt="Vertical Image - Income"  valign="center" height="40mm;"/>
 						</span>
-					<!-- line 1a -->
+					<!-- line 1a  -->
 						<div class="styGenericDiv" style="width:181mm;">
 							<div style="float:left;clear:none;">
 								<div class="styLNLeftNumBox" style="padding-left:2mm">1a</div>
@@ -668,7 +669,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- line 6 -->
+						<!--   line 6   -->
 						<div class="styGenericDiv" style="width:181mm;">
 							<div style="float:left;clear:none;">
 								<div class="styLNLeftNumBox" style="padding-left: 2.25mm">6</div>
@@ -1478,7 +1479,6 @@
 										<xsl:with-param name="TargetNode" select="$Form1120Data/OverpaymentSection/RefundAmt"/>
 									</xsl:call-template>
 									<span style="width:4px"/>
-									<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 								</div>
 							</div>
 							<div style="float:right;clear:none;">
@@ -2424,7 +2424,7 @@
 								<div >
 									<span style="width:.5mm;"/>
 									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">..................</span>
+									<span class="styDotLn" style="float:right;padding-right:1mm;">....................</span>
 									<span style="float:right;">
 										<span style="width:4px;"/>
 									</span>
@@ -2465,9 +2465,7 @@
 							</div>
 						</div>
 					</div>
-					
-					
-					<!-- Schedule J, line 3 -->
+						<!-- Schedule J, line 3 -->
 					<!-- Schedule J, line 3 -->
 					<div style="width:187mm;">
 						<div style="float:left;clear:none;">
@@ -2482,15 +2480,18 @@
 										<xsl:with-param name="Desc">Schedule J Line 3 - Form 4626 Indicator</xsl:with-param>
 										<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/CorpAlternativeMinimumTaxAmt/@IRS4626"/>
 									</xsl:call-template>
-									
-								</span>
-								<div >
-									<span style="width:.5mm;"/>
-									<!--Dotted Line-->
 									<span class="styDotLn" style="float:right;padding-right:1mm;"> .....</span>
 									<span style="float:right;">
 										<span style="width:4px;"/>
 									</span>
+								</span>
+								<div >
+									<!--<span style="width:.5mm;"/>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;"> .....</span>
+									<span style="float:right;">
+										<span style="width:4px;"/>
+									</span>-->
 								</div>
 							</div>
 						</div>
@@ -2503,8 +2504,7 @@
 							</div>
 						</div>
 					</div>
-					
-					<!-- Schedule J, line 4 -->
+							<!-- Schedule J, line 4 -->
 					<div style="width:187mm;">
 						<div style="float:left;clear:none;">
 							<div class="styLNLeftNumBoxSD">4</div>
@@ -2523,8 +2523,6 @@
 							</div>
 						</div>
 					</div>
-					
-					
 					<!-- Schedule J, line 5a -->
 					<div style="width:187mm;">
 						<div style="float:left;clear:none;">
@@ -3007,7 +3005,6 @@
 							</div>
 						</div>
 					</div>
-				
                  	<!--  Schedule J, Line 13  -->
 					<div style="width:187mm;clear:both;">
 						<div style="float:left;clear:none;">
@@ -5153,16 +5150,13 @@ reported on page 1, line 29a.)
 						<div class="styLNLeftNumBox">27</div>
 						<div class="styLNDesc" style="width:167mm">
 							<span style="float:left;">At any time during this tax year, did the corporation: (a) receive a digital asset (as a reward, award, or payment for property or
-								
-													
-							</span>
+								</span>
 						</div>
 						<div class="styGenericDiv">
 							<div class="styShadingCell" style="width:6mm;height:4mm;"/>
 							<div class="styShadingCellRB" style="width:6mm;height:4mm;border-right-width:0px;"/>
 						</div>
 					</div>
-					
 					<!-- Shedule K, Line 27 L2-->
 					<!--Update per WR-->
 					<div style="width:187mm;">
@@ -5189,7 +5183,6 @@ reported on page 1, line 29a.)
 							</div>
 						</div>
 					</div>
-					
 					<!-- Schedule K, Line 28 L1-->
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox">28</div>
@@ -5232,14 +5225,11 @@ reported on page 1, line 29a.)
 							<div class="styShadingCellRB" style="width:6mm;height:4mm;border-right-width:0px;"/>
 						</div>
 					</div>
-					
-					<!-- Schedule K, Line 29 -->
+						<!-- Schedule K, Line 29 -->
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox">29</div>
 						<div class="styLNDesc" style="width:167mm">
 							<span style="float:left;">Corporate Alternative Minimum Tax:
-								
-													
 							</span>
 						</div>
 						<div class="styGenericDiv">
@@ -5256,7 +5246,7 @@ reported on page 1, line 29a.)
 									<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/ApplicableCorpSect59k1PYInd"/>
 								</xsl:call-template>
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-right:1mm;padding-left:2mm;">............</span>
+							<span class="styDotLn" style="float:right;padding-right:1mm;padding-left:2mm;">...........</span>
 							</span>
 						</div>
 						<div class="styGenericDiv">
@@ -5271,15 +5261,12 @@ reported on page 1, line 29a.)
 								<span style="font-weight:normal;">
 									<xsl:call-template name="PopulateNoBoxText">
 										<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/ApplicableCorpSect59k1PYInd"/>
-
 									</xsl:call-template>
 								</span>
 							</div>
 						</div>
 					</div>
 					<br/>
-				
-					
 					<!-- Schedule K, Line 29a L2 -->
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox"  style="height:4mm;"/>
@@ -5292,12 +5279,8 @@ reported on page 1, line 29a.)
 							<div class="styShadingCellRB" style="width:6mm;height:4mm;border-right-width:0px;"/>
 						</div>
 					</div>
-					
-				
 					<!-- Schedule K, Line 1 29b-->
-					
-					
-					<div style="width:187mm;">
+						<div style="width:187mm;">
 						<div class="styLNLeftNumBox" style="padding-left:4mm;">b</div>
 						<div class="styLNDesc" style="width:167mm;">
 							<span style="float:left;">Is the corporation an applicable corporation under section 59(k)(1) in the current tax year because the corporation was an</span>
@@ -5308,8 +5291,6 @@ reported on page 1, line 29a.)
 						</div>
 					</div>
 					<br/>
-					
-					
 					<!-- Schedule K, Line 29b L2-->
 					<div  style="width:187mm;">
 						<div class="styLNLeftNumBox" style="height:4mm;"/>
@@ -5319,10 +5300,9 @@ reported on page 1, line 29a.)
 									<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/ApplicableCorpSect59k1CYInd"/>
 								</xsl:call-template>
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-right:1mm;padding-left:2mm;">...........................</span>
+							<span class="styDotLn" style="float:right;padding-right:1mm;padding-left:2mm;">..........................</span>
 							</span>
 						</div>
-						
 						<div class="styGenericDiv">
 							<div class="styIRS1120LNYesNoBox" style="height:4mm;border-bottom-width:1px;">
 								<span style="font-weight:normal;">
@@ -5353,11 +5333,11 @@ ApplicableCorpSect59k1CYInd"/>
 							<div class="styShadingCellRB" style="width:6mm;height:4mm;border-right-width:0px;"/>
 						</div>
 					</div>
-					
+						<!-- Schedule K, Line 29c L1 -->
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox" style="padding-left:4mm;">c</div>
 						<div class="styLNDesc" style="width:167mm;">
-							<span style="float:left;">Does the corporation meet the requirements of the safe harbor method, if provided under section 59(k)(3)(A), for the current tax</span>
+							<span style="float:left;">Does the corporation meet the requirements of the safe harbor method as provided under section 59(k)(3)(A) for the current tax</span>
 						</div>
 						<div class="styGenericDiv">
 							<div class="styShadingCell" style="width:6mm;height:4mm;"/>
@@ -5365,7 +5345,6 @@ ApplicableCorpSect59k1CYInd"/>
 						</div>
 					</div>
 					<br/>
-					
 						<!-- Schedule K, Line 29c L2-->
 					<div  style="width:187mm;">
 						<div class="styLNLeftNumBox" style="height:4mm;"/>
@@ -5375,7 +5354,7 @@ ApplicableCorpSect59k1CYInd"/>
 									<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/SatisfyRqrSect59k3ACYInd"/>
 								</xsl:call-template>
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-right:1mm;padding-left:2mm;">..................................</span>
+							<span class="styDotLn" style="float:right;padding-right:1mm;padding-left:2mm;">.................................</span>
 							</span>
 						</div>
 						
@@ -5397,8 +5376,7 @@ SatisfyRqrSect59k3ACYInd"/>
 							</div>
 						</div>
 					</div>
-					
-								<!-- Schedule K, Line 29c L3 -->
+					<!-- Schedule K, Line 29c L3 -->
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox"  style="height:4mm;"/>
 						<div class="styLNDesc" style="width:167mm;height:4mm;">
@@ -5410,7 +5388,6 @@ SatisfyRqrSect59k3ACYInd"/>
 							<div class="styShadingCellRB" style="width:6mm;height:4mm;border-right-width:0px;"/>
 						</div>
 					</div>
-			
 					<!-- Schedule K, Line 30 -->
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox">30</div>
@@ -5440,8 +5417,7 @@ SatisfyRqrSect59k3ACYInd"/>
 								<xsl:call-template name="PopulateYesBoxText">
 										<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/
 										AqrOrRepurchasePubTradedStkInd"/>
-								
-									</xsl:call-template>
+										</xsl:call-template>
 								</span>
 							</div>
 							<div class="styIRS1120LNYesNoBoxRB" style="border-right-width:0px;border-bottom-width:1px;height:4mm;padding-top:.5mm">
@@ -5460,7 +5436,7 @@ SatisfyRqrSect59k3ACYInd"/>
 						<div class="styLNDesc" style="width:167mm;">
 							<span style="float:left;">Under the applicable foreign corporation rules?</span>
 							<!--Dotted Line-->
-							<div class="styDotLn" style="float:right;padding-right:1mm;">................</div>
+							<div class="styDotLn" style="float:right;padding-right:1mm;">.........................</div>
 						</div>
 						<div class="styGenericDiv">
 							<div class="styIRS1120LNYesNoBox" style="border-bottom-width:1px;height:4mm;padding-top:.5mm">
@@ -5468,7 +5444,6 @@ SatisfyRqrSect59k3ACYInd"/>
 								<xsl:call-template name="PopulateYesBoxText">
 										<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/
 										AcquireForeignCorpStockInd"/>
-
 									</xsl:call-template>
 								</span>
 							</div>
@@ -5476,15 +5451,13 @@ SatisfyRqrSect59k3ACYInd"/>
 								<span style="font-weight:normal;">
 									<xsl:call-template name="PopulateNoBoxText">
 										<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/AcquireForeignCorpStockInd"/>
-
 									</xsl:call-template>
 								</span>
 							</div>
 						</div>
 					</div>
 					<br/>
-								
-					<!-- Schedule K, Line 30b -->
+						<!-- Schedule K, Line 30b -->
 					<!-- Schedule K, Line 30c L1-->
 					<div  style="width:187mm;height:4mm;">
 						<div class="styLNLeftNumBox" style="padding-left:4mm;">c</div>
@@ -5498,17 +5471,15 @@ SatisfyRqrSect59k3ACYInd"/>
 							<div class="styIRS1120LNYesNoBox" style="border-bottom-width:1px;height:4mm;padding-top:.5mm">
 								<span style="font-weight:normal;">
 								<xsl:call-template name="PopulateYesBoxText">
-										<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/CnsldtRetGroSlsSpcfdBssAdjInd"/>
+										<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/ForeignEntityRepurchasesInd"/>
 									</xsl:call-template>
 								</span>
 							</div>
 							<div class="styIRS1120LNYesNoBoxRB" style="border-right-width:0px;border-bottom-width:1px;height:4mm;padding-top:.5mm">
 								<span style="font-weight:normal;">
 									<xsl:call-template name="PopulateNoBoxText">
-										<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/
-										CnsldtRetGroSlsSpcfdBssAdjInd"/>
-
-									</xsl:call-template>
+										<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/ForeignEntityRepurchasesInd"/>
+      								</xsl:call-template>
 								</span>
 							</div>
 						</div>
@@ -5537,7 +5508,6 @@ SatisfyRqrSect59k3ACYInd"/>
 							<div class="styShadingCellRB" style="width:6mm;height:4mm;border-right-width:0px;"/>
 						</div>
 					</div>
-					
 					<!-- Schedule K, Line 31 L1-->
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox">31</div>
@@ -5553,16 +5523,13 @@ SatisfyRqrSect59k3ACYInd"/>
 					<div style="width:187mm;">
 						<div class="styLNLeftNumBox"/>
 						<div class="styLNDesc" style="width:167mm;">
-							 
-
 <span style="float:left;">adjustment, as described in the instructions, of $10 million or more?
 								<xsl:call-template name="SetFormLinkInline">
-									<xsl:with-param name="TargetNode"                                                                          select="$Form1120ScheduleK/CnsldtRetGroSlsSpcfdBssAdjInd"/>
+									<xsl:with-param name="TargetNode" select="$Form1120ScheduleK/CnsldtRetGroSlsSpcfdBssAdjInd"/>
 								</xsl:call-template>
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-right:1mm;padding-                                                                       left:2mm;">...................</span>
+							<span class="styDotLn" style="float:right;padding-right:1mm;padding-left:2mm;">..................</span>
 							</span>
-
 						</div>
 						<div class="styGenericDiv">
 							<div class="styIRS1120LNYesNoBox" style="border-bottom-width:1px;">
@@ -5593,9 +5560,7 @@ SatisfyRqrSect59k3ACYInd"/>
 							<div class="styShadingCellRB" style="width:6mm;height:4mm;border-right-width:0px;"/>
 						</div>
 					</div><br/>
-									
 					<!-- END Schedule -->
-					
 					<!-- END Schedule K Line Items -->
 					<!-- Page Break and Footer-->
 					<p>
@@ -6645,7 +6610,7 @@ SatisfyRqrSect59k3ACYInd"/>
                                           <span style="font-size:6pt;"/>$	 				                		  
 										</div>
 										<div class="styIRS1120BBText" 
-										style="width:24mm;text-align:right;font-size:6pt;padding-top:3mm;">
+										style="width:24mm;text-align:right;font-size:7pt;padding-top:3mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1120ScheduleM1/TravelEntertainmentAmt"/>
 											</xsl:call-template>
@@ -6722,7 +6687,7 @@ SatisfyRqrSect59k3ACYInd"/>
 											<xsl:with-param name="TargetNode" select="$Form1120ScheduleM1/TotIncmRecordedNotIncludedAmt"/>
 										</xsl:call-template>
 										<span style="border-bottom:1px solid black;text-align:right;float:right;
-										width:21mm;font-size:6pt;">
+										width:21mm;font-size:7pt;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1120ScheduleM1/TaxExemptInterestAmt"/>
 											</xsl:call-template>
@@ -6809,7 +6774,7 @@ SatisfyRqrSect59k3ACYInd"/>
 										Charitable contributions<span style="width:1mm;"/>$											
 										</div>
 										<div class="styIRS1120BBText" 
-										style="width:29.5mm;height:6.5mm;float:left;text-align:right;font-size:6pt;
+										style="width:29.5mm;height:6.5mm;float:left;text-align:right;font-size:7pt;
 										padding-top:3mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" 
@@ -7125,99 +7090,74 @@ SatisfyRqrSect59k3ACYInd"/>
 							<xsl:with-param name="Desc">Form 1120, Top Left Margin - Section 1291 Interest Indicator
                           </xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@section1291InterestCd"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRowAmount">
 							<xsl:with-param name="Desc">
 							Form 1120, Top Left Margin - Section 1291 Interest Amount</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@section1291InterestAmt"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">
 							Form 1120, Top Left Margin - Section 1294 Interest Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@section1294InterestCd"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRowAmount">
 							<xsl:with-param name="Desc">
 							Form 1120, Top Left Margin - Section 1294 Interest Amount</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@section1294InterestAmt"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">
 							Form 1120, Top Left Margin - Section 501d Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@section501dCd"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">
 							Form 1120, Top Left Margin - FILED PURSUANT TO SECTION 301.9100-2</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@filedPursuantToSect30191002Cd"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">Form 1120, Top Left Margin - Short Period Reason 1120 1120F Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@shortPeriodReasonCd"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<!-- not display -->
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">Form 1120, Top Left Margin - Subchapter T Cooperative Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@subchapterTCoopIndicator"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<!-- not display -->
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">Form 1120, Top Left Margin - Support Statement to Consolidated Return Indicator
 							</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/@suprtStmtToCnsldtReturnInd"/>
-							<xsl:with-param name="DescWidth" select="100"/>
+							<xsl:with-param name="DescWidth" select="300"/>
 						</xsl:call-template>
 						<!-- not display -->
-						<!--11/25/2014 CJ: The customer (Wallace Kendell E) approved for the exception. 
-                              The new template (LinkToLeftoverCheckboxDataTableInline) is created 
-                                  for a Pen and ink to display yes and no instead of “x”. -->
-						<xsl:choose>
-							<xsl:when test="$Form1120Data/ParentReturnInd = 'X'">
-								<tr>
-									<td class="styLeftOverTableRowDesc"
-									 style="width:100mm;" scope="row">
-									 Form 1120, Section A, Line 1a - Is Parent Return:</td>
-									<td class="styLeftOverTableRowAmount" style="width:100mm;">Yes</td>
-								</tr>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:call-template name="PopulateLeftoverRow">
-									<xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Parent Return
-									</xsl:with-param>
-									<xsl:with-param name="TargetNode" select="$Form1120Data/ParentReturnInd"/>
-									<xsl:with-param name="DescWidth" select="100"/>
-								</xsl:call-template>
-							</xsl:otherwise>
-						</xsl:choose>
-						<!-- not display -->
-						<!--11/25/2014 CJ: The customer (Wallace Kendell E) approved for the exception. 
-                         The new template (LinkToLeftoverCheckboxDataTableInline) is created for a Pen and ink 
-                            to display yes and no instead of “x”. -->
-						<xsl:choose>
-							<xsl:when test="$Form1120Data/SubsidiaryReturnInd = 'X'">
-								<tr>
-									<td class="styLeftOverTableRowDesc" style="width:100mm;" scope="row">
-									Form 1120, Section A, Line 1a - Is Subsidiary Return:</td>
-									<td class="styLeftOverTableRowAmount" style="width:100mm;">Yes</td>
-								</tr>
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:call-template name="PopulateLeftoverRow">
-									<xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Subsidiary Return
-									</xsl:with-param>
-									<xsl:with-param name="TargetNode" select="$Form1120Data/SubsidiaryReturnInd"/>
-									<xsl:with-param name="DescWidth" select="100"/>
-								</xsl:call-template>
-							</xsl:otherwise>
-						</xsl:choose>
+						
+						        <xsl:if test="$Form1120Data/ParentReturnInd">
+                                        <xsl:call-template name="PopulateLeftoverRowCheckbox">
+                                               <xsl:with-param name="TargetNode" select="$Form1120Data/ParentReturnInd"/>
+                                               <xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Parent Return</xsl:with-param>
+                                        </xsl:call-template>
+                                 </xsl:if>
+
+
+                                 <xsl:if test="$Form1120Data/ParentReturnInd">
+                                        <xsl:call-template name="PopulateLeftoverRowCheckbox">
+                                               <xsl:with-param name="TargetNode" select="$Form1120Data/SubsidiaryReturnInd"/>
+                                               <xsl:with-param name="Desc">Form 1120, Section A, Line 1a - Is Subsidiary Return</xsl:with-param>
+                                        </xsl:call-template>
+                                 </xsl:if>
+
+						
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">Form 1120, Page 1, Line 9 - Form 4684 Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120Data/TotalOrdinaryGainLossAmt/@form4684Cd"/>
@@ -7240,80 +7180,80 @@ SatisfyRqrSect59k3ACYInd"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">
-							Form 1120, Page 2, Schedule J, Line 2 - Section 1291 Indicator</xsl:with-param>
+							Form 1120, Page 3, Schedule J, Line 1 - Section 1291 Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/IncomeTaxAmt/@section1291Cd"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRowAmount">
 							<xsl:with-param name="Desc">
-							Form 1120, Page 2, Schedule J Line 2 - Section 1291 Amount</xsl:with-param>
+							Form 1120, Page3, Schedule J Line 1 - Section 1291 Amount</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/IncomeTaxAmt/@section1291Amt"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">
-							Form 1120, Page 2, Schedule J Line 2 - Section 197 Indicator</xsl:with-param>
+							Form 1120, Page 3, Schedule J Line 1 - Section 197 Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/IncomeTaxAmt/@section197Cd"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRowAmount">
 							<xsl:with-param name="Desc">
-							Form 1120, Page 2, Schedule J Line 2 - Section 197 Amount</xsl:with-param>
+							Form 1120, Page 3, Schedule J Line 1 - Section 197 Amount</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/IncomeTaxAmt/@section197Amt"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">
-							Form 1120, Page 2, Schedule J Line 2 - Section 8978 Indicator</xsl:with-param>
+							Form 1120, Page 3, Schedule J Line 1 - Section 8978 Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/IncomeTaxAmt/@form8978Cd"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRowAmount">
 							<xsl:with-param name="Desc">
-							Form 1120, Page 2, Schedule J Line 2 - Section 8978 Amount</xsl:with-param>
+							Form 1120, Page 3, Schedule J Line 1 - Section 8978 Amount</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/IncomeTaxAmt/@form8978Amt"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
-							<xsl:with-param name="Desc">Form 1120, Page 2, Schedule J, Line 5b - Form 5735 Indicator</xsl:with-param>
+							<xsl:with-param name="Desc">Form 1120, Page 3, Schedule J, Line 5b - Form 5735 Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/QlfyElecMotorVehCrAmt/@form5735Cd"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRowAmount">
-							<xsl:with-param name="Desc">Form 1120, Page 2, Schedule J, Line 5b - Form 5735 Amount </xsl:with-param>
+							<xsl:with-param name="Desc">Form 1120, Page 3, Schedule J, Line 5b - Form 5735 Amount </xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/QlfyElecMotorVehCrAmt/@form5735Amt"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">
-							Form 1120, Page 2, Schedule J Line 6 - Section 8978 Indicator</xsl:with-param>
+							Form 1120, Page 3, Schedule J Line 6 - Section 8978 Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/TotalCreditAmt/@form8978Cd"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRowAmount">
 							<xsl:with-param name="Desc">
-							Form 1120, Page 2, Schedule J Line 6 - Section 8978 Amount</xsl:with-param>
+							Form 1120, Page 3, Schedule J Line 6 - Section 8978 Amount</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/TotalCreditAmt/@form8978Amt"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
-							<xsl:with-param name="Desc">Form 1120, Page 2, Schedule J, Part I, Line 9a - Section 1260B Indicator</xsl:with-param>
+							<xsl:with-param name="Desc">Form 1120, Page 3, Schedule J, Part I, Line 9a - Section 1260B Indicator</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/TotalIncreaseInTaxAmt/@section1260BCd"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRowAmount">
-							<xsl:with-param name="Desc">Form 1120, Page 2, Schedule J, Part I, Line 9a - Section 1260B Amount</xsl:with-param>
+							<xsl:with-param name="Desc">Form 1120, Page 3, Schedule J, Part I, Line 9a - Section 1260B Amount</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/TotalIncreaseInTaxAmt/@section1260BAmt"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
-							<xsl:with-param name="Desc">Form 1120, Page 2, Schedule J, Part I, Line 9b - Form 8693 Approved Indicator
+							<xsl:with-param name="Desc">Form 1120, Page 3, Schedule J, Part I, Line 9b - Form 8693 Approved Indicator
 							</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/RecaptureTaxAmt/@form8693ApprovedCd"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
-							<xsl:with-param name="Desc">Form 1120, Page 2, Schedule J, Part I, Line 9b - Form 8693 Approval Date</xsl:with-param>
+							<xsl:with-param name="Desc">Form 1120, Page 3, Schedule J, Part I, Line 9b - Form 8693 Approval Date</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$Form1120ScheduleJ/RecaptureTaxAmt/@form8693ApprovedDt"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>

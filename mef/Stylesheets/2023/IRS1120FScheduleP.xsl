@@ -45,7 +45,7 @@
 					<div class="styGenericDiv" style="width:187mm;">
 						<xsl:call-template name="DocumentHeader"/>
 					</div>
-					<!-- END WARNING LINE -->
+					<!--END WARNING LINE-->
 					<!--Begin Header-->
 					<div class="styBB" style="width: 187mm">
 						<!-- Form Name -->
@@ -85,7 +85,7 @@
 							</div>
 						</div>
 					</div>
-					<!-- Name and Address -->
+					<!--   Name and Address   -->
 					<!--End header-->
 					<xsl:variable name="DistributiveShareTreatedAsECIID">
 						<xsl:call-template name="PopulateID">
@@ -199,7 +199,8 @@
 															<xsl:otherwise>width:5mm;border-right:0;</xsl:otherwise>
 														</xsl:choose>
 													</xsl:attribute>
-													<span class="styLNLeftNumBoxSD" style="width:5mm;height:12mm;">
+													<span class="styLNLeftNumBoxSD" style="width:8mm;height:12mm;">
+														<xsl:number format="A" value="position()"/>
 														<xsl:number format="A" value="position()"/>
 													</span>
 												</td>
@@ -3033,6 +3034,7 @@
 		<xsl:param name="Stop"/>
 		<xsl:if test="$Start &lt; $Stop">
 			<td class="styTableCellHeader" style="width:26mm;font-weight:bold;border-top-width:1px;">
+				<xsl:number format="A" value="$Start"/>
 				<xsl:number format="A" value="$Start"/>
 			</td>
 			<xsl:call-template name="CreateTableHeaderCells">

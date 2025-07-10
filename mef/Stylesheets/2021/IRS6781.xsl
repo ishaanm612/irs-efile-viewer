@@ -205,6 +205,7 @@
 									</th>
 									<th class="styTableCellHeader" scope="col" style="width:100mm;">
 										<span style="font-weight:bold;">(a)</span>
+										<span style="padding-left: 1mm;"/>
 										<span class="styNormalText"> Identification of account</span>
 									</th>
 									<th class="styTableCellHeader" scope="col" style="width:35.4mm;">
@@ -335,21 +336,21 @@
 					<!-- Line 2  -->
    					<div style="width:187mm">
 						<div class="styLNLeftNumBoxSD" style="height:4mm;">2</div>
-						<div class="styLNDesc" style="width:71mm;height:4mm">
+						<div class="styLNDesc" style="width:65.5mm;height:4mm;">
 							<span style="float:left;">Add the amounts on line 1 in columns (b) and (c)</span>
 						</div>
 						<div class="styLNRightNumBox" style="height:4.5mm;">2</div>
-						<div class="styLNAmountBox" style="width:31mm;height:4.5mm;padding-right:1mm">
+						<div class="styLNAmountBox" style="width:31.5mm;height:4.5mm;padding-right:1mm; ">
 							<xsl:call-template name="PopulateNegativeNumber">
 								<xsl:with-param name="TargetNode" select="$Form6781Data/TotalSection1256CntrctsLossAmt"/>
 							</xsl:call-template>
 						</div>
-						<div class="styLNAmountBox" style="width:32mm;height:4.5mm; padding-right:1.5mm">
+						<div class="styLNAmountBox" style="width:33mm;height:4.5mm; padding-right:1.5mm; ">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form6781Data/TotalSection1256CntrctsGainAmt"/>
 							</xsl:call-template>
 						</div>
-						<div class="styLNRightNumBoxNBB" style="width:37mm;height:4.5mm;border-left-width:1px;background-color:lightgrey;border-bottom-width:1px;border-top-width:0px;"/>
+						<div class="styLNRightNumBoxNBB" style="width:41mm;height:4.5mm;border-left-width:1px;background-color:lightgrey;border-bottom-width:1px;border-top-width:0px;"/>
 					</div>
 					<!-- Line 3  -->
 					<div style="width:187mm;">

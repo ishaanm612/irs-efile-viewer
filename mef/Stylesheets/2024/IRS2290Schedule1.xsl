@@ -3,6 +3,8 @@
 <!-- 01/10/2020 - Made changes per UWR 230746 - Jeremy Nichols -->
 <!-- 12/07/2022 - Changes made for KISAM IM02174190 - Jeremy Nichols -->
 <!-- 02/28/2023 - Made changes per UWR 966553 - Jeremy Nichols -->
+<!-- 03/15/2024 - UWR 977710 - Jeremy Nichols -->
+<!-- 03/13/2025 - UWR 995935 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="CommonPathRef.xsl"/>
   <xsl:include href="PopulateTemplate.xsl"/>
@@ -53,14 +55,14 @@
             <div class="styFNBox" style="width:31mm;height:17mm;">
               <span class="styFormNumber" style="font-size:8pt">SCHEDULE 1<span style="width:10mm;"/>(Form 2290)</span>
               <br/>
-              <span class="styAgency">(Rev. July 2023)<span style="width:10mm;"/>Department of the Treasury</span>
+              <span class="styAgency">(Rev. July 2025)<span style="width:10mm;"/>Department of the Treasury</span>
               <br/>
               <span class="styAgency">Internal Revenue Service</span>
             </div>
             <div class="styFTBox" style="width:125mm;height:17mm;padding-top:1mm">
               <div class="styMainTitle" style="height:5mm">Schedule of Heavy Highway Vehicles</div>
               <div class="styFST" style="height:4mm;font-size:8pt;text-align:center;font-weight:normal">
-				 For the period July 1, 2023, through June 30, 2024<br/>
+				 For the period July 1, 2025, through June 30, 2026<br/>
               </div>
               <div class="styFST" style="height:4mm;font-size:7pt;font-weight:normal;text-align:center">
                 <img src="{$ImagePath}/2290Sch1_Bullet_Md.gif" alt="MediumBullet"/>
@@ -1726,7 +1728,7 @@
               <span class="styBoldText" style="font-size:6pt">For Privacy Act and Paperwork Reduction Act Notice, see the separate instructions.</span>
             </span>
             <span style="float:right">
-              <span class="styBoldText" style="font-size:6pt">Cat. No. 112500 <span style="width:5mm;"/>Schedule 1 (Form 2290)</span> (Rev. 7-2023)</span>
+              <span class="styBoldText" style="font-size:6pt">Cat. No. 112500 <span style="width:5mm;"/>Schedule 1 (Form 2290)</span> (Rev. 7-2025)</span>
           </div>
           
           <!-- BEGIN  CONSENT TO DISCLOSURE OF TAX INFORMATION  -->
@@ -1734,12 +1736,12 @@
           <br/>
           <xsl:if test="$RtnHdrData/ConsentToVINDataDisclosure/ConsentToDiscloseYesInd = 'X'">
           <div class="styTBB" style="width:187mm;border-bottom-width:1px;" >
-            <div style="float:left;width:177mm;padding-bottom:0.5mm">Schedule 1 (Form 2290) (Rev. 7-2020)</div>
+            <div style="float:left;width:177mm;padding-bottom:0.5mm">Schedule 1 (Form 2290) (Rev. 7-2025)</div>
             <div style="float:left;width:10mm;text-align:right;padding-bottom:0.5mm">
             </div>
           </div>
           <div style="width:187mm;height:8mm;font-size:13pt;text-align:center;font-weight:bold;padding-top:1mm">Consent to Disclosure of Tax Information</div>
-          <div style="width:187mm;height:8mm;font-size:11pt;text-align:center;vertical-align:middle">For the period July 1, 2019, through June 30, 2020</div>
+          <div style="width:187mm;height:8mm;font-size:11pt;text-align:center;vertical-align:middle">For the period July 1, 2025, through June 30, 2026</div>
           <div style="width:187mm;font-size:11pt">
             <span style="width:4mm"/>
     By signing, dating, and entering my employer identification number below, I hereby
@@ -1828,7 +1830,7 @@ authority to execute this consent to disclosure of tax information.
             </table>
           </div>
           <div style="width:187mm;text-align:right;padding-top:1mm">
-            <b>Schedule 1 (Form 2290)</b> (Rev. 7-2020)</div>
+            <b>Schedule 1 (Form 2290)</b> (Rev. 7-2025)</div>
           <div class="pageEnd"/>
           <br/>
           </xsl:if>
