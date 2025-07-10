@@ -12,7 +12,7 @@ def unprep_stylesheets
             contents = File.read(filename)
 
             # replace Jekyll URLs back to relative URLs
-            contents.gsub!(/\{\{ site\.github\.url \}\}\/mef\//, "/Users/ishaan/Documents/Projects/DonorAtlas/irs-efile-viewer/mef")
+            contents.gsub!(/\{\{ site\.github\.url \}\}\/mef\//, "file:///Users/ishaan/Documents/Projects/DonorAtlas/irs-efile-viewer/mef")
 
             # remove Jekyll front matter if it exists at the beginning
             if contents =~ /\A---\n---\n/
