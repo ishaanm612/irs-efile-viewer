@@ -3,6 +3,17 @@ import os
 import re
 from lxml import etree
 
+def remove_namespaces(xml_string):
+    """Remove namespaces from XML string, similar to the JavaScript version"""
+    import re
+    # First remove xmlns:prefix="..." declarations
+    xml_string = re.sub(r'\s*xmlns:[^=]+="[^"]*"', '', xml_string)
+    # Then remove default xmlns="..." declarations  
+    xml_string = re.sub(r'\s*xmlns="[^"]*"', '', xml_string)
+    # Also remove xsi:schemaLocation if present
+    xml_string = re.sub(r'\s*xsi:schemaLocation="[^"]*"', '', xml_string)
+    return xml_string
+
 def format_tin(tin):
     if not tin or len(tin) < 9:
         return tin
@@ -42,23 +53,33 @@ def get_stylesheet_path(stylesheet_dir, year, form_id):
 def main():
     parser = argparse.ArgumentParser(description="Transform IRS XML e-file to HTML using XSLT.")
     parser.add_argument('--input', required=True, help='Input IRS XML file')
-    parser.add_argument('--template', required=True, help='Template XML file')
     parser.add_argument('--output', required=True, help='Output HTML file')
-    parser.add_argument('--stylesheets', required=True, help='Directory containing XSLT stylesheets')
     parser.add_argument('--form', required=False, help='Form ID (e.g., IRS990)')
     args = parser.parse_args()
 
-    # Load XML files
-    input_dom = etree.parse(args.input)
-    template_dom = etree.parse(args.template)
+    # Load and clean XML files (remove namespaces like the JavaScript version)
+    with open(args.input, 'r', encoding='utf-8') as f:
+        input_xml_content = f.read()
+    
+    # Remove namespaces to match JavaScript behavior
+    clean_input_xml = remove_namespaces(input_xml_content)
+    # Parse from bytes to avoid encoding declaration issues
+    input_dom = etree.fromstring(clean_input_xml.encode('utf-8'))
+    
+    template_dom = etree.parse("/Users/ishaan/Documents/Projects/DonorAtlas/irs-efile-viewer/form_template.xml")
 
     # Determine form_id
     if args.form:
         form_id = args.form
     else:
-        # Try to auto-detect the form
+        # Try to auto-detect the form (namespaces are already removed)
         return_data = input_dom.find('.//ReturnData')
-        form_id = return_data[0].tag if return_data is not None and len(return_data) > 0 else None
+        form_id = None
+        if return_data is not None:
+            if len(return_data) > 0:
+                # Get the first child element (which should be the main form)
+                form_id = return_data[0].tag
+        
         if not form_id:
             raise Exception("Could not determine form ID.")
 
@@ -78,13 +99,29 @@ def main():
     ]
     for xpath, dest, transform in props_to_transfer:
         # lxml does not support | in XPath, so try both
+        val = None
         if '|' in xpath:
             for xp in xpath.split('|'):
-                val = get_xpath_value(input_dom, xp)
-                if val:
-                    break
+                try:
+                    result = input_dom.xpath(xp.strip())
+                    if result:
+                        if isinstance(result[0], etree._Element):
+                            val = result[0].text
+                        else:
+                            val = result[0]
+                        break
+                except:
+                    continue
         else:
-            val = get_xpath_value(input_dom, xpath)
+            try:
+                result = input_dom.xpath(xpath)
+                if result:
+                    if isinstance(result[0], etree._Element):
+                        val = result[0].text
+                    else:
+                        val = result[0]
+            except:
+                val = None
         if transform and val:
             val = transform(val)
         set_node_value(template_dom, dest, val)
@@ -92,7 +129,7 @@ def main():
     # Get year for stylesheet
     year_node = template_dom.find('.//ReturnVersion')
     year = re.search(r'\d{4}', year_node.text).group(0) if year_node is not None and year_node.text else '2023'
-    stylesheet_path = get_stylesheet_path(args.stylesheets, year, form_id)
+    stylesheet_path = get_stylesheet_path("/Users/ishaan/Documents/Projects/DonorAtlas/irs-efile-viewer/mef/Stylesheets", year, form_id)
     if not os.path.exists(stylesheet_path):
         raise Exception(f"Stylesheet not found: {stylesheet_path}")
 
