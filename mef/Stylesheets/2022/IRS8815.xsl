@@ -53,7 +53,7 @@
 							<xsl:with-param name="TargetNode" select="$FormData"/>
 						</xsl:call-template>
 							<br/><br/>
-							<div class="styAgency" style="padding-top:5mm;">Department of the Treasury<br/>Internal Revenue Service (99)</div>
+							<div class="styAgency" style="padding-top:5mm;">Department of the Treasury<br/>Internal Revenue Service</div>
 						</div>
 						<div class="styFTBox" style="width:125mm;height:22.2mm;">
 							<div class="styMainTitle" style="height:11mm;padding-top:0.4mm;">
@@ -62,17 +62,17 @@
 								<div style="font-size:9pt;padding-bottom:4mm;">(For Filers With Qualified Higher Education Expenses)</div>
 							</div>
 							<div class="styFST" style="height:5mm;font-size:7pt;padding-top:4.5mm;">
-								<img src="{$ImagePath}/8815_Bullet.gif" width="9" height="9" alt="bullet image"/>
-								Go to <i> www.irs.gov/Form8815</i> for the latest information. <br/>
-								<img src="{$ImagePath}/8815_Bullet.gif" width="9" height="9" alt="bullet image"/>
-								Attach to Form 1040 or Form 1040-SR.
+								<!--<img src="{$ImagePath}/8815_Bullet.gif" width="9" height="9" alt="bullet image"/>-->
+								Attach to Form 1040 or Form 1040-SR. <br/>
+								<!--<img src="{$ImagePath}/8815_Bullet.gif" width="9" height="9" alt="bullet image"/>-->
+								Go to <i> www.irs.gov/Form8815</i> for the latest information.
 							</div>
 						</div>
 						<div class="styTYBox" style="width:30mm;height:22.2mm;">
 							<div class="styOMB" style="height:4mm;padding-bottom:4mm;">
 								OMB No. 1545-0074
 							</div>
-							<div class="styTY" style="height:7mm;font-size:22pt;">20<span class="styTYColor">22</span></div>
+							<div class="styTY" style="height:7mm;font-size:22pt;">20<span class="styTYColor">23</span></div>
 							<div class="stySequence" style="height:9mm;border-bottom-width:0px;padding-left:4mm;border-left-width:0px;padding-top:2mm"><br/>
 								Attachment<br/>
 								Sequence No. <span class="styBoldText">167</span>
@@ -82,7 +82,7 @@
 					<!-- End Form Number and Name section -->
 					<!-- Begin Names and Identifying number section -->
 					<div class="styBB" style="width:187mm;float:none;clear:none;clear:all;">
-						<div class="styNameBox" style="width:136mm;height:12mm;font-size:7pt;">
+						<div class="styNameBox" style="width:136mm;height:11mm;font-size:7pt;">
 							<div>
 								Name(s) shown on return
 							</div><br/>
@@ -125,7 +125,7 @@
 									<div style="font-weight:bold;float:left;padding-left:6mm;font-size:7pt;padding-top:3mm;">1</div><b>(a)</b><br/>Name of person (you, your spouse, or your dependent) who was <br/>enrolled at or attended an eligible educational institution
 								</th>
 								<th scope="col" style="width:94mm;font-weight:normal;height:auto;border:1px solid black;border-right:none;border-top:none;font-size:7pt;padding-top:0mm;">
-									<b>(b)</b><br/>Name and address of eligible educational institution
+									<b>(b)</b><br/>Name and address of an eligible educational institution
 								</th>
 							</thead>
 							<tbody>
@@ -145,7 +145,7 @@
 										</xsl:choose>
 									</td>
 								<td style="border:1px solid black;border-right:none;height:18.5mm;width:94mm;">
-										<div style="border-bottom:1px dashed black;height:7.5mm;width:94mm;">
+										<div style="border-bottom:1px dashed black;height:9mm;width:94mm;">
 											<xsl:if test="$Print != $Separated or ($Print = $Separated and count($FormData/EligibleEducationInstnGrp) &lt; 4)">
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="$FormData/EligibleEducationInstnGrp[1]/EligibleInstitutionNm"/>
@@ -221,7 +221,7 @@
 										</xsl:if>
 									</td>
 									<td style="border:1px solid black;border-right:none;height:18.5mm;width:94mm;">
-										<div style="border-bottom:1px dashed black;height:7.5mm;width:94mm;">
+										<div style="border-bottom:1px dashed black;height:9mm;width:94mm;">
 											<xsl:if test="$Print != $Separated or ($Print = $Separated and count($FormData/EligibleEducationInstnGrp) &lt; 4)">
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="$FormData/EligibleEducationInstnGrp[2]/EligibleInstitutionNm"/>
@@ -297,7 +297,7 @@
 										</xsl:if>
 									</td>
 								<td style="border:1px solid black;border-right:none;height:18.5mm;width:94mm;">
-										<div style="border-bottom:1px dashed black;height:7.5mm;width:94mm;">
+										<div style="border-bottom:1px dashed black;height:9mm;width:94mm;">
 											<xsl:if test="$Print != $Separated or ($Print = $Separated and count($FormData/EligibleEducationInstnGrp) &lt; 4)">
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="$FormData/EligibleEducationInstnGrp[3]/EligibleInstitutionNm"/>
@@ -459,7 +459,7 @@
 						<div style="width:187mm;">
 							<div class="styLNLeftNumBox" style="padding-left:1mm;width:5mm;height:8mm">2 </div>
 							<div class="styLNDesc" style="width:141mm;height:8mm;">
-							Enter the total qualified higher education expenses you paid in 2022 for the person(s) listed in
+							Enter the total qualified higher education expenses you paid in 2023 for the person(s) listed in
 column (a) of line 1. See the instructions to find out which expenses qualify<span style="letter-spacing:3mm;">.................</span>
 							</div>
 							<div class="styLNRightNumBox" style="height:8mm;padding-left:0mm;padding-top:3.75mm;">2</div>
@@ -471,7 +471,7 @@ column (a) of line 1. See the instructions to find out which expenses qualify<sp
 						</div>
 						<div style="width:187mm;">
 							<div class="styLNLeftNumBox" style="padding-left:1mm;width:5mm;height:8mm">3</div>
-							<div class="styLNDesc" style="width:141mm;height:8mm;">Enter the total of any nontaxable educational benefits (such as nontaxable scholarship or fellowship grants) received for 2022 for the person(s) listed in column (a) of line 1. See instructions<span style="letter-spacing:3mm;">.........</span></div>
+							<div class="styLNDesc" style="width:141mm;height:8mm;">Enter the total of any nontaxable educational benefits (such as nontaxable scholarship or fellowship grants) received for 2023 for the person(s) listed in column (a) of line 1. See instructions<span style="letter-spacing:3mm;">.........</span></div>
 							<div class="styLNRightNumBox" style="height:8mm;padding-left:0mm;padding-top:4mm;">3</div>
 							<div class="styLNAmountBox" style="height:8mm;"><br/>
 								<xsl:call-template name="PopulateAmount">
@@ -493,7 +493,7 @@ column (a) of line 1. See the instructions to find out which expenses qualify<sp
 						<div style="width:187mm;">
 							<div class="styLNLeftNumBox" style="padding-left:1mm;width:5mm;height:8mm">5</div>
 							<div class="styLNDesc" style="width:141mm;height:8mm;">Enter the total proceeds (principal and interest) from all series EE and I U.S. savings bonds <span style="font-weight:bold;">issued
-after 1989</span> that you <span style="font-weight:bold">cashed during 2022</span><span style="letter-spacing:3mm;">..........................</span></div>
+after 1989</span> that you <span style="font-weight:bold">cashed during 2023</span><span style="letter-spacing:3mm;"> ..........................</span></div>
 							<div class="styLNRightNumBox" style="height:8mm;padding-top: 3.5mm;">5</div>
 							<div class="styLNAmountBox" style="height:8mm;"><br/>
 								<xsl:call-template name="PopulateAmount">
@@ -554,7 +554,7 @@ after 1989</span> that you <span style="font-weight:bold">cashed during 2022</sp
 						</div>
 						<div style="width:187mm;">
 							<div class="styLNLeftNumBox" style="height:12mm;padding-left:1mm;width:5mm;"/>
-							<div class="styLNDesc" style="width:101mm;height:12mm;padding-right:4px;overflow:hidden;"><span style="font-weight:bold;">Note </span> If line 9 is $100,800 or more if single, head of household, or qualifying widow(er), or $158,650 or more if married filing jointly, <b>stop</b>. You <b>cannot</b> take the exclusion.</div>
+							<div class="styLNDesc" style="width:101mm;height:12mm;padding-right:4px;overflow:hidden;"><span style="font-weight:bold;">Note </span> If line 9 is $106,850 or more if single, head of household, or qualifying surviving spouse, or $167,800 or more if married filing jointly, <b>stop</b>. You <b>cannot</b> take the exclusion.</div>
 							<div class="styShadingCell" style="width:8mm;position:relative;height:12mm;"/>
 							<div class="styLNAmountBox" style="height:12mm;border-bottom:none;"/>
 							<div class="styShadingCell" style="height:12mm;width:8mm;"/>
@@ -562,7 +562,7 @@ after 1989</span> that you <span style="font-weight:bold">cashed during 2022</sp
 						</div>
 						<div style="width:187mm;">
 							<div class="styLNLeftNumBox" style="height:7.5mm;padding-left:0mm;width:5mm;">10</div>
-							<div class="styLNDesc" style="width:101mm;height:7.5mm;">Enter: $85,800 if single, head of household, or qualifying widow(er); $128,650 if married filing jointly<span style="letter-spacing:3mm;">...................</span>
+							<div class="styLNDesc" style="width:101mm;height:7.5mm;">Enter: $91,850 if single, head of household, or qualifying surviving spouse; $137,800 if married filing jointly<span style="letter-spacing:3mm;">...................</span>
 							</div>
 							<div class="styLNRightNumBox" style="padding-left:2px;height:7.5mm;padding-top:3.75mm;">10</div>
 							<div class="styLNAmountBox" style="height:7.5mm;padding-right:2px;"><br/>
@@ -589,7 +589,7 @@ after 1989</span> that you <span style="font-weight:bold">cashed during 2022</sp
 						</div>
 						<div style="width:187mm;">
 							<div class="styLNLeftNumBox" style="height:7mm;padding-left:0mm;padding-top:0mm;width:5mm;">12</div>
-							<div class="styLNDesc" style="width:141mm;height:7mm;padding-top:0mm;">Divide line 11 by: $15,000 if single, head of household, or qualifying widow(er); $30,000 if married filing jointly.   Enter the result as a decimal (rounded to at least three places)<span style="letter-spacing:3mm;">................</span>
+							<div class="styLNDesc" style="width:141mm;height:7mm;padding-top:0mm;">Divide line 11 by: $15,000 if single, head of household, or qualifying surviving spouse; $30,000 if married filing jointly.   Enter the result as a decimal (rounded to at least three places)<span style="letter-spacing:3mm;">................</span>
 							</div>
 							<div class="styLNRightNumBox" style="padding-left:2px;height:7mm;padding-top:3.25mm;">12
 							</div>
@@ -629,7 +629,7 @@ after 1989</span> that you <span style="font-weight:bold">cashed during 2022</sp
 						<div style="float:right">
 						Cat. No. 10822S
 						<span style="width:15mm"/>
-						Form <b style="font-size:9pt">8815</b> (2022)
+						Form <b style="font-size:9pt">8815</b> (2023)
 						</div>
 					</div>
 					<!-- Additonal Data Title Bar and Button -->

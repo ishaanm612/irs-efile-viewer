@@ -833,7 +833,7 @@
 									</span>
 									<span style="width:1mm;"/>
 									<!--Dotted Line-->
-									<div class="styDotLn" style="float:right;padding-right:1mm;">............</div>									
+									<div class="styDotLn" style="float:right;padding-right:1mm;">...........</div>									
 									<!--<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="right pointing arrow"/>-->
 									<span style="width:1mm;"/>
 								</div>

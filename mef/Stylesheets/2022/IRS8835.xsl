@@ -1,24 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
-	<!-- Last modified on 01/12/2017 by Harold Nadel for KISAM # IM02756170 defect # 60683 -->
-	<!-- Last modified on 11/04/2016 by Harold Nadel for KISAM # IM02756170 updated "(.20)" to "(0.20)" on line 17b -->
-	<!-- Last modified on 10/03/2016 by Harold Nadel for UWR # 186620 per pdf dated 06/09/2016 -->
-	<!-- Last modified on 06/22/2016 by Harold Nadel for UWR # 182027 legislative changes per PDF 3/9/2016 -->
-	<!-- Last modified on 06/21/2016 by Harold Nadel for UWR # 174572 update TY from 2015 to 2016 -->
-	<!-- Last modified on 05/03/2016 by Harold Nadel for UWR# 177234-->
-	<!-- Last modified on 01/13/2016 by Harold Nadel for WR # 172666-->
-	<!-- Last modified on 12/04/2015 by Harold Nadel for defect # 59621-->
-	<!-- Last modified on 11/10/2015 by Harold Nadel for WR #166114 -->
-	<!-- Last modified on 09/30/2015 by Harold Nadel for WR #159749 -->
-	<!-- Last modified on 06/24/2015 by Harold Nadel for WR # 123023 changes for IE11-->
-	<!--Updated per UWR 117705 and PDF 03/27/2014 on 09/17/2014 by Harold Nadel  -->
-	<!-- 08/14/2017 - Changes made for UWR 199207 - Jeremy Nichols -->
-	<!-- 09/28/2017 - Rate Changes made for UWR 199320 by Harold Nadel -->
-	<!-- 01/19/2018 - Changes made for KISAM IM00056733 - Jeremy Nichols -->
-	<!-- 01/19/2018 - Changes made for KISAM IM00022569 - Jeremy Nichols -->
-	<!-- 09/26/2022 - Changes for UWR 862627 - AJH -->
-	<!-- 11/15/2022 - Changes for UWR 865155 - AJH -->
+	<!-- 09/06/2023 - Changes for 1253026 formatting - AJH -->
+
 ]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
@@ -557,7 +541,7 @@
 											<xsl:with-param name="TargetNode" select="$FormData/QualifiedFacilitiesAfter1022/KwHrsPrdcdSoldMarineRnwblCrAmt"/>
 										</xsl:call-template>
 									</td>
-									<td class="styTableCellSmall" style="width: 7.25mm; background-color:lightgrey;border-bottom-width:1px;">
+									<td class="styTableCellSmall" style="width: 7.25mm; background-color:lightgrey;border-bottom-width:0px;">
 										<span class="styTableCellPad"/>
 									</td>
 									<td class="styTableCellSmall" style="width: 28mm; border-right-width:0px;border-bottom-width:0px;">
@@ -685,24 +669,29 @@
 					</div>-->
 					<div style="width: 187mm">
 						<div class="styLNLeftNumBox">6</div>
-						<span class="styLNDesc" style="width: 137mm">
+						<span class="styLNDesc" style="width: 95mm">
 						  Specified adjustment (see instructions)  
 							<span style="width: 37mm">
 								<span class="styDotLn" style="float: none">  
-								  .........
+								  ...........
 								</span>
-							</span>$
-							<span style="border-color: black; border-style: solid; border-right-width: 0px; border-left-width: 0px; border-top-width: 0px; border-bottom-width: 
-								1px; width: 25mm;text-align:right">
+							</span>
+							
+							
+							<!--<span style="border-color: black; border-style: solid; border-right-width: 0px; border-left-width: 0px; border-top-width: 0px; border-bottom-width: 
+								0px; width: 25mm;text-align:right">
 								<xsl:call-template name="PopulateAmount">
 									<xsl:with-param name="TargetNode" select="$FormData/QualifiedFacilitiesAfter1022/Sect45VSpecifiedAdjustmentsAmt"/>
 								</xsl:call-template>
-							</span>
+							</span>-->
 						</span>
 						<span class="styLNRightNumBox" style="height: 5mm">6</span>
-						<span class="styLNAmountBox" style="width: 34mm; height: 5mm;background-color:lightgrey;">
-							<span style="float: left; clear:none"/>
+						<span class="styLNAmountBox" style="width: 34mm; height: 5mm;">
+								<xsl:call-template name="PopulateAmount">
+									<xsl:with-param name="TargetNode" select="$FormData/QualifiedFacilitiesAfter1022/Sect45VSpecifiedAdjustmentsAmt"/>
+								</xsl:call-template>
 						</span>
+						<span class="styLNRightNumBox" style="height: 5mm;background-color:lightgrey;"></span>
 					</div>
 					<!--  Line 6-->
 					<!--  Line 7 -->
@@ -910,12 +899,9 @@
 					<div style="width: 187mm">
 						<div class="styLNLeftNumBox" style="padding-left: 1mm">15</div>
 						<div style="float:left; padding-top: .5mm">
-							  Multiply line 5 by the smaller of 1/2 (15 percent of line 5 for facilities</div>
+							  Multiply line 5 by the smaller of 1/2 (15 percent of line 5 for facilities placed in service after August 16,</div>
 						<div style="float: right">
 						<!--Dotted Line-->
-							<span class="styDotLn">  
-								  ...........
-							</span>
 							<div class="styLNRightNumBox" style="height:4.5mm;background-color:lightgrey;border-bottom-width: 0px"/>
 							<div class="styLNAmountBox" style="height:4.5mm;border-bottom-width: 0px;width: 34mm"/>
 						</div>
@@ -923,12 +909,12 @@
 					<div style="width:187mm">
 						<div class="styLNLeftNumBox" style="height:4mm;"/>
 						<div style="float:left">
-							placed in service after August 16, 2022--see instructions) or line 14
+							 2022--see instructions) or line 14
 						</div>
 						<div style="float: right">
 							<!--Dotted Line-->
 							<span class="styDotLn">  
-								  ............
+								  .......................
 							</span>
 							<div class="styLNRightNumBox" style="height:4.5mm;">15</div>
 							<div class="styLNAmountBox" style="height:4.5mm;width: 34mm">
@@ -1237,7 +1223,7 @@
 					<div style="width:187mm">
 						<div class="styLNLeftNumBox" style="height:4mm;"/>
 						<div style="float:left">
-					the 4-year period beginning on the date the facility was placed in service produced, report the
+					the 4-year period beginning on the date the facility was placed in service, report the
 						</div>
 						<div style="float: right">
 							<div class="styLNRightNumBox" style="height:4.5mm;background-color:lightgrey;border-bottom-width: 0px;"/>

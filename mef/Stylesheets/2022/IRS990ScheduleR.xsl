@@ -12,6 +12,8 @@
 	<!-- Updated 06/17/2016 per IBM Defect 46041 Part III Col K not wide enough for 5 digits plus percent sign by Robert L Jones -->
 	<!-- Updated per UWR 195015 5/19/17 by Robert L Jones -->
 	<!-- Updated per TEGE review and IM01231603 - 12/01/2020 - AJH -->
+	<!-- 09/26/2022 - Changes for UWR 860875 - AJH -->
+	
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
 	<xsl:include href="AddHeader.xsl"/>
@@ -74,16 +76,16 @@
 							<div class="styMainTitle" style="padding-top:2mm">Related Organizations and Unrelated Partnerships</div>
 								<div class="styFBT" style="height:auto;">
 								<span style="padding-right:1mm">
-									<img src="{$ImagePath}/990SchR_Bullet_Md.gif" alt="MediumBullet"/>
+									<img src="{$ImagePath}/990SchR_Bullet_Md.gif" alt="right arrow"/>
 								</span>Complete if the organization answered "Yes" on Form 990, Part IV, line 33, 34, 35b, 36, or 37.<br/>
 								<span style="padding-right:1mm">
-									<img src="{$ImagePath}/990SchR_Bullet_Md.gif" alt="MediumBullet"/>
+									<img src="{$ImagePath}/990SchR_Bullet_Md.gif" alt="right arrow"/>
 								</span>Attach to Form 990. 
 								<span style="padding-right:1mm;padding-left:4mm">								
 								<!--<img src="{$ImagePath}/990SchR_Bullet_Md.gif" alt="MediumBullet"/>-->
 								</span><!-- See separate instructions.-->
 								<span style="padding-left:4mm"/>								
-								<br/><img src="{$ImagePath}/990SchR_Bullet_Md.gif" alt="MediumBullet"/>
+								<br/><img src="{$ImagePath}/990SchR_Bullet_Md.gif" alt="right arrow"/>
 								Go to <!--www.irs.gov/form990.--><a href="http://www.irs.gov/form990" title="Link to IRS.gov">
                 <i>www.irs.gov/Form990</i></a> for instructions and the latest information. 
           </div>
@@ -93,7 +95,7 @@
 						</div>
 						<div class="styTYBox" style="width:35mm;height:auto;">
 							<div class="styOMB" style="height:auto;">OMB No. 1545-0047</div>
-							<div class="styTY">20<span class="styTYColor">21</span>
+							<div class="styTY">20<span class="styTYColor">22</span>
 							</div>
 							<div class="styPartName" style="height:auto; width:34.5mm;padding-top:0.3mm">Open to Public Inspection</div>
 						</div>
@@ -697,13 +699,13 @@
 						<div class="styGenericDiv" style="width:137mm;font-weight:bold;">For Paperwork Reduction Act Notice, see the Instructions for Form 990.</div>
 						<div class="styGenericDiv" style="width:50mm;">Cat. No. 50135Y</div>
 						<div class="styGenericDiv" style="float:right;padding-right:4mm">
-							<span class="styBoldText">Schedule R (Form 990) 2021</span>
+							<span class="styBoldText">Schedule R (Form 990) 2022</span>
 						</div>
 					</div>
 					<!-- *********BEGIN NEW PAGE 2********** -->
 					<!-- header -->
 					<div style="width:256mm;clear:both;padding-bottom:.5mm;float:none;clear:both;height:auto;" class="styBB">
-						<div style="width:90mm;height:auto;" class="styGenericDiv">Schedule R (Form 990) 2021</div>
+						<div style="width:90mm;height:auto;" class="styGenericDiv">Schedule R (Form 990) 2022</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;padding-right:4mm" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;height:auto;">2</span>
 						</div>
@@ -1398,7 +1400,7 @@
 						<div class="styGenericDiv" style="width:137mm;"/>
 						<div class="styGenericDiv" style="width:50mm;"/>
 						<div class="styGenericDiv" style="float:right;padding-right:4mm">
-							<span class="styBoldText">Schedule R (Form 990) 2021</span>
+							<span class="styBoldText">Schedule R (Form 990) 2022</span>
 						</div>
 					</div>
 					<!-- END Part IV Table -->
@@ -1406,7 +1408,7 @@
 					
 					<!-- header -->
 					<div style="width:256mm;clear:both;padding-bottom:.5mm;float:none;clear:both;height:auto;" class="styBB">
-						<div style="width:90mm;height:auto;" class="styGenericDiv">Schedule R (Form 990) 2021</div>
+						<div style="width:90mm;height:auto;" class="styGenericDiv">Schedule R (Form 990) 2022</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;padding-right:4mm" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;height:auto;">3</span>
 						</div>
@@ -2086,7 +2088,7 @@
 						<div class="styGenericDiv" style="width:137mm;"/>
 						<div class="styGenericDiv" style="width:50mm;"/>
 						<div class="styGenericDiv" style="float:right;padding-right:4mm">
-							<span class="styBoldText">Schedule R (Form 990) 2021</span>
+							<span class="styBoldText">Schedule R (Form 990) 2022</span>
 						</div>
 					</div>
 					<!-- Set Initial Height of Above Table -->
@@ -2098,7 +2100,7 @@
 					<!-- *********BEGIN NEW PAGE 4********** -->
 					<!-- header -->
 					<div style="width:256mm;clear:both;padding-bottom:.5mm;float:none;clear:both;height:auto;" class="styBB">
-						<div style="width:90mm;height:auto;" class="styGenericDiv">Schedule R (Form 990) 2021</div>
+						<div style="width:90mm;height:auto;" class="styGenericDiv">Schedule R (Form 990) 2022</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;padding-right:4mm" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;">4</span>
 						</div>
@@ -2464,13 +2466,13 @@ or gross revenue) that was not a related organization. See instructions regardin
 						<div class="styGenericDiv" style="width:137mm;"/>
 						<div class="styGenericDiv" style="width:50mm;"/>
 						<div class="styGenericDiv" style="float:right;padding-right:4mm">
-							<span class="styBoldText">Schedule R (Form 990) 2021</span>
+							<span class="styBoldText">Schedule R (Form 990) 2022</span>
 						</div>
 					</div>
 					<!-- *********BEGIN NEW PAGE 5********** -->
 					<!-- header -->
 					<div style="width:256mm;clear:both;padding-bottom:.5mm;float:none;clear:both;height:auto;" class="styBB">
-						<div style="width:90mm;height:auto;" class="styGenericDiv">Schedule R (Form 990) 2021</div>
+						<div style="width:90mm;height:auto;" class="styGenericDiv">Schedule R (Form 990) 2022</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;padding-right:4mm" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;">5</span>
 						</div>
@@ -2539,7 +2541,7 @@ Provide additional information for responses to questions on Schedule R. See ins
 					
 					<div class="pageEnd" style="width:256mm;">
       <span style="width:220mm;"/>
-					<span style="font-weight:bold;font-size:6pt;">Schedule R (Form 990) 2021</span>
+					<span style="font-weight:bold;font-size:6pt;">Schedule R (Form 990) 2022</span>
 					</div>
 					<!-- BEGIN Left Over Table -->
 					<!-- Additonal Data Title Bar and Button -->

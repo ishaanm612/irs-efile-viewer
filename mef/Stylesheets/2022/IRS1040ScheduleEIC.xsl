@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last modified on 11/02/2016 by Harold Nadel updated per defect #46812 added the missing bullet in the caution area of the form.  -->
-<!-- Last modified on 9/20/2016 by Harold Nadel for WR#184740 Updating for TY2016 -->
-<!-- Last modified on 01/20/2015 by Harold Nadel for KISAM # IM02398611 correcting TIN display and updating TY2014 to TY2015 -->
-<!-- 06/16/2015 - Changes made for IE11 compatibility - Jeremy Nichols -->
-<!-- Last modified on 11/19/2014 by Harold Nadel for IBM Defect 41780 PDF Comparison 1040 EIC made sure all the references to the year 1994 were changed to 1995 -->
-<!-- Last modified on 10/22/2014 by Harold Nadel for IBM Defect 41780 PDF Comparison 1040 EIC -->
-<!-- 08/14/2017 - Changes made for UWR 200411 - Jeremy Nichols -->
-<!-- 11/18/2020 - Updates to formatting for defects 66101 and 66099 - AJH -->
-<!-- 08/11/2022 - Updates UWR 860842 annual updates - AJH -->
-<!-- 10/20/2022 - Updates IM02096473 - AJH -->
-<!-- 12/01/2022 - Updates UWR 863887 - AJH -->
+<!-- 10/19/2023 - Updates defect 1253082 - AJH -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:include href="PopulateTemplate.xsl"/>
 <xsl:include href="AddHeader.xsl"/>
@@ -338,7 +328,7 @@
 				<xsl:call-template name="PopulateSpan">
 					<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[1]/ChildIsAStudentUnder24Ind"/>
 				</xsl:call-template>
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox" alt="Child under age 24 Child 1 Yes">
 					<xsl:call-template name="PopulateYesCheckbox">
 <xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[1]/ChildIsAStudentUnder24Ind"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildsaStudentunder24[1]</xsl:with-param>
@@ -352,7 +342,7 @@
         			<span class="styBoldText">  Yes</span>
         		</label>  
 				<span style="width:10mm;"/>        		  
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox" alt="Child under age 24 Child 1 No">
 					<xsl:call-template name="PopulateNoCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[1]/ChildIsAStudentUnder24Ind"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildsaStudentunder24[1]</xsl:with-param>
@@ -376,7 +366,7 @@
 				<xsl:call-template name="PopulateSpan">
 					<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[2]/ChildIsAStudentUnder24Ind"/>
 				</xsl:call-template>
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox" alt="Child under age 24 Child 2 Yes">
 					<xsl:call-template name="PopulateYesCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[2]/ChildIsAStudentUnder24Ind"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildsaStudentunder24[2]</xsl:with-param>
@@ -390,7 +380,7 @@
         			<span class="styBoldText">  Yes</span>
         		</label>  
 				<span style="width:10mm;"/>        		  
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox" alt="Child under age 24 Child 2 No">
 					<xsl:call-template name="PopulateNoCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[2]/ChildIsAStudentUnder24Ind"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildsaStudentunder24[2]</xsl:with-param>
@@ -414,7 +404,7 @@
 				<xsl:call-template name="PopulateSpan">
 					<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[3]/ChildIsAStudentUnder24Ind"/>
 				</xsl:call-template>
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox" alt="Child under age 24 Child 3 Yes">
 					<xsl:call-template name="PopulateYesCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[3]/ChildIsAStudentUnder24Ind"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildsaStudentunder24[3]</xsl:with-param>
@@ -428,7 +418,7 @@
         			<span class="styBoldText">  Yes</span>
         		</label>  
 				<span style="width:10mm;"/>        		  
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox" alt="Child under age 24 Child 3 No">
 				<xsl:call-template name="PopulateNoCheckbox">
 					<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[3]/ChildIsAStudentUnder24Ind"/>
 					 <xsl:with-param name="BackupName">IRS1040ScheduleEICChildsaStudentunder24[3]</xsl:with-param>
@@ -459,7 +449,7 @@
 				<xsl:call-template name="PopulateSpan">
 					<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[1]/ChildPermanentlyDisabledInd"/>
 				</xsl:call-template>
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox"  alt="Child permanently disabled Child 1 Yes">
 					<xsl:call-template name="PopulateYesCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[1]/ChildPermanentlyDisabledInd"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildPermanentlyDisabledInd[1]</xsl:with-param>
@@ -473,7 +463,7 @@
         			<span class="styBoldText">  Yes</span>
         		</label>  
 				<span style="width:10mm;"/>        		  
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox"  alt="Child permanently disabled Child 1 No">
 					<xsl:call-template name="PopulateNoCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[1]/ChildPermanentlyDisabledInd"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildPermanentlyDisabledInd[1]</xsl:with-param>
@@ -497,7 +487,7 @@
 				<xsl:call-template name="PopulateSpan">
 					<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[2]/ChildPermanentlyDisabledInd"/>
 				</xsl:call-template>
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox"  alt="Child permanently disabled Child 2 Yes">
 					<xsl:call-template name="PopulateYesCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[2]/ChildPermanentlyDisabledInd"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildPermanentlyDisabledInd[2]</xsl:with-param>
@@ -511,7 +501,7 @@
        				<span class="styBoldText">  Yes</span>
         		</label>  
 				<span style="width:10mm;"/>        		  
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox"  alt="Child permanently disabled Child 2 No">
 					<xsl:call-template name="PopulateNoCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[2]/ChildPermanentlyDisabledInd"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildPermanentlyDisabledInd[2]</xsl:with-param>
@@ -535,7 +525,7 @@
 				<xsl:call-template name="PopulateSpan">
 					<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[3]/ChildPermanentlyDisabledInd"/>
 				</xsl:call-template>
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox"  alt="Child permanently disabled Child 3 Yes">
 					<xsl:call-template name="PopulateYesCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[3]/ChildPermanentlyDisabledInd"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildPermanentlyDisabledInd[3]</xsl:with-param>
@@ -549,7 +539,7 @@
         			<span class="styBoldText">  Yes</span>
         		</label>  
 				<span style="width:10mm;"/>        		  
-				<input type="checkbox" class="styCkbox" name="Checkbox">
+				<input type="checkbox" class="styCkbox" name="Checkbox"  alt="Child permanently disabled Child 3 No">
 					<xsl:call-template name="PopulateNoCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form1040ScheduleEICData/QualifyingChildInformation[3]/ChildPermanentlyDisabledInd"/>
 						<xsl:with-param name="BackupName">IRS1040ScheduleEICChildPermanentlyDisabledInd[3]</xsl:with-param>

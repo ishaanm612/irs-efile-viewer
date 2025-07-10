@@ -34,7 +34,7 @@
         </style>
         <xsl:call-template name="GlobalStylesForm"/>
       </head>
-      <span style="width:187mm">
+    <!--  <span style="width:187mm">  -->
       <body class="styBodyClass" style="width:187mm;">
         <form name="Form5713A">
           <!--  start page header -->
@@ -609,13 +609,16 @@
             <span style="width:4mm;"/>Cat. No. 12050W<span style="width:4mm;"/>
             <b>Schedule A (Form 5713) (Rev. 12-2010)</b>            
           </div>
+          
+          <div class="styStdDiv pageEnd" style="width:187mm;"/>
+          
           <!-- Left over data -->
           <br/>
-          <div class="pageEnd"/>
+          <!--<div class="pageEnd"/>-->
           
           <!-- BEGIN Left Over Table -->
                    
-         <br/><br/><br/><br/><br/><br/><br/>
+     <!--  <br/><br/><br/><br/><br/>-->
          
             <div class="styLeftOverTitleLine" id="LeftoverData">
             <div class="styLeftOverTitle">         Additional Data               </div>
@@ -623,6 +626,7 @@
               <input class="styLeftoverTableBtn" type="button" value="Return to Form" onclick="javascript:returnToWriteInImage();"/>
             </div>
           </div>
+          <!--<div class="styStdDiv pageEnd" style="width:187mm;"/>-->
           <!-- Additional Data Table -->
           <table class="styLeftOverTbl">
             <xsl:call-template name="PopulateCommonLeftover">
@@ -714,7 +718,7 @@
           <!-- End of Boycott Country Information Table separated data -->
         </form>
       </body>
-     </span> 
+    <!-- </span> -->
     </html>
   </xsl:template>
 </xsl:stylesheet>

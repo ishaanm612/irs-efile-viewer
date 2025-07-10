@@ -73,7 +73,7 @@
 							</span>
 							<br />
 							<span style="font-weight:bold;">
-								&#9658;Go to
+								<img src="{$ImagePath}/945A_Bullet_Sm.gif"  alt="Bullet Image"/> Go to
 								<span style="font-style:italic">www.irs.gov/Form965B</span>
 								for instructions and the latest information.
 							</span>
@@ -83,22 +83,29 @@
 						</div>
 					</div>
 					<!-- Amended line -->
-					<div class="styStdDivLS" style="border-top:1px solid black;font-size:8pt;padding-top:0.2mm;padding-left:1.5mm;padding-bottom:0.2mm;">
-						<label>
-							<xsl:call-template name="PopulateLabel">
-								<xsl:with-param name="TargetNode" select="$FormData/AmendedInd"/>
-								<xsl:with-param name="BackupName">IRS965AmendedInd</xsl:with-param>
-							</xsl:call-template>Check this box if this is an amended report</label>
-						<span style="float:right;padding-right:2.5mm;">
-							<span class="sty965BDotLn" style="float:left;">...........................................</span>
-							<span style="float:left;padding-right:2mm;">&#9658;</span>
-							<input class="styCkboxNM" type="checkbox" style="float:left;margin-top:1px;">
-									<xsl:call-template name="PopulateCheckbox">
-										<xsl:with-param name="TargetNode" select="$FormData/AmendedInd"/>
-										<xsl:with-param name="BackupName">IRS965AmendedInd</xsl:with-param>
-									</xsl:call-template>
-								</input>
+					<div style="width:256mm;float:none;border-top:1px solid black;">
+						<span class="styDesc" style="width:248mm;float:left;font-size:8pt;padding-top:0.2mm;padding-left:1.5mm;padding-bottom:0.2mm;">Check this box if this is an amended report
+						<span class="sty965BDotLn" style="float:right;">...........................................</span>
 						</span>
+						<img src="{$ImagePath}/945A_Bullet_Sm.gif"  alt="Bullet Image"/>
+						<span style="width:5mm;float:right;padding-right:2.5mm;">
+							<xsl:call-template name="PopulateSpan">
+								<xsl:with-param name="TargetNode" select="$FormData/AmendedInd"/>
+							</xsl:call-template>
+							<input class="styCkboxNM" alt="AmendedReport" type="checkbox" style="float:left;margin-top:1px;">
+								<xsl:call-template name="PopulateCheckbox">
+									<xsl:with-param name="TargetNode" select="$FormData/AmendedInd"/>
+									<xsl:with-param name="BackupName">IRS965AmendedInd</xsl:with-param>
+								</xsl:call-template>
+							</input>
+							<label>
+								<xsl:call-template name="PopulateLabel">
+									<xsl:with-param name="TargetNode" select="$FormData/AmendedInd"/>
+									<xsl:with-param name="BackupName">IRS965AmendedInd</xsl:with-param>
+								</xsl:call-template>
+							</label>
+						</span>
+					
 					</div>
 					<!-- Filer information section -->
 					<div class="styStdDivLS" style="border-top:1px solid black;border-bottom:1px solid black;">

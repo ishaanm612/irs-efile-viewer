@@ -651,7 +651,7 @@
           <div style="width:187mm">
               <div class="styLNLeftNumBoxSD" style="height:6mm;padding-top:2mm;">7</div>
               <div class="styLNDesc" style="height:6mm; width:139mm;padding-top:2mm;">
-                <span style="float:left;">Estates and trusts, subtract line 13 from line 12. Report this amount on Form 3800, 
+                <span style="float:left;">Estates and trusts, subtract line 6 from line 5. Report this amount on Form 3800, 
                 Part III, line 4d,column (c)
                 </span>
               </div>

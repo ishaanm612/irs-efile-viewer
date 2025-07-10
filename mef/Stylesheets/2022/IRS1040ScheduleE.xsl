@@ -59,7 +59,7 @@
 							<div style="padding-top:3.0mm;">
 								<span class="styAgency">Department of the Treasury</span>
 								<br/>
-								<span class="styAgency">Internal Revenue Service (99)</span>
+								<span class="styAgency">Internal Revenue Service</span>
 							</div>
 						</div>
 						<div class="styFTBox" style="width:127mm;height:23mm;">
@@ -159,9 +159,8 @@
 							<div class="styLNDesc" style="width:171mm;padding-left:2mm;height:auto;padding-top:0mm;">
 								<span style="font-size:8pt;">
 									<b>Income or Loss From Rental Real Estate and Royalties</b>
-									<span style="width:2mm"/>
-									<b>Note:</b> If you are in the business of renting personal property, use <b>Schedule C</b>
-                                   (see instructions). If you are an individual, report farm rental income or loss from
+									<br/><b>Note:</b> If you are in the business of renting personal property, use <b>Schedule C. </b>
+                                   See instructions. If you are an individual, report farm rental income or loss from
                                   <b> Form 4835</b> on page 2, line 40.</span>
 							</div>
 							<div class="styBB" style="width:187mm;height:auto;display:block;border-width:0mm;"/>
@@ -171,7 +170,7 @@
 							<div class="styGenericDiv" style="width:187mm;">
 								<div class="styLNLeftNumBox">A</div>
 								<div class="styLNDesc" style="width:142mm;">
-							         Did you make any payments in 2022 that would require you to file Form(s) 1099? (see instructions)
+							         Did you make any payments in 2022 that would require you to file Form(s) 1099? See instructions.
 							         <span class="styDotLn" style="float:right;clear:none;padding-right:1mm;">...</span>
 								</div>
 								<div class="styGenericDiv" style="width:28mm;">
@@ -214,7 +213,7 @@
 							<div class="styGenericDiv" style="width:187mm;">
 								<div class="styLNLeftNumBox">B</div>
 								<div class="styLNDesc" style="width:142mm;">
-							         If "Yes," did you or will you file all required Forms 1099?
+							         If "Yes," did you or will you file all required Form(s) 1099?
 							         <span class="styDotLn" style="float:right;clear:none;padding-right:1mm;">................</span>
 								</div>
 								<div class="styGenericDiv" style="width:28mm;">
@@ -275,7 +274,7 @@
                                     </td>
 									<td class="styTableCell" scope="col" colspan="8" style="width:182mm;height:2mm;border-right-width:0px; text-align:left;padding-left:2mm;">
 										<span class="styNormalText" style="font-size:7.5pt;">
-                                    Physical address of each property (street, city, state, and ZIP code)
+                                    Physical address of each property (street, city, state, ZIP code)
                                     </span>
 									</td>
 								</tr>
@@ -365,7 +364,7 @@
                                    </td>
 									<td class="styTableCell" scope="col" rowspan="4" colspan="1" style="vertical-align:top;padding-top:1mm;font-size:8pt;width:71mm;border-bottom-width:0px;text-align:left;border-right-width:0px;padding-right:5mm;">
 										<span class="styNormalText">
-											<span style="font-size:8pt;font-weight:bold;">2</span> For each rental real estate property listed    above, report the number of fair rental and personal use days. Check the <b>QJV</b> box only if you meet the requirements to file as a qualified joint venture. See instructions.
+											<span style="font-size:8pt;font-weight:bold;">2</span> For each rental real estate property listed    above, report the number of fair rental and personal use days. Check the QJV box only if you meet the requirements to file as a qualified joint venture. See instructions.
 								</span>
 									</td>
 									<td class="styTableCell" scope="col" style="width:5.9mm; height:7mm;">
@@ -501,7 +500,7 @@
 										<td class="styTableCell" style="width:16mm;border-right-width:0px;text-align:center; vertical-align:center;">
 											
 										<input type="checkbox" class="styCkbox" >
-										<xsl:attribute name="alt">QualifiedJointVenture <xsl:number format="A" value="position()"/></xsl:attribute>
+										<xsl:attribute name="alt">QualifiedJointVenture <xsl:number format="A" value="1"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="RS1040ScheduleEPropertyRealEstAndRoyaltyGroup"/>
 														<xsl:with-param name="BackupName">IRS1040ScheduleEPropertyRealEstAndRoyaltyGroup<xsl:number value="position()"/>QualifiedJointVentureInd</xsl:with-param>
@@ -553,7 +552,7 @@
 										<!-- Column I -->
 										<td class="styTableCell" style="width:16mm;border-right-width:0px;text-align:center; vertical-align:center;">
 											<input type="checkbox" class="styCkbox" >
-											<xsl:attribute name="alt">QualifiedJointVenture <xsl:number format="A" value="position()"/></xsl:attribute>
+											<xsl:attribute name="alt">QualifiedJointVenture <xsl:number format="A" value="2"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPropertyRealEstAndRoyaltyGroup"/>
 													</xsl:call-template>
@@ -604,7 +603,7 @@
 										<!-- Column I -->
 										<td class="styTableCell" style="width:16mm;border-right-width:0px;text-align:center; vertical-align:center;padding-left:1.5mm">
 										<input type="checkbox" class="styCkbox" >
-										<xsl:attribute name="alt">QualifiedJointVenture <xsl:number format="A" value="position()"/></xsl:attribute>
+										<xsl:attribute name="alt">QualifiedJointVenture <xsl:number format="A" value="3"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="RS1040ScheduleEPropertyRealEstAndRoyaltyGroup"/>
 														<xsl:with-param name="BackupName">IRS1040ScheduleEPropertyRealEstAndRoyaltyGroup<xsl:number value="position()"/>QualifiedJointVentureInd</xsl:with-param>
@@ -694,7 +693,7 @@
 
 							</thead>
 							<tfoot/>
-							<tbody>
+														<tbody>
 								<xsl:if test="($Print != $Separated) or (count($FormData/PropertyRealEstAndRoyaltyGroup) &lt;=4) ">
 									<xsl:for-each select="$FormData/PropertyRealEstAndRoyaltyGroup">
 										<xsl:variable name="pos" select="position()"/>
@@ -715,8 +714,8 @@
 														<span class="styBoldText" style="font-size:8pt;text-align:center;">                                           
                                                         </span>
 													</td>
-													<td class="styTableCell" rowspan="1" style="width:37mm;text-align:center;border-left:0px;border-right:0px;">
-														<span class="styBoldText" style="font-size:8pt;text-align:center;">                                           
+													<td class="styTableCell" rowspan="1" style="width:37mm;text-align:center;border-left:0px;border-right:0px; ">
+														<span class="styBoldText" style="font-size:8pt;text-align:center;">Properties:                                           
                                                         </span>
 													</td>
 													<td class="styTableCell" rowspan="1" style="width:38mm;text-align:center;border-left:0px;">
@@ -742,27 +741,25 @@
 											<tr>
 												<td class="styTableCell" colspan="2" style="text-align:left;width:71mm;padding-top:0mm;padding-right:2mm;border-right-width:0px;">
 													<span class="styBoldText" style="float:left;">
-														<span style="font-size:8pt;">
+														<span style="font-size:8pt; ">
 															<b>Income:</b>
 														</span>
 													</span>
-													<span class="styBoldText" style="float:right;">
-														<span style="font-size:8pt;padding-right:5mm;">Properties:</span>
-													</span>
+
 												</td>
-												<td class="styTableCell" style="width:8mm;border-left-width:0px;">
+												<td class="styTableCell" style="width:8mm;border-left-width:0px; ">
 													<span class="styTableCellPad"/>
 												</td>
 												<xsl:if test="(position() &gt;= $pos and position() &lt; $pos+3)">
-													<td class="styTableCell" style="width:32.5mm;text-align:center;font-size:8pt;border-left-width:0px;">
+													<td class="styTableCell" style="width:32.5mm;text-align:center;font-size:8pt;border-left-width:0px; ">
 														<xsl:call-template name="AddPositionNumber"/>
 														<span class="styTableCellPad" style="border-left-width:0px;"/>
 													</td>
-													<td class="styTableCell" style="width:38mm;text-align:center;font-size:8pt;border-left-width:0px;">
+													<td class="styTableCell" style="width:38mm;text-align:center;font-size:8pt;border-left-width:0px; ">
 														<xsl:call-template name="AddPositionNumber1"/>
 														<span class="styTableCellPad" style="border-left-width:0px;"/>
 													</td>
-													<td class="styTableCell" style="width:38mm;text-align:center;font-size:8pt;border-left-width:0px;">
+													<td class="styTableCell" style="width:38mm;text-align:center;font-size:8pt;border-left-width:0px; ">
 														<xsl:call-template name="AddPositionNumber2"/>
 														<span class="styTableCellPad" style="border-right-width:0px;"/>
 													</td>
@@ -1742,7 +1739,8 @@
 													<span style="font-size:7pt;float:left;padding-left:1.5mm;">Subtract line 20 from line 3 (rents) and/or 4 (royalties). If result is a (loss), see instructions</span>
 													<span style="font-size:7pt;float:left;padding-left:1.5mm;"> to find out if you must file <b>Form 6198</b>
 													</span>
-													<span class="styDotLn" style="padding-right:1mm;float:right;clear:none;">..</span>
+													<!--<img src="{$NonVersionedImagePath}/pen.gif"/> ss removed 6/14/2023 -->
+													<span class="styDotLn" style="padding-right:1mm;float:right;clear:none;">.</span>
 												</td>
 												<!-- Column 3 -->
 												<td class="styTableCell" style="text-align:center;width:8mm;vertical-align:bottom;">
@@ -2515,7 +2513,7 @@
 														<span class="styTableCellPad"/>
 													</td>
 													<td class="styTableCell" rowspan="1" style="width:37mm;border-right-width:0px;text-align:center;">
-														<span class="styTableCellPad"/>
+														<span class="styTableCellPad">Properties:</span>
 													</td>
 													<td class="styTableCell" rowspan="1" style="width:38mm;border-right-width:0px;text-align:center;border-right-width:1px;">
 														<span class="styTableCellPad"/>
@@ -2534,11 +2532,8 @@
 											<tr>
 												<td class="styTableCell" colspan="2" style="text-align:left;width:71mm;border-right-width:0px;border-bottom-width:0px;padding-top:0mm;">
 													<span class="styBoldText">
-														<span style="font-size:8pt;">Income:</span>
+														<span style="font-size:8pt; ">Income:</span>
 													</span>
-													<span class="styBoldText" style="font-size:8pt;float:right;padding-right:1mm;">
-                                                          Properties:
-                                                    </span>
 												</td>
 												<td class="styTableCell" colspan="1" style="width:8mm;">
 													<span class="styTableCellPad"/>
@@ -3586,7 +3581,7 @@
 									</xsl:for-each>
 								</xsl:if>
 							</tbody>
-						</table>
+							</table>
 						<!-- Generated Table (End) -->
 						<!--scroll here 23-->
 						<!-- Line 23a  -->
@@ -3831,9 +3826,9 @@
 					<div style="width:187mm;" class="styBB">
 						<div class="styPartName" style="width:15mm;">Part II</div>
 						<div class="styPartDesc" style="padding-left:3mm;font-weight:normal;height:auto;">
-							<span class="styBoldText">Income or Loss From Partnerships and S Corporations - Note:
-							</span> If you report a loss, receive a distribution, dispose of stock, or receive a loan repayment from an S corporation, you <b>must</b> check the box in column 
-							<b>(e)</b> on line 28 and attach the required basis computation.   If you report a loss from an at-risk activity for which <span class="styBoldText">any</span> amount is <span class="styBoldText">not</span> at risk, you <span class="styBoldText">must</span> check the box in column <b>(f)</b> on line 28 and attach <span class="styBoldText">Form 6198</span> (see instructions). 
+							<span class="styBoldText">Income or Loss From Partnerships and S Corporations</span><br/><b>Note:</b>
+							 If you report a loss, receive a distribution, dispose of stock, or receive a loan repayment from an S corporation, you <b>must</b> check the box in column 
+							<b>(e)</b> on line 28 and attach the required basis computation.   If you report a loss from an at-risk activity for which <span class="styBoldText">any</span> amount is <span class="styBoldText">not</span> at risk, you <span class="styBoldText">must</span> check the box in column <b>(f)</b> on line 28 and attach <span class="styBoldText">Form 6198.</span> See instructions. 
                   </div>
 					</div>
 					<!-- End Part II Title -->
@@ -4099,7 +4094,7 @@
 										<!--              This is the C checkbox       -->                                              
 										<td class="styTableCell" style="width:31.9mm;height:5.5mm;text-align:center">
 											<input type="Checkbox"  class="styCkbox">
-											<xsl:attribute name="alt">ForeignPartnership <xsl:number format="A" value="position()"/></xsl:attribute>
+											<xsl:attribute name="alt">ForeignPartnership <xsl:number format="A" value="1"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupForeignPartnershipInd"/>
 													</xsl:call-template>
@@ -4112,7 +4107,7 @@
 										<!--              This is the E checkbox       --> 
 										<td class="styTableCell" style="width:32mm;height:5.5mm;border-right-width:0px;text-align:center;">
 											<input type="Checkbox"  class="styCkbox">
-											<xsl:attribute name="alt">BasisComputationRequiread <xsl:number format="A" value="position()"/></xsl:attribute>
+											<xsl:attribute name="alt">BasisComputationRequiread <xsl:number format="A" value="1"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupBasisComputationRequiredInd"/>
 													</xsl:call-template>
@@ -4120,7 +4115,7 @@
 										</td>
 										<td class="styTableCell" style="width:32mm;height:5.5mm;border-right-width:0px;text-align:center;border-left-width:1px;">
 										<input type="Checkbox"  class="styCkbox">
-										<xsl:attribute name="alt">AnyAmountIsNotAtRisk <xsl:number format="A" value="position()"/></xsl:attribute>
+										<xsl:attribute name="alt">AnyAmountIsNotAtRisk <xsl:number format="A" value="1"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupAnyAmountIsNotAtRiskInd"/>
 													</xsl:call-template>
@@ -4147,7 +4142,7 @@
 										</td>
 										<td class="styTableCell" style="width:31.9mm;height:5.5mm;clear:none;text-align:center">
 											<input type="Checkbox"  class="styCkbox">
-											<xsl:attribute name="alt">ForeignPartnership <xsl:number format="A" value="position()"/></xsl:attribute>
+											<xsl:attribute name="alt">ForeignPartnership <xsl:number format="A" value="2"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupForeignPartnershipInd"/>
 													</xsl:call-template>
@@ -4158,7 +4153,7 @@
 										</td>
 										<td class="styTableCell" style="width:32mm;height:5.5mm;clear:none;border-right-width:0px;text-align:center">
 										<input type="Checkbox"  class="styCkbox">
-										<xsl:attribute name="alt">BasisComputationRequiread <xsl:number format="A" value="position()"/></xsl:attribute>
+										<xsl:attribute name="alt">BasisComputationRequiread <xsl:number format="A" value="2"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupBasisComputationRequiredInd"/>
 													</xsl:call-template>
@@ -4166,7 +4161,7 @@
 										</td>
 										<td class="styTableCell" style="width:32mm;height:5.5mm;clear:none;border-right-width:0px;text-align:center;border-left-width:1px;">
 										<input type="Checkbox"  class="styCkbox">
-										<xsl:attribute name="alt">AnyAmountIsNotAtRisk <xsl:number format="A" value="position()"/></xsl:attribute>
+										<xsl:attribute name="alt">AnyAmountIsNotAtRisk <xsl:number format="A" value="2"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupAnyAmountIsNotAtRiskInd"/>
 													</xsl:call-template>
@@ -4193,7 +4188,7 @@
 										</td>
 										<td class="styTableCell" style="width:31.9mm;height:5.5mm;clear:none;text-align:center">
 											<input type="Checkbox"  class="styCkbox">
-											<xsl:attribute name="alt">ForeignPartnership <xsl:number format="A" value="position()"/></xsl:attribute>
+											<xsl:attribute name="alt">ForeignPartnership <xsl:number format="A" value="3"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupForeignPartnershipInd"/>
 													</xsl:call-template>
@@ -4204,7 +4199,7 @@
 										</td>
 										<td class="styTableCell" style="width:32mm;height:5.5mm;clear:none;border-right-width:0px;text-align:center">
 											<input type="Checkbox"  class="styCkbox">
-											<xsl:attribute name="alt">BasisComputationRequiread <xsl:number format="A" value="position()"/></xsl:attribute>
+											<xsl:attribute name="alt">BasisComputationRequiread <xsl:number format="A" value="3"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupBasisComputationRequiredInd"/>
 													</xsl:call-template>
@@ -4212,7 +4207,7 @@
 										</td>
 										<td class="styTableCell" style="width:32mm;height:5.5mm;clear:none;border-right-width:0px;text-align:center;border-left-width:1px;">
 										<input type="Checkbox"  class="styCkbox">
-										<xsl:attribute name="alt">AnyAmountIsNotAtRisk <xsl:number format="A" value="position()"/></xsl:attribute>
+										<xsl:attribute name="alt">AnyAmountIsNotAtRisk <xsl:number format="A" value="3"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupAnyAmountIsNotAtRiskInd"/>
 													</xsl:call-template>
@@ -4239,7 +4234,7 @@
 										</td>
 										<td class="styTableCell" style="width:31.9mm;height:5.5mm;clear:none;text-align:center">
 											<input type="Checkbox"  class="styCkbox">
-											<xsl:attribute name="alt">ForeignPartnership <xsl:number format="A" value="position()"/></xsl:attribute>
+											<xsl:attribute name="alt">ForeignPartnership <xsl:number format="A" value="4"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupForeignPartnershipInd"/>
 													</xsl:call-template>
@@ -4250,7 +4245,7 @@
 										</td>
 										<td class="styTableCell" style="width:32mm;height:5.5mm;clear:none;border-right-width:0px;text-align:center">
 											<input type="Checkbox"  class="styCkbox">
-											<xsl:attribute name="alt">BasisComputationRequiread <xsl:number format="A" value="position()"/></xsl:attribute>
+											<xsl:attribute name="alt">BasisComputationRequiread <xsl:number format="A" value="4"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupBasisComputationRequiredInd"/>
 													</xsl:call-template>
@@ -4258,7 +4253,7 @@
 										</td>
 										<td class="styTableCell" style="width:32mm;height:5.5mm;clear:none;border-right-width:0px;text-align:center;border-left-width:1px;">
 										<input type="Checkbox"  class="styCkbox">
-										<xsl:attribute name="alt">AnyAmountIsNotAtRisk <xsl:number format="A" value="position()"/></xsl:attribute>
+										<xsl:attribute name="alt">AnyAmountIsNotAtRisk <xsl:number format="A" value="4"/></xsl:attribute>
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="IRS1040ScheduleEPartnershipOrSCorpGroupAnyAmountIsNotAtRiskInd"/>
 													</xsl:call-template>
@@ -5421,9 +5416,9 @@
 							<div style="width:99mm;float:left;clear:none;padding-top:0.5mm;">
 								<span class="styBoldText">Reconciliation of farming and fishing income.</span> Enter your <span class="styBoldText">gross  </span> farming
                            and fishing income reported on Form 4835, line 7; Schedule K-1 (Form
-                           1065), box 14, code B; Schedule K-1 (Form 1120-S), box 17, code AC; and
+                           1065), box 14, code B; Schedule K-1 (Form 1120-S), box 17, code AD; and
                            Schedule
-                           <span style="float:left;">K-1 (Form 1041), box 14, code F (see instructions)</span>
+                           <span style="float:left;">K-1 (Form 1041), box 14, code F. See instructions.</span>
 								<span class="styDotLn" style="clear:none;padding-right:1mm;float:right;">.......</span>
 							</div>
 							<div class="styShadingCell" style="height:8mm;width:41.95mm;border-top-width:1px;border-bottom-width:1px;">

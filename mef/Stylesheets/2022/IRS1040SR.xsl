@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Eugenia McDonald on 10/26/2022 -->
+<!-- Last Modified by Sergey Smirnov on 5/18/2023 -->
 <!DOCTYPE xsl:stylesheet [
   <!ENTITY nbsp "&#160;">
   <!ENTITY ndash "&#8211;">
@@ -164,7 +164,7 @@
 								<xsl:call-template name="PopulateSpan">
 									<xsl:with-param name="TargetNode" select="$FormData/IndividualReturnFilingStatusCd"/>
 								</xsl:call-template>
-								<div style="width:55mm;height:4mm;">
+								<div style="height:4mm;margin-right:2mm">
 									<input type="checkbox" class="styCkboxNM" style="margin-right:1mm;
 										margin-bottom:1.5mm;">
 										<xsl:call-template name="PopulateEnumeratedCheckbox">
@@ -180,7 +180,7 @@
 											<xsl:with-param name="BackupName">IRS1040IndividualReturnFilingStatusCd[1]</xsl:with-param>
 										</xsl:call-template>Single</label>
 								</div>
-								<div style="height:4mm;width:50mm;">
+								<div style="height:4mm;margin-right:2mm">
 									<input type="checkbox" class="styCkboxNM" style="margin-right:1mm;">
 										<xsl:call-template name="PopulateEnumeratedCheckbox">
 											<xsl:with-param name="TargetNode" select="$FormData/IndividualReturnFilingStatusCd"/>
@@ -195,7 +195,7 @@
 											<xsl:with-param name="BackupName">IRS1040IndividualReturnFilingStatusCd[2]</xsl:with-param>
 										</xsl:call-template>Married filing jointly</label>
 								</div>
-								<div style="height:4mm;width:60mm;">
+								<div style="height:4mm; margin-right:2mm">
 									<input type="checkbox" class="styCkboxNM" style="margin-right:1mm;">
 										<xsl:call-template name="PopulateEnumeratedCheckbox">
 											<xsl:with-param name="TargetNode" select="$FormData/IndividualReturnFilingStatusCd"/>
@@ -210,8 +210,7 @@
 											<xsl:with-param name="BackupName">IRS1040IndividualReturnFilingStatusCd[3]</xsl:with-param>
 										</xsl:call-template>Married filing separately (MFS)</label>
 								</div>
-								<br />
-								<div style="height:4mm;width:55mm;">
+								<div style="height:4mm;margin-right:2mm">
 									<input type="checkbox" class="styCkboxNM" style="margin-right:1mm;">
 										<xsl:call-template name="PopulateEnumeratedCheckbox">
 											<xsl:with-param name="TargetNode" select="$FormData/IndividualReturnFilingStatusCd"/>
@@ -226,7 +225,7 @@
 											<xsl:with-param name="BackupName">IRS1040IndividualReturnFilingStatusCd[4]</xsl:with-param>
 										</xsl:call-template>Head of Household (HOH)</label>
 								</div>
-								<div style="height:4mm;width:70mm;">
+								<div style="height:4mm;">
 									<input type="checkbox" class="styCkboxNM" style="margin-right:1mm;">
 										<xsl:call-template name="PopulateEnumeratedCheckbox">
 											<xsl:with-param name="TargetNode" select="$FormData/IndividualReturnFilingStatusCd"/>
@@ -244,7 +243,7 @@
 							</span>
 							<br />
 							If you checked the MFS box, enter the name of your spouse. If you checked the HOH
-							or	QSS box, enter the child's name if the qualifying person is a child but not your dependent 
+							or	QSS box, enter the child's name if the qualifying person is a child but not your dependent: 
 							<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/SpouseNm"/>
 							</xsl:call-template>
@@ -971,10 +970,10 @@
 							<span style="float:left;width:16.5mm;padding-left:2mm;font-size:9pt;font-family:Arial ;">Attach</span>
 						</div>
 						<div style="width:100%;border-left:1px solid black;border-right:none;padding-left:3mm;">
-							<span style="float:left;width:16.5mm;font-size:9pt;font-family:Arial ;">Sch. B if</span>
+							<span style="float:left;width:16.5mm;font-size:9pt;font-family:Arial ;">Schedule B</span>
 						</div>
 						<div style="width:100%;border:1px solid black;border-top:none;border-right:none;border-radius:0px 0px 8px 8px;padding-left:3mm;padding-bottom:2mm">
-							<span style="float:left;width:16.5mm;font-size:9pt;font-family:Arial ;">required.</span>
+							<span style="float:left;width:16.5mm;font-size:9pt;font-family:Arial ;"> if required.</span>
 						</div>					
 						<div style="height:1mm;"></div>						
 					</div>
@@ -1607,7 +1606,7 @@
 									<xsl:call-template name="PopulateLabel">
 										<xsl:with-param name="TargetNode" select="$FormData/Form4972Ind"/>
 										<xsl:with-param name="BackupName">F1040Form4972Ind</xsl:with-param>
-									</xsl:call-template> Form 4972</label>
+									</xsl:call-template> Form(s) 4972</label>
 									<xsl:call-template name="SetFormLinkInline">
 										<xsl:with-param name="TargetNode" select="$FormData/Form4972Ind"/>
 									</xsl:call-template>
@@ -2277,7 +2276,7 @@
 						<div class="sty1040SRLN" style="">
 							<div class="styLNLeftNumBox" style="height:8mm;">37</div>
 							<div class="sty1040SRDesc" style="height:8mm;padding-top:.5mm">
-								Subtract line 33 from line 24. This is the <strong>amount you owe.</strong><br/>For details on how to pay, go to <span style="font-style:italic;">www.IRS.gov/Payment</span> or see instructions
+								Subtract line 33 from line 24. This is the <strong>amount you owe.</strong><br/>For details on how to pay, go to <span style="font-style:italic;">www.irs.gov/Payments</span> or see instructions
 								<span style="float:right">
 									<span class="sty1040SRDotLn" style="float:none;margin-right:-11px;">...</span>
 									<span style="width:8px;"/>
@@ -2518,26 +2517,27 @@
 									</span>
 								</div>
 							</div>
-							<div class="" style="width:163mm;float:left;clear:none;border-top:1px solid black;height:4mm">
+							<div class="" style="width:163mm;float:left;clear:none;border-top:1px solid black;">
 								<div style="width:69.6mm;float:left;font-size:7pt;">
 									Phone no. 
 									<span style="width:4px;"/>
-									<xsl:if test="$FormData/PhoneNum">
+									<xsl:if test="$RtnHdrData/Filer/PhoneNum">
 										<xsl:call-template name="PopulatePhoneNumber">
-											<xsl:with-param name="TargetNode" select="$FormData/PhoneNum"/>
+											<xsl:with-param name="TargetNode" select="$RtnHdrData/Filer/PhoneNum"/>
 										</xsl:call-template>
 									</xsl:if>
-									<xsl:if test="$FormData/ForeignPhoneNum">
+									<xsl:if test="$RtnHdrData/Filer/ForeignPhoneNum">
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$FormData/ForeignPhoneNum"/>
+											<xsl:with-param name="TargetNode" select="$RtnHdrData/Filer/ForeignPhoneNum"/>
 										</xsl:call-template>
 									</xsl:if>
 								</div>
 								<div style="width:92.5mm;float:left;padding-left:2mm;font-size:7pt;
-									border-left:1px solid black;height:4mm">Email address<span style="width:4px;"/> 
+											border-left:1px solid black;">
+									Email address
+									<span style="width:4px;"/> 
 									<xsl:call-template name="PopulateText">
-										<xsl:with-param name="TargetNode" 
-						select="$RtnHdrData/AdditionalFilerInformation/AtSubmissionFilingGrp/EmailAddressTxt"/>
+										<xsl:with-param name="TargetNode" select="$RtnHdrData/AdditionalFilerInformation/AtSubmissionFilingGrp/EmailAddressTxt"/>
 									</xsl:call-template>
 								</div>
 							</div>

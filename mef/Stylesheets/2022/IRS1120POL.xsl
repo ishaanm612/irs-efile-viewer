@@ -13,6 +13,7 @@
 <!-- Updated per 46028 IBM Defect 6/21/16 Foreign address overlap at header, Special Condition Pen missing and Spec Cond Pen not in Add Data Section by Robert L Jones -->
 <!-- Updated 9/29/2016 per PDF Review by Robert L Jones -->
 <!-- Updated per UWR 195015 5/19/17 by Robert L Jones -->
+<!-- 09/26/2022 - Changes for UWR 860875 - AJH -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format">
   <xsl:include href="CommonPathRef.xsl"/>
   <xsl:include href="PopulateTemplate.xsl"/>
@@ -92,7 +93,7 @@
             <div class="IRS1120POL_OMB">OMB No. 1545-0047</div>
             <!-- Tax Year -->
             <div class="IRS1120POL_TaxYear">
-							<span>20<span class="styTYColor">21</span>
+							<span>20<span class="styTYColor">22</span>
 							</span>
             </div>
           </div>
@@ -100,7 +101,7 @@
         <!-- commenting line -->
         <div class="IRS1120POL_LineContainer">
           <div class="IRS1120POL_LineBottom">
-            For calendar year 2021 or other tax year beginning
+            For calendar year 2022 or other tax year beginning
              <span style="width: 18mm">
 							<xsl:call-template name="PopulateReturnHeaderTaxPeriodBeginDate"/>
             </span>    
@@ -936,7 +937,7 @@
 				<div class="IRS1120POL_LabelSpaceWide" style="padding-top:1mm;border-right-width:0px;width:0;"/>
 				<div class="IRS1120POL_LineIndex" style="padding-top:1mm">1</div>
 				<div class="IRS1120POL_LineDescLong" style="width:142mm;border-right-width:0px;font-size:7pt;padding-top:1mm">
-              At any time during the 2021 calendar year, did the organization have an interest in or a signature or other 
+              At any time during the 2022 calendar year, did the organization have an interest in or a signature or other 
               </div>
  </div>
  
@@ -1376,7 +1377,7 @@ See instructions.
 					<div style="width:30mm;float:left;text-align:center;">
             Cat. No. 11523K
           </div>
-          <div style="width:37mm;text-align:right;float:left;">Form <span style="font-weight:bold;">1120-POL </span> (2021)</div>
+          <div style="width:37mm;text-align:right;float:left;">Form <span style="font-weight:bold;">1120-POL </span> (2022)</div>
         </div>
         <!-- leftover data table -->
 				

@@ -29,6 +29,7 @@
 				<meta http-equiv="Cache-Control" content="no-cache"/>
 				<meta http-equiv="Expires" content="0"/>
 				<!-- No Proxy Caching -->
+				<meta http-equiv="Cache-Control" content="private"/>line 29
 				<meta http-equiv="Cache-Control" content="private"/>
 				<!-- Define Character Set -->
 				<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
@@ -2876,23 +2877,18 @@ province, country, and ZIP or foreign postal code<br/><br/>
 					</div>
 					<!-- SCHEDULE B Line 29-->
 					<div class="styBB" style="width:187mm">
-						<div class="styLNLeftNumBox" style="height:4mm">29</div>
-						<div class="styLNDesc" style="height:4mm;width:167mm">
-						  List the total number of separate Schedules K-1 and Schedules K-3 that you did not or will not furnish timely in 
-						  accordance with section 6031(b)
+						<div class="styLNLeftNumBox" style="height:4mm;padding-left:1.5mm;">29</div>
+						<div class="styLNDesc" style="height:4mm;width:167mm;">Reserved for future use
 							<span style="width:1.8mm"/>
-							<span style=" letter-spacing:3.2mm; font-weight:bold; ">........................</span>
-                            <span style="height:4mm;width:1mm;"/>
-							<img src="{$ImagePath}/1065_Bullet_Sm.gif" alt="Right arrow"/>
-							<span style="width:1mm;"/>
-							<span style="height:3mm;width:30mm;text-align:right;">
-								<xsl:call-template name="PopulateAmount">
+							<span style=" letter-spacing:3.2mm; font-weight:bold; ">..........................</span>
+							<span style="height:4mm;width:30mm;text-align:right;">
+								<!--<xsl:call-template name="PopulateAmount">
 									<xsl:with-param name="TargetNode" select="$Form1065ScheduleB/SchK1K3NotTmlyFurnSect6031bCnt"/>
-								</xsl:call-template>
+								</xsl:call-template>-->
 							</span>
 						</div>
-						<div class="styIRS1065LNYesNoBox" style="height:8.2mm;right-border-width:0;background:gray;         border-bottom-width:0;"/>
-						<div class="styIRS1065LNYesNoBox" style="height:8.2mm;background:gray;         border-bottom-width:0;"/>
+						<div class="styIRS1065LNYesNoBox" style="height:4mm;right-border-width:0;background:gray;border-bottom-width:0;"/>
+						<div class="styIRS1065LNYesNoBox" style="height:4mm;background:gray;border-bottom-width:0;"/>
 					</div>
 					<!-- SCHEDULE B Line 30-->
 					<div style="width:187mm">

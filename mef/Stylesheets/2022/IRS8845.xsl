@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last modified on 11/16/2016 by Harold Nadel for Defect # 47376 updated 2nd bullet in header with correct verbage, #46791 updated  -->
-<!-- Last modified on 11/02/2016 by Harold Nadel for Defect # 46791 updated amount lines with blue shading per PDF review-->
-<!-- Last modified on 9/30/2016 by Harold Nadel for WR# 183722 update tax year to TY2016-->
-<!-- Last modified 1/13/2016 by Harold Nadel for Defect #59701  to update for TY2015 -->
-<!-- Last modified on 4/06/2015 by Harold Nadel for WR # 123023 changes for IE11-->
-<!-- Last modified on 3/2/2015 by Harold Nadel for Defect #42527 updated BusinessNameLine1 to BusinessNameLine1Txt and BusinessNameLine2 to BusinessNameLine2Txt.  -->
-<!-- Last modified on 2/17/2015 by Harold Nadel for WR #150654 matched changes to PDF file dated 12/18/2014 -->
-<!-- Last modified on 1/15/2015 by Harold Nadel for KISAM # IM01963843 changed verbage on line 5 and lined the dots on line 5 and line 7.  -->
-<!-- 08/11/2017 - Changes made for UWR 199057 - Jeremy Nichols -->
-<!-- Last modified on 2/11/20 by Anthony Heinle for UWR#232709 -->
-<!-- Last modified on 6/17/20 by Anthony Heinle for UWR#232709 and defects 64834/64835 -->
+	<!-- 05/11/2023 - Changes for TID - AJH -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="AddHeader.xsl"/>
@@ -57,7 +47,7 @@
 						<div class="styFNBox" style="width:31mm;height:21mm;">
           Form <span class="styFormNumber">8845</span>
 							<br/>
-							<span style="font-size:6pt;">(Rev. January 2022)</span>
+							<span style="font-size:6pt;">(Rev. January 2020)</span>
 							<br/>
 							<div style="padding-top:2.85mm;">
 								<span class="styAgency">Department of the Treasury</span>
@@ -117,23 +107,15 @@
 								</xsl:otherwise>
 							</xsl:choose>
 						</div>
-						<div class="styEINBox" style="width:30mm;height:4mm;padding-left:2mm;font-size:7pt;">
-        Identifying number<br/>
+						<div class="styEINBox" style=" padding-left:2mm;font-size:7pt;">
+							<span class="BoldText">Identifying number</span>
 							<br/>
-							<span style="font-weight:normal;">
-								<xsl:choose>
-									<xsl:when test="$RtnHdrData/ReturnTypeCd='1040NR'">
-										<xsl:call-template name="PopulateReturnHeaderFiler">
-											<xsl:with-param name="TargetNode">PrimarySSN</xsl:with-param>
-										</xsl:call-template>
-									</xsl:when>
-									<xsl:otherwise>
-										<xsl:call-template name="PopulateReturnHeaderFiler">
-											<xsl:with-param name="TargetNode">EIN</xsl:with-param>
-										</xsl:call-template>
-									</xsl:otherwise>
-								</xsl:choose>
-							</span>
+							<div style="text-align:left;font-weight:normal;">
+								<br/>
+								<xsl:call-template name="PopulateFilerTIN">
+									<xsl:with-param name="TargetNode" select="$Form8845Data"/>
+								</xsl:call-template>
+							</div>
 						</div>
 					</div>
 					<!-- End Names and Identifying number section -->
@@ -204,11 +186,11 @@
 						<!-- Line 4 -->
 						<div style="width:187mm;">
 							<div style="float:left;clear:none;">
-								<div class="styLNLeftNumBoxSD" style="height:auto;padding-top:1mm;">4</div>
-								<div class="styLNDesc" style="width:139mm;height:auto;padding-top:1mm;">
-                  Multiply line 3 by 20% (0.20). See instructions for the adjustment you must make to your deduction for salaries and wages.
-                  <!--Dotted Line-->
-                  <span style="letter-spacing:4mm;font-weight:bold;float:right;padding-right:1mm;skiplink:display:none;">......................</span>
+								<div class="styLNLeftNumBoxSD" style="height:auto;padding-top:4.5mm;">4</div>
+								<div class="styLNDesc" style="width:139mm;height:auto;padding-top:4.5mm;">
+                  Multiply line 3 by 20% (0.20). See instructions for the adjustment you must make to salaries and wages.
+                  <!--Dotted Line
+                  <span style="letter-spacing:4mm;font-weight:bold;float:right;padding-right:1mm;skiplink:display:none;">......................</span>-->
                   						<!-- Form to Form Link -->
 										<xsl:call-template name="SetFormLinkInline">
 											<xsl:with-param name="TargetNode" select="$Form8845Data/CurrentYearCreditAmt"/>
@@ -343,7 +325,7 @@
 						<span style="width:13px;"/>
 						<span style="width:13px;"/>
 						<span style="width:7px;"/>
-            Form <span class="styBoldText">8845</span> (Rev. 1-2022)
+            Form <span class="styBoldText">8845</span> (Rev. 1-2020)
           </div>
 					<br/>
 					<br class="pageEnd"/>

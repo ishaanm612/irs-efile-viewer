@@ -175,9 +175,10 @@
 					</div>
 					<!-- END PART I HEADER -->
 					<!-- print logic -->
-					<xsl:call-template name="SetInitialState"/>
+					<!--<xsl:call-template name="SetInitialState"/>-->
 					<!-- end -->
 					<div style="width:187mm; float:left;">
+					<xsl:call-template name="SetInitialState"/>
 					<!-- commented out summary="Short-Term Capital Gains and Losses - Assets Held One Year or Less" -->
 					<!-- due to JAWS issue where it is being read by JAWS but does not show in the display -->					
 					<table class="styTable" style="width:187mm;border-color:black;font-size:7pt;" cellspacing="0" >

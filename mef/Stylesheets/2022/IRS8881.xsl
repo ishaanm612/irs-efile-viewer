@@ -65,7 +65,7 @@
 
         <div class="styFNBox" style="width:30mm;height:21mm;">
             Form <span class="styFormNumber">8881</span>
-            <br/><span style="font-size:6pt;">(Rev. December 2020)</span>
+            <br/><span style="font-size:6pt;">(Rev. December 2022)</span>
       <br/>
             <div style="padding-top:2mm;">
               <span class="styAgency" >Department of the Treasury</span><br/>
@@ -406,7 +406,7 @@
         </div>    
         <div style="float:right">
           <span style="margin-right:16mm; font-size:7pt">Cat. No. 33435N</span>          
-          Form <b>8881</b> (Rev. 12-2020)
+          Form <b>8881</b> (Rev. 12-2022)
         </div>      
       </div> 
       <br/><br/> 

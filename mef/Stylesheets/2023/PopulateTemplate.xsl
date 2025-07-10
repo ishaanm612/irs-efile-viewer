@@ -2328,10 +2328,12 @@ Log:
       var myDisplayName = "<xsl:value-of select="$DisplayName"/>";
       var myRegulation = "<xsl:value-of select='$Regulation'/>";
       <xsl:variable name="myDocName" select="/AppData/SubmissionHeaderAndDocument/SubmissionDocument/child::*[1]/@documentName"/>
-				<xsl:variable name="myPrintName" select="name(/AppData/SubmissionHeaderAndDocument/SubmissionDocument/child::*[1])"/>
-				<xsl:variable name="isLandscapeDoc" select="document('PrintMode.xml')/PrintMode/Landscape/Document[@documentName = $myPrintName]"/>
+	  <xsl:variable name="myPrintName" select="name(/AppData/SubmissionHeaderAndDocument/SubmissionDocument/child::*[1])"/>
+	  <xsl:variable name="myLanguageInd" select="/AppData/SubmissionHeaderAndDocument/SubmissionDocument/child::*[1]/SpanishLanguageInd"/>
+	  <xsl:variable name="isLandscapeDoc" select="document('PrintMode.xml')/PrintMode/Landscape/Document[@documentName = $myPrintName]"/>
       var myDocName = '<xsl:value-of select="$myDocName"/>';
       var myPrintName = '<xsl:value-of select="$myPrintName"/>';
+	  var myLanguageInd = '<xsl:value-of select="$myLanguageInd"/>';
       var myNotInDBIndicator = '<xsl:value-of select="/AppData/Parameters/NotInDBIndicator"/>'; 
       var myStartPosition = '<xsl:value-of select="/AppData/Parameters/StartPosition"/>';
       var myDocumentLength = '<xsl:value-of select="/AppData/Parameters/DocumentLength"/>';
@@ -2342,11 +2344,13 @@ Log:
         rtnTree.setK1SequenceNumber(K1SeqNum);
       }
       var submissionType = '<xsl:value-of select="/AppData/Parameters/SubmissionType"/>';
+      <!-- Note: Submission Types 1040PR, 940PR and 943PR are supported in early, non-production 2023 versions -->
       if (((submissionType == '1040PR') &amp;&amp; (myPrintName == 'IRS1040SSPR')) || 
           ((submissionType == '940PR') &amp;&amp; (myPrintName == 'IRS940_940PR')) ||
           ((submissionType == '941PR') &amp;&amp; (myPrintName == 'IRS941SSPR')) ||
           ((submissionType == '941PR') &amp;&amp; (myPrintName == 'IRS941ScheduleB')) ||
-          ((submissionType == '943PR') &amp;&amp; (myPrintName == 'IRS943_943PR'))) {
+          ((submissionType == '943PR') &amp;&amp; (myPrintName == 'IRS943_943PR')) ||
+          ((submissionType == '1040SS') &amp;&amp; (myPrintName == 'IRS1040SS') &amp;&amp; (myLanguageInd == 'X'))) {
               var language = '<xsl:value-of select="/AppData/Parameters/Language"/>';
               myPrintName = myPrintName + language;
       } 
@@ -2424,7 +2428,7 @@ Log:
 		<link rel="stylesheet" type="text/css" name="HeaderStyleSheet" href="{$CSSPath}/header.css"/>
 		<link rel="stylesheet" type="text/css" name="BodyStyleSheet" href="{$CSSPath}/body.css"/>
 		<link rel="stylesheet" type="text/css" name="General" href="{$CSSPath}/general.css"/>
-		 <!--</xsl:if>-->
+		<!-- </xsl:if>-->
 
 	</xsl:template>
 	<!--
@@ -2707,7 +2711,7 @@ Log:
 	</xsl:template>
 	<!--
 ***************************************************************************************************************************************************************
-Name:          SetFormLinkInlineRRD (RRD version)
+Name:           SetFormLinkInlineRRD (RRD version)
 Description:    Template to display the form link image (usually pushpin image); image is displayed inline (normally) using img tags
 Req Param:  
 Opt Param:   
@@ -2760,10 +2764,10 @@ Log:
 			<!-- This is the div that displays the attachment document list after the pushpin is clicked. -->
 			<div id="attachmentListDiv" class="styAttachmentDocListDiv">
 				<div id="popHead" class="styAttachmentDocListDivTitle">
-					 <span style="width:54mm;padding-bottom:1mm;padding-left:2mm;">
+					 <span style="width:54mm;padding-top:7px;padding-left:8px;float:left;">
 						   List of Attached Documents:
 					 </span>
-					 <span  style="width:15mm;padding-top:1mm;text-align:right;">
+					 <span  style="width:15mm;padding-top:4px;margin-right:12px;float:right;">
 						   <input type="button" value="Close" class="styButton" style="height:20px;width:55px;" onclick="closeAttachmentDocumentListDiv()" />
 					 </span>
 				</div>
@@ -2771,23 +2775,47 @@ Log:
 					// Content
 				</div>
 			</div>
-			<script type="text/javascript">
-				var listDiv = document.getElementById("attachmentListDiv");
-				var popBody = document.getElementById("popBody");
-				
-				/* Display the attachment document list */
-				function displayAttachmentDocumentListDiv(aDocList) {
-				  var docIdList = aDocList.split(" ");
-			
-				  // If there is 1 attached document, display the document directly.
-				  if( docIdList.length == 1 )	{
-				    top.ReturnTree.displayFormByDocId( docIdList[0] );
-				    return;
-				  } else if(docIdList.length > 1) {				  
-					var docNameList = top.ReturnTree.getDisplayNameByDocId(docIdList);	
-					var displayIdList = top.ReturnTree.getDisplayIdByDocId(docIdList);
-					var colorSchemaObj = "<xsl:value-of select="$ColorSchema"/>";
-					var colorSchema = colorSchemaObj.split(",");
+      <script type="text/javascript">
+        var listDiv = document.getElementById("attachmentListDiv");
+        var popHead = document.getElementById("popHead");
+        var popBody = document.getElementById("popBody");
+        var pushpinX = 20;
+        var pushpinY = 20;
+		listDiv.style.width = "300px";
+
+        /* This function processes the list of the attached documents for display */
+        function displayAttachmentDocumentListDiv(aDocList) {
+
+          // The pushpin location is saved for the upper-left corner of the attachment list
+          pushpinX = event.clientX;
+          pushpinY = event.clientY;
+          listDiv.style.left= pushpinX + "px";
+          listDiv.style.top= pushpinY + "px";
+
+          var docIdList = aDocList.trim().replace(/\s+/g," ").split(" ");
+          if( (0 == docIdList.length ) || top.ReturnTree.hasHiddenDocsToRetrieve(aDocList) ) {
+            // For cases with more than 150 Sch K-1 (Form 1065/1065B), need to proceed separately
+            // if not every docId is in the current content of the hidden frame
+            return;
+          }
+          if( docIdList.length == 1 ) {
+            // If there is only one attached document, display the document directly.
+            top.ReturnTree.displayFormByDocId( docIdList[0] );
+          }
+          else {
+            // display the attachmant list
+            var docNameList = top.ReturnTree.getDisplayNameByDocId(docIdList);
+            var displayIdList = top.ReturnTree.getDisplayIdByDocId(docIdList);
+            displayAttachmentList(docIdList, docNameList, displayIdList);
+          }
+          return;
+        }
+
+        /* This function displays the attachment document list */
+        function displayAttachmentList(docIdList, docNameList, displayIdList) {
+
+          var colorSchemaObj = "<xsl:value-of select="$ColorSchema"/>";
+          var colorSchema = colorSchemaObj.split(",");
 
 					var errCode = "InvalidDocId";
 					var errMsg ="Document Not Found";					  
@@ -2822,14 +2850,26 @@ Log:
 						}
 					} 			  
 					popBody.innerHTML = popBodyContent;
-				  }
-				  
-				  // For more than 1 attachments, display the document attachment list
-				  listDiv.style.display = "block";
-				  listDiv.style.left= event.clientX + "px";
-				  listDiv.style.top= event.clientY + "px";
-				}
-				
+								  
+          // For cases with multiple attachments, display the attachment list
+          listDiv.style.display = "block";
+          listDiv.style.left= pushpinX + "px";
+          listDiv.style.top= pushpinY + "px";
+        }
+		
+		// Function for display of resized popup window for the list of attachments
+        var divWidthChange = new ResizeObserver( entries => {
+          // The width of the popup window will not be resized to less than 300px
+          if ( Number(listDiv.style.width.replace("px", "")) &gt;= 300 ) {
+            popHead.style.width = "100%";
+            popBody.style.width = "100%";
+          } else {
+            popHead.style.width = "300px";
+            popBody.style.width = "300px";
+          }
+        });
+        divWidthChange.observe( listDiv );
+						
 				/* Close the attachment document list */
 				function closeAttachmentDocumentListDiv() {
 				  listDiv.style.display = "none";
@@ -2842,7 +2882,7 @@ Log:
 	
 	<!--
 ***************************************************************************************************************************************************************
-Name:          SetFormLinkInline
+Name:           SetFormLinkInline
 Description:    Template to display the form link image (usually pushpin image); image is displayed inline (normally) using img tags
 Req Param:  
 Opt Param:   
@@ -2895,10 +2935,10 @@ Log:
 			<!-- This is the div that displays the attachment document list after the pushpin is clicked. -->
 			<div id="attachmentListDiv" class="styAttachmentDocListDiv">
 				<div id="popHead" class="styAttachmentDocListDivTitle">
-					 <span style="width:54mm;padding-bottom:1mm;padding-left:2mm;">
+					 <span style="width:54mm;padding-top:7px;padding-left:8px;float:left;">
 						   List of Attached Documents:
 					 </span>
-					 <span  style="width:15mm;padding-top:1mm;text-align:right;">
+					 <span  style="width:15mm;padding-top:4px;margin-right:12px;float:right;">
 						   <input type="button" value="Close" class="styButton" style="height:20px;width:55px;" onclick="closeAttachmentDocumentListDiv()" />
 					 </span>
 				</div>
@@ -2906,23 +2946,47 @@ Log:
 					// Content
 				</div>
 			</div>
-			<script type="text/javascript">
-				var listDiv = document.getElementById("attachmentListDiv");
-				var popBody = document.getElementById("popBody");
-				
-				/* Display the attachment document list */
-				function displayAttachmentDocumentListDiv(aDocList) {
-				  var docIdList = aDocList.split(" ");
-			
-				  // If there is 1 attached document, display the document directly.
-				  if( docIdList.length == 1 )	{
-				    top.ReturnTree.displayFormByDocId( docIdList[0] );
-				    return;
-				  } else if(docIdList.length > 1) {				  
-					var docNameList = top.ReturnTree.getDisplayNameByDocId(docIdList);	
-					var displayIdList = top.ReturnTree.getDisplayIdByDocId(docIdList);
-					var colorSchemaObj = "<xsl:value-of select="$ColorSchema"/>";
-					var colorSchema = colorSchemaObj.split(",");
+      <script type="text/javascript">
+        var listDiv = document.getElementById("attachmentListDiv");
+        var popHead = document.getElementById("popHead");
+        var popBody = document.getElementById("popBody");
+        var pushpinX = 20;
+        var pushpinY = 20;
+		listDiv.style.width = "300px";
+
+        /* This function processes the list of the attached documents for display */
+        function displayAttachmentDocumentListDiv(aDocList) {
+
+          // The pushpin location is saved for the upper-left corner of the attachment list
+          pushpinX = event.clientX;
+          pushpinY = event.clientY;
+          listDiv.style.left= pushpinX + "px";
+          listDiv.style.top= pushpinY + "px";
+
+          var docIdList = aDocList.trim().replace(/\s+/g," ").split(" ");
+          if( (0 == docIdList.length ) || top.ReturnTree.hasHiddenDocsToRetrieve(aDocList) ) {
+            // For cases with more than 150 Sch K-1 (Form 1065/1065B), need to proceed separately
+            // if not every docId is in the current content of the hidden frame
+            return;
+          }
+          if( docIdList.length == 1 ) {
+            // If there is only one attached document, display the document directly.
+            top.ReturnTree.displayFormByDocId( docIdList[0] );
+          }
+          else {
+            // display the attachmant list
+            var docNameList = top.ReturnTree.getDisplayNameByDocId(docIdList);
+            var displayIdList = top.ReturnTree.getDisplayIdByDocId(docIdList);
+            displayAttachmentList(docIdList, docNameList, displayIdList);
+          }
+          return;
+        }
+
+        /* This function displays the attachment document list */
+        function displayAttachmentList(docIdList, docNameList, displayIdList) {
+
+          var colorSchemaObj = "<xsl:value-of select="$ColorSchema"/>";
+          var colorSchema = colorSchemaObj.split(",");
 
 					var errCode = "InvalidDocId";
 					var errMsg ="Document Not Found";					  
@@ -2957,14 +3021,26 @@ Log:
 						}
 					} 			  
 					popBody.innerHTML = popBodyContent;
-				  }
-				  
-				  // For more than 1 attachments, display the document attachment list
-				  listDiv.style.display = "block";
-				  listDiv.style.left= event.clientX + "px";
-				  listDiv.style.top= event.clientY + "px";
-				}
-				
+								  
+          // For cases with multiple attachments, display the attachment list
+          listDiv.style.display = "block";
+          listDiv.style.left= pushpinX + "px";
+          listDiv.style.top= pushpinY + "px";
+        }
+		
+		// Function for display of resized popup window for the list of attachments
+        var divWidthChange = new ResizeObserver( entries => {
+          // The width of the popup window will not be resized to less than 300px
+          if ( Number(listDiv.style.width.replace("px", "")) &gt;= 300 ) {
+            popHead.style.width = "100%";
+            popBody.style.width = "100%";
+          } else {
+            popHead.style.width = "300px";
+            popBody.style.width = "300px";
+          }
+        });
+        divWidthChange.observe( listDiv );
+						
 				/* Close the attachment document list */
 				function closeAttachmentDocumentListDiv() {
 				  listDiv.style.display = "none";

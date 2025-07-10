@@ -49,9 +49,9 @@
 						<div class="styFNBox" style="width:30mm;height:20mm;">
 							<div style="width:29mm;height:13mm;">
 								Form <span class="styFormNumber">8959</span><br/>
-								<xsl:call-template name="SetFormLinkInline">
+							<!--	<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" select="$FormData"/>
-								</xsl:call-template>
+								</xsl:call-template>-->
 								<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" select="$RtnDoc/GeneralDependencySmall"/>
 								</xsl:call-template>
@@ -62,13 +62,11 @@
 						<div class="styFTBox" style="width:126.8mm;">
 							<span class="styMainTitle" style="font-size:12pt;padding-top:3mm;">Additional Medicare Tax</span><br/>
 							<div class="styFBT">
-								<img alt="Bullet" src="{$ImagePath}/8959_Bullet.gif" height="9" width="9"/>
+								
 								If any line does not apply to you, leave it blank. See separate instructions.
 								<br/>
-								<img alt="Bullet" src="{$ImagePath}/8959_Bullet.gif" height="9" width="9"/>
 								Attach to Form 1040, 1040-SR, 1040-NR, 1040-PR, or 1040-SS.
 								<br/>
-								<img alt="Bullet" src="{$ImagePath}/8959_Bullet.gif" height="9" width="9"/>
 								Go to <i><a href="http://www.irs.gov/form8959">www.irs.gov/Form8959 </a></i> for instructions and the latest information.
 							</div>
 						</div>
@@ -195,9 +193,9 @@
 							    <span class="styDotLn" style="float:none;clear:none;padding-left:2mm;">...........</span>	
 							<span style="float:right;padding-right:3mm;">$125,000</span>
 							<br/>
-							Single, Head of household, or Qualifying widow(er)
+							Single, Head of household, or Qualifying surviving spouse
 							<!--Dotted Line-->
-							    <span class="styDotLn" style="float:none;clear:none;padding-left:2mm;">..</span>	
+							    <span class="styDotLn" style="float:none;clear:none;">.</span>	
 							<span style="float:right;padding-right:3mm;">$200,000</span>					
 						</div>
 						<div class="styLNRightNumBox" style="height:14mm;width:8mm;"><br/><br/><br/>5</div>
@@ -276,9 +274,9 @@
 							    <span class="styDotLn" style="float:none;clear:none;padding-left:2mm;">...........</span>	
 							<span style="float:right;padding-right:3mm;">$125,000</span>
 							<br/>
-							Single, Head of household, or Qualifying widow(er)
+							Single, Head of household, or Qualifying surviving spouse
 							<!--Dotted Line-->
-							    <span class="styDotLn" style="float:none;clear:none;padding-left:2mm;">..</span>	
+							    <span class="styDotLn" style="float:none;clear:none;">.</span>	
 							<span style="float:right;padding-right:3mm;">$200,000</span>					
 						</div>
 						<div class="styLNRightNumBox" style="height:14mm;"><br/><br/><br/>9</div>
@@ -389,9 +387,9 @@
 							    <span class="styDotLn" style="float:none;clear:none;padding-left:2mm;">...........</span>	
 							<span style="float:right;padding-right:3mm;">$125,000</span>
 							<br/>
-							Single, Head of household, or Qualifying widow(er)
+							Single, Head of household, or Qualifying surviving spouse
 							<!--Dotted Line-->
-							    <span class="styDotLn" style="float:none;clear:none;padding-left:2mm;">..</span>	
+							    <span class="styDotLn" style="float:none;clear:none;">.</span>	
 							<span style="float:right;padding-right:3mm;">$200,000</span>					
 						</div>
 						<div class="styLNRightNumBox" style="height:14mm;"><br/><br/><br/>15</div>

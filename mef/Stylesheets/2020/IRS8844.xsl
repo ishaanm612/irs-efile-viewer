@@ -169,7 +169,7 @@
               <div style="float:left;">
                 <div class="styLNLeftNumBoxSD" style="">1</div>
                 <div class="styLNDesc" style="width:139mm;height:4.5mm;">
-                 <span style="float:left;">Enter the total qualified empowerment zone wages paid or incurred during the current year (see instructions).<!-- Per DOW not PDF -->
+                 <span style="float:left;">Enter the total qualified empowerment zone wages paid or incurred during the current year (see instructions)<!-- Per DOW not PDF -->
                  <!--<span class="styDotLn" style="float:right;padding-right:2mm;">.</span>-->
                  </span>
                     </div>
@@ -191,7 +191,8 @@
               <div style="float:left;">
                 <div class="styLNLeftNumBoxSD" style="">2</div>
                 <div class="styLNDesc" style="width:139mm;height:auto;">
-               <span style="float:left;">Multiply line 1 by 20% (0.20).  See instructions for the adjustment you must make to salaries and wages.
+               <span style="float:left;">Multiply line 1 by 20% (0.20).  See instructions for the adjustment you must make to salaries and wages
+               <span class="styDotLn" style="float:right;padding-left:0.75mm;">..</span>
                </span>
                     </div>
                 </div>
@@ -213,7 +214,7 @@
                     Empowerment zone employment credit from partnerships, S corporations,
                     cooperatives, estates, and trusts
                   
-               <!--   <span class="styDotLn" style="float:right;padding-right:2mm;">.......................</span>-->
+                 <span class="styDotLn" style="float:right;padding-left:.75mm;">.</span>
                     
                 </div>
               </div>
@@ -233,7 +234,7 @@
                 <div class="styLNDesc" style="width:139mm;height:8mm;">
                     Add lines 2 and 3. Cooperatives, estates, and trusts, go to line 5. Partnerships and S corporations, stop here and report this amount on Schedule K. All others, stop here and report this amount on Form 3800,   
                    <span style="float:left;">Part III, line 3</span>
-                 <span class="styDotLn" style="float:right;padding-right:2mm;">............................</span>
+                 <span class="styDotLn" style="float:right;padding-left:1.5mm;">..............................</span>
                 </div>
               </div>
               <div style="float:right;">
@@ -253,7 +254,7 @@
                     Amount allocated to patrons of the cooperative or beneficiaries of the estate or trust (see
 instructions)  
                     <!--<span style="float:left;">activities (see instructions) </span>-->
-                   <!-- <span class="styDotLn" style="float:right;padding-right:2mm;">.........................</span>-->
+                  <span class="styDotLn" style="float:right;padding-left:1.5mm;">..</span>
                 </div>
               </div>
               <div style="float:right;">

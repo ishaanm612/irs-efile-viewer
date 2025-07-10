@@ -319,6 +319,7 @@ function init() {
   <input type="hidden" name="submissionSection" value="" />
   <input type="hidden" name="subsidiaryEIN" value="" />
   <input type="hidden" name="contentAndSummaryKey" value="{/AppData/Parameters/ContentAndSummaryKey}" />
+  <input type="hidden" name="paperReturnIndicator" value="{/AppData/Parameters/PaperReturnIndicator}" />
 </form>
 
 <!-- Populate Consolidated -->

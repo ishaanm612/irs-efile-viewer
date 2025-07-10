@@ -335,16 +335,16 @@
 					<!-- Line 2  -->
    					<div style="width:187mm">
 						<div class="styLNLeftNumBoxSD" style="height:4mm;">2</div>
-						<div class="styLNDesc" style="width:70.5mm;height:4mm;">
+						<div class="styLNDesc" style="width:65.5mm;height:4mm;">
 							<span style="float:left;">Add the amounts on line 1 in columns (b) and (c)</span>
 						</div>
 						<div class="styLNRightNumBox" style="height:4.5mm;">2</div>
-						<div class="styLNAmountBox" style="width:29mm;height:4.5mm;padding-right:1mm; ">
+						<div class="styLNAmountBox" style="width:31.5mm;height:4.5mm;padding-right:1mm; ">
 							<xsl:call-template name="PopulateNegativeNumber">
 								<xsl:with-param name="TargetNode" select="$Form6781Data/TotalSection1256CntrctsLossAmt"/>
 							</xsl:call-template>
 						</div>
-						<div class="styLNAmountBox" style="width:30mm;height:4.5mm; padding-right:1.5mm; ">
+						<div class="styLNAmountBox" style="width:32.5mm;height:4.5mm; padding-right:1.5mm; ">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form6781Data/TotalSection1256CntrctsGainAmt"/>
 							</xsl:call-template>
@@ -689,7 +689,7 @@
 						<div class="styLNLeftNumBox" style="height:8mm;">11a</div>
 						<div class="styLNDesc" style="width:141mm;height:8mm;">
 						  Enter the short-term portion of losses from line 10, column (h), here and include on line 4 of Schedule D
-						  <span style="float:left;"> or on Form 8949 (see instructions)</span>
+						  <br/> or on Form 8949 (see instructions)
 							<!--Dotted Line-->
 							<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
 						</div>
@@ -715,7 +715,7 @@
 						<div class="styLNLeftLtrBox" style="padding-left: 4mm; height:8mm;">b</div>
 						<div class="styLNDesc" style="width:141mm;height:8mm;">
 						 Enter the long-term portion of losses from line 10, column (h), here and include on line 11 of Schedule D
-						  <span style="float:left;"> or on Form 8949 (see instructions)</span>
+						  <br/> or on Form 8949 (see instructions)
 							<!--Dotted Line-->
 							<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
 						</div>
@@ -911,7 +911,7 @@
 						<div class="styLNLeftNumBox" style="height:8.2mm;">13a</div>
 						<div class="styLNDesc" style="width:141mm;height:8.2mm;">
 						   Enter the short-term portion of gains from line 12, column (f), here and include on line 4 of Schedule D 
-						  <span style="float:left;"> or on Form 8949 (see instructions)</span>
+						  <br/> or on Form 8949 (see instructions)
 							<!--Dotted Line-->
 							<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
 						</div>
@@ -932,7 +932,7 @@
 						<div class="styLNLeftLtrBox" style="height:8.2mm;padding-left:4mm">b</div>
 						<div class="styLNDesc" style="width:141mm;height:8.2mm;">
 						   Enter the long-term portion of gains from line 12, column (f), here and include on line 11 of Schedule D
-						  <span style="float:left;"> or on Form 8949 (see instructions)</span>
+						  <br/> or on Form 8949 (see instructions)
 							<!--Dotted Line-->
 							<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
 						</div>

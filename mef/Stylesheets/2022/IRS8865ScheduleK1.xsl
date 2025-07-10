@@ -18,6 +18,7 @@
 <!-- 02/14/2022 - Changes made for defect 69049 - Jeremy Nichols -->
 <!-- 03/07/2022 - Changes made for UWR 374367 - Jeremy Nichols -->
 <!-- 06/14/2022 - Changes made for UWR 368391 - Jeremy Nichols -->
+<!-- 09/28/2022 - Changes made for KISAM IM02086444 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
 	<xsl:import href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -1631,7 +1632,7 @@
 															</xsl:call-template>
 															Schedule K-3 is attached if <br/>checked
 															<xsl:call-template name="SetFormLinkInline">
-																<xsl:with-param name="TargetNode" select="ScheduleK3AttachedInd"/>
+																<xsl:with-param name="TargetNode" select="$FormData/ScheduleK3AttachedInd"/>
 															</xsl:call-template>
 															<!--Dotted Line-->
 															<span class="styNoAudioRead" style="font-weight:bold;">

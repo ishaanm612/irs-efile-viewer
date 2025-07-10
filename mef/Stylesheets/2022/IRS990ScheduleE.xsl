@@ -7,6 +7,7 @@
 <!-- 01/03/2022 - Changes made for UWR 373518 - Jeremy Nichols -->
 <!-- 02/10/2021 - Changes made for defect 68980 - Jeremy Nichols -->
 <!-- 09/30/2022 - Changes made for UWR 860875 - Jeremy Nichols -->
+<!-- 03/03/2022 - Changes made for 2022 pdf review - Jeremy Nichols -->
 ]><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <!--xmlns:fo="http://www.w3.org/1999/XSL/Format">-->
   <xsl:include href="PopulateTemplate.xsl"/>
@@ -1265,8 +1266,8 @@
 <!--   BEGIN PAGE 1 FOOTER  -->
 <div class="pageEnd" style="width:187mm;">
   <div style="width:113mm;font-weight:bold; float: left; font-size:8px;padding-top:.5mm;clear: none;">Paperwork Reduction Act Notice, see the Instructions for Form 990 or 990-EZ.</div>
-  <div style="width:24mm;font-weight:normal; float: left; padding-right:0mm;font-size:8px;padding-left:1mm;padding-top:.5mm;">Cat. No. 50085D</div>
-  <div style="width:50mm;font-weight:bold; clear: none;float:right;padding-right:0mm;padding-left:0mm;font-size:8px;padding-top:.5mm;">Schedule E (Form 990) (2022) </div>
+  <div style="width:34mm;font-weight:normal; float: left; padding-right:0mm;font-size:8px;padding-left:8mm;padding-top:.5mm;">Cat. No. 50085D</div>
+  <div style="width:40mm;font-weight:bold; clear: none;float:right;padding-right:0mm;padding-left:0mm;text-align:right;font-size:8px;padding-top:.5mm;">Schedule E (Form 990) (2022) </div>
    
 </div>
 <!--     END PAGE 1 FOOTER   -->

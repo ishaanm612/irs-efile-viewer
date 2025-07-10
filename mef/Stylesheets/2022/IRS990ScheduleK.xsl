@@ -16,6 +16,9 @@
 <!-- Updated 6/17/2016 per IBM Defect 46035 Part IV 4c and 5c wrapping percent sign by Robert L Jones  -->
 <!-- Updated 6/17/2016 per IBM Defect 46036  Print on their sys causing problems at line 14 where it stays on one page while data goes to next page NPF on our sys by Robert L Jones  -->
 <!-- Updated per UWR 195015 5/19/17 by Robert L Jones -->
+<!-- 09/26/2022 - Changes for UWR 860875 - AJH -->
+<!-- 11/17/2022 - Formatting for Bonds defect 71584 - AJH -->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -77,14 +80,14 @@
 </div>
 							<span class="sty990ScheduleKFST">
 								
-			<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="SchKMediumBullet"/>
+			<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="right arrow"/>
 								Complete if the organization answered "Yes" to Form 990, Part <span style="font-size: 7.75pt; font-weight:bold;">&#8549;</span>,  line 24a.  Provide descriptions, <br/>explanations, and any additional information in Part <span style="font-size: 7.75pt; font-weight:bold;">&#8549;</span>.  <br/>
-   <img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="SchKMediumBullet"/>
+   <img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="right arrow"/>
  Attach to Form 990. 
  <span style="width:10mm;"/><!--<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="SchKMediumBullet"/>
              See separate instructions.--></span>
 							<br/>
-							<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="SchKMediumBullet"/>
+							<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="right arrow"/>
 							<b>Go to <!--www.irs.gov/form990.--><a href="http://www.irs.gov/form990" title="Link to IRS.gov">
                 <i>www.irs.gov/Form990</i></a> for instructions and the latest information. 
 							</b>
@@ -94,7 +97,7 @@
 							<div class="IRS990ScheduleK_OMB" style="height:auto;">OMB No. 1545-0047</div>
 							<!-- Tax Year -->
 							<div class="IRS990ScheduleK_TaxYear" style="padding-top:0mm;padding-bottom:0;height:auto;">
-								<span>20<span class="styTYColor">21</span>
+								<span>20<span class="styTYColor">22</span>
 								</span>
 								<div class="sty990ScheduleKPartName" style="font-size:7pt;font-family:verdana;width:45mm;padding-top:0mm;padding-bottom:0mm;height:6mm">Open to Public <br/>Inspection</div>
 							</div>
@@ -145,40 +148,40 @@
 						<thead>
 							<tr>
 								<!-- Column -->
-								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:50mm;text-align:center;vertical-align:top;" rowspan="2" colspan="2" scope="col">(a) <span class="styNormalText"> Issuer name</span>
+								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:60mm;text-align:center;vertical-align:top;" rowspan="2" colspan="2" scope="col">(a) <span class="styNormalText"> Issuer name</span>
 								</th>
 								<!-- Column b -->
-								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:28mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(b) <span class="styNormalText"> Issuer EIN</span>
+								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:24mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(b) <span class="styNormalText"> Issuer EIN</span>
 								</th>
 								<!-- Column c -->
-								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:28mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(c) <span class="styNormalText">  CUSIP #</span>
+								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:23mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(c) <span class="styNormalText">  CUSIP #</span>
 								</th>
 								<!-- Column d -->
-								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:28mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(d) <span class="styNormalText">  Date issued</span>
+								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:24mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(d) <span class="styNormalText">  Date issued</span>
 								</th>
 								<!-- Column e -->
-								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:30mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(e) <span class="styNormalText"> Issue price</span>
+								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:24mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(e) <span class="styNormalText"> Issue price</span>
 								</th>
 								<!-- Column f -->
 								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:50mm;border-right-width:1px;text-align:center;vertical-align:top;" rowspan="2" scope="col">(f) <span class="styNormalText">  Description of purpose</span>
 								</th>
 								<!-- Column g -->
-								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:20mm;border-right-width:1px;text-align:center;vertical-align:top;" colspan="2" scope="col">(g) <span class="styNormalText">  Defeased </span>
+								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:17mm;border-right-width:1px;text-align:center;vertical-align:top;" colspan="2" scope="col">(g) <span class="styNormalText">  Defeased </span>
 								</th>
 								<!-- Column h -->
-								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:20mm;border-right-width:1px;text-align:center;vertical-align:top;" colspan="2" scope="col"><span class="styNormalText"><b>(h) </b>  On<br/>behalf of <br/>issuer</span>
+								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:17mm;border-right-width:1px;text-align:center;vertical-align:top;" colspan="2" scope="col"><span class="styNormalText"><b>(h) </b>  On<br/>behalf of <br/>issuer</span>
 								</th>
 								<!-- Column i -->
-								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:20mm;border-right-width:0px;text-align:center;vertical-align:top;" colspan="2" scope="col"><span class="styNormalText"><b>(i) </b> Pool<br/>financing <br/></span>
+								<th class="styTableCellHeader" style="border-style: solid; border-color: black;width:17mm;border-right-width:0px;text-align:center;vertical-align:top;" colspan="2" scope="col"><span class="styNormalText"><b>(i) </b> Pool<br/>financing <br/></span>
 								</th>
 							</tr>
 							<tr>
 								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:10mm;border-right-width:1px;text-align:center;">Yes</th>
-								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:10mm;border-right-width:1px;text-align:center;">No</th>
+								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:7mm;border-right-width:1px;text-align:center;">No</th>
 								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:10mm;border-right-width:1px;text-align:center;">Yes</th>
-								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:10mm;border-right-width:1px;text-align:center;">No</th>
+								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:7mm;border-right-width:1px;text-align:center;">No</th>
 								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:10mm;border-right-width:1px;text-align:center;">Yes</th>
-								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:10mm;border-right-width:0px;text-align:center;">No</th>
+								<th class="styTableCellHeader" scope="col" style="border-style: solid; border-color: black;width:7mm;border-right-width:0px;text-align:center;">No</th>
 								
 							</tr>
 						</thead>
@@ -206,7 +209,7 @@
 									</xsl:choose>
 									<!-- Identifier -->
 									<!-- Issuer Name -->
-									<td class="styTableCell " style=" width:50mm;text-align:left;vertical-align:top;padding-left:4mm;border-style: solid; border-color: black;">
+									<td class="styTableCell " style=" width:60mm;text-align:left;vertical-align:top;padding-left:4mm;border-style: solid; border-color: black;">
 										<xsl:call-template name="PopulateText">
 											<xsl:with-param name="TargetNode" select="IssuerName/BusinessNameLine1Txt"/>
 										</xsl:call-template>
@@ -217,28 +220,28 @@
 										<span class="styTableCellPad "/>
 									</td>
 									<!-- Employer Identification Number -->
-									<td class="styTableCell " style="text-align:center;vertical-align:top;width:28mm;border-style: solid; border-color: black;">
+									<td class="styTableCell " style="text-align:center;vertical-align:top;width:24mm;border-style: solid; border-color: black;">
 										<xsl:call-template name="PopulateEIN">
 											<xsl:with-param name="TargetNode" select="BondIssuerEIN"/>
 										</xsl:call-template>
 										<span class="styTableCellPad "/>
 									</td>
 									<!-- CUSIP # -->
-									<td class="styTableCell " style="text-align:center;vertical-align:top;width:28mm;border-style: solid; border-color: black;">
+									<td class="styTableCell " style="text-align:center;vertical-align:top;width:23mm;border-style: solid; border-color: black;">
 										<xsl:call-template name="PopulateText">
 											<xsl:with-param name="TargetNode" select="CUSIPNum"/>
 										</xsl:call-template>
 										<span class="styTableCellPad "/>
 									</td>
 									<!-- Date Issued  -->
-									<td class="styTableCell " style="text-align:center;vertical-align:top;width:28mm;border-style: solid; border-color: black;">
+									<td class="styTableCell " style="text-align:center;vertical-align:top;width:24mm;border-style: solid; border-color: black;">
 										<xsl:call-template name="PopulateMonthDayYear">
 											<xsl:with-param name="TargetNode" select="BondIssuedDt"/>
 										</xsl:call-template>
 										<span class="styTableCellPad "/>
 									</td>
 									<!-- Issue Price  -->
-									<td class="styTableCell " style="text-align:right;vertical-align:top;width:30mm;border-style: solid; border-color: black;">
+									<td class="styTableCell " style="text-align:right;vertical-align:top;width:24mm;border-style: solid; border-color: black;">
 										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="IssuePriceAmt"/>
 										</xsl:call-template>
@@ -258,7 +261,7 @@
 										</xsl:call-template>
 										<span class="styTableCellPad "/>
 									</td>
-									<td class="styTableCell " style="width:10mm;text-align:center;vertical-align:top;border-style: solid; border-color: black;">
+									<td class="styTableCell " style="width:7mm;text-align:center;vertical-align:top;border-style: solid; border-color: black;">
 										<xsl:call-template name="PopulateNoBox">
 											<xsl:with-param name="TargetNode" select="DefeasedInd"/>
 										</xsl:call-template>
@@ -270,7 +273,7 @@
 											<xsl:with-param name="TargetNode" select="OnBehalfOfIssuerInd"/>
 										</xsl:call-template>
 									</td>
-									<td class="styTableCell " style="width:10mm;text-align:center;vertical-align:top;border-style: solid; border-color: black;">
+									<td class="styTableCell " style="width:7mm;text-align:center;vertical-align:top;border-style: solid; border-color: black;">
 										<xsl:call-template name="PopulateNoBox">
 											<xsl:with-param name="TargetNode" select="OnBehalfOfIssuerInd"/>
 										</xsl:call-template>
@@ -281,7 +284,7 @@
 											<xsl:with-param name="TargetNode" select="PoolFinancingInd"/>
 										</xsl:call-template>
 									</td>
-									<td class="styTableCell " style="width:10mm;border-right:0px;text-align:center;vertical-align:top;padding-right:4mm;border-style: solid; border-color: black;">
+									<td class="styTableCell " style="width:7mm;border-right:0px;text-align:center;vertical-align:top;padding-right:4mm;border-style: solid; border-color: black;">
 										<xsl:call-template name="PopulateNoBox">
 											<xsl:with-param name="TargetNode" select="PoolFinancingInd"/>
 										</xsl:call-template>
@@ -1037,13 +1040,13 @@
 						<div class="styGenericDiv" style="width:140mm;font-weight:bold">For Paperwork Reduction Act Notice, see the Instructions for Form 990. </div>
 						<div class="styGenericDiv" style="width:25mm;">Cat. No. 50193E</div>
 						<div class="styGenericDiv" style="float:right;">
-							<span class="styBoldText">Schedule K (Form 990) 2021</span>
+							<span class="styBoldText">Schedule K (Form 990) 2022</span>
 						</div>
 					</div>
 					<!--     END FORM FOOTER   -->
 				 <p style="page-break-before: always"/>
 					<div class="styBB" style="width:256mm; float: none; clear:none;border-bottom-width:1px">
-						<div style="float:left"> Schedule K (Form 990) 2021</div>
+						<div style="float:left"> Schedule K (Form 990) 2022</div>
 						<div style="float:right">Page <span style="font-weight:bold;font-size:8pt;padding-right:4mm">2</span>
 						</div>
 					</div>
@@ -1441,7 +1444,7 @@
 
 
 
-<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="SchKMediumBullet"/>
+<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="right arrow"/>
 
 								</td>
 								<td class="styTableCellSmall " colspan="2" style="border-style: solid; border-color: black;width:32mm;text-align:right">
@@ -1481,7 +1484,7 @@
  <!--Dotted Line-->
 							
 								<span style="letter-spacing:4mm; font-weight:bold; ">.........  </span>
-<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="SchKMediumBullet"/>
+<img src="{$ImagePath}/990SchK_Bullet_Md.gif" alt="right arrow"/>
          
 </td>
 								<td class="styTableCellSmall " colspan="2" style="border-style: solid; border-color: black;width:32mm;text-align:right">
@@ -2289,7 +2292,7 @@ Penalty in Lieu of Arbitrage Rebate?
 						<div class="styGenericDiv" style="width:95mm;"/>
 						<div class="styGenericDiv" style="width:25mm;"/>
 						<div class="styGenericDiv" style="float:right;padding-right:4mm">
-							<span class="styBoldText">Schedule K (Form 990) 2021</span>
+							<span class="styBoldText">Schedule K (Form 990) 2022</span>
 						</div>
 					</div>
 					<!--     END FORM FOOTER   -->
@@ -2297,7 +2300,7 @@ Penalty in Lieu of Arbitrage Rebate?
 		 <p style="page-break-before: always"/>
 					<!--  Page header -->
 					<div style="width:256mm;clear:both;padding-bottom:.5mm;float:none;clear:both;" class="styBB">
-						<div style="width:90mm;" class="styGenericDiv">Schedule K (Form 990) 2021</div>
+						<div style="width:90mm;" class="styGenericDiv">Schedule K (Form 990) 2022</div>
 						<div style="width:55mm;text-align:center;" class="styGenericDiv"/>
 						<div style="float:right;padding-right:4mm" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;">3</span>
 						</div>
@@ -2971,7 +2974,7 @@ Penalty in Lieu of Arbitrage Rebate?
 <table class="styTableContainerLandscape" cellspacing="0" style="font-size:7pt;width:256mm;float:none;clear:both;display:table;">
 						<thead>
 							<tr>
-								<th class="styTableCell" rowspan="2" scope="col" style="border-style: solid; border-color: black;border-color: black; border-left-width: 0px; border-right-width: 1px; border-top-width: 1px; border-bottom-width:0px; width:96mm">---------------------------------------------------------------------------------------------------------------</th>
+								<th class="styTableCell" rowspan="2" scope="col" style="border-style: solid; border-color: black;border-color: black; border-left-width: 0px; border-right-width: 1px; border-top-width: 1px; border-bottom-width:0px; width:96mm"></th>
 								<th class="styTableCellHeader " scope="col" colspan="2" style="border-style: solid; border-color: black;width:32mm;border-top-width:1px">A</th>
 								<th class="styTableCellHeader " scope="col" colspan="2" style="border-style: solid; border-color: black;width:32mm;border-top-width:1px">B</th>
 								<th class="styTableCellHeader " scope="col" colspan="2" style="border-style: solid; border-color: black;width:32mm;border-top-width:1px">C</th>
@@ -3182,7 +3185,7 @@ Supplemental Information. <span class="styNormalText"> Provide additional inform
 					<div class="sty990ScheduleKFormFooter" style="padding-top:1mm">
 						<div style="width:140mm;font-weight:bold; float: left; clear: none;"/>
 						<div style="width:60mm;font-weight:normal; float: left; clear: none;"/>
-						<div style="width:56mm;text-align:center;font-weight:bold;  float: right; clear: none;"> Schedule K (Form 990) 2021</div>
+						<div style="width:56mm;text-align:center;font-weight:bold;  float: right; clear: none;"> Schedule K (Form 990) 2022</div>
 					</div>
 					<!--     END FORM FOOTER   -->
 					<!--     END FORM FOOTER   -->

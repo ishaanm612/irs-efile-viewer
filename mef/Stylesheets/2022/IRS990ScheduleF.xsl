@@ -8,6 +8,14 @@
 <!-- 11/16/2020 - Changes made for defect 65249 - Jeremy Nichols -->
 <!-- 07/20/2021 - Changes made for UWR 368250 - Jeremy Nichols -->
 <!-- 09/30/2022 - Changes made for UWR 860875 - Jeremy Nichols -->
+<!-- 11/21/2022 - Changes made for defect 71629 - Jeremy Nichols -->
+<!-- 11/29/2022 - Changes made for defect 71658 - Jeremy Nichols -->
+<!-- 12/01/2022 - Changes made for KISAM IM02167093 - Jeremy Nichols -->
+<!-- 06/13/2023 - Changes made for KISAM IM02275870 - Jeremy Nichols -->
+<!-- 06/27/2023 - Made changes per RWM #TESTINC0004701 - Jeremy Nichols -->
+<!-- 08/15/2023 - Made changes per IRWorks TESTINC0004701 - Jeremy Nichols -->
+<!-- 09/20/2023 - Changes made for EWM defect 1253001 - Jeremy Nichols -->
+<!-- 01/22/2024 - Changes made for EWM defect 1253488 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
   <xsl:include href="PopulateTemplate.xsl"/>
   <xsl:include href="CommonPathRef.xsl"/>
@@ -62,7 +70,7 @@
         var returnValue;
         
         lineCount = lineCount + 1;
-        returnValue = "( "+ lineCount + ")";
+        returnValue = "<nobr>("+ lineCount + ")</nobr>";
         document.write(returnValue);
       }
   </script>
@@ -77,7 +85,7 @@
       <body class="styBodyClass">
         <form style="font-family:verdana; font-size:7pt" name="Form990ScheduleF">
           <xsl:call-template name="DocumentHeader"/>
-          <!--     <xsl:call-template name="DocumentHeaderLandscape" />-->
+          <!--<xsl:call-template name="DocumentHeaderLandscape" />-->
           <!-- BEGIN FORM HEADER -->
           <div class="styTBB" style="width:187mm;height:25mm;">
             <div class="styFNBox" style="width:31mm;padding-top:1mm;">
@@ -97,9 +105,9 @@
             <div class="styFTBox" style="width:124mm;height:25mm;">
               <div class="styMainTitle" style="height:8mm;padding-top:1.5mm;">Statement of Activities Outside the United States</div>
               <div class="styFBT" style="height:6mm;margin-top:0mm;font-weight:bold;">
-                <span style="width:124mm;font-size:6pt;font-weight:bold;padding-bottom:0mm;padding-top:1mm;"><img src="{$ImagePath}/990SchF_Bullet_Line.gif" alt="Right pointing arrow large image" width="6"/> Complete if the organization answered "Yes" to Form 990, Part IV, line 14b, 15, or 16.</span>
-                <span style="width:124mm;font-size:6pt;font-weight:bold;padding-bottom:0mm;padding-top:1mm;"><img src="{$ImagePath}/990SchF_Bullet_Line.gif" alt="Right pointing arrow large image" width="6"/>  Attach to Form 990.</span>
-                <span style="width:124mm;font-size:6pt;font-weight:bold;padding-bottom:0mm;padding-top:1mm;"><img src="{$ImagePath}/990SchF_Bullet_Line.gif" alt="Right pointing arrow large image" width="6"/> Go to <i>www.irs.gov/Form990</i> for instructions and the latest information.</span>
+                <span style="width:124mm;font-size:6pt;font-weight:bold;padding-bottom:0mm;padding-top:1mm;"><img src="{$ImagePath}/990SchF_Bullet_Line.gif" alt="Right arrow" width="6"/> Complete if the organization answered "Yes" to Form 990, Part IV, line 14b, 15, or 16.</span>
+                <span style="width:124mm;font-size:6pt;font-weight:bold;padding-bottom:0mm;padding-top:1mm;"><img src="{$ImagePath}/990SchF_Bullet_Line.gif" alt="Right arrow" width="6"/>  Attach to Form 990.</span>
+                <span style="width:124mm;font-size:6pt;font-weight:bold;padding-bottom:0mm;padding-top:1mm;"><img src="{$ImagePath}/990SchF_Bullet_Line.gif" alt="Right arrow" width="6"/> Go to <i>www.irs.gov/Form990</i> for instructions and the latest information.</span>
               </div>
             </div>
             <div class="styTYBox" style="width:31.5mm;height:25mm;">
@@ -304,12 +312,12 @@
                 </xsl:if>
               </tbody>
               <tr>
-                <td class="styTableCell" style="width:7mm;text-align:right;vertical-align:bottom;padding-right:1.5mm;font-size:7pt;border-color:black;border-bottom:0px;border-right-width:0px;">
+                <td class="styTableCell" style="width:7mm;text-align:left;padding-left:1.5mm;vertical-align:top;font-size:7pt;border-color:black;border-bottom:0px;border-right-width:0px;">
                   <b>3a</b>
                 </td>
                 <td class="styTableCell" style="width:45mm;text-align:left;vertical-align:bottom;font-size:7pt;border-color:black;border-bottom:0px;">Sub-total
                   <!--dotted line-->
-                  <span style="letter-spacing:4mm;">....</span>
+                  <span style="letter-spacing:4mm;">...</span>
                 </td>
                 <td class="styTableCell " style="width:22mm;border-color:black;border-right-width:1px;font-size:7pt;padding-top:2mm;">
                   <xsl:call-template name="PopulateAmount">
@@ -400,14 +408,14 @@
             <xsl:with-param name="containerID" select=" 'Part1' "/>
           </xsl:call-template>
           <!-- END TABLE FOR AcctsActvsOutUSTable -->
-            <xsl:if test="($Print = $Separated)"><br/><br/><br/><br/><br/></xsl:if>
+            <xsl:if test="($Print = $Separated)"><br/><br/><br/><br/><br/><br/><br/></xsl:if>
           
           <!-- Page Footer -->
-          <div class="pageEnd" style="width:187mm;">
-            <span style="width:113mm;font-size:6.25pt;font-weight:bold;">For Paperwork Reduction Act Notice, see the Instructions for Form 990.</span>
-            <span style="width:5mm;font-size:6.25pt;"/>Cat. No. 50082W
-			<span style="width:7mm;"/>
-            <span style="font-weight:bold;font-size:6.25pt;">Schedule F (Form 990) 2022</span>
+          <div style="width:256mm;">
+            <span style="font-weight:bold;font-size:7pt;">For Paperwork Reduction Act Notice, see the Instructions for Form 990.</span>
+            <span style="width:18mm;"/>Cat. No. 50082W
+			<span style="width:8mm;"/>
+            <span style="font-weight:bold;font-size:7pt;">Schedule F (Form 990) 2022</span>
           </div>
           <div class="pageEnd" />
           
@@ -580,9 +588,9 @@
               </div>
             </xsl:if>
             <!-- END Table expand/collapse toggle button end-->
-            <div class="styTableContainerLandscape" id="Part3" style="display:block;">
+            <div class="IRS990ScheduleF_TableContainerLandscapeP3" id="Part3" style="display:block;">
               <xsl:call-template name="SetInitialState"/>
-              <table cellspacing="0" class="styTable" cellpadding="0" style="height:auto;width:256mm;">
+              <table cellspacing="0" class="styTable" cellpadding="0" style="width:256mm;">
                 <thead class="styTableThead">
                   <tr>
                     <th class="styTableCell" colspan="2" scope="col" style="width:40mm;vertical-align:top; padding-top: 1mm; text-align:center;font-size:7pt;font-weight:normal;border-color:black;">
@@ -635,7 +643,7 @@
               <xsl:with-param name="containerID" select=" 'Part3' "/>
             </xsl:call-template>
             <!-- END TABLE FOR GrantsToIndOutsideUS -->
-            <xsl:if test="($Print = $Separated)"><br/></xsl:if>
+            <xsl:if test="($Print = $Separated)"><br/><br/><br/><br/><br/></xsl:if>
             
             <!-- PAGE 3 FOOTER -->
             <div class="pageEnd" style="width:256mm;">
@@ -1484,14 +1492,14 @@
   <xsl:template name="AcctsActvsOutUSTableTemp">
     <xsl:param name="IsSeparated">no</xsl:param>
     <tr>
-      <td class="styTableCell" style="font-size:6pt;font-weight:normal;text-align:right;vertical-align:top;width:7mm;height:5mm;padding-right:1.5mm;border-color:black;border-top-width:0px;border-bottom-width:1px;border-left-width:0px;border-right-width:0px;">
+      <td class="styTableCell" style="font-size:6pt;font-weight:normal;text-align:left;vertical-align:top;width:10mm;height:4mm;padding-right:1.5mm;border-color:black;border-top-width:0px;border-bottom-width:1px;border-left-width:0px;border-right-width:0px;">
         <b>
           <script language="JavaScript" type="text/javascript">
             getLineCount();
           </script>
         </b>
       </td>
-      <td class="styTableCell" style="font-size:7pt;font-weight:normal;border-color:black;text-align:left;width:45mm;vertical-align:top;">
+      <td class="styTableCell" style="font-size:7pt;font-weight:normal;border-color:black;text-align:left;width:44mm;vertical-align:top;">
         <xsl:call-template name="PopulateText">
           <xsl:with-param name="TargetNode" select="RegionTxt"/>
         </xsl:call-template>
@@ -1514,7 +1522,7 @@
         </xsl:call-template>
         <span class="styTableCellPad"/>
       </td>
-      <td class="styTableCell" style="font-size:7pt;border-color:black;text-align:left;width:34mm;vertical-align:top;">
+      <td class="styTableCell" style="font-size:7pt;border-color:black;text-align:left;width:33mm;vertical-align:top;">
         <xsl:call-template name="PopulateText">
           <xsl:with-param name="TargetNode" select="TypeOfActivitiesConductedTxt"/>
         </xsl:call-template>
@@ -1535,14 +1543,14 @@
   <xsl:template name="GrantsToOrgsOutsideUSTemp">
     <xsl:param name="IsSeparated">no</xsl:param>
     <tr>
-      <td class="styTableCell" style="background-color:lightgrey;font-size:6pt;font-weight:normal;text-align:right;vertical-align:top;width:7mm;height:7mm;padding-right:1.5mm;border-color:black;border-top-width:0px;border-bottom-width:1px;border-left-width:0px;border-right-width:0px;">
+      <td class="styTableCell" style="background-color:lightgrey;font-size:6pt;font-weight:normal;text-align:left;vertical-align:top;width:10mm;height:7mm;padding-right:1.5mm;border-color:black;border-top-width:0px;border-bottom-width:1px;border-left-width:0px;border-right-width:0px;">
         <b>
           <script language="JavaScript" type="text/javascript">
             getLineCount();
           </script>
         </b>
       </td>
-      <td class="styTableCell" style="font-size:7pt;background-color:lightgrey;font-weight:normal;border-color:black;text-align:left;height:7mm;width:23mm;">
+      <td class="styTableCell" style="font-size:7pt;background-color:lightgrey;font-weight:normal;border-color:black;text-align:left;height:7mm;width:20mm;">
         <span class="styNBSP"/>
         <!--  <xsl:call-template name="PopulateText">
           <xsl:with-param name="TargetNode" select="NameOfOrganization" />
@@ -1607,14 +1615,14 @@
   <xsl:template name="GrantsToIndOutsideUSTemp">
     <xsl:param name="IsSeparated">no</xsl:param>
     <tr>
-      <td class="styTableCell" style="font-size:6pt;font-weight:normal;text-align:right;vertical-align:top;width:7mm;height:7mm;padding-right:1.5mm;border-color:black;border-top-width:0px;border-bottom-width:1px;border-left-width:0px;border-right-width:0px;">
+      <td class="styTableCell" style="font-size:6pt;font-weight:normal;text-align:left;vertical-align:top;width:10mm;height:7mm;padding-right:1.5mm;border-color:black;border-top-width:0px;border-bottom-width:1px;border-left-width:0px;border-right-width:0px;">
         <b>
           <script language="JavaScript" type="text/javascript">
             getLineCount();
           </script>
         </b>
       </td>
-      <td class="styTableCell" style="font-size:7pt;font-weight:normal;border-color:black;text-align:left;width:33mm;vertical-align:top;">
+      <td class="styTableCell" style="font-size:7pt;font-weight:normal;border-color:black;text-align:left;width:30mm;vertical-align:top;">
         <xsl:call-template name="PopulateText">
           <xsl:with-param name="TargetNode" select="TypeOfAssistanceTxt"/>
         </xsl:call-template>

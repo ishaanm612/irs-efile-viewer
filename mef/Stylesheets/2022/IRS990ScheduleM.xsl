@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
-<!DOCTYPE xsl:stylesheet [
-  <!ENTITY nbsp "&#160;">
-]><!-- Last modified on8/11/2010 by Robert Jones Updates made per BSP-101319OTH Tax Year to 2010 -->
+<!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;">]>
+<!-- Last modified on8/11/2010 by Robert Jones Updates made per BSP-101319OTH Tax Year to 2010-->
 <!-- Updated 7/21/2011 per UWR 40502 by Robert L Jones -->
 <!-- Updated 6/29/2012 per UWR 58215 by Robert L Jones -->
 <!-- Last modified on 09/19/2012 by Robert Jones for UWR 58215 after getting the 2012 PDF's-->
@@ -140,22 +139,22 @@
     <!-- Begin Part I Table-->
       
 <div class="styTable" style="border-top-width: 1px; width:187mm;border-bottom-width:1px;height:100%;display:table; ">
-<table class="styTable" style="font-size: 7pt;border-color:black;" cellspacing="0">
+<table class="styTable" alt="" style="font-size: 7pt;border-color:black;" cellspacing="0">
 <thead>
-    <tr scope="col">
+    <tr scope="col" alt="">
 
-       <th class="styTableCellHeader" scope="col" colspan="2" style="border-top-width:0px;border-bottom-width:0px;width:57mm;border-left-width:0px; "><span class="styTableCellPad"/></th>
+       <th class="styTableCellHeader" alt="" scope="col" colspan="2" style="border-top-width:0px;border-bottom-width:0px;width:57mm;border-left-width:0px; "><span class="styTableCellPad"/></th>
 
-      <th class="styTableCellHeader" style="width:10mm;vertical-align:top;padding-top:1mm;" scope="col">
+      <th class="styTableCellHeader" alt="" style="width:10mm;vertical-align:top;padding-top:1mm;" scope="col">
         (a)<br/><span class="styNormalText">Check if applicable</span>
       </th>
-      <th class="styTableCellHeader" style=" width:35mm;vertical-align:top;padding-top:1mm;" scope="col">
+      <th class="styTableCellHeader" alt="" style=" width:35mm;vertical-align:top;padding-top:1mm;" scope="col">
         (b)<br/><span class="styNormalText">Number of contributions or items contributed</span>
       </th>
-      <th class="styTableCellHeader" style="width:35mm;vertical-align:top;padding-top:1mm;" scope="col">
+      <th class="styTableCellHeader" alt="" style="width:35mm;vertical-align:top;padding-top:1mm;" scope="col">
         (c)<br/><span class="styNormalText">Noncash contribution amounts reported on<br/>Form 990, Part VIII, line 1g</span>
       </th>
-      <th class="styTableCellHeader" style="width:50mm; border-right-width: 0px;vertical-align:top;padding-top:1mm;" scope="col">
+      <th class="styTableCellHeader" alt="" style="width:50mm; border-right-width: 0px;vertical-align:top;padding-top:1mm;" scope="col">
         (d)<br/><span class="styNormalText">Method of determining<br/>noncash contribution amounts</span>
       </th>
     </tr>
@@ -1066,7 +1065,7 @@
       </div>
       
     <div class="IRS990ScheduleM_LineIndexMid" style="height:4.5mm;width:8.15mm;border-left-width:1px;border-right-width:1px;padding-top:1mm;font-size:7pt;"><b>30a</b></div>
-  <div class="IRS990ScheduleM_LineIndexMid" style="height:4.5mm;padding-top:1mm;font-size:7pt;width:8mm;">
+  <div class="IRS990ScheduleM_LineIndexMid" style="height:4.5mm;padding-top:1mm;font-size:7pt;width:8.3mm;">
     <span style="font-weight: normal;">
          <xsl:call-template name="PopulateYesBoxText">
         <xsl:with-param name="TargetNode" select="$Form990ScheduleMData/AnyPropertyThatMustBeHeldInd"/>
@@ -1106,7 +1105,7 @@
      </div>
       
        <div class="IRS990ScheduleM_LineIndexMid" style="height:4.5mm;width:8.15mm;border-left-width:1px;font-size:7pt;padding-top:1mm;border-right-width:1px;">31</div>
-  <div class="IRS990ScheduleM_LineIndexMid" style="height:4.5mm;padding-top:1mm;font-size:7pt;width:8mm;border-right-width:1px;">
+  <div class="IRS990ScheduleM_LineIndexMid" style="height:4.5mm;padding-top:1mm;font-size:7pt;width:8.3mm;border-right-width:1px;">
     <span style="font-weight: normal;">
        <xsl:call-template name="PopulateYesBoxText">
         <xsl:with-param name="TargetNode" select="$Form990ScheduleMData/ReviewProcessUnusualNCGiftsInd"/>
@@ -1147,7 +1146,7 @@
       </div>
       
        <div class="IRS990ScheduleM_LineIndexMid" style="height:4mm;width:8.15mm;border-left-width:1px;font-size:7pt;padding-top:0mm;border-right-width:1px;">32a</div>
-  <div class="IRS990ScheduleM_LineIndexMid" style="height:4mm;padding-top:0mm;font-size:7pt;width:8mm;border-right-width:1px;">
+  <div class="IRS990ScheduleM_LineIndexMid" style="height:4mm;padding-top:0mm;font-size:7pt;width:8.3mm;border-right-width:1px;">
    <span style="font-weight: normal;">
        <xsl:call-template name="PopulateYesBoxText">
         <xsl:with-param name="TargetNode" select="$Form990ScheduleMData/ThirdPartiesUsedInd"/>

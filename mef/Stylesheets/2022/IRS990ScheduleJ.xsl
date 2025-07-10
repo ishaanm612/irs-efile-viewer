@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>  
 
 <!-- Updated 4/23/2015 per UWR 123023 IE11 Changes by Robert L Jones -->
 <!-- Updated 6/3/2015 per IBM Defect #43299 by Robert L Jones Additional Data not on page by itself, page numbers not in correct place IE11 Fixes -->
@@ -44,7 +44,7 @@
 					<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS990ScheduleJStyle"/>
 						<xsl:call-template name="AddOnStyle"/>
-				</xsl:if>
+				    </xsl:if>
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
@@ -73,13 +73,13 @@
 							<div class="styFBT" style="padding-top:0mm">
           For certain Officers, Directors, Trustees, Key Employees, and Highest<br/>
 		Compensated Employees<br/>
-					<img src="{$ImagePath}/990SchJ_Bullet_Md.gif" alt="SchJMediumBullet"/>
+					<img src="{$ImagePath}/990SchJ_Bullet_Md.gif" alt="medium right arrow graphic"/>
 					Complete if the organization answered "Yes" on Form 990, Part IV, line 23.<br/>
-					<img src="{$ImagePath}/990SchJ_Bullet_Md.gif" alt="SchJMediumBullet"/>
+					<img src="{$ImagePath}/990SchJ_Bullet_Md.gif" alt="medium right arrow graphic"/>
 		Attach to Form 990. <br/>
-	<!--	<img src="{$ImagePath}/990SchJ_Bullet_Md.gif" alt="SchJMediumBullet"/>
+	<!--	<img src="{$ImagePath}/990SchJ_Bullet_Md.gif" alt="medium right arrow graphic"/>
 		See separate instructions.<br/>-->
-		<img src="{$ImagePath}/990SchJ_Bullet_Md.gif" alt="SchJMediumBullet"/>
+		<img src="{$ImagePath}/990SchJ_Bullet_Md.gif" alt="medium right arrow graphic"/>
 		Go to <!--www.irs.gov/form990.--><a href="http://www.irs.gov/form990" title="Link to IRS.gov">
                 <i>www.irs.gov/Form990</i></a> for instructions and the latest information. 
           </div>
@@ -820,7 +820,7 @@ If "Yes" on line 8, did the organization also follow the rebuttable presumption 
 								<!--<div style="width: 256mm;">-->
 								<tr>
 									<th class="styTableCellHeader " style="width:50mm;font-size: 7pt; height: 4mm; border-top-width:1px;padding-top:1mm;font-weight:normal;vertical-align:top;border-right-width:0mm;border-style: solid; border-color: black;" rowspan="2" scope="col">
-										<b>(A)</b> Name and Title</th>
+										<b>(A)</b> Name and Title </th>
 									<th class="styTableCellHeader " style="width:4mm; height: 4mm; border-top-width:1px;padding-top:0mm;font-weight:normal;vertical-align:top;border-right-width:1px;border-style: solid; border-color: black;" rowspan="2" scope="col">
 										<span style="border-bottom-width:1px"/>
 									</th>
@@ -856,7 +856,7 @@ If "Yes" on line 8, did the organization also follow the rebuttable presumption 
 								<xsl:if test="($Print != $Separated) or count($FormData/RltdOrgOfficerTrstKeyEmplGrp) &lt;= 9">
 									<xsl:for-each select="$FormData/RltdOrgOfficerTrstKeyEmplGrp">
 										<tr>
-											<td class="styTableCell" style="height:4mm;font-size:6pt;text-align:left;vertical-align:top;border-style: solid; border-color: black;"><b><xsl:number value="position()" format="1"/></b>
+											<td class="styTableCell" style="height:4mm;font-size:6pt;text-align:left;vertical-align:top;border-style: solid; border-color: black;"><b><xsl:number value="position()" format="1"/></b><span style="width:1mm;"></span>
 												<xsl:choose>
 													<xsl:when test="PersonNm">
 														<xsl:call-template name="PopulateText">
@@ -980,7 +980,29 @@ If "Yes" on line 8, did the organization also follow the rebuttable presumption 
 											</xsl:call-template>
 										<span style="width:4px"/>
 										 	</td>
-								
+								<td class="styTableCellText" style="font-size:7pt;border-style: solid; border-color: black;border-right:0px;border-top:0px;width:50mm;">
+											
+										 	</td><td class="styTableCellText" style="font-size:7pt;border-style: solid; border-color: black;border-right:0px;border-top:0px;width:50mm;">
+											
+										 	</td>
+										 	<td class="styTableCellText" style="font-size:7pt;border-style: solid; border-color: black;border-right:0px;border-top:0px;width:50mm;">
+											
+										 	</td>
+										 	<td class="styTableCellText" style="font-size:7pt;border-style: solid; border-color: black;border-right:0px;border-top:0px;width:50mm;">
+											
+										 	</td>
+										 	<td class="styTableCellText" style="font-size:7pt;border-style: solid; border-color: black;border-right:0px;border-top:0px;width:50mm;">
+											
+										 	</td>
+										 	<td class="styTableCellText" style="font-size:7pt;border-style: solid; border-color: black;border-right:0px;border-top:0px;width:50mm;">
+											
+										 	</td>
+										 	<td class="styTableCellText" style="font-size:7pt;border-style: solid; border-color: black;border-right:0px;border-top:0px;width:50mm;">
+											
+										 	</td>
+										 	<td class="styTableCellText" style="font-size:7pt;border-style: solid; border-color: black;border-right:0px;border-top:0px;width:50mm;">
+											
+										 	</td>
                   </tr>
                 </xsl:if>
 							
@@ -1220,7 +1242,7 @@ Provide the information, explanation, or descriptions required for Part I, lines
 									<xsl:otherwise>styDepTblRow2Cell </xsl:otherwise>
 									</xsl:choose>
 									</xsl:attribute>
-									<td class="styTableCell" style="height:4mm;font-size:6pt;text-align:left;border-style: solid; border-color: black;"><b><xsl:number value="position()" format="1"/></b>
+									<td class="styTableCell" style="height:4mm;font-size:6pt;text-align:left;border-style: solid; border-color: black;"><b><xsl:number value="position()" format="1"/></b><span style="width:1mm;"></span>
 									
 										<xsl:choose>
 											<xsl:when test="PersonNm">

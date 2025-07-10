@@ -119,11 +119,11 @@
 			  <div class="styComType" style="width:33.3mm;border-bottom:0px;border-right-width: 1px;">
 				<div class="styBoldText" style="height:7mm;width:3mm;float:left;clear:none;padding-top:2mm;">1</div>
 				<div class="styGenericDiv" style="height:7mm;width:25mm;padding-top:2mm;">
-				  <label>Consolidated return (attach Form 851)
+				  <label>
 					<xsl:call-template name="PopulateLabel">
 					  <xsl:with-param name="TargetNode" select="$Form1120PCData/ConsolidatedReturnInd"/>
 					  <xsl:with-param name="BackupName">IRS1120IsConsolidatedReturn</xsl:with-param>
-					</xsl:call-template>
+					</xsl:call-template>Consolidated return (attach Form 851)
                     <!-- Form to Form Link -->
 					<xsl:call-template name="SetFormLinkInline">
 					  <xsl:with-param name="TargetNode" select="$Form1120PCData/ConsolidatedReturnInd"/>
@@ -325,7 +325,7 @@
 			  </span>
 			</div>
 			<!-- Header D check applicable boxes -->
-			<div class="styEINDateAssets" style="width:48mm;height:8.75mm;border-bottom-width:0px;">
+			<div class="styEINDateAssets" style="width:48mm;height:15mm;border-bottom-width:0px;">
 			  <span class="styBoldText" style="padding-right:1mm">D </span>
 			  Check applicable box if an election has
 			  <br/>
@@ -337,11 +337,11 @@
 				  <xsl:with-param name="BackupName">Section831bElectionInd</xsl:with-param>
 				</xsl:call-template>
 			  </input>
-			  <label>831(b)
+			  <label>
 				<xsl:call-template name="PopulateLabel">
 				  <xsl:with-param name="TargetNode" select="$Form1120PCData/Section831bElectionInd"/>
 				  <xsl:with-param name="BackupName">Section831bElectionLabel</xsl:with-param>
-				</xsl:call-template>
+				</xsl:call-template>831(b)
 			  </label>	
 			  <span style="padding-left:2mm;"/>
 			  <input type="checkbox" alt="Election made under section 953(c)(3)(C)" class="styCkbox">
@@ -350,12 +350,12 @@
 				  <xsl:with-param name="BackupName">Section953C3CElectionInd</xsl:with-param>
 				</xsl:call-template>
 			  </input>
-			  <label>953(c)(3)(C)
+			  <label>
 				<xsl:call-template name="PopulateLabel">
 				  <xsl:with-param name="TargetNode" select="$Form1120PCData/Section953c3CElectionInd"/>
 				  <xsl:with-param name="BackupName">Section953C3CElectionLabel</xsl:with-param>				  
-				</xsl:call-template>
-			  </label>
+				</xsl:call-template>953(c)(3)(C)
+			  </label> 
 			  <!--D Check boxes -->
 			  <br/>
 			  <input type="checkbox" alt="Election made under section 953(d)" class="styCkbox">
@@ -364,13 +364,14 @@
 				  <xsl:with-param name="BackupName">Section953DElectionInd</xsl:with-param>
 			    </xsl:call-template>
 			  </input>
-			  <label>953(d)
+			  <label>
 			    <xsl:call-template name="PopulateLabel">
 				  <xsl:with-param name="TargetNode" select="$Form1120PCData/Section953dElectionInd"/>
 				  <xsl:with-param name="BackupName">Section953DElectionLabel</xsl:with-param>
-			    </xsl:call-template>
-			  </label>
-			  <xsl:call-template name="SetFormLinkInline">
+			    </xsl:call-template>953(d)
+			  </label> 
+<!--			<div style="padding-left:16mm;padding-top:2mm;">
+-->			<xsl:call-template name="SetFormLinkInline">
 			    <xsl:with-param name="TargetNode" select="$Form1120PCData/Section953dElectionInd"/>
 			  </xsl:call-template>
 			  <!--Pen and Ink 953D indicator-->
@@ -384,14 +385,13 @@
 			    <xsl:with-param name="TargetNode" select="$Form1120PCData/Section953dElectionInd/@section953dAmt"/>
 			  </xsl:call-template>
 			</div>
-			
 		  </div>
 		<!-- Header E -->
-		<div class="styBB" style="width:187mm;border-right-width:0px;">
-			<div class="styBB" style="border-right-width:1px;border-bottom-width:0px;">
+		<div class="styNBB" style="width:138mm;border-right-width:0px;height:4.5mm;">
+			<div class="styNBB" style="border-right:1px solid black;height:4.5mm;">
 		  <!-- E 1 Final return-->
 			<div class="styGenericDiv" style="width:138mm;height:4.5mm;">
-			<div class="styBoldText" style="float:left;clear:none;padding-right:2mm;padding-top:1.5mm;">E</div>
+			<div class="styBoldText" style="float:left;clear:none;padding-right:2mm;padding-top:1.5mm;height:4.5mm;">E</div>
 			  Check if: <span style="width:1mm;"/>
 			<span class="styBoldText">(1)</span>
 			<span style="width:3px;"/>
@@ -474,7 +474,7 @@
 		<!--</div>-->
 		<!-- End A - Print or Type - Name, Number, City - B - C - D-->
 		<!--BEGIN Main Form Tax Computation and Payments Section-->
-		<div class="styBB" style="width:187mm;border-bottom:2px solid black;">
+		<div class="styBB" style="width:187mm;border-bottom:2px solid black;border-top:1px solid black;">
 			<div class="styIRS1120PCVTImageBox" style="height:134.9mm;padding-top:14mm;border-bottom:1px solid black;">
 			<div style="width:2mm;height:35mm;"/>
 				<img src="{$ImagePath}/1120PC_TaxComputation.gif" alt="Vertical Tax Computation and Payments" style="width:4.8mm;border-right:.5px solid black;"/>

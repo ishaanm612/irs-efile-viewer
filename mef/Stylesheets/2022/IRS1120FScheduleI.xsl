@@ -125,7 +125,7 @@
                 <span class="sty1120FSchIDotLn" style="padding-right:0.2mm">............</span>
                 <img src="{$ImagePath}/1120_Bullet_Md.gif" alt="Right pointing arrow image"/>
                 <span style="width:2.7mm"/>
-                <input type="checkbox" alt="ForeignBank" class="styCkbox">
+                <input type="checkbox" alt="Foreign Bank" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$FormData/ForeignBankDefSect18825c4Ind"/>
                     <xsl:with-param name="BackupName">IRS1120FSchIForeignBankYes</xsl:with-param>
@@ -146,7 +146,7 @@
             </div>
             <div class="sty1120FSchILineABNum" style="float:left;clear:none"/>
             <div class="sty1120FSchILineABDesc" style="width:181mm;float:left;clear:none;border-right-width:0">
-              <input type="checkbox" alt="SchIAdjustedUSBooked" class="styCkbox">
+              <input type="checkbox" alt="Adjusted U.S. booked liabilities" class="styCkbox">
                 <xsl:call-template name="PopulateCheckbox">
                   <xsl:with-param name="TargetNode" select="$FormData/AdjustedUSBookedLiabMthdInd"/>
                   <xsl:with-param name="BackupName">IRS1120FSchIAdjustedUSBooked</xsl:with-param>
@@ -157,13 +157,13 @@
                 <xsl:call-template name="PopulateLabel">
                   <xsl:with-param name="TargetNode" select="$FormData/AdjustedUSBookedLiabMthdInd"/>
                   <xsl:with-param name="BackupName">IRS1120FSchIAdjustedUSBooked</xsl:with-param>
-                </xsl:call-template>
-				  Adjusted U.S. booked liabilities method under Regs. sec. 1.8825(d). <b>Complete lines 1 through 15 and 21 through 25.</b>
+                </xsl:call-template>				  
               </label>
+              Adjusted U.S. booked liabilities method under Regs. sec. 1.8825(d). <b>Complete lines 1 through 15 and 21 through 25.</b>
             </div>
             <div class="sty1120FSchILineABNum" style="float:left;clear:none"/>
             <div class="sty1120FSchILineABDesc" style="width:181mm;height:6mm;float:left;clear:none;border-right-width:0">
-              <input type="checkbox" alt="SchISeparateCurrencyPools" class="styCkbox">
+              <input type="checkbox" alt="Separate currency pools" class="styCkbox">
                 <xsl:call-template name="PopulateCheckbox">
                   <xsl:with-param name="TargetNode" select="$FormData/SeparateCurrencyPoolsMethodInd"/>
                   <xsl:with-param name="BackupName">IRS1120FSchISeparateCurrencyPools</xsl:with-param>
@@ -174,9 +174,9 @@
                   <xsl:with-param name="TargetNode" select="$FormData/SeparateCurrencyPoolsMethodInd"/>
                   <xsl:with-param name="BackupName">IRS1120FSchISeparateCurrencyPools</xsl:with-param>
                 </xsl:call-template>
-                <span style="width:1mm"/>
-				  Separate currency pools method under Regs. sec. 1.8825(e). <b>Complete lines 1 through 9 and 16a through 25.</b>
+                <span style="width:1mm"/>				 
               </label>
+               Separate currency pools method under Regs. sec. 1.8825(e). <b>Complete lines 1 through 9 and 16a through 25.</b>
             </div>
           </div>
           <!--Begin Step 1-->
@@ -509,7 +509,7 @@
                   <td class="sty1120FSchIStep2Desc" scope="row">
                     <div class="sty1120FSchIRightFloat">
                     </div>
-                    <input type="checkbox" alt="ActualRatio" class="styCkbox">
+                    <input type="checkbox" alt="Actual ratio" class="styCkbox">
                       <xsl:call-template name="PopulateCheckbox">
                         <xsl:with-param name="TargetNode" select="$FormData/ActualRatioMethodInd"/>
                         <xsl:with-param name="BackupName">IRS1120FSchIActualRatio</xsl:with-param>
@@ -541,7 +541,7 @@
                   <td class="sty1120FSchIStep2Desc" scope="row">
                     <div class="sty1120FSchIRightFloat">
                     </div>
-                    <input type="checkbox" alt="FixedRatio" class="styCkbox">
+                    <input type="checkbox" alt="Fixed ratio" class="styCkbox">
                       <xsl:call-template name="PopulateCheckbox">
                         <xsl:with-param name="TargetNode" select="$FormData/FixedRatioMethodInd"/>
                         <xsl:with-param name="BackupName">IRS1120FSchIFixedRatio</xsl:with-param>
@@ -868,8 +868,7 @@
                   <td class="sty1120FSchIStep3AmountShadedLastCol">
                     <span style="width:1px"/>
                   </td>
-                </tr>
-                
+                </tr>                
               </tbody>
             </table>
           </div>
@@ -931,7 +930,7 @@
 					<span style="width:1mm"/>
                         <img src="{$ImagePath}/1120_Bullet_Md.gif" alt="Right pointing arrow image"/>
                     <div style="float:right;clear:none;text-align:justify;">                    
-                        <input type="checkbox" alt="ForeignBank" class="styCkbox">
+                        <input type="checkbox" alt="Foreign Bank" class="styCkbox">
                           <xsl:call-template name="PopulateCheckbox">
                             <xsl:with-param name="TargetNode" select="$FormData/ElectionUsePublishedRtInd"/>
                             <xsl:with-param name="BackupName">IRS1120FSchIStep3ForeignBankYes</xsl:with-param>
@@ -1263,7 +1262,7 @@
 						<span style="float:right;">
 							<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="Right pointing arrow image"/>
 								<span style="width:2mm"/>
-								<input type="checkbox" alt="LessThan3Percent" class="styCkbox">
+								<input type="checkbox" alt="Less Than 3 Percent" class="styCkbox">
 									<xsl:call-template name="PopulateCheckbox">
 										<xsl:with-param name="TargetNode" select="$FormData/LessThan3PctCurrencyElectInd"/>
 										<xsl:with-param name="BackupName">IRS1120FSchIStep3LessThan3PercentYes</xsl:with-param>

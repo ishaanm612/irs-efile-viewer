@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 06/01/2015 - Changes made for IE11 compatibility - Jeremy Nichols -->
 <!-- 06/24/2015 - Changes made for UWR 154016 - Jeremy Nichols -->
-<!-- 02/09/16 - Made changes per UWR #173983 - Jeremy Nichols -->
+<!-- 02/09/16 - Made changes per UWR 173983 - Jeremy Nichols -->
 <!-- 02/17/16 - Made changes per defect 45744 - Jeremy Nichols -->
 <!-- 02/29/16 - Made changes per defect 45823 - Jeremy Nichols -->
 <!-- 02/29/16 - Made changes per defect 45824 - Jeremy Nichols -->
+<!-- 10/25/2022 - Changes made for UWR 864862 - Jeremy Nichols -->
+<!-- 04/06/2023 - Changes made for defect 71757 - Jeremy Nichols -->
+<!-- 09/21/2023 - Changes made for EWM defect 1253018 - Jeremy Nichols -->
+<!-- 10/23/2023 - Changes made for EWM defect 1253162 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
   <xsl:include href="CommonPathRef.xsl"/>
@@ -69,7 +73,7 @@
             <div class="styFNBox" style="width:31mm;height:18mm;border-right-width:1px;border-bottom:1px;">
                <span class="styFormNumber" style="font-size:10pt">Schedule 3</span><br/>
                <span class="styFormNumber" style="font-size:10pt">(Form 8849)</span><br/>
-               <span class="styAgency" style="height:3mm;">(Rev. January 2016)</span>
+               <span class="styAgency" style="height:3mm;">(Rev. January 2023)</span>
                <div class="styAgency" style="height:3mm;">Department of the Treasury</div>
                <span class="styAgency" style="height:3mm;">Internal Revenue Service</span> 
             </div>
@@ -163,16 +167,16 @@
           <!--Begin Header 1 -->
           <div style="width:187mm;padding-bottom:7mm;">
             <div class="styLNLeftNumBox" style="height:15mm;width:6mm;"/>
-            <div class="styLNDesc" style="width:179mm;height:15mm;padding-top:1.5mm;">
+            <div class="styLNDesc" style="width:179mm;height:19mm;padding-top:1.5mm;">
               <span class="styBoldText" style="display:inline;">Caution: </span>
               <span class="styNormalText" style="display:inline;">
-                For 2015: See the instructions and Notice 2016-05 for information on how to make 2015 claims. Do not combine claims for 2015 and
-				2016 on the same Schedule 3 (Form 8849). For 2016: The biodiesel mixture credit and renewable diesel mixture credit must first be taken as a
-				credit against your taxable fuel liability (gasoline, diesel fuel, and kerosene) reported on Form 720. Similarly, the alternative fuel credit must first
-				be taken on Form 720 as a credit against your alternative fuel or compressed natural gas (CNG) tax liability. If you have these tax liabilities and
-				you did not make the claim on Form 720, Schedule C as a credit against those liabilities, you must first file Form 720X, Amended Quarterly
-				Federal Excise Tax Return, before Schedule 3 (Form 8849) can be used for the refund. You cannot claim any amounts on Form 8849 that you
-				claimed (or will claim) on Form 720, Schedule C; Form 720X; or Form 4136, Credit for Federal Tax Paid on Fuels.
+                For retroactive 2022 first, second, third calendar quarters: See the instructions and Notice 2022-39 for information on how to make retroactive 2022 first,second, and third calendar quarters claims. Combine claims for
+				retroactive 2022 first,second, third calendar quarters on the same Schedule 3 (Form 8849). For 2022 fourth calendar quarter and later year claims: The biodiesel mixture credit and renewable diesel mixture
+				credit must first be taken as a credit against your taxable fuel liability (gasoline, diesel fuel, and kerosene) reported on Form 720. Similarly, the
+				alternative fuel credits must first be taken on Form 720 as a credit against your alternative fuel or compressed natural gas (CNG) tax liability. If you
+				have these tax liabilities and you didn’t make the claim on Form 720, Schedule C, as a credit against those liabilities, you must first file Form 720-
+				X, Amended Quarterly Federal Excise Tax Return, before Schedule 3 (Form 8849) can be used for the refund. You can’t claim any amounts on
+				Form 8849 that you claimed (or will claim) on Form 720, Schedule C; Form 720-X; or Form 4136, Credit for Federal Tax Paid on Fuels.
               </span><br/>
             </div>
           </div>
@@ -231,13 +235,13 @@
           <div class="styBB" style="width:187mm;">
             <div class="styLNLeftNumBox" style="height:4mm;width:6mm;">1</div>
             <div class="styLNDesc" style="width:100mm;height:4mm;">
-              <span class="styBoldText">Reserved</span>
+              <span class="styBoldText">Reserved for future use</span>
             </div>
           </div>
           <div style="border-bottom:1px black solid;width:187mm;">
             <div class="styLNLeftNumBox" style="height:20mm;width:6mm;"/>
             <div class="styLNDesc" style="width:179mm;height:20mm;">
-              <span class="styBoldText">Reserved</span>
+              <span class="styBoldText">Reserved for future use</span>
             </div>
           </div>
           
@@ -255,7 +259,7 @@
                     <span style="font-weight:bold;">Multiply col.</span><span style="width:0.5mm;"/>
                     <span style="font-weight:bold;"> (a) </span><span style="width:0.5mm;"/>
                     <span style="font-weight:bold;">by col.</span><span style="width:0.5mm;"/>
-                    <span style="font-weight:bold;"> (b).</span>
+                    <span style="font-weight:bold;"> (b)</span>
                   </th>
                   <th scope="col" style="width:10mm;border-left:1px black solid;border-bottom:1px black solid;">(d)<br/> CRN</th>
                 </tr>
@@ -264,7 +268,7 @@
                 <tr>
                   <td style="width:6mm;text-align:center;font-weight:bold">a</td>
                   <td style="width:84mm;text-align:left;border-bottom:1px black solid;">
-					  <b>Reserved</b>
+					  <b>Reserved for future use</b>
 				  </td>
                   <td style="border-left:1px black solid;border-bottom:1px black solid;padding-right:2mm;background-color:lightgrey;">
                     
@@ -284,7 +288,7 @@
                 <tr>
                   <td style="width: 6mm;text-align:center;vertical-align:top;font-weight:bold;border-bottom:1px black solid;">b</td>
                   <td style="width:84mm;text-align:left;border-bottom:1px black solid;">
-                    <b>Reserved</b>
+                    <b>Reserved for future use</b>
                   </td>
                   <td style="vertical-align:top;border-left:1px black solid;border-bottom:1px black solid;padding-right:0mm;background-color:lightgrey;">
                     
@@ -307,20 +311,23 @@
             <div class="styBB" style="width:187mm;">
               <div class="styLNLeftNumBox" style="height:4mm;width:6mm;">2</div>
               <div class="styLNDesc" style="width:179mm;height:4mm;">
-                <span class="styBoldText">Biodiesel or Renewable Diesel Mixture Credit</span>
+                <span class="styBoldText">Biodiesel or Renewable Diesel Mixture Credit, and Sustainable Aviation Fuel Credit</span>
               </div>
             </div>
             
-            <div style="border-bottom:1px black solid;width:187mm;">
+            <div style="border-bottom:0px black solid;width:187mm;">
               <div class="styLNLeftNumBox" style="height:30mm;width:6mm;"/>
               <div class="styLNDesc" style="width:179mm;height:30mm; padding-top:1.5mm; padding-bottom:1.5mm;text-align:justify">
-                <b>Biodiesel mixtures. </b>Claimant produced a mixture by mixing biodiesel with diesel fuel. The biodiesel used to produce the mixture met ASTM D6751 and met EPA’s
-				registration requirements for fuels and fuel additives. The mixture was sold by the claimant to any person for use as a fuel or was used as a fuel by the claimant. Claimant
-				has attached the Certificate for Biodiesel and, if applicable, the Statement of Biodiesel Reseller. <b>Renewable diesel mixtures. </b>Claimant produced a mixture by mixing
-				renewable diesel with liquid fuel (other than renewable diesel). The renewable diesel used to produce the renewable diesel mixture was derived from biomass, met EPA’s
-				registration requirements for fuels and fuel additives, and met ASTM D975, D396, or other equivalent standard approved by the IRS. The mixture was sold by the claimant
-				to any person for use as a fuel or was used as a fuel by the claimant. Claimant has attached the Certificate for Biodiesel and, if applicable, Statement of Biodiesel Reseller,
-				both of which have been edited as discussed in the instructions for line 2. See the instructions for line 2 for information about renewable diesel used in aviation.         
+                <b>Biodiesel or renewable diesel mixtures.  </b>Claimant produced a mixture by mixing biodiesel with diesel fuel (or renewable diesel 
+                with liquid fuel (other than renewable diesel). The biodiesel used to produce the biodiesel mixture met ASTM D6751 
+                and met EPA’s registration requirements for fuels and fuel additives. The renewable diesel used to produce the renewable 
+                diesel mixture was derived from biomass, met EPA’s registration requirements for fuels and fuel additives, and met 
+                ASTM D975, D396, or other equivalent standard approved by the IRS. <b>Sustainable aviation fuel (SAF)</b>. Claimant produced 
+                a mixture by mixing SAF with kerosene. The SAF used to produce the mixture was liquid fuel, and the portion of such 
+                mixture which wasn't kerosene met ASTM D7566, or the Fischer-Tropsch provisions of ASTM D1655, Annex A1. <b>For all claims</b>. 
+                The mixtures were sold by the claimant to any person for use as a fuel or was used as a fuel by the claimant. Claimant has 
+                attached the appropriate certificates and, if applicable, appropriate reseller statements. See the instructions for additional 
+                information and requirements.         
                 <xsl:call-template name="SetFormLinkInline">
                   <xsl:with-param name="TargetNode" select="$FormData/BiodieselOrRnwblDslMixtureCr"/>
                 </xsl:call-template>    
@@ -332,16 +339,17 @@
               <tbody>
               
                 <tr>
-                  <th scope="col" style="width:90mm;font-weight:normal;" colspan="2" align="left"/>
-                  <th scope="col" style="width:10mm;border-left:1px black solid;border-bottom:1px black solid;">(a)<br/> Rate<br/><br/></th>
-                  <th scope="col" style="width:31mm;border-left:1px black solid;border-bottom:1px black solid;">(b)<br/> Gallons of biodiesel <br/>or renewable diesel</th>
-                  <th scope="col" style="width:45mm;border-left:1px black solid;border-bottom:1px black solid;">(c) Amount of claim<br/>
+                  <th scope="col" style="width:6mm;font-weight:normal;" align="left"/>
+                  <th scope="col" style="width:84mm;font-weight:normal;border-top:1px black solid;" align="left"/>
+                  <th scope="col" style="width:10mm;border-left:1px black solid;border-top:1px black solid;border-bottom:1px black solid;">(a)<br/> Rate<br/><br/></th>
+                  <th scope="col" style="width:31mm;border-left:1px black solid;border-top:1px black solid;border-bottom:1px black solid;">(b)<br/> Gallons of biodiesel <br/>or renewable diesel or SAF</th>
+                  <th scope="col" style="width:45mm;border-left:1px black solid;border-top:1px black solid;border-bottom:1px black solid;">(c) Amount of claim<br/>
                     <span style="font-weight:bold;">Multiply col.</span><span style="width:0.5mm;"/>
                     <span style="font-weight:bold;"> (a) </span><span style="width:0.5mm;"/>
                     <span style="font-weight:bold;">by col.</span><span style="width:0.5mm;"/>
-                    <span style="font-weight:bold;"> (b).</span><br/><br/>
+                    <span style="font-weight:bold;"> (b)</span><br/><br/>
                   </th>
-                  <th scope="col" style="width:10mm;border-left:1px black solid;border-bottom:1px black solid;">(d)<br/> CRN<br/><br/></th>
+                  <th scope="col" style="width:10mm;border-left:1px black solid;border-top:1px black solid;border-bottom:1px black solid;">(d)<br/> CRN<br/><br/></th>
                 </tr>
       
                 <!--Line 2a-->
@@ -349,7 +357,7 @@
                   <td style="width:6mm;text-align:center;font-weight:bold">a</td>
                   <td style="width:84mm;text-align:left;border-bottom:1px black solid;border-top:1px black solid;">Biodiesel (other than agri-biodiesel) mixtures</td>
                   <td style="border-left:1px black solid;border-bottom:1px black solid;">
-                    <span style="width:.5mm;">$</span>
+                    <span style="width:.5mm;">$ </span> <span style="width:1mm;"/>
                     <span style="text-align:right;padding-left:.5mm;">
                       <xsl:call-template name="PopulateText">
                         <xsl:with-param name="TargetNode" select="$FormData/BiodieselOrRnwblDslMixtureCr/BiodieselMixtures/Rt"/>
@@ -434,6 +442,35 @@
                   </td>
                 </tr>
                 
+                <!--Line 2d-->
+                <tr>
+                  <td style="text-align:center;font-weight:bold;border-bottom:1px black solid;">d</td>
+                  <td style="text-align:left;border-bottom:1px black solid;">Sustainable aviation fuel (see instructions)</td>
+                  <td style="border-left:1px black solid;border-bottom:1px black solid;padding-left:2mm;">
+                    <xsl:call-template name="PopulateText">
+                      <xsl:with-param name="TargetNode" select="$FormData/BiodieselOrRnwblDslMixtureCr/SustainableAviationFuel/Rt"/>
+                    </xsl:call-template>
+                  </td>
+                  <td style="text-align:center;border-left:1px black solid;border-bottom:1px black solid;text-align:right;">
+                    <xsl:call-template name="PopulateAmount">
+                      <xsl:with-param name="TargetNode" select="$FormData/BiodieselOrRnwblDslMixtureCr/SustainableAviationFuel/GallonsQty"/>
+                    </xsl:call-template>
+                  </td>
+                  <td style="border-left:1px black solid;border-bottom:1px black solid;text-align:right;">
+                    <span style="width:2mm;text-align:left;"/>
+                    <span style="width:37mm;">
+                      <xsl:call-template name="PopulateAmount">
+                        <xsl:with-param name="TargetNode" select="$FormData/BiodieselOrRnwblDslMixtureCr/SustainableAviationFuel/Amt"/>
+                      </xsl:call-template>
+                    </span>
+                  </td>
+                  <td style="text-align:center;border-left:1px black solid;border-bottom:1px black solid;">
+                    <xsl:call-template name="PopulateText">
+                      <xsl:with-param name="TargetNode" select="$FormData/BiodieselOrRnwblDslMixtureCr/SustainableAviationFuel/CreditReferenceNum"/>
+                    </xsl:call-template>
+                  </td>
+                </tr>
+                
               </tbody>
             </table>
     
@@ -470,7 +507,7 @@
                     <span style="font-weight:bold;">Multiply col.</span><span style="width:0.5mm;"/>
                     <span style="font-weight:bold;"> (a) </span><span style="width:0.5mm;"/>
                     <span style="font-weight:bold;">by col.</span><span style="width:0.5mm;"/>
-                    <span style="font-weight:bold;"> (b).</span><br/><br/>
+                    <span style="font-weight:bold;"> (b)</span><br/><br/>
                   </th>
                   <th scope="col" style="width:10mm;border-left:1px black solid;border-bottom:1px black solid;">(d)<br/> CRN<br/><br/></th>
                 </tr>
@@ -566,30 +603,30 @@
                 <!--Line 3d-->
                 <tr>
                   <td style="text-align:center;font-weight:bold">d</td>
-                  <td style="text-align:left;border-bottom:1px black solid;">Liquefied hydrogen</td>
-                  <td style="border-left:1px black solid;border-bottom:1px black solid;">
+                  <td style="text-align:left;border-bottom:1px black solid;"><b>Reserved for future use</b></td>
+                  <td style="border-left:1px black solid;border-bottom:1px black solid;background-color:lightgrey;">
                     <span style="width:1.75mm;clear:none"/>
-                    <xsl:call-template name="PopulateText">
+                    <!--<xsl:call-template name="PopulateText">
                       <xsl:with-param name="TargetNode" select="$FormData/AlternativeFuelCredit/LiquefiedHydrogen/Rt"/>
-                    </xsl:call-template>
+                    </xsl:call-template>-->
                   </td>
-                  <td style="text-align:center;border-left:1px black solid;border-bottom:1px black solid;text-align:right;">
-                    <xsl:call-template name="PopulateAmount">
+                  <td style="text-align:center;border-left:1px black solid;border-bottom:1px black solid;text-align:right;background-color:lightgrey;">
+                    <!--<xsl:call-template name="PopulateAmount">
                       <xsl:with-param name="TargetNode" select="$FormData/AlternativeFuelCredit/LiquefiedHydrogen/GallonsQty"/>
-                    </xsl:call-template>
+                    </xsl:call-template>-->
                   </td>
-                  <td style="border-left:1px black solid;border-bottom:1px black solid;text-align:right;">
+                  <td style="border-left:1px black solid;border-bottom:1px black solid;text-align:right;background-color:lightgrey;">
                     <span style="width:2mm;text-align:left;"/>
                     <span style="width:37mm;">
-                      <xsl:call-template name="PopulateAmount">
+                      <!--<xsl:call-template name="PopulateAmount">
                         <xsl:with-param name="TargetNode" select="$FormData/AlternativeFuelCredit/LiquefiedHydrogen/Amt"/>
-                      </xsl:call-template>
+                      </xsl:call-template>-->
                     </span>
                   </td> 
-                  <td style="text-align:center;border-left:1px black solid;border-bottom:1px black solid;">
-                    <xsl:call-template name="PopulateText">
+                  <td style="text-align:center;border-left:1px black solid;border-bottom:1px black solid;background-color:lightgrey;">
+                    <!--<xsl:call-template name="PopulateText">
                       <xsl:with-param name="TargetNode" select="$FormData/AlternativeFuelCredit/LiquefiedHydrogen/CreditReferenceNum"/>
-                    </xsl:call-template>
+                    </xsl:call-template>-->
                   </td>
                 </tr>
     
@@ -748,11 +785,13 @@
           </div>
           
           <div style="width:187mm">
+			<span style="width:187mm;text-align:left;font-size:6pt;border-bottom:1px black solid;">Send this schedule with completed Form 8849 to: Internal Revenue Service, P.O. Box 312, Covington, KY 41012-0312; on the envelope write &quot;Fuel Mixture Claim.&quot;</span>
+			
             <span style="width:104mm;font-weight:bold;text-align:left;font-size:6pt;">For Privacy Act and Paperwork Reduction Act Notice, see Form 8849 instructions.</span>
             <span style="width:6mm;"/>
             <span style="width:18mm;font-weight:normal;font-size:6pt;"> Cat. No. 27451F</span>
             <span style="width:6mm;"/>
-            <span style="text-align:right;width:32mm;font-weight:bold;font-size:6pt;">Schedule 3 (Form 8849)</span><span style="font-weight:normal;font-size:6pt;"> (Rev. 1-2016)</span>
+            <span style="text-align:right;width:32mm;font-weight:bold;font-size:6pt;">Schedule 3 (Form 8849)</span><span style="font-weight:normal;font-size:6pt;"> (Rev. 1-2023)</span>
           </div>
           <div class="pageEnd"/>
      

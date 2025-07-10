@@ -3615,7 +3615,7 @@
 								<tr>
 									<td class="sty1120FSchM3TableCellNum" style="height:12mm;padding-left:4mm;padding-top:0;padding-bottom:6mm">c</td>
 									<td class="sty1120FSchM3TableCellText" style="height:12mm" scope="row">
-										Regulations section 1.882-5 allocation amount subject to deferral or disallowance (from Schedule I (Form 1120-F), line 24d)
+										Regulations section 1.882-5 allocation amount subject to deferral or disallowance (from Schedule I (Form 1120-F), line 24g)
 										<!-- Dotted Line -->
 									</td>
 									<td class="sty1120FSchM3TableCellAmount" style="height:12mm;padding-top:8mm;background-color:lightgrey">

@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 01/25/2017 - Modified per UWR #195212 - Jeremy Nichols-->
-<!-- 02/21/2017 - Modified per defect #47844 - Jeremy Nichols-->
-<!-- 01/12/2018 - Modified per UWR #205558 - Jeremy Nichols-->
-<!-- 02/08/2018 - Modified per UWR #208207 - Jeremy Nichols-->
-<!-- 10/26/2018 - Modified per UWR #214980 - Jeremy Nichols-->
-<!-- 01/15/2019 - Modified per defect #127590 - Jeremy Nichols-->
-<!-- 01/16/2019 - Modified per defect #127591 - Jeremy Nichols-->
-<!-- 01/13/2020 - Made changes per UWR 231532 - Jeremy Nichols -->
-<!-- 01/10/2022 - Made changes per KISAM BRE - Jeremy Nichols -->
-<!-- 10/27/2022 - Made changes per UWR 864945 - Jeremy Nichols -->
-<!-- 12/23/2022 - Made changes per KISAM IM02193910 - Jeremy Nichols -->
-<!-- 01/03/2023 - Made changes per UWR 966734 - Jeremy Nichols -->
+<!-- 02/14/2024 - defect 1377089 - Jeremy Nichols -->
+<!-- 02/14/2024 - defect 1377439 - Jeremy Nichols -->
+<!-- 03/15/2024 - UWR 980219 - Jeremy Nichols -->
+<!-- 04/08/2024 - UWR 981665 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -53,7 +45,7 @@
 			</head>
 			<body class="styBodyClass">
 				<form name="Form720">
-			
+
 	<xsl:call-template name="DocumentHeader"/>
         <!--Title of Form -->
         <div style="display:block;">
@@ -78,7 +70,7 @@
 						<xsl:with-param name="TargetNode" select="$FormData/SpecialConditionDesc"/>
 					</xsl:call-template>
 				<br/>
-              <span class="styAgency" style="font-size: 7.5pt; font-weight:normal">(Rev. March 2023) </span>
+              <span class="styAgency" style="font-size: 7.5pt; font-weight:normal">(Rev. June 2024)</span>
 				<br/>
 				<span class="styAgency" style="font-size: 7.5pt; font-weight:normal">Department of the Treasury</span>
 				<br/>
@@ -99,7 +91,7 @@
 		</div>
 		<!--  End title of Form  -->
 		<div style="height:39mm;width:187mm; border-color: black; border-style: solid; border-right-width: 0px; border-left-width: 0px; border-top-width: 0px; border-bottom-width: 0px;display:block;">
-			<table class="styTable" cellspacing="0" border="0" style="height:auto;width:187mm;">
+			<table class="styTable" cellspacing="0" border="0" style="height:auto;width:187mm;" role="presentation">
 				<thead class="styTableThead" style="font-size:7pt">
 					<tr>
 						<th scope="col"  valign="top" style="height:auto;width:29mm;text-align:left;">
@@ -461,7 +453,7 @@
 							</xsl:call-template>
 						</td>
 						<td colspan="5" style="height:3mm;width:131mm;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;float:left;clear:none;">ODC tax on imported products
-              </td>
+					    </td>
 						<td style="height:3mm;width:33mm;text-align: right; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;height:3mm; padding-right:1mm;float:left;clear:none;">
 							<span style="float:left;"/>
 							<xsl:call-template name="PopulateAmount">
@@ -477,7 +469,7 @@
 					<!-- End Part I, Environmental Tax, line 19 -->
 					<!-- Begin Part I, Communications & Air Transportation Taxes title -->
 					<tr>
-						<th scope="col" style="border-color: black; border-style: solid; border-top-width: 2px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; width:11mm; height:4mm; text-align:center; font-weight:normal;float:left;clear:none;" >
+						<th scope="col" style="border-color: black; border-style: solid; border-top-width: 2px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; width:11mm; height:4mm; text-align:center; font-weight:normal;float:left;clear:none;" role="presentation">
 							<span style="width:1px"/>
 						</th>
 						<th scope="col" colspan="5" style="border-color: black; border-style: solid; border-top-width: 2px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; width:131mm; height:4mm; text-align:left; font-weight:normal;padding-left:5px;float:left;clear:none;" >
@@ -487,7 +479,7 @@
 						<th scope="col" align="center" style="border-color: black; border-style: solid; border-top-width: 2px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; width:33mm; height:4mm; text-align:center; font-weight:normal;float:left;clear:none;" >
 							<b>Tax</b>
 						</th>
-						<th scope="col" style="border-color: black; border-style: solid; border-top-width: 2px; border-right-width:0px; border-left-width:0px; border-bottom-width:0px; width:12mm; height:4mm; text-align:center; font-weight:normal;float:left;clear:none;" >
+						<th scope="col" style="border-color: black; border-style: solid; border-top-width: 2px; border-right-width:0px; border-left-width:0px; border-bottom-width:0px; width:12mm; height:4mm; text-align:center; font-weight:normal;float:left;clear:none;" role="presentation">
 							<span style="width:1px"/>
 						</th>
 					</tr>
@@ -516,72 +508,72 @@
 					<!-- Begin Part I, Communications & Air Transportation Taxes,  line 26 -->
 					<tr>
 						<td style="width:11mm; height:3mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum26/IRSNum"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
-						<td colspan="5" style="width:131mm; height:3mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">Transportation of persons by air
+						<td colspan="5" style="width:131mm; height:3mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">reserved for future use<!--Transportation of persons by air-->
               </td>
 						<td style="width:33mm; height:3mm;float:left;clear:none;text-align: right; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;height:3mm; padding-right:1mm">
 							<span style="float:left;"/>
-							<xsl:call-template name="PopulateAmount">
+							<!--<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum26/TaxAmt"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 						<td style="width:12mm; height:3mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;">
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum26/IRSNum"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 					</tr>
 					<!-- End Part I, Communications & Air Transportation Taxes,  line 26 -->
 					<!-- Begin Part I, Communications & Air Transportation Taxes,  line 28 -->
 					<tr>
 						<td style="width:11mm; height:3mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum28/IRSNum"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
-						<td colspan="5" style="width:131mm; height:3mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">Transportation of property by air
+						<td colspan="5" style="width:131mm; height:3mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">reserved for future use<!--Transportation of property by air-->
               </td>
 						<td style="width:33mm; height:3mm;float:left;clear:none;text-align: right; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;height:3mm; padding-right:1mm">
 							<span style="float:left;"/>
-							<xsl:call-template name="PopulateAmount">
+							<!--<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum28/TaxAmt"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 						<td style="width:12mm; height:3mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;">
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum28/IRSNum"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 					</tr>
 					<!-- End Part I, Communications & Air Transportation Taxes,  line 28 -->
 					<!-- Begin Part I, Communications & Air Transportation Taxes,  line 27 -->
 					<tr>
 						<td style="width:11mm; height:3.5mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum27/IRSNum"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
-						<td colspan="5" style="width:131mm; height:3.5mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">Use of international air travel facilities
+						<td colspan="5" style="width:131mm; height:3.5mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">reserved for future use<!--Use of international air travel facilities-->
               </td>
 						<td style="width:33mm; height:3.5mm;float:left;clear:none;text-align: right; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;height:3mm; padding-right:1mm">
 							<span style="float:left;"/>
-							<xsl:call-template name="PopulateAmount">
+							<!--<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum27/TaxAmt"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 						<td style="width:12mm; height:3.5mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;">
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum27/IRSNum"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 					</tr>
 					<!-- End Part I, Communications & Air Transportation Taxes,  line 27 -->
 					<!-- Begin Part I, Fuel Taxes title  -->
 					<tr>
-						<th scope="col"  style="text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; height:4mm;width:11mm;float:left;clear:none;">
+						<th scope="col"  style="text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; height:4mm;width:11mm;float:left;clear:none;" role="presentation">
 							<span style="width:1px"/>
 						</th>
 						<th scope="col"  colspan="2" style="text-align: left; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px; height:4mm;width:60mm;float:left;clear:none;">
@@ -598,7 +590,7 @@
 						<th scope="col" style="text-align: center; border-color: black; border-style: solid; border-top-width: 2px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px;font-weight:normal;height:4mm; width:33mm;float:left;clear:none;" >
 							<b>Tax</b>
 						</th>
-						<th scope="col" style="text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; height:4mm;width:12mm;float:left;clear:none;" >
+						<th scope="col" style="text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; height:4mm;width:12mm;float:left;clear:none;" role="presentation">
 							<span style="width:1px"/>
 						</th>
 					</tr>
@@ -1150,35 +1142,35 @@
 					<!-- Begin Part I, Fuel Taxes, line 13 -->
 					<tr>
 						<td style="height:6mm;width:11mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum13/IRSNum"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
-						<td colspan="2" style="height:6mm;width:60mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">Any liquid fuel used in a fractional ownership program aircraft
+						<td colspan="2" style="height:6mm;width:60mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">reserved for future use<!--Any liquid fuel used in a fractional ownership program aircraft-->
 					    </td>
 						<td style="height:6mm;width:35mm;float:left;clear:none;text-align: right; border-color: black; border-style: solid; border-top-width: 1px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; font-weight:normal; padding-right:1mm" >
-							<xsl:call-template name="PopulateAmount">
+							<!--<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum13/GallonsQty"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 						<td style="height:6mm;width:32mm;float:left;clear:none;text-align: center; border-color: black; border-style: solid; border-top-width: 1px; border-right-width:0px; border-left-width:0px; border-bottom-width:0px; font-weight:normal; padding-right:1mm" >
 							<span style="float:left;"/>
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum13/Rt"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 						<td style="height:6mm;width:4mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
 							<span style="width:1px"/>
 						</td>
 						<td style="height:6mm;width:33mm;float:left;clear:none;text-align: right; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-right:1mm">
-							<xsl:call-template name="PopulateAmount">
+							<!--<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum13/TaxAmt"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 						<td style="height:6mm;width:12mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;">
-							<xsl:call-template name="PopulateText">
+							<!--<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartI/PartIIRSNum13/IRSNum"/>
-							</xsl:call-template>
+							</xsl:call-template>-->
 						</td>
 					</tr>
 					<!-- End Part I, Fuel Taxes, line 13 -->
@@ -1472,7 +1464,7 @@
       </div>
 							<div style="float:right;">
 								<span style="width:20px;"/>  
-        Form <span class="styBoldText" style="font-size:8pt;">720</span> (Rev. 3-2023)
+        Form <span class="styBoldText" style="font-size:8pt;">720</span> (Rev. 06-2024)
       </div>
 						</td>
 					</tr>
@@ -1489,7 +1481,7 @@
 				<tbody>
 					<tr>
 						<td colspan="8" class="styBB" style="width:187mm">
-							<div style="float: left; clear: none">Form 720 (Rev. 3-2023)</div>
+							<div style="float: left; clear: none">Form 720 (Rev. 06-2024)</div>
 							<div style="float:right">Page <span class="styBoldText" style="font-size: 8pt">2</span>
 							</div>
 						</td>
@@ -1500,10 +1492,10 @@
 						<th style="height:4mm;width:11mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px;">
 							<b>IRS No.</b>
 						</th>
-						<th scope="col"  colspan="2" style="height:4mm;width:60mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; padding-left:5px;">
+						<th scope="col"  colspan="2" style="height:4mm;width:60mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; padding-left:5px;" role="presentation">
 							<span style="font-size:7pt"></span>
 						</th>
-						<th scope="col" style="height:4mm;width:40mm;float:left;clear:none;text-align: center; border-color: black; border-style: solid; border-top-width: 1px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; font-weight:normal" >
+						<th scope="col" style="height:4mm;width:40mm;float:left;clear:none;text-align: center; border-color: black; border-style: solid; border-top-width: 1px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; font-weight:normal" role="presentation">
 							<span style="font-size:7pt"></span>
 						</th>
 						<th scope="col" colspan="2" style="height:4mm;width:30mm;float:left;clear:none;text-align: center; border-color: black; border-style: solid; border-top-width: 1px; border-right-width:1px; border-left-width:0px; border-bottom-width:1px; font-weight:normal" >
@@ -1544,7 +1536,7 @@
 					
 					<!-- Begin Part I, Ship Passenger Tax title -->
 					<tr>
-						<th scope="col"  style="height:4mm;width:11mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; ">
+						<th scope="col"  style="height:4mm;width:11mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; " role="presentation">
 							<span style="width:1px"/>
 						</th>
 						<th scope="col"  colspan="2" style="height:4mm;width:60mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">
@@ -1561,7 +1553,7 @@
 						<th scope="col" style="height:4mm;width:34mm;float:left;clear:none;text-align: center; border-color: black; border-style: solid; border-top-width: 2px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px;font-weight:normal;" >
 							<b>Tax</b>
 						</th>
-						<th scope="col"  style="height:4mm;width:12mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;">
+						<th scope="col"  style="height:4mm;width:12mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;" role="presentation">
 							<span style="width:1px"/>
 						</th>
 					</tr>
@@ -1660,7 +1652,7 @@
 					<!-- End Part I, Other Excise Tax, line 31 -->
 					<!-- Begin Part I, Foreign Insurance Tax title -->
 					<tr>
-						<th scope="col"  style="height:7mm;width:11mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
+						<th scope="col"  style="height:7mm;width:11mm;float:left;clear:none;text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;" role="presentation">
 							<span style="width:1px"/>
 						</th>
 						<th scope="col"  colspan="2" style="height:7mm;width:60mm;float:left;clear:none;text-align: left; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">
@@ -2264,27 +2256,27 @@
 					</tr>
 					<tr style="">
 						<td style="width:60mm;height:3mm;font-size:6pt;text-align:left;vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;padding-right:1mm;padding-top:0px;padding-bottom:0px; ">
-							(a) Reserved for future use <!--(a) With a policy year ending before October 1, <br/>2017 <span class="styDotLn" style="letter-spacing:1mm;font-size:6pt;float:right;display:inline;">..........................</span>-->
+							(a) With a policy year ending before October 1, 2023 <span class="styDotLn" style="letter-spacing:1mm;font-size:6pt;float:right;display:inline;">................</span>
 						</td>
 						<td style="width:22mm;height:3mm;font-size:8;text-align:center;vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px;padding-top:0px;padding-bottom:0px;">
-							<!--<xsl:call-template name="PopulateAmount">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum133/IRSNum133a/AverageLivesCoveredCnt"/>
-							</xsl:call-template>-->
+							</xsl:call-template>
 						</td>
 						<td style="width:22mm;height:3mm;font-size:8;text-align:center;vertical-align:bottom;padding-top:0px;padding-bottom:0px;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px; ">
-							<!--<xsl:call-template name="PopulateText">
+							<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum133/IRSNum133a/Rt"/>
-							</xsl:call-template>-->
+							</xsl:call-template>
 						</td>
 						<td style="height:3mm;text-align: center; vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 0px; padding-left:5px;">
-							<!--<xsl:call-template name="PopulateAmount">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum133/IRSNum133a/Fee"/>
-							</xsl:call-template>-->
+							</xsl:call-template>
 						</td>
 					</tr>
 					<tr style="">
 						<td style="width:60mm;height:3mm;font-size:6pt;text-align:left;vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;padding-right:1mm;padding-top:0px;padding-bottom:0px; ">
-							(b) With a policy year ending on or after October 1, 2017 and before October 1, 2018  <span class="styDotLn" style="letter-spacing:1mm;font-size:6pt;float:right;display:inline;">........</span>
+							(b) With a policy year ending on or after October 1, 2023 and before October 1, 2024 <span class="styDotLn" style="letter-spacing:1mm;font-size:6pt;float:right;display:inline;">......................</span>
 						</td>
 						<td style="width:22mm;height:3mm;font-size:8;text-align:center;vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px;padding-top:0px;padding-bottom:0px;">
 							<xsl:call-template name="PopulateAmount">
@@ -2329,22 +2321,22 @@
 					</tr>
 					<tr style="">
 						<td style="width:60mm;height:3mm;font-size:6pt;text-align:left;vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;padding-right:1mm;padding-top:0px;padding-bottom:0px; ">
-							(c) Reserved for future use<!-- (c) With a plan year ending before October 1, <br/>2017 <span class="styDotLn" style="letter-spacing:1mm;font-size:6pt;float:right;display:inline;">..........................</span>-->
+							(c) With a plan year ending before October 1, 2023 <span class="styDotLn" style="letter-spacing:1mm;font-size:6pt;float:right;display:inline;">......................</span>
 						</td>
 						<td style="width:22mm;height:3mm;font-size:8;text-align:center;vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px;padding-top:0px;padding-bottom:0px;">
-							<!--<xsl:call-template name="PopulateAmount">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum133/IRSNum133c/AverageLivesCoveredCnt"/>
-							</xsl:call-template>-->
+							</xsl:call-template>
 						</td>
 						<td style="width:22mm;height:3mm;font-size:8;text-align:center;vertical-align:bottom;padding-top:0px;padding-bottom:0px;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px; ">
-							<!--<xsl:call-template name="PopulateText">
+							<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum133/IRSNum133c/Rt"/>
-							</xsl:call-template>-->
+							</xsl:call-template>
 						</td>
 						<td style="height:3mm;text-align: center; vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 0px; padding-left:5px;">
-							<!--<xsl:call-template name="PopulateAmount">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum133/IRSNum133c/Fee"/>
-							</xsl:call-template>-->
+							</xsl:call-template>
 						</td>
 						<td rowspan="2" style="text-align: center; vertical-align:center;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 1px; border-right-width: 1px; padding-left:5px;background:lightgrey">
 							<span style="width:1mm;"/>
@@ -2352,7 +2344,7 @@
 					</tr>
 					<tr style="">
 						<td style="width:60mm;height:3mm;font-size:6pt;text-align:left;vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;padding-right:1mm;padding-top:0px;padding-bottom:0px; ">
-							(d) With a plan year ending on or after October 1, 2017 and before October 1, 2018  <span class="styDotLn" style="letter-spacing:1mm;font-size:6pt;float:right;display:inline;">........</span>
+							(d) With a plan year ending on or after October 1, 2023 and before October 1, 2024 <span class="styDotLn" style="letter-spacing:1mm;font-size:6pt;float:right;display:inline;">......................</span>
 						</td>
 						<td style="width:22mm;height:3mm;font-size:8;text-align:center;vertical-align:bottom;border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px;padding-top:0px;padding-bottom:0px;">
 							<xsl:call-template name="PopulateAmount">
@@ -2570,10 +2562,10 @@
 					<!-- End Part II, line 140 -->
 					<!-- Begin Part II, line blank -->
 					<tr>
-						<th scope="col"  style="text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
+						<th scope="col"  style="text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;" role="presentation">
 							<span style="width:1px"/>
 						</th>
-						<th scope="col"  colspan="2" style="text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">
+						<th scope="col"  colspan="2" style="text-align: left; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;" role="presentation">
 							<span style="font-size:8pt; width:1px"/>
 						</th>
 						<th scope="col" style="text-align: center; border-color: black; border-style: solid; border-top-width: 1px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; font-weight:normal" >
@@ -2585,7 +2577,7 @@
 						<th scope="col"  style="text-align: center; border-style: solid; border-color: black; border-top-width:1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
 							<b>Tax</b>
 						</th>
-						<th scope="col"  style="text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;">
+						<th scope="col"  style="text-align: center; border-style: solid; border-color: black; border-top-width: 1px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;" role="presentation">
 							<span style="width:1px"/>
 						</th>
 					</tr>
@@ -2764,6 +2756,56 @@
 						</td>
 					</tr>
 					<!-- End Part II, Floor Stocks Tax, line 20 -->
+					<!-- Begin Part II, Floor Stocks Tax, line 150 -->
+					<tr>
+						<td style="text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
+							<xsl:call-template name="PopulateText">
+								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum150/IRSNum"/>
+							</xsl:call-template>
+						</td>
+						<td colspan="5" style="text-align: left; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;">Repurchase of corporate stock. Attach Form 7208.
+          <!-- Form to Form Link (Push Pin)-->
+							<xsl:call-template name="SetFormLinkInline">
+								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum150"/>
+							</xsl:call-template>
+						</td>
+						<td style="text-align: right; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-right:1mm">
+							<xsl:call-template name="PopulateAmount">
+								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum150/TaxAmt"/>
+							</xsl:call-template>
+						</td>
+						<td style="text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;">
+							<xsl:call-template name="PopulateText">
+								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum150/IRSNum"/>
+							</xsl:call-template>
+						</td>
+					</tr>
+					<!-- End Part II, Floor Stocks Tax, line 150 -->
+					<!-- Begin Part II, Floor Stocks Tax, line 142 -->
+					<tr>
+						<td style="text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;">
+							<xsl:call-template name="PopulateText">
+								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum142/IRSNum"/>
+							</xsl:call-template>
+						</td>
+						<td colspan="5" style="text-align: left; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;"> Sales of designated drugs during statutory periods. Attach Form 7209.
+          <!-- Form to Form Link (Push Pin)-->
+							<xsl:call-template name="SetFormLinkInline">
+								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum142"/>
+							</xsl:call-template>
+						</td>
+						<td style="text-align: right; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-right:1mm">
+							<xsl:call-template name="PopulateAmount">
+								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum142/TaxAmt"/>
+							</xsl:call-template>
+						</td>
+						<td style="text-align: center; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;">
+							<xsl:call-template name="PopulateText">
+								<xsl:with-param name="TargetNode" select="$FormData/QrtlyFederalExciseTaxPartII/PartIIIRSNum142/IRSNum"/>
+							</xsl:call-template>
+						</td>
+					</tr>
+					<!-- End Part II, Floor Stocks Tax, line 142 -->
 					<!-- Begin Part II,  Total -->
 					<tr>
 						<td colspan="6" style="text-align: left; border-style: solid; border-color: black; border-top-width: 2px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px;">
@@ -2799,7 +2841,7 @@
 							</div>
 							<div style="float:right;">
 								<span style="width:40px;"/>  
-								Form <span class="styBoldText" style="font-size:8pt;">720</span> (Rev. 3-2023)
+								Form <span class="styBoldText" style="font-size:8pt;">720</span> (Rev. 06-2024)
 							</div>
 						</td>
 					</tr>
@@ -2810,7 +2852,7 @@
 					<table cellspacing="0" cellpadding="0" style="height:auto;width:187mm;font-size:7pt;" border="0">
 					<tr>
 						<td colspan="8" class="styBB" style="width:187mm; border-bottom: 2px solid black">
-							<div style="float: left; clear: none">Form 720 (Rev. 3-2023)</div>
+							<div style="float: left; clear: none">Form 720 (Rev. 06-2024)</div>
 							<div style="float:right">Page <span class="styBoldText" style="font-size: 8pt">3</span>
 							</div>
 						</td>
@@ -2825,31 +2867,10 @@
 						</td>
 					</tr>
 					<!-- End Part III Line-->
-					<!-- Begin Part III,  Table title  -->
-					<tr>
-						<th scope="col"  style="text-align: center; border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;"/>
-						<th scope="col"  colspan="3" style="text-align: center; border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px; padding-left:5px;"/>
-						<th scope="col" colspan="2" style="text-align: center; border-color: black; border-style: solid; border-top-width: 0px; border-right-width:1px; border-left-width:0px; border-bottom-width:0px; font-weight:normal" />
-						<th scope="col" style="text-align: center; border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 1px;" />
-						<th scope="col" style="text-align: center; border-style: solid; border-color: black; border-top-width:0px; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px;" />
-					</tr>
-					<!-- End Part III,  Table title  -->
 			</table>
 			</div>
 		<!-- Begin Part III Section Header -->
 		<table cellspacing="0" cellpadding="0" style="width:187mm; font-size:7pt;" border="0">
-			<thead>
-				<tr>
-					<th scope="col" style="height:1px;width:7mm;" />
-					<th scope="col" style="height:1px;width:75mm;" />
-					<th scope="col" style="height:1px;width:5mm;" />
-					<th scope="col" style="height:1px;width:30mm;" />
-					<th scope="col" style="height:1px;width:5mm;" />
-					<th scope="col" style="height:1px;width:30mm;" />
-					<th scope="col" style="height:1px;width:5mm;" />
-					<th scope="col" style="height:1px;width:30mm;" />
-				</tr>
-			</thead>
 			<tbody style="font-size:7pt;">
 				<!--  Begin Part III, line # 3 -->
 				<tr>
@@ -3305,7 +3326,7 @@
 		<!-- Begin signature section -->
 		<!-- Begin Implementing the 3rd party designee section in table -->
 		<div style="width:187mm; border-color: black; border-style: solid; border-right-width: 0px; border-left-width: 0px; border-top-width: 1px; border-bottom-width: 0px">
-			<table border="0" cellspacing="0" cellpadding="0" style="font-size:7pt;width:187mm">
+			<table border="0" cellspacing="0" cellpadding="0" style="font-size:7pt;width:187mm" role="presentation">
 				<tbody>
 					<tr>
 						<th scope="col"  colspan="2" rowspan="3" style="height: 13mm; width:17.5mm;font-size: 8pt;font-weight:bold;border-right:1px solid black;border-bottom:1px solid black;">
@@ -3316,7 +3337,7 @@
 					  </th>
 						<th scope="col"  align="right" colspan="3" style="text-align:right; padding-left:8mm;padding-bottom:1mm; width:53mm">
 							<span style="font-weight:normal; font-size:6pt">
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox" alt="discuss with third party yes">
 									<xsl:call-template name="PopulateCheckbox">
 										<xsl:with-param name="TargetNode" select="$RtnHdrData/ThirdPartyDesignee/DiscussWithThirdPartyYes"/>
 										<xsl:with-param name="BackupName">IRS720DiscussWithThirdPartyYes</xsl:with-param>
@@ -3330,7 +3351,7 @@
 									<span style="width:2px;"/>
 									<b>Yes.</b>  Complete the following.
 							  </label>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox" alt="discuss with third party no">
 									<xsl:call-template name="PopulateCheckbox">
 										<xsl:with-param name="TargetNode" select="$RtnHdrData/ThirdPartyDesignee/DiscussWithThirdPartyNo"/>
 										<xsl:with-param name="BackupName">IRS720DiscussWithThirdPartyNo</xsl:with-param>
@@ -3415,12 +3436,12 @@
 					</tr>
 				</tbody>
 			</table>
-			<table border="0" cellspacing="0" cellpadding="0" style="width:187mm;font-size:7pt;clear:both;">
+			<table border="0" cellspacing="0" cellpadding="0" style="width:187mm;font-size:7pt;clear:both;" role="presentation">
 				<tr>
-					<th scope="col" rowspan="3" style="height: 13mm; width:15.5mm;font-size: 11pt;font-weight:bold;border-right:1px solid black;border-bottom:0 solid black; text-align:left;padding-top:9mm" >
+					<th scope="rowgroup" rowspan="3" style="height: 13mm; width:15.5mm;font-size: 11pt;font-weight:bold;border-right:1px solid black;border-bottom:0 solid black; text-align:left;padding-top:9mm" >
 					  Sign Here
 					  </th>
-					<th scope="col" colspan="5" style="padding-left:3mm;padding-bottom:1mm;font-weight:normal" >Under penalties of perjury, I declare that I've examined this return, including accompanying schedules and statements, and to the best of my knowledge and belief, it's true, correct, and complete. Declaration of preparer (other than taxpayer) is based on all information of which preparer has any knowledge.
+					<th scope="colgroup" colspan="5" style="padding-left:3mm;padding-bottom:1mm;font-weight:normal" >Under penalties of perjury, I declare that I've examined this return, including accompanying schedules and statements, and to the best of my knowledge and belief, it's true, correct, and complete. Declaration of preparer (other than taxpayer) is based on all information of which preparer has any knowledge.
 					  </th>
 				</tr>
 				<tr>
@@ -3512,10 +3533,10 @@
 			
 			<!-- BEGIN PREPARER SIGNATURE SECTION -->
 			<!-- Implementing the Preparer section in table -->
-			<table cellspacing="0" cellpadding="0" style="width:187mm;font-size:6pt;">
+			<table cellspacing="0" cellpadding="0" style="width:187mm;font-size:6pt;" role="presentation">
         <tbody>
           <tr>
-            <th scope="col"  rowspan="3" style="width:20mm;text-align:left;vertical-align:center;font-size:10pt;font-weight:bold;font-family:'arial narrow';border-color:black;border-style:solid;border-top-width:0px;border-bottom-width:1px;border-left-width:0px;border-right-width:1px;">
+            <th scope="rowgroup"  rowspan="3" style="width:20mm;text-align:left;vertical-align:center;font-size:10pt;font-weight:bold;font-family:'arial narrow';border-color:black;border-style:solid;border-top-width:0px;border-bottom-width:1px;border-left-width:0px;border-right-width:1px;">
               Paid<br/> 
               Preparer<br/> 
               Use Only
@@ -3687,7 +3708,7 @@
 						</div>
 						<div style="float:right;">
 							<span style="width:40px;"/>  
-							Form <span class="styBoldText" style="font-size:8pt;">720</span> (Rev. 3-2023)
+							Form <span class="styBoldText" style="font-size:8pt;">720</span> (Rev. 06-2024)
 						</div>
 					</td>
 				</tr>
@@ -3700,22 +3721,11 @@
 			<thead class="styTableHead">
 				<tr>
 					<td colspan="8" class="styBB" style="width:187mm; border-bottom: 2px solid black">
-						<div style="float: left; clear: none">Form 720 (Rev. 3-2023)</div>
+						<div style="float: left; clear: none">Form 720 (Rev. 06-2024)</div>
 						<div style="float:right">Page <span class="styBoldText" style="font-size: 8pt">4</span>
 						</div>
 					</td>
 				</tr>
-				<!-- End page 4 Header -->
-				<tr>
-					<th scope="col" style="height:1px;width:10mm;" />
-					<th scope="col" style="height:1px;width:39mm;" />
-					<th scope="col" style="height:1px;width:10mm;" />
-					<th scope="col" style="height:1px;width:39mm;" />
-					<th scope="col" style="height:1px;width:10mm;" />
-					<th scope="col" style="height:1px;width:39mm;" />
-					<th scope="col" colspan="2" style="height:1px;width:40mm;" />
-				</tr>
-				<!-- Begin Schedule A Section Header -->
 				<tr >
 					<th scope="col" class="styBB" colspan="8" style="width:187mm;padding-top:1.5mm;padding-bottom:1.5mm;" >
 						<span class="styPartName" style="width:25mm; text-align:left; padding-left:3mm">Schedule A</span>
@@ -4200,7 +4210,7 @@
 						</div>
 						<div style="float:right;">
 							<span style="width:40px;"/>  
-        Form <span class="styBoldText" style="font-size:8pt;">720</span> (Rev. 3-2023)
+        Form <span class="styBoldText" style="font-size:8pt;">720</span> (Rev. 06-2024)
       </div>
 					</td>
 				</tr>
@@ -4215,10 +4225,10 @@
 		<!-- Begin Header -->
 		<div style="display:block;">
 		<div class="styBB" style="width:187mm;border-bottom:2px solid black;clear:none; padding-bottom:0.5mm;display:block;">
+			Form 720 (Rev. 06-2024)
 			<div style="width:20mm;text-align:right;float:right;margin-top:0px">Page <b>5</b>
 			</div>
-    Form 720 (Rev. 3-2023)
-  </div>
+		</div>
 		<!-- End Header -->
 		<!-- Begin Schedule C Title -->
 		<div style="width:187mm">
@@ -5286,7 +5296,7 @@ taxed at $.219</td>
 		<!-- End Line 5 -->
 		<!-- Begin Footer -->
 		<div style="width:187mm;border-top:1px solid black;text-align:right;right;padding-top:0.5mm">
-    Form <span style="font-size:8pt;font-weight:bold">720</span> (Rev. 3-2023)
+    Form <span style="font-size:8pt;font-weight:bold">720</span> (Rev. 06-2024)
   </div>
 		<!-- End Footer -->
 		<!-- ========================================================================= -->
@@ -5299,10 +5309,10 @@ taxed at $.219</td>
 		<!-- Begin Header -->
 		<div style="display:block;">
 		<div class="styBB" style="width:187mm;border-bottom:2px solid black;clear:none; padding-bottom:0.5mm">
+			Form 720 (Rev. 06-2024)
 			<div style="width:20mm;text-align:right;float:right;margin-top:0px">Page <b>6</b>
 			</div>
-        Form 720 (Rev. 3-2023)
-      </div>
+        </div>
 		<!-- End Header -->
 		<!-- had to move Line 6 to next page-->
 		<!-- Begin Line 6 -->
@@ -5315,7 +5325,7 @@ taxed at $.219</td>
 						<th scope="col" class="styIRS720LineHeaderTitle" >Nontaxable Use of Alternative Fuel</th>
 					</tr>
 					<tr>
-						<th scope="col" class="styIRS720LineHeaderLN" >
+						<th scope="col" class="styIRS720LineHeaderLN" role="presentation">
 							<span style="width:1px"/>
 						</th>
 						<th scope="col" class="styIRS720LineHeaderTitle" style="width:179mm" >Caution: <span style="font-weight:normal">
@@ -6258,7 +6268,7 @@ taxed at $.219</td>
 					<tr>
 						<td class="styIRS720TableCellLineNumber" style="border-right-width:0px;border-bottom-width:0;font-size:8pt;padding-right:1mm">e</td>
 						<td class="styIRS7204BoldTableHeaderCell" style="border-left-width:0px;border-top-width:0px;font-weight:normal;text-align:left">Other nontaxable uses taxed at $.219
-            <xsl:call-template name="SetFormLinkInline">
+							<xsl:call-template name="SetFormLinkInline">
 								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/SalesByRegdVndrKeroseneSoldAvn/OtherNontaxableUsesTaxedAt219"/>
 							</xsl:call-template>
 						</td>
@@ -6454,7 +6464,7 @@ taxed at $.219</td>
 		<!-- End Line 10 -->
 		<!-- Begin Footer -->
 		<div style="width:187mm;text-align:right;right;padding-top:0.5mm">
-    Form <span style="font-size:8pt;font-weight:bold">720</span> (Rev. 3-2023)
+    Form <span style="font-size:8pt;font-weight:bold">720</span> (Rev. 06-2024)
   </div>
 		<!-- End Footer -->
 		<!-- ========================================================================= -->
@@ -6467,10 +6477,10 @@ taxed at $.219</td>
 		<!-- Begin Header -->
 		<div style="display:block;">
 		<div class="styBB" style="width:187mm;clear:none; padding-bottom:0.5mm">
+			Form 720 (Rev. 06-2024)
 			<div style="width:20mm;text-align:right;float:right;margin-top:0px">Page <b>7</b>
 			</div>
-    Form 720 (Rev. 3-2023)
-  </div>
+	    </div>
 		<!-- End Header -->
 		<!-- Begin Line 11 -->
 		<!-- Begin Line 11 Title -->
@@ -6552,7 +6562,7 @@ taxed at $.219</td>
 					<tr>
 						<td class="styIRS720TableCellLineNumber" style="border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm">b</td>
 						<td class="styIRS7204BoldTableHeaderCell" style="border-left-width:0px;border-top-width:0px;font-weight:normal;text-align:left;border-bottom:0px">Use by a state or local government
-            <xsl:call-template name="SetFormLinkInline">
+							<xsl:call-template name="SetFormLinkInline">
 								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/SalesByRegdVndrOfAviationGas/FuelUsedByStateLocalGovt"/>
 							</xsl:call-template>
 						</td>
@@ -6594,7 +6604,7 @@ taxed at $.219</td>
 								<tbody>
 									<tr>
 										<th scope="col" style="width:8mm;text-align:center;vertical-align:top;font-size:8pt;padding-top:1mm;">12</th>
-										<th scope="col" colspan="3" style="width:96mm;text-align:left;vertical-align:top;font-size:8pt;padding-top:1mm;"><b>Biodiesel or Renewable Diesel Mixture Credit</b></th>
+										<th scope="col" colspan="3" style="width:96mm;text-align:left;vertical-align:top;font-size:8pt;padding-top:1mm;"><b>Biodiesel, Renewable Diesel, or Sustainable Aviation Fuel Mixture Credit</b></th>
 										<th scope="col" style="width:24mm;text-align:right;font-weight:normal;padding-right:1mm">Period of claim
 											<span style="width:0.5mm"/>
 											<img src="{$ImagePath}/720_Bullet.gif" alt="Bullet"/>
@@ -6644,7 +6654,7 @@ taxed at $.219</td>
 								<!-- Line 12 (a) -->
 								<tr>
 									<th scope="col" class="styIRS720TableCellLineNumber" style="width:8mm;border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:bottom" rowspan="2">a</th>
-									<th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:95mm;border-left-width:0px;border-bottom-width:0px;border-top-width:1px;font-weight:normal;text-align:left;vertical-align:bottom"><span style="width:1mm;"/></th>
+									<th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:95mm;border-left-width:0px;border-bottom-width:0px;border-top-width:1px;font-weight:normal;text-align:left;vertical-align:bottom" role="presentation"><span style="width:1mm;"/></th>
 									<th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:16mm;">Rate</th>
 									<th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:23mm;font-size:7pt">Number of gallons sold <br/>or used</th>
 									<th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:36mm">Amount of claim</th>
@@ -6810,7 +6820,7 @@ taxed at $.219</td>
 								<tr>
 									<th scope="col" class="styIRS720TableCellLineNumber" style="width:8mm;border-top-width:0px;border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:bottom" rowspan="2">
 										<br/>a</th>
-							  <th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:95mm;border-left-width:0px;border-bottom-width:0px;font-weight:normal;text-align:left;vertical-align:bottom"><span style="width:1mm;"/></th>
+								    <th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:95mm;border-left-width:0px;border-bottom-width:0px;font-weight:normal;text-align:left;vertical-align:bottom" role="presentation"><span style="width:1mm;"/></th>
 									<th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:16mm">Rate</th>
 									<th scope="col" class="styIRS7204BoldTableHeaderCell" style="width:23mm;font-size:7pt">Gallons,<br/>gasoline or<br/>diesel gallon<br/>equivalents<br/>
 										<span style="font-weight:normal; font-size:6pt">(see instructions)</span>
@@ -7121,7 +7131,7 @@ taxed at $.219</td>
 					<tr>
 						<td class="styIRS720TableCellLineNumber" style="border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">b</td>
 						<td class="styIRS720NameTableCell" colspan="2">Exported dyed diesel fuel and exported gasoline blendstocks taxed at $.001
-            <xsl:call-template name="SetFormLinkInline">
+							<xsl:call-template name="SetFormLinkInline">
 								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/ExpDyedDslFuelAndExpGasoline"/>
 							</xsl:call-template>
 						</td>
@@ -7140,7 +7150,7 @@ taxed at $.219</td>
 					<tr>
 						<td class="styIRS720TableCellLineNumber" style="border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">c</td>
 						<td class="styIRS720NameTableCell" colspan="2">Exported dyed kerosene 
-            <xsl:call-template name="SetFormLinkInline">
+							<xsl:call-template name="SetFormLinkInline">
 								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/ExpDyedKeroseneOthExciseClaims"/>
 							</xsl:call-template>
 						</td>
@@ -7363,15 +7373,59 @@ taxed at $.219</td>
 							</xsl:call-template>
 						</td>
 					</tr>
+					<!-- End new line 14h -->
+					<!-- Line 14 (i) -->
+					<tr>
+						<td class="styIRS720TableCellLineNumber" style="width:7mm;border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">i</td>
+						<td class="styIRS720NameTableCell" style="width:110mm;" >Chemicals (other than ODCs) 
+							<xsl:call-template name="SetFormLinkInline">
+								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/ChemicalsOtherThanODC"/>
+							</xsl:call-template>
+						</td>
+						<td class="styIRS720TableCellText" style="width:23mm;text-align:right; border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px;padding-right:1mm">
+							<span style="width:1mm;"/>
+						</td>
+						<td class="styIRS720TableCellAmount" style="width:33mm;font-size:7pt">
+							<xsl:call-template name="PopulateAmount">
+								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/ChemicalsOtherThanODC/ClaimAmt"/>
+							</xsl:call-template>
+						</td>
+						<td class="styIRS720TableCellText" style="width:8.5mm;border-right-width:0px">
+							<xsl:call-template name="PopulateText">
+								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/ChemicalsOtherThanODC/CreditReferenceNum"/>
+							</xsl:call-template>
+						</td>
+					</tr>
+					<!-- Line 14 (j) -->
+					<tr>
+						<td class="styIRS720TableCellLineNumber" style="width:7mm;border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">j</td>
+						<td class="styIRS720NameTableCell" style="width:110mm;" >Imported chemical substances
+							<xsl:call-template name="SetFormLinkInline">
+								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/ImportedChemicalSubstances"/>
+							</xsl:call-template>
+						</td>
+						<td class="styIRS720TableCellText" style="width:23mm;text-align:right; border-style: solid; border-color: black; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 1px;padding-right:1mm">
+							<span style="width:1mm;"/>
+						</td>
+						<td class="styIRS720TableCellAmount" style="width:33mm;font-size:7pt">
+							<xsl:call-template name="PopulateAmount">
+								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/ImportedChemicalSubstances/ClaimAmt"/>
+							</xsl:call-template>
+						</td>
+						<td class="styIRS720TableCellText" style="width:8.5mm;border-right-width:0px">
+							<xsl:call-template name="PopulateText">
+								<xsl:with-param name="TargetNode" select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/ImportedChemicalSubstances/CreditReferenceNum"/>
+							</xsl:call-template>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 			<table cellspacing="0" style="font-size:7pt">
 				<tbody>
-					<!-- End new line 14h -->
-					<!-- Line 14 (i) -->
+					<!-- Line 14 (k) -->
 					<xsl:if test="not($FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/OtherClaimsPub510)">
 						<tr>
-							<td class="styIRS720TableCellLineNumber" style="width:7mm;border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">i</td>
+							<td class="styIRS720TableCellLineNumber" style="width:7mm;border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">k</td>
 							<td class="styIRS720NameTableCell" colspan="2" style="width:135mm;">
 								<span style="width:1px"/>
 								<xsl:call-template name="SetFormLinkInline">
@@ -7392,7 +7446,7 @@ taxed at $.219</td>
 					</xsl:if>
 					<xsl:for-each select="$FormData/IRS720ScheduleC/OtherExciseLiabilityClaims/OtherClaimsPub510">
 						<tr>
-							<td class="styIRS720TableCellLineNumber" style="width:7mm;border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">i</td>
+							<td class="styIRS720TableCellLineNumber" style="width:7mm;border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">k</td>
 							<td class="styIRS720NameTableCell" colspan="2" style="width:135mm;">
 								<span style="width:1px"/>
 								<xsl:call-template name="SetFormLinkInline">
@@ -7411,32 +7465,6 @@ taxed at $.219</td>
 							</td>
 						</tr>
 					</xsl:for-each>
-					<!-- Line 14 (j) -->
-					<tr>
-						<td class="styIRS720TableCellLineNumber" style="border-bottom-width:0px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">j</td>
-						<td class="styIRS720NameTableCell" colspan="2">
-							<span style="width:1px"/>
-						</td>
-						<td class="styIRS720TableCellAmount" style="font-size:7pt">
-							<span style="width:1px"/>
-						</td>
-						<td class="styIRS720TableCellText" style="border-right-width:0px">
-							<span style="width:1px"/>
-						</td>
-					</tr>
-					<!-- Line 14 (k) -->
-					<tr>
-						<td class="styIRS720TableCellLineNumber" style="border-bottom-width:1px;border-right-width:0px;font-size:8pt;padding-right:1mm;vertical-align:top">k</td>
-						<td class="styIRS720NameTableCell" colspan="2">
-							<span style="width:1px"/>
-						</td>
-						<td class="styIRS720TableCellAmount" style="font-size:7pt">
-							<span style="width:1px"/>
-						</td>
-						<td class="styIRS720TableCellText" style="border-right-width:0px">
-							<span style="width:1px"/>
-						</td>
-					</tr>
 				</tbody>
 			</table>
 					<!-- Line 14 (i) -->
@@ -7472,7 +7500,7 @@ taxed at $.219</td>
 		<!-- End Line 15 -->
 		<!-- Begin Footer -->
 		<div style="width:187mm;text-align:right;right;padding-top:0.5mm">
-    Form <span style="font-size:8pt;font-weight:bold">720</span> (Rev. 3-2023)
+    Form <span style="font-size:8pt;font-weight:bold">720</span> (Rev. 06-2024)
   </div>
 		<!-- End Footer -->
 		<div class="pageEnd"/>
@@ -7550,7 +7578,7 @@ Special Condition Description</th>
 
 </table>
       </form>
-			</body>
+					</body>
 		</html>
 	</xsl:template>
 </xsl:stylesheet>

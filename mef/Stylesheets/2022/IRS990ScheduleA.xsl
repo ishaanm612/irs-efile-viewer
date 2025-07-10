@@ -1414,7 +1414,7 @@ instructions). <b>You must complete Part IV, Sections A and D, and Part V.</b>
 							<xsl:call-template name="PopulateLabel">
 								<xsl:with-param name="TargetNode" select="$FormData/PublicSupportPY170Pct"/>
 							</xsl:call-template>
-							  Public support percentage for 2020 Schedule A, Part II, line 14
+							  Public support percentage for 2021 Schedule A, Part II, line 14
 							   <span class="IRS990ScheduleA_DotSpacing">...............  </span>
 						</label>
 					</div>
@@ -2474,7 +2474,6 @@ instructions). <b>You must complete Part IV, Sections A and D, and Part V.</b>
 					</div>
 				</div>
 				<!-- END Page Header -->
-				<!-- Part IV -->
 				<div class="styBB" style="width:187mm;float:none;">
 					<div class="styPartName" style="float:left;height:auto">Part IV</div>
 					<div class="styPartDesc" style="float:left;width:172mm;">Supporting Organizations</div>

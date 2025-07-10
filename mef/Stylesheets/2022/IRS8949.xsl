@@ -48,8 +48,8 @@
 			<th class="styTableCellHeader" style="text-align:center;width:30.8mm;vertical-align:middle;" scope="col" rowspan="2">
 				<span class="styNormalText">
 					<b>(e) </b>
-					<br/>Cost or other basis.<br/>See the <b>Note</b> below<br/>and see <i>Column (e)</i>
-					<br/>in the separate<br/>instructions</span>
+					<br/>Cost or other basis<br/>See the <b>Note</b> below<br/>and see <i>Column (e)</i>
+					<br/>in the separate<br/>instructions.</span>
 			</th>
 			<!-- +++++++++++++++++++++++++++++++++++-->
 			<th class="styTableCellHeader" style="text-align:center;width:44mm;border-bottom-width:1px;vertical-align:middle;" colspan="2">
@@ -64,8 +64,8 @@
 				<span class="styNormalText">
 					<b>(h)</b>
 					<br/>
-					<b>Gain or (loss).</b>
-					<br/>Subtract column (e)<br/>from column (d) and<br/>combine the result<br/>with column (g)</span>
+					<b>Gain or (loss)</b>
+					<br/>Subtract column (e)<br/>from column (d) and<br/>combine the result<br/>with column (g).</span>
 			</th>
 		</tr>
 		<tr style="border-color:black;font-size:6pt;" valign="top">
@@ -882,7 +882,7 @@
 							<!-- BEGIN:	2nd Title -->
 							<div class="styFST" style="height:5mm;font-size:7pt;margin-left:0mm;text-align:center;padding-right:0px;">
 								<span style="width:129.8mm;text-align:center;">
-									<img src="{$ImagePath}/8949_Bullet_Sm.gif" alt="Small Right Arrow Image"/>
+									<!--<img src="{$ImagePath}/8949_Bullet_Sm.gif" alt="Small Right Arrow Image"/>-->
 									<span style="width:3px;"/>
 									<span class="styBoldText">Go to
 								<a style="text-decoration:none;color:black;" href="http://www.irs.gov/form8949" title="Link to IRS.gov">               
@@ -890,7 +890,7 @@
 								</a>
 									</span>
 									<br/>
-									<img src="{$ImagePath}/8949_Bullet_Sm.gif" alt="Small Right Arrow Image"/>
+									<!--<img src="{$ImagePath}/8949_Bullet_Sm.gif" alt="Small Right Arrow Image"/>-->
 									<span style="width:3px;"/>
 									<span class="styBoldText">File with your Schedule D to list your transactions for lines 1b, 2, 3, 8b, 9, and 10 of</span>
 									<span class="styBoldText">Schedule D.</span>

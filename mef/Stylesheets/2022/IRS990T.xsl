@@ -334,15 +334,15 @@
 								 select="$FormData/OrganizationOtherTrustIndGrp/OtherTrustTypeDesc"/>
 								<xsl:with-param name="Desc">Line G - Other Trust Type Description</xsl:with-param>
 							</xsl:call-template>
-							State college/university
 							<input type="checkbox" class="styCkboxNM" alt="other trust" style="margin-left:3mm;">
 								<xsl:call-template name="PopulateCheckbox">
 									<xsl:with-param name="TargetNode" 
-									 select="$FormData/OrganizationOtherTrustIndGrp/OrgStateCollegeUniversityInd"/>
+									 select="$FormData/OrgStateCollegeUniversityInd"/>
 									<xsl:with-param name="BackupName">IRS990TOrganizationStateCollegeUniversityInd
 									</xsl:with-param>
 								</xsl:call-template>
 							</input>
+							State college/university
 						</div>
 					</div>
 					<div class="styStdDiv" style="border-top:1px solid black;padding:1px;">

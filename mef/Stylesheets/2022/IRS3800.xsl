@@ -1199,43 +1199,43 @@
 								<xsl:call-template name="PartIIITemplate">
 									<xsl:with-param name="counter" select="position()"/>
 								</xsl:call-template>
-								<div class="styStdDiv pageEnd"/>
-							</xsl:for-each>
+<!--								<div class="styStdDiv pageEnd"/>
+-->							</xsl:for-each>
 							<!-- ********    CheckBox A  ******** -->
 							<xsl:for-each select="$Form3800Data/GenBusCrOrEligSmllBusCrGrp/GeneralBusCrFromNnpssvActyGrp">
 								<xsl:call-template name="PartIIITemplate">
 									<xsl:with-param name="counter" select="position()+$CBusCrGrp"/>
 								</xsl:call-template>
-								<div class="styStdDiv pageEnd"/>
-							</xsl:for-each>
+<!--								<div class="styStdDiv pageEnd"/>
+-->							</xsl:for-each>
 							<!-- ********    CheckBox B WORK ON ******** -->
 							<xsl:for-each select="$Form3800Data/GenBusCrOrEligSmllBusCrGrp/GeneralBusCrFromPassiveActyGrp">
 								<xsl:call-template name="PartIIITemplate">
 									<xsl:with-param name="counter" select="position()+$CBusCrGrp+$GBusCrNnPassActyGrp"/>
 								</xsl:call-template>
-								<div class="styStdDiv pageEnd"/>
-							</xsl:for-each>
+<!--								<div class="styStdDiv pageEnd"/>
+-->							</xsl:for-each>
 							<!-- ********    CheckBox C  ******** -->
 							<xsl:for-each select="$Form3800Data/GenBusCrOrEligSmllBusCrGrp/GeneralBusCrCarryforwardsGrp">
 								<xsl:call-template name="PartIIITemplate">
 									<xsl:with-param name="counter" select="position()+$CBusCrGrp+$GBusCrNnPassActyGrp+$GBusCrPassActyGrp"/>
 								</xsl:call-template>
-								<div class="styStdDiv pageEnd"/>
-							</xsl:for-each>
+<!--								<div class="styStdDiv pageEnd"/>
+-->							</xsl:for-each>
 							<!-- ********    CheckBox D  ******** -->
 							<xsl:for-each select="$Form3800Data/GenBusCrOrEligSmllBusCrGrp/GeneralBusCrCarrybacksGrp">
 								<xsl:call-template name="PartIIITemplate">
 									<xsl:with-param name="counter" select="position()+$CBusCrGrp+$GBusCrNnPassActyGrp+$GBusCrPassActyGrp+$GBusCrCarFwdGrp"/>
 								</xsl:call-template>
-								<div class="styStdDiv pageEnd"/>
-							</xsl:for-each>
+<!--								<div class="styStdDiv pageEnd"/>
+-->							</xsl:for-each>
 							<!-- ********    CheckBox G  ******** -->
 							<xsl:for-each select="$Form3800Data/GenBusCrOrEligSmllBusCrGrp/EligibleSmallBusinessCrCfwdGrp">
 								<xsl:call-template name="PartIIITemplate">
 									<xsl:with-param name="counter" select="position()+$CBusCrGrp+$GBusCrNnPassActyGrp+$GBusCrPassActyGrp+$GBusCrCarFwdGrp+$GBusCrCarBakGrp+$ESmllBusCrNnPassActyGrp+$ESmllBusCrPassActyGrp"/>
 								</xsl:call-template>
-								<div class="styStdDiv pageEnd"/>
-							</xsl:for-each>
+<!--								<div class="styStdDiv pageEnd"/>
+-->							</xsl:for-each>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:call-template name="PartIIIemptyTemplate"/>
@@ -1875,7 +1875,7 @@ Enter the appropriate amount
 							<span style="float:left">Biodiesel, Renewable Diesel, and Sustainable Aviation Fuels (attach Form 8864)
                   <!-- Push Pin image -->
 								<xsl:call-template name="SetFormLinkInline">
-									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/CurrentYearBiodieselFuelCrGrp/CurrentYearBiodieselFuelCrAmt"/>
+									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/CYBiodieselRnwblAvnFuelCrGrp/BiodieselRnwblAvnFuelCrAmt"/>
 								</xsl:call-template>
 							</span>
 						</div>
@@ -1883,20 +1883,20 @@ Enter the appropriate amount
 					<div style="float:right;clear:none;">
 						<div class="styLNRightNumBoxNBB" style="border-top-width:1px;height:4.5mm;">1l</div>
 						<div class="styLNAmountBoxNBB" style="border-top-width:1px;text-align:center;height:4.5mm;">
-							<xsl:if test="BusinessCreditsGrp/CurrentYearBiodieselFuelCrGrp/PassThroughEntityEIN !=''">
+							<xsl:if test="BusinessCreditsGrp/CYBiodieselRnwblAvnFuelCrGrp/PassThroughEntityEIN !=''">
 								<xsl:call-template name="PopulateEIN">
-									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/CurrentYearBiodieselFuelCrGrp/PassThroughEntityEIN"/>
+									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/CYBiodieselRnwblAvnFuelCrGrp/PassThroughEntityEIN"/>
 								</xsl:call-template>
 							</xsl:if>
-							<xsl:if test="BusinessCreditsGrp/CurrentYearBiodieselFuelCrGrp/MissingEINReasonCd !=''">
+							<xsl:if test="BusinessCreditsGrp/CYBiodieselRnwblAvnFuelCrGrp/MissingEINReasonCd !=''">
 								<xsl:call-template name="PopulateText">
-									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/CurrentYearBiodieselFuelCrGrp/MissingEINReasonCd"/>
+									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/CYBiodieselRnwblAvnFuelCrGrp/MissingEINReasonCd"/>
 								</xsl:call-template>
 							</xsl:if>
 						</div>
 						<div class="styLNAmountBoxNBB" style="border-top-width:1px;height:4.5mm;">
 							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/CurrentYearBiodieselFuelCrGrp/CurrentYearBiodieselFuelCrAmt"/>
+								<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/CYBiodieselRnwblAvnFuelCrGrp/BiodieselRnwblAvnFuelCrAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>
@@ -2718,7 +2718,7 @@ Enter the appropriate amount
               <span style="float:left">Renewable electricity production (Form 8835)
                 <!-- Push Pin image -->
 							<xsl:call-template name="SetFormLinkInline">
-								<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RnwblElecCoalCrFromF8835Grp/RnwblElecCoalCrFromF8835Amt"/>
+								<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RenewableElectricityProdCrGrp/RenewableElectricityProdCrAmt"/>
 							</xsl:call-template>
 							</span>
 							<!--Dotted Line -->
@@ -2728,20 +2728,20 @@ Enter the appropriate amount
 					<div style="float:right;clear:none;">
 						<div class="styLNRightNumBoxNBB" style="border-top-width:1px;height:4.5mm;">4e</div>
 						<div class="styLNAmountBoxNBB" style="border-top-width:1px;height:4.5mm;text-align:center;">
-							<xsl:if test="BusinessCreditsGrp/RnwblElecCoalCrFromF8835Grp/PassThroughEntityEIN !=''">
+							<xsl:if test="BusinessCreditsGrp/RenewableElectricityProdCrGrp/PassThroughEntityEIN !=''">
 								<xsl:call-template name="PopulateEIN">
-									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RnwblElecCoalCrFromF8835Grp/PassThroughEntityEIN"/>
+									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RenewableElectricityProdCrGrp/PassThroughEntityEIN"/>
 								</xsl:call-template>
 							</xsl:if>
-							<xsl:if test="BusinessCreditsGrp/RnwblElecCoalCrFromF8835Grp/MissingEINReasonCd !=''">
+							<xsl:if test="BusinessCreditsGrp/RenewableElectricityProdCrGrp/MissingEINReasonCd !=''">
 								<xsl:call-template name="PopulateText">
-									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RnwblElecCoalCrFromF8835Grp/MissingEINReasonCd"/>
+									<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RenewableElectricityProdCrGrp/MissingEINReasonCd"/>
 								</xsl:call-template>
 							</xsl:if>
 						</div>
 						<div class="styLNAmountBoxNBB" style="border-top-width:1px;height:4.5mm;">
 							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RnwblElecCoalCrFromF8835Grp/RnwblElecCoalCrFromF8835Amt"/>
+								<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RenewableElectricityProdCrGrp/RenewableElectricityProdCrAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>
@@ -3823,7 +3823,7 @@ Enter the appropriate amount
 						</div>
 						<div class="styLNAmountBoxNBB" style="border-top-width:1px;height:4.5mm;">
 							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RnwblElecCoalCrFromF8835Grp/RnwblElecCoalCrFromF8835Amt"/>
+								<xsl:with-param name="TargetNode" select="BusinessCreditsGrp/RenewableElectricityProdCrGrp/RenewableElectricityProdCrAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>

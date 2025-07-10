@@ -32,10 +32,10 @@
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
 					<!-- PRINT statement-->
-					<xsl:if test="not($Print) or $Print=''">
+					<!--<xsl:if test="not($Print) or $Print=''">-->
 						<xsl:call-template name="IRS1120FSchedulePStyle"/>
 						<xsl:call-template name="AddOnStyle"/>
-					</xsl:if>
+					<!--</xsl:if>-->
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
@@ -182,7 +182,7 @@
 										<th class="styTableCellHeader" scope="col" style="width:31mm;font-weight:normal;">
 											<b>(c) </b>EIN</th>
 										<th class="styTableCellHeader" scope="col" style="width:44mm;height:22mm;border-right:0;text-align:left;padding-left:2mm;font-weight:normal;">
-											<b>(d) </b>For each partnership interest, is the foreign corporation?s distributive share ECI, or treated as ECI, 
+											<b>(d) </b>For each partnership interest, is the foreign corporation&#8217;s distributive share ECI, or treated as ECI, 
 							in whole or in part, with a U.S. trade or business determined under section 875 (see instructions)?
 						  </th>
 									</tr>
@@ -592,7 +592,7 @@
 												<td class="styLNLeftNumBox" style="padding-left:2.5mm;padding-top:2mm;">2</td>
 												<td class="styTableCellText" scope="row" style="padding-top:2mm;padding-left:0;width:49mm;border-bottom:none;">
 													<b>Gross ECI - Partnership determination.</b> Enter the sum of  Schedule K-3, Part X, Section 1, line 21, column (c) plus column (d). 
-					          <span class="styDotLn" style="float:right;">..</span>
+					          <span class="styDotLn" style="float:right;"></span>
 												</td>
 												<xsl:call-template name="CreateTableCells">
 													<xsl:with-param name="Start" select="position()"/>
@@ -741,8 +741,8 @@
 											</tr>
 											<!--Line 8-->
 											<tr>
-												<td class="styLNLeftNumBox" style="padding-left:2.5mm;padding-top:3mm;height:25mm;border-bottom:1px solid black;">8</td>
-												<td class="styTableCellText" scope="row" style="padding-left:0;width:49mm;border-bottom:1px solid black;padding-top:2mm;">
+												<td class="styLNLeftNumBox" style="padding-left:2.5mm;padding-top:3mm;">8</td>
+												<td class="styTableCellText" scope="row" style="padding-left:0;width:49mm;border-bottom:1px solid black;padding-top:1mm;">
 					          Interest expense on U.S.-booked liabilities as described under Regulations section 1.882-5(d)(2)(vii).  Enter the amount from Schedule K-3, Part X, Section 2, line 7, column (b).  Include the line 8 total on Schedule I, line 9, column (b). 
 					          <span class="styDotLn" style="float:right;">......</span>
 												</td>
@@ -822,7 +822,7 @@
 										<td class="styLNLeftNumBox" style="padding-left:2.5mm;padding-top:2mm;">2</td>
 										<td class="styTableCellText" scope="row" style="padding-top:2mm;padding-left:0;width:49mm;border-bottom:none;">
 											<b>Gross ECI - Partnership determination.</b> Enter the sum of  Schedule K-3, Part X, Section 1, line 21, column (c) plus column (d). 
-					          <span class="styDotLn" style="float:right;">..</span>
+					          <span class="styDotLn" style="float:right;"></span>
 										</td>
 										<xsl:call-template name="CreateTableCells">
 											<xsl:with-param name="Start" select="1"/>
@@ -837,9 +837,9 @@
 									<tr>
 										<td class="styLNLeftNumBox" style="padding-left:2.5mm;padding-top:2mm;">3</td>
 										<td class="styTableCellText" scope="row" style="padding-left:0;padding-top:2mm;width:49mm;border-bottom:none;">
-											<b>Gross ECI - Partner determination.</b>  Enter all applicable amounts from Schedule K-3, Part X,
+											<b>Gross ECI-Partner determination.</b>  Enter all applicable amounts from Schedule K-3, Part X,
 					           Section 1, column (b) (see instructions).
-					          <span class="styDotLn" style="float:right;">..</span>
+					          <span class="styDotLn" style="float:right;"></span>
 										</td>
 										<xsl:call-template name="CreateTableCells">
 											<xsl:with-param name="Start" select="1"/>
@@ -887,7 +887,7 @@
 										<td class="styLNLeftNumBox" style="padding-left:2.5mm;padding-top:2mm;">6</td>
 										<td class="styTableCellText" scope="row" style="padding-left:0;width:49mm;border-bottom:none;padding-top:2mm;">
 											<b>Total deductions and losses deductible against gross ECI - Partner determination</b>.  Enter all applicable amounts from Schedule K-3, Part X, Section 2, column (b) (see instructions).
-					          <span class="styDotLn" style="float:right;">........</span>
+					          <span class="styDotLn" style="float:right;">..</span>
 										</td>
 										<xsl:call-template name="CreateTableCells">
 											<xsl:with-param name="Start" select="1"/>
@@ -904,7 +904,7 @@
 										<td class="styTableCellText" scope="row" style="padding-left:0;width:49mm;border-bottom:none;padding-top:2mm;">
 					          Interest expense directly allocable under Regulations section 1.882-5(a)(1)(ii)(B). 
 					          (<b>Note:</b> Include the line 7 total on  Schedule I, line 22.)  
-					          <span class="styDotLn" style="float:right;">...</span>
+					          <span class="styDotLn" style="float:right;">..</span>
 										</td>
 										<xsl:call-template name="CreateTableCells">
 											<xsl:with-param name="Start" select="1"/>
@@ -920,7 +920,7 @@
 										<td class="styLNLeftNumBox" style="padding-left:2.5mm;padding-top:3mm;border-bottom:1px solid black;height:25mm;">8</td>
 										<td class="styTableCellText" scope="row" style="padding-left:0;width:49mm;border-bottom:1px solid black;padding-top:2mm;">
 					          Interest expense on U.S.-booked liabilities as described under Regulations section 1.882-5(d)(2)(vii).  Enter the amount from Schedule K-3, Part X, Section 2, line 7, column (b).  Include the line 8 total on Schedule I, line 9, column (b). 
-					          <span class="styDotLn" style="float:right;">......</span>
+					          <span class="styDotLn" style="float:right;"></span>
 										</td>
 										<xsl:call-template name="CreateTableCells">
 											<xsl:with-param name="Start" select="1"/>
@@ -1385,13 +1385,13 @@
 											<input type="checkbox" alt="Income Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 												<xsl:call-template name="PopulateCheckbox">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Income Allocation Method Indicate Box</xsl:with-param>
+													<xsl:with-param name="BackupName">Income Allocation Method Indicate Box1</xsl:with-param>
 												</xsl:call-template>
 											</input>
 											<label>
 												<xsl:call-template name="PopulateLabel">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Income Allocation Method Indicate Label</xsl:with-param>
+													<xsl:with-param name="BackupName">Income Allocation Method Indicate Label1</xsl:with-param>
 												</xsl:call-template>
 														Income
 													</label>
@@ -1400,13 +1400,13 @@
 											<input type="checkbox" alt="Asset Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 												<xsl:call-template name="PopulateCheckbox">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box</xsl:with-param>
+													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box1</xsl:with-param>
 												</xsl:call-template>
 											</input>
 											<label>
 												<xsl:call-template name="PopulateLabel">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label</xsl:with-param>
+													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label1</xsl:with-param>
 												</xsl:call-template>
 												Asset
 											</label>
@@ -1415,13 +1415,13 @@
 											<input type="checkbox" alt="Income Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 												<xsl:call-template name="PopulateCheckbox">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Income Allocation Method Indicate Box</xsl:with-param>
+													<xsl:with-param name="BackupName">Income Allocation Method Indicate Box2</xsl:with-param>
 												</xsl:call-template>
 											</input>
 											<label>
 												<xsl:call-template name="PopulateLabel">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Income Allocation Method Indicate Label</xsl:with-param>
+													<xsl:with-param name="BackupName">Income Allocation Method Indicate Label2</xsl:with-param>
 												</xsl:call-template>
 														Income
 													</label>
@@ -1430,13 +1430,13 @@
 											<input type="checkbox" alt="Asset Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 												<xsl:call-template name="PopulateCheckbox">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box</xsl:with-param>
+													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box2</xsl:with-param>
 												</xsl:call-template>
 											</input>
 											<label>
 												<xsl:call-template name="PopulateLabel">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label</xsl:with-param>
+													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label2</xsl:with-param>
 												</xsl:call-template>
 												Asset
 											</label>
@@ -1445,13 +1445,13 @@
 											<input type="checkbox" alt="Income Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 												<xsl:call-template name="PopulateCheckbox">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Income Allocation Method Indicate Box</xsl:with-param>
+													<xsl:with-param name="BackupName">Income Allocation Method Indicate Box3</xsl:with-param>
 												</xsl:call-template>
 											</input>
 											<label>
 												<xsl:call-template name="PopulateLabel">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Income Allocation Method Indicate Label</xsl:with-param>
+													<xsl:with-param name="BackupName">Income Allocation Method Indicate Label3</xsl:with-param>
 												</xsl:call-template>
 														Income
 													</label>
@@ -1460,13 +1460,13 @@
 											<input type="checkbox" alt="Asset Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 												<xsl:call-template name="PopulateCheckbox">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box</xsl:with-param>
+													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box3</xsl:with-param>
 												</xsl:call-template>
 											</input>
 											<label>
 												<xsl:call-template name="PopulateLabel">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label</xsl:with-param>
+													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label3</xsl:with-param>
 												</xsl:call-template>
 												Asset
 											</label>
@@ -1475,13 +1475,13 @@
 											<input type="checkbox" alt="Income Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 												<xsl:call-template name="PopulateCheckbox">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Income Allocation Method Indicate Box</xsl:with-param>
+													<xsl:with-param name="BackupName">Income Allocation Method Indicate Box4</xsl:with-param>
 												</xsl:call-template>
 											</input>
 											<label>
 												<xsl:call-template name="PopulateLabel">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Income Allocation Method Indicate Label</xsl:with-param>
+													<xsl:with-param name="BackupName">Income Allocation Method Indicate Label4</xsl:with-param>
 												</xsl:call-template>
 														Income
 													</label>
@@ -1490,13 +1490,13 @@
 											<input type="checkbox" alt="Asset Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 												<xsl:call-template name="PopulateCheckbox">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box</xsl:with-param>
+													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box4</xsl:with-param>
 												</xsl:call-template>
 											</input>
 											<label>
 												<xsl:call-template name="PopulateLabel">
 													<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp/None"/>
-													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label</xsl:with-param>
+													<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label4</xsl:with-param>
 												</xsl:call-template>
 												Asset
 											</label>
@@ -1577,7 +1577,7 @@
 						<div class="sty1120FSchPSectionTitle" style="border-top-width:0px;border-bottom-width:1px;width:187mm;">
 							<div class="styPartName" style="height:4mm;width:14mm;">Part IV</div>
 							<div class="styPartDesc" style="width:167mm;">
-					Foreign Partner Interests in Partnerships Transferred During Tax Year
+					Foreign Partner's Interests in Partnerships Transferred During Tax Year
 				  </div>
 							<div style="height:4mm;float:right;">
 								<xsl:call-template name="SetDynamicTableToggleButton">
@@ -1750,7 +1750,7 @@
 											<tr>
 												<td colspan="2" class="styTableCellHeader" style="width:96mm;border:none;border-right:1px solid black;"/>
 												<td colspan="3" class="styTableCellHeader" style="width:90mm;border:none;font-weight:bold;font-size:8pt;">
-							  Partnership Interest Sold (see instructions)</td>
+							  Partnership Interest Transferred (see instructions)</td>
 											</tr>
 											<tr>
 												<td colspan="2" class="styTableCellHeader" style="border-bottom:0;"/>
@@ -1905,7 +1905,7 @@
 									<tr>
 										<td colspan="2" class="styTableCellHeader" style="width:96mm;border:none;border-right:1px solid black;"/>
 										<td colspan="3" class="styTableCellHeader" style="width:90mm;border:none;font-weight:bold;font-size:8pt;">
-							  Partnership Interest Sold (see instructions)</td>
+							  Partnership Interest Transferred (see instructions)</td>
 									</tr>
 									<tr>
 										<td colspan="2" class="styTableCellHeader" style="border-bottom:0;"/>
@@ -2269,6 +2269,8 @@
 					<!-- *********************************************************************** -->
 					<!-- ************************** PART II SRT START ************************** -->
 					<!-- *********************************************************************** -->
+					<!--HINTS 1:02/10/2023 JM  In Part II of the separated print dots will not align. -->
+					
 					<xsl:if test="($Print = $Separated) and (count($FormData/ForeignPartnerInformationGrp) &gt; 4) ">
 						<xsl:for-each select="$FormData/ForeignPartnerInformationGrp">
 							<xsl:if test="position() mod 4 = 1">
@@ -2349,7 +2351,7 @@
 											<td class="styTableCellText" scope="row" style="padding-left:0;padding-top:2mm;width:49mm;border-bottom:none;">
 												<b>Gross ECI - Partner determination.</b>  Enter all applicable amounts from Schedule K-3, Part X,
 					           Section 1, column (b) (see instructions).
-					          <span class="styDotLn" style="float:right;">..</span>
+					          <span class="styDotLn" style="float:right;">.......</span>
 											</td>
 											<xsl:call-template name="CreateTableCells">
 												<xsl:with-param name="Start" select="position()"/>
@@ -2851,7 +2853,7 @@
 											<tr>
 												<td colspan="2" class="styDepTblHdr" style="width:96mm;border:1px solid black;border-bottom:none;"/>
 												<td colspan="3" class="styDepTblHdr" style="color:black;width:90mm;border:1px solid black;font-weight:bold;font-size:8pt;">
-							  Partnership Interest Sold (see instructions)</td>
+							  Partnership Interest Transferred (see instructions)</td>
 											</tr>
 											<tr>
 												<td colspan="2" class="styDepTblHdr" style="border:1px solid black;border-top:none;"/>
@@ -3075,13 +3077,13 @@
 				<input type="checkbox" alt="Income Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 					<xsl:call-template name="PopulateCheckbox">
 						<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp[position()=$Start]/IncomeAllocationMethodInd"/>
-						<xsl:with-param name="BackupName">Income Allocation Method Indicate Box</xsl:with-param>
+						<xsl:with-param name="BackupName">IncomeAllocationMethodInd<xsl:value-of select="$Start"/></xsl:with-param>
 					</xsl:call-template>
 				</input>
 				<label>
 					<xsl:call-template name="PopulateLabel">
 						<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp[position()=$Start]/IncomeAllocationMethodInd"/>
-						<xsl:with-param name="BackupName">Income Allocation Method Indicate Label</xsl:with-param>
+						<xsl:with-param name="BackupName">IncomeAllocationMethodLabel<xsl:value-of select="$Start"/></xsl:with-param>
 					</xsl:call-template>
 							Income
 						</label>
@@ -3090,13 +3092,13 @@
 				<input type="checkbox" alt="Asset Allocation Method Indicate Box" class="styCkbox" style="width:9px; height:9px;">
 					<xsl:call-template name="PopulateCheckbox">
 						<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp[position()=$Start]/AssetAllocationMethodInd"/>
-						<xsl:with-param name="BackupName">Asset Allocation Method Indicate Box</xsl:with-param>
+						<xsl:with-param name="BackupName">AssetAllocationMethodInd<xsl:value-of select="$Start"/></xsl:with-param>
 					</xsl:call-template>
 				</input>
 				<label>
 					<xsl:call-template name="PopulateLabel">
 						<xsl:with-param name="TargetNode" select="$FormData/ForeignPartnerInformationGrp[position()=$Start]/AssetAllocationMethodInd"/>
-						<xsl:with-param name="BackupName">Asset Allocation Method Indicate Label</xsl:with-param>
+						<xsl:with-param name="BackupName">AssetAllocationMethodLabel<xsl:value-of select="$Start"/></xsl:with-param>
 					</xsl:call-template>
 							Asset
 						</label>

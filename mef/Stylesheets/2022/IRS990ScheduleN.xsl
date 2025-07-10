@@ -7,6 +7,8 @@
 <!-- 01/03/2022 - Changes made for UWR 373518 - Jeremy Nichols -->
 <!-- 02/14/2022 - Changes made for defect 69063 - Jeremy Nichols -->
 <!-- 10/03/2022 - Changes made for UWR 860875 - Jeremy Nichols -->
+<!-- 11/29/2022 - Changes made for defect 71652 - Jeremy Nichols -->
+<!-- 03/03/2022 - Changes made for 2022 pdf review - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -86,28 +88,28 @@
 				<br/>
 <!-- + Tag Line 1 + -->
 				<span style="font-weight:bold; padding-top:.5mm; float: left; padding-left:3mm;">
-					<img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="bullet"/>
+					<img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="Right arrow"/>
 					<span style="width: 4px"/> 
 					Complete if the organization answered "Yes" on Form 990, Part IV, lines 31 or 32; or Form 990-EZ, line 36. 
 				</span>
 			<br/>
 <!-- + Tag Line 2 + -->
 				<span style="width:162mm; font-weight:bold; padding-top:.5mm; float: left; text-align: left; padding-left:3mm;">
-				   <img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="bullet"/>
+				   <img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="Right arrow"/>
 					   <span style="width: 4px"/> 
 					Attach certified copies of any articles of dissolution, resolutions, or plans.
 				</span>
 			<br/>	
 <!-- + Tag Line 3 + -->
 				<span style="font-weight:bold; padding-top:.5mm; float: left; padding-left:3mm;">
-				   <img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="bullet"/>
+				   <img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="Right arrow"/>
 					   <span style="width: 4px"/> 
 					Attach to Form 990 or 990-EZ.
 				</span>
 			<br/>
 <!-- + Tag Line 4 + -->
 				<span style="width:162mm; font-weight:bold; padding-top:.5mm; float: left; text-align:left; padding-left:3mm;">
-				   <img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="bullet"/>
+				   <img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="Right arrow"/>
 					   <span style="width: 4px"/> 
 					Go to <!--www.irs.gov/form990.--><a href="http://www.irs.gov/form990" title="Link to IRS.gov"><i>www.irs.gov/Form990</i></a> for the latest information. 
 				</span>
@@ -642,19 +644,19 @@
 				e
 			</div>
 			<div class="styLNDescLandscape" style="width: 247mm;">If the organization answered "Yes" to any of the questions on lines 2a through 2d, provide the name of the person involved and explain in Part III.
-				<img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="bullet"/>
+				<img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="Right arrow"/>
 			</div>
 		</div>
 	</div>
 	
-	<div class="sty990ScheduleNFormFooter" style="padding-top: 1mm;">
-		<div style="width: 140mm; clear: none; font-weight: bold; float: left;">
+	<div class="sty990ScheduleNFormFooter" style="padding-top: 1mm;width:256mm;">
+		<div style="width: 136mm; clear: none; font-weight: bold; float: left;">
 			For Paperwork Reduction Act Notice, see the Instructions for Form 990.
 		</div>
 		<div style="width: 60mm; clear: none; font-weight: normal; float: left;">
 			Cat. No. 50087Z
 		</div>
-		<div style="width: 56mm; text-align: center; clear: none; font-weight: bold; float: right;">
+		<div style="width: 60mm; text-align: right; clear: none; font-weight: bold; float: right;">
 			Schedule N (Form 990) (2022)
 		</div>
 	</div>
@@ -665,12 +667,12 @@
 <!---->		
 <!-- ########################## BEGIN_ PAGE 2 ################################## -->	
 <!-- ++ Page 2 Header ++-->			
-	<div class="styBB" style="width:256mm; float: none; clear:none;border-bottom-width:1px">
-		<div style="float:left">
+	<div class="styBB" style="width:256mm; border-bottom-width:1px">
+		<div style="width:194mm;">
 			Schedule N (Form 990) (2022)
 		</div>
-		<div style="float:right">
-			Page <span style="font-weight:bold;font-size:8pt;padding-right:4mm">2</span>
+		<div style="width:60mm;text-align:right;">
+			Page <span style="font-weight:bold;font-size:8pt;">2</span>
 		</div>
 	</div>
 	
@@ -1299,7 +1301,7 @@
 				e
 			</div>
 			<div class="styLNDescLandscape" style="width: 247mm;">If the organization answered "Yes" to any of the questions on lines 2a through 2d, provide the name of the person involved and explain in Part III.
-				<img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="bullet"/>
+				<img src="{$ImagePath}/990SchN_Bullet_Md.gif" alt="Right arrow"/>
 			</div>
 		</div>
 	</div>
@@ -1318,7 +1320,7 @@
 		<div style="width: 56mm; clear: none; font-weight: normal; float: left;">
 			Cat. No. 50087Z
 		</div>
-		<div style="width: 60mm; text-align: center; clear: none; font-weight: bold; float: right;">
+		<div style="width: 60mm; text-align: right; clear: none; font-weight: bold;">
 			Schedule N (Form 990) (2022)
 		</div>
 	<br/>
@@ -1343,7 +1345,7 @@
 					Schedule N (Form 990) (2022)
 				</div>
 				<div style="float:right">
-					Page <span style="font-weight:bold;font-size:8pt;padding-right:4mm">3</span>
+					Page <span style="font-weight:bold;font-size:8pt;">3</span>
 				</div>
 			</div>
 <!-- ====================================== -->

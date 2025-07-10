@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;">]>
-<!-- 04/24/2017 - Modified per UWR 195015 - Jeremy Nichols-->
-<!-- 05/07/2018 - Changes made for UWR 207539 - Jeremy Nichols -->
-<!-- 08/02/2018 - Changes made for KISAM IM00341446 - Jeremy Nichols -->
-<!-- 09/24/2018 - Changes made for defect 62430 - Jeremy Nichols -->
-<!-- 11/13/2018 - Changes made for defect 62430 - Jeremy Nichols -->
-<!-- 06/18/2019 - Changes made for UWR 220903 - Jeremy Nichols -->
-<!-- 11/15/2019 - Changes made for defect 128289 - Jeremy Nichols -->
-<!-- 01/16/2020 - Changes made for 2019 pdf review - Jeremy Nichols -->
-<!-- 06/15/2020 - Changes made for UWR 233977 - Jeremy Nichols -->
-<!-- 09/16/2020 - Changes made for 2020 pdf review - Jeremy Nichols -->
-<!-- 12/01/2020 - Changes made for defect 129683 - Jeremy Nichols -->
 <!-- 07/20/2021 - Changes made for UWR 368250 - Jeremy Nichols -->
 <!-- 10/20/2021 - Changes made for defect 68070 - Jeremy Nichols -->
 <!-- 10/03/2022 - Changes made for UWR 860875 - Jeremy Nichols -->
+<!-- 11/28/2022 - Changes made for defect 71663 - Jeremy Nichols -->
+<!-- 11/29/2022 - Changes made for defect 71638 - Jeremy Nichols -->
+<!-- 01/10/2023 - Changes made for KISAM IM02174700 - Jeremy Nichols -->
+<!-- 09/20/2023 - Changes made for EWM defect 1253002 - Jeremy Nichols -->
+<!-- 10/20/2023 - Changes made for EWM defect 1253550 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="PopulateTemplate.xsl"/>
   <xsl:include href="CommonPathRef.xsl"/>
@@ -87,10 +81,10 @@
             <div class="styFTBox" style="height:19mm;width:130mm;">
               <div class="styMainTitle" style="padding-top:1mm;font-size:14pt;">Hospitals</div>
               <div class="styFBT" style="padding-top:1mm;">
-                <img src="{$ImagePath}/990SchH_Bullet_Md.gif" alt="MediumBullet"/>
+                <img src="{$ImagePath}/990SchH_Bullet_Md.gif" alt="Medium right arrow"/>
                 Complete if the organization answered "Yes" on Form 990, Part IV, question 20a.<br/>
-                <img src="{$ImagePath}/990SchH_Bullet_Md.gif" alt="MediumBullet"/> Attach to Form 990. <br/>
-                <img src="{$ImagePath}/990SchH_Bullet_Md.gif" alt="MediumBullet"/> Go to <i>www.irs.gov/Form990EZ</i> for instructions and the latest information.
+                <img src="{$ImagePath}/990SchH_Bullet_Md.gif" alt="Medium right arrow"/> Attach to Form 990. <br/>
+                <img src="{$ImagePath}/990SchH_Bullet_Md.gif" alt="Medium right arrow"/> Go to <i>www.irs.gov/Form990EZ</i> for instructions and the latest information.
               </div>
             </div>
             <div class="styTYBox" style="height:19mm;width:31mm;">
@@ -831,6 +825,7 @@
               Financial Assistance and Certain Other Community Benefits at Cost
             </span>
           </div>
+          <div style="display:block;">
             <table class="styTable" style="height:auto;width:187mm;border-color:black;display:inline;" cellspacing="0">
                 <tr>
                   <th colspan="2" class="styIRS990ScheduleHTheadCell" scope="col" style="height:11mm;width:43mm;text-align:center;font-size:7.5pt;border-bottom-width:0px;border-left-width:0px;float:left;clear:none;">
@@ -1361,7 +1356,7 @@
                   </td>
                 </tr>                
             </table>
-          
+          </div>
           <!-- Page Footer -->
           <div style="width:187mm;">
             <span style="width:112mm;font-size:6.25pt;font-weight:bold;">For Paperwork Reduction Act Notice, see the Instructions for Form 990.</span>
@@ -1398,14 +1393,11 @@
           </div>
           
           <!--  BEGIN PART II  TABLE  -->
-          <table class="styTable" id="IRS990ScheduleHPartIITable" summary="Community Building Activities" cellspacing="0" cellpadding="0" style="font-size:5pt;height:auto;width:187mm;float:left;clear:none;">
+          <table class="styTable" id="IRS990ScheduleHPartIITable" summary="Community Building Activities" cellspacing="0" cellpadding="0" style="font-size:5pt;height:auto;width:187mm;">
             <tr>
-              <th class="styLNLeftNumBoxBB" style="height:12mm;width:4mm;padding-left:2mm;float:left;clear:none;float:left;clear:none;" scope="col">
-				  <span style="width:5mm;"/>
-			  </th>
-              <th class="styIRS990ScheduleHTheadCell" style="height:12mm;width:39mm;padding-bottom:0mm;border-left-width:0mm;float:left;clear:none;float:left;clear:none;" scope="col">
+              <td colspan="2" class="styIRS990ScheduleHTheadCell" style="height:12mm;width:43mm;padding-bottom:0mm;border-left-width:0mm;float:left;clear:none;float:left;clear:none;" scope="col">
 				  <span style="width:41mm;"/>
-			  </th>
+			  </td>
               <th class="styIRS990ScheduleHTheadCell" style="height:12mm;width:30mm;font-size:5pt;padding-bottom:1px;float:left;clear:none;" scope="col">
                 <span class="styBoldText">(a)</span> Number of activities or programs (optional)
               </th>
@@ -2131,13 +2123,13 @@
           </div>
           <!--   PART  IV   Management Companies and Joint Ventures -->
           <div style="display:block">
+            <xsl:call-template name="SetInitialState"/>
           <div class="styBB" style="width:187mm;height:4mm;border-top-width:1px;vertical-align:bottom;">
             <div class="styPartName" style="height:4mm;">Part IV</div>
               <span style="font-size:8pt;padding-left:1.5mm;"><b>Management Companies and Joint Ventures</b></span><span style="width:0.5mm;"/>
              <span style="font-size:5pt;padding-bottom:0.5mm;">(owned 10% or more by officers, directors, trustees, key employees, and physicians—see instructions)</span>
           </div>
           
-            <xsl:call-template name="SetInitialState"/>
             <table class="styTable" cellspacing="0" name="TYTable" id="TYTable" style="height:auto;display:block;">
               <thead class="styTableThead">
                 <tr style="height:5mm;">
@@ -9525,7 +9517,7 @@
             <table border="0" cellspacing="0" cellpadding="0" style="height:auto;width:187mm;font-size:7pt;border-color:black;border-style:solid;">
               <thead class="styTableThead" style="font-size:7pt;border-left-width:0;border-top-width:0;">
                 <tr style="styDepTblHdr">
-                  <th class="styTableCellHeader" colspan="2" scope="col" style="height:41.5mm;text-align:left;vertical-align:top;padding-top:2mm;width:70mm;border-bottom-width:1px; border-style:solid;border-color:black;border-right-width:0px;background-color:SteelBlue;font-size:8pt;padding-bottom:1mm;display:inline;float:left;clear:none;">
+                  <th class="styTableCellHeader" colspan="2" scope="col" style="height:41.5mm;text-align:left;vertical-align:top;padding-top:2mm;width:70mm;border-bottom-width:1px; border-style:solid;border-color:black;border-right-width:0px;font-size:8pt;padding-bottom:1mm;display:inline;float:left;clear:none;">
                     <div class="IRS990ScheduleH_LineDesc" style="height:41.5mm;width:70mm;height:4mm;border-right-width:0px;border-top-width:0px;display:inline;">
                       <b>Section  A. Hospital Facilities</b>
                     </div>                    
@@ -9540,34 +9532,34 @@
                     <span style="height:10mm;"/>
                     <span style="width:68mm;font-weight:normal;">Name, address, primary website address, and state license number</span>
                   </th>
-                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;width:7mm;background-color:SteelBlue;border-style:solid;border-color:black;border-left-width:1px;vertical-align:top;padding-top:.5mm;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col" valign="middle">
+                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;width:7mm;border-style:solid;border-color:black;border-left-width:1px;vertical-align:top;padding-top:.5mm;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col" valign="middle">
                     <img src="{$ImagePath}/990SchH_LicHosp.gif" alt="Licensed Hospital"/>
                   </th>
-                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top; background-color:SteelBlue;padding-top:.5mm;width:7mm;border-style:solid; border-color:black;border-left-width:0px; border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
+                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;padding-top:.5mm;width:7mm;border-style:solid; border-color:black;border-left-width:0px; border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
                     <img src="{$ImagePath}/990SchH_GenMedSurg.gif" alt="General-Medical-Surgical"/>
                   </th>
-                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;background-color:SteelBlue;padding-top:.5mm;width:7mm;border-style:solid;border-color:black; border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
+                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;padding-top:.5mm;width:7mm;border-style:solid;border-color:black; border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
                     <img src="{$ImagePath}/990SchH_ChildHosp.gif" alt="Children's Hospital"/>
                   </th>
-                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;background-color:SteelBlue;padding-top:.5mm;width:7mm;border-style:solid; border-color:black;border-left-width:0px; border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
+                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;padding-top:.5mm;width:7mm;border-style:solid; border-color:black;border-left-width:0px; border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
                     <img src="{$ImagePath}/990SchH_TeachHosp.gif" alt="Teaching Hospital"/>
                   </th>
-                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;width:7mm;background-color:SteelBlue;border-style:solid;border-color:black;border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline;" scope="col">
+                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;width:7mm;border-style:solid;border-color:black;border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline;" scope="col">
                     <img src="{$ImagePath}/990SchH_CriticalHosp.gif" alt="Critical Hospital"/>
                   </th>
-                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;background-color:SteelBlue;padding-top:.5mm;width:7mm;border-style:solid; border-color:black;border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
+                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;padding-top:.5mm;width:7mm;border-style:solid; border-color:black;border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
                     <img src="{$ImagePath}/990SchH_ResearchFac.gif" alt="ResearchGrp Facility"/>
                   </th>
-                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;background-color:SteelBlue;padding-top:.5mm;width:7mm;border-style:solid;border-color:black; border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
+                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;padding-top:.5mm;width:7mm;border-style:solid;border-color:black; border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
                     <img src="{$ImagePath}/990SchH_ER-24hrs.gif" alt="ER-24Hours"/>
                   </th>
-                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;background-color:SteelBlue;padding-top:.5mm;width:7mm;border-style:solid;border-color:black; border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
+                  <th class="styIRS990SchHVTImageBox" style="height:41.5mm;vertical-align:top;padding-top:.5mm;width:7mm;border-style:solid;border-color:black; border-left-width:0px;border-right-width:1px;border-top-width:0px;border-bottom-width:1px;display:inline; " scope="col">
                     <img src="{$ImagePath}/990SchH_ER-Other.gif" alt="ER-Other"/>
                   </th>
-                  <th class="styTableCellHeader" style="height:41.5mm;width:35mm;background-color:SteelBlue;border-bottom-width:1px; border-style:solid;border-color:black; border-right-width:1px;padding-top:37.5mm;padding-left:1mm;font-size:7pt;float:left;clear:none;display:inline;" scope="col">
+                  <th class="styTableCellHeader" style="height:41.5mm;width:35mm;border-bottom-width:1px; border-style:solid;border-color:black; border-right-width:1px;padding-top:37.5mm;padding-left:1mm;font-size:7pt;float:left;clear:none;display:inline;" scope="col">
 					Other (Describe)
                   </th>
-                  <th class="styTableCellHeader" style="height:41.5mm;width:24.4mm;background-color:SteelBlue;border-bottom-width:1px; border-style:solid;border-color:black; border-right-width:0px;padding-top:34.5mm;padding-left:1mm;font-size:7pt;float:left;clear:none;display:inline;" scope="col">
+                  <th class="styTableCellHeader" style="height:41.5mm;width:24.4mm;border-bottom-width:1px; border-style:solid;border-color:black; border-right-width:0px;padding-top:34.5mm;padding-left:1mm;font-size:7pt;float:left;clear:none;display:inline;" scope="col">
                     Facility reporting group
                   </th>
                 </tr>

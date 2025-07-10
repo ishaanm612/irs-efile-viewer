@@ -753,6 +753,11 @@
             </xsl:call-template>
           </div>
         </div>
+        <!--
+            <xsl:call-template name="PopulateText">
+              <xsl:with-param name="TargetNode" select="$FormData/ForeignAccountsQuestionInd/@countryCd"/>
+            </xsl:call-template>        
+        -->
         <!-- line 22 -->
         <div class="IRS1120POL_LineContainer">
           <div class="IRS1120POL_LabelSpace"/>
@@ -761,7 +766,7 @@
             Total tax.  Subtract line 21 from line 20
             <xsl:call-template name="LinkToLeftoverDataTableInline">
               <xsl:with-param name="Desc">Line 22 - Qualified Electric Vehicle Recapture</xsl:with-param>
-              <xsl:with-param name="TargetNode" select="$FormData/TotalTaxAmt"/>
+              <xsl:with-param name="TargetNode" select="$FormData/TotalTaxAmt/@qEVRecaptureAmt"/>
             </xsl:call-template>
                  <!--Dotted Line-->
             <span style="letter-spacing:4mm; font-weight:bold; ">................</span>
@@ -1395,7 +1400,7 @@ See instructions.
   
   <xsl:call-template name="PopulateLeftoverRowAmount">
     <xsl:with-param name="Desc">Line 22 - Qualified Electric Vehicle Recapture</xsl:with-param>
-    <xsl:with-param name="TargetNode" select="$FormData/TotalTaxAmt"/>
+    <xsl:with-param name="TargetNode" select="$FormData/TotalTaxAmt/@qEVRecaptureAmt"/>
     <xsl:with-param name="DescWidth" select="100"/>
   </xsl:call-template>
   

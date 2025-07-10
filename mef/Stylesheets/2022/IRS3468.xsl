@@ -65,7 +65,8 @@
 							</div>
 							<div class="styFBT" style="padding-top:0mm;">
 								<img src="{$ImagePath}/3468_Bullet.gif" alt="right arrow image"/> Go to
-									<a style="text-decoration:none;color:black;"  href="http://www.irs.gov/Form3468" title="Link to IRS.gov"><i>www.IRS.gov/Form3468</i></a> for instructions and the latest 
+									<a style="text-decoration:none;color:black;"  href="http://www.irs.gov/Form3468" 
+									 title="Link to IRS.gov"><i>www.IRS.gov/Form3468</i></a> for instructions and the latest 
 								information.
 							</div>							
 						</div>
@@ -126,7 +127,8 @@
 							  </xsl:choose>
 							</span>
 						</div>
-						<div class="styEINBox" style="width:30mm;height:9mm;font-size:7pt;font-weight:bold;padding-left:2mm;">
+						<div class="styEINBox" style="width:30mm;height:9mm;font-size:7pt;font-weight:bold;
+						 padding-left:2mm;">
 						  Identifying number<br/>
 							<br/>
 							<span style="width:25mm;text-align:left;font-size:7pt;font-weight:normal;">
@@ -156,14 +158,16 @@
 					<!-- Start of Part one -->
 					<div class="styBB" style="width:187mm;">
 						<div class="styPartName" style="width:13mm;height:5mm;font-size:8pt">Part I</div>
-						<div class="styPartDesc" style="width:150mm;height:auto;font-weight:bold;font-size:9pt;padding-top:1mm">
-					      Information Regarding the Election To Treat the Lessee as the Purchaser of Investment Credit Property
-					      </div>
+						<div class="styPartDesc" style="width:150mm;height:auto;font-weight:bold;font-size:9pt;
+						 padding-top:1mm">
+					      Information Regarding the Election To Treat the Lessee as the Purchaser of Investment Credit 
+					      Property
+						</div>
 					</div>
 					<div style="width:187mm;">
-					      If you are claiming the investment credit as a lessee based on a section 48(d) (as in effect on November
-					       4, 1990) election, provide the following information. If you acquired more than one property as a 
-					       lessee, attach a statement showing the information below.
+					      If you are claiming the investment credit as a lessee based on a section 48(d) (as in effect on 
+					      November 4, 1990) election, provide the following information. If you acquired more than one
+					      property as a lessee, attach a statement showing the information below.
 					 </div>
 					<div class="styBB" style="width:187mm;">
 						<!-- Line 1 -->
@@ -188,16 +192,19 @@
 							<div class="styLNDesc" style="width:35mm;height:4mm;">
                                         Address of lessor
 							</div>
-							<span class="styUnderlineAmount" style="float:left; width:135mm;border-bottom-width:1px;            text-align:left;">
+							<span class="styUnderlineAmount" style="float:left; width:135mm;border-bottom-width:1px;
+							 text-align:left;">
 								<!-- <xsl:call-template name="PopulateMonthDayYear">  -->
 								<xsl:choose>
 									<xsl:when test="$Form3468Data/LessorUSAddress/AddressLine1Txt">
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorUSAddress/AddressLine1Txt"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorUSAddress/AddressLine1Txt"/>
 										</xsl:call-template>
 										<span style="width:2mm"/>
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorUSAddress/AddressLine2Txt"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorUSAddress/AddressLine2Txt"/>
 										</xsl:call-template>
 										<span style="width:1mm"/>
 										<xsl:call-template name="PopulateText">
@@ -205,7 +212,8 @@
 										</xsl:call-template>
 										<span style="width:1mm"/>
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorUSAddress/StateAbbreviationCd"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorUSAddress/StateAbbreviationCd"/>
 										</xsl:call-template>
 										<span style="width:1mm"/>
 										<xsl:call-template name="PopulateText">
@@ -214,27 +222,33 @@
 									</xsl:when>
 									<xsl:otherwise>
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorForeignAddress/AddressLine1Txt"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorForeignAddress/AddressLine1Txt"/>
 										</xsl:call-template>
 										<span style="width:2mm"/>
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorForeignAddress/AddressLine2Txt"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorForeignAddress/AddressLine2Txt"/>
 										</xsl:call-template>
 										<span style="width:1mm"/>
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorForeignAddress/CityNm"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorForeignAddress/CityNm"/>
 										</xsl:call-template>
 										<span style="width:1mm"/>
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorForeignAddress/ProvinceOrStateNm"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorForeignAddress/ProvinceOrStateNm"/>
 										</xsl:call-template>
 										<span style="width:1mm"/>
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorForeignAddress/ForeignPostalCd"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorForeignAddress/ForeignPostalCd"/>
 										</xsl:call-template>
 										<span style="width:1mm"/>
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$Form3468Data/LessorForeignAddress/CountryCd"/>
+											<xsl:with-param name="TargetNode" 
+											 select="$Form3468Data/LessorForeignAddress/CountryCd"/>
 										</xsl:call-template>
 									</xsl:otherwise>
 								</xsl:choose>
@@ -246,7 +260,8 @@
 							<div class="styLNDesc" style="width:35mm;height:4mm;">
                                         Description of property
 							</div>
-							<span class="styUnderlineAmount" style="float:left; width:135mm;border-bottom-width:1px;                text-align:left;">
+							<span class="styUnderlineAmount" style="float:left; width:135mm;border-bottom-width:1px;
+					         text-align:left;">
 								<xsl:call-template name="PopulateText">
 									<xsl:with-param name="TargetNode" select="$Form3468Data/PropertyDesc"/>
 								</xsl:call-template>
@@ -279,7 +294,8 @@
 					<!-- Start of Part II -->
 					<div class="styBB" style="width:187mm;border-top-width:1px;">
 						<div class="styPartName" style="width:15mm;height:7mm; font-size:8pt;padding-top:2mm;">Part II</div>
-						<div class="styPartDesc" style="width:170mm; height:auto; font-weight:bold;font-size:9pt;padding-top:1mm">
+						<div class="styPartDesc" style="width:170mm; height:auto; font-weight:bold;font-size:9pt;
+						 padding-top:1mm">
 					      Qualifying Advanced Coal Project Credit, Qualifying Gasification Project Credit, Qualifying 
 					      Advanced Energy Project Credit, and Advanced Manufacturing Investment Credit 
 					      </div>
@@ -427,10 +443,10 @@
 						<div style="float:left;clear:none;">
 								<div class="styLNLeftNumBox" style="text-align:right;height:6mm;">a</div>
 								<div class="styLNDesc" style="width:100mm;height:20mm;padding-left:2mm;">
-									Qualified investment in qualified property placed in service during the tax year (a) of
-									advanced energy project property or (b) of gasification property for which credits were
-									allocated or reallocated after October 3, 2008, and that includes equipment that
-									separates and sequesters at least 75% of the project’s carbon dioxide emissions
+									Qualified investment in property placed in service during the tax year (a) of
+									advanced energy project property or (b) of qualified gasification property for which
+									credits were allocated or reallocated after October 3, 2008, and that includes equipment
+									that separates and sequesters at least 75% of the project’s carbon dioxide emissions
 									<span class="styDotLn" style="float:none;padding-left:2mm">.....</span>
 									<span style="float:right; padding-right:4mm; font-size:6pt">
 										<span style="width:2mm;float:left">$</span>
@@ -516,10 +532,10 @@
 						</div>
 						<div class="styLNDesc" style="height:11mm;width:130mm;padding-left:2mm">
 							<b>Advanced manufacturing investment credit (see instructions):</b><br/>
-							Basis in qualified property as part of an advanced manufacturing facility, placed in service
-							during the tax year and after 2022, the construction of which began after August 9, 2022.
+							Qualified investment in advanced manufacturing facility, placed in service
+							during the tax year.
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:none;padding-left:2mm">................</span>
+							<span class="styDotLn" style="float:none;padding-left:2mm">.................</span>
 							<span style="width:45mm;float:right;padding-left:3mm;font-size:6pt">
 								<span style="width:2mm;border-bottom-width:0px;float:left;">$</span>
 								<span class="styUnderlineAmount" style="width:21mm;height:3mm;padding-top:0.5mm;
@@ -533,9 +549,9 @@
 								</span>
 							</span>
 						</div>
-						<div class="styLNRightNumBox" style="height:14mm;padding-top:9.5mm;">7
+						<div class="styLNRightNumBox" style="height:11mm;padding-top:6.5mm;">7
 						</div>
-						<div class="styLNAmountBox" style="height:14mm;padding-top:9.5mm;">
+						<div class="styLNAmountBox" style="height:11mm;padding-top:6.5mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form3468Data/CalcBssQlfyInvstAdvncEnergyAmt"/>
 							</xsl:call-template>
@@ -575,7 +591,7 @@
 					<div class="styBB" style="width:187mm;font-size:8pt">
 						<div class="styLNLeftNumBox" style="height:4.5mm;padding-left:0mm">10</div>
 						<div class="styLNDesc" style="width:130mm;height:7.5mm;padding-left:2mm">
-				                          Add lines 5d, 6c, 7, and 9.  Report this amount on Form 3800, line 1a 
+				                          Add lines 5d, 6c, 7, and 9.  Report this amount on Form 3800 Part III, line 1a 
 				                          (see instructions if you entered an amount on line 7)
 				                           <!--Dotted Line-->
 								<span class="styDotLn" style="float:none;padding-left:2mm">......</span>
@@ -929,14 +945,14 @@
 						<div class="styLNAmountBoxNBB" style="height:4.5mm"/>
 					</div>
 					<!-- Line 12a -->
-					<div style="width:187mm;font-size:8pt; height:8mm">
+					<div style="width:187mm;font-size:8pt; height:11mm">
 						<div style="float:left;clear:none;">
 							<div style="width:138mm;">
 								<div class="styLNLeftNumBox" style="text-align:right;">a</div>
 								<div class="styLNDesc" style="width:130mm;padding-left:2mm">
                                     Basis of property using geothermal energy placed in service during the tax year. See
-                                    instructions.
-									<span class="styDotLn" style="float:none;padding-left:2mm">...............</span>
+                                    instructions. For property placed in service after 2022, multiply by 30% instead of 10%
+									<span class="styDotLn" style="float:none;padding-left:2mm">....................</span>
 									<span style="float:right; font-size:6pt; padding-right:4mm">									
 										<span style="width:2mm;float:left">$</span>
 										<span class="styUnderlineAmount" style="width:22mm;text-align:right;
@@ -953,8 +969,8 @@
 						</div>
 						<div style="float:left;clear:none;">
 							<div style="float:left;">
-								<div class="styLNRightNumBox" style="height:9mm;padding-top:4mm;">12a</div>
-								<div class="styLNAmountBox" style="height:9mm;padding-top:4mm;">
+								<div class="styLNRightNumBox" style="height:11mm;padding-top:6mm;">12a</div>
+								<div class="styLNAmountBox" style="height:11mm;padding-top:6mm;">
 									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" 
 										select="$Form3468Data/CalcGthrmlAndSolarEgyPropAmt"/>
@@ -1424,7 +1440,7 @@
 					<div style="width:187mm;font-size:8pt;">
 						<div class="styLNLeftNumBox" style="text-align:right">t</div>
 						<div class="styLNDesc" style="height:7mm;width:130mm;padding-left:2mm">
-						 Basis of property placed in service during the tax year that was acquired. See instructions. For
+						 Basis of property placed in service during the tax year. See instructions. For
 						 property placed in service after 2022, multiply by 30% instead of 10% </div>
 						<div class="styLNRightNumBoxNBB" style="height:7mm;background-color:lightgrey"/>
 						<div class="styLNAmountBox" style="width:30mm; height: 7mm; border-bottom:0px"/>
@@ -1508,7 +1524,7 @@
 						<div class="styLNLeftNumBox" style="text-align:right;">w</div>
 						<div class="styLNDesc" style="width:130mm;padding-left:2mm;">
                             Basis of property placed in service during the tax year that was acquired after October  3, 2008,
-                            and before 2009 and the basis attributable to construction, reconstruction, or erection by the
+                            and before 2009 and the basis attributable to the construction, reconstruction, or erection by the
                             taxpayer after October 3, 2008, and before 2009                                 
                             <span class="styDotLn" style="float:none;padding-left:2mm">....................</span>
                             <span style="float:right;font-size:6pt">                                  
@@ -1551,8 +1567,8 @@
 						<div style="float:left;clear:none;">							
 							<div class="styLNLeftNumBox" style="text-align:right;">y</div>
 							<div class="styLNDesc" style="width:130mm;height:12mm;padding-left:2mm;">
-								Basis of property placed in service during the tax year is attributable to periods after
-								2008 and the construction of which began before 2020 or after 2021.
+								Basis of property placed in service during the tax year that is attributable to periods after
+								2008, the construction of which began before 2020 or after 2021.
 								<!--Dotted Line-->
 								<span class="styDotLn" style="float:none;padding-left:2mm">....................</span>
 								<span style="float:right; font-size:6pt">
@@ -1767,10 +1783,10 @@
 						</div>
 						<div style="float:left;clear:none;">
 							<div class="styLNRightNumBox" style="height:4.5mm;padding-top:1mm;">12ee</div>
-							<div class="styLNAmountBox" style="height:4.5mm;padding-top:1mm;">
-								<xsl:call-template name="PopulateAmount">
+							<div class="styLNAmountBox" style="height:4.5mm;padding-top:1mm;background-color:lightgrey">
+								<!--<xsl:call-template name="PopulateAmount">
 									<xsl:with-param name="TargetNode" select="$Form3468Data/CalcBssWindPropPlacedInSrvcAmt"/>
-								</xsl:call-template>
+								</xsl:call-template>-->
 							</div>
 						</div>
 					</div>
@@ -1795,10 +1811,10 @@
 						</div>
 						<div style="float:left;clear:none;">
 							<div class="styLNRightNumBox" style="height:4.5mm;padding-top:1mm;">12ff</div>
-							<div class="styLNAmountBox" style="height:4.5mm;padding-top:1mm;">
-								<xsl:call-template name="PopulateAmount">
+							<div class="styLNAmountBox" style="height:4.5mm;padding-top:1mm;background-color:lightgrey">
+								<!--<xsl:call-template name="PopulateAmount">
 									<xsl:with-param name="TargetNode" select="$Form3468Data/CalcBssWindPropPlcdSrvcYr2Amt"/>
-								</xsl:call-template>
+								</xsl:call-template>-->
 							</div>
 						</div>
 					</div>
@@ -1823,19 +1839,16 @@
 						</div>
 						<div style="float:left;clear:none;">
 							<div class="styLNRightNumBox" style="height:4.5mm;padding-top:0mm;">12gg</div>
-							<div class="styLNAmountBox" style="height:4.5mm;padding-top:1mm;">
-								<xsl:call-template name="PopulateAmount">
-									<xsl:with-param name="TargetNode" select="$Form3468Data/CalcBssWindPropPlcdSrvcYr3Amt"/>
-								</xsl:call-template>
+							<div class="styLNAmountBox" style="height:4.5mm;padding-top:1mm;background-color:lightgrey">
 							</div>
 						</div>
 					</div>
-					<!-- End of 12gg -->
+					<!-- End of Line 12gg -->
 					<!-- Line 12hh -->
 					<div style="width:187mm;font-size:8pt">
 							<div class="styLNLeftNumBox" style="text-align:right;">hh</div>
 						<div class="styLNDesc" style="width:130mm;padding-left:2mm;">
-							Other energy credits and special adjustments (see instructions)
+							<b>Other energy credits and special adjustments</b> (see instructions)
                            <!--Dotted Line-->
 							<span class="styDotLn" style="float:none;padding-left:2mm">........</span>
 						<!--<span style="float:right;font-size:6pt">
@@ -1853,7 +1866,7 @@
 							<div class="styLNRightNumBox" style="height:4.5mm;padding-top:1mm;">12hh</div>
 							<div class="styLNAmountBox" style="height:4.5mm;padding-top:1mm;">
 								<xsl:call-template name="PopulateAmount">
-									<xsl:with-param name="TargetNode" select="$Form3468Data/CalcBssWindPropPlcdSrvcYr4Amt"/>
+									<xsl:with-param name="TargetNode" select="$Form3468Data/OtherEnergyCrSpecialAdjAmt"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -1877,8 +1890,8 @@
 					<div class="styBB" style="width:187mm;font-size:8pt">
 						<div class="styLNLeftNumBox" style="padding-left:0mm">14</div>
 						<div class="styLNDesc" style="width:130mm;padding-left:2mm">
-			                Combine lines 11e, 11f, 11g, 12a, 12b, 12c, 12d, 12g, 12j, 12m, 12p, 12s, 12v, 12x, 12y, 12z,
-			                12aa, 12bb, 12cc, 12dd, 12hh and 13.  Report this amount on Form 3800, Part III, line 4a
+			                Combine lines 11e, 11f, 11g, 12a, 12b, 12c, 12g, 12j, 12m, 12s, 12v, 12x, 12y, 12z,
+			                12bb, 12cc, 12dd, 12hh and 13.  Report this amount on Form 3800, Part III, line 4a
                                 <!--Dotted Line-->
 								<span class="styDotLn" style="float:none;padding-left:2mm">..........................</span>
 						</div>

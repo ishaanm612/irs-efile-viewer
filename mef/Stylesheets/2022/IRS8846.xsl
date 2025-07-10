@@ -62,9 +62,9 @@
           	Credit for Employer Social Security and Medicare Taxes<br/>
           	Paid on Certain Employee Tips      
                  <div class="styFST" style="height:auto;font-size:7pt;">
-                 <img src="{$ImagePath}/8846_Bullet_Md.gif" width="4" height="7" alt="Bullet Image"/>
+                 <img src="{$ImagePath}/8846_Bullet_Md.gif" width="4" height="7" alt="Right Arrow Image"/>
               Attach to your tax return.<br/>
-                <img src="{$ImagePath}/8846_Bullet_Md.gif" width="4" height="7" alt="Bullet Image"/>
+                <img src="{$ImagePath}/8846_Bullet_Md.gif" width="4" height="7" alt="Right Arrow Image"/>
               Go to <!--www.irs.gov/form8846.-->
               <a href="http://www.irs.gov/form8846" title="Link to IRS.gov">
                 <i>www.irs.gov/Form8846</i>
@@ -217,7 +217,7 @@
                 exceeded $147,000, see instructions and check here  
               <!--Dotted Line-->
                 <span style="letter-spacing:3.4mm;font-weight:bold;skiplink:display:none;">.............
-                         <img src="{$ImagePath}/8846_Bullet_Md.gif" width="4" height="7" alt="Bullet Image"/>
+                         <img src="{$ImagePath}/8846_Bullet_Md.gif" width="4" height="7" alt="Right Arrow Image"/>
                  <span style="width:1mm;"/>
                 <input type="checkbox" alt="EmployeeWageExceedsMaxAmount" class="styCkbox" style="padding-right:1mm;height:2.25mm;">
                   <xsl:call-template name="PopulateCheckbox">

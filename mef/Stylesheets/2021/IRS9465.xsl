@@ -105,7 +105,7 @@
 								<xsl:with-param name="TargetNode" select="$Form9465Data"/>
 							</xsl:call-template>
 							<!-- should this still say December -->
-							<span class="styAgency">(Rev. August 2020)</span>
+							<span class="styAgency">(Rev. September 2020)</span>
 							<br/>
 							<span class="styAgency">Department of the Treasury</span>
 							<br/>
@@ -120,11 +120,11 @@
 								<span style="text-align:center;font-weight:bold;">
 									<div style="width:100%;height:5mm;padding-left:5px;">
 										<div style="width:120mm;height:5mm;">
-											<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/> 
+											<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/> 
 											Go to <i>www.irs.gov/Form9465</i> for instructions and the latest information. <br/>
-											<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/> 
+											<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/> 
 											If you are filing this form with your tax return, attach it to the front of the return.<br/>
-											<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/>
+											<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/>
 											See separate instructions.
 										</div>
 									</div>
@@ -138,23 +138,26 @@
 					<!--  End Header section 1 -->
 					<!-- Caution -->
 					<div class="styBB" style="width:187mm;border-bottom-width:2px;">
-						<div class="styIRS9465LineItem" style="height:8mm;">
-							<div class="styIRS9465LNDesc" style="width:100%;height:8mm;padding-left:0px;font-size:8.5pt;padding-bottom:2mm;">
+						<div class="styIRS9465LineItem" style="height:10.5mm;">
+							<div class="styIRS9465LNDesc" style="width:100%;height:11mm;padding-left:0px;font-size:8pt;padding-bottom:2mm;">
 								<b>Tip: </b>If you owe $50,000 or less, you may be able to avoid filing Form 9465 and establish an installment agreement online, even if you haven't yet received a tax bill. 
                                Go to <i>www.irs.gov/OPA</i> to apply for an Online Payment Agreement.
+                               If you establish your installment
+agreement using the Online Payment Agreement application, the user fee that you pay will be lower than it would be with Form 9465.
 					<!--			<b> Caution: </b>
 								<i>Don't file this form if you can pay your balance in full within 120 days.  Instead, call 1-800-829-1040.  Don't file this form if your business is still operating and owes employment or unemployment taxes.  Instead, call the telephone number on your most recent notice.  If you are in bankruptcy or we have accepted your offer-in-compromise, see <b>Bankruptcy or offer-in-compromise,</b> in the instructions. </i> -->
 							</div>
 						</div>
 					</div>
 					<div class="styBB" style="width:187mm;border-bottom-width:1px;">
-						<div class="styPartName" style="font-size:9pt;">Part I</div>
+						<div class="styPartName" style="font-size:9pt;">Part I </div>
+						<div class="styLNDesc" style="width:65mm;font-size:9pt;padding-left:7px;"><b>Installment Agreement Request</b></div>
 					</div>
 					<!-- Form # and Tax Year -->
 					<div  style="width:187mm;">
 						<div class="styLNDesc" style="width:65mm;font-family:Arial Narrow;">This request is for Form(s) (for example, Form 1040 or Form 941)
 							<span style="width:4px;"/>
-							<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/>
+							<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/>
 						</div>
 						<div class="styFixedUnderline" style="height:4mm;width:122mm;padding-left:0px;font-family:Arial Narrow;   
 							     padding-left:1mm;">
@@ -175,7 +178,7 @@
 					<div class="styBB" style="width:187mm;">	
 						<div class="styLNDesc" style="width:100mm;padding-right:0mm;font-family:Arial Narrow;">Enter tax year(s) or period(s) involved (for example, 2018 and 2019, or January 1, 2019 to June 30, 2019)
 								<span style="width:4px;"/>
-							<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/>
+							<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/>
 						</div>	
 						<div style="width:87mm;height:4mm;font-family:Verdana;padding-left:1mm;padding-top:.5mm;padding-bottom:.5mm;float:left; clear: none;">
 								<xsl:call-template name="PopulateText">
@@ -455,7 +458,7 @@
 						<div class="styIRS9465LNDesc" style="width:181mm;height:6mm">If this address is new since you filed your last tax return, check here
 						<!--Dotted Line-->
 							<span class="styDotLn" style="float:none;clear:none;padding-right:1mm;">...................</span>
-							<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/>
+							<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/>
 							<span style="width:2mm;"/>
 							<label>
 								<xsl:call-template name="PopulateLabel">
@@ -466,7 +469,7 @@
 							</label>
 							<!--Dotted Line-->
 							<!--<span class="styDotLn" style="float:none;clear:none;padding-right:1mm;">...................</span>
-							<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/>
+							<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/>
 							<span style="width:2mm;"/>-->
 							<input type="checkbox" class="styCkbox"  alt="New Address Indicator">
 								<xsl:call-template name="PopulateCheckbox">
@@ -698,7 +701,7 @@
 							<div class="styIRS9465LNLeftNumBox">9</div>
 							<div class="styIRS9465CleanDiv" style="width:144mm;height:4.3mm;padding:0px 0px 0px 0px;">
 								<div class="styIRS9465LNDesc" style="width:144mm;height:4.3mm;padding:0px 0px 0px 0px;">
-									<div class="styIRS9465LNDesc" style="width:144mm;height:4.3mm;;padding-top:1mm;">
+									<div class="styIRS9465LNDesc" style="width:144mm;height:4.3mm;;padding-top:0.5mm;">
 										Amount owed. Subtract line 8 from line 7 and enter the result
 										<!--Dotted Line-->
 										<!--Dotted Line-->
@@ -724,10 +727,10 @@
 							<div class="styIRS9465CleanDiv" style="width:144mm;height:4.3mm;padding:0px 0px 0px 0px;">
 								<div class="styIRS9465LNDesc" style="width:144mm;height:4.3mm;padding:0px 0px 0px 0px;">
 									<div class="styIRS9465LNDesc" style="width:144mm;height:4.3mm;padding-top:1mm;">
-										Divide the amount on line 9 by 72 and enter the result
+										Divide the amount on line 9 by 72.0 and enter the result
 										<!--Dotted Line-->
 											<span style="width:1mm;"/>
-										<div class="styDotLn" style="float:none;padding-right:0mm;">.................</div>
+										<div class="styDotLn" style="float:none;padding-right:0mm;">................</div>
 											
 									</div>
 								</div>
@@ -745,16 +748,16 @@
 						<!-- (11a) ////////////////////////////////////////////////////-->
 						<div class="styIRS9465LineItem" style="height:18mm;">
 							<div class="styIRS9465LNLeftNumBox">11a</div>
-							<div class="styIRS9465CleanDiv" style="width:144mm;height:17mm;padding:0px 0px 0px 0px;">
-								<div class="styIRS9465LNDesc" style="width:auto;height:17mm;padding:0px 0px 0px 0px;">
-									<div class="styIRS9465LNDesc" style="width:auto;height:17mm;">
+							<div class="styIRS9465CleanDiv" style="width:144mm;height:15mm;padding:0px 0px 0px 0px;">
+								<div class="styIRS9465LNDesc" style="width:auto;height:15mm;padding:0px 0px 0px 0px;">
+									<div class="styIRS9465LNDesc" style="width:auto;height:15mm;">
 										Enter the amount you can pay each month. Make your payment as large as possible to limit interest and penalty charges,<b> as these charges will continue to accrue until you pay in full.</b> If you have an existing installment agreement, this amount should represent your total proposed monthly payment amount for all your liabilities. <b>If no payment amount is listed on line 11a, a payment will be determined for you by dividing the balance due on line 9 by 72 months </b>
 										<div class="styDotLn" style="float:none;padding-right:0mm;">..................</div>
 									</div>
 								</div>
 							</div>
-							<div class="styIRS9465CleanDiv" style="width:37mm;height:14mm;padding:0px 0px 0px 0px;float:right;">
-								<div class="styIRS9465CleanDiv" style="width:100%;height:14mm;float:right;">
+							<div class="styIRS9465CleanDiv" style="width:37mm;height:13mm;padding:0px 0px 0px 0px;float:right;">
+								<div class="styIRS9465CleanDiv" style="width:100%;height:13mm;float:right;">
 									<xsl:call-template name="CreateBox">
 										<xsl:with-param name="Height">100%</xsl:with-param>
 										<xsl:with-param name="AmountBoxStyle">border-top-width:1px;border-bottom-width:0px;</xsl:with-param>
@@ -775,11 +778,11 @@
 							</div>
 						</div>
 						<!-- (11b) ////////////////////////////////////////////////////-->
-								<div class="styIR9465LineItem" style="height:12mm;">
+								<div class="styIR9465LineItem" style="height:10mm;">
 							<div class="styIRS9465LNLeftNumBox">b</div>
-							<div class="styIRS9465CleanDiv" style="width:144mm;height:14mm;padding-bottom:1.3mm">
-								<div class="styIRS9465LNDesc" style="width:auto;height:14mm;padding:0px 0px 0px 0px;">
-									<div class="styIRS9465LNDesc" style="width:auto;height:14mm;">
+							<div class="styIRS9465CleanDiv" style="width:144mm;height:10mm;padding-bottom:1.3mm">
+								<div class="styIRS9465LNDesc" style="width:auto;height:10mm;padding:0px 0px 0px 0px;">
+									<div class="styIRS9465LNDesc" style="width:auto;height:10mm;">
 										If the amount on line 11a is less than the amount on line 10 and you're able to increase your payment to an amount that is equal to
 										or greater than the amount on line 10, enter your <i> revised  </i>monthly<br/>payment
 								<span style="width:2.5mm;"/>
@@ -788,8 +791,8 @@
 									</div>
 								</div>
 							</div>
-							<div class="styIRS9465CleanDiv" style="width:37mm;height:6mm;padding:0px 0px 0px 0px;float:right;">
-								<div class="styIRS9465CleanDiv" style="width:100%;height:6mm;float:right;">
+							<div class="styIRS9465CleanDiv" style="width:37mm;height:5mm;padding:0px 0px 0px 0px;float:right;">
+								<div class="styIRS9465CleanDiv" style="width:100%;height:5mm;float:right;">
 									<xsl:call-template name="CreateBox">
 										<xsl:with-param name="Height">100%</xsl:with-param>
 										<xsl:with-param name="AmountBoxStyle">border-bottom-width:0px;padding:0px 0px 0px 0px;</xsl:with-param>
@@ -863,25 +866,24 @@
 					<div style="width:187mm;">
 						<div class="styIRS9465LineItem">
 							<div class="styIRS9465LNLeftNumBox">13</div>
-							<div class="styIRS9465LNDesc" style="width:181mm;height:12mm;">
+							<div class="styIRS9465LNDesc" style="width:181mm;height:9mm;">
 								If you want to make your payments by direct debit from your checking account, see the instructions and fill in
 								lines 13a and 13b.  This is the most convenient way to make your payments and it will ensure that they are made on time.
-								Low-income taxpayers, see instructions for information on user fee waiver and reimbursement. 
+								
 							</div>
 						</div>
 						<br/>
 						<br/>
-						<br/>
+					
 						
 						<!-- (13a) ////////////////////////////////////////////////////-->
 						<div class="styIRS9465LineItem" style="height:8mm;padding-top:2mm;">
-							<div class="styLNLeftLtrBoxDD" style="padding-left:0px;">
-							
-								<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/><span style="width:3mm;"/>a
+							<div class="styLNLeftLtrBoxDD" style="padding-left:0px;padding-top:2mm;">							
+								<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/>
 							</div>
 							<div  style="padding-bottom:1 mm;padding-top:1mm;">
 								<div class="styIRS9465LNDesc" style="width:33mm;height:auto;padding-left:.5mm;">
-									<!--<span class="styBoldText" style="width:6mm;text-align:center;height:100%;">a</span>-->
+									<span class="styBoldText" style="width:3mm;text-align:center;height:100%;">a</span>
 									Routing number
 									<span style="width:5px;"/>
 								</div>
@@ -891,7 +893,7 @@
 									</xsl:call-template>
 								</div>
 								<div class="styIRS9465LNLeftNumBox" style="padding-right:0px;">
-									<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/>
+									<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="Right Arrow Image"/>
 								</div>
 								<div class="styIRS9465LNDesc" style="width:33mm;height:auto;padding-left:0mm;">
 									<span class="styBoldText" style="width:6mm;text-align:center;height:100%;">b</span>
@@ -905,22 +907,7 @@
 								</div>
 							</div>
 					   </div> 
-						<!-- (13b) ////////////////////////////////////////////////////
-						<div class="styIRS9465LineItem">
-							<div class="styIRS9465LNLeftNumBox" style="padding-right:0px;">
-								<img src="{$ImagePath}/9465_Bullet_Sm.gif" alt="SmallBullet"/>
-							</div>
-							<div class="styIRS9465LNDesc" style="width:33mm;height:auto;padding-left:0px;">
-								<span class="styBoldText" style="width:6mm;text-align:center;height:100%;">b</span>
-								Account number
-								<span style="width:5px;"/>
-							</div>
-							<div class="styIRS9465LNDesc" style="width:80mm;height:auto;padding-left:0px;text-align:center;border-width:1px 1px 1px 1px;border-color:black;font-size:6pt;">
-								<xsl:call-template name="PopulateText">
-									<xsl:with-param name="TargetNode" select="$Form9465Data/BankAccountNum"/>
-								</xsl:call-template>
-							</div>
-						</div>-->
+						
 						
 						<div class="styIRS9465LineItem" style="height:13mm;">
 							<div class="styIRS9465LNLeftNumBox"/>
@@ -936,14 +923,15 @@
 						</div>
 						<!-- (13c) ////////////////////////////////////////////////////-->
 						<div class="styIRS9465LineItem"  style="height:11mm;">
-							<div class="styLNLeftLtrBoxDD" style="padding-right:0px;padding-top:2mm;">c</div>
+							<div class="styLNLeftLtrBoxDD" style="padding-right:0px;padding-top:2mm;"></div>
 							<div class="styIRS9465LNDesc" style="width:179mm;height:auto;padding-top:2mm;padding-left:.5mm;">
-								
-									Low-income taxpayers only. If you're unable to make electronic payments through a debit instrument by providing your banking<br/>
-									information on lines 13a and 13b, check this box and your user fee will be reimbursed upon completion of your installment agreement.
+							   <span class="styBoldText" style="width:2mm;text-align:center;height:100%;">c</span>	
+							   <span style="width:5px;"/>
+									<b>Low-income taxpayers only.</b> If you're unable to make electronic payments through a debit instrument by providing your banking<br/><span style="width:12px;"/>
+									information on lines 13a and 13b, check this box and your user fee will be reimbursed upon completion of your <br/><span style="width:14px;"/>installment agreement.
 									See instructions 
 								<!--Dotted Line-->
-								<span class="styDotLn" style="padding-leftt:.5mm;float:none;clear:none;">......................................</span>	
+								<span class="styDotLn" style="padding-leftt:.5mm;float:none;clear:none;">.............................</span>	
 						       <label>						    
 									<xsl:call-template name="PopulateLabel">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/NoElectronicPaymentInd"/>
@@ -961,8 +949,8 @@
 					</div>
 					<!-- (14) ////////////////////////////////////////////////////-->
 					
-					<div style="width:187mm;padding-bottom:1mm;padding-top:2mm">
-						<div class="styIRS9465LNLeftNumBox">14</div>
+					<div style="width:187mm;padding-bottom:0mm;padding-top:1mm">
+						<div class="styIRS9465LNLeftNumBox" style="padding-top:6px;">14</div>
 						<div class="styIRS9465LNDesc" style="width:181mm;height:auto;">If you want to make payments by payroll deduction, check this box and attach a completed Form 2159
 							<label>
 								<xsl:call-template name="PopulateLabel">
@@ -982,16 +970,15 @@
 					</div>
 					<div class="styBB" style="width:187mm;border-bottom-width:1px;"/>
 										
-					<div class="styIRS9465LineItem">
-						<div class="styIRS9465LNLeftNumBox"/>
-						<div class="styIRS9465LNDesc" style="width:181mm;height:auto;font-size:6.8pt;">
-						By signing and submitting this form, I authorize the IRS to contact third parties and to disclose my tax information to third parties in order to process this request and administer the agreement over its duration. I also agree to the terms of this agreement, as provided in the instructions, if it is approved by the Internal Revenue Service.
+					<div class="styIRS9465LineItem">					
+						<div class="styIRS9465LNDesc" style="width:181mm;height:auto;font-size:6.8pt;padding-left:0px;">
+By signing and submitting this form, I authorize the IRS to contact third parties and to disclose my tax information to third parties in order to process this request and administer the agreement over its duration. I also agree to the terms of this agreement, as provided in the instructions, if it is approved by the IRS.
 						</div>
 					</div>
 					<br/><br/>
 					<div class="styBB" style="width:187mm;border-top-width:1px;">
-						<div class="styIRS9465LineItem" style="height:auto;">
-							<div class="styIRS9465LNDesc" style="width:39.9%;font-size:7pt;border-right-width:1px;border-color:black;height:9mm;padding-left:0px;">
+						<div class="styIRS9465LineItem" style="height:7mm;">
+							<div class="styIRS9465LNDesc" style="width:39.9%;font-size:7pt;border-right-width:1px;border-color:black;height:7mm;padding-left:0px;">
 								Your signature<br/>
 								<span style="width:100%;padding-top:4px;">
 									<xsl:call-template name="PopulatePin">
@@ -1000,7 +987,7 @@
 									</xsl:call-template>
 								</span>
 							</div>
-							<div class="styIRS9465LNDesc" style="width:10%;font-size:7pt;border-right-width:1px;border-color:black;height:9mm;">
+							<div class="styIRS9465LNDesc" style="width:10%;font-size:7pt;border-right-width:1px;border-color:black;height:7mm;">
 								Date<br/>
 								<span style="width:100%;padding-top:4px;font-size:7pt;">
 									<xsl:call-template name="PopulateMonthDayYear">
@@ -1009,7 +996,7 @@
 									</xsl:call-template>
 								</span>
 							</div>
-							<div class="styIRS9465LNDesc" style="width:40%;font-size:7pt;border-right-width:1px;border-color:black;height:9mm;">
+							<div class="styIRS9465LNDesc" style="width:40%;font-size:7pt;border-right-width:1px;border-color:black;height:7mm;">
 								Spouse’s signature. If a joint return, <b>both</b> must sign.<br/>
 								<span style="width:100%;padding-top:4px;">
 									<xsl:call-template name="PopulatePin">
@@ -1018,7 +1005,7 @@
 									</xsl:call-template>
 								</span>
 							</div>
-							<div class="styIRS9465LNDesc" style="width:10%;font-size:7pt;border-color:black;height:9mm;">
+							<div class="styIRS9465LNDesc" style="width:10%;font-size:7pt;border-color:black;height:7mm;">
 								Date<br/>
 								<span style="width:100%;padding-top:4px;font-size:7pt;">
 									<xsl:call-template name="PopulateMonthDayYear">
@@ -1037,7 +1024,7 @@
 					
 					<div style="float:right;">
 							<span style="width:75px;"/>  
-							Form <span class="styBoldText" style="font-size:8pt;">9465</span> (Rev. 08-2020)
+							Form <span class="styBoldText" style="font-size:8pt;">9465</span> (Rev. 9-2020)
 					</div>
 				    <p style="page-break-before: always"/>
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
@@ -1045,21 +1032,22 @@
 				    <!--<br/><br/>-->
 					<!-- BEGIN Part II Title -->
 					<div class="styTBB" style="width:187mm;padding-top:.5mm;">
-						<span class="" style="float:left;clear:none;">Form 9465 (08-2020)</span>
+						<span class="" style="float:left;clear:none;">Form 9465 (Rev. 9-2020)</span>
 						<span style="float:right;clear:none;">Page <span class="styBoldText" style="font-size:8pt;">2</span>
 						</span>
 					</div>
 					<div class="styBB" style="width:187mm;border-bottom-width:1px;">
 						<div class="styPartName" style="font-size:9pt;">Part II</div> 
+						<div class="styLNDesc" style="width:65mm;font-size:9pt;padding-left:7px;"><b>Additional Information</b></div>
 						</div>								
 					<div class="styIRS9465LineItem" style="height:auto;">
 						<div class="styIRS9465LNDesc" style="width:106mm;height:18mm;padding-left:0mm;">
 							<div class="styPartDesc" style="font-weight: normal;text-align:left;padding-left:0mm;"> 
-							<b>Additional Information.</b> Complete this part only if all three conditions apply:  <br/>
-                             <span style="padding-right:8mm;"/>1. you defaulted on an installment agreement in the past 12 months, <br/>
-                             <span style="padding-right:8mm;"/>2. you owe more than $25,000 but not more than $50,000, and <br/>
-                             <span style="padding-right:8mm;"/>3. the amount online 11a (or 11b, if applicable) is less than line 10. <br/>
-                            <b>Note:</b> If you owe more than $50,000, complete and attach Form 433-F, Collection Information Statement.       
+							Complete this part only if all three conditions apply:  <br/>
+                             <span style="padding-right:8mm;"/>1. You defaulted on an installment agreement in the past 12 months, <br/>
+                             <span style="padding-right:8mm;"/>2. You owe more than $25,000 but not more than $50,000, and <br/>
+                             <span style="padding-right:8mm;"/>3. The amount online 11a (or 11b, if applicable) is less than line 10. <br/>
+                            <b>Note:</b> If you owe more than $50,000, complete and attach Form 433-F.       
                       </div>            
 					  </div>
 					</div> 
@@ -1087,7 +1075,7 @@
 							Marital Status:
 							<br/>
 							<span style="width:75mm;float:left;">
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Marital Status Single Indicator">
 									<xsl:call-template name="PopulateCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/MaritalStatusSingleInd"/>
 										<xsl:with-param name="BackupName">IRS9465MaritalStatusSingleInd</xsl:with-param>
@@ -1098,9 +1086,8 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/MaritalStatusSingleInd"/>
 										<xsl:with-param name="BackupName">IRS9465MaritalStatusSingleInd</xsl:with-param>
 									</xsl:call-template>
-									Single. Skip question 16b and go to question 17.
-								</label>
-								<input type="checkbox" class="styCkbox">
+								</label>Single. Skip question 16b and go to question 17.
+								<input type="checkbox" class="styCkbox"  alt="Marital Status Married Indicator">
 									<xsl:call-template name="PopulateCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/MaritalStatusMarriedInd"/>
 										<xsl:with-param name="BackupName">IRS9465MaritalStatusMarriedInd</xsl:with-param>
@@ -1111,8 +1098,7 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/MaritalStatusMarriedInd"/>
 										<xsl:with-param name="BackupName">IRS9465MaritalStatusMarriedInd</xsl:with-param>
 									</xsl:call-template>
-									Married. Go to question 16b.
-								</label>
+								</label>Married. Go to question 16b.
 							</span>
 						</div>
 					</div>
@@ -1124,7 +1110,7 @@
 								<xsl:call-template name="PopulateSpan">
 									<xsl:with-param name="TargetNode" select="$Form9465Data/ShareHouseholdExpnsWithSpsInd"/>
 								</xsl:call-template>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Yes Share Household Expenses With Spouse Indictor">
 									<xsl:call-template name="PopulateYesCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/ShareHouseholdExpnsWithSpsInd"/>
 										<xsl:with-param name="BackupName">IRS9465ShareHouseholdExpnsWithSpsInd</xsl:with-param>
@@ -1135,9 +1121,8 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/ShareHouseholdExpnsWithSpsInd"/>
 										<xsl:with-param name="BackupName">IRS9465ShareHouseholdExpnsWithSpsInd</xsl:with-param>
 									</xsl:call-template>
-									Yes.
-								</label>
-								<input type="checkbox" class="styCkbox">
+								</label>Yes.
+								<input type="checkbox" class="styCkbox"   alt="No Share Household Expenses With Spouse Indictor">
 									<xsl:call-template name="PopulateNoCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/ShareHouseholdExpnsWithSpsInd"/>
 										<xsl:with-param name="BackupName">IRS9465ShareHouseholdExpnsWithSpsInd</xsl:with-param>
@@ -1148,8 +1133,7 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/ShareHouseholdExpnsWithSpsInd"/>
 										<xsl:with-param name="BackupName">IRS9465ShareHouseholdExpnsWithSpsInd</xsl:with-param>
 									</xsl:call-template>
-									No.
-								</label>
+								</label>No.
 							</span>
 						</div>
 					</div>
@@ -1220,7 +1204,7 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/PrimaryPdOnceEveryTwoWeeksInd"/>
 										<xsl:with-param name="BackupName">IRS9465PrimaryPdOnceEveryTwoWeeksInd</xsl:with-param>
 									</xsl:call-template>
-									Once every two weeks.
+									Once every 2 weeks.
 								</label>
 								<input type="checkbox" class="styCkbox">
 									<xsl:call-template name="PopulateCheckbox">
@@ -1306,7 +1290,7 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/SpousePdOnceEveryTwoWeeksInd"/>
 										<xsl:with-param name="BackupName">IRS9465SpousePdOnceEveryTwoWeeksInd</xsl:with-param>
 									</xsl:call-template>
-									Once every two weeks.
+									Once every 2 weeks.
 								</label>
 								<br/>
 								<input type="checkbox" class="styCkbox">
@@ -1403,7 +1387,7 @@
 								<xsl:call-template name="PopulateSpan">
 									<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsuranceInd"/>
 								</xsl:call-template>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Health Insurance Indicator Yes">
 									<xsl:call-template name="PopulateYesCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsuranceInd"/>
 										<xsl:with-param name="BackupName">IRS9465HealthInsuranceInd</xsl:with-param>
@@ -1414,10 +1398,9 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsuranceInd"/>
 										<xsl:with-param name="BackupName">IRS9465HealthInsuranceInd</xsl:with-param>
 									</xsl:call-template>
-									Yes. Go to question 25b.
-								</label>
+								</label>Yes. Go to question 25b.
 								<span style="width:32mm;"/>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"   alt="Health Insurance Indicator No">
 									<xsl:call-template name="PopulateNoCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsuranceInd"/>
 										<xsl:with-param name="BackupName">IRS9465HealthInsuranceInd</xsl:with-param>
@@ -1428,8 +1411,7 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsuranceInd"/>
 										<xsl:with-param name="BackupName">IRS9465HealthInsuranceInd</xsl:with-param>
 									</xsl:call-template>
-									No. Skip question 25b and go to question 26a.
-								</label>
+								</label>No. Skip question 25b and go to question 26a.
 							</span>
 						</div>
 					</div>
@@ -1441,7 +1423,7 @@
 								<xsl:call-template name="PopulateSpan">
 									<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsurancePremiumDedInd"/>
 								</xsl:call-template>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Health Insurance Premium Deducted Indicator Yes">
 									<xsl:call-template name="PopulateYesCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsurancePremiumDedInd"/>
 										<xsl:with-param name="BackupName">IRS9465HealthInsurancePremiumDedInd</xsl:with-param>
@@ -1452,10 +1434,9 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsurancePremiumDedInd"/>
 										<xsl:with-param name="BackupName">IRS9465HealthInsurancePremiumDedInd</xsl:with-param>
 									</xsl:call-template>
-									Yes. Skip question 25c and go to question 26a.
-								</label>
+								</label>Yes. Skip question 25c and go to question 26a.
 								<span style="width:2mm;"/>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Health Insurance Premium Deducted Indicator No">
 									<xsl:call-template name="PopulateNoCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsurancePremiumDedInd"/>
 										<xsl:with-param name="BackupName">IRS9465HealthInsurancePremiumDedInd</xsl:with-param>
@@ -1466,8 +1447,7 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/HealthInsurancePremiumDedInd"/>
 										<xsl:with-param name="BackupName">IRS9465HealthInsurancePremiumDedInd</xsl:with-param>
 									</xsl:call-template>
-									No. Go to question 25c.
-								</label>
+								</label>No. Go to question 25c.
 							</span>
 						</div>
 					</div>
@@ -1496,7 +1476,7 @@
 								<xsl:call-template name="PopulateSpan">
 									<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentInd"/>
 								</xsl:call-template>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Court Ordered Payment Indicator Yes">
 									<xsl:call-template name="PopulateYesCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentInd"/>
 										<xsl:with-param name="BackupName">IRS9465CourtOrderedPaymentInd</xsl:with-param>
@@ -1507,10 +1487,9 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentInd"/>
 										<xsl:with-param name="BackupName">IRS9465CourtOrderedPaymentInd</xsl:with-param>
 									</xsl:call-template>
-									Yes. Go to question 26b.
-								</label>
+								</label>Yes. Go to question 26b.
 								<span style="width:32mm;"/>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Court Ordered Payment Indicator No">
 									<xsl:call-template name="PopulateNoCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentInd"/>
 										<xsl:with-param name="BackupName">IRS9465CourtOrderedPaymentInd</xsl:with-param>
@@ -1521,8 +1500,7 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentInd"/>
 										<xsl:with-param name="BackupName">IRS9465CourtOrderedPaymentInd</xsl:with-param>
 									</xsl:call-template>
-									No. Go to question 27.
-								</label>
+								</label>No. Go to question 27.
 							</span>
 						</div>
 					</div>
@@ -1534,7 +1512,7 @@
 								<xsl:call-template name="PopulateSpan">
 									<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentDedInd"/>
 								</xsl:call-template>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Court Ordered Payment Deducted Indicator Yes">
 									<xsl:call-template name="PopulateYesCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentDedInd"/>
 										<xsl:with-param name="BackupName">IRS9465CourtOrderedPaymentDedInd</xsl:with-param>
@@ -1545,10 +1523,9 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentDedInd"/>
 										<xsl:with-param name="BackupName">IRS9465CourtOrderedPaymentDedInd</xsl:with-param>
 									</xsl:call-template>
-									Yes. Go to question 27.
-								</label>
+								</label>Yes. Go to question 27.
 								<span style="width:33.5mm;"/>
-								<input type="checkbox" class="styCkbox">
+								<input type="checkbox" class="styCkbox"  alt="Court Ordered Payment Deducted Indicator No">
 									<xsl:call-template name="PopulateNoCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentDedInd"/>
 										<xsl:with-param name="BackupName">IRS9465CourtOrderedPaymentDedInd</xsl:with-param>
@@ -1559,8 +1536,7 @@
 										<xsl:with-param name="TargetNode" select="$Form9465Data/CourtOrderedPaymentDedInd"/>
 										<xsl:with-param name="BackupName">IRS9465CourtOrderedPaymentDedInd</xsl:with-param>
 									</xsl:call-template>
-									No. Go to question 26c.
-								</label>
+								</label>No. Go to question 26c.
 							</span>
 						</div>
 					</div>
@@ -1605,7 +1581,7 @@
 					<div class="pageEnd" style="width:187mm;border-top:.5mm solid black">
 						<div style="float:right;">
 							<span style="width:75px;"/>  
-							Form <span class="styBoldText" style="font-size:8pt;">9465</span> (Rev. 08-2020)
+							Form <span class="styBoldText" style="font-size:8pt;">9465</span> (Rev. 9-2020)
 						</div>
 					</div>
 					<!-- Additonal Data Title Bar and Button -->

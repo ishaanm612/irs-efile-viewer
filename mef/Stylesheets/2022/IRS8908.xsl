@@ -55,7 +55,7 @@
         </xsl:call-template>  
       </span>  
        <br/>
-      <span class="styAgency">(Rev. December 2022)</span>
+      <span class="styAgency">(Rev. January 2023)</span>
       <span class="styAgency">Department of the Treasury</span><br/><span class="styAgency">Internal Revenue Service</span>
     </div>
     <div class="styFTBox" style="height: 21.5mm;width:130mm;padding-top:4mm;">
@@ -103,7 +103,16 @@ Attachment<br/>Sequence No. <b>153</b></div>
          </xsl:call-template> 
       </div>
     </div>
-    <div style="width:187mm;">
+    
+
+
+<div class="styGenericDiv" style="width:187mm;padding-top:0.5mm;font-style:italic;clear:all;border-bottom-width:1px;border-bottom-style:solid;">
+						<b>Note:</b> A contractor must own and have a basis in the qualified energy efficient home during its
+						construction to qualify as an eligible contractor with respect to the home and claim the credit. See instructions
+					</div>
+
+    
+    <div style="width:187mm; ">
         <div class="styLNLeftNumBox" style="height:4.5mm;">1a</div>
         <div class="styLNDesc" style="width:92mm;height:4.5mm;">Enter the total number of qualified energy efficient homes including<br/>
 		 																					   qualified energy efficient manufactured homes meeting the 50% <br/>
@@ -163,12 +172,11 @@ Attachment<br/>Sequence No. <b>153</b></div>
             <xsl:call-template name="PopulateAmount"><xsl:with-param name="TargetNode" select="$Form8908/TotalManufactureHomesAmt"/></xsl:call-template>
         </div>
     </div>
-<!-- DCR NEW CODE START-->     
 
 		<!-- Line 3a -->
        <div style="width:187mm;">
         <div class="styLNLeftNumBox" style="height:4.5mm;">3a</div>
-        <div class="styLNDesc" style="width:92mm;height:4.5mm;">Enter the total number of qualified energy efficient homes eligible to participate in the Energy Star Residential New Construction Program or the Energy Star Manufactured New Homes Program (or the Energy Star Multifamily New Construction Program if the prevailing wage requirements are met) meeting the single or multifamily home requirements but not certified as a Zero Energy Ready Home that were sold or lease after 2022 to another person for use as a residence during the tax year (see instructions)
+        <div class="styLNDesc" style="width:92mm;height:4.5mm;">Enter the total number of qualified energy efficient homes eligible to participate in the Energy Star Residential New Construction Program or the Energy Star Manufactured New Homes Program (or the Energy Star Multifamily New Construction Program if the prevailing wage requirements are met) meeting the single or multifamily home requirements but not certified as a Zero Energy Ready Home that were sold or leased after 2022 to another person for use as a residence during the tax year (see instructions)
        
         <!--Dotted Line-->
 			<span class="styDotLn" style="float:right;clear:none;padding-right:1mm;">.............</span>
@@ -287,7 +295,7 @@ Attachment<br/>Sequence No. <b>153</b></div>
     </div>   
     
     
-<!-- DCR NEW CODE END -->         
+
    <div style="width:187mm;">
         <div class="styLNLeftNumBox" style="height:4.5mm;">7</div>
         <div class="styLNDesc" style="width:132mm;height:4.5mm;">
@@ -303,10 +311,9 @@ Attachment<br/>Sequence No. <b>153</b></div>
     
     <div class="styBB" style="width:187mm;">
         <div class="styLNLeftNumBox" style="height:7mm;">8</div>
-        <div class="styLNDesc" style="width:132mm;height:7mm;">Add lines 1b, 2b, and 3. Partnerships and S corporations, report this amount on Schedule K. All<br/>
-			<span style="float:left;clear:none;">others, report this amount on Form 3800, Part III, line 1p</span>
+        <div class="styLNDesc" style="width:132mm;height:7mm;">Add lines 1b, 2b, 3b, 4b, 5b, 6b, and 7. Partnerships and S corporations, report this amount on Schedule K. All others, report this amount on Form 3800, Part III, line 1p
         <!--Dotted Line-->
-        <span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">..............</span>
+        <span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">............</span>
         </div>
         <div class="styLNRightNumBox" style="height:7mm;padding-top:4mm;border-bottom-width:0px">8</div>
         <div class="styLNAmountBox" style="width:39mm;height:7mm;padding-top:4mm;border-bottom-width:0px">
@@ -318,7 +325,7 @@ Attachment<br/>Sequence No. <b>153</b></div>
         <span class="styBoldText" style="width:100mm">For Paperwork Reduction Act Notice, see separate instructions.</span>
           Cat. No. 37718T
         <span style="width:64.5mm;text-align:right;">Form 
-			<span style="font-size:8pt"><b>8908</b></span> (Rev. 2-2021)
+			<span style="font-size:8pt"><b>8908</b></span> (Rev. 1-2023)
         </span>
     </div>
     <br class="pageEnd"/>

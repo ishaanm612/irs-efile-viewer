@@ -68,10 +68,10 @@
 							and Disallowed Foreign Taxes</span>
 							<br />
 							<span style="font-weight:bold;">
-								&#9658;Attach to Form 965.
+								<img src="{$ImagePath}/945A_Bullet_Sm.gif"  alt="Bullet Image"/> Attach to Form 965.
 							</span><br />
 							<span style="font-weight:bold;">
-								&#9658;Go to
+								<img src="{$ImagePath}/945A_Bullet_Sm.gif"  alt="Bullet Image"/> Go to
 								<span style="font-style:italic">www.irs.gov/Form965</span>
 								for instructions and the latest information.
 							</span>
@@ -108,7 +108,7 @@
 							<span class="sty965sHDotLn">.................</span>
 						</div>
 						<div class="styLNRightNumBox" style="border-left-width:0px;border-bottom-width:0px;">
-							&#9658;
+							<img src="{$ImagePath}/945A_Bullet_Sm.gif"  alt="Bullet Image"/>
 						</div>
 						<div class="styLNAmountBox" style="border-left-width:0px;text-align:center;">
 							<xsl:call-template name="PopulateText">
@@ -123,7 +123,7 @@
 							<span class="sty965sHDotLn">..</span>
 						</div>
 						<div class="styLNRightNumBoxNBB" style="border-left-width:0px;">
-							&#9658;
+							<img src="{$ImagePath}/945A_Bullet_Sm.gif"  alt="Bullet Image"/>
 						</div>
 						<div class="styLNAmountBox" style="border-left-width:0px;text-align:center;height:auto;">
 							<xsl:for-each select="$FormData/SanctionedCountryCd">
@@ -166,9 +166,13 @@
 					<div class="styStdDiv">
 						<div class="styLNLeftNumBoxSD">3</div>
 						<div class="styLNDesc" style="height:auto;">
-							<strong>Section 965(a) inclusion in U.S. dollars with respect to pass-throughs from Schedule F,</strong><br /><strong>column (e)(1), line 16. </strong> 
-							Enter here and on Form 1116, Part I, or 1118, Sch. A (see instructions) 
-							<span class="sty965sHDotLn" style="padding-right:0px;margin-right:-4px;">..&#9658;</span>
+							<strong>Section 965(a) inclusion in U.S. dollars with respect to pass-throughs from Schedule F,</strong>
+							<br /><strong>column (e)(1), line 16. </strong> Enter here and on Form 1116, Part I, or 1118, Sch. A (see instructions)
+							<div class="styDotLn" style="padding-right:2mm;float:right;">..
+								<span style="float:right;">          
+								<img src="{$ImagePath}/945A_Bullet_Sm.gif" alt="right pointing arrow"/> </span>
+							</div>
+							<!--<span class="sty965sHDotLn" style="padding-right:0px;margin-right:-4px;">..&#9658;</span>-->
 						</div>
 						<div class="styLNRightNumBox" style="height:auto;"><br />3</div>
 						<div class="styLNAmountBox" style="height:auto;"><br />
@@ -201,9 +205,13 @@
 					<div class="styStdDiv">
 						<div class="styLNLeftNumBoxSD">6</div>
 						<div class="styLNDesc" style="height:auto;">
-							<strong>Section 965(c) deduction in U.S. dollars from pass-throughs allocable to section 965(a)</strong> <br /><strong>inclusion </strong>
-							(see instructions). Enter here and on Form 1116, Part I, or Form 1118, Sch. A 
-							<span class="sty965sHDotLn" style="padding-right:0px;margin-right:-4px;">.....&#9658;</span>
+							<strong>Section 965(c) deduction in U.S. dollars from pass-throughs allocable to section 965(a)</strong> 
+							<br /><strong>inclusion </strong>(see instructions). Enter here and on Form 1116, Part I, or Form 1118, Sch. A 
+							<div class="styDotLn" style="padding-right:2mm;float:right;">.....
+								<span style="float:right;">          
+								<img src="{$ImagePath}/945A_Bullet_Sm.gif" alt="right pointing arrow"/> </span>
+							</div>
+							<!--<span class="sty965sHDotLn" style="padding-right:0px;margin-right:-4px;">.....&#9658;</span>-->
 						</div>
 						<div class="styLNRightNumBox" style="height:auto;"><br />6</div>
 						<div class="styLNAmountBox" style="height:auto;"><br />

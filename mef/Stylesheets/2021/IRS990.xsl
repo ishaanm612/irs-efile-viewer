@@ -16,7 +16,7 @@
        <!-- Updated 9/29/2016 per PDF Review by Robert L Jones spacing-->
        <!-- Updated 1/12/2017 per IBM Defect 60570 by Robert L Jones spacing at Part VI Header. NPF-->
        <!-- Updated 2/27/2017 per IBM Defect 60570 by Robert L Jones spacing at Page 6 Header. Dot on line 5 Part XI -->
-       <!-- Updated per UWR 195015 5/19/17 by Robert L Jones -->
+       <!-- Updated per UWR 195015 5/19/17 by Robert L Jones-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="PopulateTemplate.xsl"/>
   <xsl:include href="CommonPathRef.xsl"/>
@@ -69,27 +69,27 @@
             Form<span class="styFormNumber">990</span>
                 <br/>
                 <span style="width:2px;"/>
-                <xsl:call-template name="SetFormLinkInline">
+                <!--<xsl:call-template name="SetFormLinkInline">
                   <xsl:with-param name="TargetNode" select="$Form990Data"/>
-                </xsl:call-template>
+                </xsl:call-template>-->
                 
                 <xsl:call-template name="LinkToLeftoverDataTableInline">
                   <xsl:with-param name="TargetNode" select="$Form990Data/SpecialConditionDesc"/>
                 </xsl:call-template>
                 <br/>
                 <span style="width:2px;"/>
-                <xsl:call-template name="SetFormLinkInline">
+                <!--<xsl:call-template name="SetFormLinkInline">
                   <xsl:with-param name="TargetNode" select="$Form990Data"/>
-                </xsl:call-template>
-                
+                </xsl:call-template>-->
+
                 <xsl:call-template name="LinkToLeftoverDataTableInline">
                   <xsl:with-param name="TargetNode" select="$Form990Data/accountingPeriodChangeCd"/>
                 </xsl:call-template>
                 <br/>
                 <span style="width:2px;"/>
-                <xsl:call-template name="SetFormLinkInline">
+                <!--<xsl:call-template name="SetFormLinkInline">
                   <xsl:with-param name="TargetNode" select="$Form990Data"/>
-                </xsl:call-template>
+                </xsl:call-template>-->
                 
                 <xsl:call-template name="LinkToLeftoverDataTableInline">
                   <xsl:with-param name="TargetNode" select="$Form990Data/accountingPeriodChangeApprvCd"/>

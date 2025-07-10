@@ -117,7 +117,7 @@
 							<br/><br/>
 							<span class="styAgency" style="padding-top:2mm;">Department of the Treasury</span>
 							<br/>
-							<span class="styAgency">Internal Revenue Service (99)</span>
+							<span class="styAgency">Internal Revenue Service </span>
 						</div>
 						<div class="styFTBox" style="width:125mm;height:23mm;">
 							<!--  Main Title >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
@@ -128,11 +128,11 @@
 								<span style="text-align:center;font-weight:bold;">
 									<div style="width:100%;height:5mm;padding-left:0px;">
 										<div style="width:100%;height:5mm;">
-											<img src="{$ImagePath}/8606_Bullet_Sm.gif" alt="SmallRightArrow"/> 
+											
 											Go to  <i>www.irs.gov/Form8606</i> for instructions and the latest information.
 											<!--Information about Form 8606 and its separate instructions is at <a href="http://www.irs.gov/form8606">www.irs.gov/form8606</a>-->
 											<br/><br/>
-											<img src="{$ImagePath}/8606_Bullet_Sm.gif" alt="SmallRightArrow"/> 
+											
                                                   Attach to 2022 Form 1040, 1040-SR, or 1040-NR.
 										</div>
 									</div>
@@ -216,7 +216,7 @@
 								</div>
 								<!-- Image -->
 								<div class="styIRS8606LineItem" style="width:17%;float:left;padding:26px 0px 7px 8px;border-right-width:1px;border-color:black;height:100%">
-									<img src="{$ImagePath}/8606_Bullet_Lg.gif" alt="LargeRightArrow"/>
+									
 								</div>
 							</div>
 							<!-- Right Panel -->
@@ -444,7 +444,7 @@
 									<img src="{$ImagePath}/8606_Line.gif" alt="Line"/>
 									<span class="styBoldText" style="width:5mm;text-align:center;">No</span>
 									<img src="{$ImagePath}/8606_Line.gif" alt="Line"/>
-									<img src="{$ImagePath}/8606_Bullet_Sm.gif" alt="SmallRightArrow"/>
+									
 									<span style="padding-left:4mm;"></span>
 									Enter the amount from line 3 on line<br/>
 									<span  style="padding-left:39mm;">14. Do not complete the rest of Part I.</span>
@@ -455,7 +455,7 @@
 									<img src="{$ImagePath}/8606_Line.gif" alt="Line"/>
 									<span class="styBoldText" style="width:5mm;text-align:center;">Yes</span>
 									<img src="{$ImagePath}/8606_Line.gif" alt="Line"/>
-									<img src="{$ImagePath}/8606_Bullet_Sm.gif" alt="SmallRightArrow"/>
+									
 									<span style="padding-left:4mm;">Go to line 4.</span>
 								</div>
 							</div>
@@ -1266,7 +1266,7 @@
 								belief, it is true, correct, and complete. Declaration of preparer (other than taxpayer) is based on all information of which preparer has any knowledge.
 								<br/><br/>
 								<div class="styIRS8606LNDesc" style="width:5mm;padding:0px 0px 0px 5px;">
-									<img src="{$ImagePath}/8606_Bullet_Md.gif" alt="MediumRightArrow"/>
+									
 								</div>
 								<div class="styIRS8606LNDesc" style="width:55mm;padding:0px 0px 0px 5px;">
 									<div class="styIRS8606LNDesc" style="padding:0px 0px 0px 0px;height:4mm;border-bottom-width:1px;border-color:black;width:55mm"/>
@@ -1275,7 +1275,7 @@
 									</div>
 								</div>
 								<div class="styIRS8606LNDesc" style="width:5mm;padding:0px 0px 0px 45px;">
-									<img src="{$ImagePath}/8606_Bullet_Md.gif" alt="MediumRightArrow"/>
+									
 								</div>
 								<div class="styIRS8606LNDesc" style="width:55mm;padding:0px 0px 0px 10px;">
 									<div class="styIRS8606LNDesc" style="padding:0px 0px 0px 0px;width:100%;height:4mm;border-bottom-width:1px;border-color:black;"/>
@@ -1386,7 +1386,7 @@
 								<div class="styLNDesc" style="height:6mm;width:108mm;border-right:1 solid black;">
 									<span class="styGenericDiv" style="padding-left:3px;">Firm's name 
 									<span style="width:2.2mm;"/>
-										<img src="{$ImagePath}/8606_Bullet_Sm.gif" alt="Right pointing arrowhead image"/>
+										
 										<span style="width:4px;"/>
 									</span>
                        			    <xsl:choose>
@@ -1411,7 +1411,7 @@
 			                      </xsl:choose>
 								</div>
 								<div class="styIRS8606leftBox" style="height:6mm;width:32mm;padding-left:1mm;border-left-width:1px;">Firm's EIN
-								<img src="{$ImagePath}/8606_Bullet_Sm.gif" alt="Right pointing arrowhead image"/>
+								
 									<span style="width:4px;"/>
 									         <xsl:choose>
 		                                             <xsl:when test="($RtnHdrData/ReturnTypeCd='1040') or($RtnHdrData/ReturnTypeCd='1040A')  or ($RtnHdrData/ReturnTypeCd='1040NR') ">
@@ -1437,7 +1437,7 @@
 							<div style="width:164mm;float:left;clear:none;">
 								<div class="styIRS8606leftBox" style="width:108mm;border-right-width:0px ;height:auto;border-left-width:0px;">
 									<div class="styGenericDiv" style="padding-right:.5mm;padding-left:3px;">Firm's address 
-									<img src="{$ImagePath}/8606_Bullet_Sm.gif" alt="Right pointing arrowhead image"/>
+									
 									</div>
 									
 									<!--<div class="styGenericDiv" style="padding-right:.5mm;">-->

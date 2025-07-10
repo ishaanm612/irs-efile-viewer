@@ -1493,24 +1493,24 @@
 								<tr>
 									<td class="styIRS4136LetterCell" style="border-bottom-width:1px;">d</td>
 									<td class="styIRS4136TableCellLine">Sustainable aviation fuel (see instructions)</td>
-									<td class="styIRS4136TableCellB">
+									<td class="styIRS4136TableCellB"> $ 
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$IRS4136Data/SustainableAviationFuel/Rt"/>
+											<xsl:with-param name="TargetNode" select="$IRS4136Data/SustainableAviationFuelDetail/Rt"/>
 										</xsl:call-template>
 									</td>
 									<td class="styIRS4136TableCellC">
 										<xsl:call-template name="PopulateText">
-											<xsl:with-param name="TargetNode" select="$IRS4136Data/SustainableAviationFuel/GallonsQty"/>
+											<xsl:with-param name="TargetNode" select="$IRS4136Data/SustainableAviationFuelDetail/GallonsQty"/>
 										</xsl:call-template>
 									</td>
 									<td class="styIRS4136TableCellD">
 										<span style="float:left;">
 											<xsl:call-template name="SetFormLinkInline">
-												<xsl:with-param name="TargetNode" select="$IRS4136Data/SustainableAviationFuel/ClaimAmt"/>
+												<xsl:with-param name="TargetNode" select="$IRS4136Data/SustainableAviationFuelCrAmt"/>
 											</xsl:call-template>
 										</span>
 										<xsl:call-template name="PopulateAmount">
-											<xsl:with-param name="TargetNode" select="$IRS4136Data/SustainableAviationFuel/ClaimAmt"/>
+											<xsl:with-param name="TargetNode" select="$IRS4136Data/SustainableAviationFuelCrAmt"/>
 										</xsl:call-template>
 									</td>
 									<td class="styIRS4136TableCellE">440</td>

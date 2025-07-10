@@ -107,7 +107,7 @@
 										<xsl:with-param name="TargetNode" select="$FormData/WrttnPlcy2WksPdFamMedLvInd" />
 									</xsl:call-template>
 									<div style="width:5mm;height:4mm;float:left;">
-										<input type="checkbox"  class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
+										<input type="checkbox" class="styCkbox" alt="Written policy of two weeks paid family and medical leave Yes" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
 											<xsl:call-template name="PopulateYesCheckbox">
 												<xsl:with-param name="TargetNode" select="$FormData/WrttnPlcy2WksPdFamMedLvInd" />
 												<xsl:with-param name="BackupName">IRS8994WrttnPlcy2WksPdFamMedLvInd</xsl:with-param>
@@ -125,7 +125,7 @@
 									</div>
 									<br />
 									<div style="width:5mm;height:4mm;float:left;">
-										<input type="checkbox" class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
+										<input type="checkbox" class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;" alt="Written policy of two weeks paid family and medical leave No">
 											<xsl:call-template name="PopulateNoCheckbox">
 												<xsl:with-param name="TargetNode" select="$FormData/WrttnPlcy2WksPdFamMedLvInd" />
 												<xsl:with-param name="BackupName">IRS8994WrttnPlcy2WksPdFamMedLvInd</xsl:with-param>
@@ -157,7 +157,7 @@
 										<xsl:with-param name="TargetNode" select="$FormData/WrttnPlcyPdFamMedLv50PctInd" />
 									</xsl:call-template>
 									<div style="width:5mm;height:4mm;float:left;">
-										<input type="checkbox"  class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
+										<input type="checkbox"  class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;" alt="Written policy of paid family and medical leave at least fifty percent wages Yes">
 											<xsl:call-template name="PopulateYesCheckbox">
 												<xsl:with-param name="TargetNode" select="$FormData/WrttnPlcyPdFamMedLv50PctInd" />
 												<xsl:with-param name="BackupName">IRS8994WrttnPlcyPdFamMedLv50PctInd</xsl:with-param>
@@ -175,7 +175,7 @@
 									</div>
 									<br />
 									<div style="width:5mm;height:4mm;float:left;">
-										<input type="checkbox" class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
+										<input type="checkbox" class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;" alt="Written policy of paid family and medical leave at least fifty percent wages No">
 											<xsl:call-template name="PopulateNoCheckbox">
 												<xsl:with-param name="TargetNode" select="$FormData/WrttnPlcyPdFamMedLv50PctInd" />
 												<xsl:with-param name="BackupName">IRS8994WrttnPlcyPdFamMedLv50PctInd</xsl:with-param>
@@ -206,7 +206,7 @@
 										<xsl:with-param name="TargetNode" select="$FormData/PaidFamilyMedLeaveInd" />
 									</xsl:call-template>
 									<div style="width:5mm;height:4mm;float:left;">
-										<input type="checkbox"  class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
+										<input type="checkbox"  class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;" alt="Paid family or medical leave this year Yes">
 											<xsl:call-template name="PopulateYesCheckbox">
 												<xsl:with-param name="TargetNode" select="$FormData/PaidFamilyMedLeaveInd" />
 												<xsl:with-param name="BackupName">IRS8994PaidFamilyMedLeaveInd</xsl:with-param>
@@ -224,7 +224,7 @@
 									</div>
 									<br />
 									<div style="width:5mm;height:4mm;float:left;">
-										<input type="checkbox" class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
+										<input type="checkbox" class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;" alt="Paid family or medical leave this year No">
 											<xsl:call-template name="PopulateNoCheckbox">
 												<xsl:with-param name="TargetNode" select="$FormData/PaidFamilyMedLeaveInd" />
 												<xsl:with-param name="BackupName">IRS8994PaidFamilyMedLeaveInd</xsl:with-param>
@@ -256,7 +256,7 @@
 										<xsl:with-param name="TargetNode" select="$FormData/WrttnPolicyNoninterferenceInd" />
 									</xsl:call-template>
 									<div style="width:5mm;height:4mm;float:left;">
-										<input type="checkbox"  class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
+										<input type="checkbox"  class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;" alt="Written policy complied non-interference Yes">
 											<xsl:call-template name="PopulateYesCheckbox">
 												<xsl:with-param name="TargetNode" select="$FormData/WrttnPolicyNoninterferenceInd" />
 												<xsl:with-param name="BackupName">IRS8994WrttnPolicyNoninterferenceInd</xsl:with-param>
@@ -274,7 +274,7 @@
 									</div>
 									<br />
 									<div style="width:5mm;height:4mm;float:left;">
-										<input type="checkbox" class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;">
+										<input type="checkbox" class="styCkbox" style="margin-top:3px;margin-bottom:0px;margin-right:0px;margin-left:0px;" alt="Written policy complied non-interference No">
 											<xsl:call-template name="PopulateNoCheckbox">
 												<xsl:with-param name="TargetNode" select="$FormData/WrttnPolicyNoninterferenceInd" />
 												<xsl:with-param name="BackupName">IRS8994WrttnPolicyNoninterferenceInd</xsl:with-param>

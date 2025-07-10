@@ -179,7 +179,7 @@
 						  <th class="styTableCellHeader" scope="col" style="width:62mm;font-weight:normal;"><b>(b) </b>Address</th>
 						  <th class="styTableCellHeader" scope="col" style="width:31mm;font-weight:normal;"><b>(c) </b>EIN</th>
 						  <th class="styTableCellHeader" scope="col" style="width:44mm;height:26mm;border-right:0;text-align:left;padding-left:2mm;font-weight:normal;">
-							<b>(d) </b>For each partnership interest, is the foreign corporation?s distributive share ECI, or treated as ECI, 
+							<b>(d) </b>For each partnership interest, is the foreign corporation's distributive share ECI, or treated as ECI, 
 							in whole or in part, with a U.S. trade or business determined under section 875 (see instructions)?
 						  </th>
 						</tr>

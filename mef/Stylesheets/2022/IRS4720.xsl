@@ -4,6 +4,7 @@
   <!ENTITY ndash "&#8211;">
   <!ENTITY mdash "&#8212;">
 ]>
+	<!-- 08/03/2023 - Changes for 71774 - AJH -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl" />
 	<xsl:include href="AddHeader.xsl" />
@@ -525,6 +526,7 @@
 									<xsl:with-param name="TargetNode" select="$FormData/TxsMgrSelfDealerDnrRltdPrsnGrp/RelatedOrganizationName/BusinessNameLine2Txt"/>
 								</xsl:call-template>
 							</xsl:if>
+								<br />
 							<xsl:choose>
 								<xsl:when test="$FormData/TxsMgrSelfDealerDnrRltdPrsnGrp/USAddress">
 									<xsl:call-template name="PopulateUSAddressTemplate">
@@ -824,12 +826,12 @@
 													<xsl:with-param name="TargetNode" select="ActDt"/>
 												</xsl:call-template>
 											</td>
-											<td class="styTableCellCtrInherit" style="border-right:none;">
+											<td class="styTableCellCtrInherit">
 												<xsl:call-template name="PopulateYesBoxText">
 													<xsl:with-param name="TargetNode" select="CorrectionMadeInd"/>
 												</xsl:call-template>
 											</td>
-											<td class="styTableCellCtrInherit" style="border-right:none;">
+											<td class="styTableCellCtrInherit">
 												<xsl:call-template name="PopulateNoBoxText">
 													<xsl:with-param name="TargetNode" select="CorrectionMadeInd"/>
 												</xsl:call-template>
@@ -8055,6 +8057,7 @@
 			<td class="styTableCellAmtInherit">&nbsp;</td>
 			<td class="styTableCellAmtInherit">&nbsp;</td>
 			<td class="styTableCellAmtInherit">&nbsp;</td>
+			<td class="styTableCellAmtInherit">&nbsp;</td>
 			<td class="styTableCellAmtInherit" style="border-right-width:0px;">&nbsp;</td>
 		</tr>
 		<xsl:choose>
@@ -8207,6 +8210,8 @@
 					<xsl:otherwise>&nbsp;</xsl:otherwise>
 				</xsl:choose>
 			</td>
+			<td class="styTableCellAmtInherit">&nbsp;</td>
+			<td class="styTableCellAmtInherit">&nbsp;</td>
 			<td class="styTableCellAmtInherit">&nbsp;</td>
 			<td class="styTableCellAmtInherit">&nbsp;</td>
 			<td class="styTableCellAmtInherit">&nbsp;</td>

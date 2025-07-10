@@ -6,6 +6,9 @@
 <!-- 10/06/2022 - Changes made per defect 69575 - Jeremy Nichols -->
 <!-- 10/06/2022 - Changes made per defect 69578 - Jeremy Nichols -->
 <!-- 10/27/2022 - Made changes per UWR 864945 - Jeremy Nichols -->
+<!-- 12/23/2022 - Made changes per KISAM IM02186453 - Jeremy Nichols -->
+<!-- 01/12/2023 - Made changes per KISAM IM02195581 - Jeremy Nichols -->
+<!-- 04/08/2024 - UWR 981665 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="CommonPathRef.xsl"/>
   <xsl:include href="PopulateTemplate.xsl"/>
@@ -55,7 +58,7 @@
               <span class="styFormText" style="font-size:7pt;width:1mm;"></span>      
               <span class="styFormNumber" style="font-size:20pt;font-weight:bold;">6627</span>      
               <br/>      
-              <span class="styAgency" style="font-weight:normal;">(Rev. January 2023)</span><br/> 
+              <span class="styAgency" style="font-weight:normal;">(Rev. January 2024)</span><br/> 
               <span class="styAgency" style="font-weight:normal;padding-top:0.5mm;">Department of the Treasury</span><br />
               <span class="styAgency" style="font-weight:normal;">Internal Revenue Service</span>
             </div>
@@ -297,8 +300,8 @@
                   <td  class="styTableCell" style="width:94mm;border-right-width:0px;text-align:left">
                     <div class="styLNLeftNumBoxSD" style="height:12mm;padding-top:1mm">6</div>
                     <div style="width:84mm;height:12mm;float:left;clear:none;padding-top:1mm;text-align:justify">
-                      Total domestic petroleum oil spill tax. Add lines 3 and 4, column (c). Enter the total here and on Form 720 on the line for <b>IRS No. 18</b>
-                      <span style="width:2.8mm;"/><b>.</b><span style="letter-spacing:3.3mm;font-weight:bold;skiplink:display:none;padding-left:3.5mm;padding-right:2mm">.................</span>
+                      Total domestic petroleum oil spill tax. Add lines 3(b) and 4(b), column (c). Enter the total here and on Form 720 on the line for <b>IRS No. 18</b>
+                      <span style="letter-spacing:3.3mm;font-weight:bold;skiplink:display:none;padding-left:3.5mm;padding-right:2mm">...............</span>
                     </div>
                   </td>
                   <td class="styTableCell" style="width:38mm;border-left-width:1px;background-color:lightgrey"><span style="width:1px" /></td>
@@ -345,12 +348,12 @@
                 </tr>
                 <tr>
                   <td  class="styTableCell" style="width:94mm;border-right-width:0px;text-align:left">
-                    <div class="styLNLeftNumBoxSD" style="height:14mm;padding-top:1mm">8</div>
+                    <div class="styLNLeftNumBoxSD" style="height:17mm;padding-top:1mm">8</div>
                     <div style="width:84mm;height:12mm;float:left;clear:none;padding-top:1mm;text-align:justify">
-                      Imported petroleum products oil spill tax. Enter the number of barrels imported in column (a). Multiply column (a) by column (b) and enter the amount of tax in column (c). Also enter the amount
-                    
+                      Imported petroleum products oil spill tax. Enter the number of barrels imported in column (a) (must agree with line 7, col. (a)). 
+                      Multiply column (a) by column (b) and enter the amount of tax in column (c). Also enter the amount
                       on Form 720 on the line for <b>IRS No. 21</b>
-                      <span style="width:1mm;"/><b>.</b><span style="letter-spacing:3.3mm;font-weight:bold;skiplink:display:none;padding-left:4.3mm;padding-right:2mm">......</span>
+                      <span style="letter-spacing:3.3mm;font-weight:bold;skiplink:display:none;padding-left:4.3mm;padding-right:2mm">................</span>
                     </div>
                   </td>
                   <td class="styTableCell" style="width:38mm;border-left-width:1px;vertical-align:bottom;padding-bottom:1mm">
@@ -358,14 +361,14 @@
                       <xsl:with-param name="TargetNode" select="$FormData/ImportedPetroleumOilSpillTax/ImpPtrlmOilSpillTaxBarrelQty"></xsl:with-param>
                     </xsl:call-template>
                   </td>
-                  <td class="styTableCell" style="width:17mm;text-align:center;padding-top:10.5mm">
+                  <td class="styTableCell" style="width:17mm;text-align:center;vertical-align:bottom;padding-bottom:1mm">
                     <span style="padding-left:.5mm;float:left;clear:none">$</span>
                     <xsl:call-template name="PopulateAmount">
                       <xsl:with-param name="TargetNode" select="$FormData/ImportedPetroleumOilSpillTax/ImpPtrlmOilSpillTaxRt"></xsl:with-param>
                     </xsl:call-template>
                     <span> bbl.</span>
                   </td>
-                  <td class="styTableCell" style="width:38mm;padding-top:10mm;border-right-width:0">
+                  <td class="styTableCell" style="width:38mm;vertical-align:bottom;padding-bottom:1mm;border-right-width:0">
                     <span style="float:left;clear:none;padding-left:.5mm">$</span>
                     <span style="text-align:right;padding-right:1mm">
                       <xsl:call-template name="PopulateAmount">
@@ -1394,6 +1397,20 @@
 						</xsl:call-template>
 				    </td>
 				</tr>
+				<tr>
+					<td style="height:5mm;text-align:right;font-weight:bold;padding-right:0.5mm;border-top:0px black solid;border-bottom:1px black solid;border-right:0px black solid;">
+						43
+				    </td>
+					<td colspan="8" style="border-top:0px black solid;border-bottom:1px black solid;border-right:1px black solid;">
+						<b>Total Chemical Tax</b> (add lines 1–42, column (c)). Enter here and on Form 720 on the line for <b>IRS No. 54</b>
+						<div class="styDotLn" style="float:right;">..........</div>
+				    </td>
+				    <td style="text-align:right;border-top:0px black solid;border-bottom:1px black solid;border-right:0px black solid;">
+						<xsl:call-template name="PopulateAmount">
+							<xsl:with-param name="TargetNode" select="$FormData/TotalChemicalTaxAmt"/>
+						</xsl:call-template>
+				    </td>
+				</tr>
               </tbody>
             </table>    
             
@@ -1412,7 +1429,7 @@
             <span style="text-align:center;width:6mm;font-weight:bold;font-size:7pt;">
             6627</span> 
             <span style="text-align:right;width:18.5mm;font-weight:normal;font-size:6pt;padding-right:1mm;">
-            (Rev. 1-2023)</span> 
+            (Rev. 1-2024)</span> 
           </div>
           <div class="pageEnd"/>
   
@@ -1421,7 +1438,7 @@
           <!--Page to Header-->
           <div  style="width:187mm;border-bottom:1px black solid;">
             <span style="width:140mm;font-weight:normal;text-align:left;font-size:7pt;display:inline;"> 
-              Form 6627 (Rev. 1-2023)<span style="width:140mm;"/>
+              Form 6627 (Rev. 1-2024)<span style="width:140mm;"/>
             </span>
             <span style="text-align:right;width:40mm;font-weight:normal;font-size:7pt;display:inline;">
               Page
@@ -1604,7 +1621,7 @@
                         </xsl:when>
                         <xsl:otherwise>
                           <xsl:call-template name="PopulateAmount">
-                            <xsl:with-param name="TargetNode" select="$FormData/TotalChemicalTaxAmt"></xsl:with-param>
+                            <xsl:with-param name="TargetNode" select="$FormData/TotImpChemicalSubstancesTaxAmt"></xsl:with-param>
                           </xsl:call-template>
                         </xsl:otherwise>
                       </xsl:choose>
@@ -2257,7 +2274,7 @@
             <span style="text-align:center;width:7mm;font-weight:bold;font-size:7pt;">
             6627</span> 
             <span style="text-align:right;width:18mm;font-weight:normal;font-size:6pt;padding-right:1mm;">
-            (Rev. 1-2023)</span>       
+            (Rev. 1-2024)</span>       
           </div>
           <div class="pageEnd"/>
             

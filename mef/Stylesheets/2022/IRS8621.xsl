@@ -4,6 +4,8 @@
 <!-- 10/08/2019 - Changes made per 2019 pdf review - Jeremy Nichols -->
 <!-- 11/07/2019 - Changes made for defect 128441 - Jeremy Nichols -->
 <!-- 02/11/2020 - Changes made for defect 128482 - Jeremy Nichols -->
+<!-- 05/15/2023 - Changes made for KISAM IM02333801 - Jeremy Nichols -->
+
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 <xsl:include href="PopulateTemplate.xsl"/>
@@ -345,8 +347,8 @@
 		</span>
       </div>
       
-      <div class="styIRS8621BB" style="height:9mm;font-size:6.5pt">
-        <div class="styIRS8621FNBox" style="height:9mm;">
+      <div class="styIRS8621BB" style="height:12mm;font-size:6.5pt">
+        <div class="styIRS8621FNBox" style="height:12mm;">
           Name of foreign corporation, passive foreign investment company (PFIC) or qualified electing fund (QEF)<br/>
           <div style="font-family:'verdana';font-size:6pt;">
             <xsl:call-template name="PopulateText"><xsl:with-param name="TargetNode" select="$Form8621Data/PFICOrQEFName/BusinessNameLine1Txt"/></xsl:call-template><span style="width:1mm;"/>
@@ -355,9 +357,9 @@
             </xsl:if>
           </div>
         </div>
-        <div style="height:9mm;float:left; padding-left:1mm">
+        <div style="height:12mm;float:left; padding-left:1mm">
           <b>Employer identification number</b> (if any)<br/>
-          <div style="text-align:left; padding-top:2mm; font-family:'verdana';font-size:7pt;vertical-align:bottom;">  
+          <div style="text-align:left; padding-top:5mm; font-family:'verdana';font-size:7pt;vertical-align:bottom;">  
             <xsl:call-template name="PopulateEIN"><xsl:with-param name="TargetNode" select="$Form8621Data/PFICOrQEFEIN"/></xsl:call-template>
             <xsl:if test="$Form8621Data/EINMissingReasonCd!=' '">            
                   <span style="font-weight:normal;">  
@@ -1611,7 +1613,7 @@
 					<div class="styIRS8621Part3" style="height:5mm;padding-top:1mm">c</div>
 					<div style="float:left; width:135mm;height:5mm;padding-top:1mm">
 						Divide line 15b by 3.0. (See instructions if the number of preceding tax years is less than 3.)
-						<span class="styIRS8621DotLn" style="float:right;">..</span>       
+						<span class="styIRS8621DotLn" style="float:right;">.</span>       
 					</div>  
 					<div style="float:right">             
 						<div class="styIRS8621LNRightNumBox" style="height:5mm;padding-top:1mm;">15c</div>  
@@ -1681,7 +1683,7 @@
 						If there is a positive amount on line 15e or 15f (or both), attach a statement for each distribution and disposition. Show your holding period for each
 						share of stock or block of shares held. Allocate the excess distribution or gain to each day in your
 						holding period. Add all amounts that are allocated to days in each tax year. 
-						<span class="styIRS8621DotLn" style="float:right;">................</span>       
+						<span class="styIRS8621DotLn" style="float:right;">...................</span>       
 					</div>  
 					<div style="float:right">             
 						<div class="styIRS8621LNRightNumBox" style="height:15mm;padding-top:11mm;background-color:lightgrey"><span style="width:1mm;"/></div>  
@@ -1744,7 +1746,7 @@
 					<div class="styIRS8621Part3" style="height:8mm;padding-top:1mm">e</div>
 					<div style="float:left; width:135mm;height:8mm;padding-top:1mm">
 						Subtract line 16d from line 16c. Enter this amount on your income tax return as "additional tax." (See instructions.)    
-						<span class="styIRS8621DotLn" style="float:right;">........</span>       
+						<span class="styIRS8621DotLn" style="float:right;">.......................</span>       
 					</div>  
 					<div style="float:right">             
 						<div class="styIRS8621LNRightNumBox" style="height:8mm;padding-top:4mm;">16e</div>  
@@ -1761,7 +1763,7 @@
 					<div style="float:left; width:135mm;height:8mm;padding-top:1mm;">
 						Determine interest on each net increase in tax determined on line 16e using the rates and        
 						methods of section 6621. Enter the aggregate amount of interest here. See instructions 
-						<span class="styIRS8621DotLn" style="float:right;">........</span>       
+						<span class="styIRS8621DotLn" style="float:right;">..</span>       
 					</div>  
 					<div style="float:right">             
 						<div class="styIRS8621LNRightNumBox" style="height:8mm;padding-top:4mm;">16f</div>  

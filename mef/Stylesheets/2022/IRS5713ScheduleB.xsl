@@ -32,7 +32,7 @@
     </xsl:if>
     </style>
   </head>
-  <span style="width:187mm">
+  <!--<span style="width:187mm">  -->
 	<body class="styBodyClass">
 	  <form name="Form5713B">
 	<!-- start page header-->
@@ -463,8 +463,9 @@
         <div class="stySmallText" style="width:56mm;text-align:right;padding-top:1mm"><span class="styBoldText">Schedule B (Form 5713) (Rev. 9-2018)</span>
         </div>
       </div>
+   <!--   <div class="styStdDiv pageEnd" style="width:187mm;"/>-->
       <!--End Footer-->
-       <br/>  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     <!--<br/><br/><br/> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
   <!-- BEGIN Left Over Table -->  
     <div class="styLeftOverTitleLine" id="LeftoverData">
       <div class="styLeftOverTitle">
@@ -473,7 +474,8 @@
       <div class="styLeftOverButtonContainer">
         <input class="styLeftoverTableBtn" TabIndex="1" type="button" value="Return to Form" onclick="javascript:returnToWriteInImage();"/>
       </div>      
-    </div>  
+    </div> 
+     <!--<div class="styStdDiv pageEnd" style="width:187mm;"/>-->
     <!-- Additional Data Table -->
     <table class="styLeftOverTbl">
       <xsl:call-template name="PopulateCommonLeftover">
@@ -622,7 +624,7 @@
     <!-- End of Schedule B Separated Data -->
 	  </form>
   </body>
-  	</span>
+  <!--	</span>-->
 </html>
 </xsl:template>
 </xsl:stylesheet>

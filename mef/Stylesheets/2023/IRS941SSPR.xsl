@@ -39,10 +39,10 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-					<xsl:if test="not($Print) or $Print=''">
+					<!--<xsl:if test="not($Print) or $Print=''">-->
 						<xsl:call-template name="IRS941SSPRStyle"/>
 						<xsl:call-template name="AddOnStyle"/>
-					</xsl:if>
+					<!--</xsl:if>-->
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
@@ -52,8 +52,9 @@
 				</xsl:call-template>
 			</xsl:variable>
 			<!-- 5/11/2021 AM: Choice inserted based on COVID UWR 369520 to split Q1 and Q2-Q4 -->
-			<xsl:choose>
-				<xsl:when test="substring($Date, 6, 2) = '03'">	
+			<!-- 12/16/2022 AM: change made to reflect changes for all quarters -->
+			<!--<xsl:choose>
+				<xsl:when test="substring($Date, 6, 2) = '03'">	-->
 			<body class="styBodyClass" style="width:187mm">
 				<form name="IRS941SSPR" style="font-family:arial;">
 					<!--  Begin Header-->
@@ -338,8 +339,8 @@
 									<div class="styLNLeftNumBoxSD" style="width:8mm;">1</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;">
 							Number of employees who received wages, tips, or other compensation for the pay period including: <i>
-							Mar. 12</i> (Quarter 1), <!--<i>June 12</i> (Quarter 2), <i>Sept. 12</i> (Quarter 3), <i>or Dec. 12</i> 
-							(Quarter 4)-->
+							Mar. 12</i> (Quarter 1), <i>June 12</i> (Quarter 2), <i>Sept. 12</i> (Quarter 3), <i>or Dec. 12</i> 
+							(Quarter 4)
 						</div>
 								</span>
 								<span style="float:right;padding-top:1.4mm;">
@@ -415,7 +416,7 @@
 											</div>
 										</span>
 									</div>
-									<div class="styBB" style="width:38mm;height:31mm;float:right;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:1mm;padding-top:1mm;font-size:7pt"> *Include taxable qualified sick and family leave wages paid in 2022 for leave taken after March 31, 2021, and before October 1, 2021, on line 5a. Use lines 5a(i) and 5a(ii) <b>only</b> for taxable qualified sick and family leave wages paid in 2022 for leave taken after March 31, 2020, and before April 1, 2021.
+									<div class="styBB" style="width:38mm;height:31mm;float:right;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:1mm;padding-top:1mm;font-size:7pt"> *Include taxable qualified sick and family leave wages paid in 2023 for leave taken after March 31, 2021, and before October 1, 2021, on line 5a. Use lines 5a(i) and 5a(ii) <b>only</b> for taxable qualified sick and family leave wages paid in 2023 for leave taken after March 31, 2020, and before April 1, 2021.
 									</div>
 								</div>
 								<!--Line 5a(i)-->
@@ -740,20 +741,22 @@
 										</xsl:call-template>-->
 									</div>
 								</span>
-							</div>							
+							</div>	
+													
 							<div class="styBB" style="width:187mm;padding-top:2mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;text-align:center;"/>
 									<div class="styLNDesc" style="width:130mm;padding-left:1mm;font-weight:bold;">
-										<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Bullet Image"/>
+									<!--12/16/2022-->
+										<!--<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Right pointing arrowhead image"/>-->
 							You MUST complete all three pages of Form 941-SS and SIGN it.
-						</div>
+									</div>
 								</span>
-								<span style="float:right;">
+								<!--<span style="float:right;">
 									<div style="width:30mm;text-align:right;padding-bottom:0mm;padding-top:0mm;">
 										<img src="{$ImagePath}/941SSPR_Next.gif" alt="Next Page Arrow Image"/>
 									</div>
-								</span>
+								</span>-->
 							</div>
 						</div>
 						<!-- Page boundary -->
@@ -1161,41 +1164,52 @@
 								<div class="styLNDesc" style="width:20mm;height:28mm;padding-left:1mm;">
 									<b>Check one:</b>
 								</div>
-								<input type="checkbox" alt="TotalTaxLessThanLimit" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
-										<xsl:with-param name="BackupName">941SSTotalTaxLessThanLimitAmtInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;padding-bottom:2mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
-										<xsl:with-param name="BackupName">941SSTotalTaxLessThanLimitAmtInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:150mm;padding-top:1mm">
+									<input type="checkbox" alt="TotalTaxLessThanLimit" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
+											<xsl:with-param name="BackupName">941SSTotalTaxLessThanLimitAmtInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;padding-bottom:2mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
+											<xsl:with-param name="BackupName">941SSTotalTaxLessThanLimitAmtInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:150mm;padding-top:1mm">
 										<b>Line 12 on this return is less than $2,500 or line 12 on the 
-										return for the prior quarter was less than $2,500, and you didn't incur a $100,000 next-day deposit obligation during the 
-										current quarter.</b> If line 12 for the prior quarter was less than $2,500 but line 12 on this return is $100,000 or more, you
-										must provide a record of your federal tax liability. If you are a monthly schedule depositor, complete the deposit schedule below;
-										if you are a semiweekly schedule depositor, attach Schedule B (Form 941). Go to Part 3.</span>
-								</label>
+										return for the prior quarter was less than $2,500, and you didn't incur a $100,000 next-day deposit
+										obligation during the current quarter.</b> If line 12 for the prior quarter was less than $2,500 
+										but line 12 on this return is $100,000 or more, you must provide a record of your federal tax 
+										liability. If you are a monthly schedule depositor, complete the deposit schedule below; if you are 
+										a semiweekly schedule depositor, attach Schedule B (Form 941). Go to Part 3.</span>
+									</label>
+								</span>
 								<br/>
 								<br/>
-								<input type="checkbox" alt="MonthlyScheduleDepositor" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941SSMonthlyScheduleDepositorInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941SSMonthlyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:150mm;padding-top:1mm">
+									<input type="checkbox" alt="MonthlyScheduleDepositor" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941SSMonthlyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941SSMonthlyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:150mm;padding-top:1mm">
 										<b>You were a monthly schedule depositor for the entire quarter.</b> Enter your 
 										tax liability for each month and total liability for the quarter, then go to Part 3.</span>
-								</label>
+									</label>
+								</span>
 							</div>
 							<div style="width:187mm;padding-left:35mm;height:7mm;">
 								<div class="styLNDesc" style="font-weight:bold;width:37mm;padding-top:2.5mm;padding-right:3mm;">
@@ -1239,39 +1253,47 @@
 								</div>
 							</div>
 							<div style="width:187mm;padding-left:29mm; padding-bottom:3mm;">
-								<input type="checkbox" alt="SemiweeklyScheduleDepositor" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941SSSemiweeklyScheduleDepositorInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941SSSemiweeklyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:148mm;padding-top:1mm">
+									<input type="checkbox" alt="SemiweeklyScheduleDepositor" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941SSSemiweeklyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941SSSemiweeklyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:148mm;padding-top:1mm">
 										<b>You were a semiweekly schedule depositor for any part of this quarter.</b> 
-										Complete Schedule B (Form 941), Report of Tax Liability for Semiweekly Schedule Depositors; attach it to Form 941-SS; and then go to Part 3.</span>
-									<xsl:call-template name="SetFormLinkInline">
-										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-									</xsl:call-template>
-								</label>
+										Complete Schedule B (Form 941), Report of Tax Liability for Semiweekly Schedule Depositors; attach 
+										it to Form 941-SS; and then go to Part 3.</span>
+										<xsl:call-template name="SetFormLinkInline">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+										</xsl:call-template>
+									</label>
+								</span>
 							</div>
 						</div>
+						
 						<div class="styBB" style="width:187mm;padding-top:2mm;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;text-align:center;"/>
 								<div class="styLNDesc" style="width:130mm;padding-left:1mm;font-weight:bold;">
-									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Bullet Image"/>
+								<!--12/16/2022-->
+									<!--<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Right pointing arrowhead image"/>-->
 									You MUST complete all three pages of Form 941-SS and SIGN it.
 								</div>
 							</span>
-							<span style="float:right;">
+							<!--<span style="float:right;">
 								<div style="width:30mm;text-align:right;padding-bottom:0mm;padding-top:0mm;">
 									<img src="{$ImagePath}/941SSPR_Next.gif" alt="Next Page Arrow Image"/>
 								</div>
-							</span>
+							</span>-->
 						</div>
 						<!-- Page boundary -->
 						<div class="pageEnd" style="width:187mm;">
@@ -1681,9 +1703,10 @@
 								(other than taxpayer) is based on all information of which preparer has any knowledge.
 							</div>
 							<div style="width:187mm;float:none;clear:both;">
-								<div style="width:14mm;padding-left:2mm;float:left;">
+							<!--12/16/2022-->
+								<!--<div style="width:14mm;padding-left:2mm;float:left;">
 									<img src="{$ImagePath}/941_Signature.GIF" alt="Signature Image"/>
-								</div>
+								</div>-->
 								<div style="width:20mm;height:15mm;padding-top:3mm;font-weight:bold;font-size:10pt;float:left;">
 									Sign your name here
 								</div>
@@ -2020,12 +2043,13 @@
 					</table>
 				</form>
 			</body>
-			</xsl:when>
-			<xsl:otherwise>
+			<!--</xsl:when>
+			<xsl:otherwise>-->
+			<!-- 12/16/2022 AM: code commented because same changes apply to all quarters -->
 			<!-- Q2 and subsequent quarters BEGIN -->
-			<body class="styBodyClass" style="width:187mm">
+			<!--<body class="styBodyClass" style="width:187mm">
 				<form name="IRS941SSPR" style="font-family:arial;">
-					<!--  Begin Header-->
+					--><!--  Begin Header--><!--
 					<div class="styGenericDiv" style=" width:187mm;">
 						<xsl:call-template name="DocumentHeader"/>
 					</div>
@@ -2058,10 +2082,10 @@
 								<xsl:if test="/AppData/Parameters/SubmissionType='941SS'">941-SS</xsl:if>
 								<xsl:if test="/AppData/Parameters/SubmissionType='941PR'">
 									<xsl:attribute name="style">font-size:11pt;</xsl:attribute>941-PR (ENG)</xsl:if>
-                     for 2023:
+                     for 2022:
                 </span>
 							<br/>
-							<span class="styAgency">(Rev. June 2023)</span>
+							<span class="styAgency">(Rev. June 2022)</span>
 							<br/>
 							<span class="styAgency">Department of the Treasury — Internal Revenue Service</span>
 						</div>
@@ -2080,7 +2104,7 @@
 							<div class="styOMB" style="height:11mm;font-size:7pt;text-align:right;border:0px;padding-top:8mm;">OMB No. 1545-0029</div>
 						</div>
 					</div>
-					<div style="width:187mm;float:none;clear:both;">
+					--><!--<div style="width:187mm;float:none;clear:both;">--><!--
 						<div class="styBB" style="width:124mm;float:left;border:black solid 1px; padding-top:2mm; padding-left:2mm; padding-right:2mm;">
 							<div style="width:118mm;padding-top:0mm;">
 								<span style="float:left;padding-top:2mm;">
@@ -2185,14 +2209,9 @@
 						<div style="float:right;padding-right:2mm;">
 							<div class="styBB" style="width:58mm;height:48mm;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:2mm;padding-top:2mm;">
 								<div class="styPartName" style="width:53mm;height:9mm;text-align:left;padding-left:1mm;font-size:9pt;padding-top:1mm;padding-bottom:1mm;">Report for this 
-					Quarter of 2023<br/>
+					Quarter of 2022<br/>
 									<span style="font-size:7pt;">(Check one.)</span>
 								</div>
-								<!--<xsl:variable name="Date">
-									<xsl:call-template name="PopulateText">
-										<xsl:with-param name="TargetNode" select="$RtnHdrData/QuarterEndingDt"/>
-									</xsl:call-template>
-								</xsl:variable>-->
 								<div style="width:53mm;float:none;clear:both;">
 									<div style="width:53mm;float:none;clear:both;">
 										<div style="width:53mm;padding-top:2mm;float:none;clear:both;">
@@ -2301,13 +2320,13 @@
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:4mm;padding-left:2mm;font-size:9pt;">Answer these questions for this quarter.</div>
 						</div>
 						<div style="width:187mm;padding-left:0mm;padding-top:2mm;padding-bottom:0px;font-size:8pt;float:none;clear:both;">
-							<!--Line 1-->
+							--><!--Line 1--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;">1</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;">
-							Number of employees who received wages, tips, or other compensation for the pay period including: <!--<i>
-							Mar. 12</i> (Quarter 1), --><i>June 12</i> (Quarter 2), <i>Sept. 12</i> (Quarter 3), <i>or Dec. 12</i> 
+							Number of employees who received wages, tips, or other compensation for the pay period including: --><!--<i>
+							Mar. 12</i> (Quarter 1), --><!--<i>June 12</i> (Quarter 2), <i>Sept. 12</i> (Quarter 3), <i>or Dec. 12</i> 
 							(Quarter 4)
 						</div>
 								</span>
@@ -2320,17 +2339,17 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 2-->
+							--><!--Line 2--><!--
 							<div style="width:187mm;height:6mm;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;height:6mm;padding-top:0mm;">2</div>
 								<div class="styLNDesc" style="width:179mm;height:6mm;background-color:gray;"/>
 							</div>
-							<!--Line 3-->
+							--><!--Line 3--><!--
 							<div style="width:187mm;height:4mm;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;height:4mm;padding-bottom:0mm;">3</div>
 								<div class="styLNDesc" style="width:179mm;height:4mm;padding-bottom:0mm;background-color:gray;"/>
 							</div>
-							<!--Line 4-->
+							--><!--Line 4--><!--
 							<div style="width:187mm;height:6mm;padding-top:2mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;">4</div>
@@ -2356,18 +2375,18 @@
 									</label>
 								</span>
 							</div>
-							<!--Line 5 Header-->
+							--><!--Line 5 Header--><!--
 							<div style="width:187mm">
 								<div class="styLNDesc" style="width:144mm;font-style:italic;text-align:right;padding-right:10mm;">
 						Column 1<span style="width:34mm;"/>Column 2
 					</div>
 							</div>
 							<span style="height:28mm;">
-								<!--Line 5a-->
+								--><!--Line 5a--><!--
 								<div style="width:187mm;height:6mm;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">5a</div>
 									<div class="styLNDesc" style="width:136mm;padding-left:1mm;font-weight:bold;">
-										<span style="float:left;padding-top:2mm;padding-bottom:0mm;">Taxable social security wages</span>
+										<span style="float:left;padding-top:2mm;padding-bottom:0mm;">Taxable social security wages*</span>
 										<span style="float:right;">
 											<div class="styLNCtrNumBox" style="width:33mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 												<xsl:call-template name="PopulateAmount">
@@ -2384,14 +2403,14 @@
 											</div>
 										</span>
 									</div>
-									<div class="styBB" style="width:38mm;height:34mm;float:right;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:1mm;padding-top:1mm;font-size:7pt"> *Include taxable qualified sick and family leave wages paid in this quarter of 2022 for leave taken after March 31, 2021, and before October 1, 2021, on line 5a. Use lines 5a(i) and 5a(ii) <b>only</b> for taxable qualified sick and family leave wages paid in this quarter of 2022 for leave taken after March 31, 2020, and before April 1, 2021.
+									<div class="styBB" style="width:38mm;height:28mm;float:right;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:2mm;padding-top:1mm"> *Include taxable qualified sick and family leave wages for leave taken after March 31, 2021, on line 5a. Use lines 5a(i) and 5a(ii) <b>only</b> for wages paid after March 31, 2020, for leave taken before April 1, 2021.
 									</div>
 								</div>
-								<!--Line 5a(i)-->
+								--><!--Line 5a(i)--><!--
 								<div style="width:187mm;height:8mm;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:3.5mm;">5a</div>
 									<div class="styLNDesc" style="width:136mm;padding-left:1mm;font-weight:bold;">
-										<span style="float:left;padding-top:3mm;padding-bottom:0mm;">(i) Qualified sick leave wages </span>
+										<span style="float:left;padding-top:3mm;padding-bottom:0mm;">(i) Qualified sick leave wages* </span>
 										<span style="float:right;padding-top:1mm">
 											<div class="styLNCtrNumBox" style="width:33mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 												<xsl:call-template name="PopulateAmount">
@@ -2409,11 +2428,11 @@
 										</span>
 									</div>
 								</div>
-								<!--Line 5a(ii)-->
+								--><!--Line 5a(ii)--><!--
 								<div style="width:187mm;height:6mm;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.5mm;">5a</div>
 									<div class="styLNDesc" style="width:136mm;padding-left:1mm;font-weight:bold;">
-										<span style="float:left;padding-top:2.1mm;padding-bottom:0mm;">(ii) Qualified family leave wages </span>
+										<span style="float:left;padding-top:2.1mm;padding-bottom:0mm;">(ii) Qualified family leave wages* </span>
 										<span style="float:right;">
 											<div class="styLNCtrNumBox" style="width:33mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 												<xsl:call-template name="PopulateAmount">
@@ -2431,7 +2450,7 @@
 										</span>
 									</div>
 								</div>
-								<!--Line 5b-->
+								--><!--Line 5b--><!--
 								<div style="width:187mm;height:6mm;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">5b</div>
 									<div class="styLNDesc" style="width:136mm;padding-left:1mm;font-weight:bold;">
@@ -2453,7 +2472,7 @@
 										</span>
 									</div>
 								</div>
-								<!--Line 5c-->
+								--><!--Line 5c--><!--
 								<div style="width:187mm;height:6mm;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">5c</div>
 									<div class="styLNDesc" style="width:136mm;padding-left:1mm;font-weight:bold;">
@@ -2475,7 +2494,7 @@
 										</span>
 									</div>
 								</div>
-								<!--Line 5d-->
+								--><!--Line 5d--><!--
 								<div style="width:187mm;height:8mm;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">5d</div>
 									<div class="styLNDesc" style="width:136mm;padding-left:1mm;font-weight:bold;">
@@ -2499,13 +2518,13 @@
 									</div>
 								</div>
 							</span>
-							<!--Line 5e-->
+							--><!--Line 5e--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">5e</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:2.6mm;">
 										<span style="float:left;"><b>Total social security and Medicare taxes.</b> Add Column 2 from lines 5a, 5a(i), 5a(ii), 5b, 5c, and 5d</span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">.</span>
 									</div>
 								</span>
@@ -2518,14 +2537,14 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 5f-->
+							--><!--Line 5f--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">5f</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:2.6mm;">
 										<span style="float:left;">
 											<b>Section 3121(q) Notice and Demand—Tax due on unreported tips</b> (see instructions) </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">.....</span>
 									</div>
 								</span>
@@ -2538,14 +2557,14 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 6-->
+							--><!--Line 6--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">6</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:2.6mm;">
 										<span style="float:left;">
 											<b>Total taxes before adjustments</b>. Add lines 5e and 5f </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">................</span>
 									</div>
 								</span>
@@ -2558,20 +2577,20 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 7-->
+							--><!--Line 7--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">7</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:2.6mm;">
 										<span style="float:left;">Current quarter’s adjustment for fractions of cents </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">................</span>
 									</div>
 								</span>
 								<span style="float:right;">
 									<div class="styIRS941RightNumBox">7</div>
 									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
-										<!-- 7/9/2015 AM: Per KISAM IM02060648, choose statement added to properly display negative numbers and cents only.-->
+										--><!-- 7/9/2015 AM: Per KISAM IM02060648, choose statement added to properly display negative numbers and cents only.--><!--
 										<xsl:choose>
 											<xsl:when test="starts-with($FormData/CurrentQtrFractionsCentsAmt,'-') or starts-with($FormData/CurrentQtrFractionsCentsAmt,'.')">
 												<span style="color:darkblue;">
@@ -2589,13 +2608,13 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 8-->
+							--><!--Line 8--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">8</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:2.6mm;">
 										<span style="float:left;">Current quarter’s adjustment for sick pay </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">...................</span>
 									</div>
 								</span>
@@ -2608,13 +2627,13 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 9-->
+							--><!--Line 9--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.6mm;">9</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:2.6mm;">
 										<span style="float:left;">Current quarter’s adjustments for tips and group-term life insurance </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">..........</span>
 									</div>
 								</span>
@@ -2627,14 +2646,14 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 10-->
+							--><!--Line 10--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:2.6mm;">10</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:2.6mm;">
 										<span style="float:left;">
 											<b>Total taxes after adjustments.</b> Combine lines 6 through 9 </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">..............</span>
 									</div>
 								</span>
@@ -2647,10 +2666,10 @@
 									</div>
 								</span>
 							</div>
-							<!-- 8/25/2016 AM: Per UWR 185247, Line 11 will be moved and named as Line 13. Adding two new lines (Line 11 and 12) and numbering will redone -->
-							<!-- 4/28/2020 AM: Per UWR 232938, New lines 11a and going forward due COVID-19 legislation -->
-							<!-- DOUBLE CHECK PUSHPIN -->
-							<!--Line 11a-->
+							--><!-- 8/25/2016 AM: Per UWR 185247, Line 11 will be moved and named as Line 13. Adding two new lines (Line 11 and 12) and numbering will redone --><!--
+							--><!-- 4/28/2020 AM: Per UWR 232938, New lines 11a and going forward due COVID-19 legislation --><!--
+							--><!-- DOUBLE CHECK PUSHPIN --><!--
+							--><!--Line 11a--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:2.6mm;">11a</div>
@@ -2671,17 +2690,18 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 11b-->
-							<div style="width:187mm;height:7mm;">
+							--><!--Line 11b--><!--
+							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:2.6mm;">11b</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:2.6mm;font-weight:bold">
-										<span style="float:left;"> Nonrefundable portion of credit for qualified sick and family leave wages from Worksheet 1 </span>
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">..</span>
+										Nonrefundable portion of credit for qualified sick and family leave wages for leave taken before 
+										<span style="float:left;">April 1, 2021</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">............................</span>
 									</div>
 								</span>
-								<span style="float:right;">
+								<span style="float:right;padding-top:2mm;">
 									<div class="styIRS941RightNumBox">11b</div>
 									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;text-align:right;padding-right:1mm;padding-top:1mm;">
 										<xsl:call-template name="PopulateAmount">
@@ -2690,23 +2710,23 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 11c-->
-							<div style="width:187mm;height:7mm;">
+							--><!--Line 11c--><!--
+							<div style="width:187mm;height:8mm;padding-top:2mm">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:2.6mm;">11c</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:2.6mm;font-weight:bold">
-										<span style="float:left;">Reserved for future use</span>
-										<!--<span style="float:left;"> Nonrefundable portion of employee retention credit from Worksheet 1 </span>-->
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">........................</span>
+										--><!--<span style="float:left;">Reserved for future use</span>--><!--
+										<span style="float:left;"> Nonrefundable portion of employee retention credit</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">...............</span>
 									</div>
 								</span>
 								<span style="float:right;">
 									<div class="styIRS941RightNumBox">11c</div>
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;text-align:right;padding-right:1mm;padding-top:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;text-align:right;padding-right:1mm;padding-top:1mm;">
+										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/NrfdblEmplRtntnCrCOVIDAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>							
@@ -2714,7 +2734,7 @@
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;text-align:center;"/>
 									<div class="styLNDesc" style="width:130mm;padding-left:1mm;font-weight:bold;">
-										<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Bullet Image"/>
+										<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Right pointing arrowhead image"/>
 							You MUST complete all three pages of Form 941-SS and SIGN it.
 						</div>
 								</span>
@@ -2725,19 +2745,19 @@
 								</span>
 							</div>
 						</div>
-						<!-- Page boundary -->
+						--><!-- Page boundary --><!--
 						<div class="pageEnd" style="width:187mm;">
 							<span style="float:left;clear:none;font-weight:bold;font-size:7pt;">For Privacy Act and Paperwork Reduction Act Notice, see the back of the Payment Voucher.</span>
 							<span style="float:left;clear:none;padding-left:14mm;padding-top:0.4mm;font-size:7pt;">Cat. No. 17016Y</span>
 							<span style="float:right;clear:none;">Form <span class="styBoldText" style="font-size:7pt;">
 									<xsl:if test="/AppData/Parameters/SubmissionType='941SS'">941-SS</xsl:if>
 									<xsl:if test="/AppData/Parameters/SubmissionType='941PR'">941-PR (ENG)</xsl:if>
-								</span> (Rev. 6-2023)</span>
+								</span> (Rev. 6-2022)</span>
 						</div>
 						<p style="page-break-before: always"/>
-						<!--Begin Page 2-->
+						--><!--Begin Page 2--><!--
 						<div style="width:187mm;">
-							<!--Name Shown on return-->
+							--><!--Name Shown on return--><!--
 							<div class="styBB" style="width:187mm;font-size:7pt;border-top-width:2px;">
 								<div class="styFNBox" style="width:126mm; height:8.5mm;">
 									Name <i>(not your trade name)</i>
@@ -2762,21 +2782,21 @@
 								</div>
 							</div>
 						</div>
-						<!--Part 1 (continued)-->
+						--><!--Part 1 (continued)--><!--
 						<div class="styBB" style="width:187mm;border-top-width:1px;">
 							<div class="styPartName" style="width:13mm;text-align:center;height:4mm;padding-top:0mm;font-size:9pt">Part 1:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:4mm;padding-top:0mm;padding-left:2mm;font-weight:normal;font-size:9pt"><b>Answer these questions for this quarter.</b> (continued)</div>
 						</div>	
 						<div style="font-size:8pt;float:none;clear:both">
-						<!--Line 11d-->
+							--><!--Line 11d--><!--
 							<div style="width:187mm;height:8mm;padding-top:1mm">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1.5mm;">11d</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:1.5mm;font-weight:bold">
 										Nonrefundable portion of credit for qualified sick and family leave wages for leave taken after 
-										<span style="float:left;">March 31, 2021, and before October 1, 2021</span>
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">..................</span>
+										<span style="float:left;">March 31, 2021</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">...........................</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:2mm">
@@ -2788,56 +2808,54 @@
 									</div>
 								</span>
 							</div>	
-							<!--5/12/2021 AM: New lines 11e-11g added due to COVID UWR 369520 -->
-							<!--Line 11e-->
+							--><!--5/12/2021 AM: New lines 11e-11g added due to COVID UWR 369520 --><!--
+							--><!--Line 11e--><!--
 							<div style="width:187mm;height:8mm;padding-top:2mm">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1.5mm;">11e</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:1.5mm;font-weight:bold">
-										<!--Nonrefundable portion of COBRA premium assistance credit (see instructions for applicable 
-										<span style="float:left;">quarters)</span>-->
-										<span style="float:left;">Reserved for future use</span>
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
+										Nonrefundable portion of COBRA premium assistance credit (see instructions for applicable 
+										<span style="float:left;">quarters)</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">.............................</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm">
 									<div class="styIRS941RightNumBox">11e</div>
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;text-align:right;padding-right:1mm;padding-top:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;text-align:right;padding-right:1mm;padding-top:1mm;">
+										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/NrfdblCOBRAPremiumSubsidyAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>		
-							<!--Line 11f-->
+							--><!--Line 11f--><!--
 							<div style="width:187mm;height:8mm;padding-top:2mm">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:2.6mm;">11f</div>
 									<div class="styLNDesc" style="width:90mm;padding-left:1mm;padding-top:2.6mm;font-weight:bold">
-										<!--<span style="float:left;">Number of individuals provided COBRA premium assistance</span>-->
-										<span style="float:left;">Reserved for future use</span>
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">..............</span>
+										<span style="float:left;">Number of individuals provided COBRA premium assistance</span>
+										--><!--Dotted Line--><!--
+										--><!--<span class="styDotLn" style="float:right;padding-right:1mm;">............</span>--><!--
 									</div>
 								</span>
 								<span style="float:left;padding-top:1mm;">
-									<!--<div class="styIRS941RightNumBox">11f</div>-->
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;text-align:right;padding-right:1mm;padding-top:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateText">
+									--><!--<div class="styIRS941RightNumBox">11f</div>--><!--
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;text-align:right;padding-right:1mm;padding-top:1mm;">
+										<xsl:call-template name="PopulateText">
 											<xsl:with-param name="TargetNode" select="$FormData/COBRAPremiumSubsidyRcpntCnt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>		
-							<!--Line 11g-->
+							--><!--Line 11g--><!--
 							<div style="width:187mm;height:7mm;padding-top:1mm">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:2.6mm;">11g</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:2.6mm;">
-										<span style="float:left;"> <b>Total nonrefundable credits.</b> Add lines 11a, 11b, and 11d </span>
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">............</span>
+										<span style="float:left;"> <b>Total nonrefundable credits.</b> Add lines 11a, 11b, 11c, 11d and 11e </span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 									</div>
 								</span>
 								<span style="float:right;">
@@ -2849,14 +2867,14 @@
 									</div>
 								</span>
 							</div>			
-							<!--Line 12-->
+							--><!--Line 12--><!--
 							<div style="width:187mm;height:7mm;padding-top:1mm">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:2.6mm;">12</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:2.6mm;">
 										<span style="float:left;">
 											<b>Total taxes after adjustments and nonrefundable credits.</b> Subtract line 11g from line 10 </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">....</span>
 									</div>
 								</span>
@@ -2869,14 +2887,14 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 13a-->
+							--><!--Line 13a--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1.5mm;">13a</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:1.5mm;">
 										Total deposits for this quarter, including overpayment applied from a prior quarter and
 										<span style="float:left;">overpayments applied from Form 941-X, 944-X, or 944-X (SP) filed in the current quarter </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">...</span>
 									</div>
 								</span>
@@ -2889,34 +2907,34 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 13b-->
+							--><!--Line 13b--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">13b</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
 										<span style="float:left;">Reserved for future use</span>
-										<!--<span style="float:left;">Deferred payment of employer’s share of social security tax  </span>-->
-										<!--Dotted Line-->
+										--><!--<span style="float:left;">Deferred payment of employer’s share of social security tax  </span>--><!--
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
 									<div class="styIRS941RightNumBox">13b</div>
 									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+										--><!--<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/DeferredPaymentEmplrShrSSTAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>--><!--
 									</div>
 								</span>
 							</div>
-							<!--Line 13c-->
+							--><!--Line 13c--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1mm;">13c</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:1mm;">
 										Refundable portion of credit for qualified sick and family leave wages for leave taken 
 										<span style="float:left;">before April 1, 2021</span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
 									</div>
 								</span>
@@ -2929,34 +2947,34 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 13d-->
+							--><!--Line 13d--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">13d</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
-										<span style="float:left;">Reserved for future use</span>
-										<!--<span style="float:left;">Refundable portion of employee retention credit</span>-->
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
+										--><!--<span style="float:left;">Reserved for future use</span>--><!--
+										<span style="float:left;">Refundable portion of employee retention credit</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">................</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
 									<div class="styIRS941RightNumBox">13d</div>
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/RfdblEmplRtntnCrCOVIDAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>
-							<!--Line 13e-->
+							--><!--Line 13e--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1mm;">13e</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:1mm;font-weight:bold">
 										Refundable portion of credit for qualified sick and family leave wages for leave taken
 										<span style="float:left;">after March 31, 2021</span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
 									</div>
 								</span>
@@ -2969,35 +2987,34 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 13f-->
+							--><!--Line 13f--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">13f</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
-										<!--<span style="float:left;">Refundable portion of COBRA premium assistance credit (see instructions for applicable quarters)</span>-->
-										<span style="float:left;">Reserved for future use</span>
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
+										<span style="float:left;">Refundable portion of COBRA premium assistance credit (see instructions for applicable quarters)</span>
+										--><!--Dotted Line--><!--
+										--><!--<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>--><!--
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
 									<div class="styIRS941RightNumBox">13f</div>
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/RfdblCOBRAPremiumSubsidyAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>
-							<!--Line 13g-->
+							--><!--Line 13g--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">13g</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:3mm;">
-										<!--<span style="float:left;">Reserved for future use</span>-->
-										<span style="float:left;"><b>Total deposits and refundable credits.</b> Add lines 13a, 13c, and 13e</span>
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
+										--><!--<span style="float:left;">Reserved for future use</span>--><!--
+										<span style="float:left;"><b>Total deposits and refundable credits.</b> Add lines 13a, 13c, 13d, 13e and 13f</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">........</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
@@ -3009,55 +3026,54 @@
 									</div>
 								</span>
 							</div>							
-							<!--5/12/2021 AM: Lines 13e and 13f are new lines 13h and 13i due to COVID UWR 369520 -->
-							<!--Line 13h-->
+							--><!--5/12/2021 AM: Lines 13e and 13f are new lines 13h and 13i due to COVID UWR 369520 --><!--
+							--><!--Line 13h--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">13h</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
-										<span style="float:left;">Reserved for future use</span>
-										<!--<span style="float:left;">Total advances received from filing Form(s) 7200 for the quarter</span>-->
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
+										--><!--<span style="float:left;">Reserved for future use</span>--><!--
+										<span style="float:left;">Total advances received from filing Form(s) 7200 for the quarter</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
 									<div class="styIRS941RightNumBox">13h</div>
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/TotAdvncPymtEmplrCrReqQtrAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>
-							<!--Line 13i-->
+							--><!--Line 13i--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">13i</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:3mm;font-weight:bold">
-										<span style="float:left;">Reserved for future use</span>
-										<!--<span style="float:left;">Total deposits and refundable credits less advances. Subtract line 13h from line 13g</span>-->
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
+										<span style="float:left;">Total deposits and refundable credits less advances. Subtract line 13h from line 13g</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">....</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
 									<div class="styIRS941RightNumBox">13i</div>
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/NetTotalPaymentRefundableCrAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>
-							<!--Line 14-->
+							--><!--Line 14--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">14</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;padding-top:3mm;">
 										<span style="float:left;">
-											<b>Balance due.</b> If line 12 is more than line 13g, enter the difference and see instructions </span>
-										<!--Dotted Line-->
+											<b>Balance due.</b> If line 12 is more than line 13i, enter the difference and see instructions </span>
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">.....</span>
 									</div>
 								</span>
@@ -3070,12 +3086,12 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 15-->
+							--><!--Line 15--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:2.6mm;">15</div>
 									<div class="styLNDesc" style="width:auto;padding-left:1mm;font-size:7.5pt;padding-top:2.6mm;padding-right:1.8mm;">
-										<b>Overpayment.</b> If line 13g is more than line 12, enter the difference
+										<b>Overpayment.</b> If line 13i is more than line 12, enter the difference
 									</div>
 									<div class="styLNCtrNumBox" style="width:31mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 										<xsl:call-template name="PopulateAmount">
@@ -3118,7 +3134,7 @@
 								</span>
 							</div>
 						</div>
-						<!--Part 2-->
+						--><!--Part 2--><!--
 						<div class="styBB" style="width:187mm;border-top-width:1px">
 							<div class="styPartName" style="width:13mm;text-align:center;height:4mm;font-size:9pt;">Part 2:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:4mm;padding-left:2mm;font-size:9pt;">Tell us about your deposit schedule and tax liability for this quarter.</div>
@@ -3127,47 +3143,58 @@
 							<div class="styLNDesc" style="width:187mm;height:8mm;font-weight:bold;padding-left:2mm;">
 								If you're unsure about whether you're a monthly schedule depositor or a semiweekly schedule depositor, see section 8 of Pub. 80.
 							</div>
-							<!--Line 16-->
+							--><!--Line 16--><!--
 							<div style="width:187mm;padding-bottom:1mm;padding-top:1mm;">
 								<div class="styLNLeftNumBox" style="width:8mm;">16</div>
 								<div class="styLNDesc" style="width:20mm;height:28mm;padding-left:1mm;">
 									<b>Check one:</b>
 								</div>
-								<input type="checkbox" alt="TotalTaxLessThanLimit" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
-										<xsl:with-param name="BackupName">941SSTotalTaxLessThanLimitAmtInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;padding-bottom:2mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
-										<xsl:with-param name="BackupName">941SSTotalTaxLessThanLimitAmtInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:150mm;padding-top:1mm">
-										<b>Line 12 on this return is less than $2,500 or line 12 on the 
-										return for the prior quarter was less than $2,500, and you didn't incur a $100,000 next-day deposit obligation during the 
-										current quarter.</b> If line 12 for the prior quarter was less than $2,500 but line 12 on this return is $100,000 or more, you
-										must provide a record of your federal tax liability. If you are a monthly schedule depositor, complete the deposit schedule below;
-										if you are a semiweekly schedule depositor, attach Schedule B (Form 941). Go to Part 3.</span>
-								</label>
+									<input type="checkbox" alt="TotalTaxLessThanLimit" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
+											<xsl:with-param name="BackupName">941SSTotalTaxLessThanLimitAmtInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;padding-bottom:2mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
+											<xsl:with-param name="BackupName">941SSTotalTaxLessThanLimitAmtInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:150mm;padding-top:1mm">
+										<b>Line 12 on this return is less than $2,500 or line 12 on the return for the prior quarter was 
+										less than $2,500, and you didn't incur a $100,000 next-day deposit obligation during the current 
+										quarter.</b> If line 12 for the prior quarter was less than $2,500 but line 12 on this return is 
+										$100,000 or more, you must provide a record of your federal tax liability. If you are a monthly 
+										schedule depositor, complete the deposit schedule below; if you are a semiweekly schedule 
+										depositor, attach Schedule B (Form 941). Go to Part 3.</span>
+									</label>
+								</span>
 								<br/>
 								<br/>
-								<input type="checkbox" alt="MonthlyScheduleDepositor" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941SSMonthlyScheduleDepositorInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941SSMonthlyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:150mm;padding-top:1mm">
+									<input type="checkbox" alt="MonthlyScheduleDepositor" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941SSMonthlyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941SSMonthlyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:150mm;padding-top:1mm">
 										<b>You were a monthly schedule depositor for the entire quarter.</b> Enter your 
 										tax liability for each month and total liability for the quarter, then go to Part 3.</span>
-								</label>
+									</label>
+								</span>
 							</div>
 							<div style="width:187mm;padding-left:35mm;height:7mm;">
 								<div class="styLNDesc" style="font-weight:bold;width:37mm;padding-top:2.5mm;padding-right:3mm;">
@@ -3211,31 +3238,37 @@
 								</div>
 							</div>
 							<div style="width:187mm;padding-left:29mm; padding-bottom:3mm;">
-								<input type="checkbox" alt="SemiweeklyScheduleDepositor" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941SSSemiweeklyScheduleDepositorInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941SSSemiweeklyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:148mm;padding-top:1mm">
+									<input type="checkbox" alt="SemiweeklyScheduleDepositor" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941SSSemiweeklyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941SSSemiweeklyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:148mm;padding-top:1mm">
 										<b>You were a semiweekly schedule depositor for any part of this quarter.</b> 
-										Complete Schedule B (Form 941), Report of Tax Liability for Semiweekly Schedule Depositors; attach it to Form 941-SS; and then go to Part 3.</span>
-									<xsl:call-template name="SetFormLinkInline">
-										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-									</xsl:call-template>
-								</label>
+										Complete Schedule B (Form 941), Report of Tax Liability for Semiweekly Schedule Depositors; attach 
+										it to Form 941-SS; and then go to Part 3.</span>
+										<xsl:call-template name="SetFormLinkInline">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+										</xsl:call-template>
+									</label>
+								</span>
 							</div>
 						</div>
 						<div class="styBB" style="width:187mm;padding-top:2mm;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;text-align:center;"/>
 								<div class="styLNDesc" style="width:130mm;padding-left:1mm;font-weight:bold;">
-									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Bullet Image"/>
+									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Right pointing arrowhead image"/>
 									You MUST complete all three pages of Form 941-SS and SIGN it.
 								</div>
 							</span>
@@ -3245,20 +3278,20 @@
 								</div>
 							</span>
 						</div>
-						<!-- Page boundary -->
+						--><!-- Page boundary --><!--
 						<div class="pageEnd" style="width:187mm;">
-							<!--<span style="float:left;clear:none;font-weight:bold;font-size:7pt;">For Privacy Act and Paperwork Reduction Act Notice, see the back of the Payment Voucher.</span>
-							<span style="float:left;clear:none;padding-left:14mm;padding-top:0.4mm;font-size:7pt;">Cat. No. 17016Y</span>-->
+							--><!--<span style="float:left;clear:none;font-weight:bold;font-size:7pt;">For Privacy Act and Paperwork Reduction Act Notice, see the back of the Payment Voucher.</span>
+							<span style="float:left;clear:none;padding-left:14mm;padding-top:0.4mm;font-size:7pt;">Cat. No. 17016Y</span>--><!--
 							<span style="float:left;clear:none;">Page <span class="styBoldText" style="font-size:9pt;">2</span></span>
 							<span style="float:right;clear:none;">Form <span class="styBoldText" style="font-size:9pt;">
 									<xsl:if test="/AppData/Parameters/SubmissionType='941SS'">941-SS</xsl:if>
 									<xsl:if test="/AppData/Parameters/SubmissionType='941PR'">941-PR (ENG)</xsl:if>
-								</span> (Rev. 6-2023)</span>
+								</span> (Rev. 6-2022)</span>
 						</div>
 						<p style="page-break-before: always"/>
-						<!--Begin Page 2-->
+						--><!--Begin Page 2--><!--
 						<div style="width:187mm;">
-							<!--Name Shown on return-->
+							--><!--Name Shown on return--><!--
 							<div class="styBB" style="width:187mm;font-size:7pt;border-top-width:2px;">
 								<div class="styFNBox" style="width:126mm; height:8.5mm;">
 									Name <i>(not your trade name)</i>
@@ -3283,19 +3316,19 @@
 								</div>
 							</div>
 						</div>
-						<!--Part 3-->
+						--><!--Part 3--><!--
 						<div class="styBB" style="width:187mm;border-top-width:1px;">
 							<div class="styPartName" style="width:13mm;text-align:center;height:4mm;font-size:9pt;">Part 3:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:4mm;padding-left:2mm;font-size:9pt;">Tell us about your business. If a question does NOT apply to your business, leave it blank.</div>
 						</div>
 						<div style="width:187mm;font-size:8pt;">
-							<!--Line 17-->
+							--><!--Line 17--><!--
 							<div style="width:187mm;padding-bottom:2mm;">
 								<div style="width:187mm;padding-bottom:0mm;">
 									<div class="styLNLeftNumBox" style="width:8mm;">17</div>
 									<div class="styLNDesc" style="width:147mm;padding-left:1mm;font-weight:bold;">
 										<span style="float:left;">If your business has closed or you stopped paying wages </span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">................</span>
 									</div>
 									<input type="checkbox" alt="BusinessClosedOrStopWagePay" class="styCkbox">
@@ -3324,12 +3357,12 @@
 									<div style="padding-top:2.5mm;padding-left:1mm;float:left;">; also attach a statement to your return. See instructions.</div>
 								</div>
 							</div>
-							<!--Line 18-->
+							--><!--Line 18a--><!--
 							<div style="width:187mm;">
-								<div class="styLNLeftNumBox" style="width:8mm;">18</div>
+								<div class="styLNLeftNumBox" style="width:8mm;">18a</div>
 								<div class="styLNDesc" style="width:147mm;padding-left:1mm;font-weight:bold;">
 									<span style="float:left;">If you are a seasonal employer and you don't have to file a return for every quarter of the year </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...</span>
 								</div>
 								<input type="checkbox" alt="SeasonalEmployer" class="styCkbox">
@@ -3346,14 +3379,36 @@
 									<span style="width:1mm;"/>Check here.<br/>
 								</label>
 							</div>
-							<!--Line 19-->
+							--><!--Line 18b--><!--
+							<div style="width:187mm;">
+								<div class="styLNLeftNumBox" style="width:8mm;">18b</div>
+								<div class="styLNDesc" style="width:147mm;padding-left:1mm;font-weight:bold;font-size:7.5pt">
+									<span style="float:left;">If you're eligible for the employee retention credit solely because your business is a recovery startup business</span>
+									--><!--Dotted Line--><!--
+									--><!--<span class="styDotLn" style="float:right;padding-right:1mm;">...</span>--><!--
+								</div>
+								<input type="checkbox" alt="EmployeeRetentionCreditForStartup" class="styCkbox">
+									<xsl:call-template name="PopulateCheckbox">
+										<xsl:with-param name="TargetNode" select="$FormData/EligEmplRtntnCrRcvryStartUpInd"/>
+										<xsl:with-param name="BackupName">941SSEligEmplRtntnCrRcvryStartUpInd</xsl:with-param>
+									</xsl:call-template>
+								</input>
+								<label>
+									<xsl:call-template name="PopulateLabel">
+										<xsl:with-param name="TargetNode" select="$FormData/EligEmplRtntnCrRcvryStartUpInd"/>
+										<xsl:with-param name="BackupName">941SSEligEmplRtntnCrRcvryStartUpInd</xsl:with-param>
+									</xsl:call-template>
+									<span style="width:1mm;"/>Check here.<br/>
+								</label>
+							</div>
+							--><!--Line 19--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1mm;">19</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:1mm;">
 										Qualified health plan expenses allocable to qualified sick leave wages for leave taken before 
 										<span style="float:left;">April 1, 2021</span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">............................</span>
 									</div>
 								</span>
@@ -3366,14 +3421,14 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 20-->
+							--><!--Line 20--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1mm;">20</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:1mm;">
 										Qualified health plan expenses allocable to qualified family leave wages for leave taken before 
 										<span style="float:left;">April 1, 2021</span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">............................</span>
 									</div>
 								</span>
@@ -3386,55 +3441,55 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 21-->
+							--><!--Line 21--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">21</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
-										<span style="float:left;">Reserved for future use</span>
-										<!--<span style="float:left;">Qualified wages for the employee retention credit</span>-->
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
+										--><!--<span style="float:left;">Reserved for future use</span>--><!--
+										<span style="float:left;">Qualified wages for the employee retention credit</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">................</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
 									<div class="styIRS941RightNumBox">21</div>
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/QlfyWgsPdRtnEmplCOVIDAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>
-							<!--Line 22-->
+							--><!--Line 22--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">22</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
-										<span style="float:left;">Reserved for future use</span>
-										<!--<span style="float:left;">Qualified health plan expenses for the employee retention credit</span>-->
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
+										--><!--<span style="float:left;">Reserved for future use</span>--><!--
+										<span style="float:left;">Qualified health plan expenses for the employee retention credit</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
 									<div class="styIRS941RightNumBox">22</div>
-									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-										<!--<xsl:call-template name="PopulateAmount">
+									<div class="styLNCtrNumBox" style="width:39mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$FormData/QHPExpnssWgsPdRtnEmplCOVIDAmt"/>
-										</xsl:call-template>-->
+										</xsl:call-template>
 									</div>
 								</span>
 							</div>
-							<!--Line 23-->
+							--><!--Line 23--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">23</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
-										<span style="float:left;"> Qualified sick leave wages for leave taken after March 31, 2021, and before October 1, 2021 </span>
-										<!--<span style="float:left;">Credit from Form 5884-C, line 11, for this quarter</span>-->
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">..</span>
+										<span style="float:left;"> Qualified sick leave wages for leave taken after March 31, 2021 </span>
+										--><!--<span style="float:left;">Credit from Form 5884-C, line 11, for this quarter</span>--><!--
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
@@ -3446,15 +3501,15 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 24-->
+							--><!--Line 24--><!--
 							<div style="width:187mm;height:7mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">24</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
 										<span style="float:left;">Qualified health plan expenses allocable to qualified sick leave wages reported on line 23</span>
-										<!--Qualified wages paid March 13 through 31, 2021, to employees retained during the COVID-19 crisis 
-										<span style="float:left;">(second quarter only) </span>-->
-										<!--Dotted Line-->
+										--><!--Qualified wages paid March 13 through 31, 2021, to employees retained during the COVID-19 crisis 
+										<span style="float:left;">(second quarter only) </span>--><!--
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">..</span>
 									</div>
 								</span>
@@ -3467,15 +3522,15 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 25-->
+							--><!--Line 25--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1mm;">25</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:1mm;">
 										Amounts under certain collectively bargained agreements allocable to qualified sick leave wages 
 										<span style="float:left;">reported on line 23</span>
-										<!--<span style="float:left;">Qualified health plan expenses on wages reported on line 24 (second quarter only)</span>-->
-										<!--Dotted Line-->
+										--><!--<span style="float:left;">Qualified health plan expenses on wages reported on line 24 (second quarter only)</span>--><!--
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
 									</div>
 								</span>
@@ -3488,15 +3543,15 @@
 									</div>
 								</span>
 							</div>
-							<!--5/12/2021 AM: New lines 26-28 added due to COVID UWR 369520 -->
-							<!--Line 26-->
+							--><!--5/12/2021 AM: New lines 26-28 added due to COVID UWR 369520 --><!--
+							--><!--Line 26--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">26</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
-										<span style="float:left;">Qualified family leave wages for leave taken after March 31, 2021, and before October 1, 2021</span>
-										<!--Dotted Line-->
-										<span class="styDotLn" style="float:right;padding-right:1mm;">.</span>
+										<span style="float:left;">Qualified family leave wages for leave taken after March 31, 2021</span>
+										--><!--Dotted Line--><!--
+										<span class="styDotLn" style="float:right;padding-right:1mm;">..........</span>
 									</div>
 								</span>
 								<span style="float:right;padding-top:1mm;">
@@ -3508,13 +3563,13 @@
 									</div>
 								</span>
 							</div>
-							<!--Line 27-->
+							--><!--Line 27--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:3mm;">27</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:3mm;">
 										<span style="float:left;">Qualified health plan expenses allocable to qualified family leave wages reported on line 26</span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">..</span>
 									</div>
 								</span>
@@ -3527,14 +3582,14 @@
 									</div>
 								</span> 
 							</div>
-							<!--Line 28-->
+							--><!--Line 28--><!--
 							<div style="width:187mm;height:8mm;">
 								<span style="float:left;">
 									<div class="styLNLeftNumBox" style="width:8mm;padding-top:1mm;">28</div>
 									<div class="styLNDesc" style="width:134mm;padding-left:1mm;font-weight:bold;padding-top:1mm;">
 										Amounts under certain collectively bargained agreements allocable to qualified family leave 
 										<span style="float:left;">wages reported on line 26</span>
-										<!--Dotted Line-->
+										--><!--Dotted Line--><!--
 										<span class="styDotLn" style="float:right;padding-right:1mm;">........................</span>
 									</div>
 								</span>
@@ -3548,7 +3603,7 @@
 								</span>
 							</div>
 						</div>
-						<!--Part 4-->
+						--><!--Part 4--><!--
 						<div class="styBB" style="width:187mm;border-top-width:1px;">
 							<div class="styPartName" style="width:13mm;text-align:center;height:4mm;font-size:9pt;">Part 4:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:4mm;padding-left:2mm;font-size:9pt;">May 
@@ -3641,7 +3696,7 @@
 								</div>
 							</div>
 						</div>
-						<!--Part 5-->
+						--><!--Part 5--><!--
 						<div class="styBB" style="width:187mm;border-top-width:1px;">
 							<div class="styPartName" style="width:13mm;text-align:center;height:4mm;font-size:9pt;">Part 5:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:4mm;padding-left:2mm;font-size:9pt;">Sign here. You MUST complete both pages of Form 941-SS and SIGN it.</div>
@@ -3769,7 +3824,7 @@
 							</div>
 							<div class="styLNDesc" style="width:60mm;float:right;">
 								<span style="float:left;">Check if you are self-employed </span>
-								<!--Dotted Line-->
+								--><!--Dotted Line--><!--
 								<span class="styDotLn" style="float:left;padding-right:1mm;">....</span>
 								<input type="checkbox" alt="SelfEmployed" class="styCkbox">
 									<xsl:call-template name="PopulateCheckbox">
@@ -3963,18 +4018,18 @@
 								</xsl:otherwise>
 							</xsl:choose>
 						</div>
-					</div>
-					<!--Page Footer-->
+					--><!--</div>--><!--
+					--><!--Page Footer--><!--
 					<div class="pageEnd" style="width:187mm;">
 						<span style="float:left;clear:none;">Page <span class="styBoldText" style="font-size:9pt;">3</span>
 						</span>
 						<span style="float:right;clear:none;">Form <span class="styBoldText" style="font-size:9pt;">
 								<xsl:if test="/AppData/Parameters/SubmissionType='941SS'">941-SS</xsl:if>
 								<xsl:if test="/AppData/Parameters/SubmissionType='941PR'">941-PR (ENG)</xsl:if>
-							</span> (Rev. 6-2023)</span>
+							</span> (Rev. 6-2022)</span>
 					</div>
-					<!-- BEGIN Left Over Table -->
-					<!-- Additonal Data Title Bar and Button -->
+					--><!-- BEGIN Left Over Table --><!--
+					--><!-- Additonal Data Title Bar and Button --><!--
 					<div class="styLeftOverTitleLine" id="LeftoverData">
 						<div class="styLeftOverTitle" style="float:left;">
 				Additional Data        
@@ -3983,7 +4038,7 @@
 							<input class="styLeftoverTableBtn" TabIndex="1" type="button" value="Return to Form" onclick="javascript:returnToWriteInImage();"/>
 						</div>
 					</div>
-					<!-- Additional Data Table -->
+					--><!-- Additional Data Table --><!--
 					<table class="styLeftOverTbl">
 						<xsl:call-template name="PopulateCommonLeftover">
 							<xsl:with-param name="TargetNode" select="$FormData"/>
@@ -3993,7 +4048,7 @@
 				</form>
 			</body>
 			</xsl:otherwise>
-			</xsl:choose>
+			</xsl:choose>-->
 		</html>
 	</xsl:template>
 	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
@@ -4019,10 +4074,10 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-					<xsl:if test="not($Print) or $Print=''">
+					<!--<xsl:if test="not($Print) or $Print=''">-->
 						<xsl:call-template name="IRS941SSPRStyle"/>
 						<xsl:call-template name="AddOnStyle"/>
-					</xsl:if>
+					<!--</xsl:if>-->
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
@@ -4032,8 +4087,8 @@
 				</xsl:call-template>
 			</xsl:variable>
 			<!-- 1/21/2022 AM: Choice inserted based on UWR 375998 to split Q1 and Q2-Q4 -->
-			<xsl:choose>
-				<xsl:when test="substring($Date, 6, 2) = '03'">
+			<!--<xsl:choose>
+				<xsl:when test="substring($Date, 6, 2) = '03'">-->
 					<body class="styBodyClass" style="width:187mm;">
 						<form name="IRS941PR" style="font-family:arial;">
 							<!--  Begin Header section 1 -->
@@ -4298,8 +4353,8 @@
 						<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
 							<div class="styLNLeftNumBoxSD" style="width:8mm;">1</div>
 							<div class="styLNDesc" style="width:122mm;padding-left:1mm;font-weight:bold;">
-								Número de empleados que recibieron salarios, propinas u otras remuneraciones durante el período de pago que incluye: Mar. 12 (Quarter 1), <!--el 12 de junio (2do trimestre), 12 de septiembre (3er trimestre) o 12 de diciembre 
-								<span style="float:left;">(4to trimestre) </span>-->
+								Número de empleados que recibieron salarios, propinas u otras remuneraciones durante el período de pago que incluye: Mar. 12 (Quarter 1), el 12 de junio (2do trimestre), 12 de septiembre (3er trimestre) o 12 de diciembre 
+								<span style="float:left;">(4to trimestre) </span>
 								<!--Dotted Line-->
 								<span class="styDotLn" style="float:right;padding-right:1mm;">...................</span>
 							</div>
@@ -4378,7 +4433,7 @@
 									</div>
 								</div>								
 							</div>
-							<div class="styBB" style="width:38mm;height:25mm;float:right;font-size:6pt;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:1mm;padding-right:1mm;padding-top:1mm"> *Include taxable qualified sick and family leave wages paid in 2022 for leave taken after March 31, 2021, and before October 1, 2021, on line 5a. Use lines 5a(i) and 5a(ii) <b>only</b> for taxable qualified sick and family leave wages paid in 2022 for leave taken after March 31, 2020, and before April 1, 2021.
+							<div class="styBB" style="width:38mm;height:25mm;float:right;font-size:6pt;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:1mm;padding-right:1mm;padding-top:1mm"> *Include taxable qualified sick and family leave wages paid in 2023 for leave taken after March 31, 2021, and before October 1, 2021, on line 5a. Use lines 5a(i) and 5a(ii) <b>only</b> for taxable qualified sick and family leave wages paid in 2023 for leave taken after March 31, 2020, and before April 1, 2021.
 							</div>
 							<!--Line 5a(i)-->
 							<div style="width:149mm;">
@@ -4708,19 +4763,21 @@ familiar calificados </b>
 							</span>
 						</div>
 						<!-- Bullet message -->
+						
 						<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
 							<span style="float:left;padding-bottom:0mm;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-bottom:0mm;"/>
 								<div class="styLNDesc" style="width:130mm;padding-left:1mm;padding-bottom:0mm;">
-									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Bullet Image"/>
+								<!--12/16/2022-->
+									<!--<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Right pointing arrowhead image"/>-->
 									<b> TIENE</b> que completar ambas páginas del Formulario 941-PR y luego <b>FIRMARLO.</b>
 								</div>
 							</span>
-							<span style="float:right;padding-bottom:0mm;">
+							<!--<span style="float:right;padding-bottom:0mm;">
 								<div style="width:30mm;text-align:right;padding-bottom:0mm;">
-									<img src="{$ImagePath}/941SSPR_NextES.gif" alt="Pagina siguiente Flecha imagen"/>
+									<img src="{$ImagePath}/941SSPR_NextES.GIF" alt="Pagina siguiente Flecha imagen"/>
 								</div>
-							</span>
+							</span>-->
 						</div>
 						<!-- Page boundary -->
 						<div class="pageEnd" style="width:187mm;float:none;clear:both;">
@@ -5124,42 +5181,54 @@ familiar calificados </b>
 								<div class="styLNDesc" style="width:20mm;padding-left:1mm;height:25mm">
 									<b>Marque uno:</b>
 								</div>
-								<input type="checkbox" alt="TotalImpuestosMenosCantidadLímite" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
-										<xsl:with-param name="BackupName">941PRTotalTaxLessThanLimitAmtInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:154.5mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
-										<xsl:with-param name="BackupName">941PRTotalTaxLessThanLimitAmtInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:150mm;padding-top:1mm;font-size:7pt;">
-										<b>La línea 12 de esta planilla es menos de $2,500 o la línea 12 
-						de la planilla del trimestre anterior es menos de $2,500 y usted no tuvo una obligación de depositar $100,000 el próximo día durante
-						 el trimestre en curso.</b> Si la línea <b>12</b> del trimestre
-						 anterior era menos de $2,500 pero la línea <b>12</b> de la planilla en curso es $100,000 o más, usted tiene que proveer un registro
-						 de su obligación contributiva. Si es depositante de itinerario mensual, complete el itinerario de depósitos, a continuación; si es 
-						 depositante de itinerario bisemanal, adjunte el Anexo B (Formulario 941-PR). Pase a la Parte 3.</span>
-								</label>
+									<input type="checkbox" alt="TotalImpuestosMenosCantidadLímite" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
+											<xsl:with-param name="BackupName">941PRTotalTaxLessThanLimitAmtInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:154.5mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
+											<xsl:with-param name="BackupName">941PRTotalTaxLessThanLimitAmtInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:150mm;padding-top:1mm;font-size:7pt;">
+										<b>La línea 12 de esta planilla es menos de $2,500 o la línea 12 	de la planilla del trimestre 
+										anterior es menos de $2,500 y usted no tuvo una obligación de depositar $100,000 el próximo día 
+										durante el trimestre en curso.</b> Si la línea <b>12</b> del trimestre anterior era menos de $2,500 
+										pero la línea <b>12</b> de la planilla en curso es $100,000 o más, usted tiene que proveer un 
+										registro de su obligación contributiva. Si es depositante de itinerario mensual, complete el 
+										itinerario de depósitos, a continuación; si es depositante de itinerario bisemanal, adjunte el 
+										Anexo B (Formulario 941-PR). Pase a la Parte 3.</span>
+									</label>
+								</span>
 								<br/>
 								<br/>
-								<input type="checkbox" alt="DepositanteMensualHorario" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941PRMonthlyScheduleDepositorInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941PRMonthlyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:150mm;padding-top:1mm;font-size:7pt;">
-										<b>Era depositante de itinerario mensual para todo el trimestre.</b> Anote la obligación contributiva para cada mes y la 
-						obligación contributiva para el trimestre, luego, pase a la Parte 3.</span>
-								</label>
+									<input type="checkbox" alt="DepositanteMensualHorario" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941PRMonthlyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941PRMonthlyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:150mm;padding-top:1mm;font-size:7pt;">
+										<b>Era depositante de itinerario mensual para todo el trimestre.</b> Anote la obligación 
+										contributiva para cada mes y la obligación contributiva para el trimestre, luego, pase a la 
+										Parte 3.</span>
+									</label>
+								</span>
 							</div>
 							<div style="width:187mm;height:7mm;float:none;clear:both;">
 								<div class="styLNDesc" style="font-weight:bold;width:83mm;padding-top:3mm;text-align:right;padding-right:4mm;padding-left:35mm;">
@@ -5205,40 +5274,48 @@ familiar calificados </b>
 				</div>
 							</div>
 							<div style="width:187mm;padding-left:29mm;float:none;clear:both;">
-								<input type="checkbox" alt="DepositanteBisemanalHorario" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
-										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941PRSemiweeklyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941PRSemiweeklyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:148mm;padding-top:1mm;">
-										<b>Era depositante de itinerario bisemanal durante cualquier parte de este trimestre.</b> Complete el Anexo B (Formulario 941-PR): Registro de la Obligación Contributiva
-					 para los Depositantes de Itinerario Bisemanal, y adjúntelo al Formulario 941-PR. </span>
-									<xsl:call-template name="SetFormLinkInline">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
 									</xsl:call-template>
-								</label>
+									<input type="checkbox" alt="DepositanteBisemanalHorario" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941PRSemiweeklyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941PRSemiweeklyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:148mm;padding-top:1mm;">
+										<b>Era depositante de itinerario bisemanal durante cualquier parte de este trimestre.</b> Complete 
+										el Anexo B (Formulario 941-PR): Registro de la Obligación Contributiva para los Depositantes de 
+										Itinerario Bisemanal, y adjúntelo al Formulario 941-PR. </span>
+										<xsl:call-template name="SetFormLinkInline">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+										</xsl:call-template>
+									</label>
+								</span>
 							</div>
 						</div>
 						<!-- Bullet message -->
+						
 						<div style="width:187mm;padding-top:1mm;padding-bottom:0mm;float:none;clear:both;">
 							<span style="float:left;padding-bottom:0mm;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-bottom:0mm;"/>
 								<div class="styLNDesc" style="width:130mm;padding-left:1mm;padding-bottom:0mm;">
-									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Bullet Image"/>
+								<!--12/16/2022-->
+									<!--<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Right pointing arrowhead image"/>-->
 									<b> TIENE</b> que completar ambas páginas del Formulario 941-PR y luego <b>FIRMARLO.</b>
 								</div>
 							</span>
-							<span style="float:right;padding-bottom:0mm;">
+							<!--<span style="float:right;padding-bottom:0mm;">
 								<div style="width:30mm;text-align:right;padding-bottom:0mm;">
-									<img src="{$ImagePath}/941SSPR_NextES.gif" alt="Pagina siguiente Flecha imagen"/>
+									<img src="{$ImagePath}/941SSPR_NextES.GIF" alt="Pagina siguiente Flecha imagen"/>
 								</div>
-							</span>
+							</span>-->
 						</div>
 						<!-- Page boundary -->
 						<div class="pageEnd" style="width:187mm;float:none;clear:both;">
@@ -5455,7 +5532,7 @@ familiar calificados </b>
 								<div class="styIRS941RightNumBox" style="width:10mm;">23</div>
 								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/WorkOpportunityCreditAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/QlfySLWgsAftrAmt"/>
 									</xsl:call-template>
 								</div>
 							</span>
@@ -5475,7 +5552,7 @@ familiar calificados </b>
 								<div class="styIRS941RightNumBox" style="width:10mm;">24</div>
 								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/QlfyWgsPdMarchRtnEmplAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/QHPExpnssQlfySLWgsAftrAmt"/>
 									</xsl:call-template>
 								</div>
 							</span>
@@ -5495,7 +5572,7 @@ familiar calificados </b>
 								<div class="styIRS941RightNumBox" style="width:10mm;">25</div>
 								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/QHPExpnssWgsPdMarchRtnEmplAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/CrtnBrgnAgrmtQlfySLWgsAftrAmt"/>
 									</xsl:call-template>
 								</div>
 							</span>
@@ -5668,9 +5745,10 @@ familiar calificados </b>
 				contribuyente) está basada en toda información de la cual el preparador tenga conocimiento.
 			</div>
 							<div style="width:187mm;float:none;clear:both;">
-								<div style="width:14mm;padding-right:1mm;float:left;">
+							<!--12/16/2022-->
+								<!--<div style="width:14mm;padding-right:1mm;float:left;">
 									<img src="{$ImagePath}/941_Signature.GIF" alt="Signature Image"/>
-								</div>
+								</div>-->
 								<div style="width:18mm;height:17mm;padding-top:1mm;font-weight:bold;font-size:10pt;float:left;">
 					Firme su nombre aquí
 				</div>
@@ -6056,12 +6134,12 @@ familiar calificados </b>
 					</table>
 				</form>
 			</body>
-			</xsl:when>
-			<xsl:otherwise>
+			<!--</xsl:when>
+			<xsl:otherwise>-->
 			<!-- Q2 and subsequent quarters BEGIN -->
-			<body class="styBodyClass" style="width:187mm;">
+			<!--<body class="styBodyClass" style="width:187mm;">
 						<form name="IRS941PR" style="font-family:arial;">
-							<!--  Begin Header section 1 -->
+							--><!--  Begin Header section 1 --><!--
 							<div class="styGenericDiv" style="width:187mm;">
 								<xsl:call-template name="DocumentHeader"/>
 							</div>
@@ -6092,17 +6170,17 @@ familiar calificados </b>
 									<span class="styFormNumber" style="font-size:15pt;">
 										<xsl:if test="/AppData/Parameters/SubmissionType='941SS'">941-SS</xsl:if>
 										<xsl:if test="/AppData/Parameters/SubmissionType='941PR'">941-PR</xsl:if>
-										para 2023: <span class="styMainTitle" style="font-size:10pt;">Planilla para la Declaración 
+										para 2022: <span class="styMainTitle" style="font-size:10pt;">Planilla para la Declaración 
 										Federal TRIMESTRAL del Patrono</span>
 									</span>
 									<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
-										<span class="styAgency" style="float:left;padding-bottom:0mm;">(Rev. junio de 2023)<span style="width:13mm;"/>
+										<span class="styAgency" style="float:left;padding-bottom:0mm;">(Rev. junio de 2022)<span style="width:13mm;"/>
 										Department of the Treasury — Internal Revenue Service</span>
 										<span class="styOMB" style="width:34mm;font-size:7pt;text-align:right;border:0px;float:right;padding-bottom:0mm;">OMB No. 1545-0029</span>
 									</div>
 								</div>
 							</div>
-							<!-- 5/19/2015 AM: Adjusted height of Filer Name and Trade name from 8mm to auto per Defect 43152 -->
+							--><!-- 5/19/2015 AM: Adjusted height of Filer Name and Trade name from 8mm to auto per Defect 43152 --><!--
 							<div style="width:187mm;float:none;clear:both;">
 								<div class="styBB" style="width:122mm;height:auto;float:left;border:black solid 1px;padding-top:1mm;padding-left:2mm;padding-right:2mm;">
 									<div style="width:118mm;padding-top:0mm;">
@@ -6204,12 +6282,12 @@ familiar calificados </b>
 						</div>
 						<div style="float:right;padding-right:2mm;">
 							<div class="styBB" style="width:60mm;height:46mm;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:2mm;padding-top:2mm;">
-								<div class="styPartName" style="width:55mm;height:8mm;text-align:left;padding-left:1mm;padding-top:1mm;padding-bottom:1mm;">Informe para este trimestre de 2023.<br/>
+								<div class="styPartName" style="width:55mm;height:8mm;text-align:left;padding-left:1mm;padding-top:1mm;padding-bottom:1mm;">Informe para este trimestre de 2021.<br/>
 									<span style="font-size:7pt;">(Marque uno).</span>
 								</div>
-								<!--<xsl:variable name="Date">
+								--><!--<xsl:variable name="Date">
 									<xsl:value-of select="$RtnHdrData/QuarterEndingDt"/>
-								</xsl:variable>-->
+								</xsl:variable>--><!--
 								<div style="width:55mm;float:none;clear:both;font-size:8pt;">
 									<div style="width:55mm;float:none;clear:both;">
 										<div style="width:55mm;padding-top:0.8mm;float:none;clear:both;">
@@ -6319,16 +6397,16 @@ familiar calificados </b>
 							<div class="styPartName" style="width:13mm;text-align:center;height:4mm;font-size:9pt;">Parte 1:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:4mm;padding-left:2mm;font-size:9pt;">Conteste las preguntas a continuación para este trimestre.</div>
 						</div>
-						<!--Line 1-->
+						--><!--Line 1--><!--
 						<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
 							<div class="styLNLeftNumBoxSD" style="width:8mm;">1</div>
 							<div class="styLNDesc" style="width:122mm;padding-left:1mm;font-weight:bold;">
-								Número de empleados que recibieron salarios, propinas u otras remuneraciones durante el período de pago que incluye: <!--Mar. 12 (Quarter 1),--> el 12 de junio (2do trimestre), 12 de septiembre (3er trimestre) o 12 de diciembre 
+								Número de empleados que recibieron salarios, propinas u otras remuneraciones durante el período de pago que incluye: el 12 de junio (2do trimestre), 12 de septiembre (3er trimestre) o 12 de diciembre 
 								<span style="float:left;">(4to trimestre) </span>
-								<!--Dotted Line-->
-								<span class="styDotLn" style="float:right;padding-right:1mm;">..........................</span>
+								--><!--Dotted Line--><!--
+								<span class="styDotLn" style="float:right;padding-right:1mm;">........................</span>
 							</div>
-							<span style="float:right;padding-top:2.5mm;">
+							<span style="float:right;padding-top:3mm;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">1</div>
 								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 									<xsl:call-template name="PopulateText">
@@ -6337,24 +6415,24 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 2-->
+						--><!--Line 2--><!--
 						<div style="width:187mm;padding-top:2mm;padding-bottom:1mm;float:none;clear:both;">
 							<div class="styLNLeftNumBoxSD" style="width:8mm;">2</div>
 							<div class="styLNDesc" style="width:179mm;background-color:gray;"/>
 						</div>
-						<!--Line 3-->
+						--><!--Line 3--><!--
 						<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
 							<div class="styLNLeftNumBoxSD" style="width:8mm;">3</div>
 							<div class="styLNDesc" style="width:179mm;background-color:gray;"/>
 						</div>
-						<!--Line 4-->
+						--><!--Line 4--><!--
 						<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
 							<div class="styLNLeftNumBoxSD" style="width:8mm;">4</div>
 							<div class="styLNDesc" style="width:130mm;padding-left:1mm;font-weight:bold;">
 							Si los salarios, propinas y otras remuneraciones no están sujetos a las contribuciones al
 							<span style="float:left;">Seguro Social y al <i>Medicare</i>
 								</span>
-								<!--Dotted Line-->
+								--><!--Dotted Line--><!--
 								<span class="styDotLn" style="float:right;padding-right:1mm;">.....................</span>
 							</div>
 							<div style="padding-top:2mm;float:left;">
@@ -6373,7 +6451,7 @@ familiar calificados </b>
 								</label>
 							</div>
 						</div>
-						<!--Line 5 Header-->
+						--><!--Line 5 Header--><!--
 						<div style="width:187mm;float:none;clear:both;">
 							<span style="width:57mm;"/>
 							<span style="width:35mm;font-weight:bold;text-align:center;">Columna 1</span>
@@ -6381,7 +6459,7 @@ familiar calificados </b>
 							<span style="width:35mm;font-weight:bold;text-align:center;">Columna 2</span>
 						</div>
 						<div style="width:187mm;float:none;">
-							<!--Line 5a-->
+							--><!--Line 5a--><!--
 							<div style="width:149mm;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:0mm;">5a</div>
 								<div class="styLNDesc" style="width:49mm;padding-left:1mm;padding-top:0mm;font-weight:bold;">
@@ -6403,9 +6481,9 @@ familiar calificados </b>
 									</div>
 								</div>								
 							</div>
-							<div class="styBB" style="width:38mm;height:27mm;float:right;font-size:6pt;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:1mm;padding-right:1mm;padding-top:1mm"> *Include taxable qualified sick and family leave wages paid in this quarter of 2022 for leave taken after March 31, 2021, and before October 1, 2021, on line 5a. Use lines 5a(i) and 5a(ii) <b>only</b> for taxable qualified sick and family leave wages paid in this quarter of 2022 for leave taken after March 31, 2020, and before April 1, 2021.
+							<div class="styBB" style="width:38mm;height:25mm;float:right;font-size:6pt;border-left-width:1px;border-right-width:1px;border-top-width:1px;padding-left:1mm;padding-right:1mm;padding-top:1mm"> *Incluya en la línea <b>5a</b> los salarios de licencia por enfermedad y familiar calificados sujetos a la contribución por la licencia tomada después del 31 de marzo de 2021. Use las líneas <b>5a(i)</b> y <b>5a(ii) sólo</b> por los salarios pagados después del 31 de marzo de 2020 por la licencia tomada antes del 1 de abril de 2021.
 							</div>
-							<!--Line 5a(i)-->
+							--><!--Line 5a(i)--><!--
 							<div style="width:149mm;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:0mm;">5a</div>
 								<div class="styLNDesc" style="width:49mm;padding-left:1mm;padding-top:0mm;font-weight:bold;">
@@ -6427,7 +6505,7 @@ familiar calificados </b>
 									</div>
 								</div>
 							</div>
-							<!--Line 5a(ii)-->
+							--><!--Line 5a(ii)--><!--
 							<div style="width:149mm;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:0mm;">5a</div>
 								<div class="styLNDesc" style="width:49mm;padding-left:1mm;padding-top:0mm;font-weight:bold;">
@@ -6449,7 +6527,7 @@ familiar calificados </b>
 									</div>
 								</div>
 							</div>
-							<!--Line 5b-->
+							--><!--Line 5b--><!--
 							<div style="width:149mm;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:0mm;">5b</div>
 								<div class="styLNDesc" style="width:49mm;padding-top:0mm;padding-left:1mm;font-weight:bold;">
@@ -6471,7 +6549,7 @@ familiar calificados </b>
 									</div>
 								</div>
 							</div>
-							<!--Line 5c-->
+							--><!--Line 5c--><!--
 							<div style="width:187mm;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:0mm;">5c</div>
 								<div class="styLNDesc" style="width:49mm;padding-top:0mm;padding-left:1mm;font-weight:bold;">
@@ -6493,7 +6571,7 @@ familiar calificados </b>
 									</div>
 								</div>
 							</div>
-							<!--Line 5d-->
+							--><!--Line 5d--><!--
 							<div style="width:187mm;padding-bottom:0mm;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:0mm;">5d</div>
 								<div class="styLNDesc" style="width:49mm;padding-top:0mm;padding-left:1mm;font-weight:bold;">
@@ -6516,14 +6594,14 @@ familiar calificados </b>
 								</div>
 							</div>
 						</div>
-						<!--Line 5e-->
+						--><!--Line 5e--><!--
 						<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2mm;">5e</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;">
 									<b>Total de contribuciones al Seguro Social y al Medicare.</b> Sume la Columna 2 de las líneas <b>5a, 5a(i), 5a(ii),</b>
 									<span style="float:left;"><b>5b, 5c</b> y <b>5d</b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...........................</span>
 								</div>
 							</span>
@@ -6536,7 +6614,7 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 5f-->
+						--><!--Line 5f--><!--
 						<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">5f</div>
@@ -6544,7 +6622,7 @@ familiar calificados </b>
 									<b>Notificación y solicitud de pago conforme a la sección 3121(q): Contribución adeudada</b>
 									<span style="float:left;">
 										<b>por propinas no declaradas</b> (vea las instrucciones) </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...............</span>
 								</div>
 							</span>
@@ -6557,7 +6635,7 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 6-->
+						--><!--Line 6--><!--
 						<div style="width:187mm;float:none;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.5mm;">6</div>
@@ -6565,7 +6643,7 @@ familiar calificados </b>
 									<span style="float:left;">
 										<b>Total de contribuciones antes de ajustes.</b> Sume las líneas <b>5e</b> y <b>5f</b>
 									</span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 								</div>
 							</span>
@@ -6578,20 +6656,20 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 7-->
+						--><!--Line 7--><!--
 						<div style="width:187mm;float:none;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.5mm;">7</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2.5mm;font-weight:bold;">
 									<span style="float:left;">Ajustes por fracciones de centavos del trimestre actual </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">.............</span>
 								</div>
 							</span>
 							<span style="float:right;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">7</div>
 								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
-									<!-- 7/9/2015 AM: Per KISAM IM02060648, choose statement added to properly display negative numbers and cents only.-->
+									--><!-- 7/9/2015 AM: Per KISAM IM02060648, choose statement added to properly display negative numbers and cents only.--><!--
 									<xsl:choose>
 										<xsl:when test="starts-with($FormData/CurrentQtrFractionsCentsAmt,'-') or starts-with($FormData/CurrentQtrFractionsCentsAmt,'.')">
 											<span style="color:darkblue;">
@@ -6609,13 +6687,13 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 8-->
+						--><!--Line 8--><!--
 						<div style="width:187mm;float:none;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2.5mm;">8</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2.5mm;font-weight:bold;">
 									<span style="float:left;">Ajustes por compensación por enfermedad del trimestre actual </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 								</div>
 							</span>
@@ -6628,14 +6706,14 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 9-->
+						--><!--Line 9--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:2mm;">9</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;font-weight:bold;">
 									<span style="float:left;">Ajustes por propinas y por seguro temporal de vida colectivo a término fijo del trimestre actual </span>
-									<!--<span style="float:left;"> actual </span>-->
-									<!--Dotted Line-->
+									--><!--<span style="float:left;"> actual </span>--><!--
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">..</span>
 								</div>
 							</span>
@@ -6648,7 +6726,7 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 10-->
+						--><!--Line 10--><!--
 						<div style="width:187mm;float:none;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm;">10</div>
@@ -6665,8 +6743,8 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!-- 8/31/2016 AM: Per UWR 187378, Line 11 will be moved and named as Line 13. Adding two new lines (Line 11 and 12) and numbering will redone -->
-						<!--Line 11a-->
+						--><!-- 8/31/2016 AM: Per UWR 187378, Line 11 will be moved and named as Line 13. Adding two new lines (Line 11 and 12) and numbering will redone --><!--
+						--><!--Line 11a--><!--
 						<div style="width:187mm;float:none;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;">11a</div>
@@ -6678,7 +6756,7 @@ familiar calificados </b>
 											<xsl:with-param name="TargetNode" select="$FormData/PayrollTaxCreditAmt"/>
 										</xsl:call-template>
 									</span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 								</div>
 							</span>
@@ -6691,7 +6769,7 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 11b-->
+						--><!--Line 11b--><!--
 						<div style="width:187mm;float:none;clear:both;">
 							<span style="float:left;padding-top:.5mm;">
 								<div class="styLNLeftNumBox" style="width:8mm;">11b</div>
@@ -6699,7 +6777,7 @@ familiar calificados </b>
 									<b>Porción no reembolsable del crédito por los salarios de licencia por enfermedad y
 familiar calificados </b>
 									<span style="float:left;"><b>por la licencia tomada antes del 1 de abril de 2021</b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...............</span>
 								</div>
 							</span>
@@ -6712,54 +6790,53 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 11c-->
+						--><!--Line 11c--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm;">11c</div>
-								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;font-weight:bold">
-									<span style="float:left;">Reserved for future use</span>
-									<!--<span style="float:left;"><b>Porción no reembolsable del crédito de retención de empleados</b></span>-->
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
+								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;">
+									<span style="float:left;"><b>Porción no reembolsable del crédito de retención de empleados</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 								</div>
 							</span>
 							<span style="float:right;padding-top:0.2mm;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">11c</div>
-								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateAmount">
+								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" select="$FormData/NrfdblEmplRtntnCrCOVIDAmt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!-- Bullet message -->
+						--><!-- Bullet message --><!--
 						<div style="width:187mm;padding-bottom:0mm;float:none;clear:both;">
 							<span style="float:left;padding-bottom:0mm;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-bottom:0mm;"/>
 								<div class="styLNDesc" style="width:130mm;padding-left:1mm;padding-bottom:0mm;">
-									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Bullet Image"/>
+									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Right pointing arrowhead image"/>
 									<b> TIENE</b> que completar ambas páginas del Formulario 941-PR y luego <b>FIRMARLO.</b>
 								</div>
 							</span>
 							<span style="float:right;padding-bottom:0mm;">
 								<div style="width:30mm;text-align:right;padding-bottom:0mm;">
-									<img src="{$ImagePath}/941SSPR_NextES.gif" alt="Pagina siguiente Flecha imagen"/>
+									<img src="{$ImagePath}/941SSPR_NextES.GIF" alt="Pagina siguiente Flecha imagen"/>
 								</div>
 							</span>
 						</div>
-						<!-- Page boundary -->
+						--><!-- Page boundary --><!--
 						<div class="pageEnd" style="width:187mm;float:none;clear:both;">
 							<span style="float:left;clear:none;font-weight:bold;width:117mm;padding-top:0mm;">Para el Aviso sobre la Ley de Confidencialidad de Información y la Ley de Reducción de Trámites, vea el dorso del Comprobante de Pago.</span>
 							<span style="float:left;clear:none;margin-left:5mm;padding-top:1.2mm;">Cat. No. 17009J</span>
 							<span style="float:right;clear:none;padding-top:0.4mm;">Formulario <span class="styBoldText" style="font-size:9pt;">
 									<xsl:if test="/AppData/Parameters/SubmissionType='941SS'">941-SS</xsl:if>
 									<xsl:if test="/AppData/Parameters/SubmissionType='941PR'">941-PR</xsl:if>
-								</span> (Rev. 6-2023)</span>
+								</span> (Rev. 4-2022)</span>
 						</div>
 						<p style="page-break-before: always"/>
-						<!--Begin Page 2-->
+						--><!--Begin Page 2--><!--
 						<div style="width:187mm;float:none;clear:both;">
-							<!--Name Shown on return-->
+							--><!--Name Shown on return--><!--
 							<div class="styBB" style="width:187mm;font-size:7pt;border-top-width:2px;float:none;clear:both;">
 								<div class="styFNBox" style="width:126mm; height:8.5mm;">
 									<b>Nombre</b> (el de usted, no el de su negocio)<br/>
@@ -6788,15 +6865,15 @@ familiar calificados </b>
 							<div class="styPartName" style="width:13mm;text-align:center;height:4mm;font-size:9pt;">Parte 1:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:4mm;padding-left:2mm;font-size:9pt;">Conteste las preguntas a continuación para este trimestre. (continuación)</div>
 						</div>
-						<!--Line 11d-->
+						--><!--Line 11d--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm;">11d</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;">
 									<b>Porción no reembolsable del crédito por los salarios de licencia por enfermedad y familiar calificados</b>
-									<span style="float:left;"><b>por la licencia tomada después del 31 de marzo de 2021, and before October 1, 2021</b></span>
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">.....</span>
+									<span style="float:left;"><b>por la licencia tomada después del 31 de marzo de 2021</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">.............</span>
 								</div>
 							</span>
 							<span style="float:right;padding-top:1mm;">
@@ -6808,54 +6885,50 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 11e-->
+						--><!--Line 11e--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm;">11e</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;">
-									<!--<b>Porción no reembolsable del crédito de asistencia para las primas de COBRA (vea las instrucciones</b>
-									<span style="float:left;"><b> para los trimestres aplicables) </b></span>-->
-									<span style="float:left;"><b>Reserved for future use</b></span>
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">........................</span>
+									<b>Porción no reembolsable del crédito de asistencia para las primas de COBRA (vea las instrucciones</b>
+									<span style="float:left;"><b> para los trimestres aplicables) </b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">.....................</span>
 								</div>
 							</span>
 							<span style="float:right;padding-top:1mm;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">11e</div>
-								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateAmount">
+								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" select="$FormData/NrfdblCOBRAPremiumSubsidyAmt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 11f-->
+						--><!--Line 11f--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm;">11f</div>
 								<div class="styLNDesc" style="width:92mm;padding-left:1mm;padding-top:2mm;">
-									<!--<span style="float:left;"><b>Número de individuos que recibieron asistencia para las primas de COBRA</b></span>-->
-									<span style="float:left;"><b>Reserved for future use</b></span>
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">................</span>
+									<span style="float:left;"><b>Número de individuos que recibieron asistencia para las primas de COBRA</b></span>
 								</div>
 							</span>
 							<span style="float:left;padding-top:1mm;">
-								<div class="styLNCtrNumBox" style="width:38mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateText">
+								<div class="styLNCtrNumBox" style="width:38mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateText">
 										<xsl:with-param name="TargetNode" select="$FormData/COBRAPremiumSubsidyRcpntCnt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 11g-->
+						--><!--Line 11g--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm;">11g</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;">
-									<span style="float:left;"><b>Total de créditos no reembolsables.</b> Sume las líneas <b>11a, 11b, </b> y <b>11d</b></span>
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">..........</span>
+									<span style="float:left;"><b>Total de créditos no reembolsables.</b> Sume las líneas <b>11a, 11b, 11c, 11d</b> y <b>11e</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">.......</span>
 								</div>
 							</span>
 							<span style="float:right;padding-top:1mm;">
@@ -6867,14 +6940,14 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 12-->
+						--><!--Line 12--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:1mm;">12</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:1mm;">									
 									<b>Total de contribuciones después de considerar los ajustes y créditos no reembolsables.</b> Reste la línea  
 									<span style="float:left;"><b>11d</b> de la línea <b>10</b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
 								</div>
 							</span>
@@ -6887,8 +6960,8 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!-- 12/16/2016 AM: Per Defect 47409, corrected verbiage for line 13 -->
-						<!--Line 13a-->
+						--><!-- 12/16/2016 AM: Per Defect 47409, corrected verbiage for line 13 --><!--
+						--><!--Line 13a--><!--
 						<div style="width:187mm;height:14mm;float:none;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">13a</div>
@@ -6897,7 +6970,7 @@ familiar calificados </b>
 								aplicada de un trimestre anterior, y toda cantidad pagada en exceso aplicada del
 								Formulario 941-X (PR), 941-X, 944-X 
 								<span style="float:left;"> (SP), o 944-X radicado en el trimestre en curso </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">..............</span>
 								</div>
 							</span>
@@ -6910,14 +6983,14 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 13b-->
+						--><!--Line 13b--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">13b</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
 									<span style="float:left;">
 										<b>Cantidad diferida de la parte del patrono de la contribución al Seguro Social</b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">.......</span>
 								</div>
 							</span>
@@ -6930,14 +7003,14 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 13c-->
+						--><!--Line 13c--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:1mm">13c</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:1mm;font-weight:bold">
 									Porción reembolsable del crédito por los salarios de licencia por enfermedad y familiar calificados 
 									<span style="float:left;">por la licencia tomada antes del 1 de abril de 2021 </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...............</span>
 								</div>
 							</span>
@@ -6950,34 +7023,33 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 13d-->
+						--><!--Line 13d--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">13d</div>
-								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;font-weight:bold">
-									<span style="float:left;">Reserved for future use</span>
-									<!--<span style="float:left;"><b>Porción reembolsable del crédito de retención de empleados</b></span>-->
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">........................</span>
+								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
+									<span style="float:left;"><b>Porción reembolsable del crédito de retención de empleados</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">............</span>
 								</div>
 							</span>
 							<span style="float:right;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">13d</div>
-								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateAmount">
+								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" select="$FormData/RfdblEmplRtntnCrCOVIDAmt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 13e-->
+						--><!--Line 13e--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;">13e</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;">
 									<b>Porción reembolsable del crédito por los salarios de licencia por enfermedad y familiar calificados</b>
 									<span style="float:left;"><b>por la licencia tomada después del 31 de marzo de 2021 </b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">.............</span>
 								</div>
 							</span>
@@ -6990,35 +7062,34 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 13f-->
+						--><!--Line 13f--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
-								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm;">13f</div>
-								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;">
-									<!--<b>Porción reembolsable del crédito de asistencia para las primas de COBRA (vea las instrucciones</b>
-									<span style="float:left;"><b> para los trimestres aplicables)</b></span>-->
-									<span style="float:left;"><b>Reserved for future use</b></span>
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">........................</span>
+								<div class="styLNLeftNumBox" style="width:8mm;">13f</div>
+								<div class="styLNDesc" style="width:123mm;padding-left:1mm;">
+									<b>Porción reembolsable del crédito de asistencia para las primas de COBRA (vea las instrucciones</b>
+									<span style="float:left;"><b> para los trimestres aplicables)</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">.....................</span>
 								</div>
 							</span>
 							<span style="float:right;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">13f</div>
-								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateAmount">
+								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" select="$FormData/RfdblCOBRAPremiumSubsidyAmt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 13g-->
+						--><!--Line 13g--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">13g</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
-									<span style="float:left;"><b>Total de depósitos y créditos reembolsables.</b> Sume las líneas <b>13a, 13c, </b> y <b>13e</b></span>
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">.......</span>
+									<span style="float:left;"><b>Total de depósitos y créditos reembolsables.</b> Sume las líneas <b>13a, 13c, 13d, 13e</b> y <b>13f</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">.....</span>
 								</div>
 							</span>
 							<span style="float:right;">
@@ -7030,54 +7101,52 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 13h-->
+						--><!--Line 13h--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">13h</div>
-								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;font-weight:bold">
-									<span style="float:left;">Reserved for future use</span>
-									<!--<span style="float:left;"><b>Total de anticipos recibidos por la radicación del (de los) Formulario(s) 7200(SP) para el trimestre</b></span>-->
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
+								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
+									<span style="float:left;"><b>Total de anticipos recibidos por la radicación del (de los) Formulario(s) 7200(SP) para el trimestre</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">.</span>
 								</div>
 							</span>
 							<span style="float:right;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">13h</div>
-								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateAmount">
+								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" select="$FormData/TotAdvncPymtEmplrCrReqQtrAmt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 13i-->
+						--><!--Line 13i--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">13i</div>
-								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;font-weight:bold">
-									<span style="float:left;">Reserved for future use</span>
-									<!--<span style="float:left;"><b>Total de depósitos y créditos reembolsables menos anticipos.</b> Reste la línea <b>13h</b> de la línea <b>13g</b></span>-->
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
+								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
+									<span style="float:left;"><b>Total de depósitos y créditos reembolsables menos anticipos.</b> Reste la línea <b>13h</b> de la línea <b>13g</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">..</span>
 								</div>
 							</span>
 							<span style="float:right;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">13i</div>
-								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateAmount">
+								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" select="$FormData/NetTotalPaymentRefundableCrAmt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 14-->
+						--><!--Line 14--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">14</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
 									<span style="float:left;">
 										<b>Saldo adeudado.</b> Si la línea <b>12</b> es mayor que la línea <b>13g</b>, anote la diferencia y vea las instrucciones </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">..</span>
 								</div>
 							</span>
@@ -7090,13 +7159,13 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 15-->
+						--><!--Line 15--><!--
 						<div style="width:187mm;height:14mm;float:none;clear:both;">
 							<div class="styLNLeftNumBox" style="width:8mm;">15</div>
 							<div class="styLNDesc" style="width:98.5mm;padding-left:1mm;">
 								<b>Contribución pagada en exceso.</b> Si la línea <b>13g</b> es mayor que la línea
 							<b>12</b>, <span style="float:left;">anote la diferencia </span>
-								<!--Dotted Line-->
+								--><!--Dotted Line--><!--
 								<span class="styDotLn" style="float:right;padding-right:1mm;">..................</span>
 							</div>
 							<div class="styLNCtrNumBox" style="width:33mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
@@ -7138,7 +7207,7 @@ familiar calificados </b>
 								</label>
 							</div>
 						</div>						
-						<!--Part 2-->
+						--><!--Part 2--><!--
 						<div class="styBB" style="width:187mm;float:none;clear:both;border-top-width:1px">
 							<div class="styPartName" style="width:13mm;text-align:center;height:6mm;padding-top:1mm;font-size:9pt;">Parte 2:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:6mm;padding-top:1mm;padding-left:2mm;font-size:9pt;">Infórmenos sobre su itinerario de depósitos y obligación contributiva para este trimestre.</div>
@@ -7148,48 +7217,60 @@ familiar calificados </b>
 				Si no está seguro de si es depositante de itinerario mensual o de itinerario bisemanal, vea el apartado 11 de la Pub. 
 				179.
 			</div>
-							<!--Line 16-->
+							--><!--Line 16--><!--
 							<div style="width:187mm;padding-bottom:1mm;padding-top:1.4mm;mm;font-size:8pt;float:none;clear:both;">
 								<div class="styLNLeftNumBox" style="width:8mm;">16</div>
 								<div class="styLNDesc" style="width:20mm;padding-left:1mm;height:25mm">
 									<b>Marque uno:</b>
 								</div>
-								<input type="checkbox" alt="TotalImpuestosMenosCantidadLímite" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
-										<xsl:with-param name="BackupName">941PRTotalTaxLessThanLimitAmtInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:154.5mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
-										<xsl:with-param name="BackupName">941PRTotalTaxLessThanLimitAmtInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:150mm;padding-top:1mm;font-size:7pt;">
-										<b>La línea 12 de esta planilla es menos de $2,500 o la línea 12 
-						de la planilla del trimestre anterior es menos de $2,500 y usted no tuvo una obligación de depositar $100,000 el próximo día durante
-						 el trimestre en curso.</b> Si la línea <b>12</b> del trimestre
-						 anterior era menos de $2,500 pero la línea <b>12</b> de la planilla en curso es $100,000 o más, usted tiene que proveer un registro
-						 de su obligación contributiva. Si es depositante de itinerario mensual, complete el itinerario de depósitos, a continuación; si es 
-						 depositante de itinerario bisemanal, adjunte el Anexo B (Formulario 941-PR). Pase a la Parte 3.</span>
-								</label>
+									<input type="checkbox" alt="TotalImpuestosMenosCantidadLímite" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
+											<xsl:with-param name="BackupName">941PRTotalTaxLessThanLimitAmtInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:154.5mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/TotalTaxLessThanLimitAmtInd"/>
+											<xsl:with-param name="BackupName">941PRTotalTaxLessThanLimitAmtInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:150mm;padding-top:1mm;font-size:7pt;">
+										<b>La línea 12 de esta planilla es menos de $2,500 o la línea 12 	de la planilla del trimestre 
+										anterior es menos de $2,500 y usted no tuvo una obligación de depositar $100,000 el próximo día 
+										durante el trimestre en curso.</b> Si la línea <b>12</b> del trimestre anterior era menos de $2,500 
+										pero la línea <b>12</b> de la planilla en curso es $100,000 o más, usted tiene que proveer un 
+										registro de su obligación contributiva. Si es depositante de itinerario mensual, complete el 
+										itinerario de depósitos, a continuación; si es depositante de itinerario bisemanal, adjunte el 
+										Anexo B (Formulario 941-PR). Pase a la Parte 3.</span>
+									</label>
+								</span>
 								<br/>
 								<br/>
-								<input type="checkbox" alt="DepositanteMensualHorario" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941PRMonthlyScheduleDepositorInd</xsl:with-param>
 									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941PRMonthlyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:150mm;padding-top:1mm;font-size:7pt;">
-										<b>Era depositante de itinerario mensual para todo el trimestre.</b> Anote la obligación contributiva para cada mes y la 
-						obligación contributiva para el trimestre, luego, pase a la Parte 3.</span>
-								</label>
+									<input type="checkbox" alt="DepositanteMensualHorario" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941PRMonthlyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/MonthlyScheduleDepositorGrp/MonthlyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941PRMonthlyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:150mm;padding-top:1mm;font-size:7pt;">
+										<b>Era depositante de itinerario mensual para todo el trimestre.</b> Anote la obligación 
+										contributiva para cada mes y la obligación contributiva para el trimestre, luego, pase a la 
+										Parte 3.</span>
+									</label>
+								</span>
 							</div>
 							<div style="width:187mm;height:7mm;float:none;clear:both;">
 								<div class="styLNDesc" style="font-weight:bold;width:83mm;padding-top:3mm;text-align:right;padding-right:4mm;padding-left:35mm;">
@@ -7235,53 +7316,59 @@ familiar calificados </b>
 				</div>
 							</div>
 							<div style="width:187mm;padding-left:29mm;float:none;clear:both;">
-								<input type="checkbox" alt="DepositanteBisemanalHorario" class="styCkbox">
-									<xsl:call-template name="PopulateCheckbox">
-										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941PRSemiweeklyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-								</input>
-								<label style="padding-left:3mm;width:155mm;vertical-align:top;">
-									<xsl:call-template name="PopulateLabel">
-										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
-										<xsl:with-param name="BackupName">941PRSemiweeklyScheduleDepositorInd</xsl:with-param>
-									</xsl:call-template>
-									<span style="width:148mm;padding-top:1mm;">
-										<b>Era depositante de itinerario bisemanal durante cualquier parte de este trimestre.</b> Complete el Anexo B (Formulario 941-PR): Registro de la Obligación Contributiva
-					 para los Depositantes de Itinerario Bisemanal, y adjúntelo al Formulario 941-PR. </span>
-									<xsl:call-template name="SetFormLinkInline">
+								<span>
+									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
 									</xsl:call-template>
-								</label>
+									<input type="checkbox" alt="DepositanteBisemanalHorario" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941PRSemiweeklyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label style="padding-left:3mm;width:155mm;vertical-align:top;">
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+											<xsl:with-param name="BackupName">941PRSemiweeklyScheduleDepositorInd</xsl:with-param>
+										</xsl:call-template>
+										<span style="width:148mm;padding-top:1mm;">
+										<b>Era depositante de itinerario bisemanal durante cualquier parte de este trimestre.</b> Complete 
+										el Anexo B (Formulario 941-PR): Registro de la Obligación Contributiva para los Depositantes de 
+										Itinerario Bisemanal, y adjúntelo al Formulario 941-PR. </span>
+										<xsl:call-template name="SetFormLinkInline">
+											<xsl:with-param name="TargetNode" select="$FormData/SemiweeklyScheduleDepositorInd"/>
+										</xsl:call-template>
+									</label>
+								</span>
 							</div>
 						</div>
-						<!-- Bullet message -->
+						--><!-- Bullet message --><!--
 						<div style="width:187mm;padding-top:1mm;padding-bottom:0mm;float:none;clear:both;">
 							<span style="float:left;padding-bottom:0mm;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-bottom:0mm;"/>
 								<div class="styLNDesc" style="width:130mm;padding-left:1mm;padding-bottom:0mm;">
-									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Bullet Image"/>
+									<img src="{$ImagePath}/941SSPR_Bullet.gif" alt="Right pointing arrowhead image"/>
 									<b> TIENE</b> que completar ambas páginas del Formulario 941-PR y luego <b>FIRMARLO.</b>
 								</div>
 							</span>
 							<span style="float:right;padding-bottom:0mm;">
 								<div style="width:30mm;text-align:right;padding-bottom:0mm;">
-									<img src="{$ImagePath}/941SSPR_NextES.gif" alt="Pagina siguiente Flecha imagen"/>
+									<img src="{$ImagePath}/941SSPR_NextES.GIF" alt="Pagina siguiente Flecha imagen"/>
 								</div>
 							</span>
 						</div>
-						<!-- Page boundary -->
+						--><!-- Page boundary --><!--
 						<div class="pageEnd" style="width:187mm;float:none;clear:both;">
 							<span style="float:left;clear:none;">Página <span class="styBoldText" style="font-size:9pt;">2</span></span>
 							<span style="float:right;clear:none;padding-top:0.4mm;">Formulario <span class="styBoldText" style="font-size:9pt;">
 									<xsl:if test="/AppData/Parameters/SubmissionType='941SS'">941-SS</xsl:if>
 									<xsl:if test="/AppData/Parameters/SubmissionType='941PR'">941-PR</xsl:if>
-								</span> (Rev. 6-2023)</span>
+								</span> (Rev. 4-2022)</span>
 						</div>
 						<p style="page-break-before: always"/>
-						<!--Begin Page 2-->
+						--><!--Begin Page 2--><!--
 						<div style="width:187mm;float:none;clear:both;">
-							<!--Name Shown on return-->
+							--><!--Name Shown on return--><!--
 							<div class="styBB" style="width:187mm;font-size:7pt;border-top-width:2px;float:none;clear:both;">
 								<div class="styFNBox" style="width:126mm; height:8.5mm;">
 									<b>Nombre</b> (el de usted, no el de su negocio)<br/>
@@ -7306,18 +7393,18 @@ familiar calificados </b>
 								</div>
 							</div>
 						</div>
-						<!--Part 3-->
+						--><!--Part 3--><!--
 						<div class="styBB" style="width:187mm;border-top-width:1px;float:none;clear:both;">
 							<div class="styPartName" style="width:13mm;text-align:center;height:6mm;padding-top:1mm;font-size:9pt;">Parte 3:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:6mm;padding-top:1mm;padding-left:2mm;font-size:9pt;">Infórmenos sobre su negocio. Si cualquiera de las preguntas NO corresponde a su negocio, déjela en blanco.</div>
 						</div>
 						<div style="width:187mm;float:none;clear:both;">
-							<!--Line 17-->
+							--><!--Line 17--><!--
 							<div style="width:187mm;padding-bottom:1mm;padding-top:1mm;float:none;clear:both;">
 								<div class="styLNLeftNumBox" style="width:8mm;">17</div>
 								<div class="styLNDesc" style="width:147mm;padding-left:1mm;font-weight:bold;">
 									<span style="float:left;">Si su negocio ha dejado de operar o si usted ha dejado de pagar salarios </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...............</span>
 								</div>
 								<input type="checkbox" alt="NegociosCerradosOParadaSalarioPago" class="styCkbox">
@@ -7343,12 +7430,12 @@ familiar calificados </b>
 								</div>
 								<div style="padding-top:2mm;">.</div>
 							</div>
-							<!--Line 18-->
+							--><!--Line 18a--><!--
 							<div style="width:187mm;float:none;clear:both;">
-								<div class="styLNLeftNumBox" style="width:8mm;">18</div>
+								<div class="styLNLeftNumBox" style="width:8mm;">18a</div>
 								<div class="styLNDesc" style="width:147mm;padding-left:1mm;font-weight:bold;">
 									<span style="float:left;">Si es patrono estacional y no tiene que radicar planillas para cada trimestre del año </span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 								</div>
 								<input type="checkbox" alt="EmpleadorDeTemporada" class="styCkbox">
@@ -7365,8 +7452,8 @@ familiar calificados </b>
 									<span style="width:1mm;"/>Marque aquí.<br/>
 								</label>
 							</div>
-							<!-- Line 18b -->
-							<!--<div style="width:187mm;float:none;clear:both;">
+							--><!-- Line 18b --><!--
+							<div style="width:187mm;float:none;clear:both;">
 								<div class="styLNLeftNumBox" style="width:8mm;">18b</div>
 								<div class="styLNDesc" style="width:147mm;height:8mm;padding-left:1mm;font-weight:bold;">
 									Si es elegible para el crédito de retención de empleados únicamente porque su negocio es un startup  
@@ -7389,16 +7476,16 @@ familiar calificados </b>
 										<span style="width:1mm;"/>Marque aquí.<br/>
 									</label>
 								</span>
-							</div>-->
+							</div>
 						</div>						
-						<!--Line 19-->
+						--><!--Line 19--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;">19</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;">
 									<b>Gastos calificados del plan de salud asignables a los salarios de licencia por enfermedad calificados </b> 
 									<span style="float:left;"><b>por la licencia tomada antes del 1 de abril de 2021</b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...............</span>
 								</div>
 							</span>
@@ -7411,14 +7498,14 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 20-->
+						--><!--Line 20--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;">20</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;">
 									<b>Gastos calificados del plan de salud asignables a los salarios de licencia familiar calificados por la </b>
 									<span style="float:left;"><b>licencia tomada antes del 1 de abril de 2021 </b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">.................</span>
 								</div>
 							</span>
@@ -7431,73 +7518,71 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 21-->
+						--><!--Line 21--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">21</div>
-								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;font-weight:bold">
-									<span style="float:left;">Reserved for future use</span>
-									<!--<span style="float:left;"><b>Salarios calificados para el crédito de retención de empleados</b></span>-->
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
+								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
+									<span style="float:left;"><b>Salarios calificados para el crédito de retención de empleados</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">...........</span>
 								</div>
 							</span>
 							<span style="float:right;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">21</div>
-								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateAmount">
+								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" select="$FormData/QlfyWgsPdRtnEmplCOVIDAmt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 22-->
+						--><!--Line 22--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">22</div>
-								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm;font-weight:bold">
-									<span style="float:left;">Reserved for future use</span>
-									<!--<span style="float:left;"><b>Gastos calificados del plan de salud para el crédito de retención de empleados</b></span>-->
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
+								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
+									<span style="float:left;"><b>Gastos calificados del plan de salud para el crédito de retención de empleados</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">......</span>
 								</div>
 							</span>
 							<span style="float:right;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">22</div>
-								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;background-color:lightgrey">
-									<!--<xsl:call-template name="PopulateAmount">
+								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
+									<xsl:call-template name="PopulateAmount">
 										<xsl:with-param name="TargetNode" select="$FormData/QHPExpnssWgsPdRtnEmplCOVIDAmt"/>
-									</xsl:call-template>-->
+									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 23 -->
+						--><!--Line 23 --><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">23</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
-									<span style="float:left;"><b>Salarios de licencia por enfermedad calificados por la licencia tomada después del 31 de marzo de 2021, and before October 1, 2021</b></span>
-									<!--Dotted Line-->
-									<!--<span class="styDotLn" style="float:right;padding-right:1mm;">...</span>-->
+									<span style="float:left;"><b>Salarios de licencia por enfermedad calificados por la licencia tomada después del 31 de marzo de 2021</b></span>
+									--><!--Dotted Line--><!--
+									--><!--<span class="styDotLn" style="float:right;padding-right:1mm;">...</span>--><!--
 								</div>
 							</span>
 							<span style="float:right;">
 								<div class="styIRS941RightNumBox" style="width:10mm;">23</div>
 								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/WorkOpportunityCreditAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/QlfySLWgsAftrAmt"/>
 									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 24-->
+						--><!--Line 24--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;">24</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;">
 									<b>Gastos calificados del plan de salud asignables a los salarios de licencia por enfermedad calificados</b>
 									<span style="float:left;"><b>declarados en la línea 23</b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
 								</div>
 							</span>
@@ -7505,19 +7590,19 @@ familiar calificados </b>
 								<div class="styIRS941RightNumBox" style="width:10mm;">24</div>
 								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/QlfyWgsPdMarchRtnEmplAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/QHPExpnssQlfySLWgsAftrAmt"/>
 									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 25-->
+						--><!--Line 25--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;">25</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;">
 									<b>Cantidades de ciertos acuerdos de negociación colectiva asignables a los salarios de licencia por </b>
 									<span style="float:left;"><b>enfermedad calificados declarados en la línea 23</b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">................</span>
 								</div>
 							</span>
@@ -7525,20 +7610,19 @@ familiar calificados </b>
 								<div class="styIRS941RightNumBox" style="width:10mm;">25</div>
 								<div class="styLNCtrNumBox" style="width:46mm;border-top-width:1px;height:6mm;padding-top:1mm;text-align:right;padding-right:1mm;">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/QHPExpnssWgsPdMarchRtnEmplAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/CrtnBrgnAgrmtQlfySLWgsAftrAmt"/>
 									</xsl:call-template>
 								</div>
 							</span>
 						</div>
-						<!--Line 26-->
+						--><!--Line 26--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;padding-top:2mm">26</div>
-								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:1mm;font-weight:bold">
-									Salarios de licencia familiar calificados por la licencia tomada después del 31 de marzo de 2021, and 
-									<span style="float:left;">before October 1, 2021</span>
-									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
+								<div class="styLNDesc" style="width:123mm;padding-left:1mm;padding-top:2mm">
+									<span style="float:left;"><b>Salarios de licencia familiar calificados por la licencia tomada después del 31 de marzo de 2021</b></span>
+									--><!--Dotted Line--><!--
+									<span class="styDotLn" style="float:right;padding-right:1mm;">.</span>
 								</div>
 							</span>
 							<span style="float:right;">
@@ -7550,14 +7634,14 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 27-->
+						--><!--Line 27--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;">27</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;">
 									<b>Gastos calificados del plan de salud asignables a los salarios de licencia familiar calificados </b> 
 									<span style="float:left;"><b>declarados en la línea 26</b></span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">.......................</span>
 								</div>
 							</span>
@@ -7570,14 +7654,14 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Line 28-->
+						--><!--Line 28--><!--
 						<div style="width:187mm;clear:both;">
 							<span style="float:left;">
 								<div class="styLNLeftNumBox" style="width:8mm;">28</div>
 								<div class="styLNDesc" style="width:123mm;padding-left:1mm;font-weight:bold">
 									Cantidades de ciertos acuerdos de negociación colectiva asignables a los salarios de licencia familiar
 									<span style="float:left;"> calificados declarados en la línea 26</span>
-									<!--Dotted Line-->
+									--><!--Dotted Line--><!--
 									<span class="styDotLn" style="float:right;padding-right:1mm;">...................</span>
 								</div>
 							</span>
@@ -7590,7 +7674,7 @@ familiar calificados </b>
 								</div>
 							</span>
 						</div>
-						<!--Part 4-->
+						--><!--Part 4--><!--
 						<div class="styBB" style="width:187mm;border-top-width:1px;float:none;clear:both;">
 							<div class="styPartName" style="width:13mm;text-align:center;height:6mm;padding-top:1mm;font-size:9pt;">Parte 4:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:6mm;padding-top:1mm;padding-left:2mm;font-size:9pt;">¿Podemos comunicarnos con su tercero autorizado?</div>
@@ -7623,7 +7707,7 @@ familiar calificados </b>
 					</label>
 									<br/>
 									<br/>
-									<br/>
+									--><!--<br/>--><!--
 									<br/>
 									<br/>
 									<span>
@@ -7686,13 +7770,13 @@ familiar calificados </b>
 								</div>
 							</div>
 						</div>
-						<!--Part 5-->
+						--><!--Part 5--><!--
 						<div class="styBB" style="width:187mm;border-top-width:1px;float:none;clear:both;">
 							<div class="styPartName" style="width:13mm;text-align:center;height:6mm;padding-top:1mm;font-size:9pt;">Parte 5:</div>
 							<div class="styPartDesc" style="width:173.9mm;text-align:left;height:6mm;padding-top:1mm;padding-left:2mm;font-size:9pt;">Firme aquí. TIENE que completar ambas páginas del Formulario 941-PR y luego FIRMARLO.</div>
 						</div>
 						<div style="width:187mm;font-size:8pt;">
-							<div class="styLNDesc" style="width:187mm;height:10mm;padding-left:13.8mm;padding-top:2mm;font-family:Arial Narrow;">
+							<div class="styLNDesc" style="width:187mm;height:10mm;padding-left:13.8mm;padding-top:1mm;font-family:Arial Narrow;">
 				Bajo pena de perjurio, declaro que he examinado esta planilla, incluyendo los anexos e informes adjuntos, y que, a 
 				mi leal saber y entender, es verídica, correcta y completa. La declaración del preparador (que no sea el 
 				contribuyente) está basada en toda información de la cual el preparador tenga conocimiento.
@@ -7804,11 +7888,11 @@ familiar calificados </b>
 									</div>
 								</div>
 							</div>
-							<div class="styBB" style="width:187mm;padding-bottom:1mm;padding-top:4mm;float:none;clear:both;">
+							<div class="styBB" style="width:187mm;padding-bottom:1mm;padding-top:0mm;float:none;clear:both;">
 								<div class="styLNDesc" style="width:31.5mm;text-align:right;padding-right:3mm;padding-top:4mm;">
 					Fecha
 				</div>
-								<div style="padding-top:4px;float:left;">
+								<div style="padding-top:3mm;float:left;">
 									<div class="styLNCtrNumBox" style="width:26mm;border-top-width:1px;height:6mm;padding-top:1mm;">
 										<xsl:if test="$RtnHdrData/SignatureDocumentGrp/SignatureDt">
 											<xsl:call-template name="PopulateMonthDayYear">
@@ -7826,7 +7910,7 @@ familiar calificados </b>
 					Mejor núm. de teléfono donde llamarlo durante el día
 				</div>
 								<div style="padding-top:2mm;float:right;">
-									<div class="styLNCtrNumBox" style="width:42.5mm;border-top-width:1px;height:8mm;padding-top:1mm;word-wrap:break-word;">
+									<div class="styLNCtrNumBox" style="width:42.5mm;border-top-width:1px;height:6mm;padding-top:1mm;word-wrap:break-word;">
 										<xsl:if test="$RtnHdrData/SignatureDocumentGrp/DaytimePhoneNum">
 											<xsl:call-template name="PopulatePhoneNumber">
 												<xsl:with-param name="TargetNode" select="$RtnHdrData/SignatureDocumentGrp/DaytimePhoneNum"/>
@@ -7847,7 +7931,7 @@ familiar calificados </b>
 				</div>
 							<div class="styLNDesc" style="width:78mm;float:right;font-size:9pt;">
 								<span style="float:left;">Marque aquí si usted trabaja por cuenta propia </span>
-								<!--Dotted Line-->
+								--><!--Dotted Line--><!--
 								<span class="styDotLn" style="float:left;padding-left:2mm;padding-right:1mm;">.</span>
 								<input type="checkbox" alt="Autónomos" class="styCkbox">
 									<xsl:call-template name="PopulateCheckbox">
@@ -7863,7 +7947,7 @@ familiar calificados </b>
 								</label>
 							</div>
 						</div>
-						<div style="width:187mm;padding-bottom:3mm;float:none;clear:both;">
+						<div style="width:187mm;padding-bottom:2mm;float:none;clear:both;">
 							<div class="styLNDesc" style="width:22mm;padding-left:2mm;padding-right:7mm;font-size:7pt;">
 					Nombre del preparador
 				</div>
@@ -8058,17 +8142,17 @@ familiar calificados </b>
 							</xsl:choose>
 						</div>
 					</div>
-					<!--Page Footer-->
+					--><!--Page Footer--><!--
 					<div class="pageEnd" style="width:187mm;">
 						<span style="float:left;clear:none;">Página <span class="styBoldText" style="font-size:9pt;">3</span>
 						</span>
 						<span style="float:right;clear:none;">Formulario <span class="styBoldText" style="font-size:9pt;">
 								<xsl:if test="/AppData/Parameters/SubmissionType='941SS'">941-SS</xsl:if>
 								<xsl:if test="/AppData/Parameters/SubmissionType='941PR'">941-PR</xsl:if>
-							</span> (Rev. 6-2023)</span>
+							</span> (Rev. 4-2022)</span>
 					</div>
-					<!-- BEGIN Left Over Table -->
-					<!-- Additonal Data Title Bar and Button -->
+					--><!-- BEGIN Left Over Table --><!--
+					--><!-- Additonal Data Title Bar and Button --><!--
 					<div class="styLeftOverTitleLine" id="LeftoverData">
 						<div class="styLeftOverTitle" style="float:left;">
 				Additional Data        
@@ -8077,7 +8161,7 @@ familiar calificados </b>
 							<input class="styLeftoverTableBtn" TabIndex="1" type="button" value="Return to Form" onclick="javascript:returnToWriteInImage();"/>
 						</div>
 					</div>
-					<!-- Additional Data Table -->
+					--><!-- Additional Data Table --><!--
 					<table class="styLeftOverTbl">
 						<xsl:call-template name="PopulateCommonLeftover">
 							<xsl:with-param name="TargetNode" select="$FormData"/>
@@ -8087,7 +8171,7 @@ familiar calificados </b>
 				</form>
 			</body>
 			</xsl:otherwise>
-			</xsl:choose>
+			</xsl:choose>-->
 		</html>
 	</xsl:template>
 </xsl:stylesheet>

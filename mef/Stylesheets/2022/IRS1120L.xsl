@@ -96,7 +96,7 @@
 								<br/>
 								<br/>
 								<div class="styFST" style="width:125mm;float:left;clear:none;">
-									<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="right pointing arrow"/>
+									<!--<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="right pointing arrow"/>-->
 									Go to  			
 									<a style="text-decoration:none;color:black;" href="http://www.irs.gov/form1120l" title="Link to IRS.gov">
 										<i>www.irs.gov/Form1120L</i>
@@ -167,7 +167,7 @@
 							<br/>
 							<br/>
 							<!-- Header Line A 3 -->
-							<div class="styComType" style="width:33.3mm;border-bottom:1px solid black;border-right-width: 1px;height:10.3mm">
+							<div class="styComType" style="width:33.3mm;border-bottom:1px solid black;border-right-width: 1px;height:10.8mm">
 								<div class="styBoldText" style="height:10mm;width:4mm;float:left;clear:none;padding-top:2mm;">3</div>
 								<div class="styGenericDiv" style="height:10mm;width:24mm;padding-top:2mm;">
 									<label>
@@ -238,7 +238,7 @@
 								</xsl:otherwise>
 							</xsl:choose>
 							</div>
-							<div class="styNameAddr" style="border-bottom-width:0px;width:95.5mm;border-left-width:1px;padding-left:2mm;height:10mm;">
+							<div class="styNameAddr" style="border-bottom-width:0px;width:95.5mm;border-left-width:1px;padding-left:2mm;height:10.5mm;">
 								City or town, state or province, country, and ZIP or foreign postal code
 								<!-- USA Address -->
 								<xsl:choose>
@@ -707,7 +707,7 @@
 						<div style="width:181mm;float:right;clear:none;">
 						<div class="styLNLeftNumBox" style="height:4mm;">15a</div>
 						<div class="styLNDesc" style="width:18mm;height:4mm;">Interest
-						<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+						<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 						<xsl:call-template name="SetFormLinkInline">
 						<xsl:with-param name="TargetNode" select="  $RtnDoc/IRS1120L/InterestDeductionAmt"/>
 						</xsl:call-template>
@@ -740,11 +740,11 @@
 						<!-- line 15c -->
 						<div class="styLNLeftNumBox" style="height:4mm;;padding-left:4mm">c</div>
 						<div class="styLNDesc" style="width:132mm;height:4mm;">
-						<span style="float: left; clear: none;">Bal
-						<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+						<span style="float: left; clear: none;">Balance
+						<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 						</span>
 						<!--Dotted Line-->
-						<span class="styDotLn" style="float:right;padding-right:2mm;">..............................</span>
+						<span class="styDotLn" style="float:right;padding-right:2mm;">.............................</span>
 						</div>
 						<div class="styLNRightNumBox" style="height:4.5mm;">15c</div>
 						<div class="styLNAmountBox" style="height:4.5mm;width:32.9mm">
@@ -933,7 +933,7 @@
 					<!--END Main Form Deductions Section-->
 					<!--BEGIN Main Form Tax and Payment Section-->
 					<div class="styBB" style="width:187mm;">
-						<div class="styIRS1120VTImageBox" style="height:79mm;width:19px;padding-top:10mm;">
+						<div class="styIRS1120VTImageBox" style="height:81mm;width:19px;padding-top:10mm;">
 							<img src="{$ImagePath}/1120L_TaxRefundableCreditAndPayment.gif" alt="Vertical Tax, Refundable Credits, and Payments"/>
 						</div>
 						<!-- line 25 -->
@@ -1208,7 +1208,7 @@
 								</label>
 								<!--Dotted Line-->
 								<span style="letter-spacing:4.5mm;font-weight:bold">........</span>
-								<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+								<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 								<span style="width:8px"/>
 								<input type="checkbox" alt="Form2220 Attached" class="styCkbox">
 									<xsl:call-template name="PopulateCheckbox">
@@ -1265,7 +1265,7 @@
 								<span style="font-size:6pt;">Enter amount from line 31: </span>
 								<span class="styBoldText">Credited to 2023 estimated tax</span>
 								<span style="width:1px"/>
-								<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+								<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 							</div>
 							<div class="styGenericDiv" style="width:32mm;height:4.5mm;padding-top:1mm">
 								<xsl:call-template name="PopulateAmount">
@@ -1275,7 +1275,7 @@
 							<div class="styLNDesc" style="width:21mm;height:4.5mm;font-size:6pt;">
 								<span class="styBoldText">Refunded</span>
 								<span style="width:2px"/>
-								<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+								<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 								<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" select="  $RtnDoc/IRS1120L/OverpaymentSection/RefundAmt"/>
 								</xsl:call-template>
@@ -1299,7 +1299,7 @@
 						</tr>
 						<tr>
 							<td rowspan="2" style="border-bottom:1px solid black;padding-left:1mm;">
-								<img src="{$ImagePath}/1120_Bullet_Lg.gif" alt="Large right pointing arrow"/>
+								<!--<img src="{$ImagePath}/1120_Bullet_Lg.gif" alt="Large right pointing arrow"/>-->
 							</td>
 							<td style="width:52mm;border-right:1px solid black;border-bottom:1px solid black;vertical-align:bottom;">
 								<xsl:call-template name="PopulateReturnHeaderOfficer">
@@ -1313,7 +1313,7 @@
 								</xsl:call-template>
 							</td>
 							<td rowspan="2" style="border-bottom:1px solid black;padding-left:1mm;">
-								<img src="{$ImagePath}/1120_Bullet_Lg.gif" alt="Large right pointing arrow"/>
+								<!--<img src="{$ImagePath}/1120_Bullet_Lg.gif" alt="Large right pointing arrow"/>-->
 							</td>
 							<td style="width:60mm;border-bottom:1px solid black;vertical-align:bottom;">
 								<xsl:call-template name="PopulateReturnHeaderOfficer">
@@ -1431,7 +1431,7 @@ May the IRS discuss this return<br/> with the preparer shown below?. <br/>See in
 								<div class="styLNDesc" style="height:6mm;width:126mm;border-right:1px solid black;border-left:1px solid black;padding-left:1mm;">
 									<span class="styGenericDiv" style="">Firm's name 
 									<span style="width:2.2mm;"/>
-										<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+										<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 										<span style="width:4px;"/>
 									</span>
 									<div class="styGenericDiv" style="padding-right:.5mm;">
@@ -1449,7 +1449,7 @@ May the IRS discuss this return<br/> with the preparer shown below?. <br/>See in
 									</div>
 								</div>
 								<div class="styLNDesc" style="height:6mm;width:32mm;padding-left:1mm;">Firm's EIN
-									<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+									<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 									<span style="width:4px;"/>
 									<xsl:if test="$RtnHdrData/PreparerFirmGrp/PreparerFirmEIN">
 										<xsl:call-template name="PopulateReturnHeaderPreparerFirm">
@@ -1468,7 +1468,7 @@ May the IRS discuss this return<br/> with the preparer shown below?. <br/>See in
 							<div style="width:164mm;float:left;clear:none;">
 								<div class="styLNDesc" style="width:126mm;border-right:1px solid black;border-left:1px solid black;padding-left:1mm;height:11mm;">
 									<div class="styGenericDiv" style="padding-right:.5mm;">Firm's address 
-									<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+									<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 									</div>
 									<div class="styGenericDiv" style="padding-right:.5mm;">
 										<xsl:call-template name="PopulateReturnHeaderPreparerFirm">
@@ -3109,7 +3109,7 @@ May the IRS discuss this return<br/> with the preparer shown below?. <br/>See in
 						<div class="styLNDesc" style="width:139mm;height:4mm;">
 							Check if the corporation is a member of a controlled group (attach Schedule O (Form 1120))							
 							<span style="letter-spacing:4mm;font-weight:bold">.</span>
-							<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+							<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 							<span style="width:4px"/>
 							<input type="checkbox" alt="Member Of Controlled Group" class="styCkbox">
 								<xsl:call-template name="PopulateCheckbox">
@@ -3121,13 +3121,13 @@ May the IRS discuss this return<br/> with the preparer shown below?. <br/>See in
 								<xsl:call-template name="PopulateLabel">
 									<xsl:with-param name="TargetNode" select="$IRS1120LScheduleK/MemberOfControlledGroupInd"/>
 									<xsl:with-param name="BackupName">Member Of ControlledGroup</xsl:with-param>
-								</xsl:call-template>
-								<span style="width:2px;"/>
+								</xsl:call-template>								
+							</label>
+							<span style="width:2px;"/>
 								<!-- Form to Form Link  -->
 								<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" select="$IRS1120LScheduleK/MemberOfControlledGroupInd"/>
 								</xsl:call-template>
-							</label>
 						</div>
 						<div class="styLNRightNumBox" style="height:4.5mm;background-color:lightgrey;border-bottom-width:0px"/>
 						<div class="styLNAmountBox" style="height:4.5mm;border-bottom-width:0px;background-color:lightgrey"/>
@@ -3947,7 +3947,7 @@ May the IRS discuss this return<br/> with the preparer shown below?. <br/>See in
 												</xsl:call-template>
 												Other (specify)
 											</label>
-											<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+											<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 											<xsl:call-template name="LinkToLeftoverDataTableInline">
 												<xsl:with-param name="Desc">Schedule M Line 1b - Method Of Accounting Other</xsl:with-param>
 												<xsl:with-param name="TargetNode" select="$IRS1120LScheduleM/MethodOfAccountingOtherInd/@methodOfAccountingOtherDesc"/>
@@ -4137,7 +4137,7 @@ or accident policies not included in life insurance reserves bears to the corpor
 													<xsl:with-param name="TargetNode" select="$IRS1120LScheduleM/TotalCorpLifeInsuranceRsrvPct"/>
 												</xsl:call-template>
 												<span style="width:3px;"/>
-												<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+												<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 												<span style="width:3px;"/>
 												<span style="width:25.5mm;font-size:6pt;border-bottom:1px solid black;text-align:right">
 													<xsl:call-template name="PopulatePercent">
@@ -4260,7 +4260,7 @@ or accident policies not included in life insurance reserves bears to the corpor
 										<div class="styLNDesc" style="width:72mm;height:4.5mm;">
 											If "Yes," enter name and EIN of the parent corporation.
 											<span style="width:3px;"/>
-											<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+											<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 											<span style="width:6px;"/>
 											<span style="width:70mm;border-bottom:1px solid black;">
 												<xsl:call-template name="PopulateText">
@@ -4294,7 +4294,7 @@ or accident policies not included in life insurance reserves bears to the corpor
 									<!-- Line 7 -->
 									<div class="styGenericDiv" style="width:93mm;">
 										<div class="styLNLeftNumBox" style="height:4.5mm;padding-top:0mm;padding-bottom:0mm;">7</div>
-										<div class="styLNDesc" style="width:72mm;padding-top:0mm;padding-bottom:0mm;">
+										<div class="styLNDesc" style="width:72mm;padding-top:0mm;padding-bottom:1mm;">
 											At the end of the tax year, did any individual, partnership, corporation, estate, or trust own, directly or indirectly,
 											50% or more of the corporation’s voting stock? (For rules of attribution, see section 267(c).) 
 											<span style="letter-spacing:4mm;font-weight:bold">.........</span><br/>
@@ -4304,8 +4304,8 @@ or accident policies not included in life insurance reserves bears to the corpor
 											</xsl:call-template>
 										</div>
 										<div class="styGenericDiv" style="width:12mm;">
-											<div class="styShadingCell" style="width:6mm;height:8mm;"/>
-											<div class="styShadingCellRB" style="width:6mm;height:8mm;"/>
+											<div class="styShadingCell" style="width:6mm;height:9mm;"/>
+											<div class="styShadingCellRB" style="width:6mm;height:9mm;"/>
 											<div class="styIRS1120LNYesNoBox">
 												<span style="font-weight:normal;">
 													<xsl:call-template name="PopulateYesBoxText">
@@ -4342,7 +4342,7 @@ or accident policies not included in life insurance reserves bears to the corpor
 										<div class="styLNDesc" style="width:72mm;height:4.5mm;">
 											Enter percentage owned
 											<span style="width:3px;"/>
-											<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+											<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 											<span style="width:6px;"/>
 											<span style="width:25mm;border-bottom:1px solid black;text-align:right">
 												<xsl:call-template name="PopulatePercent">
@@ -4393,7 +4393,7 @@ or accident policies not included in life insurance reserves bears to the corpor
 											<span class="styBoldText">a </span>
 											<span style="width:3px;"/>
 												Percentage owned and
-											<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+											<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 											<span style="width:6px;"/>
 											<span style="width:20mm;border-bottom:1px solid black;text-align:right">
 											<xsl:call-template name="PopulatePercent">
@@ -4411,7 +4411,7 @@ or accident policies not included in life insurance reserves bears to the corpor
 											<span class="styBoldText">b</span>
 											<span style="width:3px;"/>
 											Owner's country
-											<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+											<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 											<span style="width:6px;"/>
 											<span style="width:20mm;border-bottom:1px solid black;text-align:right">
 												<xsl:call-template name="PopulateText">
@@ -4438,7 +4438,7 @@ or accident policies not included in life insurance reserves bears to the corpor
 													<xsl:with-param name="TargetNode" select="$IRS1120LScheduleM/TotalForm5472FiledCnt"/>
 												</xsl:call-template>
 												<span style="width:3px;"/>
-												<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+												<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 												<span style="width:3px;"/>
 												<span style="width:27mm;font-size:6pt;border-bottom:1px solid black;text-align:right;">
 													<xsl:call-template name="PopulateAmount">
@@ -4562,7 +4562,7 @@ shown on the corporation’s annual statement:
 										<div class="styLNLeftNumBox" style="height:4.5mm;">11</div>
 										<div class="styLNDesc" style="width:72mm;height:4.5mm;">
 											Enter the available net operating loss carryover from prior tax years. (Do not reduce it by any deduction on page 1, line 21b.)
-										<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+										<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 											<br/> $
 											<span style="width:25mm;border-bottom:1px solid black;text-align:right">
 												<xsl:call-template name="PopulateAmount">
@@ -4580,7 +4580,7 @@ shown on the corporation’s annual statement:
 											<div class="styLNLeftNumBox" style="height:4.5mm;padding-top:0mm; padding-bottom:0mm;">12a</div>
 											<div class="styLNDesc" style="width:72mm;padding-top:0mm;padding-bottom:0mm;">
 											Enter the corporation’s state of domicile
-											<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+											<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 												<span style="width:15mm;border-bottom:1px solid black;text-align:left">
 													<xsl:call-template name="PopulateText">
 														<xsl:with-param name="TargetNode" select="$IRS1120LScheduleM/CorporationStateOfDomicileCd"/>
@@ -4635,7 +4635,7 @@ shown on the corporation’s annual statement:
 											<div class="styLNLeftNumBox" style="height:4.5mm;padding-top:0mm; padding-bottom:0mm;padding-left:5mm">c</div>
 											<div class="styLNDesc" style="width:72mm;padding-top:0mm;padding-bottom:0mm;">
 												Enter the state where the annual statement used to prepare the tax return was filed.
-												<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>
+												<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
 												<span style="width:15mm;border-bottom:1px solid black;text-align:left">
 													<xsl:call-template name="PopulateText">
 														<xsl:with-param name="TargetNode" select="$IRS1120LScheduleM/AnnlStmtUsedToPrepTxRetStFldCd"/>
@@ -4763,7 +4763,8 @@ shown on the corporation’s annual statement:
 										<div class="styLNLeftNumBox" style="height:4mm;padding-top:0mm;padding-bottom:0mm;"/>
 										<div class="styLNDesc" style="width:72mm;padding-top:0mm;padding-bottom:0mm;">
 										  If “Yes,” enter the total amount of the disallowed deductions  
-											<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/><br/>$
+											<!--<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="right pointing arrow"/>-->
+											<br/>$
 												<span style="width:25mm;border-bottom:1px solid black;text-align:right">
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="$IRS1120LScheduleM/NondedIntRoyaltyUndSect267AAmt"/>

@@ -53,7 +53,7 @@
 							8974:
 						</span><br/>
 						<div class="styFST" style="height:4mm;">
-							<span class="styAgency" style="font-weight:normal">(Rev. March 2023)</span>
+							<span class="styAgency" style="font-weight:normal">(Rev. December 2023)</span>
 						</div>
 					</div>
 					<div class="styFTBox" style="width:132mm;text-align:left;height:10mm;">
@@ -65,7 +65,7 @@
 						</div>
 					</div>
 				   <div class="styTYBox" style="width:32mm;height:10mm;border:0px;float:right;">
-					  <div style="font-size:12pt;font-family:Courier New;font-weight:bold;text-align:right;padding-left:16mm;">950823</div>
+					  <div style="font-size:12pt;font-family:Courier New;font-weight:bold;text-align:right;padding-left:16mm;">951823</div>
 					  <div class="styOMB" style="font-size:7pt;text-align:right;border:0px;padding-top:1mm;">OMB No. 1545-0029</div>
 				   </div>
 							<div class="styBB" style="width:128mm;height:48mm;float:left;border:black solid 1px;padding-top:2mm;padding-left:2mm;padding-right:2mm;">
@@ -105,7 +105,7 @@
 													<xsl:with-param name="TargetNode" select="$RtnHdrData/ReturnTypeCd"/>
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm941Or941PROr941SS</xsl:with-param>
 												</xsl:call-template>
-												<span style="width:1mm;"/><b>Form 941, 941-PR, or 941-SS </b>
+												<span style="width:1mm;"/><b>Form 941 (all 941 series)</b>
 											</label><br/>
 										</xsl:when>
 										<xsl:otherwise>
@@ -121,7 +121,7 @@
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm941Or941PROr941SS</xsl:with-param>
 												</xsl:call-template>
 												<span style="width:1mm;"/>
-												<b>Form 941, 941-PR, or 941-SS </b>
+												<b>Form 941 (all 941 series)</b>
 											</label>
 											<br/>
 										</xsl:otherwise>
@@ -139,7 +139,7 @@
 													<xsl:with-param name="TargetNode" select="$RtnHdrData/ReturnTypeCd"/>
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm943Or943PR</xsl:with-param>
 												</xsl:call-template>
-												<span style="width:1mm;"/><b>Form 943 or 943-PR </b>
+												<span style="width:1mm;"/><b>Form 943 (all 943 series)</b>
 											</label><br/>
 										</xsl:when>
 										<xsl:otherwise>
@@ -155,7 +155,7 @@
 													<xsl:with-param name="BackupName">Form 943 or 943-PR Checkbox</xsl:with-param>
 												</xsl:call-template>
 												<span style="width:1mm;"/>
-												<b>Form 943 or 943-PR</b>
+												<b>Form 943 (all 943 series)</b>
 											</label>
 											<br/>
 										</xsl:otherwise>
@@ -173,7 +173,7 @@
 													<xsl:with-param name="TargetNode" select="$RtnHdrData/ReturnTypeCd"/>
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm944Or944SP</xsl:with-param>
 												</xsl:call-template>
-												<span style="width:1mm;"/><b>Form 944 or 944(SP) </b>
+												<span style="width:1mm;"/><b>Form 944 (all 944 series)</b>
 											</label>
 										</xsl:when>
 										<xsl:otherwise>
@@ -189,7 +189,7 @@
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm944Or944SP</xsl:with-param>
 												</xsl:call-template>
 												<span style="width:1mm;"/>
-												<b>Form 944 or 944(SP) </b>
+												<b>Form 944 (all 944 series)</b>
 											</label>
 											<br/>
 										</xsl:otherwise>
@@ -213,7 +213,7 @@
 											</xsl:otherwise>
 										</xsl:choose>		
 									</div> 
-									<span class="styLNDesc" style="width:79mm;padding-top:2mm;padding-left:1mm;font-size:6.5pt">You must select a quarter if you file Form 941, 941-PR, or 941-SS.</span>
+									<span class="styLNDesc" style="width:79mm;padding-top:2mm;padding-left:1mm;font-size:6.5pt">You must select a quarter if you file Form 941.</span>
 							</div>
 						</div>
 						<div style="width:56mm;float:right;padding-right:2mm;">
@@ -437,10 +437,10 @@
 					<!--Line 8-->
 					<div style="width:187mm;height:9mm;">
 						<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;padding-left:4mm;">8</div>
-						<div class="styLNDesc" style="width:94mm;height:7mm;padding-left:1mm;padding-top:1mm;">Enter the amount from Form 941 (941-PR or 941-SS), line 5a, Column 2;
-							<span style="float:left;">Form 943 (943-PR), line 3; or Form 944 (944(SP)), line 4a, Column 2 </span>
+						<div class="styLNDesc" style="width:94mm;height:7mm;padding-left:1mm;padding-top:1mm;">Enter the amount from Form 941, line 5a, Column 2;
+							Form 943, line 3; or <span style="float:left;"> Form 944, line 4a, Column 2 </span>
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-left:1mm;">.</span>
+							<span class="styDotLn" style="float:right;padding-left:1mm;">.............</span>
 						</div>
 						<span style="padding-top:3mm;">
 							<div class="styIRS8974RightNumBox">8</div>
@@ -454,10 +454,10 @@
 					<!--Line 9-->
 					<div style="width:187mm;height:9mm;">
 						<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;padding-left:4mm;">9</div>
-						<div class="styLNDesc" style="width:94mm;height:7mm;padding-left:1mm;padding-top:1mm;">Enter the amount from Form 941 (941-PR or 941-SS), line 5b, Column 2;
-							<span style="float:left;"> or Form 944 (944(SP)), line 4b, Column 2 </span>
+						<div class="styLNDesc" style="width:94mm;height:7mm;padding-left:1mm;padding-top:1mm;">Enter the amount from Form 941, line 5b, Column 2;
+							 or Form 944, <span style="float:left;">line 4b, Column 2</span>
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-left:1mm;">.........</span>
+							<span class="styDotLn" style="float:right;padding-left:1mm;">................</span>
 						</div>
 						<span style="padding-top:2mm;">
 						<div class="styIRS8974RightNumBox">9</div>
@@ -534,11 +534,10 @@
 							<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">12</div>
 							<div class="styLNDesc" style="width:136mm;padding-left:1mm;padding-top:1mm;"><b>Credit against the employer share of 
 							social security tax.</b> Enter the smaller of line 7 or 11, but not more than $250,000. See the instructions before 
-							entering an amount if you file Form 943 or Form 944. If you entered the amount from line 7,stop here and also enter 
-							this amount on Form 941 (941-PR or 941-SS),
-							<span style="float:left;"> line 11a; Form 943 (943-PR), line 12a; or Form 944 (944(SP)), line 8a </span>
+							entering an amount if you file Form 943 or Form 944. If you entered the amount from line 7, stop here and also enter 
+							this amount on Form 941, line 11a; <span style="float:left;">Form 943, line 12a; or Form 944, line 8a</span>
 								<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-right:1mm;">.........</span>
+							<span class="styDotLn" style="float:right;padding-right:1mm;">....................</span>
 							</div>
 						</span>
 						<span style="float:right;padding-top:8mm;">
@@ -570,10 +569,9 @@
 					<div style="width:187mm;height:9mm;">
 						<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">14</div>
 						<div class="styLNDesc" style="width:94mm;padding-left:1mm;padding-top:1mm;">
-							Enter the amount from Form 941 (941-PR or 941-SS), line 5c, Column 2;
-							<span style="float:left;">Form 943 (943-PR), line 5; or Form 944 (944(SP)), line 4c, Column 2</span>
+							Enter the amount from Form 941, line 5c, Column 2; Form 943, line 5; or Form 944, line 4c, Column 2 
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-left:1mm;">.</span>
+							<span class="styDotLn" style="padding-left:1.3mm; float:right;padding-right:0mm;">.............</span>
 						</div>
 						<span style="padding-top:2mm;">
 							<div class="styIRS8974RightNumBox">14</div>
@@ -589,9 +587,9 @@
 						<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">15</div>
 						<div class="styLNDesc" style="width:136mm;padding-left:1mm;padding-top:1mm;">
 								 Multiply line 14 by 50% (0.50).  If you're a third party or sick pay or you received a section 3121(q) Notice 
-								<span style="float:left;"> and Demand, see instructions before completing line 15.</span>
+								and Demand, see instructions before completing line 15.
 							<!--Dotted Line-->
-							<span class="styDotLn" style="float:left;padding-right:1mm;">...............</span>
+							<span class="styDotLn" style="float:right;padding-right:1mm;">...............</span>
 						</div>
 						<div class="styIRS8974RightNumBox">15</div>
 						<div class="styLNCtrNumBox" style="width:36mm;border-top-width:1px;height:5mm;text-align:right;padding-right:1mm;">
@@ -624,10 +622,10 @@
 						<span style="float:left;">
 							<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">17</div>
 							<div class="styLNDesc" style="width:136mm;padding-left:1mm;padding-top:1mm;">
-								<b>Total credit.</b> Add lines 12 and 16. Also, enter this amount on Form 941 (941-PR or 941-SS), line 11a;
-								<span style="float:left;"> Form 943 (943-PR), line 12a; or Form 944 (944(SP)), line 8a.</span>
+								<b>Total credit.</b> Add lines 12 and 16. Also, enter this amount on Form 941, line 11a;
+								Form 943, line 12a; or Form 944, line 8a.
 								<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-right:1mm;">.............</span>
+							<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
 							</div>
 						</span>
 						<span style="float:right;padding-top:2mm;">
@@ -645,7 +643,7 @@
 					<span style="float:left;clear:none;font-weight:bold;">For Paperwork Reduction Act Notice, see the separate instructions.</span>
 					<span style="float:left;clear:none;margin-left:3mm;">www.irs.gov/Form8974</span>
 					<span style="float:left;clear:none;margin-left:3mm;">Cat. No. 37797C</span>
-					<span style="float:right;clear:none;">Form <span class="styBoldText" style="font-size:8pt;">8974</span> (Rev. 3-2023)</span>
+					<span style="float:right;clear:none;">Form <span class="styBoldText" style="font-size:8pt;">8974</span> (Rev. 12-2023)</span>
 				</div>
 				<p style="page-break-before: always"/>
 				<!-- BEGIN Left Over Table -->

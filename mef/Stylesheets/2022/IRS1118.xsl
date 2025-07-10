@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet [
-	<!ENTITY nbsp "&#160;">
-]>
-<!-- 01/05/2021 - Changes made for UWR 241847 - Jeremy Nichols -->
-<!-- 01/14/2021 - Changes made for defect 66375 - Jeremy Nichols -->
-<!-- 04/23/2021 - Changes made for UWR 243365 - Jeremy Nichols -->
-<!-- 10/22/2021 - Changes made for UWR 370191 - Jeremy Nichols -->
+	<!ENTITY nbsp "&#160;">]>
 <!-- 01/12/2022 - Changes made for KISAM IM1759681 - Jeremy Nichols -->
 <!-- 02/22/2022 - Changes made for KISAM IM1801730 - Jeremy Nichols -->
 <!-- 10/24/2022 - Changes made for UWR 861256 - Jeremy Nichols -->
+<!-- 01/19/2023 - Changes made for KISAM IM02197732 - Jeremy Nichols -->
+<!-- 03/08/2023 - Additional changes made for KISAM IM02197732 - Jeremy Nichols -->
+<!-- 03/10/2023 - Changes made for KISAM IM02274867 - Jeremy Nichols -->
+<!-- 04/07/2023 - Changes made for defect 71777 - Jeremy Nichols -->
+<!-- 04/18/2023 - Changes made for defect 72361 - Jeremy Nichols -->
+<!-- 04/19/2023 - Changes made for defect 71814 - Jeremy Nichols -->
+<!-- 08/30/2023 - Changes made for IRWorks TESTINC0006808 - Jeremy Nichols -->
+<!-- 10/05/2023 - Changes made for EWM defect 1253067 - Jeremy Nichols -->
+<!-- 10/31/2023 - Changes made for EWM defect 1253068 - Jeremy Nichols -->
+<!-- 11/14/2023 - Changes made for IRWorks TESTINC0004971 - Jeremy Nichols -->
+<!-- 11/15/2023 - Changes made for EWM defect 1253068 - Jeremy Nichols -->
+<!-- 02/09/2024 - defect 1253030 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="CommonPathRef.xsl"/>
 	<xsl:include href="PopulateTemplate.xsl"/>
@@ -85,11 +92,11 @@
 							<div class="styMainTitle">Foreign Tax Credit—Corporations</div>
 							<br/>
 							<div class="styFBT" style="height:4mm;font-weight:bold;">
-								<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="bulletpoint"/> Attach to the corporation’s tax return.          
+								<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="right arrow"/> Attach to the corporation’s tax return.          
 							</div>
 							<br/>
 							<div class="styFBT" style="height:4mm;font-weight:bold;">
-								<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="bulletpoint"/> Go to <i>www.irs.gov/Form1118</i> for instructions and the latest information.
+								<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="right arrow"/> Go to <i>www.irs.gov/Form1118</i> for instructions and the latest information.
 							</div>
 							<br/>
 							<div style="text-align:center;">For calendar year 
@@ -184,11 +191,11 @@
 								<span style="width:16px"/>.
 								<span style="width:19.55px"/>
 							</span>
-							<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="MediumBullet"/>
+							<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="right arrow"/>
 							<span style="width:7px"/>
 							<span style="width:25mm;border-bottom:1px solid black;">
 								<xsl:call-template name="PopulateText">
-									<xsl:with-param name="TargetNode" select="$Form1118Data/SeparateCategoryCd"/>
+									<xsl:with-param name="TargetNode" select="$Form1118Data/Sect951AOrPassiveCatIncomeCd"/>
 								</xsl:call-template>
 							</span>
 						</div>
@@ -216,7 +223,7 @@
 								<span style="width:16px"/>.
 								<span style="width:16px"/>
 							</span>
-							<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="MediumBullet"/>
+							<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="right arrow"/>
 							<span style="width:7px"/>
 							<span style="width:25mm;border-bottom:1px solid black;">
 								<xsl:call-template name="PopulateText">
@@ -247,7 +254,7 @@
 								<span style="width:16px"/>.
 								<span style="width:16px"/>
 							</span>
-							<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="MediumBullet"/>
+							<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="right arrow"/>
 							<span style="width:7px"/>
 							<span style="width:25mm;border-bottom:1px solid black;">
 								<xsl:call-template name="PopulateText">
@@ -285,9 +292,9 @@
 						<table class="styTable" cellspacing="0">
 							<thead class="styTableThead">
 								<tr>
-									<th class="styIRS1118TableCellLtr" rowspan="3">
+									<td class="styIRS1118TableCellLtr" rowspan="3" scope="rowgroup">
 										<span style="width:11mm;height:22mm;"/>
-									</th>
+									</td>
 									<th class="styIRS1118TableCellHeaderSmall" style="width:70mm;height:22mm;" rowspan="3" scope="col">1. <span class="styNormalText" style="display:inline;">EIN or Reference ID number (see instructions)*</span>
 									</th>
 									<th class="styIRS1118TableCellHeaderSmall" style="width:35mm;height:22mm;" rowspan="3" scope="col">2. <span class="styNormalText" style="display:inline;">Foreign Country or U.S. Possession (enter two-letter code-use a separate line for each)(see instructions)</span>
@@ -330,23 +337,23 @@
 														<xsl:with-param name="TargetNode" select="ForeignCorporationEIN"/>
 													</xsl:call-template>
 												</xsl:if>
-												<xsl:if test="(ForeignCorpMissingEINReasonCd != '')">
+												<xsl:if test="(ForeignCorpMissingEINReasonCd != '')"><span style="width:0.5mm;"/>
 													<xsl:call-template name="PopulateText">
 														<xsl:with-param name="TargetNode" select="ForeignCorpMissingEINReasonCd"/>
 													</xsl:call-template>
 												</xsl:if>
-												<xsl:if test="(ForeignBranchOrQBUCd != '')">
+												<xsl:if test="(BranchCd != '')"><span style="width:0.5mm;"/>
 													<xsl:call-template name="PopulateText">
-														<xsl:with-param name="TargetNode" select="ForeignBranchOrQBUCd"/>
+														<xsl:with-param name="TargetNode" select="BranchCd"/>
 													</xsl:call-template>
 												</xsl:if>
-												<xsl:if test="(ForeignEntityIdentificationGrp != '')">
+												<xsl:if test="(ForeignEntityIdentificationGrp != '')"><span style="width:0.5mm;"/>
 													<xsl:call-template name="PopulateText">
 														<xsl:with-param name="TargetNode" select="ForeignEntityIdentificationGrp"/>
 													</xsl:call-template>
 												</xsl:if>
 											</td>
-											<td class="styTableCellSmall" style="text-align:left;border-color:black;">
+											<td class="styTableCellSmall" style="text-align:center;border-color:black;">
 												<span class="styTableCellPad"/>
 												<!-- this is for new change 1 -->
 												<!-- If ForeignCountryOrUSPossession -->
@@ -385,6 +392,11 @@
 														<xsl:with-param name="TargetNode" select="Sect965RepatriationIncomeCd"/>
 													</xsl:call-template>
 												</xsl:if>
+												<xsl:if test="(ReattributionIncomeCd != '')">
+													<xsl:call-template name="PopulateText">
+														<xsl:with-param name="TargetNode" select="ReattributionIncomeCd"/>
+													</xsl:call-template>
+												</xsl:if>
 											</td>
 											<td class="styTableCellSmall" style="text-align:right;border-color:black;">
 												<xsl:call-template name="PopulateAmount">
@@ -400,7 +412,7 @@
 											</td>
 											<td class="styTableCellSmall" style="text-align:right;border-color:black;">
 												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="DividendsExcldGrossUpAmt"/>
+													<xsl:with-param name="TargetNode" select="DividendsAmt"/>
 												</xsl:call-template>
 												<span style="width:1px;"/>
 											</td>
@@ -458,11 +470,9 @@
 													<span style="width:16px"/>.
 													<span style="width:16px"/>.
 													<span style="width:16px"/>.
-													<span style="width:16px"/>.
-													<span style="width:16px"/>.
 													<span style="width:6px"/>
 												</span>
-												<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="MediumBullet"/>
+												<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="right arrow"/>
 											</td>
 											<td class="styTableCellSmall" style="width:35mm;border-color:black;border-bottom-width:0mm;">
 												<span class="styTableCellPad"/>
@@ -495,11 +505,9 @@
 													<span style="width:16px"/>.
 													<span style="width:16px"/>.
 													<span style="width:16px"/>.
-													<span style="width:16px"/>.
-													<span style="width:16px"/>.
 													<span style="width:6px"/>
 												</span>
-												<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="MediumBullet"/>
+												<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="right arrow"/>
 											</td>
 											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:0mm;padding-right:1mm;">
 												<xsl:call-template name="PopulateAmount">
@@ -513,7 +521,7 @@
 											</td>
 											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:0mm;padding-right:1mm;">
 												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/TotDividendsExcldGrossUpAmt"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/TotalDividendsAmt"/>
 												</xsl:call-template>
 											</td>
 											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:0mm;padding-right:1mm;">
@@ -555,9 +563,9 @@
 						<table class="styTable" style="border-bottom:0;" cellspacing="0">
 							<thead class="styTableThead">
 								<tr>
-									<th class="styIRS1118TableCellLtr" style="border-top:1px solid black;" rowspan="3">
+									<td class="styIRS1118TableCellLtr" style="border-top:1px solid black;" rowspan="3" scope="rowgroup">
 										<span style="width:11mm;height:9mm;"/>
-									</th>
+									</td>
 									<th class="styIRS1118TableCellHeaderSmall" style="width:35mm;height:9mm;border-top:1px solid black;" scope="col">6. <span class="styNormalText" style="display:inline;">Gross Rents, Royalties, and License Fees</span>
 									</th>
 									<th class="styIRS1118TableCellHeaderSmall" style="width:35mm;height:9mm;border-top:1px solid black;" scope="col">7. <span class="styNormalText" style="display:inline;">Sales</span>
@@ -606,13 +614,13 @@
 											</td>
 											<td class="styTableCellSmall" style="text-align:right;border-color:black;">
 												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="Section986cGainOrLossAmt"/>
+													<xsl:with-param name="TargetNode" select="CurrencyGainAmt"/>
 												</xsl:call-template>
 												<span style="width:1px;"/>
 											</td>
-											<td class="styTableCellSmall" style="text-align:right;border-color:black;">
-												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="Section987GainOrLossAmt"/>
+											<td class="styTableCellSmall" style="text-align:center;border-color:black;">
+												<xsl:call-template name="PopulateText">
+													<xsl:with-param name="TargetNode" select="CurrencyGainCd"/>
 												</xsl:call-template>
 												<span style="width:1px;"/>
 											</td>
@@ -621,7 +629,7 @@
 													<xsl:call-template name="SetFormLinkInline">
 														<xsl:with-param name="TargetNode" select="OtherIncomeLossAmt"/>
 													</xsl:call-template>
-													<xsl:call-template name="PopulateText">
+													<xsl:call-template name="PopulateAmount">
 														<xsl:with-param name="TargetNode" select="OtherIncomeLossAmt"/>
 													</xsl:call-template>
 												</xsl:if>
@@ -722,12 +730,7 @@
 											</td>
 											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:1px;padding-right:1mm;">
 												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/TotSection986cGainOrLossAmt"/>
-												</xsl:call-template>
-											</td>
-											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:1px;padding-right:1mm;">
-												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/TotSection987GainOrLossAmt"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/TotalCurrencyGainAmt"/>
 												</xsl:call-template>
 											</td>
 											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:1px;padding-right:1mm;background-color:lightgrey;">
@@ -735,7 +738,12 @@
 											</td>
 											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:1px;padding-right:1mm;">
 												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/AggrgtTotGrossIncomeOrLossAmt"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/TotOtherAllocableDeductionsAmt"/>
+												</xsl:call-template>
+											</td>
+											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:1px;padding-right:1mm;">
+												<xsl:call-template name="PopulateAmount">
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/AggrgtTotalAllocableDedAmt"/>
 												</xsl:call-template>
 											</td>
 										</tr>
@@ -772,9 +780,9 @@
 						<table class="styTable" style="border-bottom:0;" cellspacing="0">
 							<thead class="styTableThead">
 								<tr>
-									<th class="styIRS1118TableCellLtr" rowspan="3">
+									<td class="styIRS1118TableCellLtr" rowspan="3" scope="rowgroup">
 										<span style="width:11mm;height:23mm;"/>
-									</th>
+									</td>
 									<th class="styIRS1118TableCellHeaderSmall" style="width:210mm;height:5mm;" scope="col" colspan="7">13. <span class="styNormalText" style="display:inline;">Allocable Deductions</span>
 									</th>
 								</tr>
@@ -843,7 +851,7 @@
 												<span style="width:1px;"/>
 											</td>
 											<td class="styTableCellSmall" style="text-align:right;border-color:black;">
-												<xsl:call-template name="PopulateText">
+												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="ExpensesRelatedSalesIncomeAmt"/>
 												</xsl:call-template>
 												<span style="width:1px;"/>
@@ -987,9 +995,9 @@
 						<table class="styTable" style="border-bottom:0;" cellspacing="0">
 							<thead class="styTableThead">
 								<tr>
-									<th class="styIRS1118TableCellLtr" rowspan="2">
+									<td class="styIRS1118TableCellLtr" rowspan="2" scope="rowgroup">
 										<span style="width:11mm;height:9mm;"/>
-									</th>
+									</td>
 									<th class="styIRS1118TableCellHeaderSmall" style="width:120mm;height:5mm;" scope="col" colspan="4">13. <span class="styNormalText" style="display:inline;">Allocable Deductions <i>(continued)</i>
 										</span>
 									</th>
@@ -1044,6 +1052,9 @@
 												<span style="width:1px;"/>
 											</td>
 											<td class="styTableCellSmall" style="width:32mm;text-align:right;border-color:black;">
+												<xsl:call-template name="SetFormLinkInline">
+													<xsl:with-param name="TargetNode" select="OtherAllocableDeductionsAmt"/>
+												</xsl:call-template>
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="OtherAllocableDeductionsAmt"/>
 												</xsl:call-template>
@@ -1074,7 +1085,7 @@
 												<span style="width:1px;"/>
 											</td>
 											<td class="styTableCellSmall" style="width:32mm;text-align:right;border-color:black;">
-												<xsl:call-template name="PopulateText">
+												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="TotIncmOrLossBfrAdjustmentsAmt"/>
 												</xsl:call-template>
 												<span style="width:1px;"/>
@@ -1148,7 +1159,7 @@
 											</td>
 											<td class="styTableCellSmall" style="border-color:black;border-bottom-width:1px;padding-right:1mm;">
 												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/TotalGroIncmRelatedExpensesAmt"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleA/TotalCurrencyLossAmt"/>
 												</xsl:call-template>
 											</td>
 											<td class="styTableCellSmall" style="width:27mm;border-color:black;border-bottom-width:1px;background-color:lightgrey;">
@@ -1261,9 +1272,9 @@
 							<table class="styLandscapeTable" cellspacing="0" style="width:256mm;height: auto">
 								<thead class="styTableThead">
 									<tr>
-										<th class="styIRS1118TableCellLtr" style="width:11mm;height:21mm;" rowspan="3">
+										<td class="styIRS1118TableCellLtr" style="width:11mm;height:21mm;" rowspan="3" scope="rowgroup">
 											<span class="styTableCellPad" style="font-weight:bold"/>
-										</th>
+										</td>
 										<th class="styIRS1118TableCellHeaderSmall" scope="col" rowspan="2" colspan="2" style="width:30mm;height:14mm;">
 											<br/>
 										1. <span class="styNormalText" style="display:inline;">Credit is Claimed for Taxes (check one):</span>
@@ -1454,7 +1465,7 @@
 													<span style="font-weight:bold;">Totals </span>(add lines A through C)
 												<span style="width:1mm;"/>.
 												<span style="width:1mm;"/>
-													<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="MediumBullet"/>
+													<img src="{$ImagePath}/8849Schedule3_Bullet_Md.gif" alt="right arrow"/>
 												</td>
 												<td class="styTableCellSmall" style="font-size:5pt;border-color:black;border-bottom:1px solid black;">
 													<xsl:call-template name="PopulateAmount">
@@ -1534,9 +1545,9 @@
 							<table class="styLandscapeTable" cellspacing="0" style="width:256mm;height: auto">
 								<thead class="styTableThead">
 									<tr>
-										<th class="styIRS1118TableCellLtr" style="width:11mm;height:21mm;" rowspan="3">
+										<td class="styIRS1118TableCellLtr" style="width:11mm;height:21mm;" rowspan="3" scope="rowgroup">
 											<span class="styTableCellPad" style="font-weight:bold"/>
-										</th>
+										</td>
 										<th class="styIRS1118TableCellHeaderSmall" scope="col" style="width:144mm;height:7mm;" colspan="4">2. <span class="styNormalText" style="display:inline;">Foreign Taxes Paid or Accrued (attach schedule showing amounts in foreign currency and conversion rate(s) used)</span>
 										</th>
 										<th class="styIRS1118TableCellHeaderSmall" scope="col" style="width:50mm;height:5mm;" rowspan="3">3. <span class="styNormalText" style="display:inline;">Tax Deemed Paid (see instructions)</span>
@@ -2225,7 +2236,7 @@
 							</div>
 							<div class="styLNAmountBox">
 								<xsl:call-template name="PopulateAmount">
-									<xsl:with-param name="TargetNode" select="$Form1118ScheduleB/ExcessLimitationAmt"/>
+									<xsl:with-param name="TargetNode" select="$Form1118ScheduleB/IncreaseLimitationSect960cAmt"/>
 								</xsl:call-template>
 							</div>
 						</div>
@@ -2285,7 +2296,7 @@
 								<span style="width:16px"/>.
 								<span style="width:16px"/>
 								</span>
-								<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+								<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 							</div>
 							<div class="styLNAmountBoxNBB">
 								<xsl:call-template name="PopulateAmount">
@@ -2612,7 +2623,7 @@
 								<span style="width:16px"/>.
 								<span style="width:16px"/>
 									</span>
-									<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+									<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 								</div>
 								<div class="styLNAmountBoxNBB">
 									<xsl:call-template name="PopulateAmount">
@@ -2697,7 +2708,7 @@
 												</td>
 												<td class="styIRS1118TableCellSmallArial" style="text-align:center;">
 													<xsl:call-template name="PopulateText">
-														<xsl:with-param name="TargetNode" select="QBUReferenceIdNum"/>
+														<xsl:with-param name="TargetNode" select="TestedUnitReferenceIdNum"/>
 													</xsl:call-template>
 												</td>
 											</tr>
@@ -2813,7 +2824,7 @@
 														<xsl:with-param name="TargetNode" select="SubpartFIncomeGrpRegSect1904Cd"/>
 													</xsl:call-template>
 												</td>
-												<td class="styIRS1118TableCellSmallArial" style="text-align:center;">
+												<td class="styIRS1118TableCellSmallArial" style="text-align:left;">
 													<xsl:call-template name="PopulateText">
 														<xsl:with-param name="TargetNode" select="QBUName"/>
 													</xsl:call-template>
@@ -2913,7 +2924,7 @@
 												</td>
 												<td class="styIRS1118TableCellSmallArial" style="">
 													<xsl:call-template name="PopulateAmount">
-														<xsl:with-param name="TargetNode" select="TotCYTaxesSubpartFIncmGrpAmt"/>
+														<xsl:with-param name="TargetNode" select="TotEligCYTxsSubpartFIncmGrpAmt"/>
 													</xsl:call-template>
 												</td>
 												<td class="styIRS1118TableCellSmallArial" style="">
@@ -3009,7 +3020,7 @@
 										  <span style="width:10px"/>.
 										  <span style="width:10px"/>
 											</span>
-											<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+											<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 										</td>
 										<td class="styIRS1118TableCellSmallArial" style="height:5mm;padding-bottom:0mm;">
 											<br/>
@@ -3064,7 +3075,7 @@
 							<div class="styTitleName">Schedule D</div>
 							<span class="styIRS1118TitleDesc">Tax Deemed Paid With Respect to Section 951A Income by Domestic Corporation Filing the Return (Section 960(d))</span>
 							<div style="margin-left: 27mm; width: 256mm; float:left; clear:none">
-								<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="bulletpoint"/>
+								<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="right arrow"/>
 								<div class="styItalicText" style="display:inline;">Use this schedule to figure the tax deemed paid by the corporation with respect to section 951A inclusions of earnings from foreign corporations under section 960(d).</div>
 							</div>
 						</div>
@@ -3077,7 +3088,7 @@
 									<xsl:with-param name="TargetNode" select="$Form1118ScheduleD/ForeignTestedIncmAndFrgnTxGrp"/>
 									<xsl:with-param name="containerHeight" select="5"/>
 									<xsl:with-param name="headerHeight" select="2"/>
-									<xsl:with-param name="containerID" select=" '1TUEctn' "/>
+									<xsl:with-param name="containerID" select=" '1TUEctnA' "/>
 								</xsl:call-template>
 								<!-- end button display logic -->
 							</div>
@@ -3097,7 +3108,7 @@
 										</th>
 										<th class="styIRS1118TableCellHeaderSmall" style="width:38mm;" rowspan="2" scope="col">3. <span class="styNormalText" style="display:inline;">Country of Incorporation (enter country code - see instructions)</span>
 										</th>
-										<th class="styIRS1118TableCellHeaderSmall" style="width:48mm;" rowspan="2" scope="col">4. <span class="styNormalText" style="display:inline;">Pro Rata Share of CFC's Tested Income</span>
+										<th class="styIRS1118TableCellHeaderSmall" style="width:48mm;" rowspan="2" scope="col">4. <span class="styNormalText" style="display:inline;">Functional Currency of Foreign Corporation (enter code)</span>
 										</th>
 									</tr>
 								</thead>
@@ -3147,9 +3158,9 @@
 														<xsl:with-param name="TargetNode" select="CountryCd"/>
 													</xsl:call-template>
 												</td>
-												<td class="styIRS1118TableCellSmallArial" style="">
+												<td class="styIRS1118TableCellSmallArial" style="text-align:center;">
 													<xsl:call-template name="PopulateAmount">
-														<xsl:with-param name="TargetNode" select="ProRataShareCFCTestedIncmAmt"/>
+														<xsl:with-param name="TargetNode" select="FunctionalCurrencyCd"/>
 													</xsl:call-template>
 												</td>
 											</tr>
@@ -3222,7 +3233,7 @@
 										  <span style="width:10px"/>.
 										  <span style="width:5px"/>
 											</span>
-											<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+											<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 										</td>
 										<td class="styIRS1118TableCellSmallArial" style="border-top:1px solid black;border-bottom-width:1px;">
 											<xsl:call-template name="PopulateAmount">
@@ -3400,7 +3411,7 @@
 										  <span style="width:10px"/>.
 										  <span style="width:10px"/>
 											</span>
-											<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+											<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 										</td>
 										<td class="styIRS1118TableCellSmallArial" style="font-size:6pt;border-top:0px;border-bottom-width:1px;">
 											<xsl:call-template name="PopulateAmount">
@@ -3643,7 +3654,7 @@
 															<xsl:with-param name="TargetNode" select="CountryCd"/>
 														</xsl:call-template>
 													</td>
-													<td class="styIRS1118TableCellSmallArial" style="">
+													<td class="styIRS1118TableCellSmallArial" style="text-align:center;">
 														<xsl:call-template name="PopulateAmount">
 															<xsl:with-param name="TargetNode" select="FunctionalCurrencyCd"/>
 														</xsl:call-template>
@@ -3843,19 +3854,13 @@
 													  <span style="width:10px"/>.
 													  <span style="width:10px"/>.
 													  <span style="width:10px"/>.
-													  <span style="width:10px"/>.
-													  <span style="width:10px"/>.
-													  <span style="width:10px"/>.
-													  <span style="width:10px"/>.
-													  <span style="width:10px"/>.
-													  <span style="width:10px"/>.
 													  <span style="width:10px"/>
 											</span>
-											<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="bulletpoint"/>
+											<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="right arrow"/>
 										</td>
 										<td class="styIRS1118TableCellSmallArial" style="font-size:6pt;bordder-bottom-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleE/TaxDeemedPdSection960bGrp/TotalTaxDeemedPdSection960bAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleE/TotalTaxDeemedPdSection960bAmt"/>
 											</xsl:call-template>
 										</td>
 									</tr>
@@ -4082,16 +4087,16 @@
 													</xsl:when>
 													<xsl:otherwise>
 														<xsl:if test="(LowerTierRecipientFrgnCorpGrp/ForeignEntityIdentificationGrp)">
-															<xsl:for-each select="LowerTierRecipientFrgnCorpGrp/ForeignEntityIdentificationGrp">
+															<xsl:for-each select="LowerTierRecipientFrgnCorpGrp/ForeignEntityIdentificationGrp/ForeignEntityReferenceIdNum">
 																<xsl:call-template name="PopulateText">
-																	<xsl:with-param name="TargetNode" select="ForeignEntityReferenceIdNum"/>
+																	<xsl:with-param name="TargetNode" select="node()"/>
 																</xsl:call-template>
 																<br/>
 															</xsl:for-each>
 														</xsl:if>
-														<xsl:if test="(LowerTierRecipientFrgnCorpGrp/DistributingForeignCorpEIN)">
+														<xsl:if test="(LowerTierRecipientFrgnCorpGrp/RecipientForeignCorpEIN)">
 															<xsl:call-template name="PopulateText">
-																<xsl:with-param name="TargetNode" select="LowerTierRecipientFrgnCorpGrp/DistributingForeignCorpEIN"/>
+																<xsl:with-param name="TargetNode" select="LowerTierRecipientFrgnCorpGrp/RecipientForeignCorpEIN"/>
 															</xsl:call-template>
 														</xsl:if>
 													</xsl:otherwise>
@@ -4316,8 +4321,8 @@
 								Part I -- Reduction Amounts
 							</div>
 								<div style="width:256mm;float:left;clear:none;">
-									<div class="styIRS1118LNLeftNumBoxB" style="height:8mm;text-align:center;padding-top:2mm;float:left;clear:none;border-left-width:0px">A</div>
-									<div class="styIRS1118LNDescRed" style="width:216mm;height:8mm;padding-top:2mm;">
+									<div class="styIRS1118LNLeftNumBoxB" style="height:5mm;text-align:center;float:left;clear:none;border-left-width:0px">A</div>
+									<div class="styIRS1118LNDescRed" style="width:216mm;height:5mm;">
 									 Reduction of Taxes Under Section 901(e)—Attach separate schedule
 									 <xsl:call-template name="SetFormLinkInline">
 											<xsl:with-param name="TargetNode" select="$Form1118ScheduleG/Section901eTaxReductionAmt"/>
@@ -4325,14 +4330,14 @@
 										<span style="width:1mm;"/>
 										<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:2mm;">......................... </span>
 									</div>
-									<div class="styLNAmountBox" style="height:8mm;padding-top:2mm;">
+									<div class="styLNAmountBox" style="height:5mm;">
 										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$Form1118ScheduleG/Section901eTaxReductionAmt"/>
 										</xsl:call-template>
 									</div>
 								</div>
 								<div style="width:256mm;">
-									<div class="styIRS1118LNLeftNumBoxB" style="height:5mm;text-align:center;float:left;clear:none;padding-top:0.5mm;border-left-width: 0px">B</div>
+									<div class="styIRS1118LNLeftNumBoxB" style="height:5mm;text-align:center;float:left;clear:none;border-left-width: 0px">B</div>
 									<div class="styIRS1118LNDescRed" style="width:216mm;height:5mm;">Reduction of Foreign Oil and Gas Taxes—Enter
 									amount from Schedule I, Part II, line 4<span style="width:3mm;"/>
 										<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:2mm;">..................... </span>
@@ -4414,7 +4419,7 @@
 									<div class="styIRS1118LNDescRed" style="width:216mm;height:5mm;">Reduction for disallowed taxes under section 965(g)<span style="width:1.5mm;"/>
 										<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:2mm;">.............................. </span>
 									</div>
-									<div class="styLNAmountBox" style="height:5mm;padding-top:4mm;">
+									<div class="styLNAmountBox" style="height:5mm;padding-top:1mm;">
 										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$Form1118ScheduleG/RedDsallwTaxesUnderSect965gAmt"/>
 										</xsl:call-template>
@@ -4425,7 +4430,7 @@
 									<div class="styIRS1118LNDescRed" style="width:216mm;height:5mm;">Reduction for disallowed taxes under section 245A<span style="width:3.25mm;"/>
 										<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:2mm;">.............................. </span>
 									</div>
-									<div class="styLNAmountBox" style="height:5mm;padding-top:4mm;">
+									<div class="styLNAmountBox" style="height:5mm;padding-top:1mm;">
 										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$Form1118ScheduleG/RedDsallwTaxesUnderSect245AAmt"/>
 										</xsl:call-template>
@@ -4434,9 +4439,12 @@
 								<div style="width:256mm;">
 									<div class="styIRS1118LNLeftNumBoxB" style="height:5mm;text-align:center;float:left;clear:none;padding-top:0.5mm;border-left-width: 0px">H</div>
 									<div class="styIRS1118LNDescRed" style="width:216mm;height:5mm;">Other reductions in taxes (attach schedule—see instructions)<span style="width:1mm;"/>
-										<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:2mm;">............................ </span>
+										<xsl:call-template name="SetFormLinkInline">
+											<xsl:with-param name="TargetNode" select="$Form1118ScheduleG/OtherTaxReductionsAmt"/>
+										</xsl:call-template>
+										<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:2mm;">.......................... </span>
 									</div>
-									<div class="styLNAmountBox" style="height:5mm;padding-top:4mm;">
+									<div class="styLNAmountBox" style="height:5mm;padding-top:1mm;">
 										<xsl:call-template name="PopulateAmount">
 											<xsl:with-param name="TargetNode" select="$Form1118ScheduleG/OtherTaxReductionsAmt"/>
 										</xsl:call-template>
@@ -4448,7 +4456,7 @@
 									<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:2mm;">......................... </span>
 									</div>
 									<div class="styIRS1118LNDescRed" style="height:8mm;width:3mm;border-bottom-width:0px;padding-top:4mm;">
-										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 									</div>
 									<div class="styLNAmountBox" style="height:8mm;border-bottom-width:0px;padding-top:4mm;">
 										<xsl:call-template name="PopulateAmount">
@@ -4463,7 +4471,7 @@
 									<div class="styIRS1118LNLeftNumBoxB" style="height:5mm;padding-top:1.5mm;border-left-width:0px;border-bottom-width:0px;text-align:center;float:left;clear:none;;">I</div>
 									<span style="width:245mm;height:5mm;border-left-width:0;">Check this box if, during the tax year, the corporation paid or accrued any foreign tax that was disqualified for credit under section 901(m)
 								<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:2mm;">............ </span>
-										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 										<span>
 											<xsl:call-template name="PopulateSpan">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleG/CorpPayAccrFrgnTaxSect901mInd"/>
@@ -4488,7 +4496,7 @@
 									<div class="styIRS1118LNLeftNumBoxB" style="height:5mm;padding-top:1.5mm;border-left-width:0px;border-bottom-width:0px;text-align:center;float:left;clear:none;;">J</div>
 									<span style="width:246mm;height:5mm;border-left-width:0;">Check this box if, during the tax year, the corporation paid or accrued any foreign tax that was disqualified for credit under Section 901(j), (k) or (l)
 								<span style="letter-spacing:4mm; font-weight:bold; font-size:7pt; margin-left:0.5mm;">.......... </span>
-										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 										<span>
 											<xsl:call-template name="PopulateSpan">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleG/CorpPayAccrFrgnTxSect901jklInd"/>
@@ -4543,11 +4551,11 @@
 							<div class="styBB" style="width:256mm;text-align:left;display:block;">
 								<div style="width:256mm;text-align:left;font-size:9pt;font-weight:bold;padding-left:0;">Part I—Research and Experimental Deductions</div>
 							</div>
-							<div style="height:auto;width:256mm;display:block;">
-								<table class="styTable" cellspacing="0" cellpadding="0" style="height:auto;width:256mm;">
+							<div class="styTableContainerLandscape" style="height:auto;width:256mm;display:block;">
+								<table class="styTableLandscape" cellspacing="0" cellpadding="0" style="height:auto;width:256mm;">
 									<thead class="styTableThead">
 										<tr>
-											<td class="styIRS1118TableCellHeaderSmall" colspan="2" rowspan="3" style="height:17mm;width:85mm;border-right-width:0px;border-left-width:0px;border-bottom-width:1px;">
+											<td class="styIRS1118TableCellHeaderSmall" colspan="2" rowspan="3" scope="rowgroup" style="height:17mm;width:85mm;border-right-width:0px;border-left-width:0px;border-bottom-width:1px;">
 												<span style="width:1px;"/>
 											</td>
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:98mm;border-left-width:1px;border-right-width:0px;" colspan="6">
@@ -4567,13 +4575,13 @@
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:75mm;border-left-width:1px;border-right-width:0px;" colspan="3">
 												Product Line #1 (SIC Code: 
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/SICCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/SICCd"/>
 												</xsl:call-template>)*
 											</td>
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:75mm;border-left-width:1px;border-right-width:0px;" colspan="3">
 												Product Line #2 (SIC Code: 
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdGroSls/SICCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/SICCd"/>
 												</xsl:call-template>)*
 											</td>
 										</tr>
@@ -4619,50 +4627,48 @@
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
 											  <span style="width:10px"/>
 											</span>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="width:24.5mm;border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/GrossSalesTotalsAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/TotalAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotalAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdGroSls/GrossSalesTotalsAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/TotResearchExperimentalDedAmt"/>
+											</xsl:call-template>
+											<span style="width:1px;"/>
+										</td>
+										<td class="styIRS1118LNAmountBoxSmall" style="width:24.5mm;border-left-width:1px;border-right-width:0px;">
+											<xsl:call-template name="PopulateAmount">
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/TotalAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotalAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApprtnGroIncmAndRsrchDed/GroIncmMthdGroIncmAndRsrchDed[1]/ApprtnDedGroIncmMethodGroIncm/GrossIncomeTotalsAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/TotResearchExperimentalDedAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApprtnGroIncmAndRsrchDed/GroIncmMthdGroIncmAndRsrchDed[1]/ApprtnDedGrossIncmMethodREDed/TotResearchExperimentalDedAmt"/>
-											</xsl:call-template>
-											<span style="width:1px;"/>
-										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
-											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApprtnGroIncmAndRsrchDed/GroIncmMthdGroIncmAndRsrchDed[1]/ApprtnDedGroIncmMethodGroIncm/GrossIncomeTotalsAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotREDeductionsEnteredAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4697,15 +4703,12 @@
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
 											U.S. source gross intangible income, or
 											<!--Dotted Line-->
-											<span>.
+											<span>
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>
 											</span>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="width:24.5mm;border-left-width:1px;border-right-width:0px;background-color:lightgrey;">
@@ -4716,7 +4719,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/USSrceGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4728,13 +4731,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/USSrceGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotUSSrceGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4744,15 +4747,12 @@
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;">
 											Foreign source gross intangible income
 											<!--Dotted Line-->
-											<span>.
+											<span>
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>
 											</span>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="width:24.5mm;border-left-width:1px;border-right-width:0px;background-color:lightgrey;">
@@ -4763,7 +4763,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/FrgnSrceGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4775,7 +4775,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/FrgnSrceGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4789,7 +4789,7 @@
 											Remaining R&amp;E deductions to be apportioned (line 1
 											minus line 2a or line 2b)
 											<!--Dotted Line-->
-											<span>.
+											<span>
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
@@ -4801,11 +4801,6 @@
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>
 											</span>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:7.5mm;width:24.5mm;border-left-width:1px;border-right-width:0px;background-color:lightgrey;">
@@ -4816,7 +4811,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:7.5mm;border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/RemainingREDedApprtnAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4828,7 +4823,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:7.5mm;border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/RemainingREDedApprtnAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4869,23 +4864,19 @@
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
 											Gross Intangible Income / Taxpayer's gross receipts
 											<!--Dotted Line-->
-											<span>.
-											  <span style="width:8px"/>.
+											<span>
 											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>
 											</span>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/USSrceIntngblIncmGroRcptsGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4894,13 +4885,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/USSrceIntngblIncmGroRcptsGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4915,22 +4906,17 @@
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;">b</td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
 											Gross Intangible Income / Controlled parties' gross receipts
-											<!--Dotted Line-->
-											<span>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>
-											</span>
+											
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/USSrceIntngblIncmGroRcptsGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4939,13 +4925,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/USSrceIntngblIncmGroRcptsGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4960,21 +4946,17 @@
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;">c</td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
 											Gross Intangible Income / Uncontrolled parties' gross receipts
-											<!--Dotted Line-->
-											<span>
-											  <span style="width:7px"/>.
-											  <span style="width:10px"/>.
-											</span>
+											
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/USSrceIntngblIncmGroRcptsGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -4983,13 +4965,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/USSrceIntngblIncmGroRcptsGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5006,8 +4988,6 @@
 											Total line 4
 											<!--Dotted Line-->
 											<span>
-											  <span style="width:7px"/>.
-											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
@@ -5026,43 +5006,43 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/USSrceIntngblIncmGroRcptsGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/TotalUSSourceREDedAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/USSrceIntngblIncmGroRcptsGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/TotalUSSourceREDedAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotResearchExperimentalDedAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5099,23 +5079,20 @@
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
 											Gross Intangible Income / Taxpayer's gross receipts
 											<!--Dotted Line-->
-											<span>.
-											  <span style="width:8px"/>.
+											<span>
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>
 											</span>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/TotFrgnSrceIntngblIncomeGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5124,13 +5101,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/TotFrgnSrceIntngblIncomeGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5145,22 +5122,17 @@
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;">b</td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
 											Gross Intangible Income / Controlled parties' gross receipts
-											<!--Dotted Line-->
-											<span>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>
-											</span>
+											
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/TotFrgnSrceIntngblIncomeGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5169,13 +5141,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/TotFrgnSrceIntngblIncomeGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5190,21 +5162,17 @@
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;">c</td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
 											Gross Intangible Income / Uncontrolled parties' gross receipts
-											<!--Dotted Line-->
-											<span>
-											  <span style="width:7px"/>.
-											  <span style="width:10px"/>.
-											</span>
+											
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/TotFrgnSrceIntngblIncomeGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5213,13 +5181,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/TotFrgnSrceIntngblIncomeGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5236,7 +5204,7 @@
 											Total line 5
 											<!--Dotted Line-->
 											<span>
-											  <span style="width:7px"/>.
+											  <span style="width:4px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
@@ -5250,43 +5218,41 @@
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
 											  <span style="width:10px"/>.
-											  <span style="width:10px"/>.
-											  <span style="width:10px"/>
 											</span>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/TotFrgnSrceIntngblIncomeGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/TotalFrgnSourceREDedAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/TotFrgnSrceIntngblIncomeGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/TotFrgnSrceIntngblIncomeGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/TotalFrgnSourceREDedAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5343,11 +5309,11 @@
 							<div class="styBB" style="width:256mm;text-align:left;display:block;">
 								<div style="width:256mm;text-align:left;font-size:9pt;font-weight:bold;padding-left:0;">Part I—Research and Experimental Deductions</div>
 							</div>
-							<div style="height:auto;width:256mm;display:block;">
+							<div class="styTableContainerLandscape" style="height:auto;width:256mm;display:block;">
 								<table class="styTable" cellspacing="0" cellpadding="0" style="height:auto;width:256mm;">
 									<thead class="styTableThead">
 										<tr>
-											<td class="styIRS1118TableCellHeaderSmall" colspan="2" rowspan="3" style="height:17mm;width:85mm;border-right-width:0px;border-left-width:0px;border-bottom-width:1px;">
+											<td class="styIRS1118TableCellHeaderSmall" colspan="2" rowspan="3" scope="rowgroup" style="height:17mm;width:85mm;border-right-width:0px;border-left-width:0px;border-bottom-width:1px;">
 												<span style="width:1px;"/>
 											</td>
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:98mm;border-left-width:1px;border-right-width:0px;" colspan="6">
@@ -5367,13 +5333,13 @@
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:75mm;border-left-width:1px;border-right-width:0px;" colspan="3">
 												Product Line #1 (SIC Code: 
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/SICCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/SICCd"/>
 												</xsl:call-template>)*
 											</td>
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:75mm;border-left-width:1px;border-right-width:0px;" colspan="3">
 												Product Line #2 (SIC Code: 
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdGroSls/SICCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/SICCd"/>
 												</xsl:call-template>)*
 											</td>
 										</tr>
@@ -5435,7 +5401,7 @@
 											Enter Code
 											<span style="width:30mm;text-align:center;border-bottom:1px solid black;">
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/ApportionmentStatutoryGrp/ForeignBranchIncomeCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotSect951AFrgnSrceREDedGrp/Section951AIncomeCd"/>
 												</xsl:call-template>
 											</span>
 										</td>
@@ -5474,13 +5440,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/Sect951AFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/Sect951AFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5489,13 +5455,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/Sect951AFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/Sect951AFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5517,13 +5483,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/Sect951AFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/Sect951AFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5532,13 +5498,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/Sect951AFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/Sect951AFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5560,13 +5526,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/Sect951AFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/Sect951AFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5575,13 +5541,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/Sect951AFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/Sect951AFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5610,13 +5576,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/Sect951AFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/Sect951AFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5625,13 +5591,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/Sect951AFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/Sect951AFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5645,7 +5611,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(5) Amount of line 3 apportioned to R&amp;E deductions for this separate
+											(5) Amount of line 3 R&amp;E deductions apportioned to this separate 
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -5673,7 +5639,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/Sect951AFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5685,7 +5651,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/Sect951AFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5696,7 +5662,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(6) Amount of line 2b apportioned to R&amp;E deductions for this separate
+											(6) Amount of line 2b R&amp;E deductions apportioned to this separate
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -5724,7 +5690,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/Sect951AFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5736,7 +5702,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/Sect951AFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5775,7 +5741,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/Sect951AFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5787,13 +5753,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/Sect951AFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotSect951AFrgnSrceREDedGrp/TotREDedSect951ATotCatIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5804,7 +5770,7 @@
 											Enter Code
 											<span style="width:30mm;text-align:center;border-bottom:1px solid black;">
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/ApportionmentStatutoryGrp/ForeignBranchIncomeCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotFrgnBrFrgnSrceREDedGrp/ForeignBranchIncomeCd"/>
 												</xsl:call-template>
 											</span>
 										</td>
@@ -5843,13 +5809,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/FrgnBrFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/FrgnBrFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5858,13 +5824,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/FrgnBrFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/FrgnBrFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5886,13 +5852,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/FrgnBrFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/FrgnBrFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5901,13 +5867,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/FrgnBrFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/FrgnBrFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5929,13 +5895,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/FrgnBrFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/FrgnBrFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5944,13 +5910,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/FrgnBrFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/FrgnBrFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5979,13 +5945,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/FrgnBrFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/FrgnBrFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -5994,13 +5960,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/FrgnBrFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/FrgnBrFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6014,7 +5980,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(5) Amount of line 3 apportioned to R&amp;E deductions for this separate
+											(5) Amount of line 3 R&amp;E deductions apportioned to this separate 
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -6042,7 +6008,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/FrgnBrFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6054,7 +6020,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/FrgnBrFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6065,7 +6031,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(6) Amount of line 2b apportioned to R&amp;E deductions for this separate
+											(6) Amount of line 2b R&amp;E deductions apportioned to this separate
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -6093,7 +6059,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/FrgnBrFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6105,7 +6071,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/FrgnBrFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6144,7 +6110,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/FrgnBrFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6156,13 +6122,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/FrgnBrFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotFrgnBrFrgnSrceREDedGrp/TotREDedFBTotCatIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6224,11 +6190,11 @@
 							<div class="styBB" style="width:256mm;text-align:left;display:block;">
 								<div style="width:256mm;text-align:left;font-size:9pt;font-weight:bold;padding-left:0;">Part I—Research and Experimental Deductions</div>
 							</div>
-							<div style="height:auto;width:256mm;display:block;">
+							<div class="styTableContainerLandscape" style="height:auto;width:256mm;display:block;">
 								<table class="styTable" cellspacing="0" cellpadding="0" style="height:auto;width:256mm;">
 									<thead class="styTableThead">
 										<tr>
-											<td class="styIRS1118TableCellHeaderSmall" colspan="2" rowspan="3" style="height:17mm;width:85mm;border-right-width:0px;border-left-width:0px;border-bottom-width:1px;">
+											<td class="styIRS1118TableCellHeaderSmall" colspan="2" rowspan="3" scope="rowgroup" style="height:17mm;width:85mm;border-right-width:0px;border-left-width:0px;border-bottom-width:1px;">
 												<span style="width:1px;"/>
 											</td>
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:98mm;border-left-width:1px;border-right-width:0px;" colspan="6">
@@ -6248,13 +6214,13 @@
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:75mm;border-left-width:1px;border-right-width:0px;" colspan="3">
 												Product Line #1 (SIC Code: 
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/SICCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/SICCd"/>
 												</xsl:call-template>)*
 											</td>
 											<td class="styIRS1118TableCellHeaderSmall" style="height:5mm;width:75mm;border-left-width:1px;border-right-width:0px;" colspan="3">
 												Product Line #2 (SIC Code: 
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdGroSls/SICCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/SICCd"/>
 												</xsl:call-template>)*
 											</td>
 										</tr>
@@ -6291,7 +6257,7 @@
 											Enter Code
 											<span style="width:30mm;text-align:center;border-bottom:1px solid black;">
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/ApportionmentStatutoryGrp/ForeignBranchIncomeCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotPssvCatFrgnSrceREDedGrp/PassiveCategoryIncomeCd"/>
 												</xsl:call-template>
 											</span>
 										</td>
@@ -6330,13 +6296,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/PssvCatFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/PssvCatFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6345,13 +6311,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/PssvCatFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/PssvCatFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6373,13 +6339,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/PssvCatFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/PssvCatFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6388,13 +6354,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/PssvCatFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/PssvCatFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6416,13 +6382,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/PssvCatFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/PssvCatFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6431,13 +6397,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/PssvCatFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/PssvCatFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6466,13 +6432,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/PssvCatFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/PssvCatFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6481,13 +6447,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/PssvCatFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/PssvCatFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6501,7 +6467,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(5) Amount of line 3 apportioned to R&amp;E deductions for this separate
+											(5) Amount of line 3 R&amp;E deductions apportioned to this separate 
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -6529,7 +6495,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/PssvCatFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6541,7 +6507,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/PssvCatFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6552,7 +6518,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(6) Amount of line 2b apportioned to R&amp;E deductions for this separate
+											(6) Amount of line 2b R&amp;E deductions apportioned to this separate
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -6580,7 +6546,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/PssvCatFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6592,7 +6558,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/PssvCatFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6631,7 +6597,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/PssvCatFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6643,13 +6609,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/PssvCatFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotPssvCatFrgnSrceREDedGrp/TotREDedPassiveTotalCatIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6660,7 +6626,7 @@
 											Enter Code
 											<span style="width:30mm;text-align:center;border-bottom:1px solid black;">
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/ApportionmentStatutoryGrp/ForeignBranchIncomeCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotGenCatFrgnSrceREDedGrp/GeneralCategoryIncomeCd"/>
 												</xsl:call-template>
 											</span>
 										</td>
@@ -6699,13 +6665,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/GenCatFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/GenCatFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6714,13 +6680,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/GenCatFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/GenCatFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6742,13 +6708,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/GenCatFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/GenCatFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6757,13 +6723,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/GenCatFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/GenCatFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6785,13 +6751,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/GenCatFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/GenCatFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6800,13 +6766,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/GenCatFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/GenCatFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6835,13 +6801,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/GenCatFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/GenCatFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6850,13 +6816,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/GenCatFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/GenCatFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6870,7 +6836,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(5) Amount of line 3 apportioned to R&amp;E deductions for this separate
+											(5) Amount of line 3 R&amp;E deductions apportioned to this separate 
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -6898,7 +6864,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/GenCatFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6910,7 +6876,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/GenCatFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6921,7 +6887,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(6) Amount of line 2b apportioned to R&amp;E deductions for this separate
+											(6) Amount of line 2b R&amp;E deductions apportioned to this separate
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -6949,7 +6915,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/GenCatFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -6961,7 +6927,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/GenCatFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7000,7 +6966,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/GenCatFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7012,13 +6978,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/GenCatFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotGenCatFrgnSrceREDedGrp/TotREDedGenTotCategoryIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7029,7 +6995,7 @@
 											Enter Code
 											<span style="width:30mm;text-align:center;border-bottom:1px solid black;">
 												<xsl:call-template name="PopulateText">
-													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[1]/ApportionmentDedSlsMthdGroSls/ApportionmentStatutoryGrp/ForeignBranchIncomeCd"/>
+													<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotSect901jCatFrgnSrceREDedGrp/Section901jIncomeCd"/>
 												</xsl:call-template>
 											</span>
 										</td>
@@ -7068,13 +7034,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/Sect901jFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/Sect901jFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7083,13 +7049,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/Sect901jFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/Sect901jFrgnSrceIntngblIncmGrp/TPGroRcptsGroIntngblIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7111,13 +7077,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/Sect901jFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/Sect901jFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7126,13 +7092,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/Sect901jFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/Sect901jFrgnSrceIntngblIncmGrp/CtrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7154,13 +7120,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/Sect901jFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/Sect901jFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7169,13 +7135,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/Sect901jFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/Sect901jFrgnSrceIntngblIncmGrp/UnctrlPrtyGroRcptsIntngblAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7204,13 +7170,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/GrossIntangibleIncomeGrp/Sect901jFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REGrossReceiptsGrp/Sect901jFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7219,13 +7185,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/GrossIntangibleIncomeGrp/Sect901jFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REGrossReceiptsGrp/Sect901jFrgnSrceIntngblIncmGrp/TotalGrossIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7239,7 +7205,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(5) Amount of line 3 apportioned to R&amp;E deductions for this separate
+											(5) Amount of line 3 R&amp;E deductions apportioned to this separate 
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -7267,7 +7233,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/Sect901jCatFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7279,7 +7245,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/Sect901jCatFrgnSrceREDedGrp/USSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7290,7 +7256,7 @@
 									<tr>
 										<td style="width:5mm;font-weight:bold;text-align:right;padding-right:1mm;border-bottom:0px solid black;"></td>
 										<td class="styIRS1118LNDescRD" style="width:80mm;text-align:left;border-bottom:0px solid black;">
-											(6) Amount of line 2b apportioned to R&amp;E deductions for this separate
+											(6) Amount of line 2b R&amp;E deductions apportioned to this separate 
 											<br/><span style="width:4mm;"/>category
 											<!--Dotted Line-->
 											<span>.
@@ -7318,7 +7284,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/Sect901jCatFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7330,7 +7296,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/Sect901jCatFrgnSrceREDedGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7369,7 +7335,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/Sect901jCatFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7381,13 +7347,13 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/Sect901jCatFrgnSrceREDedGrp/FrgnSourceApprtnREDedSepCatAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotSect901jCatFrgnSrceREDedGrp/TotREDedSection901jTotIncmAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7405,7 +7371,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[1]/REDeductionGrp/TotalFrgnSourceREDedAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7417,7 +7383,7 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="border-left-width:1px;border-right-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/SalesMethodGroSalesAndRsrchDed[2]/ApportionmentDedSlsMthdREDed/TotResearchExperimentalDedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/GrossReceiptsMethodGrp[2]/REDeductionGrp/TotalFrgnSourceREDedAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7477,19 +7443,19 @@
           <!-- The xsl:choose code block below enables this stylesheet to display data from more than one schema version -->
 							</div>
 						</div>
-						<div style="height:auto;width:260mm;">
+						<div style="height:auto;width:256mm;">
 							<table class="styTable" style="height:auto;width:256mm;" cellspacing="0">
 								<thead class="styTableThead">
 									<tr>
-										<td colspan="2" rowspan="2" scope="col" style="height:28mm;width:46mm;">
+										<th colspan="2" rowspan="2" scope="col" style="height:28mm;width:35mm;">
 											<span style="width:1px;"/>
-										</td>
-										<td colspan="2" scope="col" style="height:22mm;width:56mm;text-align:left;float:none;border-bottom:1px solid black;border-left:1px solid black;">
+										</th>
+										<th colspan="2" scope="col" style="height:22mm;width:50mm;text-align:left;float:none;border-bottom:1px solid black;border-left:1px solid black;">
 											<span style="width:16px"/>
 											<span class="styBoldText">(a)</span>
-                Average Value of Assets–<br/>
+											Average Value of Assets–<br/>
 											<span style="width:48px"/>
-                Check method used:<br/>
+											Check method used:<br/>
 											<div style="padding-left:4mm;">
 												<span style="width:2mm"/>
 												<input type="checkbox" class="styCkbox">
@@ -7520,20 +7486,20 @@
 												</label>
 											</div>
 											<br/>
-										</td>
-										<td colspan="2" scope="col" style="height:28mm;width:56mm;text-align:center;float:none;border-bottom:1px solid black;border-left:1px solid black;">
+										</th>
+										<th colspan="2" scope="col" style="height:28mm;width:56mm;text-align:center;float:none;border-bottom:1px solid black;border-left:1px solid black;">
 											<span class="styBoldText">(b)</span>
 											Interest Deductions
-										</td>
-										<td rowspan="2" scope="col" style="height:28mm;width:28mm;text-align:center;padding-top:1mm;Padding-left:1mm;border-left:1px solid black;border-bottom:0px solid black;">
+										</th>
+										<th rowspan="2" scope="col" style="height:28mm;width:28mm;text-align:center;padding-top:1mm;Padding-left:1mm;border-left:1px solid black;border-bottom:0px solid black;">
 											<span class="styBoldText">(c)</span>
 											Stewardship Deductions
-										</td>
-										<td rowspan="2" scope="col" style="height:28mm;width:28mm;text-align:center;padding-top:1mm;Padding-left:1mm;border-left:1px solid black;border-bottom:0px solid black;">
+										</th>
+										<th rowspan="2" scope="col" style="height:28mm;width:28mm;text-align:center;padding-top:1mm;Padding-left:1mm;border-left:1px solid black;border-bottom:0px solid black;">
 											<span class="styBoldText">(d)</span>
-											CertainIndustrial/Investor Damages <br/>(see instructions)
-										</td>
-										<td rowspan="2" scope="col" style="height:28mm;width:28mm;text-align:center;border-left:1px solid black;">
+											Certain Industrial/<br/>Investor Damages (see instructions)
+										</th>
+										<th rowspan="2" scope="col" style="height:28mm;width:28mm;text-align:center;border-left:1px solid black;">
 											<span class="styBoldText">(e)</span> 
 												Other <br/>Deductions<br/>
 												(attach schedule)<br/>
@@ -7541,8 +7507,8 @@
 												<xsl:call-template name="SetFormLinkInline">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApprtnOtherDeductionsGrp/OthDedNotAllcblTotalsAmt"/>
 											</xsl:call-template>
-										</td>
-										<td rowspan="2" scope="col" style="height:28mm;width:30mm;text-align:center;padding-top:1mm;Padding-left:1mm;border-left:1px solid black;border-bottom:0px solid black;">
+										</th>
+										<th rowspan="2" scope="col" style="height:28mm;width:30mm;text-align:center;padding-top:1mm;Padding-left:1mm;border-left:1px solid black;border-bottom:0px solid black;">
 											<span class="styBoldText">(f)</span>
 												Totals<br/>
 												(add the amounts<br/>
@@ -7555,24 +7521,23 @@
 												grouping, include the
 												amount in column (f)
 												of line 3a(2), 3b(2),
-												3c(2), 3d(2), 3e(2),
-												or 3f(2) below in
+												3c(2), 3d(2) or 3e(2) below in
 												column 14 of the
 												corresponding
 												Schedule A.
 												<br/>
 											<span style="height:3mm;"/>
-										</td>
+										</th>
 									</tr>
 									<tr>
-										<td scope="col" style="height:7mm;width:25mm;text-align:center;border-left:1px solid black;">
-											<span class="styBoldText">(i)</span> Nonfinancial Corporations</td>
-										<td scope="col" style="height:7mm;width:25mm;text-align:center;border-left:1px solid black;">
-											<span class="styBoldText">(ii)</span> Financial Corporations</td>
-										<td scope="col" style="height:7mm;width:25mm;text-align:center;border-left:1px solid black;">
-											<span class="styBoldText">(iii)</span> Nonfinancial Corporations</td>
-										<td scope="col" style="height:7mm;width:25mm;text-align:center;border-left:1px solid black;">
-											<span class="styBoldText">(iv)</span> Financial Corporations</td>
+										<th scope="col" style="height:7mm;width:25mm;text-align:center;border-left:1px solid black;">
+											<span class="styBoldText">(i)</span> Nonfinancial Corporations</th>
+										<th scope="col" style="height:7mm;width:25mm;text-align:center;border-left:1px solid black;">
+											<span class="styBoldText">(ii)</span> Financial Corporations</th>
+										<th scope="col" style="height:7mm;width:25mm;text-align:center;border-left:1px solid black;">
+											<span class="styBoldText">(iii)</span> Nonfinancial Corporations</th>
+										<th scope="col" style="height:7mm;width:25mm;text-align:center;border-left:1px solid black;">
+											<span class="styBoldText">(iv)</span> Financial Corporations</th>
 									</tr>
 								</thead>
 								<tfoot/>
@@ -7615,19 +7580,22 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;border-top:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/StewardshipDeductionsGrp/OthDedNotAllcblTotalsAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApportionmentInterestDedGrp/IntDedNonFinclCorporationsGrp/CorporationTotalsAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;border-top:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/OthDedNotAllcblTotalsAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApportionmentInterestDedGrp/IntDedNonFinclCorporationsGrp/TempRegulationAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;border-top:1px solid black;">
+											<xsl:call-template name="SetFormLinkInline">
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApportionmentInterestDedGrp/IntDedNonFinclCorporationsGrp/OtherAllocUnderTempRegsAmt"/>
+											</xsl:call-template>
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApprtnOtherDeductionsGrp/OthDedNotAllcblTotalsAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApportionmentInterestDedGrp/IntDedNonFinclCorporationsGrp/OtherAllocUnderTempRegsAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7787,19 +7755,19 @@
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/StewardshipDeductionsGrp/TotalApportionedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotSect951AAggregateAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/TotalApportionedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotFrgnBranchSect245AAggrgtAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
 										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;border-top-width:0px;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ApprtnOtherDeductionsGrp/TotalApportionedAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotFrgnBranchOtherCatAggrgtAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -7911,7 +7879,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/Section951AIncomeGrp/Section245ADividendAmt"/>
 											</xsl:call-template>
@@ -7974,7 +7942,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/Section951AIncomeGrp/OtherCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -8036,7 +8004,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/Section951AIncomeGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -8131,7 +8099,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/ForeignBranchIncomeGrp/Section245ADividendAmt"/>
 											</xsl:call-template>
@@ -8194,7 +8162,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/ForeignBranchIncomeGrp/OtherCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -8256,7 +8224,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/ForeignBranchIncomeGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -8351,7 +8319,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/PassiveCategoryIncomeGrp/Section245ADividendAmt"/>
 											</xsl:call-template>
@@ -8414,7 +8382,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/PassiveCategoryIncomeGrp/OtherCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -8476,7 +8444,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/PassiveCategoryIncomeGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -8571,7 +8539,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/GeneralCategoryIncomeGrp/Section245ADividendAmt"/>
 											</xsl:call-template>
@@ -8634,7 +8602,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/GeneralCategoryIncomeGrp/OtherCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -8696,7 +8664,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/GeneralCategoryIncomeGrp/TotalCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -8865,7 +8833,7 @@
 												</xsl:call-template><br/>
 											</xsl:for-each>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:for-each select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/Section901jIncomeCatGrp">
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="Section901jIncomeGrp/Section245ADividendAmt"/>
@@ -8935,7 +8903,7 @@
 												</xsl:call-template><br/>
 											</xsl:for-each>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:for-each select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/Section901jIncomeCatGrp">
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="Section901jIncomeGrp/OtherCategoryIncomeAmt"/>
@@ -9004,7 +8972,7 @@
 												</xsl:call-template><br/>
 											</xsl:for-each>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:for-each select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/Section901jIncomeCatGrp">
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="Section901jIncomeGrp/TotalCategoryIncomeAmt"/>
@@ -9097,7 +9065,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/USSourceIncomeGrp/Section245ADividendAmt"/>
 											</xsl:call-template>
@@ -9160,7 +9128,7 @@
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:30mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:8mm;width:28mm;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnIndustrialInvstDamagesGrp/ApportionmentStatutoryGrp/USSourceIncomeGrp/OtherCategoryIncomeAmt"/>
 											</xsl:call-template>
@@ -9245,8 +9213,9 @@
 										<td style="height:7mm;vertical-align:top;padding-top:1mm;;padding-left:1mm;border-bottom:1px solid black;">
 											<span class="styBoldText">4</span>
 										</td>
-										<td class="styIRS1118LNDescDed" style="height:7mm;vertical-align:top;padding-top:1mm;" colspan="8">
-											Part II Expenses Allocated and Apportioned to Section 245A Dividend.  
+										<td class="styIRS1118LNDescDed" style="height:7mm;vertical-align:top;padding-top:1mm;" cellpadding="0" cellspacing="0" colspan="8">
+											<div style="width:215mm;border-right:1px solid black;">
+											Expenses Allocated and Apportioned to Section 245A Dividends.  
 											Enter the sum of amounts in column (f) of lines 3a(1), 3b(1), 3c(1),
 											3d(1), 3e(1), and 3f(1). Include this line 4 result as a negative amount on Schedule B, Part II, line 8b
 												<span style="width:2px;"/>.
@@ -9290,18 +9259,13 @@
 												<span style="width:10px;"/>.
 												<span style="width:10px;"/>.
 												<span style="width:10px;"/>.
-												<span style="width:10px;"/>.
-												<span style="width:10px;"/>.
-												<span style="width:10px;"/>.
-												<span style="width:10px;"/>.
-												<span style="width:10px;"/>.
-												<span style="width:10px;"/>.
+												</div>
+												<div style="padding-left:1mm;">4</div>
 											</td>
-										<td class="styIRS1118LNAmountBoxSmall" style="height:7mm;">
+										<td class="styIRS1118LNAmountBoxSmall" style="height:7mm;padding-top:3mm;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/ExpnsAllocFrgnSect245ADivAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnDedExpnssApprtn245ADivAmt"/>
 											</xsl:call-template>
-											<span style="width:1px;"/>
 										</td>
 									</tr>
 								</tbody>
@@ -9348,12 +9312,12 @@
 							<div class="styIRS1118TitleDesc" style="text-align:left;padding-left:0;">Part III—Other Deductions
 							</div>
 						</div>
-						<div style="height:auto;">
+						<div style="height:auto;width:256mm;">
 							<table class="styLandscapeTable" style="height:auto;width:256mm;font-size:6pt;" cellspacing="0">
 								<thead class="styTableThead">
 									<tr>
-										<td colspan="2" scope="col" style="width:78mm;border-bottom:1px solid black;;">
-											<span style="width:77mm;"/>
+										<td colspan="2" scope="col" style="width:62mm;border-bottom:1px solid black;;">
+											<span style="width:61mm;"/>
 										</td>
 										<td scope="col" style="width:25mm;text-align:center;border-bottom:1px solid black;border-left:1px solid black;">
 											<span class="styBoldText">(a)</span>Officers’<br/>
@@ -9420,10 +9384,6 @@
 										</td>
 										<td scope="col" style="border-bottom:1px solid black;">
 											Total to be apportioned (see instructions)
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
@@ -9554,10 +9514,6 @@
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
@@ -9591,7 +9547,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/ApportionmentStatutoryGrp/Section951AIncomeGrp/Section245ADividendAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/Total951AIncmSect245ADivAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -9607,10 +9563,6 @@
 										<td scope="col" style="border-bottom:0px solid black;">
 											<span class="styBoldText">(2)</span> Other
 											<span style="width:13px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -9656,7 +9608,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/ApportionmentStatutoryGrp/Section951AIncomeGrp/OtherCategoryIncomeAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/TotalSect951AOtherCatIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -9668,10 +9620,6 @@
 										<td scope="col" style="border-bottom:1px solid black;">
 											<span class="styBoldText">(3)</span> Total line a
 											<span style="width:7px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -9771,10 +9719,6 @@
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
@@ -9808,7 +9752,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/ApportionmentStatutoryGrp/ForeignBranchIncomeGrp/Section245ADividendAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/TotalFrgnBrIncmSect245ADivAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -9824,10 +9768,6 @@
 										<td scope="col" style="border-bottom:0px solid black;">
 											<span class="styBoldText">(2)</span> Other
 											<span style="width:13px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -9873,7 +9813,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/ApportionmentStatutoryGrp/ForeignBranchIncomeGrp/OtherCategoryIncomeAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/TotalFrgnBrOtherCatIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -9885,10 +9825,6 @@
 										<td scope="col" style="border-bottom:1px solid black;">
 											<span class="styBoldText">(3)</span> Total line a
 											<span style="width:7px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -9988,10 +9924,6 @@
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
@@ -10025,7 +9957,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/ApportionmentStatutoryGrp/PassiveCategoryIncomeGrp/Section245ADividendAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/TotalPssvIncmSect245ADivAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -10041,10 +9973,6 @@
 										<td scope="col" style="border-bottom:0px solid black;">
 											<span class="styBoldText">(2)</span> Other
 											<span style="width:13px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -10090,7 +10018,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/ApportionmentStatutoryGrp/PassiveCategoryIncomeGrp/OtherCategoryIncomeAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/TotalPassiveOtherCatIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -10102,10 +10030,6 @@
 										<td scope="col" style="border-bottom:1px solid black;">
 											<span class="styBoldText">(3)</span> Total line a
 											<span style="width:7px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -10205,10 +10129,6 @@
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
@@ -10242,7 +10162,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/ApportionmentStatutoryGrp/GeneralCategoryIncomeGrp/Section245ADividendAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/TotalGenIncmSect245ADivAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -10258,10 +10178,6 @@
 										<td scope="col" style="border-bottom:0px solid black;">
 											<span class="styBoldText">(2)</span> Other
 											<span style="width:13px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -10307,7 +10223,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/ApportionmentStatutoryGrp/GeneralCategoryIncomeGrp/OtherCategoryIncomeAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/TotalGeneralOtherCatIncomeAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -10319,10 +10235,6 @@
 										<td scope="col" style="border-bottom:1px solid black;">
 											<span class="styBoldText">(3)</span> Total line a
 											<span style="width:7px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -10464,10 +10376,6 @@
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:for-each select="$Form1118ScheduleH/OfficerCompensationExpenseGrp/ApportionmentStatutoryGrp/Section901jIncomeCatGrp">
@@ -10505,7 +10413,7 @@
 											</xsl:for-each>
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
-											<xsl:for-each select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/ApportionmentStatutoryGrp/Section901jIncomeCatGrp">
+											<xsl:for-each select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/Section901jIncomeCatGrp">
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="Section901jIncomeGrp/Section245ADividendAmt"/>
 												</xsl:call-template><br/>
@@ -10531,10 +10439,6 @@
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:for-each select="$Form1118ScheduleH/OfficerCompensationExpenseGrp/ApportionmentStatutoryGrp/Section901jIncomeCatGrp">
@@ -10576,9 +10480,9 @@
 											<span style="width:1px;"/>
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
-											<xsl:for-each select="$Form1118ScheduleH/TotalCertainDedAllocApprtnGrp/ApportionmentStatutoryGrp/Section901jIncomeCatGrp">
+											<xsl:for-each select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/ResourcedByTreatyIncomeCatGrp">
 												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="Section901jIncomeGrp/OtherCategoryIncomeAmt"/>
+													<xsl:with-param name="TargetNode" select="ResourcedByTreatyIncomeGrp/OtherCategoryIncomeAmt"/>
 												</xsl:call-template><br/>
 											</xsl:for-each>
 										</td>
@@ -10590,10 +10494,6 @@
 										<td scope="col" style="vertical-align:bottom;border-bottom:1px solid black;">
 											<span class="styBoldText">(3)</span> Total line a
 											<span style="width:7px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -10648,7 +10548,7 @@
 									</tr>
 									<tr>
 										<td scope="col" style="width:10mm;text-align:right;vertical-align:top;padding-right:2mm;">
-											<span class="styBoldText">d</span>
+											<span class="styBoldText">f</span>
 										</td>
 										<td scope="col" style="border-bottom:0px solid black;">
 											U.S. source
@@ -10693,10 +10593,6 @@
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
@@ -10730,7 +10626,7 @@
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/ApportionmentStatutoryGrp/USSourceIncomeGrp/Section245ADividendAmt"/>
+												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/TotDedAllocApprtn245ADivGrp/TotalUSSourceSect245ADivAmt"/>
 											</xsl:call-template>
 											<span style="width:1px;"/>
 										</td>
@@ -10746,10 +10642,6 @@
 										<td scope="col" style="border-bottom:0px solid black;">
 											<span class="styBoldText">(2)</span> Other
 											<span style="width:13px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -10803,12 +10695,8 @@
 											<span style="width:1px;"/>
 										</td>
 										<td scope="col" style="border-bottom:1px solid black;">
-											<span class="styBoldText">(3)</span> Total line a
+											<span class="styBoldText">(3)</span> Total line f
 											<span style="width:7px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
-											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
 											<span style="width:10px;"/>.
@@ -10897,11 +10785,10 @@
 											<span style="width:3mm"/>
 											<span class="styBoldText">3</span>
 										</td>
-										<td scope="col" style="text-align:right;vertical-align:bottom;border-bottom:1px solid black;border-left:1px solid black;">
+										<td scope="col" style="text-align:right;vertical-align:bottom;padding-top:3mm;border-bottom:1px solid black;border-left:1px solid black;">
 											<xsl:call-template name="PopulateAmount">
 												<xsl:with-param name="TargetNode" select="$Form1118ScheduleH/CrtnDedExpnssApprtn245ADivAmt"/>
 											</xsl:call-template>
-											<span style="width:1px;"/>
 										</td>
 										<td scope="col" style="text-align:right;border-bottom:1px solid black;border-left:1px solid black;background-color:lightgrey;">
 											
@@ -10958,9 +10845,9 @@
 						<table class="styDepTblLandscape" cellspacing="0" style="font-size:6pt;">
 							<thead class="styTableThead">
 								<tr class="styDepTblHdr">
-									<th class="styDepTblCell" rowspan="3" style="width:7mm;">
+									<td class="styDepTblCell" rowspan="3" scope="rowgroup" style="width:7mm;">
 										<span style="width:4px;height:27mm;"/>
-									</th>
+									</td>
 									<th class="styDepTblCell" style="width:21mm;height:27mm;" rowspan="3" scope="col">1. <span class="styNormalText">Foreign Country or U.S. Possession (Enter two-letter code; see instructions. Use a separate line for each.)*</span>
 									</th>
 									<th class="styDepTblCell" style="width:229mm;height:5mm;" colspan="9" scope="col">Gross Income or (Loss) From Sources Outside the United States (<span class="styItalicText">INCLUDE</span> Foreign Branch Gross Income here <span class="styItalicText">and</span> on Schedule F)</th>
@@ -11189,9 +11076,9 @@
 						<table class="styDepTblLandscape" cellspacing="0" style="font-size:6pt;">
 							<thead class="styTableThead">
 								<tr class="styDepTblHdr">
-									<th class="styDepTblCell" rowspan="4" style="width:14mm;">
+									<td class="styDepTblCell" rowspan="4" scope="rowgroup" style="width:14mm;">
 										<span style="width:4px"/>
-									</th>
+									</td>
 									<th class="styDepTblCell" style="width:222mm;font-size:7pt;padding-top:1mm;padding-bottom:1mm;" colspan="8" scope="col">Deductions (<span class="styItalicText">INCLUDE</span> Foreign Branch Deductions here <span class="styItalicText">and</span> on Schedule F)</th>
 									<th class="styDepTblCell" style="width:25mm" rowspan="4" scope="col">13. <span class="styNormalText">Total Income or (Loss) Before Adjustments (subtract column 12 from column 8)</span>
 									</th>
@@ -11379,9 +11266,9 @@
 						<table class="styDepTblLandscape" cellspacing="0" style="height: 66mm;font-size:6pt;">
 							<thead class="styTableThead">
 								<tr class="styDepTblHdr">
-									<th class="styDepTblCell" style="width:11mm;height:21mm;" rowspan="3">
+									<td class="styDepTblCell" style="width:11mm;height:21mm;" rowspan="3" scope="rowgroup">
 										<span class="styTableCellPad" style="font-weight:bold"/>
-									</th>
+									</td>
 									<th class="styDepTblCell" scope="col" rowspan="2" colspan="2" style="width:30mm;height:14mm;">
 										<br/>
 										1. <span class="styNormalText" style="display:inline;">Credit is Claimed for Taxes (check one):</span>
@@ -11652,7 +11539,7 @@
 										</td>
 										<td class="styIRS1118TableCellSmallArial" style="text-align:center;font-size:5pt;">
 											<xsl:call-template name="PopulateText">
-												<xsl:with-param name="TargetNode" select="QBUReferenceIdNum"/>
+												<xsl:with-param name="TargetNode" select="TestedUnitReferenceIdNum"/>
 											</xsl:call-template>
 										</td>
 										<td class="styIRS1118TableCellSmallArial" style="text-align:center;font-size:5pt;">
@@ -11766,7 +11653,7 @@
 										  <span style="width:10px"/>.
 										  <span style="width:10px"/>
 										</span>
-										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 									</td>
 									<td class="styIRS1118TableCellSmallArial" style="height:5mm;">
 										<xsl:call-template name="PopulateAmount">
@@ -11937,7 +11824,7 @@
 										  <span style="width:10px"/>.
 										  <span style="width:5px"/>
 										</span>
-										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 									</td>
 									<td class="styIRS1118TableCellSmallArial" style="font-size:6pt;border-top:1px solid black;border-bottom-width:1px;">
 										<xsl:call-template name="PopulateAmount">
@@ -12010,7 +11897,7 @@
 										  <span style="width:10px"/>.
 										  <span style="width:10px"/>
 										</span>
-										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+										<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 									</td>
 									<td class="styIRS1118TableCellSmallArial" style="font-size:6pt;border-top:0px;border-bottom-width:1px;">
 										<xsl:call-template name="PopulateAmount">
@@ -12247,7 +12134,7 @@
 													  <span style="width:10px"/>.
 													  <span style="width:10px"/>
 										</span>
-										<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="bulletpoint"/>
+										<img src="{$ImagePath}/1118_Bullet_Title.gif" alt="right arrow"/>
 									</td>
 									<td class="styIRS1118TableCellSmallArial" style="font-size:6pt;bordder-bottom-width:0px;">
 										<xsl:call-template name="PopulateAmount">
@@ -12445,7 +12332,7 @@
 						<table class="styDepTblLandscape" cellspacing="0" style="font-size:6pt;height: 66mm;">
 							<thead class="styTableThead">
 								<tr class="styDepTblHdr">
-									<th class="styDepTblCell" colspan="2" style="height:8mm">
+									<th class="styDepTblCell" colspan="2" scope="colgroup" style="height:8mm">
                     1. <span class="styNormalText">Code for Foreign Country or U.S. Possession (see instructions and use a separate line for each code)     (Use a separate line for each.)</span>
 									</th>
 									<th class="styDepTblCell" style="height:8mm">2. <span class="styNormalText">Gross Income</span>
@@ -12494,7 +12381,7 @@
 								<tr class="styDepTblHdr" style="height:6mm;">
 									<td class="styDepTblCell" colspan="2" style="width:47mm;text-align:left;">
 										<span style="font-weight:bold;">Totals </span>(add lines A through F)* <span style="width:10mm;text-align:right;">
-											<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="bulletpoint"/>
+											<img src="{$ImagePath}/1118_Bullet_Line.gif" alt="right arrow"/>
 										</span>
 									</td>
 									<td class="styDepTblCell" style="text-align:right;">

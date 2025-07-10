@@ -1,24 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;">]>
-<!-- 01/23/2018 - Additional changes made for defect 125774 - Jeremy Nichols -->
-<!-- 04/24/2018 - Changes made for defect 201239 - Jeremy Nichols -->
-<!-- 05/07/2018 - Changes made for UWR 204940 - Jeremy Nichols -->
-<!-- 08/06/2018 - Changes made for defect 126344 - Jeremy Nichols -->
-<!-- 08/27/2018 - Changes made for KISAM IM00347621 - Jeremy Nichols -->
-<!-- 09/14/2018 - Changes made for defect 126500 - Jeremy Nichols -->
-<!-- 10/09/2018 - Additional changes made for KISAM IM00347621 - Jeremy Nichols -->
-<!-- 10/19/2018 - Additional changes made for UWR 204940 under defect 62737 - Jeremy Nichols -->
-<!-- 11/16/2018 - Additional changes made for KISAM IM00347621 - Jeremy Nichols -->
-<!-- 11/29/2018 - Changes made for defect 127452 - Jeremy Nichols -->
-<!-- 12/18/2018 - Additional changes made for KISAM IM00347621 - Jeremy Nichols -->
-<!-- 06/18/2019 - Changes made for UWR 217968 - Jeremy Nichols -->
-<!-- 08/26/2019 - Changes made for defect 128234 - Jeremy Nichols -->
-<!-- 02/12/2020 - Changes made for defect 128244 - Jeremy Nichols -->
-<!-- 02/13/2020 - Changes made for defect 129401 - Jeremy Nichols -->
 <!-- 07/20/2021 - Changes made for UWR 369465 - Jeremy Nichols -->
 <!-- 10/06/2021 - Changes made for defect 67948 - Jeremy Nichols -->
 <!-- 11/02/2021 - Changes made for defect 67921 - Jeremy Nichols -->
 <!-- 03/07/2021 - Changes made for UWR 372157 - Jeremy Nichols -->
+<!-- 02/21/2023 - Changes made for defect 70158 - Jeremy Nichols -->
+<!-- 08/24/2023 - Changes made for defect 70185 - Jeremy Nichols -->
+<!-- 08/24/2023 - Changes made for defect 70193 - Jeremy Nichols -->
+<!-- 02/05/2024 - defect 1252854 - Jeremy Nichols -->
+<!-- 02/27/2024 - defect 1252855 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="AddHeader.xsl"/>
@@ -28,6 +18,7 @@
 	<xsl:output method="html" indent="yes" encoding="iso-8859-1"/>
 	<xsl:strip-space elements="*"/>
 	<xsl:param name="Form8865ScheduleOData" select="$RtnDoc/IRS8865ScheduleO"/>
+	
 	<xsl:template match="/">
 		<xsl:variable name="TransfersReportable" select="count($Form8865ScheduleOData)&gt;5"/>
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
@@ -86,11 +77,11 @@
           (under section 6038B)
 						</div>
 							<div class="styForm8865ScheduleOFST" style="height:4mm;font-size:7pt;">
-								<img src="{$ImagePath}/8865SchO_Bullet.gif" width="4" height="7" alt="Bullet Image"/>
+								<img src="{$ImagePath}/8865SchO_Bullet.gif" width="4" height="7" alt="Right arrow"/>
          Attach to Form 8865.  See Instructions for Form 8865.
 						</div> 
 							<div class="styForm8865ScheduleOFST" style="height:4mm;font-size:7pt;">
-								<img src="{$ImagePath}/8865SchO_Bullet.gif" width="4" height="7" alt="Bullet Image"/>
+								<img src="{$ImagePath}/8865SchO_Bullet.gif" width="4" height="7" alt="Right arrow"/>
  <!--         Attach to Form 8865. See Instructions for Form 8865. -->
 			   Go to <i>www.irs.gov/Form8865</i> for instructions and the latest information.
 						</div>               
@@ -155,7 +146,7 @@
 						</div>			
 					</div>
 					<div class="styBB" style="width:187mm;border-bottom-width:1px solid black;">
-					  <div style="width:100mm;font-size:6pt;vertical-align:top;border-right:1px solid black;border-bottom:0px solid black;">
+					  <div style="width:90mm;font-size:6pt;vertical-align:top;border-right:1px solid black;border-bottom:0px solid black;">
 							Name of foreign partnership<br/>
 							<xsl:call-template name="PopulateText">
 								<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/ForeignPartnershipName/BusinessNameLine1Txt"/>
@@ -166,7 +157,7 @@
 							</xsl:call-template>
 							<br/>
 						</div>
-						<div style="width:35mm;font-size:6pt;vertical-align:top;border-right:1px solid black;border-bottom:0px solid black;">
+						<div style="width:25mm;font-size:6pt;vertical-align:top;border-right:1px solid black;border-bottom:0px solid black;">
 							<b>EIN (if any)</b><br/><br/>
  								<xsl:choose>
 									<xsl:when test="$Form8865ScheduleOData/EIN">
@@ -181,7 +172,7 @@
 									</xsl:otherwise>
 								</xsl:choose>          
 						</div>
-						<div style="width:50mm;font-size:6pt;vertical-align:top;padding-left:0.5mm;border-right:0 solid black;border-bottom:0px solid black;">
+						<div style="width:70mm;font-size:6pt;vertical-align:top;padding-left:0.5mm;border-right:0 solid black;border-bottom:0px solid black;">
 							<b>Reference ID number (see instructions)</b>
 							<xsl:if test="(count($Form8865ScheduleOData/ForeignEntityIdentificationGrp) &lt;=1)">
 								<br/>
@@ -270,93 +261,86 @@
 						<table>
 							<tbody>
 								<tr>
-									<td style="width:5mm;">1a</td>
+									<td style="width:5mm;">
+										<label>
+											<xsl:call-template name="PopulateLabel">
+												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/Section721cPartnershipInd"/>
+											</xsl:call-template>
+											1a
+										</label>
+									</td>
 									<td style="width:160mm;">
 										Is the partnership a section 721(c) partnership (as defined in Regulations section 1.721(c)&#8212;1(b)(14))? See instructions
-										<span class="styDotLn" style="float:right;">..</span>
+										<span class="styDotLn" style="float:right;">.</span>
 									</td>
 									<td style="width:11mm;">
 										<span style="display:inline;">
-											<input type="checkbox" class="styCkbox" name="Check721PartnershipYes" id="Check721PartnershipYes" alt="Check 721 Partnership Yes">
+											<input type="checkbox" class="styCkbox" name="Check721Partnership" id="Check721PartnershipYes" alt="721 Partnership Yes">
 												<xsl:call-template name="PopulateYesCheckbox">
 													<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/Section721cPartnershipInd"/>
-													<xsl:with-param name="BackupName">Check721PartnershipYes</xsl:with-param>
 												</xsl:call-template>
 											</input>
 										</span>
 										<span style="width:1mm;display:inline;" />
-										<label>
-											<xsl:call-template name="PopulateLabelYes">
-												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/Section721cPartnershipInd"/>
-													<xsl:with-param name="BackupName">Check721PartnershipYes</xsl:with-param>
-											</xsl:call-template>
-											Yes
-										</label>
+										Yes
 									</td>
 									<td style="width:11mm;text-align:right;">
 										<span style="display:inline;">
-											<input type="checkbox" class="styCkbox"  name="Check721PartnershipNo" id="Check721PartnershipNo" alt="Check 721 Partnership No">
+											<input type="checkbox" class="styCkbox"  name="Check721PartnershipNo" id="Check721PartnershipNo" alt="721 Partnership No">
 												<xsl:call-template name="PopulateNoCheckbox">
 													<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/Section721cPartnershipInd"/>
-													<xsl:with-param name="BackupName">Check721PartnershipNo</xsl:with-param>
 												</xsl:call-template>
 											</input>
 										</span>
 										<span style="width:1mm;display:inline;" />
-										<label>
-											<xsl:call-template name="PopulateLabelNo">
-												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/Section721cPartnershipInd"/>
-													<xsl:with-param name="BackupName">Check721PartnershipNo</xsl:with-param>
-											</xsl:call-template>
-											No
-										</label>
+										No
 									</td>
 								</tr>
 								<tr>
-									<td style="width:5mm;"><span style="width:1.5mm;" />b</td>
+									<td style="width:5mm;"><span style="width:1.5mm;" />
+										<label>
+											<xsl:call-template name="PopulateLabel">
+												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/GainDeferralMethodAppliedInd"/>
+											</xsl:call-template>
+											b
+										</label>
+									</td>
 									<td style="width:160mm;">
 										If “Yes”, was the gain deferral method applied to avoid the recognition of gain upon the contribution of property?
 										<span class="styDotLn" style="float:right;">...</span>
 									</td>
 									<td style="width:11mm;">
 										<span style="display:inline;">
-											<input type="checkbox" class="styCkbox"   name="CheckGainDeferralMethodAppliedYes" id="CheckGainDeferralMethodAppliedYes" alt="Check Gain Deferral Method Applied Yes">
+											<input type="checkbox" class="styCkbox"   name="CheckGainDeferralMethodApplied" id="CheckGainDeferralMethodAppliedYes" alt="Gain Deferral Method Applied Yes">
 												<xsl:call-template name="PopulateYesCheckbox">
 													<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/GainDeferralMethodAppliedInd"/>
-													<xsl:with-param name="BackupName">CheckGainDeferralMethodAppliedYes</xsl:with-param>
 												</xsl:call-template>
 											</input>
 										</span>
 										<span style="width:1mm;display:inline;" />
-										<label>
-											<xsl:call-template name="PopulateLabelYes">
-												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/GainDeferralMethodAppliedInd"/>
-													<xsl:with-param name="BackupName">CheckGainDeferralMethodAppliedYes</xsl:with-param>
-											</xsl:call-template>
-											Yes
-										</label>
+										Yes
 									</td>
 									<td style="width:11mm;text-align:right;">
 										<span style="display:inline;">
-											<input type="checkbox" class="styCkbox" name="CheckGainDeferralMethodAppliedNo" id="CheckGainDeferralMethodAppliedNo" alt="Check Gain Deferral Method Applied No">
+											<input type="checkbox" class="styCkbox" name="CheckGainDeferralMethodAppliedNo" id="CheckGainDeferralMethodAppliedNo" alt="Gain Deferral Method Applied No">
 												<xsl:call-template name="PopulateNoCheckbox">
 													<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/GainDeferralMethodAppliedInd"/>
-													<xsl:with-param name="BackupName">CheckGainDeferralMethodAppliedNo</xsl:with-param>
 												</xsl:call-template>
 											</input>
 										</span>
 										<span style="width:1mm;display:inline;" />
-										<label>
-											<xsl:call-template name="PopulateLabelNo">
-												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/GainDeferralMethodAppliedInd"/>
-													<xsl:with-param name="BackupName">CheckGainDeferralMethodAppliedNo</xsl:with-param>
-											</xsl:call-template>
-											No
-										</label>
+										No
 									</td>
 								</tr>
 								<tr>
-									<td style="width:5mm;vertical-align:top;">2</td>
+									<td style="width:5mm;vertical-align:top;">
+										<label>
+											<xsl:call-template name="PopulateLabel">
+												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/IntngblPropTrnsfrContriInd"/>
+											</xsl:call-template>
+											2
+										</label>
+									</td>
 									<td style="width:160mm;">
 										Was any intangible property transferred considered or anticipated to be, at the time of the transfer or at any time thereafter,
 										a platform contribution as defined in Regulations section1.482-7(c)(1)? 
@@ -364,39 +348,25 @@
 									</td>
 									<td style="width:11mm;vertical-align:bottom;">
 										<span style="display:inline;">
-											<input type="checkbox" class="styCkbox" name="CheckIntangiblePropertyTransferYes" id="CheckIntangiblePropertyTransferYes" alt="Check Intangible Property Transfer Yes">
+											<input type="checkbox" class="styCkbox" name="CheckIntangiblePropertyTransfer" id="CheckIntangiblePropertyTransferYes" alt="Intangible Property Transfer Yes">
 												<xsl:call-template name="PopulateYesCheckbox">
 													<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/IntngblPropTrnsfrContriInd"/>
-													<xsl:with-param name="BackupName">CheckIntangiblePropertyTransferYes</xsl:with-param>
 												</xsl:call-template>
 											</input>
 										</span>
 										<span style="width:1mm;display:inline;" />
-										<label>
-											<xsl:call-template name="PopulateLabelYes">
-												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/IntngblPropTrnsfrContriInd"/>
-													<xsl:with-param name="BackupName">CheckIntangiblePropertyTransferYes</xsl:with-param>
-											</xsl:call-template>
-											Yes
-										</label>
+										Yes
 									</td>
 									<td style="width:11mm;text-align:right;vertical-align:bottom;">
 										<span style="display:inline;">
-											<input type="checkbox" class="styCkbox" name="CheckIntangiblePropertyTransferNo" id="CheckIntangiblePropertyTransferNo" alt="Check Intangible Property Transfer No">
+											<input type="checkbox" class="styCkbox" name="CheckIntangiblePropertyTransferNo" id="CheckIntangiblePropertyTransferNo" alt="Intangible Property Transfer No">
 												<xsl:call-template name="PopulateNoCheckbox">
 													<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/IntngblPropTrnsfrContriInd"/>
-													<xsl:with-param name="BackupName">CheckIntangiblePropertyTransferNo</xsl:with-param>
 												</xsl:call-template>
 											</input>
 										</span>
 										<span style="width:1mm;display:inline;" />
-										<label>
-											<xsl:call-template name="PopulateLabelNo">
-												<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/IntngblPropTrnsfrContriInd"/>
-													<xsl:with-param name="BackupName">CheckIntangiblePropertyTransferNo</xsl:with-param>
-											</xsl:call-template>
-											No
-										</label>
+										No
 									</td>
 								</tr>
 							</tbody>
@@ -736,18 +706,18 @@
 					</table>
 					<!--END Part I-->
 					<!--Begin Part II-->
-					<div class="styBB" style="width:187mm;height:auto;">
-						<div class="styPartName">Part II</div>
-						<div class="styPartDesc" style="width:156mm;">Dispositions Reportable Under Section 6038B</div>
-						<div class="styGenericDiv" style="float:right;clear:none;width:7mm;text-align:right;">
-							<xsl:call-template name="SetDynamicTableToggleButton">
-								<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/DispositionsReportableGrp"/>
-								<xsl:with-param name="containerHeight" select="4"/>
-								<xsl:with-param name="containerID" select=" 'DTPctn' "/>
-							</xsl:call-template>
-						</div>
-					</div><div>
-					<div class="styForm8865ScheduleOTableContainer" style="height:auto;display:block;" id="DTPctn">
+					<div class="styTableContainer" style="height:auto;display:block;" id="DTPctn">
+						<div class="styBB" style="width:187mm;height:auto;">
+							<div class="styPartName">Part II</div>
+							<div class="styPartDesc" style="width:156mm;">Dispositions Reportable Under Section 6038B</div>
+							<div class="styGenericDiv" style="float:right;clear:none;width:7mm;text-align:right;">
+								<xsl:call-template name="SetDynamicTableToggleButton">
+									<xsl:with-param name="TargetNode" select="$Form8865ScheduleOData/DispositionsReportableGrp"/>
+									<xsl:with-param name="containerHeight" select="4"/>
+									<xsl:with-param name="containerID" select=" 'DTPctn' "/>
+								</xsl:call-template>
+							</div>
+						</div><div>
 						<xsl:call-template name="SetInitialState"/>
 						<table class="styTable" cellspacing="0">
 							<thead class="styTableThead">
@@ -783,7 +753,7 @@
 								<xsl:for-each select="$Form8865ScheduleOData/DispositionsReportableGrp">
 									<xsl:if test="($Print != $Separated) or (count($Form8865ScheduleOData/DispositionsReportableGrp)&lt;=4)">
 										<tr>
-											<td class="styForm8865ScheduleOPartIITableCell" scope="row" style="width:23mm;text-align:left;padding-top:1.5mm;">
+											<td class="styForm8865ScheduleOPartIITableCell" style="width:23mm;text-align:left;padding-top:1.5mm;">
 												<!-- Form to Form Link -->
 												<span style="width:3mm; text-align:left;">
 													<xsl:call-template name="SetFormLinkInline">
@@ -986,7 +956,7 @@
 					<!--END Part II-->
 					
 					<!-- BEGIN Part III Title -->
-					<div class="styTableContainer" style="height:8mm;width:187mm;border-bottom:1px solid black;display:block;">
+					<div class="styTableContainer" style="height:14mm;width:187mm;border-bottom:1px solid black;display:block;">
 						<div class="styPartName">Part III</div>
 						<div class="styPartDesc" style="width:133mm;">
 							<span class="styNormalText">
@@ -1012,7 +982,7 @@
 									<span style="width:16px;"/>.
 									<span style="width:6px;"/>
 								</span>
-								<img src="{$ImagePath}/8865SchO_Bullet.gif" width="4" height="7" alt="Bullet Image"/>
+								<img src="{$ImagePath}/8865SchO_Bullet.gif" width="4" height="7" alt="Right arrow"/>
 							</span>
 						</div>
 						<span>

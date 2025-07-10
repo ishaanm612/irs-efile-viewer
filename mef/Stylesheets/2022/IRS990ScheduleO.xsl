@@ -7,6 +7,7 @@
 <!-- Last modified on 10/22/2015 by Harold Nadel per PDF Review changed year from 2014 to 2015, put additional data on a new page.-->
 <!-- Last modified on 6/24/2015 by Harold Nadel for WR # 123023 changes for IE11 -->
 <!-- Last modified on 4/06/2015 by Harold Nadel for WR # 123023 changes for IE11-->
+<!-- 09/26/2022 - Changes for UWR 860875 - AJH -->
 
 <!DOCTYPE xsl:stylesheet [
 	<!ENTITY nbsp "&#160;">
@@ -86,12 +87,12 @@
 						<span style="font-weight:bold;text-align:center;padding-top:0mm;">
 						Complete to provide information for responses to specific questions on <br/>
 						Form 990 or 990-EZ or to provide any additional information. <br/>
-							<img src="{$ImagePath}/990_Bullet_Md.gif" alt="MediumBullet"/>
+							<img src="{$ImagePath}/990_Bullet_Md.gif" alt="right arrow"/>
      						 Attach to Form 990 or 990-EZ.<br/>
 						</span>
 						
 						<span style="font-weight:bold;text-align:center;padding-top:0mm;">
-							<img src="{$ImagePath}/990_Bullet_Md.gif" alt="MediumBullet"/>
+							<img src="{$ImagePath}/990_Bullet_Md.gif" alt="right arrow"/>
 							Go to <!--www.irs.gov/form990.--><a href="http://www.irs.gov/form990" title="Link to IRS.gov">
                 <i>www.irs.gov/Form990</i></a> for the latest information. 
 						</span>
@@ -100,7 +101,7 @@
 					<div class="IRS990ScheduleO_FormYearBlock" style="height: auto; width: 29.5mm;border-left-width: 1px;">
 						<div class="IRS990ScheduleO_OMB" style="height: auto; width: 29.5mm;">OMB No. 1545-0047</div>
 						<div class="styTY" style="height:auto; width: 29.5mm; text-align:center;">
-      20<span class="styTYColor">21</span>
+      20<span class="styTYColor">22</span>
 						</div>
 						<div style="height:auto; width: 29.5mm; background-color: black; color: white; font-size: 7.5pt;font-weight: bold;text-align:center;">Open to Public<br/>Inspection</div>
 					</div>
@@ -182,7 +183,7 @@
 						<div style="width:40mm;float:left;">
       Cat. No. 51056K
     </div>
-						<div style="width:47mm;text-align:right;float:left;font-family:'arial narrow';font-weight:bold;">Schedule O (Form 990) 2021</div>
+						<div style="width:47mm;text-align:right;float:left;font-family:'arial narrow';font-weight:bold;">Schedule O (Form 990) 2022</div>
 					</div>
 				</div>
 				<p style="page-break-before:always" />

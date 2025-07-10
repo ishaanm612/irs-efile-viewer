@@ -9,6 +9,7 @@
 <!-- Updated 5/3/2016 per UWR 177702 Tax Year by Robert L Jones -->
 <!-- Updated 6/28/2016 per IBM Defect 46039 by Robert L Jones Pt II Miss Add data msg, Pt II table not displ in add data section, Pt I sep print showing in form and add table -->
 <!-- Updated per UWR 195015 5/19/17 by Robert L Jones -->
+<!-- 09/26/2022 - Changes for UWR 860875 - AJH -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
@@ -41,7 +42,7 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-			<xsl:if test="not($Print) or $Print=''">
+				<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS990ScheduleLStyle"/>
 						<xsl:call-template name="AddOnStyle"/>
 				</xsl:if>
@@ -69,18 +70,18 @@
 							<div class="styMainTitle" style="padding-top:1mm;padding-bottom:0mm">Transactions with Interested Persons</div>
 							<div class="styFBT" style="margin-top:0mm">
 								
-								<img src="{$ImagePath}/990SchL_Bullet_Md.gif" alt="MediumBullet"/>
+								<img src="{$ImagePath}/990SchL_Bullet_Md.gif" alt="right arrow"/>
 Complete if the organization answered "Yes" on Form 990, Part IV,
 		 lines 25a, 25b, 26, 27, 28a, 28b, or 28c, or Form 990-EZ, Part V, line 38a or 40b.<br/>
-          <img src="{$ImagePath}/990SchL_Bullet_Md.gif" alt="MediumBullet"/>
+          <img src="{$ImagePath}/990SchL_Bullet_Md.gif" alt="right arrow"/>
            Attach to Form 990 or Form 990-EZ.  <!--<img src="{$ImagePath}/990SchL_Bullet_Md.gif" alt="MediumBullet"/> See separate instructions.--><br/>
-        <img src="{$ImagePath}/990SchL_Bullet_Md.gif" alt="MediumBullet"/>Go to <!--www.irs.gov/form990.--><a href="http://www.irs.gov/form990" title="Link to IRS.gov">
+        <img src="{$ImagePath}/990SchL_Bullet_Md.gif" alt="right arrow"/>Go to <!--www.irs.gov/form990.--><a href="http://www.irs.gov/form990" title="Link to IRS.gov">
                 <i>www.irs.gov/Form990</i></a> for instructions and the latest information. 
            </div>
 						</div>
 						<div class="styTYBox" style="width:30mm;height:22.5mm;">
 							<div class="styOMB" style="height:4.25mm;">OMB No. 1545-0047</div>
-							<div class="styTY">20<span class="styTYColor">21</span>
+							<div class="styTY">20<span class="styTYColor">22</span>
 							</div>
 							<div class="styPartName" style="height:auto; width:30.5mm;padding-top:0.3mm">Open to Public Inspection</div>
 						</div>
@@ -234,13 +235,15 @@ Complete if the organization answered "Yes" on Form 990, Part IV, line 25a or 25
 								<xsl:if test="count($FormData/DisqualifiedPersonExBnftTrGrp) &lt; 4 or ((count($FormData/DisqualifiedPersonExBnftTrGrp) &gt; 6) and ($Print = $Separated))">
 									<xsl:call-template name="IRS990SchLPartITableFillerRow"/>
 								</xsl:if>
+								<!--
 								<xsl:if test="count($FormData/DisqualifiedPersonExBnftTrGrp) &lt; 5 or ((count($FormData/DisqualifiedPersonExBnftTrGrp) &gt; 6) and ($Print = $Separated))">
 									<xsl:call-template name="IRS990SchLPartITableFillerRow"/>
 								</xsl:if>
+								
 								<xsl:if test="count($FormData/DisqualifiedPersonExBnftTrGrp) &lt; 6 or ((count($FormData/DisqualifiedPersonExBnftTrGrp) &gt; 6) and ($Print = $Separated))">
 									<xsl:call-template name="IRS990SchLPartITableFillerRow"/>
 								</xsl:if>
-							
+								-->							
 							</tbody>
 						</table>
 					</div>
@@ -260,7 +263,7 @@ Complete if the organization answered "Yes" on Form 990, Part IV, line 25a or 25
 								<span style="letter-spacing:4mm; font-weight:bold; ">  
         ...........................  </span>
 							</span>
-							<img src="{$ImagePath}/990SchL_Bullet.gif" alt="Bullet Image"/>
+							<img src="{$ImagePath}/990SchL_Bullet.gif" alt="right arrow"/>
 							<span style="padding-left:2mm">$</span>
 						</div>
 						<div class="styFixedUnderline" style="width:30mm;text-align:center;padding-top:2mm">
@@ -277,7 +280,7 @@ Complete if the organization answered "Yes" on Form 990, Part IV, line 25a or 25
 								<span style="letter-spacing:3.9mm; font-weight:bold; ">  
         ........ </span>
 							</span>
-							<img src="{$ImagePath}/990SchL_Bullet.gif" alt="Bullet Image"/>
+							<img src="{$ImagePath}/990SchL_Bullet.gif" alt="right arrow"/>
 							<span style="padding-left:2mm">$</span>
 						</div>
 						<div class="styFixedUnderline" style="width:30mm;text-align:center;">
@@ -317,31 +320,31 @@ Complete if the organization answered "Yes" on Form 990, Part IV, line 25a or 25
 						<table class="styTable" style="font-size:7pt;float:none;clear:both;height:auto;" cellspacing="0">
 							<thead class="styTableThead">
 								<tr>
-									<th class="styTableCellHeader" scope="col" rowspan="2" style="height:auto;border-style: solid; border-color: black;width:40mm;font-weight:normal;text-align:center;vertical-align:top;">
+									<th class="styDepTblCell" scope="col" rowspan="2" style="height:auto;border-style: solid; border-color: black;width:40mm;font-weight:normal;text-align:center;vertical-align:top;">
 										<span style="font-weight:bold">(a)</span> Name of interested person</th>
 										
-									<th class="styTableCellHeader" scope="col" rowspan="2" style="height:auto;border-style: solid; border-color: black;width:35mm;font-weight:normal;text-align:center;vertical-align:top;">
+									<th class="styDepTblCell" scope="col" rowspan="2" style="height:auto;border-style: solid; border-color: black;width:35mm;font-weight:normal;text-align:center;vertical-align:top;">
 										<span style="font-weight:bold">(b)</span> Relationship with organization</th>
 										
-									<th class="styTableCellHeader" scope="col" rowspan="2" style="height:auto;border-style: solid; border-color: black;width:25mm;font-weight:normal;text-align:center;vertical-align:top;">
+									<th class="styDepTblCell" scope="col" rowspan="2" style="height:auto;border-style: solid; border-color: black;width:25mm;font-weight:normal;text-align:center;vertical-align:top;">
 										<span style="font-weight:bold">(c)</span> Purpose of loan</th>
 										
-									<th class="styTableCellHeader" colspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:18mm;font-weight:normal;text-align:center;vertical-align:top;">
+									<th class="styDepTblCell" colspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:18mm;font-weight:normal;text-align:center;vertical-align:top;">
 										<span style="font-weight:bold">(d)</span> Loan to or from the organization?</th>
 										
-									<th class="styTableCellHeader" rowspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:25mm;font-weight:normal;text-align:center;vertical-align:top; ">
+									<th class="styDepTblCell" rowspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:25mm;font-weight:normal;text-align:center;vertical-align:top; ">
 										<span style="font-weight:bold">(e)</span> Original principal amount </th>
 										
-								<th class="styTableCellHeader" rowspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:25mm;font-weight:normal; text-align:center;vertical-align:top;border-right-width:1px;">
+									<th class="styDepTblCell" rowspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:25mm;font-weight:normal; text-align:center;vertical-align:top;border-right-width:1px;">
 										<span style="font-weight:bold">(f)</span> Balance due</th>
 										
-									<th class="styTableCellHeader" colspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:16mm;font-weight:normal;text-align:center;vertical-align:top;">
+									<th class="styDepTblCell" colspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:16mm;font-weight:normal;text-align:center;vertical-align:top;">
 										<span style="font-weight:bold">(g)</span> In default?</th>
 										
-									<th class="styTableCellHeader" colspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:16mm;font-weight:normal;text-align:center;vertical-align:top;">
+									<th class="styDepTblCell" colspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:16mm;font-weight:normal;text-align:center;vertical-align:top;">
 										<span style="font-weight:bold;text-align:center;">(h)</span> Approved by board or committee?</th>
 										
-								<th class="styTableCellHeader" colspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:16mm;font-weight:normal;border-right-width:0px;text-align:center;vertical-align:top;">
+									<th class="styDepTblCell" colspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:16mm;font-weight:normal;border-right-width:0px;text-align:center;vertical-align:top;">
 										<span style="font-weight:bold">(i)</span> Written agreement?</th>
 								</tr>
 								<tr>
@@ -500,18 +503,20 @@ Complete if the organization answered "Yes" on Form 990, Part IV, line 25a or 25
 								<xsl:if test="count($FormData/LoansBtwnOrgInterestedPrsnGrp) &lt; 4 or ((count($FormData/LoansBtwnOrgInterestedPrsnGrp) &gt; 6) and ($Print = $Separated))">
 									<xsl:call-template name="IRS990SchLPartIITableFillerRow"/>
 								</xsl:if>
+								<!--
 								<xsl:if test="count($FormData/LoansBtwnOrgInterestedPrsnGrp) &lt; 5 or ((count($FormData/LoansBtwnOrgInterestedPrsnGrp) &gt;6) and ($Print = $Separated))">
 									<xsl:call-template name="IRS990SchLPartIITableFillerRow"/>
 								</xsl:if>
 								<xsl:if test="count($FormData/LoansBtwnOrgInterestedPrsnGrp) &lt; 6 or ((count($FormData/LoansBtwnOrgInterestedPrsnGrp) &gt; 6) and ($Print = $Separated))">
 									<xsl:call-template name="IRS990SchLPartIITableFillerRow"/>
 								</xsl:if>
+								-->
 							
 								<tr>
 									<td class="styTableCellCtr" scope="col" colspan="6" style="height:auto;border-style: solid; border-color: black;width:64mm;padding-right:0.5mm;border-right-width:0px;border-top-width:0px;">
 										<span style="float:left;font-size:7pt;font-weight:bold;"> Total </span>
 										<span style="letter-spacing:4mm;padding-right:2mm ">...............</span>
-										<img src="{$ImagePath}/990SchL_Bullet.gif" alt="Small Bullet"/>
+										<img src="{$ImagePath}/990SchL_Bullet.gif" alt="right arrow"/>
 										<span style="padding-left:2mm; font-weight:bold; "> $</span>
 									</td>
 									<td class="styTableCell" style="height:auto;border-right-width:1px;width:35mm;border-top-width:0px;font-size:7pt;">
@@ -682,12 +687,12 @@ Complete if the organization answered "Yes" on Form 990, Part IV, line 25a or 25
 				<div class="styGenericDiv" style="width:110mm;font-weight:bold;font-size:6pt">For Paperwork Reduction Act Notice, see the Instructions for Form 990 or 990-EZ. </div>
 						<div class="styGenericDiv" style="width:22mm;font-size:6pt">Cat. No. 50056A</div>
 						<div class="styGenericDiv" style="float:right;">
-							<span class="styBoldText" style="font-size:6pt">Schedule L (Form 990) 2021</span>
+							<span class="styBoldText" style="font-size:6pt">Schedule L (Form 990) 2022</span>
 						</div>
 					</div>
           <!-- header -->
           <div style="width:187mm;clear:both;padding-bottom:.5mm;float:none;clear:both;" class="styBB">
-            <div style="width:90mm;" class="styGenericDiv">Schedule L (Form 990) 2021</div>
+            <div style="width:90mm;" class="styGenericDiv">Schedule L (Form 990) 2022</div>
             <div style="width:55mm;text-align:center;" class="styGenericDiv"/>
             <div style="float:right;" class="styGenericDiv">Page <span class="styBoldText" style="font-size:8pt;">2</span>
             </div>
@@ -906,7 +911,7 @@ Supplemental Information<br/>
 						<div class="styGenericDiv" style="width:110mm;font-weight:bold;font-size:6pt"/>
 						<div class="styGenericDiv" style="width:22mm;font-size:6pt"/>
 						<div class="styGenericDiv" style="float:right;">
-							<span class="styBoldText" style="font-size:6pt">Schedule L (Form 990) 2021</span>
+							<span class="styBoldText" style="font-size:6pt">Schedule L (Form 990) 2022</span>
 						</div>
 					</div>
 					 <p style="page-break-before: always"/> 
@@ -932,16 +937,16 @@ Supplemental Information<br/>
 						<table class="styLeftOverTbl" cellspacing="0" style="font-size:7pt;display:table;">
 							<thead class="styTableThead">
 								<tr class="styDepTblHdr">
-								<th class="styDepTblCell" scope="col" rowspan="2" style="height:auto;width:55mm;font-weight:bold;border-right-width:1px;border-left-width:0px;text-align:center;vertical-align:top;">
+								<th class="styDepTblCell" scope="col" rowspan="2" style="height:auto;width:57mm;font-weight:bold;border-right-width:1px;border-left-width:0px;text-align:center;vertical-align:top;">
 										<span class="styLNLeftNumBox">1</span>
 										<span style="font-weight:normal">
 											<b>(a)</b> Name of disqualified person</span>
 									</th>
-								<th class="styTableCellHeader" rowspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:55mm;font-weight:normal; text-align:center;border-left-width:1px;vertical-align:top;border-bottom-width:1px;">
+								<th class="styDepTblCell" rowspan="2" scope="col" style="height:auto;border-style: solid; border-color: black;width:57mm;font-weight:normal; text-align:center;border-left-width:1px;vertical-align:top;border-bottom-width:1px;">
 										<span style="font-weight:bold">(b)</span> Relationship between disqualified person and organization</th>
-									<th class="styDepTblCell" rowspan="2" scope="col" style="height:auto;width:55mm;font-weight:normal; text-align:center;vertical-align:top;border-right-width:0px;">
+									<th class="styDepTblCell" rowspan="2" scope="col" style="height:auto;width:57mm;font-weight:normal; text-align:center;vertical-align:top;border-right-width:0px;">
 										<span style="font-weight:bold">(c)</span> Description of transaction</th>
-									<th class="styDepTblCell" colspan="2" scope="col" style="height:auto; border-left-width: 1px;width:25mm;font-weight:normal;border-right-width:0px;text-align:center;vertical-align:top;border-bottom-width:1px;">
+									<th class="styDepTblCell" colspan="2" scope="col" style="height:auto; border-left-width: 1px;width:16mm;font-weight:normal;border-right-width:0px;text-align:center;vertical-align:top;border-bottom-width:1px;">
 										<span style="font-weight:bold">(d)</span> Corrected?</th>
 								</tr>
 								<tr class="styDepTblHdr">
@@ -1006,23 +1011,23 @@ Supplemental Information<br/>
 						<table class="styLeftOverTbl" cellspacing="0" style="font-size:7pt;display:table;">
 							<thead class="styTableThead">
 								<tr class="styDepTblHdr">
-						<th class="styTableCellHeader" scope="col" rowspan="2" style="height:auto;width:20mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
+						<th class="styDepTblCell" scope="col" rowspan="2" style="height:auto;width:20mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
 										<span style="font-weight:bold">(a)</span> Name of interested person</th>
-						<th class="styTableCellHeader" scope="col" rowspan="2" style="height:auto;width:39mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
+						<th class="styDepTblCell" scope="col" rowspan="2" style="height:auto;width:39mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
 										<span style="font-weight:bold">(b)</span> Relationship with organization</th>
-						<th class="styTableCellHeader" scope="col" rowspan="2" style="height:auto;width:35mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
+						<th class="styDepTblCell" scope="col" rowspan="2" style="height:auto;width:35mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
 										<span style="font-weight:bold">(c)</span> Purpose of loan</th>
-						<th class="styTableCellHeader" colspan="2" scope="col" style="height:auto;width:18mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
+						<th class="styDepTblCell" colspan="2" scope="col" style="height:auto;width:18mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
 										<span style="font-weight:bold">(d)</span> Loan to or from the organization?</th>
-						<th class="styTableCellHeader" rowspan="2" scope="col" style="height:auto;width:36mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px; ">
+						<th class="styDepTblCell" rowspan="2" scope="col" style="height:auto;width:36mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px; ">
 										<span style="font-weight:bold">(e)</span>Original principal amount </th>
-					<th class="styTableCellHeader" rowspan="2" scope="col" style="height:auto;width:36mm;font-weight:normal; text-align:center;vertical-align:top;border-right-width:1px;">
+					<th class="styDepTblCell" rowspan="2" scope="col" style="height:auto;width:36mm;font-weight:normal; text-align:center;vertical-align:top;border-right-width:1px;">
 										<span style="font-weight:bold">(f)</span>Balance due</th>
-					<th class="styTableCellHeader" colspan="2" scope="col" style="height:auto;width:16mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
+					<th class="styDepTblCell" colspan="2" scope="col" style="height:auto;width:16mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
 										<span style="font-weight:bold">(g)</span> In default?</th>
-					<th class="styTableCellHeader" colspan="2" scope="col" style="height:auto;width:16mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
+					<th class="styDepTblCell" colspan="2" scope="col" style="height:auto;width:16mm;font-weight:normal;text-align:center;vertical-align:top;border-right-width:1px;">
 										<span style="font-weight:bold">(h)</span> Approved by board or committee?</th>
-					<th class="styTableCellHeader" colspan="2" scope="col" style="height:auto;width:16mm;font-weight:normal;border-right-width:1px;text-align:center;vertical-align:top;">
+					<th class="styDepTblCell" colspan="2" scope="col" style="height:auto;width:16mm;font-weight:normal;border-right-width:1px;text-align:center;vertical-align:top;">
 										<span style="font-weight:bold">(i)</span>Written agreement?</th>
 								</tr>
 								<tr class="styDepTblHdr">
