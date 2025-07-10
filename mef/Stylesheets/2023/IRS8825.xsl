@@ -30,10 +30,10 @@
 		<xsl:call-template name="InitJS"/>
 		<style type="text/css">
 		  <!-- Form 8825 CSS Styles are located in the template called below -->
-		  <!--<xsl:if test="not($Print) or $Print=''">--> 					
+		  <xsl:if test="not($Print) or $Print=''"> 					
 			<xsl:call-template name="IRS8825Style"/>
 			<xsl:call-template name="AddOnStyle"/>
-		  <!--</xsl:if>-->
+		  </xsl:if>
 		</style>
 		<xsl:call-template name="GlobalStylesForm"/>
 	  </head>

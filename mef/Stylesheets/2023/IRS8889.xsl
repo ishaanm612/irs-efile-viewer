@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Ashleigh Smith on 05/25/2023 -->
+<!-- Last Modified by Jermaine Merchant on 08/27/2024 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -106,7 +106,7 @@
 							Social security number of HSA<br/>beneficiary. If both spouses have<br/>HSAs, see instructions.
 							<span style="width:2px;"/>
 							<!--<img src="{$ImagePath}/8889_Bullet_Sm.gif" alt="SmallBullet"/>-->
-							<!--<span style="width:4px"/>
+							<span style="width:4px"/>
 							<xsl:choose>
 								<xsl:when test="normalize-space($Form8889Data/RecipientSSN) !=''">
 									<xsl:call-template name="PopulateSSN">
@@ -118,7 +118,7 @@
 										<xsl:with-param name="TargetNode">PrimarySSN</xsl:with-param>
 									</xsl:call-template>
 								</xsl:otherwise>
-							</xsl:choose>-->
+							</xsl:choose>
 						</div>
 					</div>
 					<!-- End Name/SSN Header -->
@@ -156,7 +156,7 @@
 								<span style="width:3px;"/>
 								<!--Dotted Line-->
 								<span style="float:right">
-									<span class="styDotLn" style="padding-right:0mm;">   ..........................</span>
+									<span class="styDotLn" style="padding-right:1mm;">..........................</span>
 									<!--<img src="{$ImagePath}/8889_Bullet_Md.gif" alt="Bullet Image"/>-->
 								</span>
 							</div>
@@ -599,20 +599,19 @@
 						<!-- End (Line) 16-->
 						<!-- Begin (Line) 17a -->
 						<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-		               <div class="styIRS8889LineItem" style="height:7mm;">
+						<div class="styIRS8889LineItem" style="height:7mm;padding-bottom:1mm;">
 							<div class="styIRS8889LNLeftNumBox" style="padding-left:2.5mm;">17a</div>
 							<div class="styIRS8889LNDesc" style="height:auto;width:137mm;">							   										
 								<span style="float:left;">If any of the distributions included on line 16 meet any of the 
-									<span class="styBoldText">Exceptions to the Additional 20% Tax</span>
+									<span class="styBoldText">Exceptions to the Additional 20%</span>
 								</span>
 								<span>
-									<span  style="float:left;">(see instructions), check here</span>
+									<span  style="float:left;"><b>Tax</b> (see instructions), check here</span>
 									<span style="width:1mm"/>								   
 									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:.5mm;">.....................</span>
+									<span class="styDotLn" style="float:right;padding-right:.5mm;">....................</span>
 								</span>
 								<span style="width:5px"/>
-								<img src="{$ImagePath}/8889_Bullet_Md.gif" alt="Right arrow"/>
 								<span style="width:7px"/>
 								<input type="checkbox" class="styCkbox" alt="HSA Distri Addnl Percent Tax Exc Ind">
 									<xsl:call-template name="PopulateCheckbox">
@@ -634,7 +633,7 @@
 						<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
 						<div class="styIRS8889LineItem" style="height:6.1mm;">
 							<div class="styIRS8889LNLeftNumBox" style="padding-left:5.8mm;height:auto;">b</div>
-							<div class="styIRS8889LNDesc" style="height:auto;width:137mm">
+							<div class="styIRS8889LNDesc" style="height:auto;width:137mm;">
 								<span class="styBoldText">Additional 20% tax</span> (see instructions). Enter 20% (0.20) of the distributions included
 								  on line 16 that<br/> are subject to the additional 20% tax. Also, include this amount in the total on Schedule 2 (Form 1040), Part II, line 17c
 									<span style="width:3px;"/>

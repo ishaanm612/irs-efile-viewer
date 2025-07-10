@@ -74,7 +74,7 @@
 							</div>
 							
 							<div style="float:right; clear:none; width: 40mm; height: 12mm; padding-top:1mm;">
-								<img src="{$ImagePath}/8812_1040_Top_Forms.png" alt="TopFormImage" height="60" width="90"/>
+								<!--<img src="{$ImagePath}/8812_1040_Top_Forms.png" alt="TopFormImage" height="60" width="90"/>-->
 							</div>						
 							</div>
 						<div class="styTYBox" style="width:23mm;height:23mm;border-left-width:2px;">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Eugenia McDonald on 11/10/2023 -->
+<!-- Last Modified by Jermaine Merchant on 4/10/2025 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -65,9 +65,9 @@
 						<div class="styFTBox" style="width:125mm;height:20mm;">
 							<div class="styMainTitle" style="height:8mm;padding-top:2mm;">Moving Expenses</div><br/>
 							<div class="styFST" style="height:5mm;font-size:7pt;padding-top:5mm;">
+							    <span style= "width:1mm;"/>Attach to Form 1040, 1040-SR, or 1040-NR.<br/>
 							    Go to <a style="text-decoration:none;color:black;" href="http://www.irs.gov/Form3903" title="Link to IRS.gov">
 							     <i>www.irs.gov/Form3903</i></a> for instructions and the latest information.<br/>
-								<span style= "width:1mm;"/>Attach to Form 1040, 1040-SR, or 1040-NR.
 							</div>
 						</div>
 						<div class="styTYBox" style="width:30mm;height:20mm;">
@@ -220,6 +220,9 @@
 								Is line 3 <span style="font-weight:bold;">more than</span> line 4?
 							<p style="padding-left:3mm;">
 							<span style="float:left;">
+							<xsl:call-template name="PopulateSpan">
+                              <xsl:with-param name="TargetNode" select="$FormData/MovingExpensesDeductibleInd"/>
+                            </xsl:call-template>
 								<input type="checkbox" alt="Moving Expenses Deductible Ind No">
 									<xsl:call-template name="PopulateNoCheckbox">
 										<xsl:with-param name="TargetNode" select="$FormData/MovingExpensesDeductibleInd"/>
@@ -239,6 +242,9 @@
 							 the result on Form 1040, 1040-SR, 1040-NR, line 1h.</p>
 							<p style="padding-left:2.8mm;padding-top:2mm;">
 							<span style="float:left;">
+							<xsl:call-template name="PopulateSpan">
+                              <xsl:with-param name="TargetNode" select="$FormData/MovingExpensesDeductibleInd"/>
+                            </xsl:call-template>
 								<input type="checkbox" alt="Moving Expenses Deductible Ind Yes">
 									<xsl:call-template name="PopulateYesCheckbox">
 										<xsl:with-param name="TargetNode" select="$FormData/MovingExpensesDeductibleInd"/>
@@ -280,7 +286,9 @@
 						Form <b style="font-size:9pt">3903</b> (2023)
 						</div>
 					</div>
-					<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+					<!--END Page Footer-->
+						 <p style="page-break-before: always"/>
+						 <br/>
 					<!-- Additonal Data Title Bar and Button -->
 					<div class="styLeftOverTitleLine" id="LeftoverData">
 						<div class="styLeftOverTitle">

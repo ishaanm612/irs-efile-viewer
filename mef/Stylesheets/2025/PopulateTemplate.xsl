@@ -2344,12 +2344,11 @@ Log:
         rtnTree.setK1SequenceNumber(K1SeqNum);
       }
       var submissionType = '<xsl:value-of select="/AppData/Parameters/SubmissionType"/>';
-	  <!-- Note: IRS941ScheduleB will not be the first document to be displayed for a 941 submission,
-	       and when it is displayed the server already checked and saved SpanishLanguageInd -->
-      if (((submissionType == '1040SS') &amp;&amp; (myPrintName == 'IRS1040SS')&amp;&amp; (myLanguageInd == 'X')) || 
+      <!-- Note: Submission Type 941PR is supported in early, non-production 2024 versions -->
+      if (((submissionType == '941PR') &amp;&amp; (myPrintName == 'IRS941SSPR')) ||
+          ((submissionType == '941PR') &amp;&amp; (myPrintName == 'IRS941ScheduleB')) ||
+	      ((submissionType == '1040SS') &amp;&amp; (myPrintName == 'IRS1040SS') &amp;&amp; (myLanguageInd == 'X')) || 
           ((submissionType == '940') &amp;&amp; (myPrintName == 'IRS940') &amp;&amp; (myLanguageInd == 'X')) ||
-          ((submissionType == '941') &amp;&amp; (myPrintName == 'IRS941') &amp;&amp; (myLanguageInd == 'X')) ||
-          ((submissionType == '941') &amp;&amp; (myPrintName == 'IRS941ScheduleB')) ||
           ((submissionType == '943') &amp;&amp; (myPrintName == 'IRS943') &amp;&amp; (myLanguageInd == 'X'))) {
               var language = '<xsl:value-of select="/AppData/Parameters/Language"/>';
               myPrintName = myPrintName + language;
@@ -2712,7 +2711,6 @@ Log:
 	<!--
 ***************************************************************************************************************************************************************
 Name:           SetFormLinkInlineRRD (RRD version)
-
 Description:    Template to display the form link image (usually pushpin image); image is displayed inline (normally) using img tags
 Req Param:  
 Opt Param:   
@@ -2880,7 +2878,8 @@ Log:
 			</script>
 		</xsl:if>
 	</xsl:template>
-	<!--
+	
+		<!--
 ***************************************************************************************************************************************************************
 Name:           SetFormLinkInline
 Description:    Template to display the form link image (usually pushpin image); image is displayed inline (normally) using img tags

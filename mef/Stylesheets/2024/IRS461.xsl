@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Leonard Chambers on 06/03/2024 -->
+<!-- Last Modified by Leonard Chambers on 05/05/2025 -->
+<!-- -->
 <!DOCTYPE xsl:stylesheet [
   <!ENTITY nbsp "&#160;">
   <!ENTITY mdash "&#8212;">
@@ -137,8 +138,8 @@
 					<div class="styStdDiv" style="border-bottom:1px solid black;">
 						<div class="sty461LeftBox">3</div>
 						<div class="sty461Desc">
-							Enter amount from Form 1040 or 1040-SR, line 7
-							<span class="sty461DotLn">..................</span>
+							Enter amount from Form 1040 or 1040-SR, line 7. See instructions
+							<span class="sty461DotLn">.............</span>
 						</div>
 						<div class="styLNRightNumBoxNBB">3</div>
 						<div class="styLNAmountBoxNBB">
@@ -318,7 +319,7 @@
 					<div class="styStdDiv" style="border-bottom:1px solid black;">
 						<div class="sty461LeftBox">15</div>
 						<div class="sty461Desc">
-							Enter $289,000 (or $578,000 if married filing jointly)
+							Enter $305,000 (or $610,000 if married filing jointly)
 							<span class="sty461DotLn">.................</span>
 						</div>
 						<div class="styLNRightNumBoxNBB">15</div>
@@ -333,11 +334,11 @@
 						<div class="sty461LeftBox">16</div>
 						<div class="sty461Desc">
 							Add lines 14 and 15. If less than zero, enter the amount from line 16 as a positive number on Schedule 1 (Form 1040), line 8p. 
-							See instructions if you are filing a tax return other than a Form 1040 or 1040-SR. If zero or greater, do not attach this form to your tax return
-							<span class="sty461DotLn">...............</span>
+							See instructions if you are filing a tax return other than a Form 1040 or 1040-SR. 
+							<span class="sty461DotLn">.</span>
 						</div>
-						<div class="styLNRightNumBoxNBB" style="height:10mm;"><br /><br />16</div>
-						<div class="styLNAmountBoxNBB" style="height:10mm;"><br /><br />
+						<div class="styLNRightNumBoxNBB" style="height:7mm;">16</div>
+						<div class="styLNAmountBoxNBB" style="height:7mm;"><br />
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/ExcessBusinessLossAmt"/>
 							</xsl:call-template>

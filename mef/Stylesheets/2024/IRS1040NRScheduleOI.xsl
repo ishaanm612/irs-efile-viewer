@@ -116,7 +116,7 @@
                                 </xsl:call-template>
                             </div>
                         </div>
-                        <div style="width:35mm;height:8mm;padding-left:.3mm;font-size:6.2pt;font-weight:bold;" class="styEINBox">Your Identifying Number<br/>
+                        <div style="width:35mm;height:8mm;padding-left:.3mm;font-size:6.2pt;font-weight:bold;" class="styEINBox">Your identifying number<br/>
                             <span style="width:9.5mm;"/>
                             <span style="font-weight:normal;font-size:6.4pt;padding-top:2mm">
                                 <xsl:call-template name="PopulateReturnHeaderFiler">
@@ -345,7 +345,7 @@
 							<div class="sty1040NRScheduleOILongDesc">
 								List all dates you entered and left the United States during 2024. See instructions. <br/>
 								<span style="padding-top:6px">
-									<strong>Note: </strong> If you're a resident of Canada or Mexico AND commute to work in the United States at frequent intervals, <br/>
+									<strong>Note: </strong> If you're a resident of Canada or Mexico <strong>AND</strong> commute to work in the United States at frequent intervals, <br/>
 								</span>
 								<span style="padding-top:6px">
 									<strong>check the box for Canada or Mexico </strong> and skip to item H
@@ -395,11 +395,11 @@
 											<th class="styTableCellHeader" scope="col" style="width:40mm;font-weight:normal;border-top:1px solid black;padding-bottom:3px;">
 											Date entered United States <br/> mm/dd/yy
 										</th>
-											<th class="styTableCellHeader" scope="col" style="width:40mm;font-weight:normal;border-top:1px solid black;padding-bottom:3px;">
+                    <th class="styTableCellHeader" scope="col" style="width:40mm;font-weight:normal;border-top:1px solid black;padding-bottom:3px;">
 											Date departed United States <br/> mm/dd/yy
 										</th>
-											<th scope="col" style="width:19mm;border-right:1px solid black;border-top:0px;"/>
-											<th class="styTableCellHeader" scope="col" style="width:40mm;font-weight:normal;border-top:1px solid black;padding-bottom:3px;">
+                    <th scope="col" style="width:19mm;border-right:1px solid black;border-top:0px;" tabindex="-1" aria-hidden="true" />
+                    <th class="styTableCellHeader" scope="col" style="width:40mm;font-weight:normal;border-top:1px solid black;padding-bottom:3px;">
 											Date entered United States <br/> mm/dd/yy
 										</th>
 											<th class="styTableCellHeader" scope="col" style="width:40mm;font-weight:normal;border-top:1px solid black;padding-bottom:3px;">
@@ -549,7 +549,7 @@
 										</xsl:call-template>No</label>
 								</span>
 								<br/>
-								<span style="padding-top:6px">If "Yes," give the latest year and form number you filed 
+								<span style="padding-top:6px">If "Yes," give the latest year and form number you filed: 
 									<span style="width:.5mm"/>
 								</span>
 								<span style="border-bottom:1px dashed black;width:80mm;padding-top:6px">
@@ -970,14 +970,12 @@
 						</div>
 					</div>
 					<div class="styStdDiv pageEnd" style="border-top:1px solid black;">
-						<div style="width:100mm;font-weight:bold;font-size:6.5pt;" class="styGenericDiv">
-							For Paperwork Reduction Act Notice, see the 
-							<span style="font-family:Arial">I</span>nstructions for Form 1040-NR.
+						<div style="font-weight:bold;font-size:6pt;" class="styGenericDiv">
+							For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see the <span style="font-family:Arial">I</span>nstructions for Form 1040-NR.
 						</div>
-						<div style="width:44mm;text-align:center;font-size:6pt;
-							padding-left:0mm;" class="styGenericDiv">Cat. No. 72756T
+						<div style="text-align:center;font-size:6pt;padding:0mm 1.6mm 0mm 1.6mm" class="styGenericDiv">Cat. No. 72756T
 						</div>
-						<div style="width:42mm;font-size:6pt;" class="styGenericDiv">
+						<div style="font-size:6pt;" class="styGenericDiv">
 							<span class="styBoldText">Schedule OI (Form 1040-NR) 2024
 							</span>
 						</div>

@@ -53,7 +53,7 @@
 							8974:
 						</span><br/>
 						<div class="styFST" style="height:4mm;">
-							<span class="styAgency" style="font-weight:normal">(Rev. December 2023)</span>
+							<span class="styAgency" style="font-weight:normal">(Rev. December 2024)</span>
 						</div>
 					</div>
 					<div class="styFTBox" style="width:132mm;text-align:left;height:10mm;">
@@ -105,7 +105,7 @@
 													<xsl:with-param name="TargetNode" select="$RtnHdrData/ReturnTypeCd"/>
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm941Or941PROr941SS</xsl:with-param>
 												</xsl:call-template>
-												<span style="width:1mm;"/><b>Form 941 (all 941 series)</b>
+												<span style="width:1mm;"/><b>Form 941 (</b>all <b>941</b> series<b>)</b>
 											</label><br/>
 										</xsl:when>
 										<xsl:otherwise>
@@ -121,7 +121,7 @@
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm941Or941PROr941SS</xsl:with-param>
 												</xsl:call-template>
 												<span style="width:1mm;"/>
-												<b>Form 941 (all 941 series)</b>
+												<b>Form 941 (</b>all <b>941</b> series<b>)</b>
 											</label>
 											<br/>
 										</xsl:otherwise>
@@ -139,7 +139,7 @@
 													<xsl:with-param name="TargetNode" select="$RtnHdrData/ReturnTypeCd"/>
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm943Or943PR</xsl:with-param>
 												</xsl:call-template>
-												<span style="width:1mm;"/><b>Form 943 (all 943 series)</b>
+												<span style="width:1mm;"/><b>Form 943 (</b>all <b>943</b> series<b>)</b>
 											</label><br/>
 										</xsl:when>
 										<xsl:otherwise>
@@ -155,7 +155,7 @@
 													<xsl:with-param name="BackupName">Form 943 or 943-PR Checkbox</xsl:with-param>
 												</xsl:call-template>
 												<span style="width:1mm;"/>
-												<b>Form 943 (all 943 series)</b>
+												<b>Form 943 (</b>all <b>943</b> series<b>)</b>
 											</label>
 											<br/>
 										</xsl:otherwise>
@@ -173,7 +173,7 @@
 													<xsl:with-param name="TargetNode" select="$RtnHdrData/ReturnTypeCd"/>
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm944Or944SP</xsl:with-param>
 												</xsl:call-template>
-												<span style="width:1mm;"/><b>Form 944 (all 944 series)</b>
+												<span style="width:1mm;"/><b>Form 944 (</b>all <b>944</b> series<b>)</b>
 											</label>
 										</xsl:when>
 										<xsl:otherwise>
@@ -189,14 +189,14 @@
 													<xsl:with-param name="BackupName">8974CreditReportedOnForm944Or944SP</xsl:with-param>
 												</xsl:call-template>
 												<span style="width:1mm;"/>
-												<b>Form 944 (all 944 series)</b>
+												<b>Form 944 (</b>all <b>944</b> series<b>)</b>
 											</label>
 											<br/>
 										</xsl:otherwise>
 									</xsl:choose>									
 								</span>
 							</div>
-							<!-- 4/3/2018 AM: Per KISAM IM00203251, adding in choice to pull Quarter Ending Date from 941, 941SS, or 941PR -->
+							<!-- 4/3/2018 AM: adding in choice to pull Quarter Ending Date from 941, 941SS, or 941PR -->
 							<div style="width:124mm;height:16mm;">
 								<span class="styLNDesc" style="width:21mm;padding-top:2mm;padding-right:1mm;font-weight:bold;">Calendar year</span>
 									<div class="styLNCtrNumBox" style="width:24mm;border-top-width:1px;height:5mm;text-align:center;padding-right:1mm;">
@@ -318,8 +318,10 @@
 						<!-- end -->
 						<table class="styTable" cellspacing="0">
 							<thead class="styTableThead">
-								<tr>
-									<th class="styTableCellHeader" style="width:20mm;" scope="col">(a)<br/>
+								<tr style="vertical-align:top">
+									<th class="styTableCellHeader" style="width:4mm;" scope="col">
+									</th>
+									<th class="styTableCellHeader" style="width:16mm;" scope="col">(a)<br/>
 										<span class="styNormalText">Ending date <br/>of income tax period </span>
 									</th>
 									<th class="styTableCellHeader" style="width:20mm;" scope="col">(b)<br/>
@@ -328,11 +330,11 @@
 									<th class="styTableCellHeader" style="width:20mm;" scope="col">(c)<br/>
 										<span class="styNormalText">Date income tax return was filed</span>
 									</th>
-									<th class="styTableCellHeader" style="width:25mm;" scope="col">(d)<br/>
+									<th class="styTableCellHeader" style="width:20mm;" scope="col">(d)<br/>
 										<span class="styNormalText">EIN used on<br/> Form 6765</span>
 									</th>
 									<th class="styTableCellHeader" style="width:34mm;" scope="col">(e)<br/>
-										<span class="styNormalText">Amount from Form 6765,<br/> line 44, or, if applicable, the amount that was allocated<br/> to your EIN </span>
+										<span class="styNormalText">Amount from Form 6765,<br/> line 36, or, if applicable, the amount that was allocated<br/> to your EIN </span>
 									</th>
 									<th class="styTableCellHeader" style="width:34mm;" scope="col">(f)<br/>
 										<span class="styNormalText">Amount of credit<br/> from column (e) taken<br/> on a previous period(s) </span>
@@ -346,10 +348,10 @@
 							<tbody>
 								<xsl:for-each select="$FormData/EmployerPayrollTaxElectionGrp">									
 									<tr style="font-size: 7pt;">
-										<td class="styTableCellCtr" style="width:23mm;text-align:center;padding-left:1mm;padding-top:2mm">
-											<div class="styLNLeftNumBox" style="width:3mm;height:5mm;padding-top:0mm;padding-right:1mm;">
+										<td class="styTableCellText" style="width:6mm;text-align:center;">
 												<xsl:value-of select="position()"/>
-											</div>
+										</td>
+										<td class="styTableCellCtr" style="width:19mm;text-align:center;">
 											<xsl:call-template name="PopulateText">
 												<xsl:with-param name="TargetNode" select="TaxYearEndDt"/>
 											</xsl:call-template>
@@ -364,7 +366,7 @@
 												<xsl:with-param name="TargetNode" select="ReturnFiledDt"/>
 											</xsl:call-template>
 										</td>									
-										<td class="styTableCellText" style="width:22mm;text-align:center;">
+										<td class="styTableCellText" style="width:20mm;text-align:center;">
 											<xsl:call-template name="PopulateEIN">
 												<xsl:with-param name="TargetNode" select="GroupMemberEIN"/>
 											</xsl:call-template>
@@ -395,9 +397,9 @@
 							</tbody>
 						</table>
 						<!-- Row 6 of Table -->
-						<div style="width:187mm;padding-bottom:.5mm;">
-							<div class="styLNLeftNumBoxSD" style="width:3mm;padding-top:1mm;padding-left:2mm;">6</div>
-							<div class="styLNDesc" style="width:150mm;padding-left:3mm;padding-top:1mm;">
+						<div style="width:187mm;">
+							<div class="styLNLeftNumBoxSD" style="width:6mm;height:5mm;padding-top:1mm;padding-left:2mm;border-right:black solid 1px;">6</div>
+							<div class="styLNDesc" style="width:147mm;height:5mm;padding-left:1mm;padding-top:1mm;border-right:black solid 1px;">
 								<span style="float:left;">Add lines 1(g) through 5(g) and enter total here </span>
 								<!--Dotted Line-->
 								<span class="styDotLn" style="float:right;padding-right:1mm;">.....................</span>
@@ -470,18 +472,18 @@
 					</div>
 					<!--Line 10-->
 					<div style="width:187mm;height:7mm;">
-							<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">10</div>
-							<div class="styLNDesc" style="width:94mm;padding-left:1mm;padding-top:1mm;">
-								<span style="float:left;">Add lines 8 and 9 </span>
-								<!--Dotted Line-->
-							<span class="styDotLn" style="float:right;padding-left:1mm;">.................</span>
-							</div>
-							<div class="styIRS8974RightNumBox">10</div>
-							<div class="styLNCtrNumBox" style="width:36mm;border-top-width:1px;height:5mm;text-align:right;padding-right:1mm;">
-								<xsl:call-template name="PopulateAmount">
-									<xsl:with-param name="TargetNode" select="$FormData/TotalSocialSecurityTaxTipAmt"/>
-								</xsl:call-template>
-							</div>
+						<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">10</div>
+						<div class="styLNDesc" style="width:94mm;padding-left:1mm;padding-top:1mm;">
+							<span style="float:left;">Add lines 8 and 9 </span>
+							<!--Dotted Line-->
+						<span class="styDotLn" style="float:right;padding-left:1mm;">.................</span>
+						</div>
+						<div class="styIRS8974RightNumBox">10</div>
+						<div class="styLNCtrNumBox" style="width:36mm;border-top-width:1px;height:5mm;text-align:right;padding-right:1mm;">
+							<xsl:call-template name="PopulateAmount">
+								<xsl:with-param name="TargetNode" select="$FormData/TotalSocialSecurityTaxTipAmt"/>
+							</xsl:call-template>
+						</div>
 					</div>
 					<!--Line 11-->
 					<div style="width:187mm;height:14mm;">
@@ -535,8 +537,8 @@
 							<div class="styLNDesc" style="width:136mm;padding-left:1mm;padding-top:1mm;"><b>Credit against the employer share of 
 							social security tax.</b> Enter the smaller of line 7 or 11, but not more than $250,000. See the instructions before 
 							entering an amount if you file Form 943 or Form 944. If you entered the amount from line 7, stop here and also enter 
-							this amount on Form 941, line 11a; <span style="float:left;">Form 943, line 12a; or Form 944, line 8a</span>
-								<!--Dotted Line-->
+							this amount on Form 941, line 11; <span style="float:left;">Form 943, line 12; or Form 944, line 8</span>
+							<!--Dotted Line-->
 							<span class="styDotLn" style="float:right;padding-right:1mm;">....................</span>
 							</div>
 						</span>
@@ -549,7 +551,7 @@
 							</div>
 						</span>
 					</div>				
-					<!-- 11/4/2022 AM: New Lines 13-17 added per UWR 864931 -->
+					<!-- 11/4/2022 AM: New Lines 13-17 added -->
 					<!-- Line 13 -->
 					<div style="width:187mm;height:7mm;">
 						<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">13</div>
@@ -583,20 +585,22 @@
 						</span>
 					</div>
 					<!-- Line 15 -->
-					<div style="width:187mm;height:7mm;">
+					<div style="width:187mm;height:10mm;">
 						<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">15</div>
-						<div class="styLNDesc" style="width:136mm;padding-left:1mm;padding-top:1mm;">
+						<div class="styLNDesc" style="width:94mm;padding-left:1mm;padding-top:1mm;">
 								 Multiply line 14 by 50% (0.50).  If you're a third party or sick pay or you received a section 3121(q) Notice 
 								and Demand, see instructions before completing line 15.
 							<!--Dotted Line-->
 							<span class="styDotLn" style="float:right;padding-right:1mm;">...............</span>
 						</div>
-						<div class="styIRS8974RightNumBox">15</div>
-						<div class="styLNCtrNumBox" style="width:36mm;border-top-width:1px;height:5mm;text-align:right;padding-right:1mm;">
-							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="$FormData/CalcEmplrShareMedcrTaxAmt"/>
-							</xsl:call-template>
-						</div>
+						<span style="padding-top:5mm;">
+							<div class="styIRS8974RightNumBox">15</div>
+							<div class="styLNCtrNumBox" style="width:36mm;border-top-width:1px;height:5mm;text-align:right;padding-right:1mm;">
+								<xsl:call-template name="PopulateAmount">
+									<xsl:with-param name="TargetNode" select="$FormData/CalcEmplrShareMedcrTaxAmt"/>
+								</xsl:call-template>
+							</div>
+						</span>
 					</div>
 					<!--Line 16-->
 					<div style="width:187mm;height:7mm;padding-top:1mm;">
@@ -622,8 +626,8 @@
 						<span style="float:left;">
 							<div class="styLNLeftNumBoxSD" style="width:8mm;padding-top:1mm;">17</div>
 							<div class="styLNDesc" style="width:136mm;padding-left:1mm;padding-top:1mm;">
-								<b>Total credit.</b> Add lines 12 and 16. Also, enter this amount on Form 941, line 11a;
-								Form 943, line 12a; or Form 944, line 8a.
+								<b>Total credit.</b> Add lines 12 and 16. Also, enter this amount on Form 941, line 11;
+								Form 943, line 12; or Form 944, line 8.
 								<!--Dotted Line-->
 							<span class="styDotLn" style="float:right;padding-right:1mm;">.........................</span>
 							</div>
@@ -641,9 +645,9 @@
 				<!-- Page boundary -->
 				<div class="pageEnd" style="width:187mm;">
 					<span style="float:left;clear:none;font-weight:bold;">For Paperwork Reduction Act Notice, see the separate instructions.</span>
-					<span style="float:left;clear:none;margin-left:3mm;">www.irs.gov/Form8974</span>
-					<span style="float:left;clear:none;margin-left:3mm;">Cat. No. 37797C</span>
-					<span style="float:right;clear:none;">Form <span class="styBoldText" style="font-size:8pt;">8974</span> (Rev. 12-2023)</span>
+					<span style="float:left;clear:none;margin-left:3mm;font-style:italic;font-size:6.5pt">www.irs.gov/Form8974</span>
+					<span style="float:left;clear:none;margin-left:3mm;font-size:6.5pt">Cat. No. 37797C</span>
+					<span style="float:right;clear:none;">Form <span class="styBoldText" style="font-size:8pt;">8974</span> (Rev. 12-2024)</span>
 				</div>
 				<p style="page-break-before: always"/>
 				<!-- BEGIN Left Over Table -->
@@ -671,7 +675,10 @@
 		<xsl:param name="numRows" select="5 - count($FormData/EmployerPayrollTaxElectionGrp)"/>
 		<xsl:if test="$numRows &gt; 0">
 			<tr>
-				<td class="styTableCellText" style="width:23mm;">
+				<td class="styTableCellText" style="width:6mm;">
+					<span style="width:4px"/>
+				</td>
+				<td class="styTableCellText" style="width:19mm;">
 					<span style="width:4px"/>
 				</td>
 				<td class="styTableCellText" style="width:20mm;">
@@ -680,7 +687,7 @@
 				<td class="styTableCellCtr" style="width:20mm;">
 					<span style="width:4px"/>
 				</td>
-				<td class="styTableCellCtr" style="width:22mm;">
+				<td class="styTableCellCtr" style="width:20mm;">
 					<span style="width:4px"/>
 				</td>
 				<td class="styTableCellCtr" style="width:34mm;">

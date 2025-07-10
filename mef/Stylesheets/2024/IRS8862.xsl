@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last modified 09/04/2024 by Yee Chen - TY24 - 8862 -->
+<!-- Last modified 2/20/2025 by Yee Chen - TY24 - F8862 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -81,7 +81,8 @@
 		<!-- (8#LETTER#) ////////////////////////////////////////////////////-->
 		<div class="styIRS8862CleanDiv" style="width:181mm;height:auto;padding-left:8mm;">
 			<div class="styIRS8862LNDesc" style="width:auto;height:auto;">
-				<b>Child <xsl:value-of select="$Number"/></b>
+				<b>Child <xsl:value-of select="$Number"/>
+				</b>
 				<span style="width:4px;"/>
 					date of birth (MM/DD)
 					<span style="width:4px;"/>
@@ -181,10 +182,12 @@
 				<span style="width:25mm;"/>
 			</div>
 			<div class="styIRS8862LNDesc" style="width:auto;height:auto;">
-				<b>Child <xsl:value-of select="$Number"/></b>
-				<span style="width:4px;"/>
-				date of death (MM/DD)
-				<span style="width:4px;"/>
+				<b>Child <xsl:value-of select="$Number"/>
+				</b>
+			</div>
+			<div class="styIRS8862LNDesc" style="width:auto;height:auto;">
+					date of death (MM/DD)
+					<span style="width:4px;"/>
 				<span style="width:4px;"/>
 				<xsl:choose>
 					<xsl:when test="$TargetNode">
@@ -306,12 +309,21 @@
 						<span style="width:3mm;"/>
 						
 						<span style="width:3mm;"/>
-						<input type="checkbox" class="styCkbox" alt="Same Information Child1 Ind">
+						<input type="checkbox" class="styCkbox" aria-label="Same Information Child 1 Ind">
 							<xsl:call-template name="PopulateCheckbox">
 								<xsl:with-param name="TargetNode" select="$Form8862Data/QlfyChildMoreThan1PersonGrp[$Position]/SameInformationChild1Ind"/>
-								<xsl:with-param name="BackupName">Form8862DataQlfyChildMoreThan1PersonGrp[$Position]SameInformationChild1Ind</xsl:with-param>
+								<xsl:with-param name="BackupName">Form8862DataQlfyChildMoreThan1PersonGrp[<xsl:value-of select="$Position"/>]SameInformationChild1Ind</xsl:with-param>
 							</xsl:call-template>
 						</input>
+						<label>
+							<xsl:call-template name="PopulateSpan">
+								<xsl:with-param name="TargetNode" select="$Form8862Data/QlfyChildMoreThan1PersonGrp[$Position]/SameInformationChild1Ind"/>
+							</xsl:call-template>
+							<xsl:call-template name="PopulateLabel">
+								<xsl:with-param name="TargetNode" select="$Form8862Data/QlfyChildMoreThan1PersonGrp[$Position]/SameInformationChild1Ind"/>
+								<xsl:with-param name="BackupName">Form8862DataQlfyChildMoreThan1PersonGrp[<xsl:value-of select="$Position"/>]SameInformationChild1Ind</xsl:with-param>
+							</xsl:call-template>
+						</label>
 						<span style="width:3mm;"/>
 						Otherwise, enter below.
 					</div>
@@ -328,11 +340,11 @@
 										<xsl:with-param name="TargetNode" select="$Address1/AddressLine1Txt"/>
 									</xsl:call-template>
 									<span style="width:2mm;"/>
-									
-									<xsl:call-template name="PopulateText">
-										<xsl:with-param name="TargetNode" select="$Address1/AddressLine2Txt"/>
-									</xsl:call-template>
-									
+									<xsl:if test="$TargetNode/USAddress">
+										<xsl:call-template name="PopulateText">
+											<xsl:with-param name="TargetNode" select="$Address1/AddressLine2Txt"/>
+										</xsl:call-template>
+									</xsl:if>
 								
 							<xsl:if test="count($Form8862Data/QlfyChildMoreThan1PersonGrp[$Position]/LiveWithChildAddrGrp) &gt; 1">
 								<span style="width:3px;"/>
@@ -360,10 +372,6 @@
 									<xsl:with-param name="TargetNode" select="null"/>
 									<xsl:with-param name="ForeignAddressTargetNode" select="$Address1"/>
 								</xsl:call-template>
-								<span style="width:2mm"/>
-								<xsl:call-template name="PopulateForeignCountryCdTemplate">
-									<xsl:with-param name="TargetNode" select="$Address1"/>
-								</xsl:call-template>
 							</xsl:if>
 					</div>
 				</div>
@@ -389,12 +397,21 @@
 						</xsl:call-template>
 						If same as shown for Child 1, check this box.
 						
-						<input type="checkbox" class="styCkbox" alt="Same Information Child1 Ind">
+						<input type="checkbox" class="styCkbox" aria-label="Same Information Child 1 Ind">
 							<xsl:call-template name="PopulateCheckbox">
 								<xsl:with-param name="TargetNode" select="$TargetNode/SameInformationChild1Ind"/>
 								<xsl:with-param name="BackupName">Form8862DataQlfyChildMoreThan1PersonGrp[<xsl:value-of select="$Position"/>]/SameInformationChild1Ind</xsl:with-param>
 							</xsl:call-template>
 						</input>
+						<label>
+							<xsl:call-template name="PopulateSpan">
+								<xsl:with-param name="TargetNode" select="$TargetNode/SameInformationChild1Ind"/>
+							</xsl:call-template>
+							<xsl:call-template name="PopulateLabel">
+								<xsl:with-param name="TargetNode" select="$TargetNode/SameInformationChild1Ind"/>
+								<xsl:with-param name="BackupName">Form8862DataQlfyChildMoreThan1PersonGrp[<xsl:value-of select="$Position"/>]/SameInformationChild1Ind</xsl:with-param>
+							</xsl:call-template>
+						</label>
 						<span style="width:3mm;"/>
 						Otherwise, enter below.
 					</div>
@@ -450,21 +467,30 @@
 	<xsl:template name="PopulateYesNoGroup">
 		<xsl:param name="TargetNode"/>
 		<xsl:param name="BackupName"/>
-		<xsl:param name="AltName"/>
+		<xsl:param name="AriaLabel"/>
 		<!-- ++++++++++++++ Yes Checkbox +++++++++++++ -->
 		<span>
 			<xsl:call-template name="PopulateSpan">
 				<xsl:with-param name="TargetNode" select="$TargetNode"/>
 			</xsl:call-template>
 			<input type="checkbox" class="styCkbox">
-			    <xsl:attribute name="alt"><xsl:value-of select="$AltName"/> Yes</xsl:attribute>
+			    <xsl:attribute name="aria-label"><xsl:value-of select="$AriaLabel"/> Yes</xsl:attribute>
 				<xsl:call-template name="PopulateYesCheckbox">
 					<xsl:with-param name="TargetNode" select="$TargetNode"/>
 					<xsl:with-param name="BackupName" select="$BackupName"/>
 				</xsl:call-template>
 			</input>
 		</span>
-		<span class="styBoldText">Yes</span>
+		<label>
+			<xsl:call-template name="PopulateSpan">
+				<xsl:with-param name="TargetNode" select="$TargetNode"/>
+			</xsl:call-template>
+			<xsl:call-template name="PopulateLabelYes">
+				<xsl:with-param name="TargetNode" select="$TargetNode"/>
+				<xsl:with-param name="BackupName" select="$BackupName"/>
+			</xsl:call-template>
+			<span class="styBoldText">Yes</span>
+		</label>
 		<span style="width: 2mm;"/>
 		<!-- ++++++++++++++ No Checkbox +++++++++++++ -->
 		<span>
@@ -472,35 +498,25 @@
 				<xsl:with-param name="TargetNode" select="$TargetNode"/>
 			</xsl:call-template>
 			<input type="checkbox" class="styCkbox" >
-				<xsl:attribute name="alt"><xsl:value-of select="$AltName"/> No</xsl:attribute>
+				<xsl:attribute name="aria-label"><xsl:value-of select="$AriaLabel"/> No</xsl:attribute>
 				<xsl:call-template name="PopulateNoCheckbox">
 					<xsl:with-param name="TargetNode" select="$TargetNode"/>
 					<xsl:with-param name="BackupName" select="$BackupName"/>
 				</xsl:call-template>
 			</input>
 		</span>
-		<span class="styBoldText">No</span>
+		<label>
+			<xsl:call-template name="PopulateSpan">
+				<xsl:with-param name="TargetNode" select="$TargetNode"/>
+			</xsl:call-template>
+			<xsl:call-template name="PopulateLabelNo">
+				<xsl:with-param name="TargetNode" select="$TargetNode"/>
+				<xsl:with-param name="BackupName" select="$BackupName"/>
+			</xsl:call-template>
+			<span class="styBoldText">No</span>
+		</label>
 	</xsl:template>
-	<xsl:template name="PopulateForeignCountryCdTemplate">
-		<xsl:param name="TargetNode"/>
-		<xsl:param name="MainForm">false</xsl:param>
-		<!-- when MainForm is set to true, code will use CountriesList.xml to look up country name that corresponds with country code, otherwise will just print country abbreviation -->
-		<xsl:choose>
-			<xsl:when test="$MainForm = 'true' ">
-				<xsl:variable name="countryname" select="document('CountriesList.xml')/countries"/>
-				<xsl:call-template name="PopulateText">
-					<xsl:with-param name="TargetNode" select="$countryname/country[@id=   $TargetNode/CountryCd]"/>
-				</xsl:call-template>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:call-template name="PopulateText">
-					<xsl:with-param name="TargetNode" select="$TargetNode/CountryCd"/>
-				</xsl:call-template>
-			</xsl:otherwise>
-		</xsl:choose>
-</xsl:template>	
-
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 	<xsl:template match="/">
 		<xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
 		<html lang="EN-US">
@@ -560,7 +576,7 @@
 									Earned Income Credit (EIC), Child Tax Credit (CTC), Refundable Child Tax Credit (RCTC), Additional Child Tax Credit (ACTC), Credit for Other Dependents (ODC), and American Opportunity Tax Credit (AOTC)
 										<div style="width:100%;height:6mm;">
 											 
-											Attach to your tax return.<br/>
+											Attach to your tax return.
 											 
 											Go to <i>www.irs.gov/Form8862</i> for instructions and the latest information.
 										</div>
@@ -607,12 +623,16 @@
 								</div>
 								<div class="styIRS8862CleanDiv" style="width:100%;height:auto;">
 									<div class="styIRS8862LNDesc" style="height:100%;width:187mm;padding-left:0mm;">
+									<span style="width:149mm;"><img src="{$ImagePath}/8862_bullet_sm.gif" alt="Small Bullet"/>
 										Your EIC, CTC/RCTC/ACTC/ODC, or AOTC was previously reduced or disallowed for any reason other than a math or clerical error.
+										</span>
 									</div>
 								</div>
 								<div class="styIRS8862CleanDiv" style="width:100%;height:auto;">
 									<div class="styIRS8862LNDesc" style="height:100%;width:187mm;padding-left:0mm;">
+									<span style="width:149mm;"><img src="{$ImagePath}/8862_bullet_sm.gif" alt="Small Bullet"/>
 										You now want to claim the credit that was previously reduced or disallowed and you meet all the requirements
+										</span>
 										for the credit.
 									</div>
 								</div>
@@ -639,7 +659,7 @@
 							<div class="styIRS8862CleanDiv" style="width:144mm;height:4mm;padding:0px 0px 0px 0px;">
 								<div class="styIRS8862LNDesc" style="width:auto;height:4mm;padding:0px 0px 0px 0px;">
 									<div class="styIRS8862LNDesc" style="width:auto;height:4mm;">
-										Enter the tax year for which you are filing this form (for example, 2024)
+										Enter the tax year for which you are filing this form (for example, 2022)
 									</div>
 									<div class="styIRS8862LNDesc" style="width:auto;height:4mm;text-align:right;float:right;padding:0px 10px 0px 0px;">
 										<!--Dotted Line-->
@@ -692,7 +712,7 @@
 								<div class="styIRS8862LNLeftNumBox" style="padding-right:3mm; height:8mm;">2</div>
 								<div class="styIRS8862CleanDiv" style="width:144mm; height:8mm;padding:0px 0px 0px 0px;">
 									<div class="styIRS8862LNDesc" style="width:auto;height:8mm;padding:0px 0px 0px 0px;">
-										<div class="styIRS8862LNDesc" style="width:187mm;height:8mm;font-size:9pt;">
+										<div class="styIRS8862LNDesc" style="width:187mm;height:8mm;">
 											Check the box(es) that applies to the credit(s) you are claiming and complete the part(s)
 											that matches the box(es) you marked.
 										</div>
@@ -700,16 +720,22 @@
 								</div>
 							</div>							
 							<div class="styIRS8862LineItem" style="width:187mm; height:16mm; ">
-									<div class="styIRS8862LineItem" style="width:40mm;height:5mm;font-weight:bold;padding-left:9mm;font-size:8pt;border-bottom-width: 0px;">
+									<div class="styIRS8862LineItem" style="width:35mm;height:5mm;font-weight:bold;padding-left:9mm;border-bottom-width: 0px;">
+										<!-- Why label
+										<label>
+											<xsl:call-template name="PopulateLabel">
+												<xsl:with-param name="TargetNode" select="$Form8862Data/EICClaimedInd"/>
+												<xsl:with-param name="BackupName">IRS8862EICClaimedInd</xsl:with-param>
+											</xsl:call-template>Earned Income Credit</label>-->
 										Earned Income Credit
 										<div class="styIRS8862LineItem" style="width:35mm;font-weight:lighter;padding-left:2mm;border-bottom-width: 0px;">
 											<font color="gray">(Complete Part II)</font>
-											<span style="width:35mm;padding-bottom:-8mm;"/>
+											<span style="width:35mm;"/>
 											<span style="padding-left:7mm;">
 												<xsl:call-template name="PopulateSpan">
 													<xsl:with-param name="TargetNode" select="$Form8862Data/EICClaimedInd"/>
 												</xsl:call-template>
-												<input type="checkbox" class="styCkbox" alt="EIC Claimed Ind">
+												<input type="checkbox" class="styCkbox" aria-label="EIC Claimed Ind">
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="$Form8862Data/EICClaimedInd"/>
 														<xsl:with-param name="BackupName">IRS8862EICClaimedInd</xsl:with-param>
@@ -720,16 +746,23 @@
 									</div>
 
 									<div class="styIRS8862LineItem" style="width:90mm;height:5mm;font-weight:bold;font-align:center;padding-left:10mm;padding-bottom:7mm;border-bottom-width: 0px;">
-										<span style="width:80mm;padding-left:5mm;font-size:8pt;">Child Tax Credit (nonrefundable or refundable)/ </span>
-										<span style="width:80mm;padding-left:18.5mm;font-size:8pt;">Additional Child Tax Credit/</span>
-											<span style="width:80mm;padding-left:18.5mm;font-size:8pt;">Credit for Other Dependents</span>
+										<!--<label>
+											<xsl:call-template name="PopulateLabel">
+												<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCODCClaimedInd"/>
+												<xsl:with-param name="BackupName">IRS8862CTCACTCODCClaimedInd</xsl:with-param>
+											</xsl:call-template>
+											<span style="width:80mm;padding-left:5mm;">Child Tax Credit (nonrefundable or refundable)/Additional </span>
+											<span style="width:80mm;padding-left:10.5mm;">Child Tax Credit/Credit for Other Dependents</span>
+										</label>-->
+										<span style="width:80mm;padding-left:5mm;">Child Tax Credit (nonrefundable or refundable)/Additional </span>
+											<span style="width:80mm;padding-left:10.5mm;">Child Tax Credit/Credit for Other Dependents</span>
 										<div class="styIRS8862LineItem" style="width:60mm;font-weight:lighter;padding-left:25mm;border-bottom-width: 0px;">
-											<font color="gray" size="1pt;">(Complete Part III)</font>
-											<span style="padding-left:11mm;">
+											<font color="gray">(Complete Part III)</font>
+											<span style="padding-left:11mm; padding-top:2mm;">
 												<xsl:call-template name="PopulateSpan">
 													<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCODCClaimedInd"/>
 												</xsl:call-template>
-												<input type="checkbox" class="styCkbox" alt="CTC ACT CODC Claimed Ind">
+												<input type="checkbox" class="styCkbox" aria-label="CTC ACT CODC Claimed Ind">
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCODCClaimedInd"/>
 														<xsl:with-param name="BackupName">IRS8862CTCACTCODCClaimedInd</xsl:with-param>
@@ -739,7 +772,12 @@
 										</div>
 									</div>
 
-									<div class="styIRS8862LineItem" style="width:55mm;height:5mm;font-weight:bold;padding-left:9mm;font-size:8pt;border-bottom-width: 0px;">
+									<div class="styIRS8862LineItem" style="width:55mm;height:5mm;font-weight:bold;padding-left:9mm;border-bottom-width: 0px;">
+										<!--<label>
+											<xsl:call-template name="PopulateLabel">
+												<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCClaimedInd"/>
+												<xsl:with-param name="BackupName">IRS8862AOTCClaimedInd</xsl:with-param>
+											</xsl:call-template>American Opportunity Tax Credit</label>-->
 										American Opportunity Tax Credit
 										<div class="styIRS8862LineItem" style="width:35mm;font-weight:lighter;padding-left:10mm;border-bottom-width: 0px;">
 											<font color="gray">(Complete Part IV)</font>
@@ -748,7 +786,7 @@
 												<xsl:call-template name="PopulateSpan">
 													<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCClaimedInd"/>
 												</xsl:call-template>
-												<input type="checkbox" class="styCkbox" alt="AOTC Claimed Ind">
+												<input type="checkbox" class="styCkbox" aria-label="AOTC Claimed Ind">
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCClaimedInd"/>
 														<xsl:with-param name="BackupName">IRS8862AOTCClaimedInd</xsl:with-param>
@@ -779,22 +817,21 @@
 							<div class="styIRS8862LNDesc" style="width:auto;height:8mm;padding:0px 0px 0px 0px;">
 								<div class="styIRS8862LNDesc" style="width:auto;height:8mm;">
 										If the <b>only</b> reason your EIC was reduced or disallowed was because you incorrectly
-										reported your earned income or investment income, check &#8220;Yes.&#8221; Otherwise, check &#8220;No.&#8221;
+										reported your earned income or investment income, check "Yes". Otherwise, check "No".
 										<span class="styDotLn" style="float:none;clear:none;padding-left:1mm;">............</span>
-									
 								</div>
 							</div>
 						</div>
 						<div class="styIRS8862LNDesc" style="width:34mm;height:8mm;padding-left:0px;padding-top:3.5mm;float:right;background-color:;">
-							<xsl:call-template name="PopulateYesNoGroup">
+						<xsl:call-template name="PopulateYesNoGroup">
 								<xsl:with-param name="TargetNode" select="$Form8862Data/EICEligClmIncmIncorrectRptInd"/>
 								<xsl:with-param name="BackupName">IRS8862EICEligClmIncmIncorrectRptInd</xsl:with-param>
-								<xsl:with-param name="AltName">EICEligClmIncmIncorrectRptInd</xsl:with-param>
+								<xsl:with-param name="AriaLabel">EICEligClmIncmIncorrectRptInd</xsl:with-param>
 							</xsl:call-template>
 						</div>
 					</div>
 					<div class="styIRS8862LNDesc" style="width:181mm;height:10mm;padding-left:12mm;">
-						<b>Caution:</b> If you checked &#8220;Yes,&#8221; <b> do not</b> complete the rest of Part II.  Attach this form to your tax return to claim the EIC.<br/> If you checked &#8220;No,&#8221; continue.
+						<b>Caution:</b> If you checked "Yes", <b> do not</b> complete the rest of Part II.  Attach this form to your tax return to claim the EIC.<br/> If you checked &#8220;No&#8221;, continue.
 					</div>
 					<!-- (4) ////////////////////////////////////////////////////-->
 					<div class="styIRS8862LineItem" style="width:187mm;height:8mm;">
@@ -814,12 +851,12 @@
 							<xsl:call-template name="PopulateYesNoGroup">
 								<xsl:with-param name="TargetNode" select="$Form8862Data/EICEligClmQlfyChldOfOtherInd"/>
 								<xsl:with-param name="BackupName">IRS8862EICEligClmIncmIncorrectRptInd</xsl:with-param>
-								<xsl:with-param name="AltName">qualifying child of another taxpayer</xsl:with-param>
+								<xsl:with-param name="AriaLabel">EICEligClmIncmIncorrectRptInd</xsl:with-param>
 							</xsl:call-template>
 						</div>
 					</div>
 					<div class="styIRS8862LNDesc" style="width:181mm;height:10mm;padding-left:11mm;">
-						<b>Caution:</b> See the instructions before answering.  If you (or your spouse if filing jointly) answer &#8220;Yes&#8221;
+						<b>Caution:</b> See the instructions before answering.  If you (or your spouse if filing jointly) answer "Yes"
 							to question 4, you cannot claim the EIC.</div>
 					<div style="width:187mm;height:4mm;font-size:8.5pt;padding-left:0mm;padding-bottom:5mm;float:none;">
 						<b>If you are claiming the EIC with a qualifying child, continue to Section A.  Otherwise, go to Section B.</b>
@@ -830,7 +867,7 @@
 					<!-- Header -->
 					<div style="width:187mm;padding:0px 0px 0px 0px;border-top-width: 1px; " class="styBB">
 						<!-- Content -->
-						<div class="styPartDesc" style="padding-left:15mm;font-size:8.5pt;">
+						<div class="styPartDesc" style="padding-left:0mm;font-size:8.5pt;">
 							Section A: Filers With a Qualifying Child or Children
 						</div>
 					</div>
@@ -839,7 +876,9 @@
 							
 						</div>
 						<div class="styIRS8862LNDesc" style="height:100%;width:auto;">
+						<span style="width:149mm;"><img src="{$ImagePath}/8862_bullet_sm.gif" alt="Small Bullet"/>
 							Answer questions 5, 7, and 8 for each child for whom you are claiming the EIC.
+							</span>
 						</div>
 					</div>
 					<div class="styIRS8862CleanDiv" style="width:100%;height:auto;">
@@ -847,8 +886,10 @@
 							
 						</div>
 						<div class="styIRS8862LNDesc" style="height:7mm;width:auto;">
+							<span style="width:149mm;"><img src="{$ImagePath}/8862_bullet_sm.gif" alt="Small Bullet"/>
 							Enter the name(s) of the child(ren) you listed as Child 1, Child 2, and Child 3 on <b>Schedule EIC</b> for the year entered 
 							on line 1 above.
+							</span>
 						</div>
 					</div>
 					<!-- (5a) ////////////////////////////////////////////////////-->
@@ -912,35 +953,40 @@
 					<!-- (6) ////////////////////////////////////////////////////-->
 					<div class="styIRS8862LineItem" style="width:187;height:8mm;padding-top:3mm;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:3mm;">6</div>
-						<div class="styIRS8862LNDesc" style="width:auto;height:8mm;padding:0px 0px 0px 0px;">
-							<div class="styIRS8862LNDesc" style="width:auto;height:8mm;font-size:8pt;font-size:9pt;">
-										Does your completed Schedule EIC for the year entered on line 1 show that you had a qualifying child for the EIC?
-										<span style="width:1mm;"/>
-								
+						<div class="styIRS8862CleanDiv" style="width:144mm;height:8mm;padding:0px 0px 0px 0px;">
+							<div class="styIRS8862LNDesc" style="width:auto;height:8mm;padding:0px 0px 0px 0px;">
+								<div class="styIRS8862LNDesc" style="width:auto;height:8mm;">
+										Does your completed Schedule EIC for the year entered on line 1 show that you had a qualifying child for the EIC? 
+													<!--Dotted Line-->
+									<span class="styDotLn" style="float:none;clear:none;padding-left:1mm;">................................</span>
+									
+								</div>
 							</div>
 						</div>
-						<div class="styIRS8862LNDesc" style="width:25mm;height:8mm;padding-left:0px;float:right;">
+								
+						<div class="styIRS8862LNDesc" style="width:34mm;height:8mm;padding-left:0px;padding-top:3.5mm;float:right;">
 							<xsl:call-template name="PopulateYesNoGroup">
 								<xsl:with-param name="TargetNode" select="$Form8862Data/QualifyingChildInd"/>
 								<xsl:with-param name="BackupName">IRS8862QualifyingChildInd</xsl:with-param>
-								<xsl:with-param name="AltName">QualifyingChildInd</xsl:with-param>
+								<xsl:with-param name="AriaLabel">QualifyingChildInd</xsl:with-param>
 							</xsl:call-template>
 						</div>
 					</div>
-					<div class="styIRS8862LNDesc" style="width:181mm;height:10mm;padding-left:9.5mm;">
-						<b>Caution:</b> If you checked &#8220;No,&#8221; you do not need to complete Part II, Section A.  Go to Part II, Section B.
-					</div>
+					<div class="styIRS8862LNDesc" style="width:181mm;height:10mm;padding-left:11mm;">
+						<br/><b>Caution:</b> If you checked "No", you do not need to complete Part II, Section A. Go to Part II, Section B.
+						</div>
+					
 					<!-- (7) ////////////////////////////////////////////////////-->
 					<div class="styIRS8862LineItem" style="width:187;height:8mm;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:3mm">7</div>
 						<div class="styIRS8862LNDesc" style="width:auto;height:8mm;padding:0px 0px 0px 0px;">
-							<div class="styIRS8862LNDesc" style="width:auto;height:8mm;font-size:9pt;">
+							<div class="styIRS8862LNDesc" style="width:auto;height:8mm;">
 										Enter the number of days each child lived with you in the United States during the year entered on line 1.
 									</div>
 						</div>
 					</div>
 					<!-- (Line 7 Child 1) ////////////////////////////////////////////////////-->
-					<div class="styIRS8862LineItem" style="width:187mm;padding-left:9mm;font-size:9pt;">
+					<div class="styIRS8862LineItem" style="width:187mm;padding-left:9mm;">
 						<b>Child 1</b>
 						<span style="width:4px;"/>
 						
@@ -1133,8 +1179,8 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</div>
-					<div class="styIRS8862LNDesc" style="width:181mm;height:10mm;padding-left:9.5mm;font-size:9pt;">
-						<b>Caution:</b>  If you enter less than 183 (184 if the year on line 1
+					<div class="styIRS8862LNDesc" style="width:181mm;height:10mm;padding-left:9.5mm;">
+						<b>Caution:</b>  See the instructions before answering. If you enter less than 183 (184 if the year on line 1
 							is a leap year), you cannot claim the EIC for that child.
 					</div>
 					<!-- (8) ////////////////////////////////////////////////////-->
@@ -1158,15 +1204,14 @@
 						<xsl:with-param name="TargetNode" select="$Form8862Data/FilerWithQualifyingChildGrp[3]"/>
 					</xsl:call-template>
 					<div class="styIRS8862LNDesc" style="width:187mm;height:15mm;padding-left:9.5mm;padding-top:1.5mm;">
-						Only one person may claim the child as a qualifying chid for the EIC and certain other child-related benefits.  <!--If the child meets
-						the conditions to be a qualifying child of any other person (other than your spouse if filling jointly), complete Part V. --> If you cannot
+						Only one person may claim the child as a qualifying chid for the EIC and certain other child-related benefits.    If you cannot
 						treat any of the children listed above as a qualifying child and have no other qualifying children, go to Part II, Section B.
-					</div>-		
-						<div class="styBB" style="width:187mm;"/>
+					</div>		
+						<div class="styBB" style="width:187mm;padding:0px 0px 0px 0px;"/>
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 					<!-- Page Break and Footer-->
 					<div class="pageEnd" style="width:187mm;padding-top:1mm;">
--						<div style="float:left; width:80mm;">
+						<div style="float:left; width:80mm;">
 							<span class="styBoldText">
 								For Paperwork Reduction Act Notice, see separate instructions.
 							</span>
@@ -1199,7 +1244,7 @@
 					<!-- Header -->
 					<div style="width:187mm;padding:0px 0px 0px 0px;" class="styBB">
 						<!-- Content -->
-						<div class="styPartDesc" style="padding-left:15mm;font-size:8.5pt;">
+						<div class="styPartDesc" style="padding-left:0mm;font-size:8.5pt;">
 							Section B: Filers Without a Qualifying Child or Children
 						</div>
 					</div>
@@ -1319,10 +1364,9 @@
 						</div>
 					</div>
 					<div class="styIRS8862LNDesc" style="width:181mm;height:11mm;padding-left:9.5mm;padding-top:2mm;">
-						<b>Caution:</b>  If your spouse died during the year entered on line 1 or you are preparing a return for someone who died during
-							the year entered on line 1, see the instructions before answering.  If neither you (nor your spouse if filing jointly) met 
-							the applicable minimum or maximum age requirement at the end of the year on line 1, you cannot claim the EIC. 
-							See the Instructions for Form 8862 for more information.
+						<b>Caution:</b>  If your spouse died during the year entered on line 1 or you are preparing a return for someone who died during the year entered on line 1, 
+						see the instructions before answering. If neither you (nor your spouse if filing jointly) were at least age 25 but under age 65 at the end of the year entered on line 1, 
+						unless that year is 2021, you cannot claim the EIC. See the Instructions for Form 8862 for more information.
 					</div>
 					<!-- (11a) ////////////////////////////////////////////////////-->
 					<div class="styIRS8862LineItem" style="width:187;height:6mm;padding-top:5mm;">
@@ -1338,7 +1382,7 @@
 							<xsl:call-template name="PopulateYesNoGroup">
 								<xsl:with-param name="TargetNode" select="$Form8862Data/PrimaryNoQualifyingChildGrp/OtherPersonClaimDependentInd"/>
 								<xsl:with-param name="BackupName">IRS8862PrimaryNoQualifyingChildGrp/OtherPersonClaimDependentInd</xsl:with-param>
-								<xsl:with-param name="AltName">OtherPersonClaimDependentInd</xsl:with-param>							
+								<xsl:with-param name="AriaLabel">OtherPersonClaimDependentInd</xsl:with-param>							
 							</xsl:call-template>
 						</div>
 					</div>
@@ -1354,7 +1398,7 @@
 							<xsl:call-template name="PopulateYesNoGroup">
 								<xsl:with-param name="TargetNode" select="$Form8862Data/SpouseNoQualifyingChildGrp/OtherPersonClaimDependentInd"/>
 								<xsl:with-param name="BackupName">IRS8862SpouseNoQualifyingChildGrp/OtherPersonClaimDependentInd</xsl:with-param>
-								<xsl:with-param name="AltName">spouse claimed as dependent</xsl:with-param>							
+								<xsl:with-param name="AriaLabel">SpouseNoQualifyingChildClaimDependentInd</xsl:with-param>							
 							</xsl:call-template>
 						</div>
 					</div>
@@ -1468,7 +1512,7 @@
 					<xsl:variable name="ODCPersonInformationGrpCount" select="count($Form8862Data/ODCPersonInformationGrp)"/>
 					<div class="styIRS8862LineItem" style="width:187;height:10mm;padding-top:3.5mm;padding-bottom:7mm;">
 						<div class="styIRS8862LNLeftNumBox" style="text-align:center;padding-left:2mm;">13</div>
-						<div class="styIRS8862LNDesc" style="width:175mm;height:11mm;font-size:9pt;">
+						<div class="styIRS8862LNDesc" style="width:175mm;height:11mm;">
 										Enter the name(s) of each person for whom you are claiming the credit for other dependents (ODC). 
 										If you are claiming the credit for more than four dependents, attach a statement answering questions 
 										13, 16, and 17 for those dependents.
@@ -1480,10 +1524,10 @@
 					<xsl:variable name="ODCPersonInformationGrp" select="count($Form8862Data/ODCPersonInformationGrp/PersonFullName)"/>
 					<div class="styIRS8862LineItem" style="width:93.5mm;float:left;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:0px;">a</div>
-						<div class="styIRS8862LNDesc" style="width:75mm;height:6mm;font-family:arial narrow;font-size:10pt;">
+						<div class="styIRS8862LNDesc" style="width:75mm;height:6mm;font-family:arial narrow;font-size:7pt;">
 							<b>Other dependent 1</b>
 							<span style="width:4px;"/>
-							<span style="width:45mm;height:3.5mm;border-bottom:1px solid black;">
+							<span style="width:50mm;height:3.5mm;border-bottom:1px solid black;">
 								<xsl:if test="$ODCPersonInformationGrpCount &gt;= 1">
 									<xsl:call-template name="PopulateText">
 										<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[1]/PersonFullName/PersonFirstNm"/>
@@ -1499,10 +1543,10 @@
 					<!-- (b) ////////////////////////////////////////////////////-->
 					<div class="styIRS8862LineItem" style="width:93.5mm;float:left;padding-bottom:7mm;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:0px;">b</div>
-						<div class="styIRS8862LNDesc" style="width:75mm;height:6mm;font-family:arial narrow;font-size:10pt;">
+						<div class="styIRS8862LNDesc" style="width:75mm;height:6mm;font-family:arial narrow;font-size:7pt;">
 							<b>Other dependent 2</b>
 							<span style="width:4px;"/>
-							<span style="width:45mm;height:3.5mm;border-bottom:1px solid black;">
+							<span style="width:50mm;height:3.5mm;border-bottom:1px solid black;">
 								<xsl:if test="$ODCPersonInformationGrpCount &gt;= 2">
 									<xsl:call-template name="PopulateText">
 										<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[2]/PersonFullName/PersonFirstNm"/>
@@ -1518,10 +1562,10 @@
 					<!-- (c) ////////////////////////////////////////////////////-->
 					<div class="styIRS8862LineItem" style="width:93.5mm;float:left;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:0px;">c</div>
-						<div class="styIRS8862LNDesc" style="width:75mm;height:6mm;font-family:arial narrow;font-size:10pt;">
+						<div class="styIRS8862LNDesc" style="width:75mm;height:6mm;font-family:arial narrow;font-size:7pt;">
 							<b>Other dependent 3</b>
 							<span style="width:4px;"/>
-							<span style="width:45mm;height:3.5mm;border-bottom:1px solid black;">
+							<span style="width:50mm;height:3.5mm;border-bottom:1px solid black;">
 								<xsl:if test="$ODCPersonInformationGrpCount &gt;= 3">
 									<xsl:call-template name="PopulateText">
 										<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[3]/PersonFullName/PersonFirstNm"/>
@@ -1537,10 +1581,10 @@
 					<!-- (d) ////////////////////////////////////////////////////-->
 					<div class="styIRS8862LineItem" style="width:93.5mm;float:left;padding-bottom:7mm;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:0px;">d</div>
-						<div class="styIRS8862LNDesc" style="width:75mm;height:6mm;font-family:arial narrow;font-size:10pt;">
+						<div class="styIRS8862LNDesc" style="width:75mm;height:6mm;font-family:arial narrow;font-size:7pt;">
 							<b>Other dependent 4</b>
 							<span style="width:4px;"/>
-							<span style="width:45mm;height:3.5mm;border-bottom:1px solid black;">
+							<span style="width:50mm;height:3.5mm;border-bottom:1px solid black;">
 								<xsl:if test="$ODCPersonInformationGrpCount &gt;= 4">
 									<xsl:call-template name="PopulateText">
 										<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[4]/PersonFullName/PersonFirstNm"/>
@@ -1576,7 +1620,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[1]/LiveWithChildOverHalfYearInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[1]/LiveWithChildOverHalfYearInd</xsl:with-param>
-<xsl:with-param name="AltName">Live With Child 1 Over Half Year</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Live With Child 1 Over Half Year</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 2</b>
@@ -1584,7 +1628,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[2]/LiveWithChildOverHalfYearInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[2]/LiveWithChildOverHalfYearInd</xsl:with-param>
-								<xsl:with-param name="AltName">Live With Child 2 Over Half Year</xsl:with-param>
+								<xsl:with-param name="AriaLabel">Live With Child 2 Over Half Year</xsl:with-param>
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 3</b>
@@ -1592,7 +1636,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[3]/LiveWithChildOverHalfYearInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[3]/LiveWithChildOverHalfYearInd</xsl:with-param>
-								<xsl:with-param name="AltName">Live With Child 3 Over Half Year</xsl:with-param>								
+								<xsl:with-param name="AriaLabel">Live With Child 3 Over Half Year</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 4</b>
@@ -1600,7 +1644,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[4]/LiveWithChildOverHalfYearInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[4]/LiveWithChildOverHalfYearInd</xsl:with-param>
-								<xsl:with-param name="AltName">Live With Child 4 Over Half Year</xsl:with-param>								
+								<xsl:with-param name="AriaLabel">Live With Child 4 Over Half Year</xsl:with-param>								
 								</xsl:call-template>
 							</div>
 						</xsl:when>
@@ -1619,7 +1663,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[1]/LiveWithChildOverHalfYearInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[1]/LiveWithChildOverHalfYearInd</xsl:with-param>
-									<xsl:with-param name="AltName">Live With Child 1 Over Half Year</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Live With Child 1 Over Half Year</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 2</b>
@@ -1627,7 +1671,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[2]/LiveWithChildOverHalfYearInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[2]/LiveWithChildOverHalfYearInd</xsl:with-param>
-								<xsl:with-param name="AltName">Live With Child 2 Over Half Year</xsl:with-param>								
+								<xsl:with-param name="AriaLabel">Live With Child 2 Over Half Year</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 3</b>
@@ -1635,7 +1679,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[3]/LiveWithChildOverHalfYearInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[3]/LiveWithChildOverHalfYearInd</xsl:with-param>
-<xsl:with-param name="AltName">Live With Child 3 Over Half Year</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Live With Child 3 Over Half Year</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 4</b>
@@ -1643,7 +1687,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[4]/LiveWithChildOverHalfYearInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[4]/LiveWithChildOverHalfYearInd</xsl:with-param>
-<xsl:with-param name="AltName">Live With Child 4 Over Half Year</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Live With Child 4 Over Half Year</xsl:with-param>								
 								</xsl:call-template>
 							</div>
 						</xsl:otherwise>
@@ -1664,7 +1708,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[1]/QualifyingChildInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[1]/QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child 1</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Qualifying Child 1</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 2</b>
@@ -1672,7 +1716,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[2]/QualifyingChildInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[2]/QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child 2</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Qualifying Child 2</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 3</b>
@@ -1680,7 +1724,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[3]/QualifyingChildInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[3]/QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child 3</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Qualifying Child 3</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 4</b>
@@ -1688,7 +1732,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[4]/QualifyingChildInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[4]/QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child 4</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Qualifying Child 4</xsl:with-param>								
 								</xsl:call-template>
 							</div>
 						</xsl:when>
@@ -1707,7 +1751,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[1]/QualifyingChildInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[1]/QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child 1 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Qualifying Child 1 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 2</b>
@@ -1715,7 +1759,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[2]/QualifyingChildInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[2]/QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child 2 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Qualifying Child 2 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 3</b>
@@ -1723,7 +1767,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[3]/QualifyingChildInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[3]/QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child 3 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Qualifying Child 3 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 4</b>
@@ -1731,7 +1775,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[4]/QualifyingChildInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[4]/QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child 4 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Qualifying Child 4 Ind</xsl:with-param>								
 								</xsl:call-template>
 							</div>
 						</xsl:otherwise>
@@ -1750,7 +1794,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[1]/DependentInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[1]/DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Child dependent 1 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Dependent 1 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 2</b>
@@ -1758,7 +1802,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[2]/DependentInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[2]/DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Child dependent 2 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Dependent 2 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 3</b>
@@ -1766,7 +1810,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[3]/DependentInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[3]/DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Child dependent 3 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Dependent 3 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 4</b>
@@ -1774,7 +1818,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[4]/DependentInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[4]/DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Child dependent 4 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Dependent 4 Ind</xsl:with-param>								
 								</xsl:call-template>
 							</div>
 							<div class="styIRS8862LineItem" style="width:187mm;padding-left:9mm;padding-top:1.5mm;font-size:8.5pt;height: 8mm;">
@@ -1783,7 +1827,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[1]/DependentInd"/>
 									<xsl:with-param name="BackupName">IRS8862ODCPersonInformationGrp[1]/DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Other Dependent 1 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Other Dependent 1 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Other dependent 2</b>
@@ -1791,7 +1835,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[2]/DependentInd"/>
 									<xsl:with-param name="BackupName">IRS8862ODCPersonInformationGrp[2]/DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Other Dependent 2 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Other Dependent 2 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<br/>
 								<b style="font-size:8pt;">Other dependent 3</b>
@@ -1799,7 +1843,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[3]/DependentInd"/>
 									<xsl:with-param name="BackupName">IRS8862ODCPersonInformationGrp[3]/DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Other Dependent 3 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Other Dependent 3 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Other dependent 4</b>
@@ -1807,7 +1851,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[4]/DependentInd"/>
 									<xsl:with-param name="BackupName">IRS8862ODCPersonInformationGrp[4]/DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Other Dependent 4 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Other Dependent 4 Ind</xsl:with-param>								
 								</xsl:call-template>
 							</div>
 					<!-- (17) ////////////////////////////////////////////////////-->
@@ -1827,7 +1871,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[1]/USCitizenOrNationalInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[1]/USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">US Citizen Or National 1 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">US Citizen Or National 1 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 2</b>
@@ -1835,7 +1879,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[2]/USCitizenOrNationalInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[2]/USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">US Citizen Or National 2 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">US Citizen Or National 2 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 3</b>
@@ -1843,7 +1887,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[3]/USCitizenOrNationalInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[3]/USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">US Citizen Or National 3 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">US Citizen Or National 3 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Child 4</b>
@@ -1851,7 +1895,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/CTCACTCChildInformationGrp[4]/USCitizenOrNationalInd"/>
 									<xsl:with-param name="BackupName">IRS8862CTCACTCChildInformationGrp[4]/USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">US Citizen Or National 4 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">US Citizen Or National 4 Ind</xsl:with-param>								
 								</xsl:call-template>
 							</div>
 							<div class="styIRS8862LineItem" style="width:187mm;padding-left:9mm;padding-top:1.5mm;font-size:8.5pt;height: 8mm;">
@@ -1860,7 +1904,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[1]/USCitizenOrNationalInd"/>
 									<xsl:with-param name="BackupName">IRS8862ODCPersonInformationGrp[1]/USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">US Citizen Or National other dependent 1 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Other dependent 1 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Other dependent 2</b>
@@ -1868,7 +1912,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[2]/USCitizenOrNationalInd"/>
 									<xsl:with-param name="BackupName">IRS8862ODCPersonInformationGrp[2]/USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">US Citizen Or National other dependent 2 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Other dependent 2 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<br/>
 								<b style="font-size:8pt;">Other dependent 3</b>
@@ -1876,7 +1920,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[3]/USCitizenOrNationalInd"/>
 									<xsl:with-param name="BackupName">IRS8862ODCPersonInformationGrp[3]/USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">US Citizen Or National other dependent 3 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Other dependent 3 Ind</xsl:with-param>								
 								</xsl:call-template>
 								<span style="width:7mm;"/>
 								<b style="font-size:8pt;">Other dependent 4</b>
@@ -1884,7 +1928,7 @@
 								<xsl:call-template name="PopulateYesNoGroup">
 									<xsl:with-param name="TargetNode" select="$Form8862Data/ODCPersonInformationGrp[4]/USCitizenOrNationalInd"/>
 									<xsl:with-param name="BackupName">IRS8862ODCPersonInformationGrp[4]/USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">US Citizen Or National other dependent 4 Ind</xsl:with-param>								
+									<xsl:with-param name="AriaLabel">Other dependent 4 Ind</xsl:with-param>								
 								</xsl:call-template>
 							</div>
 						
@@ -1894,12 +1938,12 @@
 						<b>Caution:</b> If the answer is “No” for questions 14, 15, 16, or 17, you cannot claim the CTC/RCTC/ACTC/ODC for that child or other dependent.
 							</div>
 					<div class="styIRS8862LNDesc" style="width:181mm;height:18mm;padding-left:9.5mm;padding-top:3mm;">
-									Only one person can claim the child as a qualifying child for the CTC/RCTC/ACTC/ODC. If you cannot treat any
+									Only one person can claim the child as a qualifying child for the CTC/RCTC/ACTC/ODC.If you cannot treat any
 									of the children listed above as a qualifying child and have no other qualifying children, you cannot claim the
-                                    CTC/RCTC/ACTC or the ODC based on having a qualifying child. 
+                                    CTC/RCTC/ACTC or the ODC based on having a qualifying child.
 							</div>
 					<br/>
-					<div class="styBB" style="width:187mm;"/>
+					<div class="styBB" style="width:187mm;padding:10px 0px 0px 0px;"/>
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 					<!-- Page Break and Footer-->
 					<div class="pageEnd" style="width:187mm;padding-top:1mm;">
@@ -2025,7 +2069,7 @@
 						<xsl:call-template name="PopulateYesNoGroup">
 							<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCStudentInformationGrp[1]/EligibleStudentInd"/>
 							<xsl:with-param name="BackupName">IRS8862AOTCStudentInformationGrp[1]/EligibleStudentInd</xsl:with-param>
-<xsl:with-param name="AltName">Eligible Student 1 Ind</xsl:with-param>							
+							<xsl:with-param name="AriaLabel">Eligible Student 1 Ind</xsl:with-param>							
 						</xsl:call-template>
 						<span style="width:15mm;"/>
 						<b style="font-size:8pt;">Student 2</b>
@@ -2033,7 +2077,7 @@
 						<xsl:call-template name="PopulateYesNoGroup">
 							<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCStudentInformationGrp[2]/EligibleStudentInd"/>
 							<xsl:with-param name="BackupName">IRS8862AOTCStudentInformationGrp[2]/EligibleStudentInd</xsl:with-param>
-<xsl:with-param name="AltName">Eligible Student 2 Ind</xsl:with-param>						
+							<xsl:with-param name="AriaLabel">Eligible Student 2 Ind</xsl:with-param>						
 						</xsl:call-template>
 						<span style="width:15mm;"/>
 						<b style="font-size:8pt;">Student 3</b>
@@ -2041,7 +2085,7 @@
 						<xsl:call-template name="PopulateYesNoGroup">
 							<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCStudentInformationGrp[3]/EligibleStudentInd"/>
 							<xsl:with-param name="BackupName">IRS8862AOTCStudentInformationGrp[3]/EligibleStudentInd</xsl:with-param>
-<xsl:with-param name="AltName">Eligible Student 3 Ind</xsl:with-param>						
+							<xsl:with-param name="AriaLabel">Eligible Student 3 Ind</xsl:with-param>						
 						</xsl:call-template>
 					</div>
 					<!-- (19b) ////////////////////////////////////////////////////-->
@@ -2058,7 +2102,7 @@
 						<xsl:call-template name="PopulateYesNoGroup">
 							<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCStudentInformationGrp[1]/PriorYearCreditClaimedInd"/>
 							<xsl:with-param name="BackupName">IRS8862AOTCStudentInformationGrp[1]/PriorYearCreditClaimedInd</xsl:with-param>
-<xsl:with-param name="AltName">Prior Year Credit Claimed 1 Ind</xsl:with-param>						
+							<xsl:with-param name="AriaLabel">Prior Year Credit Claimed 1 Ind</xsl:with-param>						
 						</xsl:call-template>
 						<span style="width:15mm;"/>
 						<b style="font-size:8pt;">Student 2</b>
@@ -2066,7 +2110,7 @@
 						<xsl:call-template name="PopulateYesNoGroup">
 							<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCStudentInformationGrp[2]/PriorYearCreditClaimedInd"/>
 							<xsl:with-param name="BackupName">IRS8862AOTCStudentInformationGrp[2]/PriorYearCreditClaimedInd</xsl:with-param>
-<xsl:with-param name="AltName">Prior Year Credit Claimed 2 Ind</xsl:with-param>						
+							<xsl:with-param name="AriaLabel">Prior Year Credit Claimed 2 Ind</xsl:with-param>						
 						</xsl:call-template>
 						<span style="width:15mm;"/>
 						<b style="font-size:8pt;">Student 3</b>
@@ -2074,7 +2118,7 @@
 						<xsl:call-template name="PopulateYesNoGroup">
 							<xsl:with-param name="TargetNode" select="$Form8862Data/AOTCStudentInformationGrp[3]/PriorYearCreditClaimedInd"/>
 							<xsl:with-param name="BackupName">IRS8862AOTCStudentInformationGrp[3]/PriorYearCreditClaimedInd</xsl:with-param>
-<xsl:with-param name="AltName">Prior Year Credit Claimed 3 Ind</xsl:with-param>						
+							<xsl:with-param name="AriaLabel">Prior Year Credit Claimed 3 Ind</xsl:with-param>						
 						</xsl:call-template>
 					</div>
 					<div class="styIRS8862LNDesc" style="width:181mm;height:5mm;padding-left:9.5mm;padding-top:2mm;">
@@ -2085,9 +2129,9 @@
 					<!-- Begin Part V																								 -->
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 					<!-- Header -->
-					<!--div style="width:187mm;padding:0px 0px 0px 0px;" class="styBB"-->
+					<!--<div style="width:187mm;padding:0px 0px 0px 0px;" class="styBB">-->
 						<!-- Content -->
-						<!--div class="styPartName" style="width:15mm;padding-top:.5mm;">Part V</div>
+						<!--<div class="styPartName" style="width:15mm;padding-top:.5mm;">Part V</div>
 						<div class="styPartDesc" style="padding-left:3mm;font-size:8.5pt;">
 							Qualifying Child of More Than One Person
 						</div>
@@ -2101,9 +2145,9 @@
 							(other than your spouse if filing jointly).  If you have more than four qualifying children, attach a statement also answering
 							questions 20-22 for those children.
 						</div>
-					</div-->
+					</div>-->
 					<!-- (20a) ////////////////////////////////////////////////////-->
-					<!--div class="styIRS8862LineItem" style="width:93.5mm;float:left;height:6mm;">
+					<!--<div class="styIRS8862LineItem" style="width:93.5mm;float:left;height:6mm;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:0px;">20a</div>
 						<div class="styIRS8862LNDesc" style="width:80mm;height:6mm;">
 							<b>Child 1</b>
@@ -2120,9 +2164,9 @@
 								</xsl:if>
 							</span>
 						</div>
-					</div-->
+					</div>-->
 					<!-- (b) ////////////////////////////////////////////////////-->
-					<!--div class="styIRS8862LineItem" style="width:93.5mm;float:left;padding-bottom:7mm;">
+					<!--<div class="styIRS8862LineItem" style="width:93.5mm;float:left;padding-bottom:7mm;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:0px;">b</div>
 						<div class="styIRS8862LNDesc" style="width:80mm;height:6mm;">
 							<b>Child 2</b>
@@ -2139,9 +2183,9 @@
 								</xsl:if>
 							</span>
 						</div>
-					</div-->
+					</div>-->
 					<!-- (c) ////////////////////////////////////////////////////-->
-					<!--div class="styIRS8862LineItem" style="width:93.5mm;float:left;">
+					<!--<div class="styIRS8862LineItem" style="width:93.5mm;float:left;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:0px;">c</div>
 						<div class="styIRS8862LNDesc" style="width:80mm;height:6mm;">
 							<b>Child 3</b>
@@ -2158,9 +2202,9 @@
 								</xsl:if>
 							</span>
 						</div>
-					</div-->
+					</div>-->
 					<!-- (d) ////////////////////////////////////////////////////-->
-					<!--div class="styIRS8862LineItem" style="width:93.5mm;float:left;padding-bottom:7mm;">
+					<!--<div class="styIRS8862LineItem" style="width:93.5mm;float:left;padding-bottom:7mm;">
 						<div class="styIRS8862LNLeftNumBox" style="padding-right:0px;">d</div>
 						<div class="styIRS8862LNDesc" style="width:80mm;height:6mm;">
 							<b>Child 4</b>
@@ -2183,9 +2227,9 @@
 								</xsl:if>
 							</span>
 						</div>
-					</div-->
+					</div>-->
 					<!-- (21) ////////////////////////////////////////////////////-->
-					<!--div class="styIRS8862LineItem" style="width:187;height:10mm;padding-top:3.5mm;padding-bottom:5mm;">
+					<!--<div class="styIRS8862LineItem" style="width:187;height:10mm;padding-top:3.5mm;padding-bottom:5mm;">
 						<div class="styIRS8862LNLeftNumBox" style="text-align:center;padding-left:2mm;">21</div>
 						<div class="styIRS8862LNDesc" style="width:175mm;height:10mm;">
 										Enter the address where you and the child lived together during the year entered on line 1.  If you lived with the
@@ -2205,46 +2249,46 @@
 					<xsl:call-template name="CreateLine21ChildItem">
 						<xsl:with-param name="Number">4</xsl:with-param>
 					</xsl:call-template>
-					<div class="styBB" style="width:187mm;padding:10px 0px 0px 0px;"/-->
+					<div class="styBB" style="width:187mm;padding:10px 0px 0px 0px;"/>-->
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 					<!-- Page Break and Footer-->
-					<!--div class="pageEnd" style="width:187mm;padding-top:1mm;">
+					<div class="pageEnd" style="width:187mm;padding-top:1mm;">
 						<div style="float:right;padding-top:1mm;">
 							<span style="width:50px;"/>  
 								Form 
-							<span class="styBoldText" style="font-size:8pt;">8862</span> (Rev. 12-2023)
+							<span class="styBoldText" style="font-size:8pt;">8862</span> (Rev. 10-2024)
 						</div>
-					</div-->
+					</div>
 					<!-- END Page Break and Footer-->
-					<!--br/-->
+					<br/>
 					<!-- BEGIN Page Header -->
-					<!--div class="styTBB" style="width:187mm;padding-top:2mm;">
+					<!--<div class="styTBB" style="width:187mm;padding-top:2mm;">
 						<div style="float:left;">
-							Form 8862 (Rev. 12-2023)<span style="width:148mm;"/>
+							Form 8862 (Rev. 10-2024)<span style="width:148mm;"/>
 						</div>
 						<div style="float:right;">
 							Page <span style="font-weight:bold;font-size:8pt;">4</span>
 						</div>
-					</div-->
+					</div>-->
 					<!-- (Page 4) ////////////////////////////////////////////////////-->
-					<!-- div style="width:187mm;padding:0px 0px 0px 0px;" class="styBB"-->
-						<!-- Content -->
-						<!--div class="styPartName" style="width:15mm;padding-top:.5mm;">Part V</div>
+					<!--<div style="width:187mm;padding:0px 0px 0px 0px;" class="styBB">
+						--><!-- Content --><!--
+						<div class="styPartName" style="width:15mm;padding-top:.5mm;">Part V</div>
 						<div class="styPartDesc" style="padding-left:3mm;font-size:8.5pt;">
 							Qualifying Child of More Than One Person (continued)
 						</div>
 					</div>
-					<span style="width:16mm;height:3mm;float:right;"/-->
+					<span style="width:16mm;height:3mm;float:right;"/>-->
 					<!-- (22) ////////////////////////////////////////////////////-->
-					<!--div class="styIRS8862LineItem" style="width:187mm;height:8mm;">
+					<!--<div class="styIRS8862LineItem" style="width:187mm;height:8mm;">
 						<div class="styIRS8862LNLeftNumBox">22</div>
 						<div class="styIRS8862CleanDiv" style="width:144mm;height:auto;padding:0px 0px 0px 0px;">
 							<div class="styIRS8862LNDesc" style="width:auto;height:100%;">
 										Did any other person (except your spouse, if filing jointly, and your dependents claimed on your return) live with Child 1, Child 2, Child 3, or
-										Child 4 for more than half the year? -->
+										Child 4 for more than half the year?-->
 										<!--Dotted Line-->
 								<!--<span class="styDotLn" style="float:none;clear:none;padding-left:1mm;">..............</span>-->
-							<!--/div>
+						<!--	</div>
 						</div>
 						<div class="styIRS8862LNDesc" style="width:37mm;height:100%;padding-left:0px;padding-top:4mm;float:right;">
 							<span style="float:left;width:auto;height:auto;">
@@ -2259,7 +2303,7 @@
 					<div class="styIRS8862LineItem" style="width:187mm;height:auto;">
 						<div class="styIRS8862LNLeftNumBox"/>
 						<div class="styIRS8862LNDesc" style="width:181mm;height:auto;padding-bottom:4mm;">
-								If &#8220;Yes,&#8221; enter the relationship of each person to the child on the appropiate line below. 
+								If &#8220;Yes&#8221;, enter the relationship of each person to the child on the appropiate line below. 
 							</div>
 					</div>
 					<xsl:call-template name="CreateLine22ChildItem">
@@ -2273,9 +2317,9 @@
 					</xsl:call-template>
 					<xsl:call-template name="CreateLine22ChildItem">
 						<xsl:with-param name="Number">4</xsl:with-param>
-					</xsl:call-template-->
+					</xsl:call-template>-->
 					<!-- ////////////////////////////////////////////////////-->
-					<!--div class="styBB" style="width:187mm;">
+					<!--<div class="styBB" style="width:187mm;">
 						<div class="styIRS8862LineItem" style="height:8mm;">
 							<div class="styIRS8862LNDesc" style="width:187mm;padding-left:0mm;">
 								To determine which person can treat the child as a qualifying child for the EIC, and CTC/RCTC/ACTC, see 
@@ -2288,14 +2332,14 @@
 							</div>
 						</div>
 						<br/>
-					</div-->
+					</div>-->
 					<!-- Page Footer-->
-					<div class="pageEnd" style="width:187mm;padding-top:5mm;border-top-width:1px;">
+					<!--<div class="pageEnd" style="width:187mm;padding-top:5mm;border-top-width:1px;">
 						<div style="float:right;">
 							<span style="width:40px;"/>  
 							  Form <span class="styBoldText" style="font-size:8pt;">8862</span> (Rev. 10-2024)
                         </div>
-					</div>
+					</div>-->
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 					<!-- Additonal Data Title Bar and Button -->
 					<div class="styLeftOverTitleLine" id="LeftoverData" style="padding-top:5mm;">
@@ -2366,7 +2410,7 @@
 													<xsl:call-template name="PopulateYesNoGroup">
 														<xsl:with-param name="TargetNode" select="LiveWithChildOverHalfYearInd"/>
 														<xsl:with-param name="BackupName">LiveWithChildOverHalfYearInd</xsl:with-param>
-<xsl:with-param name="AltName">Live With Child Over Half Year Ind</xsl:with-param>													
+														<xsl:with-param name="AriaLabel">Live With Child Over Half Year Ind</xsl:with-param>													
 													</xsl:call-template>
 												</div>
 											</td>
@@ -2377,7 +2421,7 @@
 													<xsl:call-template name="PopulateYesNoGroup">
 														<xsl:with-param name="TargetNode" select="QualifyingChildInd"/>
 														<xsl:with-param name="BackupName">QualifyingChildInd</xsl:with-param>
-<xsl:with-param name="AltName">Qualifying Child Ind</xsl:with-param>													
+														<xsl:with-param name="AriaLabel">Qualifying Child Ind</xsl:with-param>													
 													</xsl:call-template>
 												</div>
 											</td>
@@ -2388,7 +2432,7 @@
 													<xsl:call-template name="PopulateYesNoGroup">
 														<xsl:with-param name="TargetNode" select="DependentInd"/>
 														<xsl:with-param name="BackupName">DependentInd</xsl:with-param>
-<xsl:with-param name="AltName">Dependent Ind</xsl:with-param>													
+														<xsl:with-param name="AriaLabel">Dependent Ind</xsl:with-param>													
 													</xsl:call-template>
 												</div>
 											</td>
@@ -2399,7 +2443,7 @@
 													<xsl:call-template name="PopulateYesNoGroup">
 														<xsl:with-param name="TargetNode" select="USCitizenOrNationalInd"/>
 														<xsl:with-param name="BackupName">USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">USCitizen Or National Ind</xsl:with-param>													
+														<xsl:with-param name="AriaLabel">USCitizen Or National Ind</xsl:with-param>													
 													</xsl:call-template>
 												</div>
 											</td>
@@ -2460,6 +2504,7 @@
 													<xsl:call-template name="PopulateYesNoGroup">
 														<xsl:with-param name="TargetNode" select="DependentInd"/>
 														<xsl:with-param name="BackupName">DependentInd</xsl:with-param>
+														<xsl:with-param name="AriaLabel">Child Dependent Ind</xsl:with-param>		
 													</xsl:call-template>
 												</div>
 											</td>
@@ -2470,7 +2515,7 @@
 													<xsl:call-template name="PopulateYesNoGroup">
 														<xsl:with-param name="TargetNode" select="USCitizenOrNationalInd"/>
 														<xsl:with-param name="BackupName">USCitizenOrNationalInd</xsl:with-param>
-<xsl:with-param name="AltName">USCitizen Or National Ind</xsl:with-param>													
+														<xsl:with-param name="AriaLabel">USCitizen Or National Ind</xsl:with-param>													
 													</xsl:call-template>
 												</div>
 											</td>
@@ -2532,6 +2577,7 @@
 													<xsl:call-template name="PopulateYesNoGroup">
 														<xsl:with-param name="TargetNode" select="EligibleStudentInd"/>
 														<xsl:with-param name="BackupName">EligibleStudentInd</xsl:with-param>
+														<xsl:with-param name="AriaLabel">Eligible Student Ind</xsl:with-param>
 													</xsl:call-template>
 												</div>
 											</td>
@@ -2542,7 +2588,7 @@
 													<xsl:call-template name="PopulateYesNoGroup">
 														<xsl:with-param name="TargetNode" select="PriorYearCreditClaimedInd"/>
 														<xsl:with-param name="BackupName">PriorYearCreditClaimedInd</xsl:with-param>
-<xsl:with-param name="AltName">Prior Year Credit Claimed Ind</xsl:with-param>													
+														<xsl:with-param name="AriaLabel">Prior Year Credit Claimed Ind</xsl:with-param>													
 													</xsl:call-template>
 												</div>
 											</td>
@@ -2553,9 +2599,9 @@
 						</table>
 					</xsl:if>
 					<!-- Separated Data for Part V Lines 20, 21 -->
-					<!--xsl:if test="count($Form8862Data/QlfyChildMoreThan1PersonGrp) &gt; 0"-->
-						<!--TODO make 4 and check for multiple addresses in 1-4 -->
-						<!--br/>
+					<!--<xsl:if test="count($Form8862Data/QlfyChildMoreThan1PersonGrp) &gt; 0">
+						--><!--TODO make 4 and check for multiple addresses in 1-4 --><!--
+						<br/>
 						<br/>
 						<span class="styRepeatingDataTitle">
 							Form 8862, Part V Line 20, 21
@@ -2591,9 +2637,9 @@
 													<xsl:with-param name="TargetNode" select="ChildFirstAndLastName/PersonLastNm"/>
 												</xsl:call-template>
 											</td>
-											<xsl:variable name="Address1" select="LiveWithChildAddrGrp/child::*[1]"/-->
+											<xsl:variable name="Address1" select="LiveWithChildAddrGrp/child::*[1]"/>-->
 											<!-- (Number and street) +++++++++++++++++++++++ -->
-											<!--td class="styIRS8862TableCell">
+											<!--<td class="styIRS8862TableCell">
 												<xsl:attribute name="style">width:30%;text-align:left;border-left-width:1px;</xsl:attribute>
 												<div class="styIRS8862LNDesc" style="width:100%;height:auto;word-wrap:break-word;padding-left:2px;font-size:7pt;">
 
@@ -2608,9 +2654,9 @@
 															</xsl:if>
 														
 												</div>
-											</td-->
+											</td>-->
 											<!-- (City or town, state, and ZIP code) +++++++++++++++++++++++ -->
-											<!--td class="styIRS8862TableCell">
+											<!--<td class="styIRS8862TableCell">
 												<xsl:attribute name="style">width:30%;text-align:left;border-left-width:1px;</xsl:attribute>
 												<div class="styIRS8862LNDesc" style="width:100%;height:auto;word-wrap:break-word;padding-left:2px;font-size:7pt;">
 													<xsl:if test="name($Address1) = 'USAddress'">
@@ -2624,22 +2670,18 @@
 															<xsl:with-param name="TargetNode" select="null"/>
 															<xsl:with-param name="ForeignAddressTargetNode" select="$Address1"/>
 														</xsl:call-template>
-														<span style="width:2mm"/>
-														<xsl:call-template name="PopulateForeignCountryCdTemplate">
-															<xsl:with-param name="TargetNode" select="$Address1"/>
-														</xsl:call-template>
 													</xsl:if>
 												</div>
 											</td>
-										</tr-->
+										</tr>-->
 										<!-- additional rows if multiple addresses -->
-										<!--xsl:if test="(count(LiveWithChildAddrGrp/USAddress) + count(LiveWithChildAddrGrp/ForeignAddress)) &gt; 1">
+										<!--<xsl:if test="(count(LiveWithChildAddrGrp/USAddress) + count(LiveWithChildAddrGrp/ForeignAddress)) &gt; 1">
 											<xsl:for-each select="LiveWithChildAddrGrp/child::*[position() &gt; 1]">
 												<tr style="font-size:7pt;font-family:arial;">
 													<td class="styIRS8862TableCell" colspan="2">
-													</td-->
+													</td>-->
 													<!-- (Number and street) +++++++++++++++++++++++ -->
-													<!--td class="styIRS8862TableCell">
+													<!--<td class="styIRS8862TableCell">
 														<xsl:attribute name="style">width:30%;text-align:left;border-left-width:1px;</xsl:attribute>
 														<div class="styIRS8862LNDesc" style="width:100%;height:auto;word-wrap:break-word;padding-left:2px;font-size:7pt;">
 															<xsl:call-template name="PopulateText">
@@ -2652,9 +2694,9 @@
 																</xsl:call-template>
 															</xsl:if>
 														</div>
-													</td-->
+													</td>-->
 													<!-- (City or town, state, and ZIP code) +++++++++++++++++++++++ -->
-													<!--td class="styIRS8862TableCell">
+													<!--<td class="styIRS8862TableCell">
 														<xsl:attribute name="style">width:30%;text-align:left;border-left-width:1px;</xsl:attribute>
 														<div class="styIRS8862LNDesc" style="width:100%;height:auto;word-wrap:break-word;padding-left:2px;font-size:7pt;">
 															<xsl:if test="name() = 'USAddress'">
@@ -2667,10 +2709,6 @@
 																	<xsl:with-param name="TargetNode" select="null"/>
 																	<xsl:with-param name="ForeignAddressTargetNode" select="."/>
 																</xsl:call-template>
-																<span style="width:1mm;"/>
-														<xsl:call-template name="PopulateForeignCountryCdTemplate">
-															<xsl:with-param name="TargetNode" select="."/>
-														</xsl:call-template>
 															</xsl:if>
 														</div>
 													</td>
@@ -2681,9 +2719,9 @@
 								</xsl:for-each>
 							</tbody>
 						</table>
-					</xsl:if-->
+					</xsl:if>-->
 					<!-- Separated Data for Part V - Line 22 -->
-					<!--xsl:if test="count($Form8862Data/QlfyChildMoreThan1PersonGrp/OtherPersonLiveWithChildGrp/OtherPersonInformationGrp) &gt; 4">
+					<!--<xsl:if test="count($Form8862Data/QlfyChildMoreThan1PersonGrp/OtherPersonLiveWithChildGrp/OtherPersonInformationGrp) &gt; 4">
 						<br/>
 						<br/>
 						<span class="styRepeatingDataTitle">
@@ -2708,31 +2746,31 @@
 											<b>
 												<xsl:number value="position()" format="1"/>
 											</b>
-										</td-->
+										</td>-->
 										<!-- (Name) +++++++++++++++++++++++ -->
-										<!--td class="styIRS8862TableCell">
+										<!--<td class="styIRS8862TableCell">
 											<xsl:attribute name="style">width:50%;text-align:left;border-left-width:1px;</xsl:attribute>
 											<div class="styIRS8862LNDesc" style="width:100%;height:auto;word-wrap:break-word;padding-left:2px;font-size:7pt;">
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="OtherPersonInformationGrp/PersonNm"/>
 												</xsl:call-template>
 											</div>
-										</td-->
-										<!-- (Relationship) +++++++++++++++++++++++ -->
-										<!--td class="styIRS8862TableCell">
+										</td>
+										--><!-- (Relationship) +++++++++++++++++++++++ --><!--
+										<td class="styIRS8862TableCell">
 											<xsl:attribute name="style">width:45%;text-align:left;border-left-width:1px;</xsl:attribute>
 											<div class="styIRS8862LNDesc" style="width:100%;height:auto;word-wrap:break-word;padding-left:2px;font-size:7pt;">
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="OtherPersonInformationGrp/RelationshipDescriptionTxt"/>
 												</xsl:call-template>
 											</div>
-										</td-->
-									<!--/tr>
+										</td>
+									</tr>
 									</xsl:if>
 								</xsl:for-each>
 							</tbody>
 						</table>
-					</xsl:if-->
+					</xsl:if>-->
 					<!-- Separated Data for Part II - Line 7 (b) -->
 					<xsl:if test="count($Form8862Data/EICEligClmLiveWithPrsnChld2Grp/EICEligClmLiveWithOthPersonGrp) &gt; 1">
 						<br/>

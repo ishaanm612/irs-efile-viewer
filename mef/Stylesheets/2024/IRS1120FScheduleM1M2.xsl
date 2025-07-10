@@ -33,10 +33,10 @@
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
 				    <!--Print statement -->
-					<!--<xsl:if test="not($Print) or $Print=''">-->
+					<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS1120FScheduleM1M2Style"/>
 						<xsl:call-template name="AddOnStyle"/>
-				   <!-- </xsl:if>-->
+				    </xsl:if>
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>

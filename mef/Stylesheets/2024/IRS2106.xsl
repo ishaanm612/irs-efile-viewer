@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Jermaine Merchant on 9/13/2024 -->
+<!-- Last Modified by Jermaine Merchant on 10/29/2024 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="CommonPathRef.xsl"/>
 	<xsl:include href="PopulateTemplate.xsl"/>
@@ -32,10 +32,10 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-					<!--<xsl:if test="not($Print) or $Print=''">-->
+					<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS2106Style"/>
 						<xsl:call-template name="AddOnStyle"/>
-					<!--</xsl:if>-->
+					</xsl:if>
 				</style>
 				   <xsl:call-template name="GlobalStylesForm"/>
 			</head>

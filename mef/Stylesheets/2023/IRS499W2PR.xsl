@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Last Modified by Jermaine Merchant on 10/15/2024 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="PopulateTemplate.xsl"/>
   <xsl:include href="AddHeader.xsl"/>
@@ -137,7 +138,7 @@
                     </xsl:call-template>
                   </span>
                 </div>
-                <div class="styIRS499W2PRCell" style="height:34.8mm;">
+                <div class="styIRS499W2PRCell" style="height:35mm;">
                   2. Nombre y Dirección Postal del Patrono
                   <br/>
                   <span style="width:3.75mm"/>
@@ -182,7 +183,7 @@
                         <xsl:with-param name="TargetNode" select="$FormData/EmployerTelephoneNum"/>
                   </xsl:call-template>
                 </div>
-                <div class="styIRS499W2PRCell" style="height:7mm;">
+                <div class="styIRS499W2PRCell" style="height:12mm;">
                   Correo Electrónico del Patrono
                   <br/>
                   Employer's E-mail<span style="width:2mm"/>
@@ -190,7 +191,7 @@
                         <xsl:with-param name="TargetNode" select="$FormData/EmployerEmailAddressTxt"/>
                   </xsl:call-template>
                 </div>
-                <div class="styIRS499W2PRCell" style="height:8.3mm;">
+                <div class="styIRS499W2PRCell" style="height:7mm;">
                   Fecha Cese de Operaciones: 
                   <span style="width:2mm"/>
                   Día<span style="width:10.5mm"/>
@@ -220,16 +221,17 @@
                     </xsl:call-template>
                   </span>
                 </div>
-                <div class="styIRS499W2PRCell" style="height:14mm;">
+                <div class="styIRS499W2PRCell" style="height:12.5mm;">
                   Número Confirmación de Radicación Electrónica
                   <br/>
                   Electronic Filing Confirmation Number
+                  <br/>
                   <br/>
                   <xsl:call-template name="PopulateText">
                     <xsl:with-param name="TargetNode" select="$FormData/ElectronicFilingCnfrmNum"/>
                   </xsl:call-template>                
                 </div>
-                <div class="styIRS499W2PRCell" style="height:11mm;border-bottom-width:0px;">
+                <div class="styIRS499W2PRCell" style="height:9mm;border-bottom-width:0px;padding-bottom:.5mm;">
                   Número Control - Control Number
                   <br/>
                   <br/>
@@ -237,7 +239,7 @@
                     <xsl:with-param name="TargetNode" select="$FormData/ControlNum"/>
                   </xsl:call-template>                
                 </div>
-              <div class="styIRS499W2PRCell" style="height:8.5mm;border-bottom-width:0px;black;border-top:1px solid black;">
+              <div class="styIRS499W2PRCell" style="height:8mm;border-bottom-width:0px;black;border-top:1px solid black;padding-top:.5mm;">
 <div style="float:left">                
                 <span style="font-weight:bold">
                   Fecha de radicación: 31 de enero <br/>Filing date: January 31

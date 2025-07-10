@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last modified 08/21/2024 by Yee Chen - F8854 - TY2024-->
+<!-- Last modified 03/24/2025 by Yee Chen - F8854 - TY2024-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -2062,13 +2062,13 @@
 							<span style="width:12px;"/>
 								more than $201,000.00, your net worth on the date of your expatriation (see line 2 in Section A) was under $2 million, and you<br/> 
 							<span style="width:12px;"/>	
-								checked "<span class="styBoldText">Yes</span>" on line 6 in Section A;<br/>
+								checked "<span class="styBoldText">Yes</span>" on line 7 in Section A;<br/>
 							<img src="{$ImagePath}/8854_Bullet_Round.gif" alt="Bullet Round"/>
 							<span style="width:1mm;"/>
-									In Section A, you checked "<span class="styBoldText">Yes</span>" on lines 3, 4, and 6; or<br/>
+									In Section A, you checked "<span class="styBoldText">Yes</span>" on lines 4, 5, and 7; or<br/>
 							<img src="{$ImagePath}/8854_Bullet_Round.gif" alt="Bullet Round"/>
 							<span style="width:1mm;"/>
-									In Section A, you checked "<span class="styBoldText">Yes</span>" on lines 5 and 6.<br/>
+									In Section A, you checked "<span class="styBoldText">Yes</span>" on lines 6 and 7.<br/>
 							<br/>
 						</div>
 						<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->

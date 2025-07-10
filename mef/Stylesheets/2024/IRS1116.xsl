@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Jermaine Merchant 12/23/2024 -->
+<!-- Last Modified by Jermaine Merchant 5/1/2025 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -546,17 +546,17 @@
       services as an employee, your total
       compensation from all sources is $250,000 or
       more, and you used an alternative basis to
-      determine its source (see instructions)
+      determine its source.  See instructions
          <xsl:call-template name="SetFormLinkInline">
 					<xsl:with-param name="TargetNode" select="$Form1116Data/AltBasisCompensationSourceInd"/>
 				</xsl:call-template>
 				<span style="padding-left: 1mm; letter-spacing: 2.5mm; font-weight: bold;">..</span>
 				<span style="width:2mm;"/>
 				<span style="width:2mm;"/>
-				<input type="checkbox" alt="AltBasisCompensationSourceInd" class="styCkbox">
-					<xsl:call-template name="PopulateCheckbox">
-						<xsl:with-param name="TargetNode" select="$Form1116Data/AltBasisCompensationSourceInd"/>
-						<xsl:with-param name="BackupName" select="concat('Form1116DataAltBasisCompensationSourceInd', $ColALetter)"/>
+				<input type="checkbox" aria-label="compensation for personal service" class="styCkbox">			
+					<xsl:call-template name="PopulateCheckbox">				
+						<xsl:with-param name="TargetNode" select="$Form1116Data/AltBasisCompensationSourceInd"/>	
+						<xsl:with-param name="BackupName" select="concat('Form1116DataAltBasisCompensationSourceInd', $ColALetter)"/>	
 					</xsl:call-template>
 				</input>
 				<label>
@@ -1363,10 +1363,10 @@
 				
 				<style type="text/css">
                     <!-- Print Statement -->
-					<!--<xsl:if test="not($Print) or $Print=''">-->
+					<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS1116Style"/>
 						<xsl:call-template name="AddOnStyle"/>
-					<!--</xsl:if>-->
+					</xsl:if>
 				</style>
 
 				
@@ -1386,14 +1386,6 @@
 							<div class="styFormNumber" style="width: 21mm; height: 9mm; padding-top: 1mm;">       
 							  1116
 							</div>
-							<!--General Dependency Push Pin-->
-							<div>
-								<xsl:call-template name="SetFormLinkInline">
-									<xsl:with-param name="TargetNode" select="$Form1116Data"/>
-								</xsl:call-template>
-							</div>
-						
-							
 							<div>
 								<xsl:call-template name="LinkToLeftoverDataTableInline">
 									<xsl:with-param name="Desc">Alternative Minimum Tax Code</xsl:with-param>
@@ -1481,7 +1473,7 @@
 					</div>
 					<!-- End Names and Identifying number section -->
 					<!-- Begin Top Section -->
-					<div class="styIRS1116LineItem" style="border-style: solid; border-color: rgb(0, 0, 0); width: 187mm; height: 8mm; padding-top: 2px; clear: left; border-bottom-width: 1px; float: left;">
+					<div class="styIRS1116LineItem" style="border-style: solid; border-color: rgb(0, 0, 0); width: 187mm; height: 8mm; padding-top: 2px; clear: left; border-bottom-width: 0px; float: left;">
 				  Use a separate Form 1116 for each category of income listed below. See <i>Categories of Income</i> in the instructions.  
 				  Check only one box on each Form 1116. Report all amounts in U.S. dollars except where specified in Part II below.				
 			</div>
@@ -1589,16 +1581,17 @@
 					<div style="border-width: 0px 0px 1px; border-style: solid; border-color: black; width: 187mm; height: 4mm; clear: left; float: left;">
 						<div class="styPartName" style="width: 15mm; height: 3.6mm;">Part I</div>
 						<div class="styPartDesc" style="width: 172mm; height: 3.6mm; padding-left: 3mm;">
-              Taxable Income or Loss From Sources Outside the United States (for Category Checked Above)
-            </div>
-					</div>
+              Taxable Income or Loss From Sources Outside the United States
+                     <span class="styNormalText">(for category checked above)</span>
+                    </div>
+					   </div>
 					<!-- Body -->
 					<!-- Table starts here -->
 					<!-- Retrevie all ForeignTaxCreditSource elements -->
 					<table class="styTable" cellspacing="0" style="width:188mm; height:auto; font-size:7pt; clear: left; float: left;">
 						<xsl:variable name="AllForeign" select="$Form1116Data/*[starts-with(name(), 'ForeignTaxCreditSource')]"/>
 						<xsl:choose>
-							<xsl:when test="count($Form1116Data/ForeignTaxCreditSource) &gt; 0">
+							<xsl:when test="count($Form1116Data/ForeignTaxCreditSource) &lt; 0">
 								<!-- Loop over all ForeignTaxCreditSource elements but jumps every 3 (so 1, 4, 7, ...) -->
 								<xsl:for-each select="$AllForeign[position() mod 3 = 1]">
 									<xsl:call-template name="CreatePartITableTemplate">
@@ -1753,7 +1746,7 @@
 						<!--Begin Footer-->
 					<div class="pageEnd" style="width:187mm;border-top:0.4mm solid black;clear:all;">
 						<div class="stySmallText" style="width:110mm;"><span class="styBoldText">
-							For Paperwork Reduction Act Notice, see your tax return instructions.</span>
+							For Paperwork Reduction Act Notice, see instructions.</span>
 						</div>
                         <div class="stySmallText" style="width:40mm;">Cat. No. 11440U
                         </div>
@@ -1816,15 +1809,14 @@
 							<span style="width:.1mm"/>
 							<xsl:call-template name="SetFormLinkInline">
 					             <xsl:with-param name="TargetNode" select="$Form1116Data/IRS1116ScheduleB"/>
+					             <xsl:with-param name="BackupName">IRS1116ScheduleBNotRequiredInd</xsl:with-param>
 				                </xsl:call-template>
 								<!--Dotted Line-->
 									<span style="float:right;">
 									<span class="styDotLn" style="float:none;margin-right:-11px;">......</span>
 									<span style="width:4px;"/>
 									<span style="width:4px;"/> 
-									<!--<input type="checkbox" class="styCkboxNM" style="margin-right:6px;"
-										alt="Schedule B Not Required">-->
-										<input type="checkbox" alt="AltScheduleBNotRequiredInd" class="styCkbox">
+										<input type="checkbox" aria-label="no need to attach Schedule B" class="styCkbox">
 										<xsl:call-template name="PopulateCheckbox">
 											<xsl:with-param name="TargetNode" select="$Form1116Data/ScheduleBNotRequiredInd"/>
 											<xsl:with-param name="BackupName">IRS1116ScheduleBNotRequiredInd</xsl:with-param>
@@ -1941,7 +1933,7 @@
 							<div class="styIRS1116LNDesc" style="padding: 1mm 3mm; width: 114mm; height: 12mm;">
 								<span style="vertical-align: middle; display: inline-block;">
 								Enter the amount from line 7. This is your taxable income or (loss) from sources outside the United States (before adjustments) for 
-								the category of income checked above Part I (see instructions)
+								the category of income checked above Part I. See instructions
 								<span style="width:.5mm"/>
 									<!--Dotted Line-->
 									<span class="styDotLn" style="float:right;padding-right:1mm;padding-top:.3mm;">................</span>
@@ -2045,15 +2037,14 @@
 							</xsl:call-template>
 						</div>
 						<!-- (20) ////////////////////////////////////////////////////-->
-						<div class="styIRS1116LineItem" style="width: 187mm; height: 10mm;">
-							<div class="styIRS1116LNLeftNumBox" style="padding: 2mm 0.5mm 0.5mm 1mm; width: 5mm; height: 10mm; text-align: left;">20</div>
-							<div class="styIRS1116LNDesc" style="padding: 2mm 3mm; width: 148mm; height: 10mm;">
+						<div class="styIRS1116LineItem" style="width: 187mm; height: 9mm;">
+							<div class="styIRS1116LNLeftNumBox" style="padding: 4mm 0.5mm 0.5mm 1mm; width: 5mm; height: 10mm; text-align: left;">20</div>
+							<div class="styIRS1116LNDesc" style="padding: 4mm 3mm; width: 148mm; height: 10mm;">
 								<span style="vertical-align: middle; display: inline-block;">
-									<b>Individuals:</b> Enter the total of Form 1040, 1040-SR, or 1040-NR, line 16 and Schedule 2 (Form 1040), line 1z. <b> Estates and trusts:</b> Enter the amount 
-					                   See instructions
+									<b>Individuals:</b> Enter the total of Form 1040, 1040-SR, or 1040-NR, line 16 and Schedule 2 (Form 1040), line 1z. <b> Estates and trusts:</b> See instructions
 					<!--<span style="width:.3mm"/>                                  -->
 									<!--Dotted Line-->
-									<span class="styDotLn" style="float:right;padding-right:2mm;padding-top:.3mm;">.................</span>
+									<span class="styDotLn" style="float:right;padding-right:2mm;padding-top:.1mm;">.......................</span>
 								</span>
 							</div>
 							<xsl:call-template name="CreateBoxLine7">
@@ -2065,9 +2056,9 @@
 						</div>
 						<div class="styIRS1116LineItem" style="width: 187mm; height: 10mm;">
 							<div class="styIRS1116LNLeftNumBox" style="width: 5mm; height: 6mm; text-align: left;"/>
-							<div class="styIRS1116LNDesc" style="padding: mm 3mm 1mm; width: 148mm; height: 6mm;">
+							<div class="styIRS1116LNDesc" style="padding: 2mm 3mm 1mm; width: 148mm; height: 6mm;">
 								<span style="vertical-align: middle; display: inline-block;">
-									<b>Caution:</b> If you are completing line 20 for separate category g (lump-sum distributions), or, if you file
+									<b>Caution:</b> If you are completing line 20 for separate category <b>g</b> (lump-sum distributions), or, if you file
 Form 8978, Partner’s Additional Reporting Year Tax, see instructions.
 				                </span>
 							</div>
@@ -2097,7 +2088,7 @@ Form 8978, Partner’s Additional Reporting Year Tax, see instructions.
 							<div class="styIRS1116LNLeftNumBox" style="padding: 0.6mm 0.5mm 0.5mm 1mm; width: 5mm; height: 4mm; text-align: left;">22</div>
 							<div class="styIRS1116LNDesc" style="padding: 0.25mm 3mm; width: 148mm; height: 4mm;">
 								<span style="vertical-align: middle; display: inline-block;">
-           		        Increase in Limitation (section 960(c)) (see instructions)                                
+           		        Increase in limitation (section 960(c)) (see instructions)                                
 						<span style="width:3.2mm"/>
 									<!--Dotted Line-->
 									<span class="styDotLn" style="float:right;padding-right:1mm;padding-top:.3mm;">................</span>

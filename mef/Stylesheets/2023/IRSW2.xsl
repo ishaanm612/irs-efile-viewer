@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Eugenia McDonald on 8/20/2010 -->
+<!-- Last Modified by Jermaine Merchant on 11/7/2024 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="AddHeader.xsl"/>
@@ -60,6 +60,18 @@
 								<xsl:call-template name="LinkToLeftoverDataTableInline">
 									<xsl:with-param name="Desc">Standard or NonStandard Cd</xsl:with-param>
 									<xsl:with-param name="TargetNode" select="$FormW2Data/StandardOrNonStandardCd"/>
+								</xsl:call-template>
+								<xsl:call-template name="LinkToLeftoverDataTableInline">
+									<xsl:with-param name="Desc">W2 Download Cd</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormW2Data/W2SecurityInformation/W2DownloadCd"/>
+								</xsl:call-template>
+								<xsl:call-template name="LinkToLeftoverDataTableInline">
+									<xsl:with-param name="Desc">W2 Download Result Cd</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormW2Data/W2SecurityInformation/W2DownloadResultCd"/>
+								</xsl:call-template>
+								<xsl:call-template name="LinkToLeftoverDataTableInline">
+									<xsl:with-param name="Desc">W2 Download Failed Attempt Cnt</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormW2Data/W2SecurityInformation/W2DownloadFailedAttemptCnt"/>
 								</xsl:call-template>
 							</div>
 							<!-- Closes Blank box -->
@@ -183,6 +195,10 @@
 									<xsl:with-param name="Desc">Line C - Employer Name Control</xsl:with-param>
 									<xsl:with-param name="TargetNode" select="$FormW2Data/EmployerNameControlTxt"/>
 								</xsl:call-template>
+								<xsl:call-template name="LinkToLeftoverDataTableInline">
+									<xsl:with-param name="Desc">Agent For Employer Ind</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormW2Data/AgentForEmployerInd"/>
+								</xsl:call-template>
 								<br/>
 								<xsl:choose>
 									<xsl:when test="$FormW2Data/EmployerUSAddress">
@@ -235,6 +251,7 @@
 											</xsl:call-template>
 										</span>
 									</xsl:otherwise>
+									
 								</xsl:choose>
 							</div>
 							<!-- Closes Employer's name, addr and ZIP code -->
@@ -2341,12 +2358,48 @@
 							<xsl:with-param name="Desc">Standard or NonStandard Cd</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$FormW2Data/StandardOrNonStandardCd"/>
 							<xsl:with-param name="DescWidth" select="100"/>
+						</xsl:call-template>	
+						<xsl:call-template name="PopulateLeftoverRow">
+							<xsl:with-param name="Desc">W2 Download Cd</xsl:with-param>
+							<xsl:with-param name="TargetNode" select="$FormW2Data/W2SecurityInformation/W2DownloadCd"/>
+							<xsl:with-param name="DescWidth" select="100"/>
+						</xsl:call-template>
+						<xsl:call-template name="PopulateLeftoverRow">
+							<xsl:with-param name="Desc">W2 Download Result Cd</xsl:with-param>
+							<xsl:with-param name="TargetNode" select="$FormW2Data/W2SecurityInformation/W2DownloadResultCd"/>
+							<xsl:with-param name="DescWidth" select="100"/>
+						</xsl:call-template>
+						<xsl:call-template name="PopulateLeftoverRow">
+							<xsl:with-param name="Desc">W2 Download Failed Attempt Cnt</xsl:with-param>
+							<xsl:with-param name="TargetNode" select="$FormW2Data/W2SecurityInformation/W2DownloadFailedAttemptCnt"/>
+							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
 						<xsl:call-template name="PopulateLeftoverRow">
 							<xsl:with-param name="Desc">Line C - Employer Name Control</xsl:with-param>
 							<xsl:with-param name="TargetNode" select="$FormW2Data/EmployerNameControlTxt"/>
 							<xsl:with-param name="DescWidth" select="100"/>
 						</xsl:call-template>
+						<xsl:if test="$FormW2Data/AgentForEmployerInd">
+							<tr>
+								<td class="styLeftOverTableRowDesc" style="width:100mm;" scope="row">
+									<label>
+										<xsl:call-template name="PopulateLabel">
+											<xsl:with-param name="TargetNode" select="$FormW2Data/AgentForEmployerInd"/>
+											<xsl:with-param name="BackupName">AgentForEmployerInd</xsl:with-param>
+										</xsl:call-template>
+                      Agent For Employer Ind:
+                    </label>
+								</td>
+								<td class="styLeftOverTableRowAmount" style="width:87mm;">
+									<input type="checkbox" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$FormW2Data/AgentForEmployerInd"/>
+											<xsl:with-param name="BackupName">AgentForEmployerInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+								</td>
+							</tr>
+						</xsl:if>
 					</table>
 					<br/>
 				</form>

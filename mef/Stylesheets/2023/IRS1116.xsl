@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Jermaine Merchant 10/17/2023 -->
+<!-- Last Modified by Jermaine Merchant 5/5/2025 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -948,7 +948,7 @@
 			<!-- Country -->
 			<th class="styIRS1116TableCell" scope="col" rowspan="4">
 				<xsl:attribute name="style">width:4%;border-top-width: 1px; border-top-style: solid;<xsl:value-of select="$CommonStyle"/></xsl:attribute>
-				<img src="{$ImagePath}/1116_Country.gif" alt="CountryBullet"/>
+				<img src="{$ImagePath}/1116_Country.gif" alt="Country"/>
 			</th>
 			<!-- Credit is claimed -->
 			<th class="styIRS1116TableCell" scope="col" rowspan="3">
@@ -1361,6 +1361,7 @@
 				<meta name="Description" content="IRS Form 1116"/>
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
+				
 				<style type="text/css">
                     <!-- Print Statement -->
 					<xsl:if test="not($Print) or $Print=''">
@@ -1368,6 +1369,8 @@
 						<xsl:call-template name="AddOnStyle"/>
 					</xsl:if>
 				</style>
+
+				
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
 			<body class="styBodyClass">
@@ -1384,12 +1387,7 @@
 							<div class="styFormNumber" style="width: 21mm; height: 9mm; padding-top: 1mm;">       
 							  1116
 							</div>
-							<!--General Dependency Push Pin-->
-							<div>
-								<xsl:call-template name="SetFormLinkInline">
-									<xsl:with-param name="TargetNode" select="$Form1116Data"/>
-								</xsl:call-template>
-							</div>
+							
 							<div>
 								<xsl:call-template name="LinkToLeftoverDataTableInline">
 									<xsl:with-param name="Desc">Alternative Minimum Tax Code</xsl:with-param>
@@ -1400,7 +1398,7 @@
 							  Department of the Treasury
 							</div>
 							<div class="styAgency" style="width: 30mm; height: 3mm;">
-							  Internal Revenue Service (99)
+							  Internal Revenue Service
 							</div>
 						</div>
 						<div class="styFTBox" style="width: 127mm; height: 22.1mm; padding-top: 0.5mm;">
@@ -1412,12 +1410,10 @@
 							  (Individual, Estate, or Trust)
 							</div>
 							<div class="styFST" style="width: 127mm; height: 1mm;">
-								<img src="{$ImagePath}/1040ScheduleH_Bullet_Sm.gif" alt="SmallBullet"/> 
 								  Attach to Form 1040, 1040-SR, 1040-NR, 1041, or 990-T.
 						    </div>
 							<div class="styFST" style="width: 127mm; height: 1mm;">
-								<img src="{$ImagePath}/1040ScheduleH_Bullet_Sm.gif" alt="SmallBullet"/> 
-								  Go to  <a style="text-decoration:none;color:black;" href="http://www.irs.gov/Form1116" title="Link to IRS.gov">
+						    Go to  <a style="text-decoration:none;color:black;" href="http://www.irs.gov/Form1116" title="Link to IRS.gov">
 									<i>www.irs.gov/Form1116</i> for instructions and the latest information.
 											</a>
 							</div>
@@ -1750,30 +1746,31 @@
 					</div>
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 					<!-- Page Break and Footer-->
-					<div style="width: 187mm; height: auto; clear: left; float: left; padding-bottom: 15mm;">
-						<div style="width: 98mm; height:auto;">
-							<span class="styBoldText"> For Paperwork Reduction Act Notice, see instructions.</span>
+					
+					    <!--Begin Footer-->
+					<div class="pageEnd" style="width:187mm;border-top:0.4mm solid black;clear:all;">
+						<div class="stySmallText" style="width:110mm;"><span class="styBoldText">
+							For Paperwork Reduction Act Notice, see instructions.</span>
 						</div>
-						<div style="width: 40mm; height: auto; font-size: 7pt;">
-							Cat. No. 11440U
-						</div>
-						<div style="width: 47mm; height: auto; text-align: right;">
-							<span style="width: 50px;"/>
-							  Form               
-							<span class="styBoldText" style="font-size: 8pt;">1116</span> (2023)            
-						</div>
-						<p style="width: 187mm; height: auto; page-break-before: always;"/>
+                        <div class="stySmallText" style="width:40mm;">Cat. No. 11440U
+                        </div>
+                        <div class="stySmallText" style="width:36mm;text-align:right;">Form <span class="styBoldText">1116</span> (2023)
+                   </div>
 					</div>
+					<!--End Footer-->
 					<!-- END Page Break and Footer-->
+					
+					<!-- Page Header -->
+					<!--<div style="width:187mm;padding-top:0.5mm;">-->
+					
 					<!-- BEGIN Page Header -->
-					<div class="styTBB" style="width:187mm; height: auto;">
-						<div style="float:left;">
-						  Form 1116 (2023)
+					<div class="styStdDiv">
+						<div style="float:left;">Form 1116 (2023)<span style="width:148mm;"/>
 						</div>
-						<div style="float:right;">
-						  Page <span style="font-weight:bold;font-size:8pt;">2</span>
+						<div style="float:right;">Page <span style="font-weight:bold;font-size:8pt;">2</span>
 						</div>
 					</div>
+					
 					<!-- END Page Header -->
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 					<!--  Begin PART III -->
@@ -1810,25 +1807,47 @@
 							<div class="styLNRightNumBox" style="border-width: 0px 1px; padding: 0px; width: 8.25mm; height: 8mm; float: left; background-color: lightgrey;"/>
 						</div>
 						<!-- (10) ////////////////////////////////////////////////////-->
-						<div class="styIRS1116LineItem" style="width: 187mm; height: 8mm;">
+						<div class="styIRS1116LineItem" style="width: 187mm; height: 12mm;">
 							<div class="styIRS1116LNLeftNumBox" style="width: 5mm; height: 8mm; text-align: left; padding-top: 2mm; padding-left: 1mm;">10</div>
 							<div class="styIRS1116LNDesc" style="width: 114mm; height: 8mm; padding-top: 2mm;">
-							If you enter an amount on line 10 and you don't need to attach Schedule B, check here (see instructions)               [ ]
+							Enter the sum of any carryover of foreign taxes (from Schedule B, line 3,column (xiv)) plus any carrybacks to the current tax year.
+                             If you enter an amount on line 10 and you don't need to attach Schedule B, check here (see instructions)
 							<span style="width:.1mm"/>
+							<xsl:call-template name="SetFormLinkInline">
+					             <xsl:with-param name="TargetNode" select="$Form1116Data/IRS1116ScheduleB"/>
+				                </xsl:call-template>
 								<!--Dotted Line-->
-								<span class="styDotLn" style="float:right;padding-right:1mm;padding-top:.0mm;">.............</span>
+									<span style="float:right;">
+									<span class="styDotLn" style="float:none;margin-right:-11px;">......</span>
+									<span style="width:4px;"/>
+									<span style="width:4px;"/> 
+									<!--<input type="checkbox" class="styCkboxNM" style="margin-right:6px;"
+										alt="Schedule B Not Required">-->
+										<input type="checkbox" alt="AltScheduleBNotRequiredInd" class="styCkbox">
+										<xsl:call-template name="PopulateCheckbox">
+											<xsl:with-param name="TargetNode" select="$Form1116Data/ScheduleBNotRequiredInd"/>
+											<xsl:with-param name="BackupName">IRS1116ScheduleBNotRequiredInd</xsl:with-param>
+										</xsl:call-template>
+									</input>
+									<label>
+				                        	<xsl:call-template name="PopulateLabel">
+						                <xsl:with-param name="TargetNode" select="$Form1116Data/ScheduleBNotRequiredInd"/>
+						                <xsl:with-param name="BackupName" select="Form1116DataScheduleBNotRequiredInd"/>
+					                    </xsl:call-template>
+				                     </label>
+								</span>
 								<br/>
 							(If your income was section 951A category income (box a above Part I), leave line 10 blank.)
 							<br/>
 							</div>
 							<xsl:call-template name="CreateBoxLine7">
 								<xsl:with-param name="Number">10</xsl:with-param>
-								<xsl:with-param name="AmountBoxStyle">padding: 4.5mm 0.5mm 0mm 0mm; width: 26mm; height: 8.5mm; text-align: right; font-size: 5.75pt;
+								<xsl:with-param name="AmountBoxStyle">padding: 8mm 0.5mm 0mm 0mm; width: 26mm; height: 12mm; text-align: right; font-size: 5.75pt;
 							  border-right-width: 0px;</xsl:with-param>
-								<xsl:with-param name="NumberBoxStyle">padding: 5mm 0.5mm 0mm 0mm; height: 8.5mm; border-right-width: 0px;</xsl:with-param>
+								<xsl:with-param name="NumberBoxStyle">padding: 8mm 0.5mm 0mm 0mm; height: 12mm; border-right-width: 0px;</xsl:with-param>
 								<xsl:with-param name="TargetNode" select="$Form1116Data/ForeignTaxCrCarrybackOrOverAmt"/>
 							</xsl:call-template>
-							<div class="styLNRightNumBox" style="border-width: 0px 1px; padding: 0px; width: 8.25mm; height: 8mm; float: left; background-color: lightgrey;"/>
+							<div class="styLNRightNumBox" style="border-width: 0px 1px; padding: 0px; width: 8.25mm; height: 12mm; float: left; background-color: lightgrey;"/>
 						</div>
 						<!-- (11) ////////////////////////////////////////////////////-->
 						<div class="styIRS1116LineItem" style="width: 187mm; height: 6mm;">
@@ -2344,13 +2363,17 @@
 					</div>
 					<!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 					<!-- Page Break and Footer-->
-					<div class="pageEnd" style="width:187mm; height:auto; padding-top:1mm; clear: left; float: left;">
+					<div class="pageEnd" style="width:187mm; border-top:0.5mm solid black;">
 						<div style="float:right;">
-							<span style="width:50px;"/>Form 
-                <span class="styBoldText" style="font-size:8pt;">1116</span> (2023)
-            </div>
-						<p style="width: 187mm; height: 50mm; page-break-before: always;"/>
+							<span style="width:80px;"/>  
+                             Form <span class="styBoldText">1116</span> (2023)
+                    </div>
 					</div>
+					
+					<!--END Page Footer-->
+						 <p style="page-break-before: always"/>
+						 <br/>
+						 
 					<!-- Additonal Data Title Bar and Button -->
 					<div class="styLeftOverTitleLine" id="LeftoverData" style="clear: all; float: left;">
 						<div class="styLeftOverTitle">
@@ -2384,6 +2407,13 @@
 							<xsl:call-template name="PopulateLeftoverRow">
 								<xsl:with-param name="Desc">Part I, Line i - Foreign Income High Taxed Kickout Code</xsl:with-param>
 								<xsl:with-param name="TargetNode" select="$Form1116Data/ForeignIncHighTaxedKickOutCd"/>
+								<xsl:with-param name="DescWidth" select="130"/>
+							</xsl:call-template>
+						</xsl:if>
+						<xsl:if test="$Form1116Data/ForeignTaxCrCarrybackOrOverAmt">
+							<xsl:call-template name="PopulateLeftoverRow">
+								<xsl:with-param name="Desc">Part III, Line 10 - Don't need to attach Schedule B</xsl:with-param>
+								<xsl:with-param name="TargetNode" select="$Form1116Data/ScheduleBNotRequiredInd"/>
 								<xsl:with-param name="DescWidth" select="130"/>
 							</xsl:call-template>
 						</xsl:if>

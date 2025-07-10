@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Leonard Chambers on 12/13/2022 -->
+<!-- Last Modified by Jermaine Merchant on 11/6/2024 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="CommonPathRef.xsl"/>
 	<xsl:include href="PopulateTemplate.xsl"/>
@@ -54,8 +54,7 @@
 								<span class="styAgency">Department of the Treasury</span>
 								<br/>
 								<span class="styAgency">Internal Revenue Service</span>
-								<span style="width:1px"/>
-								<span class="styAgency">(99)</span>							
+								<span style="width:1px"/>						
 							</div>
 						</div>
 						<div class="styFTBox" style="width: 125mm; height: 26mm;">
@@ -416,8 +415,8 @@
 					</div>
 					<!-- END Step 3.9 -->
 					<!-- BEGIN Step 3.10 -->
-					<div class="styBB" style="width: 187mm; height: 11mm; clear: all; float: left;">
-						<div class="styLNLeftNumBox" style="height: 11mm; padding-top: 1mm; font-size: 8pt;">
+					<div class="styBB" style="width: 187mm; height: 12mm; clear: all; float: left;">
+						<div class="styLNLeftNumBox" style="height: 12mm; padding-top: 1mm; font-size: 8pt;">
 						10
 					</div>
 						<div class="styLNDesc" style="width: 140.8mm; height: 11mm; padding-top: 1mm; font-size: 7.5pt;">
@@ -427,10 +426,10 @@
 							<!--Dotted Line -->
 							
 						</div>
-						<div class="styLNRightNumBox" style="border-width: 0px 1px; border-style: solid; border-color: black; width: 5.5mm; text-align: center; padding-top: 7mm; height: 11mm;">
+						<div class="styLNRightNumBox" style="border-width: 0px 1px; border-style: solid; border-color: black; width: 5.5mm; text-align: center; padding-top: 7mm; height: 12mm;">
 						10
 					</div>
-						<div class="styIRS2106ColBox" style="padding-top: 7mm; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; height: 11mm;">
+						<div class="styIRS2106ColBox" style="padding-top: 7mm; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; height: 12mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2106Data/UnreimEmployeeBusExpnsAmt"/>
 							</xsl:call-template>
@@ -450,8 +449,8 @@
 					    </div>
 					</div>
 					<!-- END Page 1 Footer -->
-		           <!--<div class="pageEnd" style="width:187mm; clear: all; float: left;page-break-before: always;"/>-->
-					<p style="page-break-before: always"/>
+		           <div class="pageEnd" style="width:187mm; clear: all; float: left;page-break-before: always;"/>
+					<!--<p style="page-break-before: always"/>-->
 					<!-- **START OF PAGE 2** -->
 					<div class="styBB" style="width: 187mm; height:4.5mm; font-size: 7pt; border-bottom:2px solid black;">
 						<div class="styLNDesc" style="width:90mm;padding-top:0.5mm;float:left;">
@@ -1096,18 +1095,18 @@
 					</div>
 					<!--END SECTION B TITLE -->
 					<!-- Beginning of Part II Section B. 22 -->
-					<div class="styBB" style="width: 187mm; height: 8mm; font-size: 8pt;border-bottom-width:2px;">
+					<div class="styBB" style="width: 187mm; height: 4.5mm; font-size: 8pt;border-bottom-width:2px;">
 						<div class="styLNLeftNumBox" style="height: 8mm;">22</div>
-						<div class="styLNDesc" style="width: 139mm; height: 8mm;">
+						<div class="styLNDesc" style="width: 139mm; height: 4.5mm;">
 						    Multiply line 13 by 65.5¢ (0.655). Enter the result here and on line 1
 							<!--Dotted Line -->
 							<span class="styDotLn" style="float:right;padding-right:1mm;">.........</span>
 							
 						</div>
-						<div class="styLNRightNumBox" style="border-width: 0px 1px; border-style: solid; border-color: black; width: 6.5mm; height: 4.5mm; text-align: center; padding-top: 1mm">
+						<div class="styLNRightNumBox" style="border-width: 0px 1px; border-style: solid; border-color: black; width: 6.5mm; height: 4.5mm; text-align: center; padding-top: .5mm;">
 						    22
 						</div>
-						<div class="styIRS2106ColBox" style="height: 8mm; padding-top: 1mm; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;">
+						<div class="styIRS2106ColBox" style="height: 4.5mm; padding-top: 1mm; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2106Data/StandardMileageDeductionAmt"/>
 							</xsl:call-template>

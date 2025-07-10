@@ -4,6 +4,9 @@
 <!-- 12/07/2022 - Changes made for KISAM IM02174190 - Jeremy Nichols -->
 <!-- 02/28/2023 - Made changes per UWR 966553 - Jeremy Nichols -->
 <!-- 03/15/2024 - UWR 977710 - Jeremy Nichols -->
+<!-- 04/29/2024 - defect 1446645 - Jeremy Nichols -->
+<!-- 05/09/2024 - defect 1446645 for R10.8 - Jeremy Nichols -->
+<!-- 05/23/2024 - defect 1450799 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="CommonPathRef.xsl"/>
   <xsl:include href="PopulateTemplate.xsl"/>
@@ -64,7 +67,6 @@
 				 For the period July 1, 2024, through June 30, 2025<br/>
               </div>
               <div class="styFST" style="height:4mm;font-size:7pt;font-weight:normal;text-align:center">
-                <img src="{$ImagePath}/2290Sch1_Bullet_Md.gif" alt="MediumBullet"/>
          <b>Complete and file both copies of Schedule 1. One copy will be stamped and returned to you for use as proof of payment when registering vehicle(s) with a state.</b>
       </div>
             </div>
@@ -75,7 +77,7 @@
           <table border="0" cellspacing="0" cellpadding="0" style="font-size:6pt;width:187mm">
             <tbody>
               <tr>
-                <td rowspan="4" style="border-bottom:1px solid black;border-right:1px solid black;width:10mm;font-size:7pt;text-align:center">
+                <td rowspan="4" scope="rowgroup" style="border-bottom:1px solid black;border-right:1px solid black;width:10mm;font-size:7pt;text-align:center">
                   <span class="styBoldText">Type<br/> or<br/> Print</span>
                 </td>
                 <td style="width:93mm;border:0 solid black;border-right-width:1px;border-bottom-width:1px;padding-left:2mm">Name
@@ -405,10 +407,11 @@
                     <td class="sty2290Sch1TableCellBB" style="height:5.5mm;width:141mm;padding-left:2mm;padding-top:0.25mm;padding-bottom:0.25mm;float:left;clear:none;">
                       <xsl:choose>
                         <xsl:when test="((count($Form2290Schedule1/VehicleReportTaxItem) &gt;5) and ($Print = $Separated))">
-                        <xsl:attribute name="style">text-align:left;padding-left:2mm;</xsl:attribute>
-                          <xsl:call-template name="PopulateAdditionalDataTableMessage">
-                            <xsl:with-param name="TargetNode" select="$Form2290Schedule1/VehicleReportTaxItem"/>
-                          </xsl:call-template>
+                          <span style="padding-top:1mm;float:left;">
+							  <xsl:call-template name="PopulateAdditionalDataTableMessage">
+								<xsl:with-param name="TargetNode" select="$Form2290Schedule1/VehicleReportTaxItem"/>
+							  </xsl:call-template>
+                          </span>
                         </xsl:when>
                         <xsl:otherwise>
                           <div class="sty2290Sch1BlankLetterBox"/>

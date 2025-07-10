@@ -66,7 +66,7 @@
 									<!-- Begin Form Tax Year -->
 									<div class="styTYBox" style="width:29mm; height:18mm;border-left-width:2px;">
 										<div style="border-bottom:1 solid black;">OMB No. 1545-0074</div>
-										<div class="styTaxYear" style="font-size:21pt;border-top:1px solid black;width:26mm;">20<span class="styTYColor" style="font-			 size:21pt:">24</span>
+										<div class="styTaxYear" style="font-size:21pt;border-top:1px solid black;width:26mm;">20<span class="styTYColor" style="font-size:21pt:">24</span>
 										</div>
 										<div class="stySequence">Attachment<br/>Sequence No. <b style="font-size:8pt">21</b>
 										</div>
@@ -198,7 +198,7 @@
 											<span style="font-weight:bold;">(c)</span> Identifying number<br/> (SSN or EIN)
      </th>
 										<th class="styTableCellHeader" scope="col" colspan="1" style="width:30mm;font-weight:normal;height:9mm;  border-color:black;vertical-align:top;">
-											<span style="font-weight:bold;">(d)</span> Was the care provider your household employee in 2024?.<br/>For example, this generally includes
+											<span style="font-weight:bold;">(d)</span> Was the care provider your household employee in 2024?<br/>For example, this generally includes
 nannies but not daycare centers.
 (see instructions)
      </th>
@@ -211,7 +211,8 @@ nannies but not daycare centers.
 								<tbody>
 									<!-- print logic -->
 									<xsl:for-each select="$Form2441Data/CareProviderGrp">
-										<xsl:if test="($Print != $Separated) or (count($Form2441Data/CareProviderGrp) &lt;= 2) ">
+                    <!--  or (count($Form2441Data/CareProviderGrp) &lt;= 2) -->
+										<xsl:if test="($Print != $Separated)">
 											<tr style="vertical-align:top">
 												<td class="styTableCellText" style="width:64mm;border-color:black;text-align:none;vertical-align:top;padding-top:0mm;">
 													<!--CareProviderPersonName-->
@@ -399,10 +400,7 @@ nannies but not daycare centers.
 								</xsl:call-template>
 								Yes
 							</label>
-														<xsl:call-template name="PopulateSpan">
-									<xsl:with-param name="TargetNode" select="HouseholdEmployeeInd"/>
-								</xsl:call-template>
-								 <input type="checkbox" alt="Form1040AFiledIndNo" class="styCkbox">
+                  <input type="checkbox" alt="Form1040AFiledIndNo" class="styCkbox">
 									<xsl:call-template name="PopulateNoCheckbox">
 										<xsl:with-param name="TargetNode" select="HouseholdEmployeeInd"/>
 										<xsl:with-param name="BackupName">Form2441DataHouseholdEmployeeInd</xsl:with-param>
@@ -430,7 +428,8 @@ nannies but not daycare centers.
 											</tr>
 										</xsl:if>
 									</xsl:for-each>
-									<xsl:if test="count($Form2441Data/CareProviderGrp)&lt; 1 or ((count($Form2441Data/CareProviderGrp) &gt; 2) and ($Print = $Separated))">
+									<!-- count($Form2441Data/CareProviderGrp)&lt; 1 or ((count($Form2441Data/CareProviderGrp) &gt; 2) and  -->
+									<xsl:if test="($Print = $Separated)">
 										<tr>
 											<td class="styTableCellText" style="width:60mm;text-align:left; border-color:black;">
 												<xsl:call-template name="PopulateAdditionalDataTableMessage">
@@ -453,7 +452,7 @@ nannies but not daycare centers.
 											</td>
 										</tr>
 									</xsl:if>
-									<xsl:if test="count($Form2441Data/CareProviderGrp)&lt; 2  or ((count($Form2441Data/CareProviderGrp) &gt; 2) and ($Print = $Separated))">
+									<!--<xsl:if test="count($Form2441Data/CareProviderGrp)&lt; 2  or ((count($Form2441Data/CareProviderGrp) &gt; 2) and ($Print = $Separated))">
 										<tr>
 											<td class="styTableCellText" style="width:60mm;  border-color:black;border-bottom-width:0px;">
 												<span class="styTableCellPad"/>
@@ -473,6 +472,7 @@ nannies but not daycare centers.
 											</td>
 										</tr>
 									</xsl:if>
+									</xsl:if>-->
 								</tbody>
 							</table>
 						</div>
@@ -511,8 +511,8 @@ Did you receive<br/>
 						<div class="styPartDesc" style="font-weight:Normal;width:187mm;padding-top:2mm;font-size:8pt;height:13mm;padding-left:0mm;">
 							<b>Caution:</b> If the care provider is your household employee, you may owe employment taxes. For details, see the Instructions for Schedule H (Form 1040). If you incurred care expenses in 2024 but didn't pay them until 2025, or if you prepaid in 2024 for care to be provided in 2025, don't include these expenses in column (d) of line 2 for 2024. See the instructions.</div>
 						<!-- BEGIN PART II TITLE -->
-						<div class="styBB" style="width:187mm;border-top-width: 2px;height:4mm;">
-							<span class="styPartName" style="width:12mm;font-size:13;height:4mm;">Part II</span>
+						<div class="styBB" style="width:187mm;border-top-width: 2px;">
+							<span class="styPartName" style="width:12mm;font-size:13;">Part II</span>
 							<div class="styPartDesc" style="font-size:8pt;">Credit for Child and Dependent Care Expenses
                             </div>
 						</div>
@@ -554,21 +554,22 @@ Did you receive<br/>
 										</th>
 										<th class="styTableCellHeader" scope="col" colspan="1" style="height:6mm;width:57mm;font-weight:normal;  border-color:black;">
 											<span style=";">
-												<span style="font-weight:bold;">(b)</span>Qualifying person's social<br/> security number</span>
+												<span style="font-weight:bold;">(b)</span> Qualifying person's social<br/> security number</span>
 										</th>
 										<th class="styTableCellHeader" scope="col" colspan="1" style="width:30mm;font-weight:normal;height:9mm;  border-color:black;vertical-align:top;">
 											<span style="font-weight:bold;">(c)</span> Check here if the qualifying person was over age 12 and was disabled.<br/>(see instructions)
      </th>
 										<th class="styTableCellHeader" scope="col" colspan="1" style="width:50mm;font-weight:normal;  height:6mm;border-color:black;">
 											<span style="">
-												<span style="font-weight:bold;">(d)</span>
-												<span class="styBoldText">Qualified expenses</span> you<br/> incurred and paid in 2024 for the person listed in column (a)</span>
+												<span style="font-weight:bold;"></span>
+												<span class="styBoldText">(d) Qualified expenses</span> you<br/> incurred and paid in 2024 for the person listed in column (a)</span>
 										</th>
 									</tr>
 								</thead>
 								<tfoot/>
 								<tbody>
-									<xsl:if test="($Print != $Separated) or (count($Form2441Data/QualifyingPersonGrp) &lt; 5) ">
+								<!--  or (count($Form2441Data/QualifyingPersonGrp) &lt; 5) -->
+									<xsl:if test="($Print != $Separated) ">
 										<xsl:for-each select="$Form2441Data/QualifyingPersonGrp">
 											<tr>
 												<td class="styTableCellText" style="width:44mm; border-color:black">
@@ -610,7 +611,7 @@ Did you receive<br/>
 													</xsl:choose>
 													<span class="styTableCellPad"/>
 												</td>
-												<td class="styTableCell" style="width:30mm;  border-color:black;text-align:left;vertical-align:top;">
+												<td class="styTableCell" style="width:30mm;  border-color:black;text-align:center;vertical-align:top;">
 													<span>
 														<xsl:call-template name="PopulateSpan">
 															<xsl:with-param name="TargetNode" select="PrsnOverSpcfdAgeAndDisabledInd"/>
@@ -634,7 +635,8 @@ Did you receive<br/>
 											</tr>
 										</xsl:for-each>
 									</xsl:if>
-									<xsl:if test="(count($Form2441Data/QualifyingPersonGrp)&lt; 1) or ((count($Form2441Data/QualifyingPersonGrp) &gt; 2) and ($Print = $Separated))">
+									<!-- (count($Form2441Data/QualifyingPersonGrp)&lt; 1) or ((count($Form2441Data/QualifyingPersonGrp) &gt; 2) and -->
+									<xsl:if test="($Print = $Separated)">
 										<tr>
 											<td class="styTableCell" style="width:44mm;text-align:left;  border-color:black;">
 												<span class="styBoldText"/>
@@ -657,7 +659,7 @@ Did you receive<br/>
 											</td>
 										</tr>
 									</xsl:if>
-									<xsl:if test="(count($Form2441Data/QualifyingPersonGrp)&lt; 2) or ((count($Form2441Data/QualifyingPersonGrp) &gt; 2) and ($Print = $Separated))">
+									<!--<xsl:if test="(count($Form2441Data/QualifyingPersonGrp)&lt; 2) or ((count($Form2441Data/QualifyingPersonGrp) &gt; 2) and ($Print = $Separated))">
 										<tr>
 											<td class="styTableCellText" style="width:44mm;  border-color:black;border-bottom-width:0px;">
 												<span class="styTableCellPad"/>
@@ -675,7 +677,7 @@ Did you receive<br/>
 												<span class="styTableCellPad"/>
 											</td>
 										</tr>
-									</xsl:if>
+									</xsl:if>-->
 								</tbody>
 							</table>
 						</div>
@@ -1484,7 +1486,8 @@ Did you receive<br/>
 					<!-- END Additional Data Left Over Table -->
 					<!--Separated Data  Part I Care Provider Table -->
 					<div class="styTableContainer" id="CareProviderGrp"  style="border-bottom:0px;">
-					<xsl:if test="($Print = $Separated) and (count($Form2441Data/CareProviderGrp) &gt; 2)">
+					<!--  and (count($Form2441Data/CareProviderGrp) &gt; 2) -->
+					<xsl:if test="($Print = $Separated)">
 						<br/>
 						<span class="styRepeatingDataTitle">Form 2441 - Part I - Care Provider Table, Line 1:</span>
 						<br/>
@@ -1506,7 +1509,7 @@ Did you receive<br/>
 										<span style="font-weight:bold;">(c)</span> Identifying number<br/> (SSN or EIN)
                                                                 </th>
                                       <th class="styDepTblCell" scope="col" colspan="1" style="width:30mm;font-weight:normal;">                          
-                                         <span style="font-weight:bold;">(d)</span> Was the care provider your household employee in 2024?.<br/>For example, this generally includes
+                                         <span style="font-weight:bold;">(d)</span> Was the care provider your household employee in 2024?<br/>For example, this generally includes
  nannies but not daycare centers.
  (see instructions)  
                                                               </th>
@@ -1689,7 +1692,8 @@ Did you receive<br/>
 					</div>
 					<!-- END Separated Data for Part I -->
 					<!-- Separated Data for Part II Qualifying Peron Table -->
-					<xsl:if test="($Print = $Separated) and (count($Form2441Data/QualifyingPersonGrp) &gt; 2)">
+					<!--  and (count($Form2441Data/QualifyingPersonGrp) &gt; 2) -->
+					<xsl:if test="($Print = $Separated)">
 						<br/>
 						<br/>
 						<span class="styRepeatingDataTitle">Form 2441 - Part II - Qualifying Person Table, Line 2:</span>
@@ -1764,7 +1768,7 @@ Did you receive<br/>
 												<span class="styTableCellPad"/>
 											</xsl:if>
 										</td>
-										<td class="styTableCell" style="width:30mm;  border-color:black;text-align:left;vertical-align:top;">
+										<td class="styTableCell" style="width:30mm;  border-color:black;text-align:center;vertical-align:top;">
 											<span>
 												<xsl:call-template name="PopulateSpan">
 													<xsl:with-param name="TargetNode" select="PrsnOverSpcfdAgeAndDisabledInd"/>

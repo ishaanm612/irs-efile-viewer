@@ -54,10 +54,11 @@
 						</div>
 						<div class="styFTBox" style="width:125mm;height:22mm;">
 							<div class="styMainTitle" style="height:10mm;padding:bottom:0mm;">Underpayment of Estimated Tax by<br/> Individuals, Estates, and Trusts</div>
-							<div class="styFBT" stype="font-size:7pt;height:10mm;padding-top:1mm;">
-								<img src="{$ImagePath}/2210_Bullet.gif" alt="MediumBullet"/> Go to <i>www.irs.gov/Form2210</i> for instructions and the latest information.
+							<br/>
+							<div class="styFBT" style="font-size:7pt;height:10mm;padding-top:1mm">
+								<!--<img src="{$ImagePath}/2210_Bullet.gif" alt="RightPointingArrow"/>--> Attach to Form 1040, 1040-SR, 1040-NR, or 1041.
 								<br/>
-								<img src="{$ImagePath}/2210_Bullet.gif" alt="MediumBullet"/> Attach to Form 1040, 1040-SR, 1040-NR, or 1041.</div>
+								<!--<img src="{$ImagePath}/2210_Bullet.gif" alt="RightPointingArrow"/>--> Go to <i>www.irs.gov/Form2210</i> for instructions and the latest information.</div>
 						</div>
 						<div class="styTYBox" style="width:31mm; height:22mm">
 							<div class="styOMB">OMB No. 1545-0140</div>
@@ -964,7 +965,7 @@
 					<div class="styBB" style="width:187mm;padding-top:0mm;">
 						<div style="float:left;">Form 2210 (2024)<span style="width:148mm;"/>
 						</div>
-						<div style="float:right;">Page <span style="font-weight:bold;font-size:8pt;">2</span>
+						<div style="float:right;">Page <span style="font-weight:bold;font-size:8pt;">3</span>
 						</div>
 					</div>
 					<!-- END Page Header -->
@@ -1013,28 +1014,28 @@
 							<b>Required installments.</b>  If box C in Part II applies, enter the amounts from Schedule AI, line 27. Otherwise, enter 25% (0.25) of line 9, Form 2210, in each column. For fiscal year filers, see instructions 	
 						<span class="styBoldText"></span>	
 						</div>
-						<span class="styLNRightNumBox" style="font-size:7pt;height:14mm; width:7.1mm; border-bottom-width:1px; border-right-width:1px;padding-top:10mm;">10
-                        </span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:14mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:10mm;">
+						<div class="styLNRightNumBox" style="font-size:7pt;height:14mm; width:7.1mm; border-bottom-width:1px; border-right-width:1px;padding-top:10mm;">10
+                        </div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:14mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:10mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/RequiredInstallmentAAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:14mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:10mm;">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:14mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:10mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/RequiredInstallmentBAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:14mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:10mm;">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:14mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:10mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/RequiredInstallmentCAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:24.9mm; height:14mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-top:10mm;">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:24.9mm; height:14mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-top:10mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/RequiredInstallmentDAmt"/>
 							</xsl:call-template>
-						</span>
+						</div>
 					</div>
 					<!--Line11-->
 					<div style="width:187mm;">
@@ -1050,26 +1051,26 @@
 						</div>
 						<span class="styLNRightNumBox" style="font-size:7pt;height:20mm; width:7.1mm; border-bottom-width:1px; border-right-width:1px;padding-top:16mm;">11
                         </span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:20mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:16mm;">
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:20mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:16mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/EstimatedTaxPdAndWithheldAAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:20mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:16mm">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:20mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:16mm">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/EstimatedTaxPdAndWithheldBAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:20mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:16mm">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:20mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:16mm">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/EstimatedTaxPdAndWithheldCAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:24.9mm; height:20mm; text-align:right; border-style: solid; border-color:black;border-top-width:0px;border-left-width:0px;border-right-width:0px; border-bottom-width:1px;padding-top:16mm">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:24.9mm; height:20mm; text-align:right; border-style: solid; border-color:black;border-top-width:0px;border-left-width:0px;border-right-width:0px; border-bottom-width:1px;padding-top:16mm">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/EstimatedTaxPdAndWithheldDAmt"/>
 							</xsl:call-template>
-						</span>
+						</div>
 					</div>
 					<div class="styBB" style="width:187mm;height:auto;border-style:solid; border-bottom-width:1px;border-top-width:1px;
           border-right-width:0px;border-left-width:0px;float:left;">
@@ -1089,21 +1090,21 @@
 						<span class="styLNRightNumBox" style="height:10mm; width:7.1mm; border-bottom-width:1px; border-right-width:1px;padding-bottom:0;padding-top:6mm;">12
                         </span>
 						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:10mm; text-align:center;border-style:solid; border-color:black; background-color:lightgrey;border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:6mm;"/>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:10mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:6mm;">
-							<!--<xsl:call-template name="PopulateAmount">
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:10mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:6mm;">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/OverpaymentAAmt"/>
-							</xsl:call-template>-->
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:10mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:6mm;">
+							</xsl:call-template>
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:10mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:6mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/OverpaymentBAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:24.9mm; height:10mm; text-align:right; border-style: solid; border-color:black;border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-bottom:0;padding-top:6mm;">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:24.9mm; height:10mm; text-align:right; border-style: solid; border-color:black;border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-bottom:0;padding-top:6mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/OverpaymentCAmt"/>
 							</xsl:call-template>
-						</span>
+						</div>
 					</div>
 					<!--Line 13-->
 					<div style="width:187mm;padding-top:0mm;">
@@ -1115,21 +1116,21 @@
 						<span class="styLNRightNumBox" style="font-size:7pt;height:5mm; width:7.1mm; border-bottom-width:1px; border-right-width:1px;padding-bottom:0;padding-top:1.5mm">13
                         </span>
 						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:5mm; border-style: solid; border-color:black; background-color:lightgrey;border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:1.5mm;"/>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:1.5mm;">
-							<!--<xsl:call-template name="PopulateAmount">
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:1.5mm;">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/TaxToBeAppliedBAmt"/>
-							</xsl:call-template>-->
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:1.5mm;">
+							</xsl:call-template>
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:1.5mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/TaxToBeAppliedCAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:24.9mm; height:5mm; border-style: solid; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; text-align:right; padding-bottom:0;padding-top:1.5mm;">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:24.9mm; height:5mm; border-style: solid; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; text-align:right; padding-bottom:0;padding-top:1.5mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/TaxToBeAppliedDAmt"/>
 							</xsl:call-template>
-						</span>
+						</div>
 					</div>
 					<!--Line 14-->
 					<div style="width:187mm;">
@@ -1142,21 +1143,21 @@
 						<span class="styLNRightNumBox" style="height:7.5mm; width:7.1mm; border-bottom-width:1px; border-right-width:1px ;padding-bottom:0;padding-top:4mm;">14
                         </span>
 						<span class="styLNDesc" style="font-size:7pt; width:25mm; height:7.5mm; ;border-style: solid;  border-color:black; background-color:lightgrey;border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm;"/>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm;">
-							<!--<xsl:call-template name="PopulateAmount">
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm;">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/TaxesDueColumnBAmt"/>
-							</xsl:call-template>-->
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm;">
+							</xsl:call-template>
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/TaxesDueColumnCAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:24.9mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-bottom:0;padding-top:4mm;">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:24.9mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-bottom:0;padding-top:4mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/TaxesDueColumnDAmt"/>
 							</xsl:call-template>
-						</span>
+						</div>
 					</div>
 					<!--Line 15-->
 					<div style="width:187mm;">
@@ -1167,26 +1168,26 @@
 						</div>
 						<span class="styLNRightNumBox" style="height:7.5mm; width:7.1mm; border-bottom-width:1px; border-right-width:1px;padding-bottom:0;padding-top:4mm">15
 		</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm;">
-							<!--<xsl:call-template name="PopulateAmount">
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm;">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/EstimatedTaxPdAndWithheldAAmt"/>
-							</xsl:call-template>-->
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm">
+							</xsl:call-template>
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/AppliedOverpaymentBAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-bottom:0;padding-top:4mm">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/AppliedOverpaymentCAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:24.9mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-bottom:0;padding-top:4mm">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:24.9mm; height:7.5mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-bottom:0;padding-top:4mm">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/AppliedOverpaymentDAmt"/>
 							</xsl:call-template>
-						</span>
+						</div>
 					</div>
 					<!--Line 16-->
 					<div style="width:187mm;">
@@ -1199,16 +1200,16 @@
 						<span class="styLNRightNumBox" style="font-size:7pt;height:8mm; width:7.1mm; padding-top:4mm; border-bottom-width:1px; border-right-width:1px;">16
                         </span>
 						<span class="styLNDesc" style="font-size:7pt; width:25mm; height:8mm; ;border-style: solid; border-color:black; background-color:lightgrey; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:0px;"/>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:8mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:4mm;">
-							<!--<xsl:call-template name="PopulateAmount">
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:8mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:4mm;">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/AppliedUnderpaymentBAmt"/>
-							</xsl:call-template>-->
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:8mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:4mm;">
+							</xsl:call-template>
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:8mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:4mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/AppliedUnderpaymentCAmt"/>
 							</xsl:call-template>
-						</span>
+						</div>
 						<span class="styLNDesc" style="font-size:6pt; width:24.9mm; height:8mm; border-style: solid;   border-color:black; background-color:lightgrey; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px;"/>
 					</div>
 					<!--Line 17-->
@@ -1219,30 +1220,30 @@
  line 15, subtract line 15 from line 10. Then go to line<br/>
 							<span style="float:left;">12 of the next column. Otherwise, go to line 18</span>
 							<span class="styIRS2210DotLn">..</span>
-							<img src="{$ImagePath}/2210_Bullet_Md.gif" alt="MediumBullet"/>
+							<img src="{$ImagePath}/2210_Bullet_Md.gif" alt="RightPointingArrow"/>
 						</div>
 						<span class="styLNRightNumBox" style="font-size:7pt;height:11mm; width:7.1mm; border-bottom-width:1px; border-right-width:1px;padding-top:7mm;">17
                         </span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:11mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:7mm;">
-							<!--<xsl:call-template name="PopulateAmount">
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:11mm; text-align:right;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px; border-right-width:1px; padding-top:7mm;">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/UnderpaymentAAmt"/>
-							</xsl:call-template>-->
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:11mm; text-align:center;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px;text-align:right; border-right-width:1px; padding-top:7mm;">
+							</xsl:call-template>
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:11mm; text-align:center;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px;text-align:right; border-right-width:1px; padding-top:7mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/UnderpaymentBAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:25mm; height:11mm; text-align:center;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px;text-align:right; border-right-width:1px; padding-top:7mm;">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:11mm; text-align:center;border-style: solid; border-color:black; border-top-width:0px; border-bottom-width:1px; border-left-width:0px;text-align:right; border-right-width:1px; padding-top:7mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/UnderpaymentCAmt"/>
 							</xsl:call-template>
-						</span>
-						<span class="styLNDesc" style="font-size:6pt; width:24.9mm; height:11mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-top:7mm;">
+						</div>
+						<div class="styLNDesc" style="font-size:6pt; width:24.9mm; height:11mm; text-align:right; border-style: solid; border-color:black; border-top-width:0px;border-left-width:0px; border-right-width:0px; border-bottom-width:1px; padding-top:7mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/UnderpaymentDAmt"/>
 							</xsl:call-template>
-						</span>
+						</div>
 					</div>
 					<!--Line 18-->
 					<div style="width:187mm;padding-top:0mm;">
@@ -1255,9 +1256,9 @@
 						</div>
 						<div class="styLNRightNumBox" style="font-size:7pt;height:10mm; width:7.1mm; border-bottom-width:0px; border-right-width:1px;padding-top:6mm;">18</div>
 						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:10mm; ;border-style: solid; text-align:right; border-color:black; border-top-width:0px; border-bottom-width:0px; border-left-width:0px; border-right-width:1px; padding-top:6mm;">
-							<!--<xsl:call-template name="PopulateAmount">
+							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$Form2210Data/OverpaymentAAmt"/>
-							</xsl:call-template>-->
+							</xsl:call-template>
 						</div>
 						<div class="styLNDesc" style="font-size:6pt; width:25mm; height:10mm; border-style: solid;text-align:right; border-color:black; border-top-width:0px; border-bottom-width:0px; border-left-width:0px; border-right-width:1px; padding-top:6mm;">
 							<xsl:call-template name="PopulateAmount">
@@ -1292,7 +1293,7 @@ the Penalty. Also include this amount on Form 1040, 1040-SR, or 1040-NR, line 38
 								<xsl:with-param name="TargetNode" select="$Form2210Data/TotalPenaltyAmt/@waivedRegularMethodAmt"/>
 							</xsl:call-template>
 						    <span style="width:4px"/>
-							<img src="{$ImagePath}/2210_Bullet_Md.gif" alt="MediumBullet"/>
+							<img src="{$ImagePath}/2210_Bullet_Md.gif" alt="RightPointingArrow"/>
 						</div>
 						<div class="styLNRightNumBox" style="font-size:7pt;height:10mm; width:7.1mm; border-bottom-width:0px; border-right-width:1px;padding-top:7mm;">19
                         </div>
@@ -1320,7 +1321,7 @@ the Penalty. Also include this amount on Form 1040, 1040-SR, or 1040-NR, line 38
 					<div class="styBB" style="width:187mm;padding-top:0mm;">
 						<div style="float:left;">Form 2210 (2024)<span style="width:148mm;"/>
 						</div>
-						<div style="float:right;">Page <span style="font-weight:bold;font-size:8pt;">3</span>
+						<div style="float:right;">Page <span style="font-weight:bold;font-size:8pt;">4</span>
 						</div>
 					</div>
 					<!-- END Page Header -->
@@ -2139,7 +2140,7 @@ the Penalty. Also include this amount on Form 1040, 1040-SR, or 1040-NR, line 38
                                 Enter the <b>smaller</b> of line 23 or line 26 here and on 
 								<span style="float:left;">Form 2210, Part III, line 10</span>
 								<span class="styIRS2210DotLn">......
-                                    <img src="{$ImagePath}/2210_Bullet_Md.gif" alt="MediumBullet"/>
+                                    <img src="{$ImagePath}/2210_Bullet_Md.gif" alt="RightPointingArrow"/>
 								</span>
 							</div>
 							<div class="styLNRightNumBox" style="font-size:7pt;height:8.5mm; width:6mm;  border-bottom-width:0px; border-right-width:1px;padding-bottom:0;padding-top:5mm;">27
@@ -2446,7 +2447,7 @@ the Penalty. Also include this amount on Form 1040, 1040-SR, or 1040-NR, line 38
 					<span  style="float:left;padding-right:10mm;">Add lines 33 and 35. Enter here and on line</span> 
 					<span style="float:left;"> 15 above</span>
 					<span class="styIRS2210DotLn">............
-                    <img src="{$ImagePath}/2210_Bullet.gif" alt="MediumBullet"/>
+                    <img src="{$ImagePath}/2210_Bullet.gif" alt="RightPointingArrow"/>
 					</span>
 				</td>
 				<td class="styLNRightNumBox" style="font-size:7pt;height:9mm; width:6mm;  border-bottom-width:2px; border-right-width:1px; padding-top:5.3mm;">36

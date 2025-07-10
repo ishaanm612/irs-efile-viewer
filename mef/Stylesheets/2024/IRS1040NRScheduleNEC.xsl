@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Yee Chen on 04/02/2024 - 1040NR SCH NEC-->
+<!-- Last Modified by Emanesse Fleurancy on 04/18/2025 - 1040NR SCH NEC-->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="AddHeader.xsl"/>
@@ -43,9 +43,9 @@
 					<xsl:call-template name="DocumentHeaderLandscape"/>
 					<!-- Page 1 -->
 					<div class="styStdDiv"
-					   style="display:inline;width:256mm;">
+					   style="width:256mm;">
 						<!-- Header -->
-						<div class="styStdDivLS">
+						<div class="styStdDivLS"  style="overflow:hidden;">
 							<div class="styTBB" style="height:20mm;
 								border-bottom-width:1.5px">
 								<div class="styFNBox" style="width:51mm;height:20mm;
@@ -85,7 +85,7 @@
 										</span>    
 									</div>
 								</div>           
-								<div class="styTYBox" style="width:51mm;height:19.5mm;
+								<div class="styTYBox" style="width:55mm;height:19.5mm;
 									border-left-width:1.5px">
 									<br/>
 									<div class="styOMB" style="height:2mm;padding-top:0mm;
@@ -735,9 +735,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="styStdDivLS pageEnd" style="border-top:1px solid black;">
-							<div style="width:124mm;font-weight:bold;font-size:6.5pt;" class="styGenericDiv">
-								For Paperwork Reduction Act Notice, see the 
+						<div class="styStdDivLS" style="border-top:1px solid black;">
+							<div style="width:136mm;font-weight:bold;font-size:6.5pt;" class="styGenericDiv">
+								For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see the 
 								<span style="font-family:Arial">I</span>nstructions for Form 1040-NR.
 							</div>
 							<div style="width:66mm;text-align:center;font-size:6pt;
@@ -751,6 +751,8 @@
 							</div>
 						</div>
 					</div>
+					<!-- Page-break after the end of form -->
+					<div class="pageEnd" />
 					<!-- Additonal Data Title Bar and Button -->
 					<div class="styLeftOverTitleLine" id="LeftoverData">
 						<div class="styLeftOverTitle">

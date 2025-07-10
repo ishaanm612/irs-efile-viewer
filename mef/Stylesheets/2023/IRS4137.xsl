@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Jermaine Merchant on 06/24/2022 -->
+<!-- Last Modified by Jermaine Merchant on 01/12/2024 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -71,11 +71,10 @@
 						<div class="styFTBox" style="width:125mm;height:20mm;">
 							<div class="styMainTitle" style="padding-bottom:0;margin-bottom:0;padding-top:1mm">Social Security and Medicare Tax<br/>
 								on Unreported Tip Income</div>
-							<div class="styFBT" style="font-size:6.5pt;margin-top:1.5mm;">
-								<img src="{$ImagePath}/4137_Bullet.gif" alt="MediumBullet"/>
+							<div class="styFBT" style="font-size:6.5pt;margin-top:1.5mm;">	
 								Go to <a style="text-decoration:none;color:black;" href="http://www.irs.gov/form4137" title="Link to IRS.gov">
 								<i>www.irs.gov/Form4137</i></a> for the latest information.<br/>
-				 			    <span style="padding-top: 1mm;"><img src="{$ImagePath}/4137_Bullet.gif" alt="MediumBullet"/> Attach to your tax return</span>
+				 			    <span style="padding-top: 1mm;">Attach to your tax return</span>
 						    </div>
 						</div>
 						<div class="styTYBox" style="width:31mm; height:20mm;border-left-width: 1.5px;">
@@ -565,7 +564,7 @@
 							Cat. No. 12626C
 							<span style="width:29.5mm;"/>
 							Form 
-							<span class="styBoldText" style="font-size:8pt;">4137</span> (2022)
+							<span class="styBoldText" style="font-size:8pt;">4137</span> (2023)
                            </div>
 					</div>
 					<!-- BEGIN Left Over Table -->

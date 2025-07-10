@@ -72,15 +72,14 @@
 							<div class="styMainTitle">
 								Itemized Deductions
 							</div>
-							<div class="styFBT" style="width:126.5mm;font-size:7pt;
-								margin-top:.5mm;font-weight:normal"> 
+							<div class="styFBT" style="font-size:7pt;margin-top:.5mm;font-weight:normal"> 
 								<b>Attach to Form 1040-NR.</b><br></br>     
 								<b>Go to <a style="text-decoration:none;color:black;" href="www.irs.gov/Form1040NR " title="Link to IRS.gov"><i>www.irs.gov/Form1040NR </i>
 								</a> for instructions and the latest information.</b><br/>
 								<span style="padding-top:.5mm;">
 								</span>    
 								<span style="padding-top:.5mm;">				  
-									<b>Caution:</b> If you are claiming a net qualified disaster loss on Form 4684, see the instructions for <br/>line 7.
+									<b>Caution:</b> If you are claiming a net qualified disaster loss on Form 4684, see instructions for line 7.
 				                </span>                  
                             </div>
                         </div>           
@@ -113,7 +112,7 @@
                                 </xsl:call-template>
                             </div>
                         </div>
-                        <div style="width:35mm;height:8mm;padding-left:.3mm;font-size:6.2pt;font-weight:bold;" class="styEINBox">Your Identifying Number<br/>
+                        <div style="width:35mm;height:8mm;padding-left:.3mm;font-size:6.2pt;font-weight:bold;" class="styEINBox">Your identifying number
                             <br/>
                             <span style="width:9.5mm;"/>
                             <span style="font-weight:normal;font-size:6.4pt;">
@@ -375,8 +374,7 @@
 					</div>
 					<div class="styStdDiv pageEnd" style="border-top:1px solid black;">
 						<div style="width:100mm;font-weight:bold;font-size:6.5pt;" class="styGenericDiv">
-							For Paperwork Reduction Act Notice, see the 
-							<span style="font-family:Arial">I</span>nstructions for Form 1040-NR.
+							For Disclosure, Privacy Act, and Paperwork Reduction Act Notice, see the<br/><span style="font-family:Arial">I</span>nstructions for Form 1040-NR.
 						</div>
 						<div style="width:46mm;text-align:center;font-size:6pt;
 							padding-left:0mm;" class="styGenericDiv">Cat. No. 72749E

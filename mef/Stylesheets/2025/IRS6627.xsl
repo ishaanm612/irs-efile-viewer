@@ -8,6 +8,8 @@
 <!-- 10/27/2022 - Made changes per UWR 864945 - Jeremy Nichols -->
 <!-- 12/23/2022 - Made changes per KISAM IM02186453 - Jeremy Nichols -->
 <!-- 01/12/2023 - Made changes per KISAM IM02195581 - Jeremy Nichols -->
+<!-- 04/08/2024 - UWR 981665 - Jeremy Nichols -->
+<!-- 06/24/2024 - defect 1447634 - Jeremy Nichols -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:include href="CommonPathRef.xsl"/>
   <xsl:include href="PopulateTemplate.xsl"/>
@@ -57,7 +59,7 @@
               <span class="styFormText" style="font-size:7pt;width:1mm;"></span>      
               <span class="styFormNumber" style="font-size:20pt;font-weight:bold;">6627</span>      
               <br/>      
-              <span class="styAgency" style="font-weight:normal;">(Rev. January 2023)</span><br/> 
+              <span class="styAgency" style="font-weight:normal;">(Rev. January 2024)</span><br/> 
               <span class="styAgency" style="font-weight:normal;padding-top:0.5mm;">Department of the Treasury</span><br />
               <span class="styAgency" style="font-weight:normal;">Internal Revenue Service</span>
             </div>
@@ -1428,7 +1430,7 @@
             <span style="text-align:center;width:6mm;font-weight:bold;font-size:7pt;">
             6627</span> 
             <span style="text-align:right;width:18.5mm;font-weight:normal;font-size:6pt;padding-right:1mm;">
-            (Rev. 1-2023)</span> 
+            (Rev. 1-2024)</span> 
           </div>
           <div class="pageEnd"/>
   
@@ -1437,7 +1439,7 @@
           <!--Page to Header-->
           <div  style="width:187mm;border-bottom:1px black solid;">
             <span style="width:140mm;font-weight:normal;text-align:left;font-size:7pt;display:inline;"> 
-              Form 6627 (Rev. 1-2023)<span style="width:140mm;"/>
+              Form 6627 (Rev. 1-2024)<span style="width:140mm;"/>
             </span>
             <span style="text-align:right;width:40mm;font-weight:normal;font-size:7pt;display:inline;">
               Page
@@ -1653,6 +1655,7 @@
                 <xsl:with-param name="TargetNode" select="$FormData/Election1990Ind" />
                 <xsl:with-param name="BackupName">IRS6627Election1990Ind</xsl:with-param>
               </xsl:call-template>
+            </label>
 				<span class="styText" style="font-weight:bold;" >
 				  Elections. 
 				</span>
@@ -1680,13 +1683,14 @@
 				<span class="styBoldText" style="padding-left:2.8mm;"><img src="{$ImagePath}/6627_Bullet_Md.gif" alt="Medium Arrow"/> 
 				</span>     
 				<span style="width:3mm;clear:none"></span>
-            </label>
-				<input type="checkbox" class="styCkbox" style="padding-left:4mm;" alt="IRS6627Election1990Ind" >
-				  <xsl:call-template name="PopulateCheckbox">
-					<xsl:with-param name="TargetNode" select="$FormData/Election1990Ind" />
-					<xsl:with-param name="BackupName">IRS6627Election1990Ind</xsl:with-param>
-				  </xsl:call-template>
-				</input>
+				<span>
+					<input type="checkbox" class="styCkbox" style="padding-left:4mm;" alt="IRS6627Election1990Ind" >
+					  <xsl:call-template name="PopulateCheckbox">
+						<xsl:with-param name="TargetNode" select="$FormData/Election1990Ind" />
+						<xsl:with-param name="BackupName">IRS6627Election1990Ind</xsl:with-param>
+					  </xsl:call-template>
+					</input>
+				</span>
           </div>
           
           <div class="styLNDesc" style="width:187mm;height:9mm;font-size:7pt">
@@ -1695,7 +1699,8 @@
               <xsl:call-template name="PopulateLabel">
                 <xsl:with-param name="TargetNode" select="$FormData/Election1991Ind" />
                 <xsl:with-param name="BackupName">IRS6627Election1991Ind</xsl:with-param>
-              </xsl:call-template>
+              </xsl:call-template>     
+            </label>
 				<span class="styText">If you elect to report the tax on post-1990 ODCs at the time you sell or use a mixture containing such chemicals instead of when</span><br/>
 				<span class="styText">you make the mixture, check the box (the 1991 election)</span>
             <!--Dotted Line-->
@@ -1718,15 +1723,16 @@
               <span style="width:16px"></span>.
             </span>
             <span class="styBoldText" style="padding-left:2.8mm;"><img src="{$ImagePath}/6627_Bullet_Md.gif" alt="MediumBullet"/> 
-            </span>     
-            </label>
+            </span>            
             <span style="width:3.5mm;clear:none"></span>
-            <input type="checkbox" class="styCkbox" style="padding-left:5.5mm;" alt="IRS6627Election1991Ind">
-              <xsl:call-template name="PopulateCheckbox">
-                <xsl:with-param name="TargetNode" select="$FormData/Election1991Ind" />
-                <xsl:with-param name="BackupName">IRS6627Election1991Ind</xsl:with-param>
-              </xsl:call-template>
-            </input>
+            <span>
+				<input type="checkbox" class="styCkbox" style="padding-left:5.5mm;" alt="IRS6627Election1991Ind">
+				  <xsl:call-template name="PopulateCheckbox">
+					<xsl:with-param name="TargetNode" select="$FormData/Election1991Ind" />
+					<xsl:with-param name="BackupName">IRS6627Election1991Ind</xsl:with-param>
+				  </xsl:call-template>
+				</input>
+            </span>
             <span style="width:6mm;clear:none"></span>
             <!-- button display logic -->
             <xsl:call-template name="SetDynamicTableToggleButton" >
@@ -1920,11 +1926,11 @@
                 <xsl:with-param name="TargetNode" select="$FormData/TaxOnImpProductsElectionInd" />
                 <xsl:with-param name="BackupName">IRS6627TaxOnImpProductsElectionInd</xsl:with-param>
               </xsl:call-template>
+            </label>
 				Election. If you elect to report the tax on imported products at the time you import the products instead of when you sell or use<br />
 				the products, check this box 
             <span class="styDotLn" style="float:none;padding-left:2mm;padding-right:0.5mm">.................................</span>
             <img src="{$ImagePath}/6627_Bullet_Md.gif" alt="MediumBullet"/>
-            </label>
             <input type="checkbox" class="styCkbox" alt="IRS6627TaxOnImpProductsElectionInd">
              <xsl:call-template name="PopulateCheckbox">
                <xsl:with-param name="TargetNode" select="$FormData/TaxOnImpProductsElectionInd" />
@@ -2273,7 +2279,7 @@
             <span style="text-align:center;width:7mm;font-weight:bold;font-size:7pt;">
             6627</span> 
             <span style="text-align:right;width:18mm;font-weight:normal;font-size:6pt;padding-right:1mm;">
-            (Rev. 1-2023)</span>       
+            (Rev. 1-2024)</span>       
           </div>
           <div class="pageEnd"/>
             

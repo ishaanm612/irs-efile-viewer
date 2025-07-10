@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Jermaine Merchant on 07/27/2022 --><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<!-- Last Modified by Emanesse Fleurancy on 05/05/2025 --><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
 	<xsl:include href="AddHeader.xsl"/>
@@ -121,8 +121,8 @@
 							<div class="styLNLeftNumBox" style="font-size:7pt;height:4mm;padding-bottom:0mm;padding-left: 3mm;">2a
                             </div>
                             <div class="styLNDesc" style="font-size:7pt;width:135mm;height:4mm;padding-bottom:0mm;">
-								If filing Schedule A (Form 1040), enter the taxes from Schedule A, line 7; otherwise, enter the amount  from Form 1040 , line 12 
-								<span class="styDotLn" style="float:none;clear:none;padding-left:1mm;">...........................</span>
+								If filing Schedule A (Form 1040), enter the taxes from Schedule A, line 7; otherwise, enter the amount  from Form 1040 or 1040-SR, line 12 
+								<span class="styDotLn" style="float:none;clear:none;padding-left:1mm;">.......................</span>
                             </div>
                             <div class="styLNRightNumBox" style="height:4mm; padding-bottom:0mm; border-bottom-width:0px;"/>
 							<div class="styLNAmountBox" style="width:36mm;height:4mm;padding-bottom:0mm;border-bottom-width:0px;"/>
@@ -662,8 +662,8 @@
 						<div class="styLNLeftNumBox" style="font-size:7pt;height:13mm;padding-left:3mm;width:8mm;">10</div>
 						<div class="styLNDesc" style="font-size:7pt;width:134.9mm;height:13mm;float:left;">
 							 Add Form 1040 or 1040-SR, line 16  (minus any tax from Form 4972), and Schedule 2 (Form 1040), line 1z.  Subtract from the result 
-							 Schedule 3 (Form 1040), line 1 and any negative amount reported on Form 8978, line 14 (treated as a positive number). If zero or less, enter -0-. If you used Schedule J to figure your tax on Form 1040 or 1040-SR, line 16, refigure that tax without using Schedule J before completing this line (see instructions)
-						  <span style="letter-spacing:3.2mm;font-weight:bold;padding-left:1mm;">..........................</span>
+							 Schedule 3 (Form 1040), line 1 and any negative amount reported on Form 8978, line 14 (treated as a positive number). If zero or less, enter -0-. If you used Schedule J to figure your tax on Form 1040 or 1040-SR, line 16, refigure that tax without using Schedule J before completing this line. See instructions
+						  <span style="letter-spacing:3.2mm;font-weight:bold;padding-left:1mm;">...........................</span>
 						</div>
 						<div style="float:right;">							
 						<div class="styLNRightNumBox" style="clear:left;height:8mm;width:8mm;background-color:lightgrey;padding-bottom:0mm;border-bottom:0;"/>
@@ -958,7 +958,7 @@
 							  Enter:<br/>
 								&#8226;<span style="margin:3mm 0mm 0mm .5mm;"/>$518,900 if single<br/>
  								&#8226;<span style="margin:3mm 0mm 0mm .5mm;"/>$291,850 if married filing separately<br/>
-								&#8226;<span style="margin:3mm 0mm 0mm .5mm;"/>$583,750 if married filing jointly or qualifying surviving spouse<br/>
+								&#8226;<span style="margin:3mm 0mm 0mm .5mm;"/>$583,750 if married filing jointly or qualifying surviving spouse, or<br/>
 								&#8226;<span style="margin:3mm 0mm 0mm .5mm;"/>$551,350 if head of household								
 							</div>
 					  </div>								

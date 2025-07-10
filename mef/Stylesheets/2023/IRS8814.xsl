@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Jermaine Merchant on 07/05/2022 -->
+<!-- Last Modified by Jermaine Merchant 12/7/2023 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
@@ -119,7 +119,7 @@
 							<br/>
 							<span class="styAgency" style="padding-top:3mm;padding:bottom:0mm;">Department of the Treasury</span>
 							<br/>
-							<span class="styAgency">Internal Revenue Service (99)</span>
+							<span class="styAgency">Internal Revenue Service</span>
 						</div>
 						<div class="styFTBox" style="width:128mm;">
 							<!--  Main Title >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
@@ -131,13 +131,12 @@
 								<span style="text-align:center;font-weight:bold;">
 									<div style="width:100%;padding-top:4mm;height:5mm;padding-left:35px;">
 										<div style="width:100%;height:5mm;">
-											<br/>
-											<img src="{$ImagePath}/8814_Bullet_Sm.gif" alt="SmallBullet"/> Go to 
+											<br/> 
+											Attach to parents' Form 1040, 1040-SR, or 1040-NR.<br/>
+											 Go to 
 											 <a style="text-decoration:none;color:black;" href="http://www.irs.gov/form8814" title="Link to IRS.gov">
 														<i>www.irs.gov/Form8814</i> for the latest information.
 											</a><br/>
-											<img src="{$ImagePath}/8814_Bullet_Sm.gif" alt="SmallBullet"/> 
-											Attach to parents' Form 1040, 1040-SR, or 1040-NR.
 										</div>
 									</div>
 								</span>
@@ -449,8 +448,8 @@
 							<div class="styIRS8814LNLeftNumBox" style="padding-left:0px; padding-right:5px;padding-top:7px">4</div>
 							<div class="styIRS8814LNDesc" style="width:144mm;height:100%;padding:5px 0px 0px 0px;">
 								<div class="styIRS8814LNDesc" style="width:auto;height:100%;">
-									Add lines 1a, 2a, and 3. If the total is $2,300 or less, skip lines 5 through 12 and go to line 13. If<br/>
-									the total is $11,500 or more, <b>do not</b> file this form. Your child <b>must</b> file his or her own return to<br/>
+									Add lines 1a, 2a, and 3. If the total is $2,500 or less, skip lines 5 through 12 and go to line 13. If<br/>
+									the total is $12,500 or more, <b>do not</b> file this form. Your child <b>must</b> file his or her own return to<br/>
 									<span style="float:left;">report the income</span>
 									<!--Dotted Line-->
                                     <span class="styDotLn" style="float:right;padding-left:3.1mm;">............................</span>
@@ -473,7 +472,7 @@
 							<div class="styIRS8814LNLeftNumBox" style="padding-left:0px; padding-right:5px;padding-top:7px">5</div>
 							<div class="styIRS8814LNDesc" style="width:144mm;height:100%;padding:5px 0px 0px 0px;">
 								<div class="styIRS8814LNDesc" style="width:auto;height:100%;float:left;">
-									Base amount. Enter 2,300
+									Base amount. Enter 2,500
 								</div>
 								<div class="styIRS8814LNDesc" style="width:auto;height:100%;text-align:right;padding:0px 0mm 0px 0px;float:right;">
 									<span class="styDotLn" style="float:left;padding-left:2.1mm">..........................</span>
@@ -745,7 +744,7 @@
 							<!-- Content -->
 							<div class="styPartName" style="width:15mm;">Part II</div>
 							<div class="styPartDesc" style="padding-left:3mm;">
-								Tax on the First $2,300 of Child's Interest and Dividends
+								Tax on the First $2500 of Child's Interest and Dividends
 							</div>
 						</span>
 					</div>
@@ -756,7 +755,7 @@
 							<div class="styIRS8814LNLeftNumBox" style="padding-left:0px; padding-right:5px;padding-top:7px">13</div>
 							<div class="styIRS8814LNDesc" style="width:144mm;height:100%;padding:5px 0px 0px 0px;">
 								<div class="styIRS8814LNDesc" style="width:auto;height:100%;float:left;">
-									Amount not taxed. Enter 1,150
+									Amount not taxed. Enter 1,250
 								</div>
 								<div class="styIRS8814LNDesc" style="width:auto;height:100%;text-align:right;float:right;
 								  padding:0px 3mm 0px 0px;">
@@ -794,7 +793,7 @@
 							<div class="styIRS8814LNLeftNumBox" style="padding-left:0px; padding-right:5px;padding-top:7px">15</div>
 							<div class="styIRS8814LNDesc" style="width:144mm;height:100%;padding:5px 0px 0px 0px;">
 								<div class="styIRS8814LNDesc" style="width:auto;height:100%;">
-									<b>Tax.</b> Is the amount on line 14 less than $1,150?<br/>
+									<b>Tax.</b> Is the amount on line 14 less than $1,250?<br/>
 									<div class="styIRS8814LNDesc" style="width:auto;height:auto;padding:0px 0px 0px 0px;">
 										<span>
 											<xsl:call-template name="PopulateSpan">
@@ -817,7 +816,7 @@
 														<xsl:with-param name="BackupName">IRS8814ChildTaxBasisUnderSpcfdAmtInd</xsl:with-param>
 												</xsl:call-template>
 											</xsl:if>
-											<span class="styBoldText">No.</span> Enter $115 here and see the <b>Note</b> below.
+											<span class="styBoldText">No.</span> Enter $125 here and see the <b>Note</b> below.
 										</label>
 										<br/>
 										<span>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;"> <!ENTITY mdash "&#8212;">]>
+<!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;"> <!ENTITY mdash "&#8212;">
+<!-- 04/02/2025 - Changes for TESTINC0017525 - AJH -->]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl" />
 	<xsl:include href="AddHeader.xsl" />
@@ -99,7 +100,7 @@
 							<span class="sty8038CPNumBoxSD">1</span>
 							Name of entity that is to receive payment of the credit <br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									<xsl:call-template name="PopulateReturnHeaderFiler">
 										<xsl:with-param name="TargetNode">BusinessNameLine1Txt</xsl:with-param>
 									</xsl:call-template><br />
@@ -124,7 +125,7 @@
 							<span class="sty8038CPNumBoxSD">2</span> 
 							<strong>Employer identification number (EIN)</strong><br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame"><xsl:call-template name="PopulateReturnHeaderFilerTIN"/></xsl:when>
+								<xsl:when test="$EntitySame !=''"><xsl:call-template name="PopulateReturnHeaderFilerTIN"/></xsl:when>
 								<xsl:otherwise>
 									<xsl:call-template name="PopulateEIN">
 										<xsl:with-param name="TargetNode" select="$FormData/EntityReceivingPaymentGrp/EIN"/>
@@ -138,7 +139,7 @@
 							<span class="sty8038CPNumBoxSD">3</span>
 							Number and street (or P.O. box no. if mail is not delivered to street address) <br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									<xsl:call-template name="PopulateReturnHeaderFiler">
 										<xsl:with-param name="TargetNode">AddressLine1Txt</xsl:with-param>
 									</xsl:call-template>
@@ -171,7 +172,8 @@
 							<span class="sty8038CPNumBoxSD">4</span>
 							City, town, or post office; state; and ZIP code <br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
+
 									<xsl:call-template name="PopulateReturnHeaderFiler">
 										<xsl:with-param name="TargetNode">CityStateInfo</xsl:with-param>
 									</xsl:call-template>
@@ -190,7 +192,7 @@
 							<span style="font-family:Arial;">
 							Name and title of designated contact person whom the IRS may contact for more information</span> <br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									<xsl:call-template name="PopulateText">
 										<xsl:with-param name="TargetNode" select="$FormData/ReportingAuthorityGrp/ContactPersonNm"/>
 									</xsl:call-template>
@@ -217,7 +219,7 @@
 							<span style="font-family:Arial;">
 							Telephone number of contact person shown on line 5 </span><br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									<xsl:call-template name="PopulatePhoneNumber">
 										<xsl:with-param name="TargetNode" select="$FormData/ReportingAuthorityGrp/ContactPersonPhoneNum"/>
 									</xsl:call-template>
@@ -240,7 +242,7 @@
 							<span class="sty8038CPNumBoxSD">7</span>
 							Issuer's name (if same as line 1, enter "SAME" and skip lines 8, 9, 11, 15, and 16) <br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									<xsl:call-template name="PopulateText">
 										<xsl:with-param name="TargetNode" select="$FormData/ReportingAuthorityGrp/ReceiverAndIssuerSameEntityCd"/>
 									</xsl:call-template>
@@ -259,7 +261,7 @@
 							<span class="sty8038CPNumBoxSD">8</span> 
 							EIN<br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">&nbsp;</xsl:when>
+								<xsl:when test="$EntitySame !=''">&nbsp;</xsl:when>
 								<xsl:otherwise><xsl:call-template name="PopulateReturnHeaderFilerTIN"/></xsl:otherwise>
 							</xsl:choose>
 						</div>
@@ -270,7 +272,7 @@
 							<span style="font-family:Arial;">
 							Number and street (or P.O. box no. if mail is not delivered to street address) </span><br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									&nbsp;
 								</xsl:when>
 								<xsl:otherwise>
@@ -309,7 +311,7 @@
 							<span class="sty8038CPNumBox">11</span>
 							City, town, or post office; state; and ZIP code <br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									&nbsp;
 								</xsl:when>
 								<xsl:otherwise>
@@ -358,7 +360,7 @@
 							<span style="font-family:Arial;">
 							Name and title of officer or other person whom the IRS may contact for more information</span> <br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									&nbsp;
 								</xsl:when>
 								<xsl:otherwise>
@@ -378,7 +380,7 @@
 							<span style="font-family:Arial;">
 							Telephone number of contact person shown on line 15 </span><br />
 							<xsl:choose>
-								<xsl:when test="$EntitySame">
+								<xsl:when test="$EntitySame !=''">
 									&nbsp;
 								</xsl:when>
 								<xsl:otherwise>
