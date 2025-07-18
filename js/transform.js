@@ -1,5 +1,4 @@
----
----
+
 $(function() {
     var urlFile = getUrlParameter('f');
     var userFile = getUrlParameter('h');

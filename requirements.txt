@@ -38,6 +38,7 @@ nltk==3.9.1
 numpy==2.3.1
 orjson==3.10.18
 pandas==2.2.3
+pdfkit==1.0.0
 pdfrw==0.4
 polars==1.31.0
 probableparsing==0.0.1
@@ -75,4 +76,3 @@ wrapt==1.17.2
 xxhash==3.5.0
 yaml-config==0.1.5
 yarl==1.20.1
-
