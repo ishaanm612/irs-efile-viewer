@@ -11,10 +11,48 @@ import aiohttp
 import libarchive
 import psutil
 import zipfile
+import json
+from collections import defaultdict
+from pathlib import Path
+
+from transform_utils import transform_xml_to_html, transform_xml_to_pdf
+
 from tqdm import tqdm
 import argparse
 
 YEARS = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"]
+
+# Collects mapping EIN -> list[pdf_paths]
+summary_map = defaultdict(list)
+
+
+# -----------------------------------------------------------------------------
+# Helpers
+# -----------------------------------------------------------------------------
+
+
+def process_xml_to_pdf(xml_path: str, pdf_dir: str):
+    """Worker helper to convert a single XML file into a PDF.
+
+    Returns (ein, pdf_path) on success or None on failure.
+    """
+    try:
+        # First pass to get metadata for naming
+        meta_preview = transform_xml_to_html(xml_path)
+        ein = meta_preview.get("ein") or "UNKNOWN"
+        tax_year = meta_preview.get("tax_year") or "UNKNOWN"
+        form_id = meta_preview.get("form_id") or "Form"
+
+        pdf_name = f"{ein}_{tax_year}_{form_id}.pdf"
+        pdf_path = os.path.join(pdf_dir, pdf_name)
+
+        # Full transform to PDF
+        transform_xml_to_pdf(xml_path=xml_path, pdf_path=pdf_path)
+
+        return ein, pdf_path
+    except Exception as exc:
+        tqdm.write(f"Error converting {xml_path} → PDF: {exc}")
+        return None
 
 
 def set_process_priority(nice_value=0):
@@ -110,7 +148,12 @@ async def download_and_extract(client, url, dest_dir, sem):
 
 
 async def download_handler(
-    client: aiohttp.ClientSession, year: str, max_concurrent=6, skip=False
+    client: aiohttp.ClientSession,
+    year: str,
+    *,
+    max_concurrent: int = 6,
+    skip: bool = False,
+    output_dir: str = "output",
 ):
     dest_dir = f"/home/ec2-user/DonorAtlas/990_scrape/990_scrape/data/{year}/"
     os.makedirs(dest_dir, exist_ok=True)
@@ -153,6 +196,33 @@ async def download_handler(
                     for f in futures:
                         f.result()
                         unzip_pbar.update(1)
+
+        # ------------------------------------------------------------------
+        # Convert extracted XML files to PDFs
+        # ------------------------------------------------------------------
+        pdf_dir = os.path.join(output_dir, "pdfs")
+        os.makedirs(pdf_dir, exist_ok=True)
+
+        xml_files = [
+            os.path.join(root, fname)
+            for root, _, files in os.walk(dest_dir)
+            for fname in files
+            if fname.lower().endswith(".xml")
+        ]
+
+        if xml_files:
+            with concurrent.futures.ProcessPoolExecutor(
+                max_workers=max_concurrent
+            ) as pool:
+                for res in tqdm(
+                    pool.map(lambda p: process_xml_to_pdf(p, pdf_dir), xml_files),
+                    total=len(xml_files),
+                    desc="XML→PDF",
+                    unit="file",
+                ):
+                    if res:
+                        ein, pdf_path = res
+                        summary_map[ein].append(pdf_path)
     else:
         tqdm.write(f"Skipping download and unzip for {year}")
 
@@ -161,14 +231,28 @@ async def download_handler(
     shutil.rmtree(dest_dir, ignore_errors=True)
 
 
-async def main(skip=False):
+async def main(*, skip: bool = False, output_dir: str = "output", max_workers: int = 6):
     set_process_priority(0)
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as client:
         for year in YEARS[-1:]:
             tqdm.write(f"Starting {year}")
-            await download_handler(client, year, skip=skip)
+            await download_handler(
+                client,
+                year,
+                max_concurrent=max_workers,
+                skip=skip,
+                output_dir=output_dir,
+            )
             columns, _ = shutil.get_terminal_size(fallback=(100, 24))
             tqdm.write(f"Finished {year}\n{'=' * columns}\n")
+
+    # Write summary JSON
+    summary_out = os.path.join(output_dir, "summary.json")
+    Path(summary_out).parent.mkdir(parents=True, exist_ok=True)
+    with open(summary_out, "w", encoding="utf-8") as fp:
+        json.dump({k: v for k, v in summary_map.items()}, fp, indent=2)
+
+    tqdm.write(f"Summary written to {summary_out}")
 
 
 def parse_args():
@@ -178,13 +262,28 @@ def parse_args():
         action="store_true",
         help="Skip both download and unzip steps (process only)",
     )
+    parser.add_argument(
+        "--output-dir",
+        default="output",
+        help="Directory where PDFs and summary.json will be written (default: output)",
+    )
+    parser.add_argument(
+        "--max-workers",
+        type=int,
+        default=6,
+        help="Maximum parallel workers for unzip and PDF transform",
+    )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     try:
         args = parse_args()
-        asyncio.run(main(skip=args.skip))
+        asyncio.run(
+            main(
+                skip=args.skip, output_dir=args.output_dir, max_workers=args.max_workers
+            )
+        )
     except KeyboardInterrupt:
         gc.collect()
         tqdm.write("Keyboard interrupt")
