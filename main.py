@@ -162,15 +162,20 @@ def main():
     print(stylesheet_path)
     xslt = etree.parse(stylesheet_path, base_url=stylesheet_path)
     transform = etree.XSLT(xslt)
-    print(transform)
-    result = transform(template_dom)
-    print(result)
+    try:
+        result = transform(template_dom)
 
-    # Write output
-    # with open(args.output, "wb") as f:
-    #     f.write(etree.tostring(result, pretty_print=True, method="html"))
+        # Write output
+        with open(args.output, "wb") as f:
+            f.write(etree.tostring(result, pretty_print=True, method="html"))
 
-    print(f"Output written to {args.output}")
+        print(f"Output written to {args.output}")
+    except etree.XSLTApplyError as e:
+        print("Error applying XSLT: %s", e)
+    except etree.XSLTParseError as e:
+        print("Error parsing XSLT: %s", e)
+    except Exception as e:
+        print("Error: %s", e)
 
 
 if __name__ == "__main__":
