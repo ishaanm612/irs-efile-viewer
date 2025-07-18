@@ -1,5 +1,4 @@
----
----
+
 /*-----------------------------------------------------------------------------------------------------
 Header CSS file 
 -----------------------------------------------------------------------------------------------------
@@ -75,7 +74,7 @@ edited 7/22/2004 by Chris Sinderson. Added styFormNumber
 	font-weight: bold;
 }
 .styFBT {   /* Form Bullet Text */
-	font:size:8pt;
+	font-size:8pt;
 	font-weight: bold;
 	margin-top:2mm;
 }
