@@ -1,10 +1,12 @@
-exclude: [
-  'README.md',
-  '**/README.md',
-  'Gemfile.lock',
-  'GEMFILE',
-  '.gitignore',
-  'LICENSE',
-  'script',
-  'vendor'
-]
+exclude:
+  [
+    "README.md",
+    "**/README.md",
+    "Gemfile.lock",
+    "GEMFILE",
+    ".gitignore",
+    "LICENSE",
+    "script",
+    "vendor",
+    ".venv",
+  ]
