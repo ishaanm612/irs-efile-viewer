@@ -1,7 +1,3 @@
-<!-- This stylesheet was modified on 7/08/2009 for TY2009/PY2010 changes by S. Cram-->
-<!--This stylesheet was modified on 8/26/2009 for TY2009/PY2010 BSP-091865OTH changes by Sandy Cram-->
-<!-- Last modified on 10/28/2009 by Sandy Cram  Updates made per BSP-092774OTH -->
-<!-- Last modified on 01/19/2010 by Sandy Cram  for ITAMS#6646059 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>

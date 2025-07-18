@@ -35,7 +35,7 @@ function loadFile() {
             }
         }
 
-        location.href = '{{ site.github.url }}/transform.html?h=' + newId;
+        location.href = '/transform.html?h=' + newId;
     }).catch(function(err) {
         $('#file-error').text(err);
         $('#file-input + label').addClass('error');
@@ -70,7 +70,7 @@ function loadURL(e) {
     var url = $('#url-input').val();
     getContentType(url).then(function(contentType) {
         if(contentType.match(/.*xml/)) {
-            location.href = '{{ site.github.url }}/transform.html?f=' + encodeURIComponent(url);
+            location.href = '/transform.html?f=' + encodeURIComponent(url);
         } else {
             throw Error('The URL provided doesn\'t appear to be an IRS XML e-file document.');
         }

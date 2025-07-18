@@ -78,7 +78,7 @@ def main():
     input_dom = etree.fromstring(clean_input_xml.encode("utf-8"))
 
     template_dom = etree.parse(
-        "/Users/ishaan/Documents/Projects/DonorAtlas/irs-efile-viewer/form_template.xml"
+        "/home/ec2-user/DonorAtlas/irs-efile-viewer/form_template.xml"
     )
 
     # Determine form_id
@@ -151,21 +151,24 @@ def main():
         else "2023"
     )
     stylesheet_path = get_stylesheet_path(
-        "/Users/ishaan/Documents/Projects/DonorAtlas/irs-efile-viewer/mef/Stylesheets",
+        "/home/ec2-user/DonorAtlas/irs-efile-viewer/mef/Stylesheets",
         year,
         form_id,
     )
-    if not os.path.exists(stylesheet_path):
-        raise Exception(f"Stylesheet not found: {stylesheet_path}")
+    # if not os.path.exists(stylesheet_path):
+    #     raise Exception(f"Stylesheet not found: {stylesheet_path}")
 
     # Transform
-    xslt = etree.parse(stylesheet_path)
+    print(stylesheet_path)
+    xslt = etree.parse(stylesheet_path, base_url=stylesheet_path)
     transform = etree.XSLT(xslt)
+    print(transform)
     result = transform(template_dom)
+    print(result)
 
     # Write output
-    with open(args.output, "wb") as f:
-        f.write(etree.tostring(result, pretty_print=True, method="html"))
+    # with open(args.output, "wb") as f:
+    #     f.write(etree.tostring(result, pretty_print=True, method="html"))
 
     print(f"Output written to {args.output}")
 

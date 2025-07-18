@@ -7,14 +7,16 @@ Each year, the IRS lists a `.zip` file containing all updates to the stylesheets
 ## Updating IRS Stylesheets
 
 Each year, the package released by the IRS contains:
+
 - new assets and stylesheets to support an upcoming tax year
 - updates to existing files
 
 However, the directories within the IRS package are not comprehensive. They contain only the files that have been added and updated. This means that when updating the repository with new files from the IRS, the existing folders **should not** be replaced with the folders contained in the `.zip` file. Instead, the new files need to be merged into the existing directory structure.
 
 Additionally, any files containing relative links need to be updated to include Jekyll front matter and to support the hosted address of this application. Ex:
+
 ```
-<xsl:param name="NonVersionedImagePath">{{ site.github.url }}/mef/rrprd/common/images</xsl:param>  
+<xsl:param name="NonVersionedImagePath">/mef/rrprd/common/images</xsl:param>
 ```
 
 To automate the process of importing a new tax year, the [`import_taxyear` script](/script/import_taxyear.rb) is available.
@@ -34,6 +36,7 @@ The [`Stylesheets/`](Stylesheets/) directory is similar to `sdi/versioned/` and 
 The root transformation documents for each IRS form have names prefixed with "IRS", such as [`IRS990.xsl`](Stylesheets/2016/IRS990.xsl). Each of these files will then contain a number of `xsl:include` statements that can be used to pull templates from additional XSLT documents. In addition, each of these root transformation documents has a pair stylesheet that specifically contains the CSS used for that form (e.g., [`IRS990Style.xsl`](Stylesheets/2016/IRS990Style.xsl)).
 
 Some of the shared stylesheets used across forms are:
+
 - [`CommonPathRef.xsl`](Stylesheets/2016/CommonPathRef.xsl)
 - [`AddHeader.xsl`](Stylesheets/2016/AddHeader.xsl)
 - [`AddOnTable.xsl`](Stylesheets/2016/AddOnTable.xsl)
@@ -54,6 +57,7 @@ Some of the shared stylesheets used across forms are:
 ## Troubleshooting Transformation Failures
 
 XSLT transformation failures are frustrating because they fail without much guidance for what caused the issue. Here are a few tips for working through these issues.
+
 - Double-check that transformations for previous years aren't impacted.
 - Start by reviewing the resources used by your form. For example, if you're trying to transform a 990-PF document, then go to `Stylesheets/{year}/IRS990PF.xsl`. Each stylesheet starts with a series of `<xsl:include>` elements. These should be the only files you need to review.
 - For each file, review what changed in your import. The git command `git show HEAD -- mef/Stylesheets/{year}/{filename}.xsl` is a helpful tool. This assumes you're testing immediately after committing the initial import. Replace `HEAD` as necessary with the necessary commit.

@@ -1,20 +1,3 @@
-<!-- This stylesheet was modified on 7/08/2009 for TY2009/PY2010 changes by S. Cram-->
-<!--This stylesheet was modified on 8/26/2009 for TY2009/PY2010 BSP-091865OTH changes by Sandy Cram-->
-<!-- Last modified on 10/28/2009 by Sandy Cram  Updates made per BSP-092774OTH -->
-<!-- Last modified on 01/19/2010 by Sandy Cram  for ITAMS#6646059 -->
-<!-- Last modified on 08/09/2010 by Robert Jones UWR  BSP101944OTH-->
-<!-- Last modified on 08/26/2010 by Robert Jones for UWR BSP-102106OTH --> 
-<!-- Updated 7/21/2011 per UWR 40502 by Robert L Jones -->
-<!-- Updated 2/03/2012 per for IE8 Compliance by Hilda Yang -->
-<!-- Last modified on 03/25/2012 by Robert Jones for TEGE PDF Review based on FINAL F990EZ -->
-<!-- Last modified on 05/31/2012 by Robert Jones per IBM Defect 32748 Part I Not allowing 16 digits. and Part V line 42 foreign choice putting country code and postal code on same line. The part about country code after postal code was not addressed as it is schema issue. -->
-<!-- Last modified on 06/01/2012 by Robert Jones for Defect# 32483 JAWS 508 Compliance Removed all taborder commands -->
-<!--Lisa Lane of NCFB provided a fix to 508 Compliance/Accverify on 6/14/2012-->
-<!-- Last modified on 06/28/2012 by Robert Jones for UWR 58215 -->
-<!-- Last modified on 08/09/2012 by Robert Jones for UWR 58215 -->
-<!-- Last modified on 09/26/2012 by Robert Jones for UWR 58215 -->
-<!-- Last modified on 01/17/2012 by Robert Jones for PDF REVIEW -->
-<!-- Last modified on 01/25/2012 by Robert Jones for IBM Defect 33389 and email from Lisa/Mitchell dated 11/13/2012 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="CommonPathRef.xsl"/>
