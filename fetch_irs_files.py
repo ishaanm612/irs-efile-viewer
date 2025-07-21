@@ -1,10 +1,13 @@
 import asyncio
 import concurrent.futures
+from functools import partial
 import gc
+from operator import methodcaller
 import os
 import shutil
 import subprocess
 import sys
+import time
 
 import aiofiles
 import aiohttp
@@ -22,36 +25,35 @@ import argparse
 
 YEARS = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"]
 
-# Collects mapping EIN -> list[pdf_paths]
-summary_map = defaultdict(list)
-
-
 # -----------------------------------------------------------------------------
 # Helpers
 # -----------------------------------------------------------------------------
 
 
-def process_xml_to_pdf(xml_path: str, pdf_dir: str):
-    """Worker helper to convert a single XML file into a PDF.
+def process_xml_to_pdf(xml_path: str, html_output_dir: str, s3_bucket: str | None):
+    """Worker helper to convert a single XML file and upload it to S3.
 
-    Returns (ein, pdf_path) on success or None on failure.
+    Returns (ein, s3_uri, form_id) on success or None on failure.
     """
     try:
-        # First pass to get metadata for naming
-        meta_preview = transform_xml_to_html(xml_path)
-        ein = meta_preview.get("ein") or "UNKNOWN"
-        tax_year = meta_preview.get("tax_year") or "UNKNOWN"
-        form_id = meta_preview.get("form_id") or "Form"
+        # A dummy path is needed. Its parent directory will be used for output files.
+        dummy_path = Path(html_output_dir) / (Path(xml_path).stem + ".dummy")
 
-        pdf_name = f"{ein}_{tax_year}_{form_id}.pdf"
-        pdf_path = os.path.join(pdf_dir, pdf_name)
+        meta = transform_xml_to_pdf(
+            xml_path=xml_path, output_path=dummy_path, s3_bucket=s3_bucket
+        )
 
-        # Full transform to PDF
-        transform_xml_to_pdf(xml_path=xml_path, pdf_path=pdf_path)
+        if not meta:
+            return None
 
-        return ein, pdf_path
+        return (
+            meta.get("ein"),
+            meta.get("s3_uri"),
+            meta.get("form_id"),
+            meta.get("tax_year"),
+        )
     except Exception as exc:
-        tqdm.write(f"Error converting {xml_path} → PDF: {exc}")
+        tqdm.write(f"Error converting {xml_path}: {exc}")
         return None
 
 
@@ -155,7 +157,10 @@ async def download_handler(
     skip: bool = False,
     output_dir: str = "output",
 ):
-    dest_dir = f"/home/ec2-user/DonorAtlas/990_scrape/990_scrape/data/{year}/"
+    # Collects mapping EIN -> list[pdf_paths]
+    start_time = time.time()
+    summary_map = defaultdict(list)
+    dest_dir = f"/home/ec2-user/DonorAtlas/irs-efile-viewer/data/{year}/"
     os.makedirs(dest_dir, exist_ok=True)
     sem = asyncio.Semaphore(max_concurrent)
     if not skip:
@@ -200,8 +205,8 @@ async def download_handler(
         # ------------------------------------------------------------------
         # Convert extracted XML files to PDFs
         # ------------------------------------------------------------------
-        pdf_dir = os.path.join(output_dir, "pdfs")
-        os.makedirs(pdf_dir, exist_ok=True)
+        html_output_dir = os.path.join(output_dir, "html")
+        os.makedirs(html_output_dir, exist_ok=True)
 
         xml_files = [
             os.path.join(root, fname)
@@ -211,30 +216,54 @@ async def download_handler(
         ]
 
         if xml_files:
+            s3_bucket_name = os.environ.get("S3_BUCKET_NAME")
+
             with concurrent.futures.ProcessPoolExecutor(
                 max_workers=max_concurrent
             ) as pool:
+                worker_func = partial(
+                    process_xml_to_pdf,
+                    html_output_dir=html_output_dir,
+                    s3_bucket=s3_bucket_name,
+                )
                 for res in tqdm(
-                    pool.map(lambda p: process_xml_to_pdf(p, pdf_dir), xml_files),
+                    pool.map(worker_func, xml_files),
                     total=len(xml_files),
-                    desc="XML→PDF",
+                    desc="XML→HTML→S3",
                     unit="file",
+                    leave=False,
                 ):
-                    if res:
-                        ein, pdf_path = res
-                        summary_map[ein].append(pdf_path)
+                    if res and res[0] and res[1]:
+                        ein, s3_uri, form_id, tax_year = res
+                        summary_map[ein].append(
+                            {
+                                "form_type": form_id,
+                                "s3_uri": s3_uri,
+                                "tax_year": tax_year,
+                            }
+                        )
     else:
         tqdm.write(f"Skipping download and unzip for {year}")
 
     # Optionally, run process_board after all unzips for the year
-    run_process_board_on_year(year, dest_dir)
+    # run_process_board_on_year(year, dest_dir)
     shutil.rmtree(dest_dir, ignore_errors=True)
+
+    # Write summary JSON for the year
+    end_time = time.time()
+    tqdm.write(f"Time taken: {end_time - start_time} seconds")
+    summary_out = os.path.join(output_dir, f"{year}_summary.json")
+    Path(summary_out).parent.mkdir(parents=True, exist_ok=True)
+    with open(summary_out, "w", encoding="utf-8") as fp:
+        json.dump({k: v for k, v in summary_map.items()}, fp, indent=2)
+
+    tqdm.write(f"Summary for {year} written to {summary_out}")
 
 
 async def main(*, skip: bool = False, output_dir: str = "output", max_workers: int = 6):
     set_process_priority(0)
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as client:
-        for year in YEARS[-1:]:
+        for year in YEARS[3:]:
             tqdm.write(f"Starting {year}")
             await download_handler(
                 client,
@@ -245,14 +274,6 @@ async def main(*, skip: bool = False, output_dir: str = "output", max_workers: i
             )
             columns, _ = shutil.get_terminal_size(fallback=(100, 24))
             tqdm.write(f"Finished {year}\n{'=' * columns}\n")
-
-    # Write summary JSON
-    summary_out = os.path.join(output_dir, "summary.json")
-    Path(summary_out).parent.mkdir(parents=True, exist_ok=True)
-    with open(summary_out, "w", encoding="utf-8") as fp:
-        json.dump({k: v for k, v in summary_map.items()}, fp, indent=2)
-
-    tqdm.write(f"Summary written to {summary_out}")
 
 
 def parse_args():

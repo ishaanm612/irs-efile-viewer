@@ -3,3 +3,8 @@ _site/
 .jekyll-metadata
 vendor/
 .venv/
+**/__pycache__/
+data/
+output/
+tmp/
+.bundle/
