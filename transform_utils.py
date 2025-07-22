@@ -156,7 +156,7 @@ def transform_xml_to_html(
                     if result:
                         val = (
                             result[0].text
-                            if isinstance(result[0], etree._Element)
+                            if isinstance(result[0], etree._Element)  # type: ignore[attr-defined, protected-access]
                             else result[0]
                         )
                         break
@@ -168,7 +168,7 @@ def transform_xml_to_html(
                 if result:
                     val = (
                         result[0].text
-                        if isinstance(result[0], etree._Element)
+                        if isinstance(result[0], etree._Element)  # type: ignore[attr-defined, protected-access]
                         else result[0]
                     )
             except Exception:
@@ -274,7 +274,7 @@ def transform_xml_to_pdf(
             template_path="/home/ec2-user/DonorAtlas/irs-efile-viewer/form_template.xml",  # Assuming template is in the same directory
             stylesheet_root="/home/ec2-user/DonorAtlas/irs-efile-viewer/mef/Stylesheets",  # Assuming stylesheets are in the same directory
         )
-    except Exception as e:
+    except Exception as _:
         # tqdm.write(f"Error transforming XML to HTML: {e}")
         return None
 
@@ -387,7 +387,7 @@ def transform_xml_to_pdf(
         # delete local file
         output_html.unlink(missing_ok=True)
 
-        meta["s3_uri"] = f"s3://{s3_bucket}/{key}"
+    meta["s3_uri"] = f"s3://{s3_bucket}/{key}"
 
     return meta
 

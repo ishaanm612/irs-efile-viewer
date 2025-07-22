@@ -8,3 +8,5 @@ data/
 output/
 tmp/
 .bundle/
+.vscode/
+.vscode/settings.json
