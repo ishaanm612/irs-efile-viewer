@@ -23,6 +23,11 @@ from transform_utils import transform_xml_to_html, transform_xml_to_pdf
 from tqdm import tqdm
 import argparse
 
+from pebble import ProcessPool
+from concurrent.futures import TimeoutError as PebbleTimeoutError
+
+import aioboto3
+
 YEARS = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"]
 
 # -----------------------------------------------------------------------------
@@ -220,30 +225,47 @@ async def download_handler(
     if xml_files:
         s3_bucket_name = os.environ.get("S3_BUCKET_NAME")
 
-        with concurrent.futures.ProcessPoolExecutor(max_workers=max_concurrent) as pool:
-            worker_func = partial(
-                process_xml_to_pdf,
-                html_output_dir=html_output_dir,
-                s3_bucket=s3_bucket_name,
-            )
-            futures = [pool.submit(worker_func, xml_file) for xml_file in xml_files]
-            for f in tqdm(
-                concurrent.futures.as_completed(futures),
-                total=len(futures),
-                desc="XML→HTML→S3",
-                unit="file",
-                leave=False,
-            ):
-                res = f.result()
-                if res and res[0] and res[1]:
-                    ein, s3_uri, form_id, tax_year = res
-                    summary_map[ein].append(
-                        {
-                            "form_type": form_id,
-                            "s3_uri": s3_uri,
-                            "tax_year": tax_year,
-                        }
-                    )
+        worker_func = partial(
+            process_xml_to_pdf,
+            html_output_dir=html_output_dir,
+            s3_bucket=s3_bucket_name,
+        )
+        completed = 0
+        batch_size = 100
+        futures = []
+        with ProcessPool(max_workers=max_concurrent) as pool:
+            for xml_file in xml_files:
+                futures.append(
+                    pool.schedule(worker_func, args=(xml_file,), timeout=300)
+                )
+            with tqdm(
+                total=len(futures), desc="XML→HTML→S3", unit="file", leave=False
+            ) as pbar:
+                for future in concurrent.futures.as_completed(futures):
+                    try:
+                        res = future.result()
+                        if res and res[0] and res[1]:
+                            ein, s3_uri, form_id, tax_year = res
+                            summary_map[ein].append(
+                                {
+                                    "form_type": form_id,
+                                    "s3_uri": s3_uri,
+                                    "tax_year": tax_year,
+                                }
+                            )
+                    except PebbleTimeoutError:
+                        tqdm.write(
+                            "A file transformation timed out after 5 minutes and was killed."
+                        )
+                    except Exception as exc:
+                        # tqdm.write(f"A file transformation failed: {exc}")
+                        pass
+                    completed += 1
+                    if completed % batch_size == 0:
+                        pbar.update(batch_size)
+                remainder = completed % batch_size
+                if remainder:
+                    pbar.update(remainder)
         tqdm.write("Completed Process Pool")
     else:
         tqdm.write("No XML files found for transformation.")
