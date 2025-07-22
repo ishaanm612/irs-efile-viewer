@@ -380,12 +380,12 @@ def transform_xml_to_pdf(
     meta["html_path"] = str(output_html)
 
     # Upload to S3 if requested
-    if s3_bucket:
-        s3 = boto3.client("s3")
-        key = output_html.name
-        s3.upload_file(str(output_html), s3_bucket, key)
-        # delete local file
-        output_html.unlink(missing_ok=True)
+    key = output_html.name
+    # if s3_bucket:
+    #     s3 = boto3.client("s3")
+    #     s3.upload_file(str(output_html), s3_bucket, key)
+    #     # delete local file
+    #     output_html.unlink(missing_ok=True)
 
     meta["s3_uri"] = f"s3://{s3_bucket}/{key}"
 

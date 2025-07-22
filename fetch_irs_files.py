@@ -269,7 +269,7 @@ async def download_handler(
                 remainder = completed % batch_size
                 if remainder:
                     pbar.update(remainder)
-        tqdm.write("Completed Process Pool")
+        tqdm.write("Completed Process Pool (XML→HTML)")
 
         # Async S3 upload after pool
         if s3_bucket_name:
@@ -332,7 +332,7 @@ async def download_handler(
 async def main(*, skip: bool = False, output_dir: str = "output", max_workers: int = 6):
     set_process_priority(0)
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as client:
-        for year in YEARS[-2:-1]:
+        for year in YEARS[2:3]:
             tqdm.write(f"Starting {year}")
             await download_handler(
                 client,
