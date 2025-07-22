@@ -56,6 +56,7 @@ def process_xml_to_pdf(xml_path: str, html_output_dir: str, s3_bucket: str | Non
             meta.get("s3_uri"),
             meta.get("form_id"),
             meta.get("tax_year"),
+            meta.get("html_path"),
         )
     except Exception as exc:
         tqdm.write(f"Error converting {xml_path}: {exc}")
@@ -154,6 +155,13 @@ async def download_and_extract(client, url, dest_dir, sem):
                 tqdm.write(f"Failed to download {url} (status {resp.status})")
 
 
+async def async_upload_to_s3(
+    file_path: str, s3_bucket: str, s3_key: str, session: aioboto3.Session
+):
+    async with session.client("s3") as s3:
+        await s3.upload_file(file_path, s3_bucket, s3_key)
+
+
 async def download_handler(
     client: aiohttp.ClientSession,
     year: str,
@@ -228,11 +236,12 @@ async def download_handler(
         worker_func = partial(
             process_xml_to_pdf,
             html_output_dir=html_output_dir,
-            s3_bucket=s3_bucket_name,
+            s3_bucket=None,  # Do not upload in worker
         )
         completed = 0
         batch_size = 100
         futures = []
+        results = []
         with ProcessPool(max_workers=max_concurrent) as pool:
             for xml_file in xml_files:
                 futures.append(
@@ -244,20 +253,14 @@ async def download_handler(
                 for future in concurrent.futures.as_completed(futures):
                     try:
                         res = future.result()
-                        if res and res[0] and res[1]:
-                            ein, s3_uri, form_id, tax_year = res
-                            summary_map[ein].append(
-                                {
-                                    "form_type": form_id,
-                                    "s3_uri": s3_uri,
-                                    "tax_year": tax_year,
-                                }
-                            )
+                        if res and res[0] and res[2]:
+                            # We'll upload after pool
+                            results.append(res)
                     except PebbleTimeoutError:
                         tqdm.write(
                             "A file transformation timed out after 5 minutes and was killed."
                         )
-                    except Exception as exc:
+                    except Exception as _:
                         # tqdm.write(f"A file transformation failed: {exc}")
                         pass
                     completed += 1
@@ -267,6 +270,37 @@ async def download_handler(
                 if remainder:
                     pbar.update(remainder)
         tqdm.write("Completed Process Pool")
+
+        # Async S3 upload after pool
+        if s3_bucket_name:
+            session = aioboto3.Session()
+            upload_tasks = []
+            for ein, s3_uri, form_id, tax_year, html_path in results:
+                if html_path and os.path.exists(html_path):
+                    s3_key = os.path.basename(html_path)
+                    upload_tasks.append(
+                        async_upload_to_s3(html_path, s3_bucket_name, s3_key, session)
+                    )
+            if upload_tasks:
+                await asyncio.gather(*upload_tasks)
+                # Delete local files after upload
+                for ein, s3_uri, form_id, tax_year, html_path in results:
+                    if html_path and os.path.exists(html_path):
+                        os.remove(html_path)
+                tqdm.write(
+                    f"Uploaded {len(upload_tasks)} files to S3 and deleted local copies."
+                )
+
+        # Update summary_map with S3 URIs if uploaded
+        for ein, s3_uri, form_id, tax_year, html_path in results:
+            if s3_uri:
+                summary_map[ein].append(
+                    {
+                        "form_type": form_id,
+                        "s3_uri": s3_uri,
+                        "tax_year": tax_year,
+                    }
+                )
     else:
         tqdm.write("No XML files found for transformation.")
 
