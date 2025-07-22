@@ -275,7 +275,7 @@ def transform_xml_to_pdf(
             stylesheet_root="/home/ec2-user/DonorAtlas/irs-efile-viewer/mef/Stylesheets",  # Assuming stylesheets are in the same directory
         )
     except Exception as e:
-        tqdm.write(f"Error transforming XML to HTML: {e}")
+        # tqdm.write(f"Error transforming XML to HTML: {e}")
         return None
 
     if not meta:
@@ -400,10 +400,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     res = transform_xml_to_pdf(
-        xml_path=args.xml_path, output_path=args.output_path, s3_bucket=args.s3_bucket
+        xml_path=args.xml_path,
+        output_path=Path(args.output_path),
+        s3_bucket=args.s3_bucket,
     )
 
     if "s3_uri" in res:
-        tqdm.write("Uploaded to", res["s3_uri"])
+        tqdm.write(f"Uploaded to {res['s3_uri']}")
     else:
-        tqdm.write("Standalone HTML:", res["html_path"])
+        tqdm.write(f"Standalone HTML: {res['html_path']}")

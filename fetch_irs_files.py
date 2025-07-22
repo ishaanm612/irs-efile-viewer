@@ -158,7 +158,7 @@ async def download_handler(
     output_dir: str = "output",
 ):
     # Collects mapping EIN -> list[pdf_paths]
-    start_time = time.time()
+    start_time = time.monotonic()
     summary_map = defaultdict(list)
     dest_dir = f"/home/ec2-user/DonorAtlas/irs-efile-viewer/data/{year}/"
     os.makedirs(dest_dir, exist_ok=True)
@@ -201,57 +201,70 @@ async def download_handler(
                     for f in futures:
                         f.result()
                         unzip_pbar.update(1)
-
-        # ------------------------------------------------------------------
-        # Convert extracted XML files to PDFs
-        # ------------------------------------------------------------------
-        html_output_dir = os.path.join(output_dir, "html")
-        os.makedirs(html_output_dir, exist_ok=True)
-
-        xml_files = [
-            os.path.join(root, fname)
-            for root, _, files in os.walk(dest_dir)
-            for fname in files
-            if fname.lower().endswith(".xml")
-        ]
-
-        if xml_files:
-            s3_bucket_name = os.environ.get("S3_BUCKET_NAME")
-
-            with concurrent.futures.ProcessPoolExecutor(
-                max_workers=max_concurrent
-            ) as pool:
-                worker_func = partial(
-                    process_xml_to_pdf,
-                    html_output_dir=html_output_dir,
-                    s3_bucket=s3_bucket_name,
-                )
-                for res in tqdm(
-                    pool.map(worker_func, xml_files),
-                    total=len(xml_files),
-                    desc="XML→HTML→S3",
-                    unit="file",
-                    leave=False,
-                ):
-                    if res and res[0] and res[1]:
-                        ein, s3_uri, form_id, tax_year = res
-                        summary_map[ein].append(
-                            {
-                                "form_type": form_id,
-                                "s3_uri": s3_uri,
-                                "tax_year": tax_year,
-                            }
-                        )
     else:
         tqdm.write(f"Skipping download and unzip for {year}")
+
+    # ------------------------------------------------------------------
+    # Convert extracted XML files to PDFs (always run this part)
+    # ------------------------------------------------------------------
+    html_output_dir = os.path.join(output_dir, "html")
+    os.makedirs(html_output_dir, exist_ok=True)
+
+    xml_files = [
+        os.path.join(root, fname)
+        for root, _, files in os.walk(dest_dir)
+        for fname in files
+        if fname.lower().endswith(".xml")
+    ]
+
+    if xml_files:
+        s3_bucket_name = os.environ.get("S3_BUCKET_NAME")
+
+        with concurrent.futures.ProcessPoolExecutor(max_workers=max_concurrent) as pool:
+            worker_func = partial(
+                process_xml_to_pdf,
+                html_output_dir=html_output_dir,
+                s3_bucket=s3_bucket_name,
+            )
+            futures = [pool.submit(worker_func, xml_file) for xml_file in xml_files]
+            for f in tqdm(
+                concurrent.futures.as_completed(futures),
+                total=len(futures),
+                desc="XML→HTML→S3",
+                unit="file",
+                leave=False,
+            ):
+                res = f.result()
+                if res and res[0] and res[1]:
+                    ein, s3_uri, form_id, tax_year = res
+                    summary_map[ein].append(
+                        {
+                            "form_type": form_id,
+                            "s3_uri": s3_uri,
+                            "tax_year": tax_year,
+                        }
+                    )
+        tqdm.write("Completed Process Pool")
+    else:
+        tqdm.write("No XML files found for transformation.")
+
+    tqdm.write("Completed XML→HTML→S3")
 
     # Optionally, run process_board after all unzips for the year
     # run_process_board_on_year(year, dest_dir)
     shutil.rmtree(dest_dir, ignore_errors=True)
 
     # Write summary JSON for the year
-    end_time = time.time()
-    tqdm.write(f"Time taken: {end_time - start_time} seconds")
+    end_time = time.monotonic()
+    elapsed_time = end_time - start_time
+    hours, rem = divmod(elapsed_time, 3600)
+    minutes, seconds = divmod(rem, 60)
+    if hours >= 1:
+        tqdm.write(f"Time taken: {int(hours)}h {int(minutes)}m {seconds:.2f}s")
+    elif minutes >= 1:
+        tqdm.write(f"Time taken: {int(minutes)}m {seconds:.2f}s")
+    else:
+        tqdm.write(f"Time taken: {seconds:.2f}s")
     summary_out = os.path.join(output_dir, f"{year}_summary.json")
     Path(summary_out).parent.mkdir(parents=True, exist_ok=True)
     with open(summary_out, "w", encoding="utf-8") as fp:
@@ -263,7 +276,7 @@ async def download_handler(
 async def main(*, skip: bool = False, output_dir: str = "output", max_workers: int = 6):
     set_process_priority(0)
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as client:
-        for year in YEARS[3:]:
+        for year in YEARS[-2:-1]:
             tqdm.write(f"Starting {year}")
             await download_handler(
                 client,
