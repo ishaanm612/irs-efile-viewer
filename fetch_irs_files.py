@@ -9,6 +9,7 @@ import subprocess
 import sys
 import time
 
+import botocore.exceptions
 import aiofiles
 import aiohttp
 import libarchive
@@ -18,7 +19,7 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-from transform_utils import transform_xml_to_html, transform_xml_to_pdf
+from transform_utils import TransformError, transform_xml_to_html, transform_xml_to_pdf
 
 from tqdm import tqdm
 import argparse
@@ -27,8 +28,28 @@ from pebble import ProcessPool
 from concurrent.futures import TimeoutError as PebbleTimeoutError
 
 import aioboto3
+import logging
+from datetime import datetime
+
+# Global failure counter
+failure_count = 0
+FAILURE_LOGFILE = "failures.log"
+
+
+def log_failure(context: str, exc: Exception):
+    """Log a failure with context and exception details, increment failure counter."""
+    global failure_count
+    failure_count += 1
+    if not os.path.exists(FAILURE_LOGFILE):
+        with open(FAILURE_LOGFILE, "w", encoding="utf-8") as logf:
+            logf.write(f"[{datetime.now().isoformat()}] {context}: {repr(exc)}\n")
+    with open(FAILURE_LOGFILE, "a", encoding="utf-8") as logf:
+        logf.write(f"[{datetime.now().isoformat()}] {context}: {repr(exc)}\n")
+
 
 YEARS = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"]
+
+CONCURRENT_UPLOAD_LIMIT = 200
 
 # -----------------------------------------------------------------------------
 # Helpers
@@ -48,8 +69,8 @@ def process_xml_to_pdf(xml_path: str, html_output_dir: str, s3_bucket: str | Non
             xml_path=xml_path, output_path=dummy_path, s3_bucket=s3_bucket
         )
 
-        if not meta:
-            return None
+        if type(meta).__name__ == "TransformError" or not meta:
+            return meta
 
         return (
             meta.get("ein"),
@@ -60,6 +81,7 @@ def process_xml_to_pdf(xml_path: str, html_output_dir: str, s3_bucket: str | Non
         )
     except Exception as exc:
         tqdm.write(f"Error converting {xml_path}: {exc}")
+        log_failure(f"process_xml_to_pdf: {xml_path}", exc)
         return None
 
 
@@ -123,11 +145,13 @@ def extract_zip_libarchive(zip_path, out_dir):
                     for block in entry.get_blocks():
                         f.write(block)
     except libarchive.exception.ArchiveError as e:
+        log_failure(f"extract_zip_libarchive (libarchive): {zip_path}", e)
         try:
             with zipfile.ZipFile(zip_path, "r") as zip_ref:
                 zip_ref.extractall(out_dir)
-        except Exception as e:
-            tqdm.write(f"Error extracting {zip_path} with zipfile: {e}")
+        except Exception as e2:
+            tqdm.write(f"Error extracting {zip_path} with zipfile: {e2}")
+            log_failure(f"extract_zip_libarchive (zipfile): {zip_path}", e2)
 
 
 async def download_and_extract(client, url, dest_dir, sem):
@@ -135,31 +159,66 @@ async def download_and_extract(client, url, dest_dir, sem):
         filename = os.path.join(dest_dir, url.split("/")[-1])
         if not await test_url(client, url):
             return
-        async with client.get(url, timeout=aiohttp.ClientTimeout(total=300)) as resp:
-            if resp.status == 200:
-                total = int(resp.headers.get("Content-Length", 0))
-                f = await aiofiles.open(filename, mode="wb")
-                with tqdm(
-                    total=total,
-                    unit="B",
-                    unit_scale=True,
-                    desc=os.path.basename(filename),
-                    leave=False,
-                ) as pbar:
-                    async for chunk in resp.content.iter_chunked(1024 * 32):
-                        await f.write(chunk)
-                        pbar.update(len(chunk))
-                await f.close()
-                tqdm.write(f"Downloaded {filename}")
-            else:
-                tqdm.write(f"Failed to download {url} (status {resp.status})")
+        try:
+            async with client.get(
+                url, timeout=aiohttp.ClientTimeout(total=300)
+            ) as resp:
+                if resp.status == 200:
+                    total = int(resp.headers.get("Content-Length", 0))
+                    f = await aiofiles.open(filename, mode="wb")
+                    with tqdm(
+                        total=total,
+                        unit="B",
+                        unit_scale=True,
+                        desc=os.path.basename(filename),
+                        leave=False,
+                    ) as pbar:
+                        async for chunk in resp.content.iter_chunked(1024 * 32):
+                            await f.write(chunk)
+                            pbar.update(len(chunk))
+                    await f.close()
+                    tqdm.write(f"Downloaded {filename}")
+                else:
+                    tqdm.write(f"Failed to download {url} (status {resp.status})")
+                    log_failure(
+                        f"download_and_extract: {url}",
+                        Exception(f"HTTP status {resp.status}"),
+                    )
+        except Exception as exc:
+            tqdm.write(f"Error downloading {url}: {exc}")
+            log_failure(f"download_and_extract: {url}", exc)
 
 
 async def async_upload_to_s3(
-    file_path: str, s3_bucket: str, s3_key: str, session: aioboto3.Session
+    file_path: str,
+    s3_bucket: str,
+    s3_key: str,
+    s3: aioboto3.Session.client,
+    sem: asyncio.Semaphore,
 ):
-    async with session.client("s3") as s3:
-        await s3.upload_file(file_path, s3_bucket, s3_key)
+    async with sem:
+        try:
+            await s3.upload_file(file_path, s3_bucket, s3_key)
+        except botocore.exceptions.NoCredentialsError as e:
+            tqdm.write(f"No credentials found for {s3_bucket}: {e}")
+            log_failure(f"async_upload_to_s3: {file_path} to {s3_bucket}/{s3_key}", e)
+            return
+        except Exception as e:
+            tqdm.write(f"Error uploading to S3: {e}")
+            log_failure(f"async_upload_to_s3: {file_path} to {s3_bucket}/{s3_key}", e)
+            return
+
+
+def batched_file_generator(directory, batch_size):
+    """Yield batches of XML files from a directory."""
+    batch = []
+    for file in Path(directory).rglob("*.xml"):
+        batch.append(file)
+        if len(batch) == batch_size:
+            yield batch
+            batch = []
+    if batch:
+        yield batch
 
 
 async def download_handler(
@@ -169,6 +228,8 @@ async def download_handler(
     max_concurrent: int = 6,
     skip: bool = False,
     output_dir: str = "output",
+    batch_size: int = 10000,
+    skip_delete: bool = False,
 ):
     # Collects mapping EIN -> list[pdf_paths]
     start_time = time.monotonic()
@@ -223,66 +284,79 @@ async def download_handler(
     html_output_dir = os.path.join(output_dir, "html")
     os.makedirs(html_output_dir, exist_ok=True)
 
-    xml_files = [
-        os.path.join(root, fname)
-        for root, _, files in os.walk(dest_dir)
-        for fname in files
-        if fname.lower().endswith(".xml")
-    ]
+    xml_dir = dest_dir
+    # Use batched_file_generator instead of flat list
+    batches = list(batched_file_generator(xml_dir, batch_size))
+    total_files = sum(len(batch) for batch in batches)
 
-    if xml_files:
+    if total_files:
         s3_bucket_name = os.environ.get("S3_BUCKET_NAME")
-
         worker_func = partial(
             process_xml_to_pdf,
             html_output_dir=html_output_dir,
             s3_bucket=None,  # Do not upload in worker
         )
-        completed = 0
-        batch_size = 100
-        futures = []
         results = []
+        completed = 0
         with ProcessPool(max_workers=max_concurrent) as pool:
-            for xml_file in xml_files:
-                futures.append(
-                    pool.schedule(worker_func, args=(xml_file,), timeout=300)
-                )
             with tqdm(
-                total=len(futures), desc="XML→HTML→S3", unit="file", leave=False
+                total=total_files, desc="XML→HTML", unit="file", leave=False
             ) as pbar:
-                for future in concurrent.futures.as_completed(futures):
-                    try:
-                        res = future.result()
-                        if res and res[0] and res[2]:
-                            # We'll upload after pool
-                            results.append(res)
-                    except PebbleTimeoutError:
-                        tqdm.write(
-                            "A file transformation timed out after 5 minutes and was killed."
-                        )
-                    except Exception as _:
-                        # tqdm.write(f"A file transformation failed: {exc}")
-                        pass
-                    completed += 1
-                    if completed % batch_size == 0:
-                        pbar.update(batch_size)
-                remainder = completed % batch_size
-                if remainder:
-                    pbar.update(remainder)
+                for batch in batches:
+                    futures = [
+                        pool.schedule(worker_func, args=(str(xml_file),), timeout=300)
+                        for xml_file in batch
+                    ]
+                    for future in concurrent.futures.as_completed(futures):
+                        try:
+                            res = future.result()
+                            if (
+                                res
+                                and not type(res).__name__ == "TransformError"
+                                and res[0]
+                                and res[2]
+                            ):
+                                results.append(res)
+                            elif type(res).__name__ == "TransformError":
+                                log_failure(f"ProcessPool XML→HTML: {year}", res)
+                            else:
+                                log_failure(f"ProcessPool XML→HTML: {year}", res)
+                                continue
+                        except PebbleTimeoutError as exc:
+                            tqdm.write(
+                                "A file transformation timed out after 5 minutes and was killed."
+                            )
+                            log_failure(f"ProcessPool XML→HTML: {year}", exc)
+                        except Exception as exc:
+                            log_failure(f"ProcessPool XML→HTML: {year}", exc)
+                        completed += 1
+                        pbar.update(1)
         tqdm.write("Completed Process Pool (XML→HTML)")
 
         # Async S3 upload after pool
+        sem = asyncio.Semaphore(CONCURRENT_UPLOAD_LIMIT)
         if s3_bucket_name:
             session = aioboto3.Session()
             upload_tasks = []
-            for ein, s3_uri, form_id, tax_year, html_path in results:
-                if html_path and os.path.exists(html_path):
-                    s3_key = os.path.basename(html_path)
-                    upload_tasks.append(
-                        async_upload_to_s3(html_path, s3_bucket_name, s3_key, session)
-                    )
+            async with session.client("s3") as s3:
+                for ein, s3_uri, form_id, tax_year, html_path in results:
+                    if html_path and os.path.exists(html_path):
+                        s3_key = os.path.basename(html_path)
+                        upload_tasks.append(
+                            async_upload_to_s3(
+                                html_path, s3_bucket_name, s3_key, s3, sem
+                            )
+                        )
             if upload_tasks:
-                await asyncio.gather(*upload_tasks)
+                with tqdm(
+                    total=len(upload_tasks),
+                    desc="HTML→S3",
+                    unit="file",
+                    leave=False,
+                ) as upload_pbar:
+                    for coro in asyncio.as_completed(upload_tasks):
+                        await coro
+                        upload_pbar.update(1)
                 # Delete local files after upload
                 for ein, s3_uri, form_id, tax_year, html_path in results:
                     if html_path and os.path.exists(html_path):
@@ -308,7 +382,10 @@ async def download_handler(
 
     # Optionally, run process_board after all unzips for the year
     # run_process_board_on_year(year, dest_dir)
-    shutil.rmtree(dest_dir, ignore_errors=True)
+    if not skip_delete:
+        shutil.rmtree(dest_dir, ignore_errors=True)
+    else:
+        tqdm.write(f"Skipping deletion of {dest_dir} due to --skip-delete flag.")
 
     # Write summary JSON for the year
     end_time = time.monotonic()
@@ -327,12 +404,20 @@ async def download_handler(
         json.dump({k: v for k, v in summary_map.items()}, fp, indent=2)
 
     tqdm.write(f"Summary for {year} written to {summary_out}")
+    tqdm.write(f"Failures so far: {failure_count}")
 
 
-async def main(*, skip: bool = False, output_dir: str = "output", max_workers: int = 6):
+async def main(
+    *,
+    skip: bool = False,
+    output_dir: str = "output",
+    max_workers: int = 6,
+    skip_delete: bool = False,
+):
     set_process_priority(0)
+    BATCH_SIZE = 10000  # Set your desired batch size here
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as client:
-        for year in YEARS[2:3]:
+        for year in YEARS[3:4]:
             tqdm.write(f"Starting {year}")
             await download_handler(
                 client,
@@ -340,9 +425,12 @@ async def main(*, skip: bool = False, output_dir: str = "output", max_workers: i
                 max_concurrent=max_workers,
                 skip=skip,
                 output_dir=output_dir,
+                batch_size=BATCH_SIZE,
+                skip_delete=skip_delete,
             )
             columns, _ = shutil.get_terminal_size(fallback=(100, 24))
             tqdm.write(f"Finished {year}\n{'=' * columns}\n")
+        tqdm.write(f"Total failures: {failure_count}")
 
 
 def parse_args():
@@ -353,25 +441,31 @@ def parse_args():
         help="Skip both download and unzip steps (process only)",
     )
     parser.add_argument(
-        "--output-dir",
-        default="output",
-        help="Directory where PDFs and summary.json will be written (default: output)",
-    )
-    parser.add_argument(
         "--max-workers",
         type=int,
         default=6,
         help="Maximum parallel workers for unzip and PDF transform",
     )
+    parser.add_argument(
+        "--skip-delete",
+        action="store_true",
+        help="Do not delete the data XML files after processing",
+    )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
+    OUTPUT_DIR = "/home/ec2-user/DonorAtlas/irs-efile-viewer/output"
+    if os.path.exists(FAILURE_LOGFILE):
+        os.remove(FAILURE_LOGFILE)
     try:
         args = parse_args()
         asyncio.run(
             main(
-                skip=args.skip, output_dir=args.output_dir, max_workers=args.max_workers
+                skip=args.skip,
+                output_dir=OUTPUT_DIR,
+                max_workers=args.max_workers,
+                skip_delete=args.skip_delete,
             )
         )
     except KeyboardInterrupt:

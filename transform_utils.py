@@ -21,6 +21,7 @@ import base64
 import mimetypes
 import os
 import re
+import sys
 import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -35,6 +36,18 @@ from tqdm import tqdm
 load_dotenv()
 
 S3_BUCKET = os.getenv("S3_BUCKET_NAME")
+
+
+class TransformError(Exception):
+    """Custom exception for errors during XML transformation."""
+
+    def __init__(self, message: str):
+        super().__init__(message)
+        self.message = message
+
+    def __str__(self):
+        return f"TransformError: {self.message}"
+
 
 # ---------------------------------------------------------------------------
 # Helper functions (mostly lifted from main.py)
@@ -189,6 +202,7 @@ def transform_xml_to_html(
         raise FileNotFoundError(f"Stylesheet not found: {stylesheet_path}")
 
     # 6. Run XSLT
+    tqdm.write(f"Running XSLT for {xml_path} with stylesheet {stylesheet_path}")
     xslt = etree.parse(stylesheet_path)
     transform = etree.XSLT(xslt)
     html_dom = transform(template_dom)
@@ -274,12 +288,14 @@ def transform_xml_to_pdf(
             template_path="/home/ec2-user/DonorAtlas/irs-efile-viewer/form_template.xml",  # Assuming template is in the same directory
             stylesheet_root="/home/ec2-user/DonorAtlas/irs-efile-viewer/mef/Stylesheets",  # Assuming stylesheets are in the same directory
         )
-    except Exception as _:
+    except Exception as e:
         # tqdm.write(f"Error transforming XML to HTML: {e}")
-        return None
+        return TransformError(
+            f"Error transforming XML to HTML: {e.with_traceback()} {xml_path}"
+        )
 
     if not meta:
-        return None
+        return TransformError("No metadata found after transformation.")
 
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -394,9 +410,9 @@ def transform_xml_to_pdf(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--xml_path", type=str, required=True)
-    parser.add_argument("--output_path", type=str, required=True)
-    parser.add_argument("--s3_bucket", type=str)
+    parser.add_argument("--xml-path", type=str, required=True)
+    parser.add_argument("--output-path", type=str, required=True)
+    parser.add_argument("--s3-bucket", type=str)
     args = parser.parse_args()
 
     res = transform_xml_to_pdf(
@@ -404,6 +420,10 @@ if __name__ == "__main__":
         output_path=Path(args.output_path),
         s3_bucket=args.s3_bucket,
     )
+
+    if type(res).__name__ == "TransformError":
+        tqdm.write(f"{res}")
+        sys.exit(1)
 
     if "s3_uri" in res:
         tqdm.write(f"Uploaded to {res['s3_uri']}")
