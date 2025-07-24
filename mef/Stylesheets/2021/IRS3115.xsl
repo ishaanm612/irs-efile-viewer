@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;">]><xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:include href="PopulateTemplate.xsl"/>
 <xsl:include href="CommonPathRef.xsl"/>
@@ -54,7 +54,7 @@
         <div class="styMainTitle" style="float:left; border-left:1px solid black; border-right:1px solid black; width:125mm; height:17.5mm; text-align:center; padding-top:7mm;">
           Application for Change in Accounting Method          
 			<span style="text-align:center;margin-left:0mm;font-weight:bold;font-size: 8pt">
-				<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/> 
+				<img src="{$ImagePath}/3115_Bullet.gif" alt="MediumBullet"/> 
 				Information about Form 3115 and its separate instructions is at 
 				<a href="http://www.irs.gov/form3115" title="Link to IRS.gov">
 					<i>www.irs.gov/form3115</i>
@@ -317,16 +317,13 @@
         </div>        
       </div>  
        <div class="styBB" style="width:187mm; height:5mm">        
-			<div style="padding-top:0.5mm;padding-left:2px">If the applicant is a member of a consolidated group, check this box
-			
-			</div> 
         <span style="float:left">
           <label>
             <xsl:call-template name="PopulateLabelYes">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IsMemberOfConsolidatedGroupInd"/>
             <xsl:with-param name="BackupName">Is Member Of Consolidated Group</xsl:with-param>  
             </xsl:call-template>   
-            
+            If the applicant is a member of a consolidated group, check this box
           </label>
         </span>
         <span style="float:right; margin-right:15mm">
@@ -335,13 +332,13 @@
             <xsl:call-template name="SetFormLinkInline">
             <xsl:with-param name="TargetNode" select="$Form3115Data/IsMemberOfConsolidatedGroupInd"/>
           </xsl:call-template><span style="width:3px;" />     
-            <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+            <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
           </span>            
           <span>
             <xsl:call-template name="PopulateSpan">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IsMemberOfConsolidatedGroupInd"/>
             </xsl:call-template>
-            <input type="Checkbox" class="styCkbox" alt="Is Member Of Consolidated Group Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IsMemberOfConsolidatedGroupInd"/>
                 <xsl:with-param name="BackupName">Is Member Of Consolidated Group</xsl:with-param>
@@ -350,40 +347,35 @@
           </span>                       
         </span>              
       </div>
-
-         <div class="styBB" style="width:187mm; height:9mm">        
-       <!-- ************************************************************************************  -->
-        <div style="width:187mm">If <b>Form 2848</b>, Power of Attorney and Declaration of Representative, is attached (see instructions for when Form 2848 is required),<br/>  check this box 
-        <span class="styDotLn" style="padding-right:5mm;float:none;clear:none;">      
-            ..................................    
-            <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>          
-          </span> 
-        
-        
       <!-- ************************************************************************************  -->
-        <span>
+        <div style="width:187mm">If <b>Form 2848</b>, Power of Attorney and Declaration of Representative, is attached (see instructions for when Form 2848 is required), </div>
+      <!-- ************************************************************************************  -->
+         <div class="styBB" style="width:187mm; height:5mm">        
+        <span style="float:left">
           <label>
             <xsl:call-template name="PopulateLabelYes">
               <xsl:with-param name="TargetNode" select="$Form3115Data/ApplicantAttachedFormInd"/>
              <xsl:with-param name="BackupName">Has Applicant Attached Form2848</xsl:with-param> 
-            </xsl:call-template>                     
+            </xsl:call-template> check this box                      
           </label>
         </span>
-        <span>
-                   
+        <span style="float:right; margin-right:15mm">
+          <span class="styDotLn" style="padding-right:5mm">      
+            .................................    
+            <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>          
+          </span>          
           <span>
             <xsl:call-template name="PopulateSpan">
               <xsl:with-param name="TargetNode" select="$Form3115Data/ApplicantAttachedFormInd"/>
             </xsl:call-template>
-            <input type="Checkbox" class="styCkbox"  alt="Applicant Attached Form Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/ApplicantAttachedFormInd"/>
                <xsl:with-param name="BackupName">Has Applicant Attached Form2848</xsl:with-param> 
               </xsl:call-template>
             </input>  
           </span>
-        </span>
-          </div>  
+        </span>    
       </div>
       <!-- ************************************************************************************  -->
        <div class="styBB" style="width:187mm">
@@ -392,7 +384,7 @@
           <div style="float:left; width:59mm; margin-top:2mm">    
             <div style="width:100%">      
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Individual Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/IndividualInd"/>
                     <xsl:with-param name="BackupName">Who Is Filing Form/Individual</xsl:with-param>
@@ -405,13 +397,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/IndividualInd"/>
                    <xsl:with-param name="BackupName">Who Is Filing Form/Individual</xsl:with-param> 
                   </xsl:call-template>   
-                 </label>  
+                  Individual
+                </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">Individual</div>
             </div>  
             <div style="margin-top:0.5mm">
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Corporation Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/CorporationInd"/>
                  <xsl:with-param name="BackupName">Who Is Filing FormCorporation</xsl:with-param>   
@@ -424,13 +416,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/CorporationInd"/>
                    <xsl:with-param name="BackupName">Who Is Filing FormCorporation</xsl:with-param>    
                   </xsl:call-template>   
-               </label>  
+                  Corporation
+                </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">Corporation</div>
             </div>
             <div style="margin-top:0.5mm">
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Controlled Foreign Corporation Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/ControlledForeignCorpInd"/>
                     <xsl:with-param name="BackupName">Controlled Foreign Corporation</xsl:with-param>   
@@ -443,13 +435,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/ControlledForeignCorpInd"/>
                      <xsl:with-param name="BackupName">Controlled Foreign Corporation</xsl:with-param>  
                   </xsl:call-template>   
-                 </label>  
-              </div>
-              <div style="padding-top:.7mm;padding-left:2px">Controlled foreign corporation<span style="font-size: 6.5pt">(Sec. 957)</span></div>    
+                  Controlled foreign corporation<span style="font-size: 6.5pt">(Sec. 957)</span>
+                </label>  
+              </div>    
             </div>
             <div style="margin-top:0.5mm">
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Corporation 1050 Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/Corporation1050Ind"/>
                    <xsl:with-param name="BackupName">Corporation1050</xsl:with-param>  
@@ -461,13 +453,13 @@
                   <xsl:call-template name="PopulateLabel"><xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/Corporation1050Ind"/>
                  <xsl:with-param name="BackupName">Corporation1050</xsl:with-param> 
                   </xsl:call-template>   
-                 </label>  
+                  10/50 corporation (Sec. 904(d)(2)(E))
+                </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">10/50 corporation (Sec. 904(d)(2)(E))</div>
             </div>
             <div style="margin-top:0.5mm">
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Qualified Personal Service Corporation Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/QualifiedPersonalSrvcCorpInd"/>
                     <xsl:with-param name="BackupName">Qualified Personal Service Corp</xsl:with-param>
@@ -480,13 +472,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/QualifiedPersonalSrvcCorpInd"/>
                  <xsl:with-param name="BackupName">Qualified Personal Service Corp</xsl:with-param>   
                   </xsl:call-template>   
-                 </label>  
-              </div>
-               <div style="padding-top:.7mm;padding-left:2px">Qualified personal service<br/>corporation (Sec. 448(d)(2))</div> 
+                  Qualified personal service<br/>corporation (Sec. 448(d)(2))
+                </label>  
+              </div>                        
             </div>
             <div style="margin-top:0.5mm">
 				<div class="styIRS3115ChxBoxDiv">
-					<input type="Checkbox" class="styCkbox" alt="Exempt Organization Indicator">
+					<input type="Checkbox" class="styCkbox">
 					  <xsl:call-template name="PopulateCheckbox">
 						<xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/ExemptOrganizationInd"/>
 						<xsl:with-param name="BackupName">Exempt Organization</xsl:with-param>  
@@ -499,23 +491,21 @@
 						<xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/ExemptOrganizationInd"/>
 						 <xsl:with-param name="BackupName">Exempt Organization</xsl:with-param> 
 					  </xsl:call-template>   
-					</label>                            
-			   </div>
-			       <div style="padding-top:.7mm;padding-left:2px">Exempt organization. Enter Code <br/> section
-						<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
-							<span style="width:1mm;"/>  
-							<span style="border-bottom:1px solid black; width:35mm;font-size:8pt;padding-left:.5mm;">           
-								<xsl:call-template name="PopulateText">
-								  <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/ExemptOrganizationInd/@codeSectionTxt"/>
-								</xsl:call-template>  
-							</span>
-					</div>     
+					  Exempt organization. Enter Code <br/> section                                            
+					</label><img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
+						<span style="width:1mm;"/>  
+					<span style="border-bottom:1px solid black; width:35mm;font-size:8pt;padding-left:.5mm;">           
+						<xsl:call-template name="PopulateText">
+						  <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/ExemptOrganizationInd/@codeSectionTxt"/>
+						</xsl:call-template>  
+					</span>                            
+			  </div>      
             </div>
            </div>
            <div style="float:left; margin-top:2mm;width:48mm;">  
             <div style="width:100%">
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Cooperative Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/CooperativeInd"/>
                  <xsl:with-param name="BackupName">Cooperative</xsl:with-param>   
@@ -528,13 +518,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/CooperativeInd"/>
                     <xsl:with-param name="BackupName">Cooperative</xsl:with-param>  
                   </xsl:call-template>   
-                 </label>  
+                  Cooperative (Sec. 1381)
+                </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">Cooperative (Sec. 1381)</div> 
             </div>    
             <div style="margin-top:0.5mm">  
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Partnership Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/PartnershipInd"/>
                    <xsl:with-param name="BackupName">Partnership</xsl:with-param>   
@@ -547,14 +537,14 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/PartnershipInd"/>
                     <xsl:with-param name="BackupName">Partnership</xsl:with-param> 
                   </xsl:call-template>   
-                 </label>  
+                  Partnership
+                </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">Partnership</div>
             </div>    
             <br/>
             <div style="margin-top:0.5mm">  
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="S Corporation Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/SCorporationInd"/>
                   <xsl:with-param name="BackupName">SCorporation</xsl:with-param>   
@@ -567,13 +557,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/SCorporationInd"/>
                     <xsl:with-param name="BackupName">SCorporation</xsl:with-param>   
                  </xsl:call-template>   
-                 </label>  
-              </div>
-              <div style="padding-top:.7mm;padding-left:2px">S corporation</div>      
+                  S corporation
+                </label>  
+              </div>      
             </div>    
             <div style="margin-top:0.5mm">    
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Insurance Company Section 816a Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/InsuranceCompanySect816aInd"/>
                     <xsl:with-param name="BackupName">Insurance Company Sect816a</xsl:with-param>   
@@ -586,13 +576,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/InsuranceCompanySect816aInd"/>
                     <xsl:with-param name="BackupName">Insurance Company Sect816a</xsl:with-param>  
                   </xsl:call-template>   
+                  Insurance co. (Sec. 816(a))
                 </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">Insurance co. (Sec. 816(a))</div>
             </div>    
             <div style="margin-top:0.5mm">  
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Insurance Company Section 831 Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/InsuranceCompanySect831Ind"/>
                     <xsl:with-param name="BackupName">Insurance Company Sect831</xsl:with-param>  
@@ -605,9 +595,9 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/InsuranceCompanySect831Ind"/>
                     <xsl:with-param name="BackupName">Insurance Company Sect831</xsl:with-param> 
                   </xsl:call-template>   
+                  Insurance co. (Sec. 831)
                 </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">Insurance co. (Sec. 831)</div>
             </div>    
             <div style="margin-top:0.5mm">  
               <div style="float:left">  
@@ -622,15 +612,14 @@
                   <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/OtherApplicantTypeInd"/>
                    <xsl:with-param name="BackupName">WhoIsFilingOtherApplicantType</xsl:with-param>
                   </xsl:call-template>   
+                  Other (specify) <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>                                     
                 </label>  
-              </div>
-               <div style="padding-top:.7mm;padding-left:2px">Other (specify) <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
-					<span style="border-bottom:1px solid black; width:14mm;font-size:8pt;">
-					  <xsl:call-template name="PopulateText">
-						<xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/OtherApplicantTypeInd/@desc"/>
-					  </xsl:call-template>  
-					</span>
-               </div>     
+                <span style="border-bottom:1px solid black; width:14mm;font-size:8pt;">
+                  <xsl:call-template name="PopulateText">
+                    <xsl:with-param name="TargetNode" select="$Form3115Data/WhoIsFilingForm/OtherApplicantTypeInd/@desc"/>
+                  </xsl:call-template>  
+                </span>
+              </div>      
             </div>                    
           </div>
         </div>
@@ -639,7 +628,7 @@
           <div style="margin-top:3.5mm">
             <div style="width:100%">
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Depreciation Or Amortization Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/TypeOfAccountingMethod/DepreciationOrAmortizationInd"/>
                    <xsl:with-param name="BackupName">DepreciationOrAmortization</xsl:with-param>   
@@ -652,13 +641,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/TypeOfAccountingMethod/DepreciationOrAmortizationInd"/>
                     <xsl:with-param name="BackupName">DepreciationOrAmortization</xsl:with-param>
                   </xsl:call-template>   
+                  Depreciation or Amortization
                 </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">Depreciation or Amortization</div>
             </div>
             <div style="margin-top:0.5mm">
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Financial Products And Activities Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/TypeOfAccountingMethod/FinclProductsAndActivitiesInd"/>
                     <xsl:with-param name="BackupName">Financial Products And Activities</xsl:with-param>
@@ -671,13 +660,13 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/TypeOfAccountingMethod/FinclProductsAndActivitiesInd"/>
                      <xsl:with-param name="BackupName">Financial Products And Activities</xsl:with-param>
                   </xsl:call-template>   
-                 </label>  
+                  Financial Products and/or Financial Activities of<br/>Financial Institutions
+                </label>  
               </div>
-              <div style="padding-top:.7mm;padding-left:2px">Financial Products and/or Financial Activities of<br/>Financial Institutions</div>
             </div>
             <div style="margin-top:0.5mm">
               <div class="styIRS3115ChxBoxDiv">
-                <input type="Checkbox" class="styCkbox" alt="Other Applicant Type Indicator">
+                <input type="Checkbox" class="styCkbox">
                   <xsl:call-template name="PopulateCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/TypeOfAccountingMethod/OtherApplicantTypeInd"/>
                      <xsl:with-param name="BackupName">TypeOfAccountingOtherApplicantType</xsl:with-param>
@@ -690,15 +679,14 @@
                     <xsl:with-param name="TargetNode" select="$Form3115Data/TypeOfAccountingMethod/OtherApplicantTypeInd"/>
                     <xsl:with-param name="BackupName">TypeOfAccountingOtherApplicantType</xsl:with-param>
                   </xsl:call-template>   
+                  Other (specify) <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>                                 
                 </label>
-              </div>
-              <div style="padding-top:.7mm;padding-left:2px">Other (specify) <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
-					<span style="border-bottom:1px solid black; width:40mm; float:right">
-						<xsl:call-template name="PopulateText">
-						  <xsl:with-param name="TargetNode" select="$Form3115Data/TypeOfAccountingMethod/OtherApplicantTypeInd/@desc"/>
-						</xsl:call-template>    
-				   </span> 
-                </div>      
+                <span style="border-bottom:1px solid black; width:40mm; float:right">
+					<xsl:call-template name="PopulateText">
+					  <xsl:with-param name="TargetNode" select="$Form3115Data/TypeOfAccountingMethod/OtherApplicantTypeInd/@desc"/>
+					</xsl:call-template>    
+               </span> 
+              </div>                
             </div>                                    
           </div>  
         </div>        
@@ -816,22 +804,21 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
 						</xsl:choose>
             <br/>
             <span style="font-size:8pt;padding-right:2mm;">b</span>
-            <div style="padding-top:.7mm;padding-left:2px">Other</div>
             <span style="font-size:8pt;padding-right:2mm;">
 				<label>
 				  <xsl:call-template name="PopulateLabel">
 					<xsl:with-param name="TargetNode" select="$Form3115Data/MethodOfAccountingOtherInd"/>
 				   <xsl:with-param name="BackupName">Other Accounting Method</xsl:with-param> 
-				  </xsl:call-template>    
+				  </xsl:call-template>Other    
 				 </label>
-				<input type="Checkbox" class="styCkbox" alt="Method Of Accounting Other Indicator">
+				<input type="Checkbox" class="styCkbox">
 				  <xsl:call-template name="PopulateCheckbox">
 					<xsl:with-param name="TargetNode" select="$Form3115Data/MethodOfAccountingOtherInd"/>
 					<xsl:with-param name="BackupName">Other Accounting Method</xsl:with-param>
 				  </xsl:call-template>
 				</input> 
             </span>
-			<span style="font-size:8pt;padding-right:1mm;">Description  </span><img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>        
+			<span style="font-size:8pt;padding-right:1mm;">Description  </span><img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>        
             <span style="border-bottom:1px solid black; width:115mm; font-size:7pt;padding-left:1mm;">
               <xsl:call-template name="PopulateText">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/MethodOfAccountingOtherInd/@methodOfAccountingOtherDesc"/>
@@ -1032,37 +1019,35 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
       <div class="pageEnd"/>
 		<!-- BEGIN Signature Section -->
 		<!-- Implementing the signature section as a table -->
-		<div  style="width:187mm;font-size:7pt;border-bottom:0px solid black;">
-			<!--<div style="width:187mm;">-->
-				<div class="styMainTitle" style="height:19mm;width:16mm;font-size:11pt;font-weight:bold;border-right:1px solid black;padding-top:5mm;">Sign Here</div>
-				<div style="height:10mm;width:170mm;float:right; clear: none;">
-				<div class="styLNDesc"  style="height:10mm;width:171mm;padding-left:1mm;float:right; clear: none;">Under penalties of perjury, I declare that I have examined this application, including accompanying schedules and statements, and to the best of my knowledge and belief, 
-					the application contains all the relevant facts relating to the application, and it is true, correct, and complete. Declaration of preparer
-					(other than applicant) is based on all information of which preparer has any knowledge. </div>
-				<!--</div>	-->
-				<div style="height:9mm;width:170mm;float:right; clear: none;">
-				<!--<span style="width:3mm;padding-left:1mm;"/>-->
-					<img src="{$ImagePath}/1120_Bullet_Lg.gif" alt="Large Right Arrow Image"/>
-					<div style="height:9mm;width:90mm;border-right:1px solid black;">
+		<table border="0" cellspacing="0" cellpadding="0" style="width:187mm;font-size:6pt;border-bottom:0px solid black;">
+			<tr>
+				<td rowspan="3" style="width:10mm;font-size: 11pt;font-weight:bold;border-right:1px solid black;">Sign Here</td>
+				<td colspan="5" style="padding-left:1mm;padding-bottom:1mm;">Under penalties of perjury, I declare that I have examined this application, including accompanying schedules and statements, and to the best of myknowledge and belief, the application contains all the relevant facts relating to the application, and it is true, correct, and complete. Declaration of preparer
+	(other than applicant) is based on all information of which preparer has any knowledge. </td>
+			</tr>
+			<tr>
+				<td rowspan="2" style="width:3mm;padding-left:1mm;">
+					<img src="{$ImagePath}/1120_Bullet_Lg.gif" alt="LargeBullet"/>
+				</td>
+				<td style="width:100mm;border-right:1px solid black;vertical-align:bottom;">
 				Signature of filer (if a joint return, both sposues must sign.)<br/><br/>
 					<xsl:call-template name="PopulateReturnHeaderOfficer">
 						<xsl:with-param name="TargetNode">TaxpayerPIN</xsl:with-param>
 					</xsl:call-template>
 					<span style="width:1px;"/>
-				</div>
-				<div style="width:20mm;border-right:1px solid black;vertical-align:bottom;padding-left:1mm;">Date<br/><br/> 
+				</td>
+				<td style="width:20mm;border-right:1px solid black;vertical-align:bottom;padding-left:1mm;">Date<br/><br/> 
 					<xsl:call-template name="PopulateReturnHeaderOfficer">
 						<xsl:with-param name="TargetNode">DateSigned</xsl:with-param>
 					</xsl:call-template>
-				</div>
-				<div style="width:50mm;vertical-align:bottom;padding-left:1mm;">Name and title (print or type) <br/><br/>
+				</td>
+				<td style="width:60mm;vertical-align:bottom;padding-left:1mm;">Name and title (print or type) <br/><br/>
 					<xsl:call-template name="PopulateReturnHeaderOfficer">
 						<xsl:with-param name="TargetNode">Title</xsl:with-param>
 					</xsl:call-template>
-				</div>
-				</div>
-			</div>
-		</div>
+				</td>
+			</tr>
+		</table>
 		<!-- END Signature Section -->
 	
 <!--*** Customer reponse for PreparerOtherThanFilerNm/PreparerFirmName/PreparerPersonNm on 10/8/2015 by Dian Cuellar - The element PreparerOtherThanFilerNm is for the Print/Type preparer’s name. The choice is for the Firm Name, to allow the entry of either: Preparer Firm Name or Preparer Person Name.***-->
@@ -1099,7 +1084,7 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
 							  <xsl:when test="normalize-space($Form3115Data/PreparerPersonNm) != ''">
 								<span style="float:left;padding-top:4.8mm;width:20mm;">Firm's name 
 									<span style="width:2.2mm;"/>
-									<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="Right Arrow Image"/>
+									<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="SmallBullet"/>
 									<span style="width:4px;"/>
 								</span>
 							    <span style="width:145mm;float:right;padding-right:.5mm;padding-top:5mm;">
@@ -1111,7 +1096,7 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
 							  <xsl:otherwise>
 								<span style="float:left;padding-top:1.8mm;width:20mm;">Firm's name 
 									<span style="width:2.2mm;"/>
-									<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="Right Arrow Image"/>
+									<img src="{$ImagePath}/1120_Bullet_Sm.gif" alt="SmallBullet"/>
 									<span style="width:4px;"/>
 								</span>
 							    <span style="width:145mm;float:right;padding-right:.5mm;padding-top:2mm;"> 
@@ -1265,7 +1250,7 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
        <span style="width:10mm; margin-left: 6mm">
         Name
       </span>  
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       <span style="border-bottom:1px solid black; width:57mm">
         <xsl:call-template name="PopulateText">
           <xsl:with-param name="TargetNode" select="PersonNm"/>
@@ -1274,7 +1259,7 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
       <span style="width:30mm; margin-left:2mm">
         Telephone number
       </span>  
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       <span style="border-bottom:1px solid black; width:23mm; text-align:center">
         <xsl:call-template name="PopulatePhoneNumber">
           <xsl:with-param name="TargetNode" select="PhoneNum"/>
@@ -1283,7 +1268,7 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
       <span style="margin-left:2mm;width:17mm">
         Tax year(s)
       </span>  
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       <span style="border-bottom:1px solid black; width:10mm; text-align:center">
         <xsl:call-template name="PopulateText">
           <xsl:with-param name="TargetNode" select="TaxYr"/>
@@ -1303,7 +1288,7 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
        <span style="width:10mm; margin-left: 6mm">
         Name
       </span>  
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       <span style="border-bottom:1px solid black; width:55mm">
         <xsl:call-template name="PopulateAdditionalDataTableMessage">
           <xsl:with-param name="TargetNode" select="$Form3115Data/ExaminingAgentContactInfo"/>                      
@@ -1312,7 +1297,7 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
       <span style="width:30mm; margin-left:2mm">
         Telephone number
       </span>  
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       <span style="border-bottom:1px solid black; width:23mm; text-align:center">
         <xsl:call-template name="PopulatePhoneNumber">
           <xsl:with-param name="TargetNode" select="PhoneNum"/>
@@ -1321,7 +1306,7 @@ this</i> Form 3115 <i>(including its instructions), and <b>(2)</b> any other rel
       <span style="margin-left:2mm;width:17mm">
         Tax year(s)
       </span>  
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       <span style="border-bottom:1px solid black; width:12mm; text-align:center">
         <xsl:call-template name="PopulateText">
           <xsl:with-param name="TargetNode" select="TaxYr"/>
@@ -1412,7 +1397,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
         <div style="float:left">
           If “Yes,” check the applicable box and attach the required statement.
           <br/> 
-          <input type="Checkbox" class="styCkbox" alt="Not Under Exam Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/NotUnderExamInd"/>
               <xsl:with-param name="BackupName">Not under Exam</xsl:with-param>
@@ -1423,10 +1408,10 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
              <xsl:with-param name="TargetNode" select="$Form3115Data/NotUnderExamInd"/>
              <xsl:with-param name="BackupName">Not under Exam</xsl:with-param>
             </xsl:call-template>   
-           </label>
-           <div style="padding-top:.7mm;padding-left:2px">Not under Exam</div>
+            Not under Exam        
+          </label>
           <span style="width:21.5mm"/>
-          <input type="Checkbox" class="styCkbox" alt="Three Month Window Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/ThreeMonthWindowInd"/>
               <xsl:with-param name="BackupName">3-month window</xsl:with-param>
@@ -1437,10 +1422,10 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
              <xsl:with-param name="TargetNode" select="$Form3115Data/ThreeMonthWindowInd"/>
              <xsl:with-param name="BackupName">3-month window</xsl:with-param>
             </xsl:call-template>   
-           </label>
-           <div style="padding-top:.7mm;padding-left:2px">3-month window</div> 
+            3-month window        
+          </label>
           <span style="width:8.5mm"/>
-          <input type="Checkbox" class="styCkbox" alt="One Hundred Twenty Days Period Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/OneHundredTwentyDaysPeriodInd"/>
              <xsl:with-param name="BackupName">120 day</xsl:with-param> 
@@ -1451,17 +1436,16 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
               <xsl:with-param name="TargetNode" select="$Form3115Data/OneHundredTwentyDaysPeriodInd"/>
                <xsl:with-param name="BackupName">120 day</xsl:with-param> 
             </xsl:call-template>   
+           120 day: Date examination ended
+            <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
           </label>
-          <div style="padding-top:.7mm;padding-left:2px">120 day: Date examination ended
-				<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
-          </div> 
           <span style="border-bottom:1px solid black; width:20mm; text-align:center">
 			<xsl:call-template name="PopulateMonthDayYear">
 				<xsl:with-param name="TargetNode" select="$Form3115Data/ExaminationEndDt"/>
 			</xsl:call-template>
 		  </span> 
           <br/>
-           <input type="Checkbox" class="styCkbox" alt="Method Not Before Director Indicator">
+           <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/MethodNotBeforeDirectorInd"/>
               <xsl:with-param name="BackupName">Method not before director</xsl:with-param>
@@ -1472,10 +1456,10 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
              <xsl:with-param name="TargetNode" select="$Form3115Data/MethodNotBeforeDirectorInd"/>
              <xsl:with-param name="BackupName">Method not before director</xsl:with-param>
             </xsl:call-template>   
-            </label>
-            <div style="padding-top:.7mm;padding-left:2px">Method not before director</div> 
+            Method not before director        
+          </label>
           <span style="width:7mm"/>
-          <input type="Checkbox" class="styCkbox" alt="Negative Adjustment Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/NegativeAdjustmentInd"/>
               <xsl:with-param name="BackupName">Negative adjustment</xsl:with-param>
@@ -1486,10 +1470,10 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
              <xsl:with-param name="TargetNode" select="$Form3115Data/NegativeAdjustmentInd"/>
              <xsl:with-param name="BackupName">Negative adjustment</xsl:with-param>
             </xsl:call-template>   
-           </label>
-           <div style="padding-top:.7mm;padding-left:2px">Negative adjustment</div>  
+            Negative adjustment        
+          </label>
           <span style="width:3mm"/>
-          <input type="Checkbox" class="styCkbox" alt="CAP Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/CAPInd"/>
              <xsl:with-param name="BackupName">CAP:Date member joined group</xsl:with-param> 
@@ -1500,10 +1484,9 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
               <xsl:with-param name="TargetNode" select="$Form3115Data/CAPInd"/>
                <xsl:with-param name="BackupName">CAP:Date member joined group</xsl:with-param> 
             </xsl:call-template>   
+			   CAP:Date member joined group
+            <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
           </label>
-           <div style="padding-top:.7mm;padding-left:2px">CAP:Date member joined group
-				<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
-            </div>  
           <span style="border-bottom:1px solid black; width:20mm; text-align:center">
 			<xsl:call-template name="PopulateMonthDayYear">
 				<xsl:with-param name="TargetNode" select="$Form3115Data/MemberJoinedGroupDt"/>
@@ -1513,7 +1496,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
             <xsl:with-param name="TargetNode" select="$Form3115Data/ReqFiledUnderWindowPeriodInd"/>
           </xsl:call-template> 
           <br/>
-           <input type="Checkbox" class="styCkbox" alt="Audit Protection Exam Indicator">
+           <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/AuditProtectionExamInd"/>
               <xsl:with-param name="BackupName">Audit protection at end of exam</xsl:with-param>
@@ -1524,10 +1507,10 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
              <xsl:with-param name="TargetNode" select="$Form3115Data/AuditProtectionExamInd"/>
              <xsl:with-param name="BackupName">Audit protection at end of exam</xsl:with-param>
             </xsl:call-template>   
+            Audit protection at end of exam       
           </label>
-           <div style="padding-top:.7mm;padding-left:2px">Audit protection at end of exam</div>  
           <span style="width:0.5mm"/>
-          <input type="Checkbox" class="styCkbox" alt="Other Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/OtherInd"/>
               <xsl:with-param name="BackupName">Other</xsl:with-param>
@@ -1538,8 +1521,8 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
              <xsl:with-param name="TargetNode" select="$Form3115Data/OtherInd"/>
              <xsl:with-param name="BackupName">Other</xsl:with-param>
             </xsl:call-template>   
+            Other        
           </label>
-           <div style="padding-top:.7mm;padding-left:2px">Other</div>  
         </div>
         <div style="float:right">  
           <div class="styIRS3115DimYesBox" style="height:18mm"/>  
@@ -1648,8 +1631,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
 		  <div class="styIRS3115LNLeftLtrBox" style="padding-top:1mm;">c</div>
 		  <div style="float:left;">
 		 If “Yes,” enter the name of the (check the box)
-             <span style="width:3mm;"/>
-            <input type="Checkbox" class="styCkbox" alt="Appeals Officer Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/AppealsOfficerInd"/>
                 <xsl:with-param name="BackupName">Appeals Officer</xsl:with-param>
@@ -1661,9 +1643,8 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
                <xsl:with-param name="BackupName">Appeals Officer</xsl:with-param> 
               </xsl:call-template>
             </label>
-           <div style="padding-top:.7mm;padding-left:2px">Appeals officer and/or</div>   
-            <span style="width:3mm;"/>
-            <input type="Checkbox" class="styCkbox" alt="Counsel For The Government Indicator">
+            <span style="font-size:8pt"> Appeals officer </span>
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/CounselForTheGovernmentInd"/>
                 <xsl:with-param name="BackupName">Counsel For The Government</xsl:with-param>
@@ -1675,7 +1656,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
                <xsl:with-param name="BackupName">Counsel For The Government</xsl:with-param> 
               </xsl:call-template>
             </label>
-           <div style="padding-top:.7mm;padding-left:2px">counsel for the government, </div>   
+            <span style="font-size:8pt"> counsel for the government, </span>
 		  </div>
         <div style="float:right">  
            <div class="styIRS3115DimYesBox" style="height:5mm"/>  
@@ -1699,7 +1680,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
 		   <span style="width:10mm; margin-left: 6mm">
 			Name
 		  </span>  
-			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
 		  <span style="border-bottom:1px solid black; width:57mm">
 			<xsl:call-template name="PopulateText">
 			  <xsl:with-param name="TargetNode" select="PersonNm"/>
@@ -1708,7 +1689,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
 		  <span style="width:30mm; margin-left:2mm">
 			Telephone number
 		  </span>  
-			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
 		  <span style="border-bottom:1px solid black; width:23mm; text-align:center">
 			<xsl:call-template name="PopulatePhoneNumber">
 			  <xsl:with-param name="TargetNode" select="PhoneNum"/>
@@ -1717,7 +1698,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
 		  <span style="margin-left:2mm;width:17mm">
 			Tax year(s)
 		  </span>  
-			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
 		  <span style="border-bottom:1px solid black; width:10mm; text-align:center">
 			<xsl:call-template name="PopulateText">
 			  <xsl:with-param name="TargetNode" select="TaxYr"/>
@@ -1737,7 +1718,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
 		   <span style="width:10mm; margin-left: 6mm;">
 			Name
 		  </span>  
-			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
 		  <span style="border-bottom:1px solid black; width:55mm">
 			<xsl:call-template name="PopulateAdditionalDataTableMessage">
 			  <xsl:with-param name="TargetNode" select="$Form3115Data/AOOrGovtCounselCntctInfo"/>                      
@@ -1746,7 +1727,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
 		  <span style="width:30mm; margin-left:2mm">
 			Telephone number
 		  </span>  
-			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
 		  <span style="border-bottom:1px solid black; width:23mm; text-align:center">
 			<xsl:call-template name="PopulatePhoneNumber">
 			  <xsl:with-param name="TargetNode" select="PhoneNum"/>
@@ -1755,7 +1736,7 @@ Therefore you are correct the PDF will have two push pins as indicated below, bu
 		  <span style="margin-left:2mm;width:17mm">
 			Tax year(s)
 		  </span>  
-			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+			<img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
 		  <span style="border-bottom:1px solid black; width:12mm; text-align:center">
 			<xsl:call-template name="PopulateText">
 			  <xsl:with-param name="TargetNode" select="TaxYr"/>
@@ -2538,7 +2519,7 @@ inventories subject to section 474, enter the applicant's gross receipts for the
       <div style="width:187mm">  
         <div class="styIRS3115LNLeftNumBox" style="height:4mm;"/>
         <div style="float:left">
-          If   “Yes,” attach an explanation describing why the applicant is submitting its request under the non-automatic<br/> change procedures.
+          If   Yes, attach an explanation describing why the applicant is submitting its request under the non-automatic<br/> change procedures.
         </div>
         <div style="float:right">
           <div class="styIRS3115DimYesBox" style="height:8.5mm"/>  
@@ -2619,7 +2600,7 @@ inventories subject to section 474, enter the applicant's gross receipts for the
         <div class="styIRS3115LNLeftNumBox">24a</div>
         <div style="float:left">
           Enter the amount of <b>user fee</b> attached to this application (see instructions).
-          <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>    
+          <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>    
           $
           <span style="width:45mm; border-bottom:1px solid black; text-align:center">
             <span style="width:1px;"/>    
@@ -2713,7 +2694,7 @@ inventories subject to section 474, enter the applicant's gross receipts for the
         <div class="styIRS3115LNLeftNumBox">26</div>
         <div style="float:left">
           Enter the section 481(a) adjustment. Indicate whether the adjustment is an increase (+) or a decrease (-) in<br/>income.
-          <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>    
+          <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>    
           $
           <span style="width:40mm; border-bottom:1px solid black; text-align:center">
             <xsl:call-template name="PopulateText">
@@ -2768,7 +2749,7 @@ inventories subject to section 474, enter the applicant's gross receipts for the
       <div style="width:187mm">  
         <div class="styIRS3115LNLeftNumBox" style="height:4mm;"/>
         <div style="float:left">
-          <input type="Checkbox" class="styCkbox" alt="De Minimis Election 50 K Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/DeMinimisElection50KInd"/>
               <xsl:with-param name="BackupName">$50,000 de minimus election</xsl:with-param>
@@ -2779,10 +2760,10 @@ inventories subject to section 474, enter the applicant's gross receipts for the
              <xsl:with-param name="TargetNode" select="$Form3115Data/DeMinimisElection50KInd"/>
              <xsl:with-param name="BackupName">$50,000 de minimus election</xsl:with-param>
             </xsl:call-template>   
-           </label>
-            <div style="padding-top:.7mm;padding-left:2px">$50,000 de minimis election</div>   
+            $50,000 de minimis election      
+          </label>
           <span style="width:15mm"/>
-           <input type="Checkbox" class="styCkbox" alt="Eligible Acquisition Transaction Election Indicator">
+           <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/EligibleAcquisTransElectInd"/>
               <xsl:with-param name="BackupName">Eligible acquisition transaction election</xsl:with-param>
@@ -2793,8 +2774,8 @@ inventories subject to section 474, enter the applicant's gross receipts for the
              <xsl:with-param name="TargetNode" select="$Form3115Data/EligibleAcquisTransElectInd"/>
              <xsl:with-param name="BackupName">Eligible acquisition transaction election</xsl:with-param>
             </xsl:call-template>   
-           </label>
-             <div style="padding-top:.7mm;padding-left:2px">Eligible acquisition transaction election</div>   
+            Eligible acquisition transaction election     
+          </label>
        </div>
         <div style="float:right">
           <div class="styIRS3115DimYesBox" style="height:5mm"/>  
@@ -2850,7 +2831,7 @@ inventories subject to section 474, enter the applicant's gross receipts for the
       </div>      
 	<!-- IRS3115 Schedule A -->
       <div class="styBB" style="border-top:1px solid black; width:187mm; font-size:9.5pt;height:8mm;padding-top:2mm;">        
-        <b>Schedule A &#8211; Change in Overall Method of Accounting</b> (If Schedule A applies, Part I below must be completed.)
+        <b>Schedule A-Change in Overall Method of Accounting</b> (If Schedule A applies, Part I below must be completed.)
       </div>          
       <div class="styBB" style="width:187mm">
         <div class="styPartName" style="width:11mm; font-size:9.5pt">Part I</div>
@@ -2869,7 +2850,7 @@ inventories subject to section 474, enter the applicant's gross receipts for the
         <div class="styIRS3115LNLeftNumBox" style="height:4mm;"/>
          <div>
 		  <span style="width:40mm;"><b>Present method:</b></span>
-          <input type="Checkbox" class="styCkbox" alt="Present Method Cash Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/PresentMethod/CashInd"/>
               <xsl:with-param name="BackupName">Cash</xsl:with-param>
@@ -2880,10 +2861,10 @@ inventories subject to section 474, enter the applicant's gross receipts for the
              <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/PresentMethod/CashInd"/>
              <xsl:with-param name="BackupName">Cash</xsl:with-param>
             </xsl:call-template>   
+            Cash      
           </label>
-            <div style="padding-top:.7mm;padding-left:2px">Cash</div>   
           <span style="width:15mm"/>
-           <input type="Checkbox" class="styCkbox"  alt="Present Method Accrual Indicator">
+           <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/PresentMethod/AccrualInd"/>
               <xsl:with-param name="BackupName">Accrual</xsl:with-param>
@@ -2894,10 +2875,10 @@ inventories subject to section 474, enter the applicant's gross receipts for the
              <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/PresentMethod/AccrualInd"/>
              <xsl:with-param name="BackupName">Accrual</xsl:with-param>
             </xsl:call-template>   
+            Accrual     
           </label>
-           <div style="padding-top:.7mm;padding-left:2px">Accrual</div>   
           <span style="width:15mm"/>
-           <input type="Checkbox" class="styCkbox"  alt="Present Method Hybrid Indicator">
+           <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/PresentMethod/HybridInd"/>
               <xsl:with-param name="BackupName">Hybrid (attach description)</xsl:with-param>
@@ -2908,8 +2889,8 @@ inventories subject to section 474, enter the applicant's gross receipts for the
              <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/PresentMethod/HybridInd"/>
              <xsl:with-param name="BackupName">Hybrid (attach description)</xsl:with-param>
             </xsl:call-template>   
-           </label>       
-          <div style="padding-top:.7mm;padding-left:2px">Hybrid (attach description)</div>   
+            Hybrid (attach description)     
+          </label>       
 		  <xsl:call-template name="SetFormLinkInline">
 			<xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/PresentMethod/HybridInd"/>
 		  </xsl:call-template>          
@@ -2919,7 +2900,7 @@ inventories subject to section 474, enter the applicant's gross receipts for the
         <div class="styIRS3115LNLeftNumBox" style="height:4mm;"/>
          <div>
 		  <span style="width:40mm;"><b>Proposed method:</b></span>
-          <input type="Checkbox" class="styCkbox" alt="Proposed Method Cash Indicator">
+          <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/ProposedMethod/CashInd"/>
               <xsl:with-param name="BackupName">ProposedCash</xsl:with-param>
@@ -2930,10 +2911,10 @@ inventories subject to section 474, enter the applicant's gross receipts for the
              <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/ProposedMethod/CashInd"/>
              <xsl:with-param name="BackupName">ProposedCash</xsl:with-param>
             </xsl:call-template>   
+            Cash      
           </label>
-          <div style="padding-top:.7mm;padding-left:2px">Cash</div>   
           <span style="width:15mm"/>
-           <input type="Checkbox" class="styCkbox" alt="Proposed Method Accrual Indicator">
+           <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/ProposedMethod/AccrualInd"/>
               <xsl:with-param name="BackupName">ProposedAccrual</xsl:with-param>
@@ -2944,10 +2925,10 @@ inventories subject to section 474, enter the applicant's gross receipts for the
              <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/ProposedMethod/AccrualInd"/>
              <xsl:with-param name="BackupName">ProposedAccrual</xsl:with-param>
             </xsl:call-template>   
-           </label>
-          <div style="padding-top:.7mm;padding-left:2px">Accrual</div>    
+            Accrual     
+          </label>
           <span style="width:15mm"/>
-           <input type="Checkbox" class="styCkbox" alt="Proposed Method Hybrid Indicator">
+           <input type="Checkbox" class="styCkbox">
             <xsl:call-template name="PopulateCheckbox">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/ProposedMethod/HybridInd"/>
               <xsl:with-param name="BackupName">ProposedHybrid</xsl:with-param>
@@ -2958,8 +2939,8 @@ inventories subject to section 474, enter the applicant's gross receipts for the
              <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/ProposedMethod/HybridInd"/>
              <xsl:with-param name="BackupName">ProposedHybrid</xsl:with-param>
             </xsl:call-template>   
-           </label>       
-          <div style="padding-top:.7mm;padding-left:2px">Hybrid (attach description) </div>    
+            Hybrid (attach description)     
+          </label>       
 		  <xsl:call-template name="SetFormLinkInline">
 			<xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/ProposedMethod/HybridInd"/>
 		  </xsl:call-template>          
@@ -3148,7 +3129,7 @@ inventories subject to section 474, enter the applicant's gross receipts for the
         <div style="float:left">
         Other amounts (specify). Attach a description of the item and the legal basis for its inclusion in the<br/>
 calculation of the section 481(a) adjustment. 
-          <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>  
+          <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>  
           <span style="border-bottom:1px solid black; width:70mm"> 
             <xsl:call-template name="SetFormLinkInline">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/OtherAmt"/>              
@@ -3234,12 +3215,12 @@ calculation of the section 481(a) adjustment. 
           Is the applicant also requesting the recurring item exception under section 461(h)(3)?          
         </div>    
         <div class="styIRS3115YNChxBoxDiv">    
-          <span class="styDotLn" style="padding-right:0;padding-top:1mm">.......</span>     
+          <span class="styDotLn" style="padding-right:0;padding-top:1mm">........</span>     
 		  <span>
               <xsl:call-template name="PopulateSpan">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/RequestingRecurItemExcInd"/>
               </xsl:call-template>     
-            <input type="Checkbox" style="height:4mm;" class="styCkbox"  alt="Yes Requesting Recurring Item Exception Indicator">
+            <input type="Checkbox" style="height:4mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/RequestingRecurItemExcInd"/>
               <xsl:with-param name="BackupName">Yes Requesting Recur Item Exception</xsl:with-param>  
@@ -3248,17 +3229,16 @@ calculation of the section 481(a) adjustment. 
             <label>
               <xsl:call-template name="PopulateLabelYes">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/RequestingRecurItemExcInd"/>
-						<xsl:with-param name="BackupName">Yes Requesting Recur Item Exception</xsl:with-param> 
+    <xsl:with-param name="BackupName">Yes Requesting Recur Item Exception</xsl:with-param> 
               </xsl:call-template>   
-              
+              <b>Yes</b>
             </label>  
-			  <div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>    
             <span style="width:3mm"/>
       <span>
               <xsl:call-template name="PopulateSpan">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/RequestingRecurItemExcInd"/>
               </xsl:call-template>     
-            <input type="Checkbox" style="height:4mm;" class="styCkbox"   alt="No Requesting Recurring Item Exception Indicator">
+            <input type="Checkbox" style="height:4mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/RequestingRecurItemExcInd"/>
                <xsl:with-param name="BackupName">No Requesting Recur Item Exception</xsl:with-param> 
@@ -3269,8 +3249,8 @@ calculation of the section 481(a) adjustment. 
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/RequestingRecurItemExcInd"/>
              <xsl:with-param name="BackupName">No Requesting Recur Item Exception</xsl:with-param> 
               </xsl:call-template> 
-             </label>  
- 			  <div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>    
+              <b>No</b>
+            </label>  
            </div>              
       </div>    
       <div style="width:187mm;">  
@@ -3289,7 +3269,7 @@ calculation of the section 481(a) adjustment. 
             <xsl:call-template name="PopulateSpan">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/SmallBusinessTaxpayerInd"/>
             </xsl:call-template>     
-            <input type="Checkbox" style="height:4mm;" class="styCkbox"  alt="Yes Small Business Taxpayer Indicator">
+            <input type="Checkbox" style="height:4mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/SmallBusinessTaxpayerInd"/>
               <xsl:with-param name="BackupName">Yes Change To The Overall Cash Method</xsl:with-param>  
@@ -3301,14 +3281,15 @@ calculation of the section 481(a) adjustment. 
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/SmallBusinessTaxpayerInd"/>
 				<xsl:with-param name="BackupName">Yes Change To The Overall Cash Method</xsl:with-param> 
               </xsl:call-template>   
+              <b>Yes</b>
             </label>  
-  			  <div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>    
-            <span style="width:3mm"/>
+                      
+            <!--<span style="width:3mm"/>-->
 		  <span>
               <xsl:call-template name="PopulateSpan">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/SmallBusinessTaxpayerInd"/>
               </xsl:call-template>     
-            <input type="Checkbox" style="height:4mm;" class="styCkbox"   alt="No Small Business Taxpayer Indicator">
+            <input type="Checkbox" style="height:4mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/SmallBusinessTaxpayerInd"/>
                <xsl:with-param name="BackupName">No Change To The Overall Cash Method</xsl:with-param> 
@@ -3319,8 +3300,8 @@ calculation of the section 481(a) adjustment. 
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleA/SmallBusinessTaxpayerInd"/>
              <xsl:with-param name="BackupName">No Change To The Overall Cash Method</xsl:with-param> 
               </xsl:call-template> 
-             </label>  
-   			  <div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>    
+              <b>No</b>
+            </label>  
         </div>              
       </div>    
       <div class="styBB" style="width:187mm;border-top:1px solid black;">
@@ -3347,7 +3328,8 @@ calculation of the section 481(a) adjustment. 
         <xsl:with-param name="thisPage" select="5"/>
       </xsl:call-template>
  		<!-- END Page Break and Footer-->
-      <div class="styBB" style="width:187mm; border-top:1px solid black;font-size:9.5pt;height:6mm;padding-top:1mm;"><b>Schedule B &#8211; Change to the Deferral Method for Advance Payments</b> (see instructions)       
+      <div class="styBB" style="width:187mm; border-top:1px solid black;font-size:9.5pt;height:6mm;padding-top:1mm;">        
+        <b>Schedule BChange to the Deferral Method for Advance Payments</b> (see instructions)
       </div>      
       
       <div style="width:187mm; padding-bottom:1mm; padding-top:1mm">                
@@ -3381,7 +3363,7 @@ calculation of the section 481(a) adjustment. 
         </div>  
  </div>
       <div class="styBB" style="border-top:1px solid black; width:187mm; font-size:9.5pt;height:6mm;padding-top:1mm;">        
-        <b>Schedule C &#8211; Changes Within the LIFO Inventory Method</b> (see instructions)
+        <b>Schedule C-Changes Within the LIFO Inventory Method</b> (see instructions)
       </div>          
       <div class="styBB" style="width:187mm">
         <div class="styPartName" style="width:11mm; font-size:9.5pt">Part I</div>
@@ -3514,7 +3496,7 @@ If all of the products to be included in the proposed NBU pool(s) are not produc
         </div>
       </div>        
       <div class="styBB" style="padding-bottom:0.5mm; border-top:1px solid black; width:187mm; font-size:9.5pt">        
-        <b>Schedule D &#8211; Change in the Treatment of Long-Term Contracts Under Section 460, Inventories, or Other<br/>Section 263A Assets</b> (see instructions)
+        <b>Schedule D-Change in the Treatment of Long-Term Contracts Under Section 460, Inventories, or Other<br/>Section 263A Assets</b> (see instructions)
       </div>          
       <div class="styBB" style="width:187mm">
         <div class="styPartName" style="width:11mm; font-size:9.5pt">Part I</div>
@@ -3544,7 +3526,7 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                  <xsl:call-template name="PopulateSpan">
                    <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LongTermApplicantContractsInd"/>
                  </xsl:call-template>     
-            <input type="Checkbox" class="styCkbox"  alt="Yes Long Term Applicant Contracts Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LongTermApplicantContractsInd"/>
                 <xsl:with-param name="BackupName">Contracts LTAs Defined Sect460f1Yes</xsl:with-param>
@@ -3556,81 +3538,83 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LongTermApplicantContractsInd"/>
                 <xsl:with-param name="BackupName">Contracts LTAs Defined Sect460f1Yes</xsl:with-param>
               </xsl:call-template>   
-              </label>  
-   			   <div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>    
+              <b>Yes</b>
+            </label>  
             <span style="width:3mm"/>
       <span>
                  <xsl:call-template name="PopulateSpan">
                    <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LongTermApplicantContractsInd"/>
                  </xsl:call-template>     
-            <input type="Checkbox" class="styCkbox"  alt="No Long Term Applicant Contracts Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LongTermApplicantContractsInd"/>
               <xsl:with-param name="BackupName">Contracts LTAs Defined Sect460f1No</xsl:with-param>  
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LongTermApplicantContractsInd"/>
                 <xsl:with-param name="BackupName">Contracts LTAs Defined Sect460f1No</xsl:with-param>
               </xsl:call-template>   
-           </label>  
-    		<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>    
+              <b>No</b>
+            </label>  
         </div>          
       </div>          
       <div style="width:187mm; ">    
         <div class="styIRS3115LNLeftLtrBox">b</div>        
-        <div style="float:left">If "Yes," do all the contracts qualify for the exception under section 460(e) (see instructions)?</div>
+        <div style="float:left">
+          If   Yes, do all the contracts qualify for the exception under section 460(e) (see instructions)?            
+        </div>
         <div class="styIRS3115YNChxBoxDiv">  
           <span class="styDotLn" style="padding-right:0">      
             .....
           </span>      
-       <span>
+      <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/AllContractsQlfySectionExcInd"/>
                 </xsl:call-template>         
-           <input type="Checkbox" class="styCkbox"  alt="Yes All Contracts Qualified Section 460(e) Exception Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/AllContractsQlfySectionExcInd"/>
                 <xsl:with-param name="BackupName">All Contracts Qlfy Section460eExcYes</xsl:with-param>
               </xsl:call-template>
-           </input>
-       </span>            
-           <label>
+            </input>
+           </span>            
+            <label>
               <xsl:call-template name="PopulateLabelYes">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/AllContractsQlfySectionExcInd"/>
                <xsl:with-param name="BackupName">All Contracts Qlfy Section460eExcYes</xsl:with-param> 
               </xsl:call-template>   
+              <b>Yes</b>
             </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>    
-           <span style="width:3mm"/>
+            <span style="width:3mm"/>
       <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/AllContractsQlfySectionExcInd"/>
                 </xsl:call-template>
                          
-            <input type="Checkbox" class="styCkbox"  alt="No All Contracts Qualified Section 460(e) Exception Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/AllContractsQlfySectionExcInd"/>
                 <xsl:with-param name="BackupName">All Contracts Qlfy Section460eExcNo</xsl:with-param>
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/AllContractsQlfySectionExcInd"/>
                <xsl:with-param name="BackupName">All Contracts Qlfy Section460eExcNo</xsl:with-param> 
               </xsl:call-template>   
-           </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>    
+              <b>No</b>
+            </label>  
         </div>              
       </div>    
       
       <div style="width:187mm">      
         <div class="styIRS3115LNLeftNumBox" style="height:4mm;"/>        
         <div style="float:left">
-        If line 2b is "No," attach an explanation.      
+        If line 2b is No, attach an explanation.      
         </div>
         <div style="float:left">
           <xsl:call-template name="SetFormLinkInline">
@@ -3657,39 +3641,39 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqPctOfCompMethodInd"/>
                 </xsl:call-template>    
-            <input type="Checkbox" class="styCkbox"  alt="Yes Applicant Requesting Percentage Of Completion Method Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqPctOfCompMethodInd"/>
               <xsl:with-param name="BackupName">IsAppl cnt Req Pct Of Compln MthdYes</xsl:with-param>  
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelYes">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqPctOfCompMethodInd"/>
                 <xsl:with-param name="BackupName">IsAppl cnt Req Pct Of Compln MthdYes</xsl:with-param>
               </xsl:call-template>   
-           </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>    
-           <span style="width:3mm"/>
+              <b>Yes</b>
+            </label>  
+            <span style="width:3mm"/>
       <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqPctOfCompMethodInd"/>
                 </xsl:call-template>    
-            <input type="Checkbox" class="styCkbox"  alt="No Applicant Requesting Percentage Of Completion Method Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqPctOfCompMethodInd"/>
                <xsl:with-param name="BackupName">IsAppl cnt Req Pct Of Compln MthdNo</xsl:with-param> 
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqPctOfCompMethodInd"/>
                 <xsl:with-param name="BackupName">IsAppl cnt Req Pct Of Compln MthdNo</xsl:with-param>
               </xsl:call-template>   
-           </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>    
+              <b>No</b>
+            </label>  
         </div>              
       </div>          
       <div style="width:187mm;">      
@@ -3711,7 +3695,7 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/CmplnFctrCstCstSmplfdMthdInd"/>
                 </xsl:call-template>    
-            <input type="Checkbox" class="styCkbox"  alt="Yes Computed ln Factor Cost To Cost Simplified Method Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/CmplnFctrCstCstSmplfdMthdInd"/>
               <xsl:with-param name="BackupName">IsAppl cnt Req Pct Of Compln MthdYes</xsl:with-param>  
@@ -3723,14 +3707,14 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/CmplnFctrCstCstSmplfdMthdInd"/>
                 <xsl:with-param name="BackupName">IsAppl cnt Req Pct Of Compln MthdYes</xsl:with-param>
               </xsl:call-template>   
+              <b>Yes</b>
             </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>    
-           <span style="width:3mm"/>
+            <span style="width:3mm"/>
       <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/CmplnFctrCstCstSmplfdMthdInd"/>
                 </xsl:call-template>    
-            <input type="Checkbox" class="styCkbox"  alt="No Computed ln Factor Cost To Cost Simplified Method Indicator">
+            <input type="Checkbox" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/CmplnFctrCstCstSmplfdMthdInd"/>
                <xsl:with-param name="BackupName">IsAppl cnt Req Pct Of Compln MthdNo</xsl:with-param> 
@@ -3742,13 +3726,15 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/CmplnFctrCstCstSmplfdMthdInd"/>
                 <xsl:with-param name="BackupName">IsAppl cnt Req Pct Of Compln MthdNo</xsl:with-param>
               </xsl:call-template>   
+              <b>No</b>
             </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>    
         </div>              
       </div>          
       <div style="width:187mm;">      
       <div class="styIRS3115LNLeftLtrBox">e</div>        
-        <div style="float:left">If line 2c is "No," is the applicant requesting to use the exempt-contract percentage-of-completion</div>
+        <div style="float:left">
+If line 2c is No, is the applicant requesting to use the exempt-contract percentage-of-completion
+        </div>
       </div>    
       
       <div style="width:187mm">    
@@ -3764,48 +3750,49 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqExmptComplnMethodInd"/>
                 </xsl:call-template>      
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Applicant Requesting Exempt Completion Method Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqExmptComplnMethodInd"/>
                         <xsl:with-param name="BackupName">IsApplcntReqExemptComplnMthdYes</xsl:with-param>        
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelYes">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqExmptComplnMethodInd"/>
              <xsl:with-param name="BackupName">IsApplcntReqExemptComplnMthdYes</xsl:with-param>      
               </xsl:call-template>   
-           </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>     
+              <b>Yes</b>
+            </label>  
             <span style="width:3mm"/>
       <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqExmptComplnMethodInd"/>
                 </xsl:call-template>      
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Applicant Requesting Exempt Completion Method Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqExmptComplnMethodInd"/>
-					<xsl:with-param name="BackupName">IsApplcntReqExemptComplnMthdNo</xsl:with-param> 
+        <xsl:with-param name="BackupName">IsApplcntReqExemptComplnMthdNo</xsl:with-param> 
               </xsl:call-template>
             </input> 
            </span>           
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqExmptComplnMethodInd"/>
                     <xsl:with-param name="BackupName">IsApplcntReqExemptComplnMthdNo</xsl:with-param>    
               </xsl:call-template>   
-           </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>     
+              <b>No</b>
+            </label>  
         </div>              
       </div>      
       <div style="width:187mm">      
         <div class="styIRS3115LNLeftLtrBox" style="height:4mm;"/>        
-        <div style="float:left">If line 2e is "Yes," attach an explanation of what method the applicant will use to determine a<br/>contract's completion factor.
+        <div style="float:left">
+          If line 2e is  Yes, attach an explanation of what method the applicant will use to determine a<br/>contract's completion factor.
           <xsl:call-template name="SetFormLinkInline">
             <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplcntReqExmptComplnMethodInd"/>              
           </xsl:call-template>  
-          <br/>If line 2e is "No," attach an explanation of what method the applicant is using and the authority for its use.
+          <br/> If line 2e is No, attach an explanation of what method the applicant is using and the authority for its use.     
         </div>
       </div>        
       <div style="width:187mm; margin-top:1mm">      
@@ -3824,26 +3811,26 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LTMfrContractsAsDefInSectInd"/>
                 </xsl:call-template>     
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Long Term Manufacturing Contracts As Defined Section 460(f)(2) Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LTMfrContractsAsDefInSectInd"/>
                <xsl:with-param name="BackupName">LT Mfr Contracts As DefSect460f2Yes</xsl:with-param> 
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelYes">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LTMfrContractsAsDefInSectInd"/>
                <xsl:with-param name="BackupName">LT Mfr Contracts As DefSect460f2Yes</xsl:with-param>   
               </xsl:call-template>   
-           </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>     
-           <span style="width:3mm"/>
+              <b>Yes</b>
+            </label>  
+            <span style="width:3mm"/>
       <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LTMfrContractsAsDefInSectInd"/>
                 </xsl:call-template>     
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Long Term Manufacturing Contracts As Defined Section 460(f)(2) Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LTMfrContractsAsDefInSectInd"/>
                 <xsl:with-param name="BackupName">LT Mfr Contracts As DefSect460f2No</xsl:with-param>  
@@ -3855,15 +3842,15 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/LTMfrContractsAsDefInSectInd"/>
                   <xsl:with-param name="BackupName">LT Mfr Contracts As DefSect460f2No</xsl:with-param> 
               </xsl:call-template>   
-              </label> 
- 			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>     
+              <b>No</b>
+            </label> 
         </div>          
       </div>      
       
       <div style="width:187mm;">      
         <div class="styIRS3115LNLeftLtrBox">b</div>        
-        <div style="float:left">If "Yes," attach a description of the applicant’s manufacturing activities, including any required installation<br/>of manufactured goods.
-         <!-- If   Yes, attach a description of the applicant’s manufacturing activities, including any required installation<br/>of manufactured goods. -->                 
+        <div style="float:left">
+          If   Yes, attach a description of the applicant’s manufacturing activities, including any required installation<br/>of manufactured goods.                  
         </div>
       </div>  
       <div style="width:187mm; margin-top:1mm">      
@@ -3879,7 +3866,7 @@ change. If the applicant is a construction contractor, attach a detailed descrip
 		<xsl:call-template name="PopulateSpan">
 		  <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterCostPlusLTCntrctInd"/>
 		</xsl:call-template>     
-		<input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Enter Cost Plus Long Term Contracts Indicator">
+		<input type="Checkbox" style="height:3.5mm;" class="styCkbox">
 		  <xsl:call-template name="PopulateYesCheckbox">
 			<xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterCostPlusLTCntrctInd"/>
 		   <xsl:with-param name="BackupName">EnterCostPlusLTCntrctIndYes</xsl:with-param> 
@@ -3891,27 +3878,27 @@ change. If the applicant is a construction contractor, attach a detailed descrip
 			<xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterCostPlusLTCntrctInd"/>
 		   <xsl:with-param name="BackupName">EnterCostPlusLTCntrctIndYes</xsl:with-param>   
 		  </xsl:call-template>   
+		  <b>Yes</b>
 		</label>  
-		<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>     
 		<span style="width:3mm"/>
 		  <span>
 			<xsl:call-template name="PopulateSpan">
 			  <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterCostPlusLTCntrctInd"/>
 			</xsl:call-template>     
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Enter Cost Plus Long Term Contracts Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterCostPlusLTCntrctInd"/>
                 <xsl:with-param name="BackupName">EnterCostPlusLTCntrctIndNo</xsl:with-param>  
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterCostPlusLTCntrctInd"/>
                   <xsl:with-param name="BackupName">EnterCostPlusLTCntrctIndNo</xsl:with-param> 
               </xsl:call-template>   
-           </label> 
-			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>     	
+              <b>No</b>
+            </label> 
         </div>          
       </div>      
       <div style="width:187mm;">      
@@ -3930,7 +3917,7 @@ change. If the applicant is a construction contractor, attach a detailed descrip
 		<xsl:call-template name="PopulateSpan">
 		  <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterFederalLTCntrctInd"/>
 		</xsl:call-template>     
-		<input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Enter Federal Long Term Contracts Indicator">
+		<input type="Checkbox" style="height:3.5mm;" class="styCkbox">
 		  <xsl:call-template name="PopulateYesCheckbox">
 			<xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterFederalLTCntrctInd"/>
 		   <xsl:with-param name="BackupName">EnterFederalLTCntrctIndYes</xsl:with-param> 
@@ -3942,27 +3929,27 @@ change. If the applicant is a construction contractor, attach a detailed descrip
 			<xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterFederalLTCntrctInd"/>
 		   <xsl:with-param name="BackupName">EnterFederalLTCntrctIndYes</xsl:with-param>   
 		  </xsl:call-template>   
+		  <b>Yes</b>
 		</label>  
-		<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>     
 		<span style="width:3mm"/>
 		<span>
 			<xsl:call-template name="PopulateSpan">
 			  <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterFederalLTCntrctInd"/>
 			</xsl:call-template>     
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Enter Federal Long Term Contracts Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterFederalLTCntrctInd"/>
                 <xsl:with-param name="BackupName">EnterFederalLTCntrctIndNo</xsl:with-param>  
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/EnterFederalLTCntrctInd"/>
                   <xsl:with-param name="BackupName">EnterFederalLTCntrctInd2No</xsl:with-param> 
               </xsl:call-template>   
-           </label> 
-			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>     
+              <b>No</b>
+            </label> 
         </div>          
       </div>      
 	<!-- ===== Schedule D Part II - Change in Valuing Inventories Including Cost Allocation Changes ===== -->
@@ -3989,7 +3976,8 @@ change. If the applicant is a construction contractor, attach a detailed descrip
       <!-- Line 3a  -->
            <div style="width:187mm">      
            <div class="styIRS3115LNLeftNumBox" style="padding-left:1.5mm">3a</div> 
-           <div style="float:left">Is the applicant subject to section 263A? If "No," go to line 4a
+           <div style="float:left">
+         Is the applicant subject to section 263A? If   No,  go to line 4a
           </div>
         <div class="styIRS3115YNChxBoxDiv">  
           <span class="styDotLn" style="padding-right:0">      
@@ -3999,38 +3987,38 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplicationSubjectToSectionInd"/>
                 </xsl:call-template> 
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Application Subject To Section 263A Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplicationSubjectToSectionInd"/>
               <xsl:with-param name="BackupName">Application Subject To Sec263AYes</xsl:with-param>  
               </xsl:call-template>
             </input>
            </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelYes">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplicationSubjectToSectionInd"/>
               <xsl:with-param name="BackupName">Application Subject To Sec263AYes</xsl:with-param> 
               </xsl:call-template>   
-           </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>     
+              <b>Yes</b>
+            </label>  
             <span style="width:3mm"/>
       <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplicationSubjectToSectionInd"/>
                 </xsl:call-template> 
-           <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Application Subject To Section 263A Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplicationSubjectToSectionInd"/>
                 <xsl:with-param name="BackupName">Application Subject To Sec263ANo</xsl:with-param>
               </xsl:call-template>
-           </input></span>            
-           <label>
+            </input></span>            
+            <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/ApplicationSubjectToSectionInd"/>
                 <xsl:with-param name="BackupName">Application Subject To Sec263ANo</xsl:with-param>
               </xsl:call-template>   
-           </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>     
+              <b>No</b>
+            </label>  
           </div>          
       </div>   
       <!-- Line 3b  --> 
@@ -4043,7 +4031,8 @@ change. If the applicant is a construction contractor, attach a detailed descrip
       <div style="width:187mm">      
         <div class="styIRS3115LNLeftLtrBox" style="height:4mm;"/>        
         <!--<div style="float:left">-->
-        <div style="float:left">If "No," attach a detailed explanation
+        <div style="float:left">
+          If   No, attach a detailed explanation
 				<xsl:call-template name="SetFormLinkInline">
 					<xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/PresInvntryVltnMethodCmplncInd"/>              
 				</xsl:call-template>  
@@ -4056,7 +4045,7 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/PresInvntryVltnMethodCmplncInd"/>
                 </xsl:call-template> 
-				<input type="Checkbox" style="height:3.5mm;" class="styCkbox" alt="Yes Present Inventory Valuation Method Compliance Indicator">
+				<input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/PresInvntryVltnMethodCmplncInd"/>
                 <xsl:with-param name="BackupName">Present Invntry Vltn Mthd Per263AYes</xsl:with-param>
@@ -4068,26 +4057,26 @@ change. If the applicant is a construction contractor, attach a detailed descrip
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/PresInvntryVltnMethodCmplncInd"/>
                 <xsl:with-param name="BackupName">Present Invntry Vltn Mthd Per263AYes</xsl:with-param>
               </xsl:call-template>   
+              <b>Yes</b>
             </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>     
             <span style="width:3mm"/>
       <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/PresInvntryVltnMethodCmplncInd"/>
                 </xsl:call-template> 
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Present Inventory Valuation Method Compliance Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/PresInvntryVltnMethodCmplncInd"/>
               <xsl:with-param name="BackupName">Present Invntry Vltn Mthd Per263ANo</xsl:with-param>   
               </xsl:call-template>
-           </input></span>            
-           <label>
+            </input></span>            
+            <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/PresInvntryVltnMethodCmplncInd"/>
               <xsl:with-param name="BackupName">Present Invntry Vltn Mthd Per263ANo</xsl:with-param>
               </xsl:call-template>   
-           </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>     
+              <b>No</b>
+            </label>  
         </div>          
       </div>    
       <br/>
@@ -4219,8 +4208,7 @@ change. If the applicant is a construction contractor, attach a detailed descrip
           </th>
           <td class="styIRS3115TblRB2" align="center" style="font-weight:normal; width:25mm">
             <xsl:call-template name="PopulateText">
-              <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/InventoryBeingChanged/PresentMethodTxt/Methods/OtherIdentificationMethodInd"/>
-            </xsl:call-template>
+              <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/InventoryBeingChanged/PresentMethodTxt/Methods/OtherIdentificationMethodInd"/>            </xsl:call-template>
             <span style="width:2px"/>
             <xsl:call-template name="SetFormLinkInline">
               <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleD/InventoryBeingChanged/PresentMethodTxt/Methods/OtherIdentificationMethodInd"/>
@@ -4466,7 +4454,7 @@ Proc. 2017-30 (or its successor).
       </div>    
       
       <div style="width:187mm">
-        <b>Section A &#8211; Allocation and Capitalization Methods</b>  
+        <b>Section A - Allocation and Capitalization Methods</b>  
       </div>        
       
       <div style="width:189mm; margin-top:1mm">
@@ -4494,12 +4482,8 @@ Proc. 2017-30 (or its successor).
         </div>  
       </div>      
       
-      <div class="styBB" style="border-top:1px solid black; width:187mm; padding-top:1mm; padding-bottom:1.5mm"><b>Section B &#8211; Direct and Indirect Costs Required To Be Allocated</b>
-		  <br/>Check the appropriate boxes showing the costs that are or will be fully included, to the extent required, in the cost of real or tangible
-			personal property produced or property acquired for resale under section 263A or allocated to long-term contracts under section 460. 
-			Mark N/A in a box if those costs are not incurred by the applicant. If a box is not checked, it is assumed that those costs are not fully
-			included to the extent required.  Attach an explanation for boxes that are not checked.
-       </div>  
+      <div class="styBB" style="border-top:1px solid black; width:187mm; padding-top:1mm; padding-bottom:1.5mm"><b>Section B-Direct and Indirect Costs Required To Be Allocated</b><br/>Check the appropriate boxes showing the costs that are or will be fully included, to the extent required, in the cost of real or tangible personal property produced or property acquired for resale under section 263A or allocated to long-term contracts under section 460. Mark N/A in a box if those costs are not incurred by the applicant. If a box is not checked, it is assumed that those costs are not fully included to the extent required. Attach an explanation for boxes that are not checked.
+      </div>  
       <div style="width:187mm">
         <div style="float:right">
           <div class="styIRS3115SchDP3" style="text-align:center;font-weight:bold;">Present method</div>
@@ -5166,7 +5150,7 @@ Proc. 2017-30 (or its successor).
       </div>    
       
       <div class="styBB" style="width:187mm">
-        <b>Section C &#8211; Other Costs Not Required To Be Allocated</b> (Complete Section C only if the applicant is requesting to change its<br/>method for these costs.)  
+        <b>Section C-Other Costs Not Required To Be Allocated</b> (Complete Section C only if the applicant is requesting to change its<br/>method for these costs.)  
       </div>        
       
       <div style="width:187mm">
@@ -5420,7 +5404,7 @@ line 11
       </div>  
       
       <div class="styBB" style="width:187mm;font-size:9.5pt;height:8mm;padding-top:2mm;">
-        <b>Schedule E &#8211; Change in Depreciation or Amortization.</b> See instructions.
+        <b>Schedule E-Change in Depreciation or Amortization.</b> See instructions.
       </div>  
       
       <div style="width:187mm; padding-top:1mm;">
@@ -5893,7 +5877,7 @@ line 11
               <xsl:call-template name="PopulateSpan">
              <xsl:with-param name="TargetNode" select="PropertyDeprecUnderSectionInd"/>
               </xsl:call-template> 
-              <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Property Depreciation Under Section1.167(a)-11 (CLADR) Indicator">
+              <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                 <xsl:call-template name="PopulateYesCheckbox">
               <xsl:with-param name="TargetNode" select="PropertyDeprecUnderSectionInd"/>
               <xsl:with-param name="BackupName">Property Deprec Under Sect1167a11Yes</xsl:with-param>
@@ -5905,27 +5889,27 @@ line 11
              <xsl:with-param name="TargetNode" select="PropertyDeprecUnderSectionInd"/>
              <xsl:with-param name="BackupName">Property Deprec Under Sect1167a11Yes</xsl:with-param>
                 </xsl:call-template>   
-               </label>  
-				<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>     
+                <b>Yes</b>
+              </label>  
               <span style="width:3mm"/>
               <span>
                 <xsl:call-template name="PopulateSpan">
                  <xsl:with-param name="TargetNode" select="PropertyDeprecUnderSectionInd"/>
                 </xsl:call-template> 
-                <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Property Depreciation Under Section1.167(a)-11 (CLADR) Indicator">
+                <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                   <xsl:call-template name="PopulateNoCheckbox">
                   <xsl:with-param name="TargetNode" select="PropertyDeprecUnderSectionInd"/>
                   <xsl:with-param name="BackupName">Property Deprec Under Sect1167a11No</xsl:with-param>
                   </xsl:call-template>
                 </input>
-              </span>            
-              <label>
+               </span>            
+                <label>
                   <xsl:call-template name="PopulateLabelNo">
                     <xsl:with-param name="TargetNode" select="PropertyDeprecUnderSectionInd"/>
                     <xsl:with-param name="BackupName">Property Deprec Under Sect1167a11No</xsl:with-param> 
                   </xsl:call-template>   
+                  <b>No</b>
               </label>  
-				<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>     
             </div>  
           </div>
         </td>
@@ -5940,7 +5924,8 @@ line 11
         <td>
             <div class="styGenericDiv" style="border-bottom:1px solid black;width:187mm;">
             <div style="padding-left:.5mm;padding-right:1mm;font-weight:bold;width:6mm;text-align:left;" class="styGenericDiv"/>
-            <div style="height:4mm;padding-left:6mm;float:left">If "Yes," the only changes permitted are under Regulations section 1.167(a)-11(c)(1)(iii).
+            <div style="height:4mm;padding-left:6mm;float:left">
+                If   Yes, the only changes permitted are under Regulations section 1.167(a)-11(c)(1)(iii).
             </div> 
           </div>  
           </td>
@@ -5965,26 +5950,26 @@ line 11
               <xsl:call-template name="PopulateSpan">
                 <xsl:with-param name="TargetNode" select="DepreciationOrAmortizationInd"/>
               </xsl:call-template>   
-              <input type="Checkbox" style="height:3.5mm;" class="styCkbox" alt="Yes Depreciation Or Amortization Indicator">
+              <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                 <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="DepreciationOrAmortizationInd"/>
                <xsl:with-param name="BackupName">Any Deprec Or Amortz Rqr Under Code Yes</xsl:with-param>
                 </xsl:call-template>
               </input>
              </span>            
-           <label>
+            <label>
               <xsl:call-template name="PopulateLabelYes">
-					<xsl:with-param name="TargetNode" select="DepreciationOrAmortizationInd"/>
-				   <xsl:with-param name="BackupName">Any Deprec Or Amortz Rqr Under Code Yes</xsl:with-param>
+            <xsl:with-param name="TargetNode" select="DepreciationOrAmortizationInd"/>
+               <xsl:with-param name="BackupName">Any Deprec Or Amortz Rqr Under Code Yes</xsl:with-param>
               </xsl:call-template>   
-           </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>     
-           <span style="width:3mm"/>
+              <b>Yes</b>
+            </label>  
+            <span style="width:3mm"/>
             <span>
               <xsl:call-template name="PopulateSpan">
-					<xsl:with-param name="TargetNode" select="DepreciationOrAmortizationInd"/>
+            <xsl:with-param name="TargetNode" select="DepreciationOrAmortizationInd"/>
               </xsl:call-template>   
-              <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Depreciation Or Amortization Indicator">
+              <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                 <xsl:call-template name="PopulateNoCheckbox">
                   <xsl:with-param name="TargetNode" select="DepreciationOrAmortizationInd"/>
                 <xsl:with-param name="BackupName">Any Deprec Or Amortz Rqr Under Code No</xsl:with-param>  
@@ -5996,8 +5981,8 @@ line 11
                   <xsl:with-param name="TargetNode" select="DepreciationOrAmortizationInd"/>
                  <xsl:with-param name="BackupName">Any Deprec Or Amortz Rqr Under Code No</xsl:with-param> 
                 </xsl:call-template>   
+                <b>No</b>
               </label>  
-				<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>     
           </div>    
        </div> 
       </td>
@@ -6012,8 +5997,9 @@ line 11
       <td>
         <div class="styGenericDiv" style="border-bottom:1px solid black;width:187mm;">
           <div style="padding-left:.5mm;padding-right:1mm;font-weight:bold;text-align:left;width:6mm;" class="styGenericDiv"/>
-          <div style="height:4mm;padding-left:6mm;float:left">If "Yes," enter the applicable section
-            <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>  
+          <div style="height:4mm;padding-left:6mm;float:left">
+            If   Yes, enter the applicable section  
+            <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>  
             <span style="border-bottom:1px solid black; width:100mm; padding-left:1mm;text-align:left;">          
               <xsl:call-template name="PopulateText">
                 <xsl:with-param name="TargetNode" select="ApplicableSectionTxt"/>
@@ -6043,7 +6029,7 @@ line 11
             <xsl:call-template name="PopulateSpan">
               <xsl:with-param name="TargetNode" select="DeprecOrAmortzElectionMadeInd"/>
             </xsl:call-template> 
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Depreciation Or Amortization Election Made Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
              <xsl:with-param name="TargetNode" select="DeprecOrAmortzElectionMadeInd"/>
                <xsl:with-param name="BackupName">Deprec Or Amortz Election Been MadeYes</xsl:with-param>
@@ -6055,14 +6041,14 @@ line 11
             <xsl:with-param name="TargetNode" select="DeprecOrAmortzElectionMadeInd"/>
              <xsl:with-param name="BackupName">Deprec Or Amortz Election Been MadeYes</xsl:with-param>
               </xsl:call-template>   
+              <b>Yes</b>
             </label>  
- 				<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>   
             <span style="width:3mm"/>
             <span>
               <xsl:call-template name="PopulateSpan">
                 <xsl:with-param name="TargetNode" select="DeprecOrAmortzElectionMadeInd"/>
               </xsl:call-template> 
-              <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Depreciation Or Amortization Election Made Indicator">
+              <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                 <xsl:call-template name="PopulateNoCheckbox">
                   <xsl:with-param name="TargetNode" select="DeprecOrAmortzElectionMadeInd"/>
                 <xsl:with-param name="BackupName">Deprec Or Amortz Election Been Made No</xsl:with-param>   
@@ -6074,8 +6060,8 @@ line 11
               <xsl:with-param name="TargetNode" select="DeprecOrAmortzElectionMadeInd"/>
                  <xsl:with-param name="BackupName">Deprec Or Amortz Election Been Made No</xsl:with-param> 
             </xsl:call-template>   
-           </label>
-  			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>   
+            <b>No</b>
+          </label>
         </div>  
   </div>   
  </td>
@@ -6090,8 +6076,9 @@ line 11
         <td>
           <div class="styGenericDiv" style="border-bottom:1px solid black;width:187mm;">
         <div style="padding-left:.5mm;padding-right:1mm;font-weight:bold;width:6mm;" class="styGenericDiv"/>
-        <div style="height:4mm;padding-left:6mm;float:left">If "Yes," state the election made
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>  
+        <div style="height:4mm;padding-left:6mm;float:left">
+          If   Yes, state the election made  
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>  
         <span style="border-bottom:1px solid black; width:106mm; padding-left:1mm;text-align:left;"> 
           <xsl:call-template name="PopulateText">
             <xsl:with-param name="TargetNode" select="ElectionMadeTxt"/>
@@ -6147,7 +6134,7 @@ line 11
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="LivedInPropertyBefRentingItInd"/>
                 </xsl:call-template>     
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Lived In Property Before Renting It Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="LivedInPropertyBefRentingItInd"/>
                  <xsl:with-param name="BackupName">Lived In Property Before Renting It Yes</xsl:with-param>
@@ -6159,14 +6146,14 @@ line 11
                 <xsl:with-param name="TargetNode" select="LivedInPropertyBefRentingItInd"/>
                     <xsl:with-param name="BackupName">Lived In Property Before Renting It Yes</xsl:with-param>
               </xsl:call-template>   
+              <b>Yes</b>
             </label>  
-   			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>   
             <span style="width:3mm"/>
       		<span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="LivedInPropertyBefRentingItInd"/>
                 </xsl:call-template>     
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Lived In Property Before Renting It Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="LivedInPropertyBefRentingItInd"/>
                    <xsl:with-param name="BackupName">Lived In Property Before Renting It No</xsl:with-param> 
@@ -6178,8 +6165,8 @@ line 11
                 <xsl:with-param name="TargetNode" select="LivedInPropertyBefRentingItInd"/>
                     <xsl:with-param name="BackupName">Lived In Property Before Renting It No</xsl:with-param>
               </xsl:call-template>   
-             </label>  
-   			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>   
+              <b>No</b>
+            </label>  
         </div>    
       </div>
     </td>
@@ -6208,7 +6195,7 @@ line 11
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="PublicUtilityPropertyInd"/>
                 </xsl:call-template> 
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox" alt="Yes Public Utility Property Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="PublicUtilityPropertyInd"/>
                     <xsl:with-param name="BackupName">Public Utility Property Yes</xsl:with-param>
@@ -6220,14 +6207,14 @@ line 11
                 <xsl:with-param name="TargetNode" select="PublicUtilityPropertyInd"/>
                    <xsl:with-param name="BackupName">Public Utility Property Yes</xsl:with-param>
                 </xsl:call-template>   
-             </label>  
-    			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>   
+              <b>Yes</b>
+            </label>  
             <span style="width:3mm"/>
             <span>
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="PublicUtilityPropertyInd"/>
                 </xsl:call-template> 
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox" alt="No Public Utility Property Indicator" >
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="PublicUtilityPropertyInd"/>
                     <xsl:with-param name="BackupName">Public Utility Property No</xsl:with-param>
@@ -6236,11 +6223,11 @@ line 11
            </span>            
             <label>
               <xsl:call-template name="PopulateLabelNo">
-					<xsl:with-param name="TargetNode" select="PublicUtilityPropertyInd"/>
-                  <xsl:with-param name="BackupName">Public Utility Property No</xsl:with-param>
-              </xsl:call-template>   
-             </label>  
-   			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>   
+                <xsl:with-param name="TargetNode" select="PublicUtilityPropertyInd"/>
+                    <xsl:with-param name="BackupName">Public Utility Property No</xsl:with-param>
+                        </xsl:call-template>   
+              <b>No</b>
+            </label>  
         </div>  
     </div>
             
@@ -6342,7 +6329,7 @@ line 11
         Name
       </td>  
       <td style="width:3mm" align="center">
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       </td>
       <td style="border-bottom:1px solid black; width:62mm" class="stySmallText">
         <xsl:call-template name="PopulateText">
@@ -6353,7 +6340,7 @@ line 11
         Telephone number
       </td>  
       <td style="width:3mm;" align="center">
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       </td>
       <td style="border-bottom:1px solid black; width:21mm" align="center">
         <xsl:call-template name="PopulatePhoneNumber">
@@ -6364,7 +6351,7 @@ line 11
         Tax year(s)
       </td>  
       <td style="width:3mm" align="center">
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>
       </td>
       <td style="border-bottom:1px solid black; width:14mm" align="center">
         <xsl:call-template name="PopulateText">
@@ -6506,7 +6493,7 @@ line 11
              <xsl:with-param name="BackupName">PropertyDeprecUnderSect1167a11</xsl:with-param> 
                 </xsl:call-template> 
               </xsl:if>
-              <input type="Checkbox" style="height:3.5mm;" class="styCkbox" id="PropertyDeprecUnderSect1167a11yes" alt="Yes Property depreciation Under Section 1.167(a)-11 (CLADR) Indicator">
+              <input type="Checkbox" style="height:3.5mm;" class="styCkbox" id="PropertyDeprecUnderSect1167a11yes">
                      <xsl:if test="$IsSeparated = 'no' ">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/PropertyDeprecUnderSectionInd"/>
@@ -6522,8 +6509,8 @@ line 11
                    <xsl:with-param name="BackupName">PropertyDeprecUnderSect1167a11Yes</xsl:with-param>           
           </xsl:call-template> 
               </xsl:if>
+              <b>Yes</b>
             </label>  
-  			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>   
             <span style="width:3mm"/>
       <span>
              <xsl:if test="$IsSeparated = 'no' ">
@@ -6532,7 +6519,7 @@ line 11
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/PropertyDeprecUnderSectionInd"/>
                 </xsl:call-template> 
               </xsl:if>
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox" id="PropertyDeprecUnderSect1167a11no"  alt="No Property depreciation Under Section 1.167(a)-11 (CLADR) Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox" id="PropertyDeprecUnderSect1167a11no">
                    <xsl:if test="$IsSeparated = 'no' ">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/PropertyDeprecUnderSectionInd"/>
@@ -6548,8 +6535,8 @@ line 11
                      <xsl:with-param name="BackupName">PropertyDeprecUnderSect1167a11No</xsl:with-param>             
               </xsl:call-template>   
               </xsl:if>
+              <b>No</b>
             </label>  
-  			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>   
         </div>        
       </td>      
     </tr>      
@@ -6557,7 +6544,8 @@ line 11
       <td/>
       <td/>
       <td/>
-      <td> If "Yes," the only changes permitted are under Regulations section 1.167(a)-11(c)(1)(iii).
+      <td>
+        If   Yes, the only changes permitted are under Regulations section 1.167(a)-11(c)(1)(iii).
       </td>
     </tr>  
     <tr>  
@@ -6586,7 +6574,7 @@ line 11
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/DepreciationOrAmortizationInd"/>
                 </xsl:call-template>
               </xsl:if>   
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox" alt="Yes Depreciation Or Amortization Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                 <xsl:if test="$IsSeparated = 'no' ">
              <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/DepreciationOrAmortizationInd"/>
@@ -6603,8 +6591,8 @@ line 11
              <xsl:with-param name="BackupName">AnyDeprecOrAmortzRqrUnderCodeYes</xsl:with-param>   
               </xsl:call-template>
             </xsl:if>   
-             </label>  
-  			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>   
+              <b>Yes</b>
+            </label>  
             <span style="width:3mm"/>
       <span>
                   <xsl:if test="$IsSeparated = 'no' ">
@@ -6612,7 +6600,7 @@ line 11
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/DepreciationOrAmortizationInd"/>
                 </xsl:call-template> 
               </xsl:if>  
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Depreciation Or Amortization Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                <xsl:if test="$IsSeparated = 'no' ">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/DepreciationOrAmortizationInd"/>
@@ -6628,8 +6616,8 @@ line 11
           <xsl:with-param name="BackupName">AnyDeprecOrAmortzRqrUnderCodeNo</xsl:with-param>
               </xsl:call-template>
               </xsl:if>   
-              </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>   
+              <b>No</b>
+            </label>  
         </div>    
       </td>
     </tr>  
@@ -6637,8 +6625,9 @@ line 11
       <td/>
       <td/>
       <td/>
-      <td>If "Yes," enter the applicable section
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>  
+      <td>
+        If   Yes, enter the applicable section  
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>  
         <span style="border-bottom:1px solid black; width:100mm; padding-left:1mm">
          <xsl:if test="$IsSeparated = 'no' ">          
           <xsl:call-template name="PopulateText">
@@ -6668,14 +6657,16 @@ line 11
         the election under sections 168(f)(1), 168(i)(4), 179, or 179C, or Regulations section 1.168(i)-8(d))?
         </div>  
         <div class="styIRS3115YNChxBoxDiv">  
-          <span class="styDotLn" style="padding-right:0">.</span>    
+          <span class="styDotLn" style="padding-right:0">      
+            .
+          </span>    
       <span>
          <xsl:if test="$IsSeparated = 'no' ">          
                 <xsl:call-template name="PopulateSpan">
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/DeprecOrAmortzElectionMadeInd"/>
                 </xsl:call-template> 
               </xsl:if>
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox" alt="Yes Depreciation Or Amortization Election Made Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
          <xsl:if test="$IsSeparated = 'no' ">          
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/DeprecOrAmortzElectionMadeInd"/>
@@ -6691,8 +6682,8 @@ line 11
               <xsl:with-param name="BackupName">DepreOrAmortzElectionBeenMadeYes</xsl:with-param>
               </xsl:call-template>
             </xsl:if>   
-              </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>   
+              <b>Yes</b>
+            </label>  
             <span style="width:3mm"/>
       <span>
          <xsl:if test="$IsSeparated = 'no' ">          
@@ -6700,7 +6691,7 @@ line 11
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/DeprecOrAmortzElectionMadeInd"/>
                 </xsl:call-template> 
               </xsl:if>
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Depreciation Or Amortization Election Made Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
          <xsl:if test="$IsSeparated = 'no' ">          
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/DeprecOrAmortzElectionMadeInd"/>
@@ -6716,8 +6707,8 @@ line 11
                <xsl:with-param name="BackupName">DepreOrAmortzElectionBeenMadeNo</xsl:with-param>  
               </xsl:call-template>   
             </xsl:if>
+              <b>No</b>
             </label>
-			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>   
         </div>  
       </td>
     </tr>
@@ -6725,8 +6716,9 @@ line 11
       <td/>
       <td/>
       <td/>
-      <td>If "Yes," state the election made 
-        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Image"/>  
+      <td>
+        If   Yes, state the election made  
+        <img src="{$ImagePath}/3115_Bullet.gif" alt="Right Arrow Bullet"/>  
         <span style="border-bottom:1px solid black; width:106mm; padding-left:1mm"> 
          <xsl:if test="$IsSeparated = 'no' ">          
           <xsl:call-template name="PopulateText">
@@ -6766,7 +6758,7 @@ line 11
                 <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/LivedInPropertyBefRentingItInd"/>
               </xsl:call-template>    
             </xsl:if> 
-             <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="Yes Lived In Property Before Renting It Indicator">
+             <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                <xsl:if test="$IsSeparated = 'no' ">          
                   <xsl:call-template name="PopulateYesCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/LivedInPropertyBefRentingItInd"/>
@@ -6782,8 +6774,8 @@ line 11
                           <xsl:with-param name="BackupName">Lived In Property Before Renting It Yes</xsl:with-param>    
                 </xsl:call-template>   
               </xsl:if>
-             </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>   
+              <b>Yes</b>
+            </label>  
             <span style="width:3mm"/>
             <span>
              <xsl:if test="$IsSeparated = 'no' ">          
@@ -6791,7 +6783,7 @@ line 11
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/LivedInPropertyBefRentingItInd"/>
                 </xsl:call-template> 
               </xsl:if>    
-            <input type="Checkbox" style="height:3.5mm;" class="styCkbox"  alt="No Lived In Property Before Renting It Indicator">
+            <input type="Checkbox" style="height:3.5mm;" class="styCkbox">
                <xsl:if test="$IsSeparated = 'no' ">          
                   <xsl:call-template name="PopulateNoCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/LivedInPropertyBefRentingItInd"/>
@@ -6807,8 +6799,8 @@ line 11
                            <xsl:with-param name="BackupName">Lived In Property Before Renting It No</xsl:with-param>   
                 </xsl:call-template>   
               </xsl:if>
+              <b>No</b>
             </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>   
         </div>    
       </td>
     </tr>
@@ -6830,11 +6822,11 @@ line 11
                   <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/PublicUtilityPropertyInd"/>
                 </xsl:call-template> 
             </xsl:if>
-            <input type="Checkbox" style="height:4mm;" class="styCkbox"  alt="Yes Public Utility Property Indicator">
+            <input type="Checkbox" style="height:4mm;" class="styCkbox">
                <xsl:if test="$IsSeparated = 'no' ">          
                   <xsl:call-template name="PopulateYesCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/PublicUtilityPropertyInd"/>
-					  <xsl:with-param name="BackupName"> Public Utility Property Yes</xsl:with-param>          
+      <xsl:with-param name="BackupName"> Public Utility Property Yes</xsl:with-param>          
                   </xsl:call-template>
                 </xsl:if>
             </input>
@@ -6846,8 +6838,8 @@ line 11
                 <xsl:with-param name="BackupName"> Public Utility Property Yes</xsl:with-param>      
                   </xsl:call-template>   
                 </xsl:if>
-             </label>  
-			<div style="padding-top:.7mm;padding-left:2px"><b>Yes</b></div>   
+              <b>Yes</b>
+            </label>  
             <span style="width:3mm"/>
               <span>
                <xsl:if test="$IsSeparated = 'no' ">          
@@ -6855,7 +6847,7 @@ line 11
                     <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/PublicUtilityPropertyInd"/>
                   </xsl:call-template> 
               </xsl:if>
-              <input type="Checkbox" style="height:4mm;" class="styCkbox"  alt="No Public Utility Property Indicator">
+              <input type="Checkbox" style="height:4mm;" class="styCkbox">
                <xsl:if test="$IsSeparated = 'no' ">          
                   <xsl:call-template name="PopulateNoCheckbox">
                     <xsl:with-param name="TargetNode" select="$Form3115Data/IRS3115ScheduleE/ChangeInDeprecOrAmortization[$index]/PublicUtilityPropertyInd"/>
@@ -6871,8 +6863,8 @@ line 11
               <xsl:with-param name="BackupName"> Public Utility Property No</xsl:with-param>        
                   </xsl:call-template>
                 </xsl:if>   
-               </label>  
- 			<div style="padding-top:.7mm;padding-left:2px"><b>No</b></div>   
+                <b>No</b>
+              </label>  
         </div>  
       </td>
     </tr>   

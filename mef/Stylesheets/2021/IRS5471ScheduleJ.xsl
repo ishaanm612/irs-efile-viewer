@@ -1180,10 +1180,8 @@
 							<!--<span style="font-weight: normal"> </span>-->
 						</div>
 					</div>
-					<!--    END FORM FOOTER   -->					
-				<!--	<p style="page-break-before: always"/>-->				
-					<div class="pageEnd" style="width:256mm;"/>		
-					<br/>			
+					<!--    END FORM FOOTER   -->
+					<p style="page-break-before: always"/>
 					<!-- end page break and footer  -->
 					<!-- BEGIN PAGE 2 -->
 					<!-- page header -->

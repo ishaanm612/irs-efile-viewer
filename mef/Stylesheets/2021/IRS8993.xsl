@@ -71,7 +71,7 @@
 							<div class="styOMB" style="height:auto;font-size:6pt;padding-top:2mm;padding-bottom:2mm;">OMB No. 1545-0123</div>
 							<div style="margin-left:0mm;text-align:left;font-size:7pt;padding-top:1mm;">
 								Attachment<br/>Sequence No. 
-								<span class="styBoldText" style="font-size:9pt;">933</span>
+								<span class="styBoldText" style="font-size:9pt;">993</span>
 							</div>
 						</div>
 					</div>
@@ -345,7 +345,7 @@
 							<strong>(B)</strong> Foreign-derived income from all sales of intangible property
 						</div>
 						<div class="sty8993HeaderBox" style="">
-							<strong>(C)</strong> Foreign-derived income from services
+							<strong>(C)</strong> Foreign-derived income from all services
 						</div>
 						<div class="sty8993HeaderBox" style="height:12mm;width:8mm;">
 						</div>

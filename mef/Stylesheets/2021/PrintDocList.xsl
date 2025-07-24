@@ -240,7 +240,7 @@
       var dependencyFormList = new Array();
       var additionalInfoFormList = new Array();
       var maxCheckedFormList = new Array(); //Array used for determining whether maximum number of forms are checked
-      var MAXCHECKED = 15; // maximum forms allowed to check;
+      var MAXCHECKED = 50; // maximum forms allowed to check;
       var temp;
       
       var overMAXCHECKEDmsg = "No more than " + MAXCHECKED + " return documents can be selected in one print job.";
@@ -685,8 +685,8 @@ function printDocsHelper()
     <table style="margin-top:2px;margin-bottom:0px;">
       <tr>
       <td class="styFormDescription" style="width:330px;white-space:nowrap;"><span style="font-weight:bold;">Print overflow data:</span>
-        <input title="Print overflow data separately and after the form is printed" type="radio" name="overflowPrintStyle" id="overflowStyle1" value="" checked="true" onclick="setOverflowPrintStyleParameter('separated');" style="vertical-align:middle;" /><label for="overflowStyle1" title="Print overflow data separately and after the form is printed">Separated</label>
-        <input title="Print overflow data where they are defined on the form" type="radio" name="overflowPrintStyle" id="overflowStyle2" value=""  onclick="setOverflowPrintStyleParameter('inline');" style="vertical-align:middle;" /><label for="overflowStyle2" title="Print overflow data where they are defined on the form">Inline</label></td>
+        <input title="Print overflow data separately and after the form is printed" type="radio" name="overflowPrintStyle" id="overflowStyle1" value="" checked="true" onclick="setOverflowPrintStyleParameter('separated');" style="vertical-align:middle;" /><label for="overflowStyle1" title="Print overflow data separately and after the form is printed">separated</label>
+        <input title="Print overflow data where they are defined on the form" type="radio" name="overflowPrintStyle" id="overflowStyle2" value=""  onclick="setOverflowPrintStyleParameter('inline');" style="vertical-align:middle;" /><label for="overflowStyle2" title="Print overflow data where they are defined on the form">inline</label></td>
       <xsl:if test="$ReturnStatus = 'A'" >
         <td class="styFormCheckboxContainer"><input name="printCheckBox" id="printCheckBox" type="checkbox" title="Print original data only with page watermark" class="styCkbox" value="" onclick="setTaxpayerPrintParameter();" ></input></td>
         <td class="styFormDescription" style="font-weight:bold;width:150px;height:17px;white-space:nowrap;"><label for="printCheckBox" title="Print original data only with page watermark">Print for taxpayer</label></td>
@@ -700,10 +700,10 @@ function printDocsHelper()
 
     <body onload="init()">
     
-    <span style="font-size:7pt;"><span style="font-weight:bold;">Note:</span> Before clicking the Print button, please make sure the margins in your browser are set<br/> as follows:  Left=0.35", Right=0.35", Top=0.25", Bottom=0.25".</span>
+    <span style="font-size:7pt;"><span style="font-weight:bold;">Note:</span> Before clicking the Print button, please make sure the margins in your browser's Page Setup dialog are set<br/> as follows:  Left=0.35", Right=0.35", Top=0.25", Bottom=0.25".</span>
 	  <br/><br/>    
     <span class="styFormDescription">
-			The more documents you select for printing in one request, the more server and browser resources are needed to process the documents. The current limit for printing is 15 documents per request. If you encounter an error while printing, try printing again with fewer documents. For very large documents, it is preferable that you print only one document at a time.
+			The more documents you select for printing in one request, the more server and browser resources are needed to process the documents. If you encounter an error while printing multiple selected documents, try printing again with fewer documents. For very large documents, it is preferable that you print only one document at a time.
     </span>
     
     <!-- Checkbox to allow user to set the value for the print parameter for Accepted Returns only -->
@@ -725,7 +725,7 @@ function printDocsHelper()
     <input type="hidden" name="taxpayerPrint" value="false" />
     <input type="hidden" name="contentAndSummaryKey" value="{$ContentAndSummaryKey}" />
 	<input type="hidden" name="notInDBIndicator" value="{$NotInDBIndicator}" />
-	<input type="hidden" name="paperReturnIndicator" value="{$PaperReturnIndicator}" />     
+    
     <!--   Display documents for appropriate return section based on the parameter 
         passed in the xml data - ReturnSection -->        
     <xsl:choose >

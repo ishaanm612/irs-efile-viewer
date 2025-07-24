@@ -12,13 +12,15 @@
   <!-- ////////////////////////////////////////////////  -->  
   <xsl:template name="RowWriterCore">
       <tr>
-        <td class="IRS1118ScheduleI_GenericCell" style="width:6mm; font-weight:bold;text-align:center;" scope="row"><span style="width:1px;" /></td>
+        <td class="IRS1118ScheduleI_GenericCell" style="width:6mm; font-weight:bold;text-align:center;" scope="row">
+			<span style="width:1px;" /></td>
         <td class="IRS1118ScheduleI_GenericCell"><span style="width:1px;" /></td>
         <td class="IRS1118ScheduleI_GenericCell"><span style="width:1px;" /></td>
         <td class="IRS1118ScheduleI_GenericCell"><span style="width:1px;" /></td>
         <td class="IRS1118ScheduleI_GenericCell"><span style="width:1px;" /></td>
         <td class="IRS1118ScheduleI_GenericCell"><span style="width:1px;" /></td>
-        <td class="IRS1118ScheduleI_GenericCell" style="width:45mm;border-right-width:0px;padding-right:2mm"><span style="width:1px;" /></td>
+        <td class="IRS1118ScheduleI_GenericCell" style="width:45mm;border-right-width:0px;padding-right:2mm">
+			<span style="width:1px;" /></td>
       </tr>
   </xsl:template>
   <xsl:template name="AddRowsForPartITableI">
@@ -48,12 +50,12 @@
         	</xsl:if>
         </xsl:if>
       </td>
+      <td class="IRS1118ScheduleI_GenericCell" colspan="2">
+        <span class="styTableCellPad"/>
+      </td><!--
       <td class="IRS1118ScheduleI_GenericCell">
         <span class="styTableCellPad"/>
-      </td>
-      <td class="IRS1118ScheduleI_GenericCell">
-        <span class="styTableCellPad"/>
-      </td>
+      </td>-->
       <td class="IRS1118ScheduleI_GenericCell">
         <span class="styTableCellPad"/>
       </td>
@@ -173,10 +175,8 @@
             <span class="styMainTitle">Reduction of Foreign Oil and Gas Taxes</span>
       <!-- Form Subtitle -->
             <br/>
-        <span style="font-weight:bold;;">
-         <img src="{$ImagePath}/1118SchI_Bullet.gif" width="4" height="7" alt="Right arrow" border="0"/> Go to 
- <a   style="text-decoration:none;color:black;"   href="http://www.irs.gov/Form1118" title="Link to IRS.gov"> <i>www.irs.gov/Form1118</i></a>
-         for the latest information.
+      <span style="font-weight:bold;;">
+         <img src="{$ImagePath}/1118SchI_Bullet.gif" width="4" height="7" alt="Right arrow" border="0"/> Go to <a href="http://www.irs.gov/Form1118" title="Link to IRS.gov"> <i>www.irs.gov/Form1118</i></a> for the latest information.
       </span>
       <br/>
       <span style="font-weight:bold;;">
@@ -297,14 +297,14 @@
            <!-- button display logic -->
           <xsl:call-template name="SetDynamicTableToggleButton">
           <xsl:with-param name="TargetNode" select="$FormData/ForeignOilAndGasIncomeTaxes"/>
-          <xsl:with-param name="containerHeight" select="5"/>
+          <xsl:with-param name="containerHeight" select="6"/>
           <xsl:with-param name="containerID" select=" 'Table1' "/>
           </xsl:call-template>
           <!-- end button display logic -->
        </div>
   </div>
   <!-- Part I table columns 1-7 -->
-  <div class="IRS1118ScheduleI_TableContainer" style="border-top-width:0px;border-bottom-width:0px;height:160mm;" name="Table1" id="Table1">
+  <div class="IRS1118ScheduleI_TableContainer" style="border-top-width:0px;border-bottom-width:0px;height:60mm;" name="Table1" id="Table1">
   <!-- print logic -->
     <xsl:call-template name="SetInitialState"/>
   <!-- end -->
@@ -318,11 +318,13 @@
           <b>1(a). </b>EIN or Reference ID number of the foreign corporation (see instructions)
         </th>
         <th class="IRS1118ScheduleI_GenericCell" style="width:45mm;height:14mm;text-align:center;padding-top:2mm;padding-left:3mm;
-        padding-right:3mm" rowspan="2" scope="col">
-          <b>1(b). </b>Foreign country or U.S. possession (enter two-letter code -- use a separate line for each) (see instructions)
+        padding-right:3mm" rowspan="2" colspan="2" scope="col">
+          <b>1(b). </b>Foreign country or U.S. possession
+					  (enter two-letter code -- use a separate
+					  line for each) (see instructions)
         </th>
-        <th class="IRS1118ScheduleI_GenericCell" style="height:4mm;width:80mm;font-size:7pt;font-weight:bold;border-right-width:0px;text-align:center;" 
-        colspan="6" scope="col">
+        <th class="IRS1118ScheduleI_GenericCell" style="height:4mm;width:80mm;font-size:7pt;font-weight:bold;border-right-width:0px;
+			text-align:center;" colspan="6" scope="col">
           Gross Foreign Oil and Gas Income From Sources Outside the United States and its Possessions
           <span style="font-weight:normal;">(see instructions)</span>  
         </th>
@@ -332,6 +334,8 @@
                   <span class="styBoldText">2.</span> Gross foreign oil and gas extraction income</th>
                 <th class="IRS1118ScheduleI_GenericCell" style="text-align:center;height:10mm" scope="col">
                   <span class="styBoldText">3. </span> Gross foreign oil related income </th>
+                <!--<th class="IRS1118ScheduleI_GenericCell" style="text-align:center;height:10mm" scope="col">
+                  <span class="styBoldText">4. </span> XXXXX dividends from foreign corporations</th>-->
                 <th class="IRS1118ScheduleI_GenericCell" style="text-align:center;height:10mm" scope="col">
                   <span class="styBoldText">4. </span> Inclusions under sections 951(a)(1) and 951A</th>
                 <th class="IRS1118ScheduleI_GenericCell" style="border-right-width:1px;text-align:center;height:10mm" scope="col">
@@ -375,7 +379,7 @@
 					<br/>
 			</xsl:for-each>		
         </td>
-        <td class="IRS1118ScheduleI_GenericCell" style="text-align:left;width:45mm;">
+        <td class="IRS1118ScheduleI_GenericCell" style="text-align:left;width:30mm;" colspan="2">
 			<xsl:choose>
 				<xsl:when test="(ForeignCountryOrUSPossessionCd)">
 					<xsl:call-template name="PopulateText">
@@ -399,7 +403,12 @@
           <xsl:with-param name="TargetNode" select="GroForeignOilRelatedIncomeAmt"/>
         </xsl:call-template>  
         </td>
-          <td class="IRS1118ScheduleI_GenericCell">
+        <!--<td class="IRS1118ScheduleI_GenericCell">
+        <xsl:call-template name="PopulateAmount">
+          <xsl:with-param name="TargetNode" select="DividendsPaidFrgnCorpAmt"/>
+        </xsl:call-template>  
+        </td>-->
+        <td class="IRS1118ScheduleI_GenericCell">
         <xsl:call-template name="PopulateAmount">
           <xsl:with-param name="TargetNode" select="InclusionsSect951a1Or951AAmt"/>
         </xsl:call-template>  
@@ -456,7 +465,7 @@
       </xsl:if>
       <xsl:if test="not($Print = $Separated) or (count($FormData/ForeignOilAndGasIncomeTaxes) &lt; 7)  and ($Print = $Separated) ">
       <tr>
-        <td class="IRS1118ScheduleI_GenericCell" style="width:51mm;height:4mm;font-weight:bold;text-align:center;" colspan="3" scope="row">
+        <td class="IRS1118ScheduleI_GenericCell" style="width:51mm;height:4mm;font-weight:bold;text-align:center;" colspan="4" scope="row">
            Totals <span style="font-weight:normal;">(add lines A through F)</span>
         </td>
         <td class="IRS1118ScheduleI_GenericCell" style="height:4mm;">
@@ -468,7 +477,12 @@
         <xsl:call-template name="PopulateAmount">
           <xsl:with-param name="TargetNode" select="$FormData/TotForeignOilAndGasIncomeTaxes/GroForeignOilRelatedIncomeAmt"/>
         </xsl:call-template>  
-        </td>
+        </td><!--
+        <td class="IRS1118ScheduleI_GenericCell" style="height:4mm;">
+        <xsl:call-template name="PopulateAmount">
+          <xsl:with-param name="TargetNode" select="$FormData/TotForeignOilAndGasIncomeTaxes/DividendsPaidFrgnCorpAmt"/>
+        </xsl:call-template>  
+        </td>-->
         <td class="IRS1118ScheduleI_GenericCell" style="height:4mm;">
         <xsl:call-template name="PopulateAmount">
           <xsl:with-param name="TargetNode" select="$FormData/TotForeignOilAndGasIncomeTaxes/InclusionsSect951a1Or951AAmt"/>
@@ -488,12 +502,13 @@
        </xsl:if>
     <xsl:if test="($Print = $Separated) and (count($FormData/ForeignOilAndGasIncomeTaxes) &gt; 6)">
       <tr>
-        <td class="IRS1118ScheduleI_GenericCell" style="width:51mm;height:4mm;font-weight:bold;text-align:center;" colspan="3" scope="row">
+        <td class="IRS1118ScheduleI_GenericCell" style="width:51mm;height:4mm;font-weight:bold;text-align:center;" 
+			colspan="4" scope="row">
           Totals <span style="font-weight:normal;">(add lines A through F)</span>
-        </td>
+        </td><!--
                   <td class="IRS1118ScheduleI_GenericCell" style="height:4mm;">
                     <span class="styTableCellPad"/>
-                  </td>
+                  </td>-->
                   <td class="IRS1118ScheduleI_GenericCell" style="height:4mm;">
                     <span class="styTableCellPad"/>
                   </td>
@@ -522,14 +537,14 @@
            <!-- button display logic -->
           <xsl:call-template name="SetDynamicTableToggleButton">
           <xsl:with-param name="TargetNode" select="$FormData/ForeignOilAndGasIncomeTaxes"/>
-          <xsl:with-param name="containerHeight" select="5"/>
+          <xsl:with-param name="containerHeight" select="6"/>
           <xsl:with-param name="containerID" select=" 'Table2' "/>
           </xsl:call-template>
           <!-- end button display logic -->
     </span>
   </div>
-  <!-- Part I table columns 8-14 -->
-  <div class="IRS1118ScheduleI_TableContainer" style="border-top-width:1px;border-bottom-width:1px;height:160mm;" name="Table2" id="Table2">
+  <!-- Part I table columns 7-13 -->
+  <div class="IRS1118ScheduleI_TableContainer" style="border-top-width:1px;border-bottom-width:1px;height:61mm;" name="Table2" id="Table2">
   <!-- print logic -->
     <xsl:call-template name="SetInitialState"/>
   <!-- end -->
@@ -707,7 +722,8 @@
       </xsl:if>
        <xsl:if test="($Print = $Separated) and (count($FormData/ForeignOilAndGasIncomeTaxes) &gt; 6)">
       <tr>
-                  <td class="IRS1118ScheduleI_GenericCell" style="width:15mm;height:4mm;font-weight:bold;text-align:center;font-size:7pt;" scope="row">
+                  <td class="IRS1118ScheduleI_GenericCell" style="width:15mm;height:4mm;font-weight:bold;text-align:center;
+					  font-size:7pt;" scope="row">
 					  Totals 
 				  </td>
                   <td class="IRS1118ScheduleI_GenericCell" style="height:4mm;">
@@ -744,14 +760,14 @@
         <div style="float:right">
           Cat. No. 10237L 
           <span style="width:170px"/>
-          <span class="styBoldText" style="padding-right:2mm">Schedule I (Form 1118) (Rev. 12-2021)</span>
+          <span class="styBoldText" style="padding-right:2mm">Schedule I (Form 1118) (Rev. 12-2020)</span>
         </div>      
       </div>
       <p style="page-break-before:always"/>
       <!--END FOOTER-->  
       <!--BEGIN HEADER-->
       <div class="styBB" style="width:256mm">
-        <div style="float: left; clear: none">Schedule I (Form 1118) (Rev. 12-2021)</div>        
+        <div style="float: left; clear: none">Schedule I (Form 1118) (Rev. 12-2020)</div>        
         <div style="float:right;padding-right:4mm">
           Page <span class="styBoldText" style="font-size: 8pt">2</span>
         </div>      
@@ -956,24 +972,25 @@
     </xsl:call-template>
   </table>
   <!-- END Left Over Table -->  
+  <!-- Separated Table I Lines 1-6 -->
   <xsl:if test="($Print = $Separated) and (count($FormData/ForeignOilAndGasIncomeTaxes) &gt;6)">
 <br/>
-<span class="styRepeatingDataTitle">Form 1118 Schedule I Part I Lines 1 - 7 - Combined Foreign Oil and Gas Income and Taxes </span>			
+<span class="styRepeatingDataTitle">Form 1118 Schedule I Part I Lines 1 - 6 - Combined Foreign Oil and Gas Income and Taxes </span>			
 <table class="styDepTbl" style="width: 256mm;font-size: 7pt">
 	<thead class="styTableThead">
 		<tr class="styDepTblHdr">
         <th class="styDepTblCell" style="width:6mm;height:12mm;" rowspan="2" scope="col">
 			<span style="width:1px;" /></th>
         <th class="IRS1118ScheduleI_GenericCell" style="width:45mm;height:14mm;text-align:center;padding-top:2mm;padding-left:2mm;
-        padding-right:2mm" rowspan="2" scope="col">
+        padding-right:2mm" rowspan="2" scope="col" colspan="2">
           <b>1(a). </b>EIN or Reference ID number (see instructions)*
         </th>
         <th class="IRS1118ScheduleI_GenericCell" style="width:45mm;height:14mm;text-align:center;padding-top:2mm;padding-left:3mm;
         padding-right:3mm" rowspan="2" scope="col">
-          <b>1(b). </b>Foreign country or U.S. possession (enter two-letter code -- use a separate line for each) (see instructions)
+          <b>1(b). </b>Name of foreign country (Use a separate line for each country.)
         </th>
         <th class="IRS1118ScheduleI_GenericCell" style="height:4mm;width:80mm;font-size:7pt;font-weight:bold;border-right-width:0px;text-align:center;" 
-        colspan="6" scope="col">
+        colspan="5" scope="col">
           Gross Foreign Oil and Gas Income From Sources Outside the United States and its Possessions
           <span style="font-weight:normal;">(see instructions)</span>  
         </th>
@@ -983,12 +1000,14 @@
               <span class="styBoldText">2.</span> Gross foreign oil and gas extraction income</th>
             <th class="IRS1118ScheduleI_GenericCell" style="text-align:center;height:10mm" scope="col">
               <span class="styBoldText">3. </span> Gross foreign oil related income </th>
-             <th class="IRS1118ScheduleI_GenericCell" style="text-align:center;height:10mm" scope="col">
+            <!--<th class="IRS1118ScheduleI_GenericCell" style="text-align:center;height:10mm" scope="col">
+              <span class="styBoldText">4. </span> Certain dividends from foreign corporations</th>-->
+            <th class="IRS1118ScheduleI_GenericCell" style="text-align:center;height:10mm" scope="col">
               <span class="styBoldText">4. </span> Inclusions under sections 951(a)(1) and 951A</th>
             <th class="IRS1118ScheduleI_GenericCell" style="text-align:center;height:10mm" scope="col">
               <span class="styBoldText">5.</span> Other</th>
             <th class="IRS1118ScheduleI_GenericCell" scope="col" style="width:40mm;border-right-width:0px;text-align:center;height:10mm;">
-              <span class="styBoldText">6. </span> Total (add columns 2 <br/>through 5)</th>
+              <span class="styBoldText">6. </span> Total (add columns 2 <br/>through 6)</th>
         </tr>
       </thead>
         <tfoot/>
@@ -1008,7 +1027,7 @@
           <xsl:with-param name="TargetNode" select="RowId"/>
         </xsl:call-template>  
         </td>
-        <td class="IRS1118ScheduleI_GenericCell" style="text-align:left;width:45mm;">
+        <td class="IRS1118ScheduleI_GenericCell" style="text-align:left;width:65mm">
 			<xsl:choose>
 				<xsl:when test="(ForeignCorporationEIN)">
 					<xsl:call-template name="PopulateText">
@@ -1033,7 +1052,7 @@
 					<br/>
 			</xsl:for-each>		
         </td>
-        <td class="IRS1118ScheduleI_GenericCell" style="text-align:left;width:45mm;">
+        <td class="IRS1118ScheduleI_GenericCell" style="text-align:left;width:35mm;" colspan="2">
 			<xsl:choose>
 				<xsl:when test="(ForeignCountryOrUSPossessionCd)">
 					<xsl:call-template name="PopulateText">
@@ -1057,6 +1076,11 @@
           <xsl:with-param name="TargetNode" select="GroForeignOilRelatedIncomeAmt"/>
         </xsl:call-template>  
         </td>
+        <!--<td class="IRS1118ScheduleI_GenericCell">
+        <xsl:call-template name="PopulateAmount">
+          <xsl:with-param name="TargetNode" select="DividendsPaidFrgnCorpAmt"/>
+        </xsl:call-template>  
+        </td>-->
         <td class="IRS1118ScheduleI_GenericCell">
         <xsl:call-template name="PopulateAmount">
           <xsl:with-param name="TargetNode" select="InclusionsSect951a1Or951AAmt"/>
@@ -1075,7 +1099,7 @@
       </tr>  
       </xsl:for-each>     
       <tr class="styDepTblHdr">
-        <td class="styDepTblCell" style="width:40mm;height:4mm;font-weight:bold;text-align:center;" colspan="3" scope="row">
+        <td class="styDepTblCell" style="width:50mm;height:4mm;font-weight:bold;text-align:center;" colspan="4" scope="row">
           Totals <span style="font-weight:normal;">(add lines A through F)</span>
         </td>
         <td class="styDepTblCell" style="height:4mm;text-align: right">
@@ -1089,7 +1113,13 @@
           <xsl:with-param name="TargetNode" select="$FormData/TotForeignOilAndGasIncomeTaxes/GroForeignOilRelatedIncomeAmt"/>
           <xsl:with-param name="WhiteFont">true</xsl:with-param>
         </xsl:call-template>  
-        </td>
+        </td><!--
+        <td class="styDepTblCell" style="height:4mm;text-align: right">
+        <xsl:call-template name="PopulateAmount">
+          <xsl:with-param name="TargetNode" select="$FormData/TotForeignOilAndGasIncomeTaxes/DividendsPaidFrgnCorpAmt"/>
+          <xsl:with-param name="WhiteFont">true</xsl:with-param>
+        </xsl:call-template>  
+        </td>-->
         <td class="styDepTblCell" style="height:4mm;text-align: right">
         <xsl:call-template name="PopulateAmount">
           <xsl:with-param name="TargetNode" select="$FormData/TotForeignOilAndGasIncomeTaxes/InclusionsSect951a1Or951AAmt"/>
@@ -1114,7 +1144,7 @@
    </xsl:if>
   <xsl:if test="($Print = $Separated) and (count($FormData/ForeignOilAndGasIncomeTaxes) &gt;6)">
 <br/>
-<span class="styRepeatingDataTitle">Form 1118 Schedule I Part I Lines 8 - 14 - Foreign Oil and Gas Extraction Income and Taxes </span>			
+<span class="styRepeatingDataTitle">Form 1118 Schedule I Part I Lines 7 - 13 - Foreign Oil and Gas Extraction Income and Taxes </span>			
 <table class="styDepTbl" style="width: 256mm;font-size: 7pt">
 	<thead class="styTableThead">
 		<tr class="styDepTblHdr">
@@ -1129,13 +1159,13 @@
         </th>
       </tr>
       <tr class="styDepTblHdr">
-        <th class="styDepTblCell" style="height:5mm;width:32mm;text-align:center;" scope="col">8. Definitely allocable<br/>deductions</th>
-        <th class="styDepTblCell" style="height:5mm;text-align:center;width: 32mm" scope="col">9. Apportioned deductions not definitely allocable</th>
-        <th class="styDepTblCell" style="height:5mm;text-align:center;width: 32mm" scope="col">10. Total (add columns 8 and 9)</th>
-        <th class="styDepTblCell" style="height 10mm;width: 32mm;text-align:center;border-top:0px" rowspan="2">11. Taxable income (column 7 minus column 10)</th>
-        <th class="styDepTblCell" style="height:5mm;text-align:center;width: 45mm" scope="col">12. Paid or accured</th>
-        <th class="styDepTblCell" style="height:5mm;text-align:center;width: 45mm" scope="col">13. Deemed paid</th>
-        <th class="styDepTblCell" style="height:5mm;width:32mm;border-right-width:0px;text-align:center;" scope="col">14. Total (add columns 12 and 13)</th>
+        <th class="styDepTblCell" style="height:5mm;width:32mm;text-align:center;" scope="col">7. Definitely allocable<br/>deductions</th>
+        <th class="styDepTblCell" style="height:5mm;text-align:center;width: 32mm" scope="col">8. Apportioned deductions not definitely allocable</th>
+        <th class="styDepTblCell" style="height:5mm;text-align:center;width: 32mm" scope="col">9. Total (add columns 8 and 9)</th>
+        <th class="styDepTblCell" style="height 10mm;width: 32mm;text-align:center;border-top:0px" rowspan="2">10. Taxable income (column 7 minus column 10)</th>
+        <th class="styDepTblCell" style="height:5mm;text-align:center;width: 45mm" scope="col">11. Paid or accured</th>
+        <th class="styDepTblCell" style="height:5mm;text-align:center;width: 45mm" scope="col">12. Deemed paid</th>
+        <th class="styDepTblCell" style="height:5mm;width:32mm;border-right-width:0px;text-align:center;" scope="col">13. Total (add columns 12 and 13)</th>
       </tr>
       </thead>
             <tfoot/>

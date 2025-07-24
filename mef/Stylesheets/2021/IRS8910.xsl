@@ -275,7 +275,7 @@
 												<td class="styTableCell" style="width:5mm;text-align:right;font-weight:bold;border:none;border-bottom:1px solid black;" valign="top">4</td>
 												<td class="styTableCell" style="width:110mm;padding-left:2mm;text-align:left;border:none;border-bottom:1px solid black;">
 													<b>Tentative credit</b> (see instructions for amount to enter)
-													<span class="styDotLn" style="float:right;padding-right:2mm;">........</span>
+													<span class="styDotLn" style="float:right;padding-right:2mm;">.........</span>
 												</td>
 												<td class="styLNRightNumBox" style="width:8mm;border-bottom-width:1px;">4</td>
 												<td class="styTableCell" style="border:1px solid black;border-top:0;text-align:right;" valign="bottom">
@@ -371,7 +371,7 @@
 										<td class="styTableCell" style="width:5mm;text-align:center;font-weight:bold;border:none;border-bottom:1px solid black;padding-left:2mm;">4 </td>
 										<td class="styTableCell" style="width:110mm;padding-left:2mm;text-align:left;border:none;border-bottom:1px solid black;">
 											<b>Tentative credit</b> (see instructions for amount to enter)
-											<span class="styDotLn" style="float:right;padding-right:2mm;">........</span>
+											<span class="styDotLn" style="float:right;padding-right:2mm;">.........</span>
 										</td>
 										<td class="styLNRightNumBox" style="width:8mm;">4</td>
 										<td class="styTableCell" style="border:1px solid black;border-top:none;">
@@ -576,26 +576,26 @@
 							<xsl:for-each select="$FormData/TentativeCreditForPrsnlUseAmt">
 								<xsl:variable name="pos" select="position()"/>
 								<xsl:if test="(position() mod 2)=1">
-									<div class="styIRS8910TableContainer" id="Spcctn" style="border-bottom-width: 1px;">
+									<div class="styIRS8910TableContainer" id="Spcctn">
 										<!--print logic-->
 										<xsl:call-template name="SetInitialState"/>
 										<!--end-->
-										<table class="styTable" cellspacing="0" style="font-size: 7pt">
+										<table class="styTable" cellspacing="0" cellpadding="0" border="0" style="width:187mm;font-size:7pt;">
 											<tbody>
 												<!-- Line 10  -->
 												<tr style="width:187mm;">
 													<td class="styLNLeftNumBox" style="height:7mm;width:5mm;text-align:right;">10</td>
 													<td class="styTableCell" style="width:110mm;padding-left:2mm;text-align:left;border:none;">
 														If you skipped Part II, enter the amount from line 4.  If you completed Part II, subtract line 6 from line 4
-														<span class="styDotLn" style="float:right;padding-right:2mm;">..................</span>
+														<span class="styDotLn" style="float:right;padding-right:2mm;">....................</span>
 													</td>
-													<td class="styLNRightNumBox" style="height:7mm;padding-top:3.5mm;border-bottom:0px solid black;">10</td>
-													<td class="styTableCell" style="width:32mm;vertical-align:bottom;border:none;border-left:1px solid black;border-bottom:0px solid black;">
+													<td class="styLNRightNumBox" style="height:7mm;padding-top:3mm;">10</td>
+													<td class="styTableCell" style="width:32mm;vertical-align:bottom;border:none;border-left:1px solid black;border-bottom:1px solid black;">
 														<xsl:call-template name="PopulateAmount">
 															<xsl:with-param name="TargetNode" select="$FormData/TentativeCreditForPrsnlUseAmt[$pos]"/>
 														</xsl:call-template>
 													</td>
-													<td class="styTableCell" style="width:32mm;vertical-align:bottom;border:none;border-left:1px solid black;border-bottom:0px solid black;">
+													<td class="styTableCell" style="width:32mm;vertical-align:bottom;border:none;border-left:1px solid black;border-bottom:1px solid black;">
 														<xsl:call-template name="PopulateAmount">
 															<xsl:with-param name="TargetNode" select="$FormData/TentativeCreditForPrsnlUseAmt[$pos + 1]"/>
 														</xsl:call-template>

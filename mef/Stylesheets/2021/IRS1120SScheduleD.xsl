@@ -168,10 +168,9 @@
           </div>
 					</div>
 					<!-- print logic -->
-					<!--<xsl:call-template name="SetInitialState"/>-->
+					<xsl:call-template name="SetInitialState"/>
 					<!-- end -->
 					<table class="IRS1120SScheduleD_styTable" style="width:187mm;">
-						<xsl:call-template name="SetInitialState"/>
 						<tr valign="top" style="border:1px solid black;border-top:0;border-left:0;">
 							<th class="IRS1120SScheduleD_DescCol" style="font-weight:normal;width:61mm;text-align:left;valign:top;" scope="col">See instructions for how to figure the amounts to enter on the lines below.<br/>
 								<br/>

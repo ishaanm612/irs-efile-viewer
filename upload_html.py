@@ -8,7 +8,7 @@ from pathlib import Path
 
 HTML_DIR = "output/html"  # Change as needed
 S3_BUCKET = os.environ.get("S3_BUCKET_NAME", "da-990-returns")
-SUMMARY_JSON = "output/2024_summary.json"
+SUMMARY_JSON = "output/2022_summary.json"
 CONCURRENT_UPLOADS = 256  # Tune as needed
 
 
@@ -43,8 +43,11 @@ async def main():
                 for file_path in html_files
             ]
             results = await asyncio.gather(*upload_coros)
+    tqdm.write(f"Uploaded {len(results)} files to S3. Starting summary processing.")
 
-    for file_path, s3_key, s3_uri in results:
+    for file_path, s3_key, s3_uri in tqdm(
+        results, desc="Processing upload results", unit="file"
+    ):
         if s3_uri:
             name = s3_key.split(".")[0]
             ein, tax_year, form_type = name.split("_")

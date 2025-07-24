@@ -80,11 +80,11 @@
 
           <div class="styTopSectionLine">          
           <div class="styTopSectionLineLbl" style="float:left;">
-            <div class="styBold">Payment Amount in whole Dollars: </div>
+            <div class="styBold">Payment Amount in Dollars and Cents: </div>
           </div>
           <div class="styExplanationLine" style="float:left;padding-top:2mm;">          
               <xsl:call-template name="PopulateAmount">
-              <!--<xsl:with-param name="MaxSize" select="11"/>-->
+              <xsl:with-param name="MaxSize" select="11"/>
               <xsl:with-param name="TargetNode" select="$DependencyData/PaymentAmt"/>
             </xsl:call-template>
              </div>                  

@@ -1,0 +1,9 @@
+*.html
+*.xml
+*.xsl
+data/
+output/html/
+css/img/
+js/
+mef/
+*.csv

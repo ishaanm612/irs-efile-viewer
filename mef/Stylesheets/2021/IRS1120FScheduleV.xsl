@@ -63,9 +63,9 @@
               <div class="styMainTitle" style="height:8mm; padding-top:2mm;">List of Vessels or Aircraft, Operators, and Owners </div>       
               <div class="styFST">
                 <br/>
-			    <img src="{$ImagePath}/Medium_Right_Pointing_Arrow.gif" alt="Medium Right Pointing Arrow"/>Attach to Form 1120-F.
+			    <img src="{$ImagePath}/1120FScheduleH_Bullet.gif" alt="Right Pointing Arrow"/>Attach to Form 1120-F.
 			    <br/>
-			    <img src="{$ImagePath}/Medium_Right_Pointing_Arrow.gif" alt="Medium Right Pointing Arrow"/>&#160;Go to 
+			    <img src="{$ImagePath}/1120FScheduleH_Bullet.gif" alt="Right Pointing Arrow"/>&#160;Go to 
 			    <a style="text-decoration:none; color:black;" href="http://www.irs.gov/form1120f"><i>www.irs.gov/Form1120F</i></a> for instructions and the latest information.
 			  </div>
             </div>
@@ -233,30 +233,30 @@
 				    	      <xsl:call-template name="PopulateSpan">
 				     		<xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
 				    	      </xsl:call-template>								
-				    	      <input type="checkbox" alt="Vessel Or Aircraft Chartered In A Yes Box"  class="styCkbox">
+				    	      <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes"  class="styCkbox">
 					    	    <xsl:call-template name="PopulateYesCheckbox">
 						      <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-					     	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In A Yes Box<xsl:value-of select="$pos"/></xsl:with-param>
+					     	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos"/></xsl:with-param>
 					    	    </xsl:call-template>
 				    	      </input>
 			     		  <label>
 				     		<xsl:call-template name="PopulateLabelYes">
 					    	      <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-				    		      <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In A Yes Label<xsl:value-of select="$pos"/></xsl:with-param>
+				    		      <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos"/></xsl:with-param>
 			     			</xsl:call-template>
 				    		    <span style="font-size:6pt">Yes </span>
 		     			  </label>
 					      <span style="width:2mm"/>
-					      <input type="checkbox" alt="Vessel Or Aircraft Chartered In A No Box" class="styCkbox">
+					      <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
 					    	    <xsl:call-template name="PopulateNoCheckbox">
 							  <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-							  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In A No Box<xsl:value-of select="$pos"/></xsl:with-param>
+							  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos"/></xsl:with-param>
 				    		    </xsl:call-template>
 		     			  </input>
 			    		      <label>
 				    	        <xsl:call-template name="PopulateLabelNo">
 							  <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-							  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In A No Label<xsl:value-of select="$pos"/></xsl:with-param>
+							  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos"/></xsl:with-param>
 			    			    </xsl:call-template>
 		     				<span style="font-size:6pt">No </span>
 		     			  </label>
@@ -272,30 +272,30 @@
 		        		        <xsl:call-template name="PopulateSpan">
 				    		      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
 	         			    </xsl:call-template>								
-		         		    <input type="checkbox" alt="Vessel Or Aircraft Chartered In B Yes Box" class="styCkbox">
+		         		    <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
 			    			      <xsl:call-template name="PopulateYesCheckbox">
 							    <xsl:with-param name="TargetNode"  select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-							    <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In B Yes Box<xsl:value-of select="$pos + 1"/></xsl:with-param>
+							    <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 1"/></xsl:with-param>
 				     		  </xsl:call-template>
 				    	        </input>
 		    			  <label>
 				    		<xsl:call-template name="PopulateLabelYes">
 							  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-					    	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In B Yes Label<xsl:value-of select="$pos + 1"/></xsl:with-param>
+					    	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 1"/></xsl:with-param>
 					    	</xsl:call-template>
 			     			<span style="font-size:6pt">Yes </span>
 		     			  </label>
 		     			  <span style="width:2mm"/>
-		     			  <input type="checkbox" alt="Vessel Or Aircraft Chartered In B No Box" class="styCkbox">
+		     			  <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
 					    	<xsl:call-template name="PopulateNoCheckbox">
 							  <xsl:with-param name="TargetNode"  select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-						      <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In B No Box<xsl:value-of select="$pos + 1"/></xsl:with-param>
+						      <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 1"/></xsl:with-param>
 			     			</xsl:call-template>
 			     		  </input>
 		     			  <label>
 					    	<xsl:call-template name="PopulateLabelNo">
 							  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-							  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In B No Label<xsl:value-of select="$pos + 1"/></xsl:with-param>
+							  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 1"/></xsl:with-param>
 				    		</xsl:call-template>
 				      		<span style="font-size:6pt">No </span>
 		    			  </label>
@@ -311,30 +311,30 @@
 			     		  <xsl:call-template name="PopulateSpan">
 						    <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
 			     		  </xsl:call-template>								
-				    	  <input type="checkbox" alt="Vessel Or Aircraft Chartered In C Yes Box" class="styCkbox">
+				    	  <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
 					    	<xsl:call-template name="PopulateYesCheckbox">
 						      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-					    	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In C Yes Box<xsl:value-of select="$pos + 2"/></xsl:with-param>
+					    	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 2"/></xsl:with-param>
 					    	</xsl:call-template>
 				    	  </input>
 				    	  <label>
 			   	     		<xsl:call-template name="PopulateLabelYes">
 							  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-							  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In C Yes Label<xsl:value-of select="$pos + 2"/></xsl:with-param>
+							  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 2"/></xsl:with-param>
 			    			</xsl:call-template>
 					    	<span style="font-size:6pt">Yes </span>
 		     			  </label>
 			        	  <span style="width:2mm"/>
-			    		  <input type="checkbox" alt="Vessel Or Aircraft Chartered In C No Box" class="styCkbox">
+			    		  <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
 					    	<xsl:call-template name="PopulateNoCheckbox">
 						      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-						      <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In C No Box<xsl:value-of select="$pos + 2"/></xsl:with-param>
+						      <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 2"/></xsl:with-param>
 					    	</xsl:call-template>
 				    	  </input>
 				    	  <label>
 					    	<xsl:call-template name="PopulateLabelNo">
 							  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-				     		  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In C No Label<xsl:value-of select="$pos + 2"/></xsl:with-param>
+				     		  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 2"/></xsl:with-param>
 					    	</xsl:call-template>
 					    	<span style="font-size:6pt">No </span>
 			    		  </label>
@@ -349,30 +349,30 @@
 				    	<xsl:call-template name="PopulateSpan">
 			     		  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
 			     		</xsl:call-template>								
-		    			<input type="checkbox" alt="Vessel Or Aircraft Chartered In D Yes Box" class="styCkbox">
+		    			<input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
 				    	  <xsl:call-template name="PopulateYesCheckbox">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In D Yes Box<xsl:value-of select="$pos + 3"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 3"/></xsl:with-param>
 				     	  </xsl:call-template>
 		     			</input>
 					    <label>
 						  <xsl:call-template name="PopulateLabelYes">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In D Yes Label<xsl:value-of select="$pos + 3"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 3"/></xsl:with-param>
 				    	  </xsl:call-template>
 				    	  <span style="font-size:6pt">Yes </span>
 			     		</label>
 			    		<span style="width:2mm"/>
-			    		<input type="checkbox" alt="Vessel Or Aircraft Chartered In D No Box" class="styCkbox">
+			    		<input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
 					      <xsl:call-template name="PopulateNoCheckbox">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In D No Box<xsl:value-of select="$pos + 3"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 3"/></xsl:with-param>
 				    	  </xsl:call-template>
 		    			</input>
 			    		<label>
 						  <xsl:call-template name="PopulateLabelNo">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In D No Label<xsl:value-of select="$pos + 3"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrAircraftCharteredIn<xsl:value-of select="$pos + 3"/></xsl:with-param>
 						  </xsl:call-template>
 						  <span style="font-size:6pt">No </span>
 			     		</label>
@@ -402,30 +402,30 @@
 				        <xsl:call-template name="PopulateSpan">
 						  <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
 			        	</xsl:call-template>								
-			     		<input type="checkbox" alt="Vessel Or Aircraft Chartered Out A Yes Box" class="styCkbox">
+			     		<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
 					      <xsl:call-template name="PopulateYesCheckbox">
 						    <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out A Yes Box<xsl:value-of select="$pos"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos"/></xsl:with-param>
 					      </xsl:call-template>
 				    	</input>
 				     	<label>
 					      <xsl:call-template name="PopulateLabelYes">
 							<xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out A Yes Label<xsl:value-of select="$pos"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos"/></xsl:with-param>
 				    	  </xsl:call-template>
 			     		  <span style="font-size:6pt;">Yes </span>
 				     	</label>
 				     	<span style="width:2mm"/>
-				    	<input type="checkbox" alt="Vessel Or Aircraft Chartered Out A No Box" class="styCkbox">
+				    	<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
 					      <xsl:call-template name="PopulateNoCheckbox">
 							<xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out A No Box<xsl:value-of select="$pos"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos"/></xsl:with-param>
 			     		  </xsl:call-template>
 			    		</input>
 		    			<label>
 						  <xsl:call-template name="PopulateLabelNo">
 							<xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out A No Label<xsl:value-of select="$pos"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos"/></xsl:with-param>
 					      </xsl:call-template>
 					      <span style="font-size:6pt;">No </span>
 				    	</label>
@@ -440,30 +440,30 @@
 			    		<xsl:call-template name="PopulateSpan">
 						  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
 			    		</xsl:call-template>								
-	     				<input type="checkbox" alt="Vessel Or Aircraft Chartered Out B Yes Box"	class="styCkbox">
+	     				<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes"	class="styCkbox">
 				    	  <xsl:call-template name="PopulateYesCheckbox">
 						    <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out B Yes Box<xsl:value-of select="$pos + 1"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 1"/></xsl:with-param>
 					      </xsl:call-template>
 	      				</input>
 	    				<label>
 					      <xsl:call-template name="PopulateLabelYes">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out B Yes Label<xsl:value-of select="$pos + 1"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 1"/></xsl:with-param>
 					      </xsl:call-template>
 						  <span style="font-size:6pt">Yes </span>
 				    	</label>
 			     		<span style="width:2mm"/>
-				    	<input type="checkbox" alt="Vessel Or Aircraft Chartered Out B No Box" class="styCkbox">
+				    	<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
 					      <xsl:call-template name="PopulateNoCheckbox">
 						    <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-					    	<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out B No Box<xsl:value-of select="$pos + 1"/></xsl:with-param>
+					    	<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 1"/></xsl:with-param>
 				    	  </xsl:call-template>
 			    		</input>
 			    		<label>
 					      <xsl:call-template name="PopulateLabelNo">
 					  		<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out B No Label<xsl:value-of select="$pos + 1"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 1"/></xsl:with-param>
 				    	  </xsl:call-template>
 					      <span style="font-size:6pt;">No </span>
 				    	</label>
@@ -479,30 +479,30 @@
 			     		<xsl:call-template name="PopulateSpan">
 					      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
 				    	</xsl:call-template>								
-			    	    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out C Yes Box" class="styCkbox">
+			    	    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
 					      <xsl:call-template name="PopulateYesCheckbox">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out C Yes Box<xsl:value-of select="$pos + 2"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 2"/></xsl:with-param>
 					      </xsl:call-template>
 				        </input>
 				    	<label>
 					      <xsl:call-template name="PopulateLabelYes">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out C Yes Label<xsl:value-of select="$pos + 2"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 2"/></xsl:with-param>
 				    	  </xsl:call-template>
 			     		  <span style="font-size:6pt">Yes </span>
 			    		</label>
 		    			<span style="width:2mm"/>
-	     				<input type="checkbox" alt="Vessel Or Aircraft Chartered Out C No Box"  class="styCkbox">
+	     				<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No"  class="styCkbox">
 					      <xsl:call-template name="PopulateNoCheckbox">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out C No Box<xsl:value-of select="$pos + 2"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 2"/></xsl:with-param>
 				    	  </xsl:call-template>
 					    </input>
 				        <label>
 						  <xsl:call-template name="PopulateLabelNo">
 							<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-							<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out C No Label<xsl:value-of select="$pos + 2"/></xsl:with-param>
+							<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 2"/></xsl:with-param>
 			     		  </xsl:call-template>
 					      <span style="font-size:6pt;">No </span>
 					    </label>
@@ -517,30 +517,30 @@
 			        	<xsl:call-template name="PopulateSpan">
 					      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
 			         	</xsl:call-template>								
-			     	    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out D Yes Box" class="styCkbox">
+			     	    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
 				     	  <xsl:call-template name="PopulateYesCheckbox">
 				    		<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-				    		<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out D Yes Box<xsl:value-of select="$pos + 3"/></xsl:with-param>
+				    		<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 3"/></xsl:with-param>
 				          </xsl:call-template>
 			    	    </input>
 			    	    <label>
 				          <xsl:call-template name="PopulateLabelYes">
 			        		<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-		        			<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out D Yes Label<xsl:value-of select="$pos + 3"/></xsl:with-param>
+		        			<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 3"/></xsl:with-param>
 		     			  </xsl:call-template>
 			     		  <span style="font-size:6pt">Yes </span>
 			        	</label>
 			         	<span style="width:2mm"/>
-		     	        <input type="checkbox" alt="Vessel Or Aircraft Chartered Out D No Box" class="styCkbox">
+		     	        <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
 				          <xsl:call-template name="PopulateNoCheckbox">
 					        <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-				        	<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out D No Box<xsl:value-of select="$pos + 3"/></xsl:with-param>
+				        	<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 3"/></xsl:with-param>
 			     	      </xsl:call-template>
 		    	        </input>
 		    	    	<label>
 		        		  <xsl:call-template name="PopulateLabelNo">
 				    		<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-			    			<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out D No Label<xsl:value-of select="$pos + 3"/></xsl:with-param>
+			    			<xsl:with-param name="BackupName">VesselOrArcrftCharteredOut<xsl:value-of select="$pos + 3"/></xsl:with-param>
 				          </xsl:call-template>
 			    	      <span style="font-size:6pt">No </span>
 				    	</label>
@@ -1108,37 +1108,37 @@
 				  </td>
 	     		  <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm; border-left-width:1px; text-align:center;">
 	        		<span style="width:1px;"/>
-	        		<input type="checkbox" alt="Yes Box" class="styCkbox"></input>
-		        	<label><span style="font-size:6pt">Yes Label</span></label>
+	        		<input type="checkbox" alt="Yes" class="styCkbox"></input>
+		        	<label><span style="font-size:6pt">Yes </span></label>
 		            <span style="width:5mm"/>
-		        	<input type="checkbox" alt="No Box" class="styCkbox"></input>
-		        	<label><span style="font-size:6pt">No Label</span><span style="width:2mm"/></label>
+		        	<input type="checkbox" alt="No" class="styCkbox"></input>
+		        	<label><span style="font-size:6pt">No </span><span style="width:2mm"/></label>
 		        	<span class="styTableCellPad"/>
 		    	  </td>
      			  <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm; text-align:center">
 	         		<span style="width:1px;"/>
-		        	<input type="checkbox" alt="Yes Box" class="styCkbox"></input>
-	         		<label><span style="font-size:6pt">Yes Label</span></label>
+		        	<input type="checkbox" alt="Yes" class="styCkbox"></input>
+	         		<label><span style="font-size:6pt">Yes </span></label>
 		            <span style="width:5mm"/>
-		         	<input type="checkbox" alt="No Box" class="styCkbox"></input>
-		        	<label><span style="font-size:6pt">No Label</span><span style="width:2mm"/></label>
+		         	<input type="checkbox" alt="No" class="styCkbox"></input>
+		        	<label><span style="font-size:6pt">No </span><span style="width:2mm"/></label>
 		            <span class="styTableCellPad"/>
 			      </td>
 		     	  <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style: solid;	border-color:black; height:8mm; padding-top:3mm; text-align:center">
 		            <span style="width:1px;"/>
-		        	<input type="checkbox" alt="Yes Box" class="styCkbox"></input>
-	        		<label><span style="font-size:6pt">Yes Label</span></label>
+		        	<input type="checkbox" alt="Yes" class="styCkbox"></input>
+	        		<label><span style="font-size:6pt">Yes </span></label>
 		            <span style="width:5mm"/>
-		         	<input type="checkbox" alt="No Box" class="styCkbox"></input>
-		        	<label><span style="font-size:6pt">No Label</span><span style="width:2mm"/></label>
+		         	<input type="checkbox" alt="No" class="styCkbox"></input>
+		        	<label><span style="font-size:6pt">No </span><span style="width:2mm"/></label>
 		     	  </td>
      			  <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm; text-align:center; border-right-width:0px;">
 	        		<span style="width:1px;"/>
-		        	<input type="checkbox" alt="Yes Box" class="styCkbox"></input>
-		         	<label><span style="font-size:6pt">Yes Label</span></label>
+		        	<input type="checkbox" alt="Yes" class="styCkbox"></input>
+		         	<label><span style="font-size:6pt">Yes </span></label>
 		            <span style="width:5mm"/>
-		         	<input type="checkbox" alt="No Box" class="styCkbox"></input>
-	        		<label><span style="font-size:6pt">No Label</span><span style="width:2mm"/></label>
+		         	<input type="checkbox" alt="No" class="styCkbox"></input>
+	        		<label><span style="font-size:6pt">No </span><span style="width:2mm"/></label>
 	            	<span class="styTableCellPad"/>
 		    	  </td>
 			    </tr>
@@ -1156,39 +1156,39 @@
 					</div>
 				  </td>
 	     		  <td class="styTableCellSmall" style="width:30mm; font-size:6pt; text-align:center; border-style:solid; border-color:black; height:8mm; padding-top:3mm; border-left-width:1px;">
-		            <input type="checkbox" alt="Yes Box" class="styCkbox"></input>
-	            	<label><span style="font-size:6pt">Yes Label</span></label>
+		            <input type="checkbox" alt="Yes" class="styCkbox"></input>
+	            	<label><span style="font-size:6pt">Yes </span></label>
 		            <span style="width:5mm"/>
-		            <input type="checkbox" alt="No Box" class="styCkbox"></input>
-		            <label><span style="font-size:6pt">No Label</span><span style="width:2mm"/></label>
+		            <input type="checkbox" alt="No" class="styCkbox"></input>
+		            <label><span style="font-size:6pt">No </span><span style="width:2mm"/></label>
 		            <span class="styTableCellPad"/>
 			      </td>
 		    	  <td class="styTableCellSmall" style="width:30mm; font-size:6pt; text-align:center; border-style:solid; border-color:black; height:8mm; padding-top:3mm">
-             		<input type="checkbox" alt="Yes Box" class="styCkbox"></input>
-		            <label><span style="font-size:6pt">Yes Label</span></label>
+             		<input type="checkbox" alt="Yes" class="styCkbox"></input>
+		            <label><span style="font-size:6pt">Yes </span></label>
 		            <span style="width:5mm"/>
-	            	<input type="checkbox" alt="No Box" class="styCkbox"></input>
-		            <label><span style="font-size:6pt">No label</span><span style="width:2mm"/></label>
+	            	<input type="checkbox" alt="No" class="styCkbox"></input>
+		            <label><span style="font-size:6pt">No </span><span style="width:2mm"/></label>
 		            <span class="styTableCellPad"/>
 		    	  </td>
      			  <td class="styTableCellSmall" style="width:30mm; font-size:6pt; text-align:center; border-style:solid; border-color:black; height:8mm; padding-top:3mm">
-	            	<input type="checkbox" alt="Yes Box" class="styCkbox"></input>
-		            <label><span style="font-size:6pt">Yes Label</span></label>
+	            	<input type="checkbox" alt="Yes" class="styCkbox"></input>
+		            <label><span style="font-size:6pt">Yes </span></label>
 	                <span style="width:5mm"/>
-	             	<input type="checkbox" alt="No Box" class="styCkbox"></input>
-	             	<label><span style="font-size:6pt">No Label</span><span style="width:2mm"/></label>
+	             	<input type="checkbox" alt="No" class="styCkbox"></input>
+	             	<label><span style="font-size:6pt">No </span><span style="width:2mm"/></label>
 		         	<span class="styTableCellPad"/>
 		     	  </td>
 		     	  <td class="styTableCellSmall" style="width:30mm; font-size:6pt; text-align:center; border-style:solid; border-color:black; height:8mm; padding-top:3mm; border-right-width:0px;">
-		         	<input type="checkbox" alt="Yes Box" class="styCkbox"></input>
+		         	<input type="checkbox" alt="Yes" class="styCkbox"></input>
 	         		<label>
-		              <span style="font-size:6pt">Yes Label</span>
+		              <span style="font-size:6pt">Yes </span>
 		        	</label>
 		            <span style="width:5mm"/>
-		         	<input type="checkbox" alt="No Box" class="styCkbox">
+		         	<input type="checkbox" alt="No" class="styCkbox">
 		            </input>
 		            <label>
-			          <span style="font-size:6pt">No Label</span>
+			          <span style="font-size:6pt">No </span>
 		              <span style="width:2mm"/>
 		         	</label>
 		          	<span class="styTableCellPad"/>
@@ -1435,30 +1435,30 @@
             </td>
             <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm; border-left-width:1px; text-align:center;">
               <span style="width:1px;"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Yes Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
                 <xsl:call-template name="PopulateYesCheckbox">
                   <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In1 Yes Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn1</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelYes">
                   <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In1 Yes Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn1</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">Yes </span>
               </label>
               <span style="width:5mm"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered In No Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
                 <xsl:call-template name="PopulateNoCheckbox">
                   <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In1 No Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn1</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelNo">
                   <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In1 No Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn1</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">No </span>
                 <span style="width:2mm"/>
@@ -1470,30 +1470,30 @@
             </td>
             <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm; text-align:center">
               <span style="width:1px;"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Yes Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
                 <xsl:call-template name="PopulateYesCheckbox">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In2 Yes Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn2</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelYes">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In2 Yes Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn2</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">Yes </span>
               </label>
               <span style="width:5mm"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered In No Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
                 <xsl:call-template name="PopulateNoCheckbox">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In2 No Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn2</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelNo">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In2 No Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn2</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">No </span>
                 <span style="width:2mm"/>
@@ -1505,30 +1505,30 @@
             </td>
             <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm; text-align:center">
               <span style="width:1px;"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Yes Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
                 <xsl:call-template name="PopulateYesCheckbox">
                   <xsl:with-param name="TargetNode"  select=" $Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In3 Yes Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn3</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelYes">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In3 Yes Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn3</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">Yes </span>
               </label>
               <span style="width:5mm"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered In No Box"  class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No"  class="styCkbox">
                 <xsl:call-template name="PopulateNoCheckbox">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In3 No Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn3</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelNo">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In3 No Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn3</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">No </span>
                 <span style="width:2mm"/>
@@ -1539,30 +1539,30 @@
             </td>
             <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm; text-align:center; border-right-width:0px;">
               <span style="width:1px;"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Yes Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
                 <xsl:call-template name="PopulateYesCheckbox">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In4 Yes Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn4</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelYes">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In4 Yes Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn4</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">Yes </span>
               </label>
               <span style="width:5mm"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered In No Box" class="styCkbox">
+              <input type="checkbox" alt="essel Or Aircraft Chartered In Indicator No" class="styCkbox">
                 <xsl:call-template name="PopulateNoCheckbox">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In4 No Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn4</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelNo">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In4 No Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrAircraftCharteredIn4</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">No </span>
                 <span style="width:2mm"/>
@@ -1591,30 +1591,30 @@
               <xsl:call-template name="PopulateSpan">
                 <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
               </xsl:call-template>								
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Yes Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
                 <xsl:call-template name="PopulateYesCheckbox">
                   <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out1 Yes Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut1</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelYes">
                   <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out1 Yes Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">1VesselOrArcrftCharteredOut1</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">Yes </span>
               </label>
               <span style="width:5mm"/>
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered Out No Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
                 <xsl:call-template name="PopulateNoCheckbox">
                   <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out1 No Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut1</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelNo">
                   <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out1 No Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut1</xsl:with-param>
                 </xsl:call-template>
                 <span style="font-size:6pt">No </span>
                 <span style="width:2mm"/>
@@ -1628,30 +1628,30 @@
               <xsl:call-template name="PopulateSpan">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
               </xsl:call-template>								
-              <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Yes Box" class="styCkbox">
+              <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
                 <xsl:call-template name="PopulateYesCheckbox">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out2 Yes Box</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut2</xsl:with-param>
                 </xsl:call-template>
               </input>
               <label>
                 <xsl:call-template name="PopulateLabelYes">
                   <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-                  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out3 Yes Label</xsl:with-param>
+                  <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut2</xsl:with-param>
                 </xsl:call-template>
                <span style="font-size:6pt">Yes </span>
               </label>
             <span style="width:5mm"/>
-            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out No Box" class="styCkbox">
+            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out2 No Box</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut2</xsl:with-param>
               </xsl:call-template>
             </input>
             <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out2 No Label</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut2</xsl:with-param>
               </xsl:call-template>
               <span style="font-size:6pt">No </span>
               <span style="width:2mm"/>
@@ -1665,30 +1665,30 @@
             <xsl:call-template name="PopulateSpan">
               <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
             </xsl:call-template>								
-            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Yes Box" class="styCkbox">
+            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out3 Yes Box</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut3</xsl:with-param>
               </xsl:call-template>
             </input>
             <label>
               <xsl:call-template name="PopulateLabelYes">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out3 Yes Label</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut3</xsl:with-param>
               </xsl:call-template>
               <span style="font-size:6pt">Yes </span>
             </label>
             <span style="width:5mm"/>
-            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out No Box" class="styCkbox">
+            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out3 No Box</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut3</xsl:with-param>
               </xsl:call-template>
             </input>
             <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out3 No Label</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut3</xsl:with-param>
               </xsl:call-template>
               <span style="font-size:6pt">No </span>
               <span style="width:2mm"/>
@@ -1702,30 +1702,30 @@
             <xsl:call-template name="PopulateSpan">
               <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
             </xsl:call-template>								
-            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Yes Box" class="styCkbox">
+            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
               <xsl:call-template name="PopulateYesCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out4 Yes Box</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut4</xsl:with-param>
               </xsl:call-template>
             </input>
             <label>
               <xsl:call-template name="PopulateLabelYes">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out4 Yes Label</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut4</xsl:with-param>
               </xsl:call-template>
               <span style="font-size:6pt">Yes </span>
             </label>
             <span style="width:5mm"/>
-            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out No Box" class="styCkbox">
+            <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
               <xsl:call-template name="PopulateNoCheckbox">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out4 No Box</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut4</xsl:with-param>
               </xsl:call-template>
             </input>
             <label>
               <xsl:call-template name="PopulateLabelNo">
                 <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out4 No Label</xsl:with-param>
+                <xsl:with-param name="BackupName">VesselOrArcrftCharteredOut4</xsl:with-param>
               </xsl:call-template>
               <span style="font-size:6pt">No </span>
               <span style="width:2mm"/>
@@ -1852,27 +1852,26 @@
         <tr>
           <td class="styIRS1120FScheduleVTableCellSmall" style="font-size:7pt;" scope="row">
 			<div>
-			  <div class="styGenericDiv" style="width:5mm; font-size:7.5pt; padding-left:2mm; height:18mm; padding-top:1mm;"><b>9 </b></div>
-			  <div class="styGenericDiv" style="width:61mm; height:18mm; padding-top:1mm;">
+			  <div class="styGenericDiv" style="width:5mm; font-size:7.5pt; padding-left:2mm; height:8mm; padding-top:3mm;"><b>9 </b></div>
+			  <div class="styGenericDiv" style="width:61mm; height:8mm; padding-top:3mm;">
 				<span style="float:left;">
 				U.S. source gross transportation income. See instructions for details regarding a statement that must be attached
-				to Schedule V describing the method used to determine your U.S. source gross transportation income
-					<!--Dotted Line-->
-					<div class="styDotLn" style="float:right; padding-right:1mm;">.....</div>
-				</span>
+				to Schedule V describing the method used to determine your U.S. source gross transportation income .</span>
+				<!--Dotted Line-->
+				<div class="styDotLn" style="float:right; padding-right:1mm;">.......</div>
 			  </div>
 			</div>
           </td>
-          <td class="styTableCellSmall" style="width:30mm;font-size:6pt;border-style:solid; border-color:black; height:18mm; padding-top:1mm; border-left-width:1px; text-align:right;">
+          <td class="styTableCellSmall" style="width:30mm;font-size:6pt;border-style:solid; border-color:black; height:8mm; padding-top:3mm; border-left-width:1px; text-align:right;">
             <span class="styTableCellPad"/>
           </td>
-          <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:18mm; padding-top:1mm;">
+          <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm;">
             <span class="styTableCellPad"/>
           </td>
-          <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:18mm; padding-top:1mm;">
+          <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm;">
             <span class="styTableCellPad"/>
           </td>
-          <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:18mm; padding-top:1mm; border-right-width:0px;">
+          <td class="styTableCellSmall" style="width:30mm; font-size:6pt; border-style:solid; border-color:black; height:8mm; padding-top:3mm; border-right-width:0px;">
             <span class="styTableCellPad"/>
           </td>
         </tr>
@@ -2104,16 +2103,16 @@
 	     	    <xsl:call-template name="PopulateSpan">
 				  <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
 			    </xsl:call-template>								
-		        <input type="checkbox" alt="Vessel Or Aircraft Chartered In Yes Box" class="styCkbox">
+		        <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
 				  <xsl:call-template name="PopulateYesCheckbox">
 	         	    <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-	         	    <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In Yes Box</xsl:with-param>
+	         	    <xsl:with-param name="BackupName">VesselOrAircraftCharteredInYes</xsl:with-param>
 		          </xsl:call-template>
 		        </input>
 			    <label>
 		          <xsl:call-template name="PopulateLabelYes">
 	                <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-	          	    <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In Yes Label</xsl:with-param>
+	          	    <xsl:with-param name="BackupName">VesselOrAircraftCharteredInYesLabel</xsl:with-param>
 				  </xsl:call-template>
 	       		  <span style="font-size:6pt">Yes </span>
 		        </label>
@@ -2122,16 +2121,16 @@
 			    <xsl:call-template name="PopulateSpan">
 				  <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
 			    </xsl:call-template>								
-		        <input type="checkbox" alt="Vessel Or Aircraft Chartered In No Box" class="styCkbox">
+		        <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
 	         	  <xsl:call-template name="PopulateNoCheckbox">
 	        	        <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-		            <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In No Box</xsl:with-param>
+		            <xsl:with-param name="BackupName">VesselOrAircraftCharteredInNo</xsl:with-param>
 		          </xsl:call-template>
 		        </input>
 			    <label>
 	    	          <xsl:call-template name="PopulateLabelNo">
 	    	            <xsl:with-param name="TargetNode" select="VesselOrAircraftCharteredInInd"/>
-	                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In No Label</xsl:with-param>
+	                <xsl:with-param name="BackupName">VesselOrAircraftCharteredInNoLabel</xsl:with-param>
 	    	          </xsl:call-template>
     	    	          <span style="font-size:6pt">No </span>
 	    		      <span style="width:2mm"/>
@@ -2147,16 +2146,16 @@
 	     	    <xsl:call-template name="PopulateSpan">
 				  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
 		        </xsl:call-template>								
-	    	        <input type="checkbox" alt="Vessel Or Aircraft Chartered In Yes Box" class="styCkbox">
+	    	        <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
 	        	      <xsl:call-template name="PopulateYesCheckbox">
 	                <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-	                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In Yes Box</xsl:with-param>
+	                <xsl:with-param name="BackupName">VesselOrAircraftCharteredInYes</xsl:with-param>
 		          </xsl:call-template>
 	     	    </input>
 			    <label>
 	    	          <xsl:call-template name="PopulateLabelYes">
 	         	    <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-	                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In Yes Label</xsl:with-param>
+	                <xsl:with-param name="BackupName">VesselOrAircraftCharteredInYesLabel</xsl:with-param>
 		          </xsl:call-template>
 	    		      <span style="font-size:6pt">Yes </span>
 	    	        </label>
@@ -2165,16 +2164,16 @@
 		        <xsl:call-template name="PopulateSpan">
 			      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
 		        </xsl:call-template>								
-		        <input type="checkbox" alt="Vessel Or Aircraft Chartered In No Box" class="styCkbox">
+		        <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
 	    		      <xsl:call-template name="PopulateNoCheckbox">
 	        	        <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/	VesselOrAircraftCharteredInInd"/>
-	                <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In No Box</xsl:with-param>
+	                <xsl:with-param name="BackupName">VesselOrAircraftCharteredInNo</xsl:with-param>
 	     		  </xsl:call-template>
 		        </input>
 			  <label>
 			    <xsl:call-template name="PopulateLabelNo">
 		          <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrAircraftCharteredInInd"/>
-	         	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In No Label</xsl:with-param>
+	         	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredInNoLabel</xsl:with-param>
 				</xsl:call-template>
 	     		<span style="font-size:6pt">No </span>
 	    		<span style="width:2mm"/>
@@ -2190,16 +2189,16 @@
 		      <xsl:call-template name="PopulateSpan">
 				<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
 		      </xsl:call-template>								
-		      <input type="checkbox" alt="Vessel Or Aircraft Chartered In Yes Box" class="styCkbox">
+		      <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
 		        <xsl:call-template name="PopulateYesCheckbox">
     		      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-	        	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In Yes Box</xsl:with-param>
+	        	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredInYes</xsl:with-param>
 		    	</xsl:call-template>
 		      </input>
 			  <label>
 		    	<xsl:call-template name="PopulateLabelYes">
 		          <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-		          <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In Yes Label</xsl:with-param>
+		          <xsl:with-param name="BackupName">VesselOrAircraftCharteredInYesLabel</xsl:with-param>
 		    	</xsl:call-template>
 		    	<span style="font-size:6pt">Yes </span>
 	    	  </label>
@@ -2208,16 +2207,16 @@
 	     	  <xsl:call-template name="PopulateSpan">
 		    	<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
 	    	  </xsl:call-template>								
-	    	  <input type="checkbox" alt="Vessel Or Aircraft Chartered In No Box" class="styCkbox">
+	    	  <input type="checkbox" alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
 	    		<xsl:call-template name="PopulateNoCheckbox">
 	    	      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-	    	      <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In No Box</xsl:with-param>
+	    	      <xsl:with-param name="BackupName">VesselOrAircraftCharteredInNo</xsl:with-param>
 		    	</xsl:call-template>
 	     	  </input>
 			  <label>
 	    		<xsl:call-template name="PopulateLabelNo">
 	        	  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrAircraftCharteredInInd"/>
-	        	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In No Label</xsl:with-param>
+	        	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredInNoLabel</xsl:with-param>
     			</xsl:call-template>
 		        <span style="font-size:6pt">No </span>
 		        <span style="width:2mm"/>
@@ -2232,16 +2231,16 @@
     		  <xsl:call-template name="PopulateSpan">
 	     		<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
 	     	  </xsl:call-template>								
-	    	  <input type="checkbox"  alt="Vessel Or Aircraft Chartered In Yes Box" class="styCkbox">
+	    	  <input type="checkbox"  alt="Vessel Or Aircraft Chartered In Indicator Yes" class="styCkbox">
 	    		<xsl:call-template name="PopulateYesCheckbox">
 		    	  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-		    	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In Yes Box</xsl:with-param>
+		    	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredInYes</xsl:with-param>
 		    	</xsl:call-template>
 		      </input>
 			  <label>
 		    	<xsl:call-template name="PopulateLabelYes">
 	    		  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-		    	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In Yes Label</xsl:with-param>
+		    	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredInYesLabel</xsl:with-param>
 			    </xsl:call-template>
 			    <span style="font-size:6pt">Yes </span>
 			  </label>
@@ -2250,16 +2249,16 @@
 		      <xsl:call-template name="PopulateSpan">
 			    <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
 		      </xsl:call-template>								
-		      <input type="checkbox"  alt="Vessel Or Aircraft Chartered In No Box" class="styCkbox">
+		      <input type="checkbox"  alt="Vessel Or Aircraft Chartered In Indicator No" class="styCkbox">
 		    	<xsl:call-template name="PopulateNoCheckbox">
 	     		  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-		    	  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In No Box</xsl:with-param>
+		    	  <xsl:with-param name="BackupName">VesselOrAircraftCharteredInNo</xsl:with-param>
 		    	</xsl:call-template>
 		      </input>
 			  <label>
 		    	<xsl:call-template name="PopulateLabelNo">
 		    	  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrAircraftCharteredInInd"/>
-	    		  <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered In No Label</xsl:with-param>
+	    		  <xsl:with-param name="BackupName">VesselOrAircraftCharteredInNoLabel</xsl:with-param>
 		    	</xsl:call-template>
 		    	<span style="font-size:6pt">No </span>
 		    	<span style="width:2mm"/>
@@ -2288,16 +2287,16 @@
 		      	<xsl:call-template name="PopulateSpan">
 		    	      <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
 	    	        </xsl:call-template>								
-		       	<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Yes Box" class="styCkbox">
+		       	<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
 		    	      <xsl:call-template name="PopulateYesCheckbox">
 		            <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-	     	        <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out Yes Box</xsl:with-param>
+	     	        <xsl:with-param name="BackupName">VesselOrArcrftCharteredOutYes</xsl:with-param>
 		    	      </xsl:call-template>
 		      	</input>
 			    <label>
 			      <xsl:call-template name="PopulateLabelYes">
 	    	            <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-	     		    <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out Yes Label</xsl:with-param>
+	     		    <xsl:with-param name="BackupName">VesselOrArcrftCharteredOutYesLabel</xsl:with-param>
 		    	      </xsl:call-template>
 		    	      <span style="font-size:6pt">Yes </span>
 		     	</label>
@@ -2306,16 +2305,16 @@
 		     	<xsl:call-template name="PopulateSpan">
 				  <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
 		    	    </xsl:call-template>								
-		    	    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out No Box" class="styCkbox">
+		    	    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
 		    	      <xsl:call-template name="PopulateNoCheckbox">
 		            <xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-	     	     	<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out No Box</xsl:with-param>
+	     	     	<xsl:with-param name="BackupName">VesselOrArcrftCharteredOutNo</xsl:with-param>
 			      </xsl:call-template>
 		     	</input>
 			    <label>
 		    	      <xsl:call-template name="PopulateLabelNo">
 		         	<xsl:with-param name="TargetNode" select="VesselOrArcrftCharteredOutInd"/>
-		         	<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out No Label</xsl:with-param>
+		         	<xsl:with-param name="BackupName">VesselOrArcrftCharteredOutNoLabel</xsl:with-param>
 		    	      </xsl:call-template>
 		    	      <span style="font-size:6pt">No </span>
 			      <span style="width:2mm"/>
@@ -2330,16 +2329,16 @@
 	     		<xsl:call-template name="PopulateSpan">
 	     		  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
 			    </xsl:call-template>								
-			    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Yes Box"  class="styCkbox">
+			    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes"  class="styCkbox">
 			      <xsl:call-template name="PopulateYesCheckbox">
 		    	        <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-	    		        <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out Yes Box</xsl:with-param>
+	    		        <xsl:with-param name="BackupName">VesselOrArcrftCharteredOutYes</xsl:with-param>
 			      </xsl:call-template>
 			    </input>
 			    <label>
 			      <xsl:call-template name="PopulateLabelYes">
 			        <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-			        <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out Yes Label</xsl:with-param>
+			        <xsl:with-param name="BackupName">VesselOrArcrftCharteredOutYesLabel</xsl:with-param>
 			      </xsl:call-template>
 			      <span style="font-size:6pt">Yes </span>
 			    </label>
@@ -2348,16 +2347,16 @@
 			    <xsl:call-template name="PopulateSpan">
 				  <xsl:with-param name="TargetNode"  select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/	VesselOrArcrftCharteredOutInd"/>
 			    </xsl:call-template>								
-			    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out No Box" class="styCkbox">
+			    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
 				  <xsl:call-template name="PopulateNoCheckbox">
 					<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-					<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out No Box</xsl:with-param>
+					<xsl:with-param name="BackupName">VesselOrArcrftCharteredOutNo</xsl:with-param>
 				  </xsl:call-template>
 				</input>
 			    <label>
 				  <xsl:call-template name="PopulateLabelNo">
 				    <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 1]/VesselOrArcrftCharteredOutInd"/>
-					<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out No Label</xsl:with-param>
+					<xsl:with-param name="BackupName">VesselOrArcrftCharteredOutNoLabel</xsl:with-param>
 				  </xsl:call-template>
 				  <span style="font-size:6pt">No </span>
 				  <span style="width:2mm"/>
@@ -2372,16 +2371,16 @@
 			    <xsl:call-template name="PopulateSpan">
 				  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
 				</xsl:call-template>								
-			    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Yes Box" class="styCkbox">
+			    <input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
 				  <xsl:call-template name="PopulateYesCheckbox">
 					<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-					<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out Yes Box</xsl:with-param>
+					<xsl:with-param name="BackupName">VesselOrArcrftCharteredOutYes</xsl:with-param>
 				  </xsl:call-template>
 				</input>
 				<label>
 				  <xsl:call-template name="PopulateLabelYes">
 					<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-					<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out Yes Label</xsl:with-param>
+					<xsl:with-param name="BackupName">VesselOrArcrftCharteredOutYesLabel</xsl:with-param>
 				  </xsl:call-template>
 				  <span style="font-size:6pt">Yes </span>
 				</label>
@@ -2390,16 +2389,16 @@
 				<xsl:call-template name="PopulateSpan">
 			      <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
 		     	</xsl:call-template>								
-				<input type="checkbox" alt="Vessel Or Aircraft Chartered Out No Box" class="styCkbox">
+				<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
 				  <xsl:call-template name="PopulateNoCheckbox">
 					<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-					<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out No Box</xsl:with-param>
+					<xsl:with-param name="BackupName">VesselOrArcrftCharteredOutNo</xsl:with-param>
 				  </xsl:call-template>
 				</input>
 			    <label>
 			      <xsl:call-template name="PopulateLabelNo">
 					<xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 2]/VesselOrArcrftCharteredOutInd"/>
-					<xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out No Label</xsl:with-param>
+					<xsl:with-param name="BackupName">VesselOrArcrftCharteredOutNoLabel</xsl:with-param>
 				  </xsl:call-template>
 				  <span style="font-size:6pt">No </span>
 		    	      <span style="width:2mm"/>
@@ -2414,16 +2413,16 @@
 				<xsl:call-template name="PopulateSpan">
 	   			  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
 				</xsl:call-template>								
-				<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Yes Box" class="styCkbox">
+				<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator Yes" class="styCkbox">
 				  <xsl:call-template name="PopulateYesCheckbox">
 	    		        <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-	    		        <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out Yes Box</xsl:with-param>
+	    		        <xsl:with-param name="BackupName">VesselOrArcrftCharteredOutYes</xsl:with-param>
 		    	      </xsl:call-template>
 		      	</input>
 			    <label>
 		    	      <xsl:call-template name="PopulateLabelYes">
 	    		        <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-	    		        <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out Yes Label</xsl:with-param>
+	    		        <xsl:with-param name="BackupName">VesselOrArcrftCharteredOutYesLabel</xsl:with-param>
 		    	      </xsl:call-template>
 		    	      <span style="font-size:6pt">Yes </span>
 		     	</label>
@@ -2432,16 +2431,16 @@
 		      	<xsl:call-template name="PopulateSpan">
 				  <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
 		    	    </xsl:call-template>								
-		     	<input type="checkbox" alt="Vessel Or Aircraft Chartered Out No Box" class="styCkbox">
+		     	<input type="checkbox" alt="Vessel Or Aircraft Chartered Out Indicator No" class="styCkbox">
 		    	      <xsl:call-template name="PopulateNoCheckbox">
 	    		        <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-		    	        <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out No Box</xsl:with-param>
+		    	        <xsl:with-param name="BackupName">VesselOrArcrftCharteredOutNo</xsl:with-param>
 		    	      </xsl:call-template>
 		    	    </input>
 			    <label>
 		    	      <xsl:call-template name="PopulateLabelNo">
 		    	        <xsl:with-param name="TargetNode" select="$Form1120FScheduleVData/VesselAircraftInformation[$pos + 3]/VesselOrArcrftCharteredOutInd"/>
-	     		    <xsl:with-param name="BackupName">Vessel Or Aircraft Chartered Out No Label</xsl:with-param>
+	     		    <xsl:with-param name="BackupName">VesselOrArcrftCharteredOutNoLabel</xsl:with-param>
 			      </xsl:call-template>
 		    	      <span style="font-size:6pt">No </span>
 		    	      <span style="width:2mm"/>

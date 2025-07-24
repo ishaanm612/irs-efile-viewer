@@ -371,10 +371,10 @@
 				<script language="JavaScript" src="{$ScriptPath}/FormDisplay.js" type="text/javascript"/>
 				<xsl:call-template name="InitJS"/>
 				<style type="text/css">
-					<!--<xsl:if test="not($Print) or $Print=''">-->
+					<xsl:if test="not($Print) or $Print=''">
 						<xsl:call-template name="IRS990PFStyle"/>
 						<xsl:call-template name="AddOnStyle"/>
-					<!--</xsl:if>-->
+					</xsl:if>
 				</style>
 				<xsl:call-template name="GlobalStylesForm"/>
 			</head>
@@ -389,28 +389,26 @@
 							<div style="padding-top:1mm;">
 								  Form<span class="styFormNumber">990-PF</span>
 								<br/>
-								<!--<xsl:call-template name="SetFormLinkInline">
+								<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" select="$FormData"/>
 									<xsl:with-param name="TabOrder" select="2"/>
-								</xsl:call-template>-->
-								<!-- Start pen and ink changes -->
+								</xsl:call-template>
 								<xsl:call-template name="LinkToLeftoverDataTableInline">
 									  <xsl:with-param name="TargetNode" select="$FormData/SpecialConditionDesc"/>
 								</xsl:call-template>
-								<!--<br/>
+								<br/>
 								<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" select="$FormData"/>
-								</xsl:call-template>-->
-								<xsl:call-template name="LinkToLeftoverDataTableInline">
-								  <xsl:with-param name="TargetNode" select="$FormData/@accountingPeriodChangeCd"/>
 								</xsl:call-template>
-								<!--<xsl:call-template name="SetFormLinkInline">
+								<xsl:call-template name="LinkToLeftoverDataTableInline">
+								  <xsl:with-param name="TargetNode" select="$FormData/accountingPeriodChangeCd"/>
+								</xsl:call-template>
+								<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" select="$FormData"/>
-								</xsl:call-template>-->
-								<xsl:call-template name="LinkToLeftoverDataTableInline">
-								  <xsl:with-param name="TargetNode" select="$FormData/@accountingPeriodChangeApprvCd"/>
 								</xsl:call-template>
-								<!-- End pen and ink changes -->
+								<xsl:call-template name="LinkToLeftoverDataTableInline">
+								  <xsl:with-param name="TargetNode" select="$FormData/accountingPeriodChangeApprvCd"/>
+								</xsl:call-template>
 							</div>
 							<br/>
 							<div>
@@ -1014,12 +1012,11 @@
 					</td>
 				</tr>
 				<tr>					
-					<td class="styLNLeftNumBox" style="width: 4mm;padding-left: 2mm;">5a
-					</td>
-					<td class="styIRS990PFLNDesc" colspan="2" style="border-right-width:0px;float:none" >
-						<span style="">Gross rents</span>
-						<span class="styDotLn" style="float:right">............</span>
-					</td>
+						<td class="styLNLeftNumBox" style="width: 4mm;padding-left: 2mm;">5a</td>
+						<td class="styIRS990PFLNDesc" colspan="2" style="border-right-width:0px;float:none" >
+							<span style="">Gross rents</span>
+							<span class="styDotLn" style="float:right">............</span>
+						</td>
 					<td class="styIRS990PFLNAmountBox" colspan="2"  style="border-right-width:1px; border-left-width: 1px; width:29mm">
 						<xsl:call-template name="PopulateAmount">
 							<xsl:with-param name="TargetNode" select="$FormData/AnalysisOfRevenueAndExpenses/GrossRentsRevAndExpnssAmt"/>
@@ -4570,16 +4567,15 @@
 					<div style="width: 187mm">
 						<div class="styLNLeftNumBox" style="padding-left: 2mm">6</div>
 						<div class="styLNDesc" style="width: 155mm">
-						  Are the requirements of section 508(e) (relating to sections 4941 through 4945) satisfied either:
-						</div>
+      Are the requirements of section 508(e) (relating to sections 4941 through 4945) satisfied either:
+    </div>
 						<div class="styLNRightNumBox" style="background-color: lightgrey; border-bottom-width: 0px"/>
 						<div class="styLNRightNumBox" style="background-color: lightgrey; border-bottom-width: 0px"/>
 						<div class="styLNRightNumBox" style="background-color: lightgrey; border-bottom-width: 0px"/>
 					</div>
 					<div style="width: 187mm; padding-left: 8mm;">
-						<div class="styLNDesc" style="width: 155mm">						
-							<img src="{$ImagePath}/T_Bullet_round.gif" alt="round bullet"/>
-							By language in the governing instrument, or
+						<div style="float: left">
+							<li style="margin-left:3mm">By language in the governing instrument, or</li>
 						</div>
 						<div style="float: right">
 							<div class="styLNRightNumBox" style="background-color: lightgrey; border-bottom-width: 0px"/>
@@ -4588,9 +4584,9 @@
 						</div>
 					</div>
 					<div style="width: 187mm; padding-left: 8mm;">
-						<div class="styLNDesc" style="width: 155mm">						
-							<img src="{$ImagePath}/T_Bullet_round.gif" alt="round bullet"/>
-							By state legislation that effectively amends the governing instrument so that	no mandatory directions
+						<div style="float: left">
+							<li style="margin-left:3mm">By state legislation that effectively amends the governing instrument so that no mandatory 
+								directions</li>
 						</div>
 						<div style="float: right">
 							<div class="styLNRightNumBox" style="background-color: lightgrey; border-bottom-width: 0px"/>
@@ -4598,10 +4594,10 @@
 							<div class="styLNRightNumBox" style="background-color: lightgrey; border-bottom-width: 0px"/>
 						</div>
 					</div>
-					<div style="width: 187mm padding-left: 8mm;">
+					<div style="width: 187mm">
 						<div class="styLNLeftNumBox"/>
 						<div class="styLNDesc" style="width: 155mm">
-							that conflict with the state law remain in the governing instrument?
+							<span style="padding-left: 4.5mm; float: left; clear: none">that conflict with the state law remain in the governing instrument?</span>
 							<span class="styDotLn" style="float: right; clear: none">................</span>
 						</div>
 						<div class="styLNRightNumBox">6</div>
@@ -5418,10 +5414,16 @@
 						<div class="styLNLeftLtrBox">c</div>
 						<div class="styLNDesc" style="width: 155mm">
 							<span style="float: left; clear: none">
-								Organizations relying on a current notice regarding disaster assistance check here
+								<label>
+									<xsl:call-template name="PopulateLabel">
+										<xsl:with-param name="TargetNode" 
+											select="$FormData/StatementsRegardingActy4720Grp/RelyingCurrentNtcDsstrAsstInd"/>
+										<xsl:with-param name="BackupName">IRS990PFRelyingCurrNoticeDisasterAsst1</xsl:with-param>
+									</xsl:call-template>Organizations relying on a current notice regarding disaster assistance check 
+										here</label>
+									<span class="styDotLn" style="float: none; clear: none">........</span>
+									<img src="{$ImagePath}/990PF_Bullet_Md.gif" alt="bullet"/>
 							</span>
-								<span class="styDotLn" style="float: none; clear: none">........</span>
-								<img src="{$ImagePath}/990PF_Bullet_Md.gif" alt="bullet"/>
 							<span style="float: right; clear:none; padding-right: 6.25mm">
 								<input type="checkbox" alt="RelyingCurrNoticeDisasterAsst1" class="styCkBox">
 									<xsl:call-template name="PopulateCheckbox">
@@ -5502,7 +5504,7 @@
 						<div class="styLNLeftLtrBox">a</div>
 						<div class="styLNDesc" style="width: 155mm">
 							<span style="float: left; clear: none"> 
-								 At the end of tax year 2021, did the foundation have any undistributed income (Part XII, lines 6d
+								 At the end of tax year 2021, did the foundation have any undistributed income (lines 6d
 						    </span>
 						</div>
 						<div class="styLNRightNumBox" style="background-color: lightgrey; border-bottom:0"/>
@@ -5513,7 +5515,7 @@
 						<div class="styLNLeftLtrBox"/>
 						<div class="styLNDesc" style="width: 155mm">
 							<span style="float: left; clear: none"> 
-								 and 6e) for tax year(s) beginning before 2021?<span class="styDotLn" 
+								 and 6e, Part XII) for tax year(s) beginning before 2021?<span class="styDotLn" 
 									 style="float: none; clear: none">....................</span>
 							</span>
 						</div>
@@ -6152,7 +6154,14 @@
 						<div class="styLNLeftLtrBox">c</div>
 						<div class="styLNDesc" style="width: 155mm">
 							<span style="float: left; clear: none">
-								Organizations relying on a current notice regarding disaster assistance check 
+								<label>
+									<xsl:call-template name="PopulateLabel">
+										<xsl:with-param name="TargetNode" 
+											select="$FormData/StatementsRegardingActy4720Grp/RelyingCurrentNtcDsstrAsst1Ind"/>
+										<xsl:with-param name="BackupName">IRS990PFRelyingCurrNoticeDisasterAsst2</xsl:with-param>
+									</xsl:call-template>Organizations relying on a current notice regarding disaster assistance check 
+										here
+								</label>
 								<span class="styDotLn" style="float: none; clear: none">.........</span>
 								<img src="{$ImagePath}/990PF_Bullet_Md.gif" alt="bullet"/>
 							</span>
@@ -6396,10 +6405,8 @@
 						</div>
 					</div>
 					<!--  Line 1  -->
-					<div style="width: 187mm; border-right-width: 0px; border-bottom-width:1px; padding-left: 2mm; 
-						text-align: left; font-weight:bold">
-						 1  <span style="width: 2mm"/> List all officers, directors, trustees, foundation managers and their 
-							 compensation.  See instructions
+					<div style="width: 187mm; border-right-width: 0px; border-bottom-width:1px; padding-left: 2mm; text-align: left; font-weight:bold">
+						 1  <span style="width: 2mm"/> List all officers, directors, trustees, foundation managers and their compensation.  See instructions
 				    </div><!--th scope="col" class="styTableCellHeader" colspan="5"-->
 					<table class="styTable" style="font-size: 7pt; border-color:black; width: 187mm" cellspacing="0">
 						<thead class="styTableThead">
@@ -7411,8 +7418,8 @@
 							<span style="float:left; clear: none">
 								<span class="styBoldText">Net value of noncharitable-use assets. 
 								</span> Subtract line 4 from line 3.
+								<span class="styDotLn">.......</span>
 							</span>
-								<span class="styDotLn">............</span>
 						</div>
 						<div class="styLNRightNumBox">5</div>
 						<div class="styLNAmountBox">
@@ -7631,7 +7638,7 @@
 								line 26
 								<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" 
-										select="$FormData/PFQualifyingDistributionsGrp/ExpensesAndContributionsAmt"/>
+										select="$FormData/QualifyingDistriPartXIIGrp/ExpensesAndContributionsAmt"/>
 									<xsl:with-param name="TabOrder" select="2"/>
 								</xsl:call-template>
 							</span>
@@ -7641,7 +7648,7 @@
 						<div class="styLNAmountBox">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" 
-									select="$FormData/PFQualifyingDistributionsGrp/ExpensesAndContributionsAmt"/>
+									select="$FormData/QualifyingDistriPartXIIGrp/ExpensesAndContributionsAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>
@@ -7657,7 +7664,7 @@
 						<div class="styLNAmountBox">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" 
-									select="$FormData/PFQualifyingDistributionsGrp/ProgramRelatedInvstTotalAmt"/>
+									select="$FormData/QualifyingDistriPartXIIGrp/ProgramRelatedInvstTotalAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>
@@ -7680,7 +7687,7 @@
 						<div class="styLNRightNumBox">2</div>
 						<div class="styLNAmountBox">
 							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="$FormData/PFQualifyingDistributionsGrp/CharitableAssetsAcquisPaidAmt"/>
+								<xsl:with-param name="TargetNode" select="$FormData/QualifyingDistriPartXIIGrp/CharitableAssetsAcquisPaidAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>
@@ -7705,7 +7712,7 @@
 						<div class="styLNRightNumBox">3a</div>
 						<div class="styLNAmountBox">
 							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="$FormData/PFQualifyingDistributionsGrp/SetAsideSuitabilityTestAmt"/>
+								<xsl:with-param name="TargetNode" select="$FormData/QualifyingDistriPartXIIGrp/SetAsideSuitabilityTestAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>
@@ -7717,7 +7724,7 @@
 							<span style="float:left; clear: none">Cash distribution test (attach the required schedule)
 								<xsl:call-template name="SetFormLinkInline">
 									<xsl:with-param name="TargetNode" 
-										select="$FormData/PFQualifyingDistributionsGrp/SetAsideCashDistriTestAmt"/>
+										select="$FormData/QualifyingDistriPartXIIGrp/SetAsideCashDistriTestAmt"/>
 									<xsl:with-param name="TabOrder" select="2"/>
 								</xsl:call-template>
 							</span>
@@ -7726,7 +7733,7 @@
 						<div class="styLNRightNumBox">3b</div>
 						<div class="styLNAmountBox">
 							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="$FormData/PFQualifyingDistributionsGrp/SetAsideCashDistriTestAmt"/>
+								<xsl:with-param name="TargetNode" select="$FormData/QualifyingDistriPartXIIGrp/SetAsideCashDistriTestAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>
@@ -7743,7 +7750,7 @@
 						<div class="styLNRightNumBox" style="border-bottom:0px">4</div>
 						<div class="styLNAmountBox" style="border-bottom:0px">
 							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="$FormData/PFQualifyingDistributionsGrp/QualifyingDistributionsAmt"/>
+								<xsl:with-param name="TargetNode" select="$FormData/QualifyingDistriPartXIIGrp/QualifyingDistributionsAmt"/>
 							</xsl:call-template>
 						</div>
 					</div>
@@ -8878,7 +8885,7 @@
 							     If the foundation has received a ruling or determination letter that it is a private operating<br/>
 							<span style="width: 6mm"/>
 							    foundation, and the ruling is effective for 2021, enter the date of the ruling
-							    <span class="styDotLn" style="float:none; clear:none">......
+							    <span class="styDotLn" style="float:none; clear:none">.......
 						    </span>
 							<img src="{$ImagePath}/990PF_Bullet_Md.gif" alt="bullet"/>
 						</div>
@@ -8944,7 +8951,7 @@
 										    Enter the lesser of the adjusted net<br/>
 										<span style="width: 6mm"/>
 										    income from Part I or the minimum<br/>
-										<span style="width: 6mm"/>investment return from Part IX for each<br/>
+										<span style="width: 6mm"/>investment return from Part X for each<br/>
 										<span style="width: 6mm"/>year listed
 										    <span class="styDotLn" style="float:none; clear:none">..........</span>
 									</td>
@@ -9860,24 +9867,20 @@
 						</div>
 						<div style="float:right">
 							<xsl:call-template name="SetDynamicTableToggleButton">
-								<xsl:with-param name="TargetNode" select="$FormData/SupplementaryInformationGrp/
-									GrantOrContributionPdDurYrGrp"/>
+								<xsl:with-param name="TargetNode" select="$FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp"/>
 								<xsl:with-param name="containerHeight" select="9"/>
 								<xsl:with-param name="headerHeight" select="3"/>
 								<xsl:with-param name="containerID" select="'Paidctn'"/>
 							</xsl:call-template>
 						</div>
 					</div>
-					<div class="styTableContainerNBB" style="width: 187mm; min-height: 66mm; display:table; 
-						border-bottom-width: 0px" id="Paidctn">
+					<div class="styTableContainerNBB" style="width: 187mm; min-height: 66mm; border-bottom-width: 0px" id="Paidctn">
 						<xsl:call-template name="SetInitialState"/>
 						<table class="styTable" style="font-size: 7pt; border-color:black" cellspacing="0">
 							<thead>
 								<tr scope="col">
-									<th scope="col" class="styTableCellHeader" colspan="5" style="text-align: left; height: 4mm;
-									 width: 187mm; border-right-width: 0px">
-										<span class="styPartDesc" style="padding-left: 0px">3 Grants and Contributions Paid 
-										During the Year or Approved for Future Payment</span>
+									<th scope="col" class="styTableCellHeader" colspan="5" style="text-align: left; height: 4mm; width: 187mm; border-right-width: 0px">
+										<span class="styPartDesc" style="padding-left: 0px">3 Grants and Contributions Paid During the Year or Approved for Future Payment</span>
 									</th>
 								</tr>
 								<tr>
@@ -9952,18 +9955,15 @@
 														<xsl:with-param name="TargetNode" select="RecipientPersonNm"/>
 													</xsl:call-template>
 												</xsl:if>
-												<br/>
 												<xsl:if test="count(RecipientBusinessName/BusinessNameLine1Txt) &gt;0">
 													<xsl:call-template name="PopulateText">
-														<xsl:with-param name="TargetNode" select="RecipientBusinessName/
-															BusinessNameLine1Txt"/>
+														<xsl:with-param name="TargetNode" select="RecipientBusinessName/BusinessNameLine1Txt"/>
 													</xsl:call-template>
 												</xsl:if>
-												<br/>
 												<xsl:if test="count(RecipientBusinessName/BusinessNameLine2Txt) &gt;0">
+													<br/>
 													<xsl:call-template name="PopulateText">
-														<xsl:with-param name="TargetNode" select="RecipientBusinessName/
-															BusinessNameLine2Txt"/>
+														<xsl:with-param name="TargetNode" select="RecipientBusinessName/BusinessNameLine2Txt"/>
 													</xsl:call-template>
 												</xsl:if>
 												<xsl:if test="count(RecipientUSAddress) &gt;0">
@@ -9994,8 +9994,7 @@
 													<xsl:with-param name="TargetNode" select="GrantOrContributionPurposeTxt"/>
 												</xsl:call-template>
 											</td>
-											<td class="styTableCell" style="text-align: right; width: 32mm; 
-												border-right-width: 0px">
+											<td class="styTableCell" style="text-align: right; width: 32mm; border-right-width: 0px">
 												<xsl:call-template name="PopulateAmount">
 													<xsl:with-param name="TargetNode" select="Amt"/>
 												</xsl:call-template>
@@ -10003,25 +10002,21 @@
 										</tr>
 									</xsl:for-each>
 								</xsl:if>
-								<xsl:if test="(count($FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp) &lt;1)
-									or (($Print = $Separated) and 
+								<xsl:if test="(count($FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp) &lt;1) or (($Print = $Separated) and 
 									(count($FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp) &gt;4))">
 									<tr style="height: 126mm">
 										<td class="styTableCell" style="text-align:left; width: 55mm">
 										<xsl:choose>
-											<xsl:when test="$FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp/
-												RecipientPersonNm !=''">
+											<xsl:when test="$FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp/RecipientPersonNm !=''">
 												<xsl:call-template name="PopulateAdditionalDataTableMessage">
 													<xsl:with-param name="TargetNode" 
-													select="$FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp/
-														RecipientPersonNm"/>
+													select="$FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp/RecipientPersonNm"/>
 												</xsl:call-template>
 											</xsl:when>
 											<xsl:otherwise>
 											<xsl:call-template name="PopulateAdditionalDataTableMessage">
 												<xsl:with-param name="TargetNode" 
-												select="$FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp/
-													RecipientBusinessName"/>
+												select="$FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp/RecipientBusinessName"/>
 											</xsl:call-template>
 											</xsl:otherwise>
 										</xsl:choose>
@@ -10041,25 +10036,18 @@
 									</tr>
 								</xsl:if>
 								<tr>
-									<td class="styTableCell" style="text-align: left; width: 155mm; padding-left: 4mm"
-									 colspan="4">
-										<span class="styBoldText">Total 
-											<span class="styDotLn" style="float:none;
-												 clear:none">.................................
-											</span>
+									<td class="styTableCell" style="text-align: left; width: 155mm; padding-left: 4mm" colspan="4">
+										<span class="styBoldText">Total <span class="styDotLn" style="float:none; clear:none">.................................</span>
 											<img src="{$ImagePath}/990PF_Bullet_Md.gif" alt="bullet"/>
-											<span style="width: 1.5mm"/>3a
-										</span>
+											<span style="width: 1.5mm"/> 3a</span>
 									</td>
-									<xsl:if test="($Print != $Separated)">
-										<td class="styTableCell" style="width: 32mm; border-right-width: 0px">
-											<xsl:call-template name="PopulateAmount">
-												<xsl:with-param name="TargetNode" 
-												select="$FormData/SupplementaryInformationGrp/TotalGrantOrContriPdDurYrAmt"/>
-											</xsl:call-template>
-										</td>
-									</xsl:if>
+									<td class="styTableCell" style="width: 32mm; border-right-width: 0px">
+										<xsl:call-template name="PopulateAmount">
+											<xsl:with-param name="TargetNode" select="$FormData/SupplementaryInformationGrp/TotalGrantOrContriPdDurYrAmt"/>
+										</xsl:call-template>
+									</td>
 								</tr>
+
 							</tbody>
 						</table>
 					</div>
@@ -10067,8 +10055,7 @@
 						<div class="styBB" style="width: 187mm">
 							<div style="float:right">
 								<xsl:call-template name="SetDynamicTableToggleButton">
-									<xsl:with-param name="TargetNode" 
-										select="$FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp"/>
+									<xsl:with-param name="TargetNode" select="$FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp"/>
 									<xsl:with-param name="containerHeight" select="5"/>
 									<xsl:with-param name="headerHeight" select="2"/>
 									<xsl:with-param name="containerID" select="'Futurectn'"/>
@@ -10076,8 +10063,7 @@
 							</div>
 						</div>
 					</xsl:if>
-					<div class="styTableContainerNBB" style="width: 187mm; min-height: 49mm; border-bottom-width: 0px"
-					 id="Futurectn">
+					<div class="styTableContainerNBB" style="width: 187mm; min-height: 49mm; border-bottom-width: 0px" id="Futurectn">
 						<xsl:call-template name="SetInitialState"/>
 						<table class="styTable" style="font-size: 7pt; border-color:black" cellspacing="0">
 							<thead/>
@@ -10098,8 +10084,7 @@
 									<td class="styTableCell" style="border-bottom-width: 0px; width: 40mm">
 										<span class="styTableCellPad"/>
 									</td>
-									<td class="styTableCell" style="border-bottom-width: 0px; width: 32mm; 
-										border-right-width: 0px">
+									<td class="styTableCell" style="border-bottom-width: 0px; width: 32mm; border-right-width: 0px">
 										<span class="styTableCellPad"/>
 									</td>
 								</tr>
@@ -10113,18 +10098,15 @@
 														<xsl:with-param name="TargetNode" select="RecipientPersonNm"/>
 													</xsl:call-template>
 												</xsl:if>
-												<br/>
 												<xsl:if test="count(RecipientBusinessName/BusinessNameLine1Txt) &gt;0">
 													<xsl:call-template name="PopulateText">
-														<xsl:with-param name="TargetNode" 
-															select="RecipientBusinessName/BusinessNameLine1Txt"/>
+														<xsl:with-param name="TargetNode" select="RecipientBusinessName/BusinessNameLine1Txt"/>
 													</xsl:call-template>
 												</xsl:if>
 												<xsl:if test="count(RecipientBusinessName/BusinessNameLine2Txt) &gt;0">
 													<br/>
 													<xsl:call-template name="PopulateText">
-														<xsl:with-param name="TargetNode" 
-															select="RecipientBusinessName/BusinessNameLine2Txt"/>
+														<xsl:with-param name="TargetNode" select="RecipientBusinessName/BusinessNameLine2Txt"/>
 													</xsl:call-template>
 												</xsl:if>
 												<xsl:if test="count(RecipientUSAddress) &gt;0">
@@ -10164,24 +10146,20 @@
 									</xsl:for-each>
 								</xsl:if>
 								<xsl:if test="(count($FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp) &lt;1) or 
-									((count($FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp) &gt;3) and 
-									($Print = $Separated))">
+								((count($FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp) &gt;3) and ($Print = $Separated))">
 									<tr style="height: 80mm">
 										<td class="styTableCell" style="width: 55mm; text-align: left">
 										<xsl:choose>
-											<xsl:when test="$FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp/
-												RecipientPersonNm !=''">
+											<xsl:when test="$FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp/RecipientPersonNm !=''">
 												<xsl:call-template name="PopulateAdditionalDataTableMessage">
 													<xsl:with-param name="TargetNode" 
-													select="$FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp/
-														RecipientPersonNm"/>
+													select="$FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp/RecipientPersonNm"/>
 												</xsl:call-template>
 											</xsl:when>
 											<xsl:otherwise>											
 												<xsl:call-template name="PopulateAdditionalDataTableMessage">
 													<xsl:with-param name="TargetNode" 
-													select="$FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp/
-														RecipientBusinessName"/>
+													select="$FormData/SupplementaryInformationGrp/GrantOrContriApprvForFutGrp/RecipientBusinessName"/>
 												</xsl:call-template>
 											</xsl:otherwise>
 										</xsl:choose>
@@ -10289,11 +10267,9 @@
 						</thead>
 						<tfoot/>
 						<tbody valign="top">
-							<xsl:if test="(count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevenueDtl) &gt;0 and 
-							($Print != $Separated)) or
-							 (($Print = $Separated) and (count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevenueDtl) 
-							 &lt;7))">
-								<xsl:for-each select="$FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevenueDtl">
+							<xsl:if test="(count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevPartVIIGrp) &gt;0 and ($Print != $Separated)) or
+							 (($Print = $Separated) and (count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevPartVIIGrp) &lt;7))">
+								<xsl:for-each select="$FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevPartVIIGrp">
 									<tr>
 										<td class="styTableCell" style="text-align:left; border-bottom-width: 0px; border-left-width: 0px; border-top-width: 0px; width: 71mm">
 										<span style="vertical-align:top;">
@@ -10336,13 +10312,13 @@
 									</tr>
 								</xsl:for-each>
 							</xsl:if>
-							<xsl:if test="(count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevenueDtl) &lt;7)">
+							<xsl:if test="(count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevPartVIIGrp) &lt;7)">
 								<xsl:call-template name="RowsAtoF">
-									<xsl:with-param name="RowCount" select="count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevenueDtl) + 1"/>
+									<xsl:with-param name="RowCount" select="count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevPartVIIGrp) + 1"/>
 									<xsl:with-param name="Letters" select="7"/>
 								</xsl:call-template>
 							</xsl:if>
-							<xsl:if test="(($Print = $Separated) and (count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevenueDtl) &gt;6))">
+							<xsl:if test="(($Print = $Separated) and (count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevPartVIIGrp) &gt;6))">
 								<xsl:call-template name="RowsAtoF">
 									<xsl:with-param name="RowCount" select="1"/>
 									<xsl:with-param name="Letters" select="7"/>
@@ -10354,27 +10330,27 @@
 									<span style="width: 1mm"/>Fees and contracts from government agencies</td>
 								<td class="styTableCellSmall" style="font-size: 6pt; width: 20mm; text-align: center">
 									<xsl:call-template name="PopulateText">
-										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/DividendsAndInterestFromSecDtl/BusinessCd"/>
+										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/FeesContractsFromGovtAgGrp/BusinessCd"/>
 									</xsl:call-template>
 								</td>
 								<td class="styTableCellSmall" style="font-size: 6pt; width: 25mm">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/DividendsAndInterestFromSecDtl/UnrelatedBusinessTaxblIncmAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/FeesContractsFromGovtAgGrp/UnrelatedBusinessTaxblIncmAmt"/>
 									</xsl:call-template>
 								</td>
 								<td class="styTableCellSmall" style="font-size: 6pt; width: 25mm; text-align: center">
 									<xsl:call-template name="PopulateText">
-										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/DividendsAndInterestFromSecDtl/ExclusionCd"/>
+										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/FeesContractsFromGovtAgGrp/ExclusionCd"/>
 									</xsl:call-template>
 								</td>
 								<td class="styTableCellSmall" style="font-size: 6pt; width: 25mm">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/DividendsAndInterestFromSecDtl/ExclusionAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/FeesContractsFromGovtAgGrp/ExclusionAmt"/>
 									</xsl:call-template>
 								</td>
 								<td class="styTableCellSmall" style="font-size: 6pt; border-right-width:0px; width: 25mm">
 									<xsl:call-template name="PopulateAmount">
-										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/DividendsAndInterestFromSecDtl/RelatedOrExemptFunctionIncmAmt"/>
+										<xsl:with-param name="TargetNode" select="$FormData/AnalysisIncomeProducingActyGrp/FeesContractsFromGovtAgGrp/RelatedOrExemptFunctionIncmAmt"/>
 									</xsl:call-template>
 								</td>
 							</tr>
@@ -11964,7 +11940,7 @@
 					</xsl:if>
 					<xsl:if test="($Print = $Separated) and (count($FormData/OfficerDirTrstKeyEmplInfoGrp/OfficerDirTrstKeyEmplGrp) &gt;4)">
 						<br/>
-						<span class="styRepeatingDataTitle">Form 990PF Part VII Line 1 - List all officers, directors, trustees, foundation managers and their
+						<span class="styRepeatingDataTitle">Form 990PF Part VIII Line 1 - List all officers, directors, trustees, foundation managers and their
 						 compensation
 						</span>
 						<table class="styDepTbl" style="font-size: 7pt">
@@ -12096,7 +12072,7 @@
 					</xsl:if>
 					<xsl:if test="($Print = $Separated) and (count($FormData/SupplementaryInformationGrp/ContributingManagerNm) &gt;1)">
 						<br/>
-						<span class="styRepeatingDataTitle">Form 990PF Part XIV Line 1a - List any managers of the foundation who have contributed more than 2% 
+						<span class="styRepeatingDataTitle">Form 990PF Part XV Line 1a - List any managers of the foundation who have contributed more than 2% 
 							of the total contributions received by the foundation before the close of any tax year (but only if they have contributed more than $5,000).
 						</span>
 						<table class="styDepTbl" style="font-size: 7pt">
@@ -12125,7 +12101,7 @@
 					</xsl:if>
 					<xsl:if test="($Print = $Separated) and (count($FormData/SupplementaryInformationGrp/ShareholderManagerNm) &gt;1)">
 						<br/>
-						<span class="styRepeatingDataTitle">Form 990PF Part XIV Line 1b - List any managers of the foundation who own 10% or more of the stock 
+						<span class="styRepeatingDataTitle">Form 990PF Part XV Line 1b - List any managers of the foundation who own 10% or more of the stock 
 						of a corporation (or an equally large portion of the ownership of a partnership or other entity) of which the foundation has a 10% or greater 
 						interest.</span>
 						<table class="styDepTbl" style="font-size: 7pt">
@@ -12154,7 +12130,7 @@
 					</xsl:if>
 					<xsl:if test="($Print = $Separated) and (count($FormData/SupplementaryInformationGrp/ApplicationSubmissionInfoGrp) &gt;1)">
 						<br/>
-						<span class="styRepeatingDataTitle">Form 990PF Part XIV Line 2a - 2d - Information Regarding Contribution, Grant, Gift, Loan, Scholarship, 
+						<span class="styRepeatingDataTitle">Form 990PF Part XV Line 2a - 2d - Information Regarding Contribution, Grant, Gift, Loan, Scholarship, 
 							etc., Programs:</span>
 						<xsl:for-each select="$FormData/SupplementaryInformationGrp/ApplicationSubmissionInfoGrp">
 							<table class="styDepTbl" style="font-size: 7pt">
@@ -12257,7 +12233,7 @@
 					</xsl:if>
 					<xsl:if test="($Print = $Separated) and (count($FormData/SupplementaryInformationGrp/GrantOrContributionPdDurYrGrp) &gt;4)">
 						<br/>
-						<span class="styRepeatingDataTitle">Form 990PF Part XIV Line 3 - Grants and Contributions Paid During the Year or Approved for Future 	
+						<span class="styRepeatingDataTitle">Form 990PF Part XV Line 3 - Grants and Contributions Paid During the Year or Approved for Future 	
 							Payment</span>
 						<table class="styDepTbl" style="font-size: 7pt">
 							<thead class="styTableThead">
@@ -12337,7 +12313,6 @@
 													<xsl:with-param name="TargetNode" select="RecipientPersonNm"/>
 												</xsl:call-template>
 											</xsl:if>
-												<br/>
 											<xsl:if test="count(RecipientBusinessName/BusinessNameLine1Txt) &gt;0">
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="RecipientBusinessName/BusinessNameLine1Txt"/>
@@ -12349,7 +12324,6 @@
 													<xsl:with-param name="TargetNode" select="RecipientBusinessName/BusinessNameLine2Txt"/>
 												</xsl:call-template>
 											</xsl:if>
-												<br/>
 											<xsl:if test="count(RecipientUSAddress) &gt;0">
 												<xsl:call-template name="PopulateUSAddressTemplate">
 													<xsl:with-param name="TargetNode" select="RecipientUSAddress"/>
@@ -12428,19 +12402,17 @@
 													<xsl:with-param name="TargetNode" select="RecipientPersonNm"/>
 												</xsl:call-template>
 											</xsl:if>
-											<br/>
 											<xsl:if test="count(RecipientBusinessName/BusinessNameLine1Txt) &gt;0">
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="RecipientBusinessName/BusinessNameLine1Txt"/>
 												</xsl:call-template>
 											</xsl:if>
 											<xsl:if test="count(RecipientBusinessName/BusinessNameLine2Txt) &gt;0">
-											<br/>
+												<br/>
 												<xsl:call-template name="PopulateText">
 													<xsl:with-param name="TargetNode" select="RecipientBusinessName/BusinessNameLine2Txt"/>
 												</xsl:call-template>
 											</xsl:if>
-											<br/>
 											<xsl:if test="count(RecipientUSAddress) &gt;0">
 												<xsl:call-template name="PopulateUSAddressTemplate">
 													<xsl:with-param name="TargetNode" select="RecipientUSAddress"/>
@@ -12489,9 +12461,9 @@
 							</tbody>
 						</table>
 					</xsl:if>
-					<xsl:if test="($Print = $Separated) and (count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevenueDtl) &gt;6)">
+					<xsl:if test="($Print = $Separated) and (count($FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevPartVIIGrp) &gt;6)">
 						<br/>
-						<span class="styRepeatingDataTitle">Form 990PF Part XV-A Line 1 - Program service revenue:</span>
+						<span class="styRepeatingDataTitle">Form 990PF Part XVI-A Line 1 - Program service revenue:</span>
 						<table class="styDepTbl" style="font-size: 7pt">
 							<thead class="styTableThead">
 								<tr class="styDepTblHdr">
@@ -12549,7 +12521,7 @@
 							</thead>
 							<tfoot/>
 							<tbody valign="top">
-								<xsl:for-each select="$FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevenueDtl">
+								<xsl:for-each select="$FormData/AnalysisIncomeProducingActyGrp/ProgramServiceRevPartVIIGrp">
 									<tr>
 										<xsl:attribute name="class"><xsl:choose><xsl:when test="position() mod 2 = 1">styDepTblRow1</xsl:when><xsl:otherwise>styDepTblRow2</xsl:otherwise></xsl:choose></xsl:attribute>
 										<td class="styDepTblCell" style="text-align:left; width: 71mm">
@@ -12593,7 +12565,7 @@
 					</xsl:if>
 					<xsl:if test="($Print = $Separated) and (count($FormData/AnalysisIncomeProducingActyGrp/OtherRevenueDescribedGrp) &gt;5)">
 						<br/>
-						<span class="styRepeatingDataTitle">Form 990PF Part XV-A Line 11 - Other revenue:</span>
+						<span class="styRepeatingDataTitle">Form 990PF Part XVI-A Line 11 - Other revenue:</span>
 						<table class="styDepTbl" style="font-size: 7pt">
 							<thead class="styTableThead">
 								<tr class="styDepTblHdr">

@@ -202,7 +202,7 @@ def transform_xml_to_html(
         raise FileNotFoundError(f"Stylesheet not found: {stylesheet_path}")
 
     # 6. Run XSLT
-    tqdm.write(f"Running XSLT for {xml_path} with stylesheet {stylesheet_path}")
+    # tqdm.write(f"Running XSLT for {xml_path} with stylesheet {stylesheet_path}")
     xslt = etree.parse(stylesheet_path)
     transform = etree.XSLT(xslt)
     html_dom = transform(template_dom)
@@ -290,9 +290,7 @@ def transform_xml_to_pdf(
         )
     except Exception as e:
         # tqdm.write(f"Error transforming XML to HTML: {e}")
-        return TransformError(
-            f"Error transforming XML to HTML: {e.with_traceback()} {xml_path}"
-        )
+        return TransformError(f"Error transforming XML to HTML: {str(e)} {xml_path}")
 
     if not meta:
         return TransformError("No metadata found after transformation.")

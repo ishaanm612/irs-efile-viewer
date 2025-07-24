@@ -13,8 +13,6 @@
 <!-- 09/02/2020 - Changes made for UWR 239544 - Jeremy Nichols -->
 <!-- 11/10/2020 - Modified per defect 65773 - Jeremy Nichols-->
 <!-- 04/23/2021 - Changes made for UWR 244169 - Jeremy Nichols -->
-<!-- 07/14/2021 - Modified per defect 67437 - Jeremy Nichols-->
-
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl"/>
 	<xsl:include href="AddHeader.xsl"/>
@@ -63,7 +61,7 @@
 						<div class="styFNBox" style="width:31mm;height:21mm;">
       Form <span class="styFormNumber">8874</span>
 							<br/>
-							<span style="font-size:6pt">(Rev. October 2020)</span>
+							<span style="font-size:6pt">(Rev. October 2021)</span>
 							<div class="styAgency" style="padding-top:1.5mm">Department of the Treasury</div>
 							<span class="styAgency">Internal Revenue Service</span>
 						</div>
@@ -134,9 +132,9 @@
         </span>      
     </div>  -->
 					<!-- END Part I Title -->
-					<div class="styTableContainer" id="TPctn" style="border-bottom:0px solid black;">
+					<div class="styTableContainer" id="TPctn" style="border-bottom-width:0px;">
 						<xsl:call-template name="SetInitialState"/>
-						<table class="styTable" cellspacing="0" style="height:auto;border-bottom:0px solid black;">
+						<table class="styTable" cellspacing="0" style="height:auto;">
 							<thead class="styTableThead">
 								<tr>
 									<th scope="col" class="styTableCell" rowspan="3" style="width:7mm;border-right:none;font-weight:bold;">
@@ -276,7 +274,7 @@
 								</xsl:if>
 								<xsl:if test="count($Form8874Data/CurrentYearCreditInfo) &lt; 3 or          (($Print = $Separated) and (count($Form8874Data/CurrentYearCreditInfo)&gt;6)) ">
 									<tr height="8mm">
-										<td class="styTableCell" style="width:7mm;font-size:7pt;text-align:center;vertical-align:top;border-bottom-width:0px;border-right-width:0px;font-weight:bold;height:8mm">
+										<td class="styTableCell" style="width:7mm;font-size:7pt;text-align:center;vertical-align:top;border-bottom-width:0px;border-right:none;font-weight:bold;height:8mm">
 											<span style="width:1px;"/>
 										</td>
 										<td class="styTableCell" rowspan="1" style="width:51.75mm;text-align:left;font-size:7pt;font-weight:normal;border-bottom-width:0px;">
@@ -299,23 +297,23 @@
 								</xsl:if>
 								<xsl:if test="count($Form8874Data/CurrentYearCreditInfo) &lt; 4 or          (($Print = $Separated) and (count($Form8874Data/CurrentYearCreditInfo)&gt;6)) ">
 									<tr height="8mm">
-										<td class="styTableCell" style="width:7mm;font-size:7pt;text-align:center;vertical-align:top;border-top:1px solid black;border-bottom:0px solid black;border-right:0px solid black;font-weight:bold;height:8mm">
+										<td class="styTableCell" style="width:7mm;font-size:7pt;text-align:center;vertical-align:top;border-right:none;font-weight:bold;height:8mm">
 											<span style="width:1px;"/>
 										</td>
-										<td class="styTableCell" rowspan="1" style="width:51.75mm;text-align:left;font-size:7pt;font-weight:normal;border-top:1px solid black;border-bottom:0px solid black;">
+										<td class="styTableCell" rowspan="1" style="width:51.75mm;text-align:left;font-size:7pt;font-weight:normal;">
 											<span style="width:1px;"/>
 										</td>
-										<td class="styTableCell" style="width:20mm;text-align:center;font-size:7pt;font-weight:normal;border-top:1px solid black;border-bottom:0px solid black;">
+										<td class="styTableCell" style="width:20mm;text-align:center;font-size:7pt;font-weight:normal;">
 											<span style="width:1px;"/>
 										</td>
-										<td class="styTableCell" style="width:20mm;text-align:left;font-size:7pt;font-weight:normal;border-top:1px solid black;border-bottom:0px solid black;">
+										<td class="styTableCell" style="width:20mm;text-align:left;font-size:7pt;font-weight:normal;">
 											<span style="width:1px;"/>
 										</td>
-										<td class="styTableCell" style="width:30mm;text-align:right;font-size:7pt;font-weight:normal;border-top:1px solid black;border-bottom:0px solid black;">
+										<td class="styTableCell" style="width:30mm;text-align:right;font-size:7pt;font-weight:normal;">
 											<span style="width:1px;"/>
 										</td>
-										<td class="styTableCell" style="width:12mm;text-align:right;font-size:7pt;border-top:1px solid black;border-bottom:0px solid black;">%</td>
-										<td class="styTableCell" style="text-align:right;width:45.5mm;border-right:none;font-size:7pt;font-weight:normal;border-top:1px solid black;border-bottom:0px solid black;">
+										<td class="styTableCell" style="width:12mm;text-align:right;font-size:7pt;">%</td>
+										<td class="styTableCell" style="text-align:right;width:45.5mm;border-right:none;font-size:7pt;font-weight:normal;">
 											<span style="width:1px;"/>
 										</td>
 									</tr>
@@ -459,7 +457,7 @@
 						<span style="width:120px;"/>                      
 						  Cat. No. 31663N 
 						  <span style="width:78px;"/>  
-						  Form <span class="styBoldText">8874</span> (Rev. 10-2020)    
+						  Form <span class="styBoldText">8874</span> (Rev. 10-2021)    
 				    </div>
 					<!-- BEGIN Left Over Table -->
 					<!-- Additonal Data Title Bar and Button -->

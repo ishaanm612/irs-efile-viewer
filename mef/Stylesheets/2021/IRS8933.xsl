@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE xsl:stylesheet [<!ENTITY nbsp "&#160;">]>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<!-- Updated by Iskilu Lawal 12/8/2021_DD4 UWR 370609  R10.5-->
+<!-- Updated by Iskilu Lawal 10/07/2021_DD4 UWR 370609  R10.5-->
 <xsl:include href="PopulateTemplate.xsl"/>
 <xsl:include href="CommonPathRef.xsl"/>
 <xsl:include href="AddHeader.xsl"/>
@@ -41,11 +41,9 @@
   </style>      
 </head>
 <body class="styBodyClass">
-  <form name="Form8933"> 
-         <xsl:call-template name="DocumentHeader"/> 
-          
-  <!--Title of Form -->  
-   
+  <form name="Form8933">    
+    <xsl:call-template name="DocumentHeader"/>  
+  <!--Title of Form -->    
   <div class="styBB" style="width:187mm;">
 			<div class="styFNBox" style="width:31mm;height:20mm;border-right:none;vertical-align:bottom;">
 							Form <span class="styFormNumber">8933</span>		
@@ -172,25 +170,25 @@ Go to
   <!--  End Name and Employer indentification number  -->
   
    <div style="width: 187mm; ">
-	    <div class="styBB" style="width:187mm;height:37mm;">
+   <div class="styBB" style="width:187mm;height:37mm;">
    
-		   <div style="width: 187mm;">
-			  
-				<div class="styLNDesc"   style="width:133mm;padding-top:0mm;padding-bottom:0mm;">
-				
-					<div class="styIRS8933MedLNDesc" style="height: 8mm; padding-top: 1mm;width:135mm;padding-left:.5mm;">
-						<div style="width: 129mm;font-size:10pt;padding-bottom:5mm;font-family:arial;">
-							Check the applicable box(es). See instructions before completing this form.
-						</div>
-					</div>
-			  </div>
-		   </div>
+   <div style="width: 187mm;">
+      
+    <div class="styLNDesc"   style="width:133mm;padding-top:0mm;padding-bottom:0mm;">
+		
+     		 <div class="styIRS8933MedLNDesc" style="height: 8mm; padding-top: 1mm;width:135mm;padding-left:.5mm;">
+			<div style="width: 129mm;font-size:10pt;padding-bottom:5mm;font-family:arial;">
+		Check the applicable box(es). See instructions before completing this form.
+    </div>
+     </div>
+      </div>
+       </div>
 
    
     <!--  Line 1 -->  
     <div style="width: 187mm;">
         <div class="styLNLeftNumBox" style="width:6mm;height: 4mm; padding-top: 1.5mm;float:left;clear:none;">1</div>
-        <div class="styLNDesc"   style="width:180mm;padding-top:0mm;padding-bottom:0mm;">
+        <div class="styLNDesc"   style="width:175mm;padding-top:0mm;padding-bottom:0mm;">
 		 	Captured qualified carbon oxide during the tax year
             <!--Dotted Line-->
 		    <span class="styDotLn" style="float:none;clear:none;padding-right:3mm;">.........................</span> 
@@ -198,18 +196,17 @@ Go to
  							<span>								
 							<xsl:call-template name="PopulateSpan">
 								<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
-								<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
-							</xsl:call-template>
+							</xsl:call-template>    		 
 							  <label>
 								<xsl:call-template name="PopulateLabel">
 									<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
-									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
+									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideIndInd</xsl:with-param>
 								</xsl:call-template>
 
 							 </label>
                                <span style="width:2px;"/>
 							
-							<input type="Checkbox"  alt="Capture Qualified Carbon Oxide Indicator"  class="styCkbox">
+							<input type="Checkbox" class="styCkbox">
 								<xsl:call-template name="PopulateCheckbox">
 									<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
 									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
@@ -231,22 +228,21 @@ Go to
 	   
  							<span>								
 							<xsl:call-template name="PopulateSpan">
-								<xsl:with-param name="TargetNode" select="$FormData/PhysclDisposCptrQlfyCrbnOxdInd"/>
-								<xsl:with-param name="BackupName">PhysclDisposCptrQlfyCrbnOxdInd</xsl:with-param>
+								<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
 							</xsl:call-template>    		 
 							  <label>
 								<xsl:call-template name="PopulateLabel">
-									<xsl:with-param name="TargetNode" select="$FormData/PhysclDisposCptrQlfyCrbnOxdInd"/>
-									<xsl:with-param name="BackupName">PhysclDisposCptrQlfyCrbnOxdInd</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
+									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
 								</xsl:call-template>
 
 							 </label>
                                <span style="width:2px;"/>
 							
-						<input type="Checkbox" alt="Physically Disposed Captured Qualified Carbon Oxide Indicator" class="styCkbox">
+							<input type="Checkbox" class="styCkbox">
 								<xsl:call-template name="PopulateCheckbox">
-									<xsl:with-param name="TargetNode" select="$FormData/PhysclDisposCptrQlfyCrbnOxdInd"/>
-									<xsl:with-param name="BackupName">PhysclDisposCptrQlfyCrbnOxdInd</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
+									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
 								</xsl:call-template>
 							</input>
 							</span>
@@ -265,22 +261,21 @@ Go to
 	   
  							<span>								
 							<xsl:call-template name="PopulateSpan">
-								<xsl:with-param name="TargetNode" select="$FormData/ElectTPClmCrbnOxdSqstrtnCrInd"/>
-								<xsl:with-param name="BackupName">ElectTPClmCrbnOxdSqstrtnCrInd</xsl:with-param>
+								<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
 							</xsl:call-template>    		 
 							  <label>
 								<xsl:call-template name="PopulateLabel">
-									<xsl:with-param name="TargetNode" select="$FormData/ElectTPClmCrbnOxdSqstrtnCrInd"/>
-									<xsl:with-param name="BackupName">ElectTPClmCrbnOxdSqstrtnCrInd</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
+									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
 								</xsl:call-template>
 
 							 </label>
                                <span style="width:2px;"/>
 							
-							<input type="checkbox" alt="Elected Taxpayer Claim Carbon Oxide Sequestration Credit Indicator" class="styCkbox">
+							<input type="Checkbox" class="styCkbox">
 								<xsl:call-template name="PopulateCheckbox">
-									<xsl:with-param name="TargetNode" select="$FormData/ElectTPClmCrbnOxdSqstrtnCrInd"/>
-									<xsl:with-param name="BackupName">ElectTPClmCrbnOxdSqstrtnCrInd</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
+									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
 								</xsl:call-template>
 							</input>
 							</span>
@@ -299,21 +294,21 @@ Go to
 	   
  							<span>								
 							<xsl:call-template name="PopulateSpan">
-								<xsl:with-param name="TargetNode" select="$FormData/TPElectClmCrbnOxdSqstrtnCrInd"/>
+								<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
 							</xsl:call-template>    		 
 							  <label>
 								<xsl:call-template name="PopulateLabel">
-									<xsl:with-param name="TargetNode" select="$FormData/TPElectClmCrbnOxdSqstrtnCrInd"/>
-									<xsl:with-param name="BackupName">TPElectClmCrbnOxdSqstrtnCrInd</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
+									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
 								</xsl:call-template>
 
 							 </label>
                                <span style="width:2px;"/>
 							
-							<input type="checkbox" alt="Taxpayer Elected Claim Carbon Oxide Sequestration Credit Indictor" class="styCkbox">
+							<input type="Checkbox" class="styCkbox">
 								<xsl:call-template name="PopulateCheckbox">
-									<xsl:with-param name="TargetNode" select="$FormData/TPElectClmCrbnOxdSqstrtnCrInd"/>
-									<xsl:with-param name="BackupName">TPElectClmCrbnOxdSqstrtnCrInd</xsl:with-param>
+									<xsl:with-param name="TargetNode" select="$FormData/CaptureQualifiedCarbonOxideInd"/>
+									<xsl:with-param name="BackupName">CaptureQualifiedCarbonOxideInd</xsl:with-param>
 								</xsl:call-template>
 							</input>
 							</span>
@@ -450,7 +445,7 @@ Go to
    
     <!-- end Line 8 -->   
    
-   </div>
+   
    </div>
    <!-- BEGIN PART II TITLE -->
 					<div class="styBB" style="width:187mm;">
@@ -464,15 +459,15 @@ Go to
 					</div>
 							
   <!-- BEGIN PART II TITLE END-->
-   
+   </div>
   
   <!--Qualified carbon dixiode-->
   <div style="width: 187mm">
   
    <div class="styLNLeftNumBox" style="width:6mm;height: 4mm; padding-top: 2mm;float:left;clear:none;">1</div>
    <div class="styIRS8933MedLNDesc" style="height: 14mm; padding-top: 2mm;width:138mm;"> 
-   <b>Qualified carbon oxide captured using carbon capture equipment originally placed in service at a qualified facility before February 9, 2018, 
-        disposed of in secure geological storage, and not used as a tertiary injectant in a qualified enhanced oil or natural gas recovery
+   <b>Qualified carbon oxide captured using carbon capture equipment originally placed in service at a qualified facility before February 9, 2018, disposed of in secure geological
+        storage, and not used as a tertiary injectant in a qualified enhanced oil or natural gas recovery
         project, nor utilized as described in section 45Q(f)(5).</b>
     </div>
     <div class="styLNRightNumBox" style="height:15mm; padding-top: 2mm; border-bottom-width:0px;background-color:lightgrey;"/>
@@ -485,13 +480,10 @@ Go to
     <div class="styLNDesc"   style="width:133mm;padding-bottom:0mm;">
 		<div class="styIRS8933MedLNDesc" style="height: 17mm;width:91.5mm;padding-left:.5mm;">
                Metric tons captured and disposed of and for which you didn’t elect for another
-				taxpayer to claim the carbon oxide sequestration credit. See instructions for
-				attaching Model Certificates CF, DISP-Operator, and DISP-Owner
-        <xsl:call-template name="SetFormLinkInline">
-			<xsl:with-param name="TargetNode" select="$FormData/CptrOnAftrSpcfdDtSect45Qf5Grp/MetricTonsCapturedQty"/>
-		</xsl:call-template>
+taxpayer to claim the carbon oxide sequestration credit. See instructions for
+attaching Model Certificates CF, DISP-Operator, and DISP-Owner
 			<!--Dotted Line-->
-				<!--<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">..................</span>  -->		
+				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">..................</span>  		
 		</div>
      		  
      </div>
@@ -507,15 +499,15 @@ Go to
 						<div class="styLNDesc" style="width:96mm;">
 							<span style="float:left;"></span>
 							<!--<span style="float:left;">(see instructions)</span>-->
-							<!--<span class="styIRS8960Dots">....................</span>-->
+							<span class="styIRS8960Dots">....................</span>
 						</div>
 						<div class="styLNRightNumBox" style="height:9mm;padding-top:5.5mm;">1a</div>
-						<div class="styLNAmountBox" style="height:9mm;padding-right:2px;padding-top:6mm; font-size:7.5px;">
+						<div class="styLNAmountBox" style="height:9mm;padding-right:2px;padding-top:5.5mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CapturedNotUsedBfrSpcfdDtGrp/MetricTonsCapturedQty"/>
 							</xsl:call-template>
 						</div>
-						<div class="styLNRightNumBoxNBB" style="height:9mm;background-color:lightgrey;width:8mm"/>
+						<div class="styLNRightNumBoxNBB" style="height:9mm;background-color:lightgrey;"/>
 						<div class="styLNAmountBoxNBB" style="height:9mm;"/>
 					</div>
 					<!-- Line 1b -->
@@ -527,7 +519,7 @@ Go to
 							<span class="styDotLn" style="float:none;clear:none;padding-right:2mm;">..............</span> 
 						</div>
 						<div class="styLNRightNumBox" style="height:4mm;">1b</div>
-						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;font-size:7.5px;padding-top:1mm;">
+						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;">
 							$24.10<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CapturedNotUse"/>
 							</xsl:call-template>
@@ -547,7 +539,7 @@ Go to
 		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">.........................</span>
      </div>
     <div class="styLNRightNumBox">1c</div>
-   <div class="styLNAmountBox" style=" font-size:7.5px;">
+    <div class="styLNAmountBox">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CapturedNotUsedBfrSpcfdDtGrp/MetricTonsCapturedCreditAmt"/>
       </xsl:call-template>
@@ -575,9 +567,6 @@ as a tertiary injectant in a qualified enhanced oil or natural gas recovery proj
                Metric tons captured and disposed of and for which you didn’t elect for another
 taxpayer to claim the carbon oxide sequestration credit. See instructions for
 attaching Model Certificates CF, EOR-Operator, and EOR-Owner
-         <xsl:call-template name="SetFormLinkInline">
-			<xsl:with-param name="TargetNode" select="$FormData/CptrOnAftrSpcfdDtSect45Qf5Grp/MetricTonsCapturedQty"/>
-		</xsl:call-template>
 			<!--Dotted Line-->
 				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">...................</span>  		
 		</div>
@@ -596,7 +585,7 @@ attaching Model Certificates CF, EOR-Operator, and EOR-Owner
 							
 						</div>
 						<div class="styLNRightNumBox" style="height:7.5mm;padding-top:4mm;">2a</div>
-						<div class="styLNAmountBox" style="height:7.5mm;padding-right:2px;padding-top:4mm;font-size:7.5px;">
+						<div class="styLNAmountBox" style="height:7.5mm;padding-right:2px;padding-top:3.5mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CapturedUsedBfrSpcfdDtGrp/MetricTonsCapturedQty"/>
 							</xsl:call-template>
@@ -613,7 +602,7 @@ attaching Model Certificates CF, EOR-Operator, and EOR-Owner
 							<span class="styDotLn" style="float:none;clear:none;padding-right:2mm;">.............</span> 
 						</div>
 						<div class="styLNRightNumBox" style="height:4mm;">2b</div>
-						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;font-size:7.5px;padding-top:1mm;">
+						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;">
 							$12.05<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CapturedUsedBfr"/>
 							</xsl:call-template>
@@ -633,7 +622,7 @@ attaching Model Certificates CF, EOR-Operator, and EOR-Owner
 		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">.........................</span>
      </div>
     <div class="styLNRightNumBox">2c</div>
-    <div class="styLNAmountBox" style=" font-size:7.5px;">
+    <div class="styLNAmountBox">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CapturedUsedBfrSpcfdDtGrp/MetricTonsCapturedCreditAmt"/>
       </xsl:call-template>
@@ -652,7 +641,7 @@ a qualified facility before February 9, 2018, and utilized as described in secti
     </b>
     </div>
     <div class="styLNRightNumBox" style="height:10mm; padding-top: 2mm; border-bottom-width:0px;background-color:lightgrey;"/>
-    <div class="styLNAmountBox" style="height:10mm; padding-top: 2mm; border-bottom-width:0px;">
+    <div class="styLNAmountBox" style="height:10mm; padding-top: 2mm; border-bottom-width:0px">
     </div>
     </div>
  <!--  Line 3a -->  
@@ -663,11 +652,8 @@ a qualified facility before February 9, 2018, and utilized as described in secti
                Metric tons captured and utilized and for which you didn’t elect for another
 taxpayer to claim the carbon oxide sequestration credit. See instructions for
 attaching Model Certificates CF and UTZ
-        <xsl:call-template name="SetFormLinkInline">
-			<xsl:with-param name="TargetNode" select="$FormData/CptrOnAftrSpcfdDtSect45Qf5Grp/MetricTonsCapturedQty"/>
-		</xsl:call-template>
 			<!--Dotted Line-->
-				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">...</span>  		
+				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">....</span>  		
 		</div>
      		  
      </div>
@@ -686,7 +672,7 @@ attaching Model Certificates CF and UTZ
 							<!--<span class="styDotLn" style="float:none;clear:none;padding-right:2mm;">.........................</span> -->
 						</div>
 						<div class="styLNRightNumBox" style="height:6mm;padding-top:3mm;">3a</div>
-						<div class="styLNAmountBox" style="height:6mm;padding-right:2px;padding-top:3mm;font-size:7.5px;">
+						<div class="styLNAmountBox" style="height:6mm;padding-right:2px;padding-top:3mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CapturedNotUsedAftrSpcfdDtGrp/MetricTonsCapturedQty"/>
 							</xsl:call-template>
@@ -703,7 +689,7 @@ attaching Model Certificates CF and UTZ
 							<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">..............</span>  
 						</div>
 						<div class="styLNRightNumBox" style="height:4mm;">3b</div>
-						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;font-size:7.5px;padding-top:1mm;">
+						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;">
 							$12.05<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CapturedNotUsedAftrSpcfdDt"/>
 							</xsl:call-template>
@@ -723,7 +709,7 @@ attaching Model Certificates CF and UTZ
 		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">.........................</span>
      </div>
     <div class="styLNRightNumBox" style="border-bottom-width: 0px;">3c</div>
-    <div class="styLNAmountBox" style="border-bottom-width: 0px;font-size:7.5px;">
+    <div class="styLNAmountBox" style="border-bottom-width: 0px;">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CapturedNotUsedAftrSpcfdDtGrp/MetricTonsCapturedCreditAmt"/>
       </xsl:call-template>
@@ -770,11 +756,8 @@ nor utilized as described in section 45Q(f)(5).
                Metric tons captured and disposed of and for which you didn’t elect for another
 taxpayer to claim the carbon oxide sequestration credit. See instructions for
 attaching Model Certificates CF, DISP-Operator, and DISP-Owner
-         <xsl:call-template name="SetFormLinkInline">
-			<xsl:with-param name="TargetNode" select="$FormData/CptrOnAftrSpcfdDtSect45Qf5Grp/MetricTonsCapturedQty"/>
-		</xsl:call-template>
 			<!--Dotted Line-->
-				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">................</span>  		
+				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">..................</span>  		
 		</div>
      		  <!--<div class="styUnderlineAmount" style="height:4mm;width:40.5mm;">
 		  <xsl:call-template name="PopulateAmount">
@@ -798,7 +781,7 @@ attaching Model Certificates CF, DISP-Operator, and DISP-Owner
 							<!--<span class="styIRS8960Dots">....................</span>-->
 						</div>
 						<div class="styLNRightNumBox" style="height:7.5mm;padding-top:4mm;">4a</div>
-						<div class="styLNAmountBox" style="height:7.5mm;padding-right:2px;padding-top:4mm;font-size:7.5px;">
+						<div class="styLNAmountBox" style="height:7.5mm;padding-right:2px;padding-top:3.5mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CapturedUsedAftrSpcfdDtGrp/MetricTonsCapturedQty"/>
 							</xsl:call-template>
@@ -815,7 +798,7 @@ attaching Model Certificates CF, DISP-Operator, and DISP-Owner
 							<span class="styDotLn" style="float:none;clear:none;padding-right:2mm;">..........</span> 
 						</div>
 						<div class="styLNRightNumBox" style="height:4mm;">4b</div>
-						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;font-size:7.5px;padding-top:1mm;">
+						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;">
 							$34.81<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/AdjNetIncmOrLossNonSect1411Amt"/>
 							</xsl:call-template>
@@ -836,7 +819,7 @@ attaching Model Certificates CF, DISP-Operator, and DISP-Owner
 		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">.........................</span>
      </div>
     <div class="styLNRightNumBox" style="border-bottom-width: 0px;">4c</div>
-    <div class="styLNAmountBox" style="border-bottom-width: 0px;font-size:7.5px;">
+    <div class="styLNAmountBox" style="border-bottom-width: 0px;">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CapturedUsedAftrSpcfdDtGrp/MetricTonsCapturedCreditAmt"/>
       </xsl:call-template>
@@ -903,9 +886,6 @@ and used as a tertiary injectant in a qualified enhanced oil or natural gas reco
                Metric tons captured and disposed of and for which you didn’t elect for another
 taxpayer to claim the carbon oxide sequestration credit. See instructions for
 attaching Model Certificates CF, EOR-Operator, and EOR-Owner
-<xsl:call-template name="SetFormLinkInline">
-			<xsl:with-param name="TargetNode" select="$FormData/CptrOnAftrSpcfdDtSect45Qf5Grp/MetricTonsCapturedQty"/>
-		</xsl:call-template>
 			<!--Dotted Line-->
 				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">...................</span>  		
 		</div>
@@ -929,7 +909,7 @@ attaching Model Certificates CF, EOR-Operator, and EOR-Owner
 							<span style="float:left;"></span>
 						</div>
 						<div class="styLNRightNumBox" style="height:9mm;padding-top:5.5mm;">5a</div>
-						<div class="styLNAmountBox" style="height:9mm;padding-right:2px;padding-top:6mm;font-size:7.5px;">
+						<div class="styLNAmountBox" style="height:9mm;padding-right:2px;padding-top:5.5mm;">
 							<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CptrUsedOnAftrSpcfdDtGrp/MetricTonsCapturedQty"/>
 							</xsl:call-template>
@@ -945,7 +925,7 @@ attaching Model Certificates CF, EOR-Operator, and EOR-Owner
 							<span class="styDotLn" style="float:none;clear:none;padding-right:2mm;">.........</span> 
 						</div>
 						<div class="styLNRightNumBox" style="height:4mm;padding-top:1mm;">5b</div>
-						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;padding-top:1mm;font-size:7.5px;">
+						<div class="styLNAmountBox" style="height:4mm;padding-right:2px;padding-top:1mm;">
 							22.68<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/CptrUsedOnAftrSpcfdDtGrp/MetricTonsCapturedC"/>
 							</xsl:call-template>
@@ -974,7 +954,7 @@ attaching Model Certificates CF, EOR-Operator, and EOR-Owner
 		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">.........................</span>
      </div>
     <div class="styLNRightNumBox">5c</div>
-    <div class="styLNAmountBox" style="font-size:7.5px;">
+    <div class="styLNAmountBox">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CptrUsedOnAftrSpcfdDtGrp/MetricTonsCapturedCreditAmt"/>
       </xsl:call-template>
@@ -1005,12 +985,8 @@ the equipment was originally placed in service, and utilized as described in sec
                Metric tons captured and utilized and for which you didn’t elect for another
 taxpayer to claim the carbon oxide sequestration credit. See instructions for
 attaching Model Certificates CF and UTZ
-         <xsl:call-template name="SetFormLinkInline">
-			<xsl:with-param name="TargetNode" select="$FormData/CptrOnAftrSpcfdDtSect45Qf5Grp/MetricTonsCapturedQty"/>
-		</xsl:call-template>
-
 			<!--Dotted Line-->
-				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">...</span>  		
+				<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">....</span>  		
 		</div>
      		  
      </div>
@@ -1028,9 +1004,9 @@ attaching Model Certificates CF and UTZ
 							
 						</div>
 						<div class="styLNRightNumBox" style="height:7.0mm;padding-top:3.5mm;">6a</div>
-						<div class="styLNAmountBox" style="height:7.0mm;padding-right:2px;padding-top:4mm;font-size:7.5px;">
+						<div class="styLNAmountBox" style="height:7.0mm;padding-right:2px;padding-top:3.5mm;">
 							<xsl:call-template name="PopulateAmount">
-								<xsl:with-param name="TargetNode" select="$FormData/CptrOnAftrSpcfdDtSect45Qf5Grp/MetricTonsCapturedCreditAmt"/>
+								<xsl:with-param name="TargetNode" select="$FormData/CptrOnAftrSpcfdDtSect45Qf5Grp/MetricTonsCapturedQty"/>
 							</xsl:call-template>
 						</div>
 						<div class="styLNRightNumBoxNBB" style="height:7mm;background-color:lightgrey;"/>
@@ -1045,7 +1021,7 @@ attaching Model Certificates CF and UTZ
 							<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">..........</span>
 						</div>
 						<div class="styLNRightNumBox" style="height:6mm;padding-top:3mm;">6b</div>
-						<div class="styLNAmountBox" style="height:6mm;padding-right:2px;padding-top:3mm;font-size:7.5px;">
+						<div class="styLNAmountBox" style="height:6mm;padding-right:2px;padding-top:3mm;">
 							22.68<xsl:call-template name="PopulateAmount">
 								<xsl:with-param name="TargetNode" select="$FormData/AdjNetIncmOrLossNonSect141"/>
 							</xsl:call-template>
@@ -1065,7 +1041,7 @@ attaching Model Certificates CF and UTZ
 		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">.........................</span>
      </div>
     <div class="styLNRightNumBox" style="border-bottom-width: 0px;">6c</div>
-    <div class="styLNAmountBox" style="border-bottom-width: 0px;font-size:7.5px;">
+    <div class="styLNAmountBox" style="border-bottom-width: 0px;">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CapturedNotUsedBfrSpcfdDtGrp/MetricTonsCapturedCreditAmt"/>
       </xsl:call-template>
@@ -1157,18 +1133,15 @@ attaching Model Certificates CF and UTZ
         <!-- end Line 8 --> 
         <!--  Line 9 -->  
   <div style="width: 187mm;">
-    <div class="styLNLeftNumBox" style="width:6mm;height: 3mm; padding-top: 0.5mm;float:left;clear:none;">9</div>
+    <div class="styLNLeftNumBox" style="width:6mm;height: 3mm; padding-top: 0mm;float:left;clear:none;">9</div>
     <div class="styIRS8933MedLNDesc" style="width:138mm;height:7mm;">Carbon oxide sequestration credit for which another taxpayer elected under section 45Q(f)(3)(B) to
 allow you to claim. See instructions for attaching Model Certificates ELECT, EOR-Owner, DISP-Owner,
 and UTZ
-       <xsl:call-template name="SetFormLinkInline">
-			<xsl:with-param name="TargetNode" select="$FormData/CrbnOxdSqstrtnCrAmt"/>
-		</xsl:call-template>
 	 <!--Dotted Line-->
-		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">.</span>
+		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">..</span>
      </div>
     <div class="styLNRightNumBox" style="height:7mm;padding-top: 4mm;">9</div>
-    <div class="styLNAmountBox" style="height:7mm;padding-top: 4mm;font-size:7.5px;">
+    <div class="styLNAmountBox" style="height:7mm;padding-top: 4mm;">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CrbnOxdSqstrtnCrAmt"/>
       </xsl:call-template>
@@ -1179,13 +1152,13 @@ and UTZ
   <!--  end Line 9 -->	 
   <!--  Line 10 -->  
   <div style="width: 187mm;">
-    <div class="styLNLeftNumBox" style="width:6mm;height: 3mm; padding-top: 0.5mm;float:left;clear:none;">10</div>
+    <div class="styLNLeftNumBox" style="width:6mm;height: 3mm; padding-top: 0mm;float:left;clear:none;">10</div>
     <div class="styIRS8933MedLNDesc" style="width:138mm;height:5mm;">Carbon oxide sequestration credit from partnerships and S corporations (see instructions)
 	 <!--Dotted Line-->
 		<span class="styDotLn" style="float:right;clear:none;padding-right:2mm;">......</span>
      </div>
     <div class="styLNRightNumBox" style="height:5mm;padding-top: 2mm;">10</div>
-    <div class="styLNAmountBox" style="height:5mm;padding-top: 2mm;font-size:7.5px;">
+    <div class="styLNAmountBox" style="height:5mm;padding-top: 2mm;">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CreditAmt"/>
       </xsl:call-template>
@@ -1195,7 +1168,7 @@ and UTZ
   <!--  end Line 10 -->
   <!--  Line 11 -->  
   <div style="width: 187mm;">
-    <div class="styLNLeftNumBox" style="width:6mm;height: 3mm; padding-top: 0.5mm;float:left;clear:none;">11</div>
+    <div class="styLNLeftNumBox" style="width:6mm;height: 3mm; padding-top: 0mm;float:left;clear:none;">11</div>
     <div class="styIRS8933MedLNDesc" style="width:138mm;height:7mm;">Add lines 1c, 2c, 3c, 4c, 5c, 6c, 9, and 10. Partnerships and S corporations, report this amount on
 Schedule K. All others, report this amount on Form 3800, Part III, line 1x
 	 <!--Dotted Line-->
@@ -1204,7 +1177,7 @@ Schedule K. All others, report this amount on Form 3800, Part III, line 1x
      <div class="styLNRightNumBoxNBB" style="background-color:lightgrey;"/>
 						<div class="styLNAmountBoxNBB"/>
     <div class="styLNRightNumBox" style="height:3.5mm;">11</div>
-    <div class="styLNAmountBox" style="height:3.5mm;font-size:7.5px;">
+    <div class="styLNAmountBox" style="height:3.5mm;">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/TotalAmt"/>
       </xsl:call-template>
@@ -1215,23 +1188,15 @@ Schedule K. All others, report this amount on Form 3800, Part III, line 1x
   
   <!--  end Line 11 -->	 	
   <!--  Line 12 -->  
-  
-  
-								
-								
   <div style="width: 187mm;">
-    <div class="styLNLeftNumBox" style="width:6mm;padding-top: 1mm;">12</div>
-    
-    <div class="styIRS8933MedLNDesc" style="width:138mm;height:5mm;">
-    <span style="float:left;">Carbon oxide sequestration credit recaptured. See instructions for attaching Model Certificate RECAPTURE
-		<xsl:call-template name="SetFormLinkInline">
-			<xsl:with-param name="TargetNode" select="$FormData/CrbnOxdSqstrtnCrRcptrAmt"/>
-		</xsl:call-template>
-	</span>
-	 
+    <div class="styLNLeftNumBox" style="width:6mm;height: 3mm; padding-top: 0mm;float:left;clear:none;">12</div>
+    <div class="styIRS8933MedLNDesc" style="width:138mm;height:5mm;">Carbon oxide sequestration credit recaptured. See instructions for attaching Model Certificate
+RECAPTURE
+	 <!--Dotted Line-->
+		<span class="styDotLn" style="float:right;clear:nonr;padding-right:2mm;">.</span>
      </div>
     <div class="styLNRightNumBox" style="height:4.5mm;padding-top: 1mm;">12</div>
-    <div class="styLNAmountBox" style="height:4.5mm;padding-top: 1mm;font-size:7.5px;">
+    <div class="styLNAmountBox" style="height:4.5mm;padding-top: 1mm;">
       <xsl:call-template name="PopulateAmount">
         <xsl:with-param name="TargetNode" select="$FormData/CrbnOxdSqstrtnCrRcptrAmt"/>
       </xsl:call-template>

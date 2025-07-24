@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xsl:stylesheet [  <!ENTITY nbsp "&#160;"> ]>
-<!-- Updated by Iskilu Lawal 11/30/2021 Defect # 68482 -->
+<!-- Updated by Iskilu Lawal 11/18/2020 UWR  # 237345  Drop 3 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:include href="PopulateTemplate.xsl" />
 	<xsl:include href="AddHeader.xsl" />
@@ -334,7 +334,7 @@
 						<div class="styStdDiv">
 							<div class="styLNLeftLtrBox" style="padding-left:4.2mm;">g</div>
 							<div class="styLNDesc" style="width:73mm;height:7mm">
-								Income taxes (see Schedule E, Part I, Section 1, line 6, column (m), and Part III, line 3, column (i))
+								Income taxes (see Schedule E, Part I, Section 1, line 6, column (m) and Part III, line 3, column (i))
 								<span class="sty5471SchHDotLn">....</span>
 							</div>
 							<div class="styLNRightNumBox" style="height:7mm;padding-top:3mm"> 2g</div>
@@ -535,7 +535,7 @@
 									<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="MediumBullet" />
 								</div>
 								<span style="border-color:black;border-style:solid;border-left-width:0px;border-right-width:0px;border-top-width:0px;border-bottom-width:1px;width:12mm;">
-										<xsl:call-template name="PopulateAmount">
+										<xsl:call-template name="PopulateText">
 											<xsl:with-param name="TargetNode" select="$FormData/EPDASTMSection901jCatIncmGrp/SanctionedCountryCd"/>
 										</xsl:call-template>
 								</span>
@@ -573,19 +573,10 @@
 								<div class="styLNRightNumBox" style="border-left-width:0px;border-right-width:0px;border-top-width:0px;border-bottom-width:0px;">
 									<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="MediumBullet" />
 								</div>
-		<span style="border-color:black;border-style:solid;border-left-width:0px;border-right-width:0px;border-top-width:0px;border-bottom-width:1px;width:12mm;">
-										
-           <xsl:for-each select="$FormData/EPDASTMSection901jCatIncmGrp/SanctionedCountryCd">
-									<xsl:choose>
-										<xsl:when test="position()=2">
-											
-												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="."/>
-												</xsl:call-template>
-										
-										</xsl:when>
-									</xsl:choose>
-								</xsl:for-each>										
+								<span style="border-color:black;border-style:solid;border-left-width:0px;border-right-width:0px;border-top-width:0px;border-bottom-width:1px;width:12mm;">
+										<xsl:call-template name="PopulateText">
+											<xsl:with-param name="TargetNode" select="$FormData/EPDASTMSection901jCatIncmGrp/SanctionedCountryCd"/>
+										</xsl:call-template>
 									</span>
 									<div class="styLNDesc" style="width:94mm;height:10mm;padding-left:8mm;">
 									and enter the line 5c amount with respect to the sanctioned<br/>
@@ -595,26 +586,18 @@
 								</div>
 								</div>
 							</div>
-				<div class="styLNAmountBox" style="border-top-width:0px;height:15mm;text-align:center;font-size:8px;width:12mm;padding-top:6mm;font-weight:bold;">
+							<div class="styLNAmountBox" style="border-top-width:0px;height:15mm;text-align:center;font-size:8px;width:12mm;padding-top:6mm;font-weight:bold;">
 								<br /><br/>
 								5c(iii)(B)
 							</div>
 							<div class="styLNAmountBox" style="border-top-width:0px;height:15mm;text-align:center;width:30mm;padding-top:8mm;">
 								<br />
-								<xsl:for-each select="$FormData/EPDASTMSection901jCatIncmGrp/EPDASTMSection901jCatIncmAmt">
-									<xsl:choose>
-										<xsl:when test="position()=2">
-											
-												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="."/>
-												</xsl:call-template>
-											
-										</xsl:when>
-									</xsl:choose>
-								</xsl:for-each>		
+								<xsl:call-template name="PopulateAmount">
+									<xsl:with-param name="TargetNode" select="$FormData/EPDASTMSection901jCatIncmGrp/EPDASTMSection901jCatIncmAmt" />
+								</xsl:call-template>
 							</div>
 							<div class="styLNAmountBox" style="background-color:lightgrey;border-bottom-width:0px;height:15mm;width:8mm;" />
-							<div class="styLNAmountBox" style="background-color:lightgrey;border-bottom-width:0px;width:32mm;height:15mm;" />
+							<div class="styLNAmountBox" style="background-color:lightgrey;border-bottom-width:0px;width:32mm;height:15mm" />
 						</div>
 						<!-- Line 5c (iii)  C-->
 						<div class="styStdDiv">
@@ -630,19 +613,9 @@
 									<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="MediumBullet" />
 								</div>
 								<span style="border-color:black;border-style:solid;border-left-width:0px;border-right-width:0px;border-top-width:0px;border-bottom-width:1px;width:12mm;">
-										<xsl:for-each select="$FormData/EPDASTMSection901jCatIncmGrp/SanctionedCountryCd">
-									<xsl:choose>
-										<xsl:when test="position()=3">
-											
-							  
-												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="."/>
-												</xsl:call-template>
-											
-										</xsl:when>
-									</xsl:choose>
-								</xsl:for-each>		
-										
+										<xsl:call-template name="PopulateText">
+											<xsl:with-param name="TargetNode" select="$FormData/EPDASTMSection901jCatIncmGrp/SanctionedCountryCd"/>
+										</xsl:call-template>
 									</span>
 									<div class="styLNDesc" style="width:94mm;height:10mm;padding-left:8mm;">
 									and enter the line 5c amount with respect to the sanctioned<br/>
@@ -658,19 +631,9 @@
 							</div>
 							<div class="styLNAmountBox" style="border-top-width:0px;height:15mm;text-align:center;width:30mm;padding-top:8mm;">
 									<br />
-									
-								<xsl:for-each select="$FormData/EPDASTMSection901jCatIncmGrp/EPDASTMSection901jCatIncmAmt">
-									<xsl:choose>
-										<xsl:when test="position()=3">
-											
-												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="."/>
-												</xsl:call-template>
-										
-										</xsl:when>
-									</xsl:choose>
-								</xsl:for-each>	
-								
+									<xsl:call-template name="PopulateAmount">
+									<xsl:with-param name="TargetNode" select="$FormData/EPDASTMSection901jCatIncmGrp/EPDASTMSection901jCatIncmAmt" />
+								</xsl:call-template>
 								</div>
 							<div class="styLNAmountBox" style="background-color:lightgrey;border-bottom-width:0px;height:15mm;width:8mm;" />
 							<div class="styLNAmountBox" style="background-color:lightgrey;border-bottom-width:0px;width:32mm;height:15mm" />
@@ -690,17 +653,9 @@
 									<img src="{$ImagePath}/1120_Bullet_Md.gif" alt="MediumBullet" />
 								</div>
 								<span style="border-color:black;border-style:solid;border-left-width:0px;border-right-width:0px;border-top-width:0px;border-bottom-width:1px;width:12mm;">
-											<xsl:for-each select="$FormData/EPDASTMSection901jCatIncmGrp/SanctionedCountryCd">
-									<xsl:choose>
-										<xsl:when test="position()=4">
-											
-												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="."/>
-												</xsl:call-template>
-											
-										</xsl:when>
-									</xsl:choose>
-								</xsl:for-each>		
+										<xsl:call-template name="PopulateText">
+											<xsl:with-param name="TargetNode" select="$FormData/EPDASTMSection901jCatIncmGrp/SanctionedCountryCd"/>
+										</xsl:call-template>
 									</span>
 									<div class="styLNDesc" style="width:94mm;height:10mm;padding-left:8mm;">
 										and enter the line 5c amount with respect to the sanctioned<br/>
@@ -716,18 +671,9 @@
 							</div>
 							<div class="styLNAmountBox" style="border-top-width:0px;height:15mm;text-align:center;width:30mm;padding-top:8mm;">
 									<br />
-																	
-								<xsl:for-each select="$FormData/EPDASTMSection901jCatIncmGrp/EPDASTMSection901jCatIncmAmt">
-									<xsl:choose>
-										<xsl:when test="position()=4">
-											
-												<xsl:call-template name="PopulateAmount">
-													<xsl:with-param name="TargetNode" select="."/>
-												</xsl:call-template>
-											
-										</xsl:when>
-									</xsl:choose>
-								</xsl:for-each>		
+									<xsl:call-template name="PopulateAmount">
+									<xsl:with-param name="TargetNode" select="$FormData/EPDASTMSection901jCatIncmGrp/EPDASTMSection901jCatIncmAmt" />
+								</xsl:call-template>
 								</div>
 							<div class="styLNAmountBox" style="background-color:lightgrey;border-bottom-width:1px;height:15mm;width:8mm;" />
 							<div class="styLNAmountBox" style="background-color:lightgrey;border-bottom-width:1px;width:32mm;height:15mm" />
@@ -763,7 +709,7 @@
 							</div>
 							</div>
 							<div class="styLNAmountBox" style="width:29mm;border-bottom-width:0px;border-top-width:1px;padding-right:0.5mm;font-family:Arial;font-size:6.5pt;">
-								<xsl:call-template name="PopulateAmount">
+								<xsl:call-template name="PopulateText">
 									<xsl:with-param name="TargetNode" select="$FormData/ExchangeRt" />
 								</xsl:call-template>
 							</div>

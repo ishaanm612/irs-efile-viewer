@@ -200,28 +200,23 @@
       </div>
       <!-- Middle top Year and Form Box -->
       <div class="styIRS2439leftBox" style="width:25mm;height:30.5mm;text-align:center;">
-        <span style="font-size: 6pt">OMB No. 1545-0123
+        <span style="font-size: 6pt">OMB No. 1545-0123</span>
+        <span style="padding-top:2mm;height:11mm;">
+         
         </span>
-        <span style="padding-top:2mm;height:5mm;">
-        </span>
-        <span style="padding-top:7mm;height:19mm;">
+        <span style="padding-top:2mm;height:8mm;">
           Form<span style="width:4px;"/><span class="styFN" style="font-size:13pt;font-weight:bold;">2439</span>
         </span>
-        <span style="font-size:6pt">(Rev. November 2021)
-        </span>
+        <span class="styAgency">(Rev. November 2021)</span>
       </div>
       <!--Right top  Form Title and Info box -->
       <div class="styIRS2439rightBox" style="width:75mm;height:30.5mm;text-align:center;">
         <span style="font-size:9pt;height:8mm;font-weight:bold;">Notice to Shareholder of Undistributed Long-Term Capital Gains</span>
         <br/>
-        For calendar year 20
-        <span style="width:5mm; border-style: solid; border-top-width: 0px; border-bottom-width: 1px; 
-			border-left-width: 0px; border-right-width: 0px;"/>,
-		 or other tax year of the <br/>regulated investment company (RIC) or the<br/> 
+        For calendar year 2021, or other tax year of the <br/>regulated investment company (RIC) or the<br/> 
         real estate investment trust (REIT)<br/>
         <span style="height:3mm;">beginning 
-          <span style="width:18mm; border-style: solid; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; 
-          border-right-width: 0px;">
+          <span style="width:18mm; border-style: solid; border-top-width: 0px; border-bottom-width: 1px; border-left-width: 0px; border-right-width: 0px;">
             <!-- begin date -->
              <xsl:call-template name="PopulateMonthDayYear">
               <xsl:with-param name="TargetNode" select="$Form2439Data/TaxPeriodBeginDt"/>
@@ -569,13 +564,14 @@
       <span style="width:2px;"/>
       <span style="font-size: 6pt;">Form</span>
       <span style="width:2px;"/>
-      <span style="font-weight:bold;width:10mm">2439</span>
-      <span>(Rev. 11-2021)</span>
-      <span style="width:53mm;font-size: 7pt;"></span>
+      <span style="font-weight:normal;width:26mm">(Rev. 11-2021)</span>
+      <span style="width:5px;"/>
+      <span style="font-weight:normal;width:26mm">Cat. No. 11858E</span>
+      <span style="width:15mm;font-size: 7pt;"></span>
       <a href="http://www.irs.gov/Form2439" title="Link to IRS.gov">
       	<i>www.irs.gov/Form2439</i>
        </a>
-      <span style="width:7mm;font-size: 7pt;"/>      
+      <span style="width:22mm;font-size: 7pt;"/>      
       <span style="font-size: 6pt;">Department of the Treasury - Internal Revenue Service</span>
     </div>
   <!-- BEGIN Left Over Table -->  

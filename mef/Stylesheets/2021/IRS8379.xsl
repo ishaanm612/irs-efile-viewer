@@ -640,7 +640,7 @@
 														<xsl:with-param name="BackupName">Form8379DataInjuredSpouseInformationGrp[1]InjuredSpouseInd</xsl:with-param>
 													</xsl:call-template>
 												</label>
-												<input class="styCkbox" type="checkbox" alt="Injured Spouse Indicator" style="width:4mm;">
+												<input class="styCkbox" type="checkbox" style="width:4mm;">
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="$Form8379Data/InjuredSpouseInformationGrp[1]/InjuredSpouseInd"/>
 														<xsl:with-param name="BackupName">Form8379DataInjuredSpouseInformationGrp[1]InjuredSpouseInd</xsl:with-param>
@@ -685,7 +685,7 @@
 														<xsl:with-param name="BackupName">Form8379DataInjuredSpouseInformationGrp[2]InjuredSpouseInd</xsl:with-param>
 													</xsl:call-template>
 												</label>
-												<input class="styCkbox" type="checkbox" alt="Injured Spouse Indicator" style="width:4mm;">
+												<input class="styCkbox" type="checkbox" style="width:4mm;">
 													<xsl:call-template name="PopulateCheckbox">
 														<xsl:with-param name="TargetNode" select="$Form8379Data/InjuredSpouseInformationGrp[2]/InjuredSpouseInd"/>
 														<xsl:with-param name="BackupName">Form8379DataInjuredSpouseInformationGrp[2]InjuredSpouseInd</xsl:with-param>
@@ -703,7 +703,41 @@
 							<div class="styIRS8379LNDesc" style="width:171mm;">
 								Check this box only if you want your refund issued in both names. Otherwise, separate refunds will be issued for each spouse, if applicable
 								<!--Dotted Line-->
-								<span class="styDotLn" style="float:none;clear:none;padding-right:1mm;">......................................</span>
+								<span class="styBoldText">
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+									<span style="width:11px"/>.
+								</span>
 							</div>
 							<div class="styIRS8379CleanDiv" style="width:10mm;padding-top:4mm;height:100%;padding-left:1.3mm;">
 								<label>
@@ -712,7 +746,7 @@
 										<xsl:with-param name="BackupName">Form8379DataJointRefundInd</xsl:with-param>
 									</xsl:call-template>
 								</label>
-								<input class="styCkbox" type="checkbox" alt="Joint Refund Indicator" style="width:4mm;">
+								<input class="styCkbox" type="checkbox" style="width:4mm;">
 									<xsl:call-template name="PopulateCheckbox">
 										<xsl:with-param name="TargetNode" select="$Form8379Data/JointRefundInd"/>
 										<xsl:with-param name="BackupName">Form8379DataJointRefundInd</xsl:with-param>
@@ -733,7 +767,7 @@
 										<xsl:call-template name="PopulateSpan">
 											<xsl:with-param name="TargetNode" select="$Form8379Data/AlternateAddressInd"/>
 										</xsl:call-template>
-										<input type="checkbox" class="styCkbox" alt=" Yes Alternate Address Indicator">
+										<input type="checkbox" class="styCkbox">
 											<xsl:call-template name="PopulateYesCheckbox">
 												<xsl:with-param name="TargetNode" select="$Form8379Data/AlternateAddressInd"/>
 												<xsl:with-param name="BackupName">IRS8379AlternateAddressInd</xsl:with-param>
@@ -754,7 +788,7 @@
 										<xsl:call-template name="PopulateSpan">
 											<xsl:with-param name="TargetNode" select="$Form8379Data/AlternateAddressInd"/>
 										</xsl:call-template>
-										<input type="checkbox" class="styCkbox" alt="No Alternate Address Indicator">
+										<input type="checkbox" class="styCkbox">
 											<xsl:call-template name="PopulateNoCheckbox">
 												<xsl:with-param name="TargetNode" select="$Form8379Data/AlternateAddressInd"/>
 												<xsl:with-param name="BackupName">IRS8379AlternateAddressInd</xsl:with-param>
@@ -1082,22 +1116,22 @@
 								</div>
 								<div class="styIRS8379CleanDiv" style="width:15%;height:100%;border-left-width:1px;padding-right:3px;padding-top:0px;border-color:black;">
 									<span style="width:100%;text-align:right;font-size:7pt;padding-top:4.5mm;height:auto;">
-										<xsl:call-template name="PopulateAmount">
-											<xsl:with-param name="TargetNode" select="$Form8379Data/JointReturnAmtGrp/NonrefundableCreditsAmt"/>
+										<xsl:call-template name="PopulateText">
+											<xsl:with-param name="TargetNode" select="$Form8379Data/JointReturnAmtGrp/AllocatedExemptionCnt"/>
 										</xsl:call-template>
 									</span>
 								</div>
 								<div class="styIRS8379CleanDiv" style="width:15%;height:100%;border-left-width:1px;padding-right:3px;padding-top:0px;">
 									<span style="width:100%;text-align:right;font-size:7pt;padding-top:4.5mm;height:auto;">
-										<xsl:call-template name="PopulateAmount">
-											<xsl:with-param name="TargetNode" select="$Form8379Data/InjuredSpouseAllocatedAmtGrp/NonrefundableCreditsAmt"/>
+										<xsl:call-template name="PopulateText">
+											<xsl:with-param name="TargetNode" select="$Form8379Data/InjuredSpouseAllocatedAmtGrp/AllocatedExemptionCnt"/>
 										</xsl:call-template>
 									</span>
 								</div>
 								<div class="styIRS8379CleanDiv" style="width:15%;height:100%;border-left-width:1px;padding-right:3px;padding-top:0px;">
 									<span style="width:100%;text-align:right;font-size:7pt;padding-top:4.5mm;height:auto;">
-										<xsl:call-template name="PopulateAmount">
-											<xsl:with-param name="TargetNode" select="$Form8379Data/OtherSpouseAllocatedAmtGrp/NonrefundableCreditsAmt"/>
+										<xsl:call-template name="PopulateText">
+											<xsl:with-param name="TargetNode" select="$Form8379Data/OtherSpouseAllocatedAmtGrp/AllocatedExemptionCnt"/>
 										</xsl:call-template>
 									</span>
 								</div>
@@ -1118,21 +1152,21 @@
 								<div class="styIRS8379CleanDiv" style="width:15%;height:100%;border-left-width:1px;padding-right:3px;padding-top:0px;border-color:black;">
 									<span style="width:100%;text-align:right;font-size:7pt;padding-top:4.5mm;height:auto;">
 										<xsl:call-template name="PopulateAmount">
-											<xsl:with-param name="TargetNode" select="$Form8379Data/JointReturnAmtGrp/RefundableCreditsAmt"/>
+											<xsl:with-param name="TargetNode" select="$Form8379Data/JointReturnAmtGrp/CreditAmt"/>
 										</xsl:call-template>
 									</span>
 								</div>
 								<div class="styIRS8379CleanDiv" style="width:15%;height:100%;border-left-width:1px;padding-right:3px;padding-top:0px;">
 									<span style="width:100%;text-align:right;font-size:7pt;padding-top:4.5mm;height:auto;">
 										<xsl:call-template name="PopulateAmount">
-											<xsl:with-param name="TargetNode" select="$Form8379Data/InjuredSpouseAllocatedAmtGrp/RefundableCreditsAmt"/>
+											<xsl:with-param name="TargetNode" select="$Form8379Data/InjuredSpouseAllocatedAmtGrp/CreditAmt"/>
 										</xsl:call-template>
 									</span>
 								</div>
 								<div class="styIRS8379CleanDiv" style="width:15%;height:100%;border-left-width:1px;padding-right:3px;padding-top:0px;">
 									<span style="width:100%;text-align:right;font-size:7pt;padding-top:4.5mm;height:auto;">
 										<xsl:call-template name="PopulateAmount">
-											<xsl:with-param name="TargetNode" select="$Form8379Data/OtherSpouseAllocatedAmtGrp/RefundableCreditsAmt"/>
+											<xsl:with-param name="TargetNode" select="$Form8379Data/OtherSpouseAllocatedAmtGrp/CreditAmt"/>
 										</xsl:call-template>
 									</span>
 								</div>

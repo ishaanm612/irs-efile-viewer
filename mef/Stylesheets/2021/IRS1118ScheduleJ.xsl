@@ -2242,7 +2242,7 @@
                     <!--Pen and ink image -->
                     <span style="padding-right:2mm">
                     <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Foreign Branch Income Column (ii) - Allocation of domestic losses Indicator
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Passive Income Colun (ii) - Allocation of domestic losses Indicator
                       </xsl:with-param>
                       <xsl:with-param name="TargetNode" 
 							  select="$FormData/AdjSepLmtForeignBranchIncome/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
@@ -2256,7 +2256,7 @@
                     <!--Pen and ink image -->
                     <span style="padding-right:2mm">
                     <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Passive Catagory Income Column (iii) - Allocation of domestic losses 
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 General Limitation Income Column (i) - Allocation of domestic losses 
 						  Indicator
                       </xsl:with-param>
                       <xsl:with-param name="TargetNode" 
@@ -2271,7 +2271,7 @@
                     <!--Pen and ink image -->
                     <span style="padding-right:2mm">
                     <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 General Catagory Income Column (iv) - Allocation of domestic losses Indicator
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Passive Income Colun (ii) - Allocation of domestic losses Indicator
                       </xsl:with-param>
                       <xsl:with-param name="TargetNode" 
 							  select="$FormData/AdjSepLmtGeneralCategoryIncm/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
@@ -2285,7 +2285,7 @@
                     <!--Pen and ink image -->
                    <span style="padding-right:2mm">
                    <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Other Income Column (v) - Allocation of domestic losses Indicator
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Other Income Column (iii) - Allocation of domestic losses Indicator
                       </xsl:with-param>
                       <xsl:with-param name="TargetNode" 
 						  select="$FormData/AdjSepLmtOtherIncome[1]/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
@@ -2299,7 +2299,7 @@
                     <!--Pen and ink image -->
                    <span style="padding-right:2mm">
                    <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 U.S. Income Column (vi) - Allocation of domestic losses Indicator
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Other Income Column (iv) - Allocation of domestic losses Indicator
                       </xsl:with-param>
                       <xsl:with-param name="TargetNode" select="$FormData/AdjSepLmtUSIncome/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
                     </xsl:call-template>
@@ -4603,27 +4603,12 @@
         <xsl:with-param name="DescWidth" select="100"/>
     </xsl:call-template>
     <xsl:call-template name="PopulateLeftoverRow">
-        <xsl:with-param name="Desc">Form 1118 Schedule J, Line 10 Foreign Branch Income Column (ii) - Allocation of domestic losses Indicator</xsl:with-param>
+        <xsl:with-param name="Desc">Form 1118 Schedule J, Line 10 Passive Income Column (ii) - Allocation of domestic losses Indicator</xsl:with-param>
         <xsl:with-param name="TargetNode" select="$FormData/AdjSepLmtPassiveCategoryIncm/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
         <xsl:with-param name="DescWidth" select="100"/>
     </xsl:call-template>
     <xsl:call-template name="PopulateLeftoverRow">
-        <xsl:with-param name="Desc">Form 1118 Schedule J, Line 10 Passive Catagory Income Column (iii) - Allocation of domestic losses Indicator</xsl:with-param>
-        <xsl:with-param name="TargetNode" select="$FormData/AdjSepLmtOtherIncome/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
-	    <xsl:with-param name="DescWidth" select="100"/>
-    </xsl:call-template>
-    <xsl:call-template name="PopulateLeftoverRow">
-        <xsl:with-param name="Desc">Form 1118 Schedule J, Line 10 General Catagory Income Column (iv) - Allocation of domestic losses Indicator</xsl:with-param>
-        <xsl:with-param name="TargetNode" select="$FormData/AdjSepLmtOtherIncome/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
-	    <xsl:with-param name="DescWidth" select="100"/>
-    </xsl:call-template>
-    <xsl:call-template name="PopulateLeftoverRow">
-        <xsl:with-param name="Desc">Form 1118 Schedule J, Line 10 Other Income Column (v) - Allocation of domestic losses Indicator</xsl:with-param>
-        <xsl:with-param name="TargetNode" select="$FormData/AdjSepLmtOtherIncome/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
-	    <xsl:with-param name="DescWidth" select="100"/>
-    </xsl:call-template>
-    <xsl:call-template name="PopulateLeftoverRow">
-        <xsl:with-param name="Desc">Form 1118 Schedule J, Line 10 U.S. Income Column (vi) - Allocation of domestic losses Indicator</xsl:with-param>
+        <xsl:with-param name="Desc">Form 1118 Schedule J, Line 10 Other Income Column (iii) - Allocation of domestic losses Indicator</xsl:with-param>
         <xsl:with-param name="TargetNode" select="$FormData/AdjSepLmtOtherIncome/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
 	    <xsl:with-param name="DescWidth" select="100"/>
     </xsl:call-template>
@@ -5547,7 +5532,7 @@
                     <!--Pen and ink image -->
                    <span style="padding-right:2mm">
                     <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Foreign Branch Income Column (ii) - Allocation of domestic losses 
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Passive Income Colun (ii) - Allocation of domestic losses 
 						  Indicator
 					  </xsl:with-param>
                       <xsl:with-param name="TargetNode" 
@@ -5562,7 +5547,7 @@
                     <!--Pen and ink image -->
                    <span style="padding-right:2mm">
                     <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Passive Catagory Income Column (iii) - Allocation of domestic losses 
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Passive Income Colun (ii) - Allocation of domestic losses 
 						  Indicator
 					  </xsl:with-param>
                       <xsl:with-param name="TargetNode" 
@@ -5577,7 +5562,7 @@
                     <!--Pen and ink image -->
                    <span style="padding-right:2mm">
                     <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 General Catagory Income Colun (iv) - Allocation of domestic losses 
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Passive Income Colun (ii) - Allocation of domestic losses 
 						  Indicator
 					  </xsl:with-param>
                       <xsl:with-param name="TargetNode" 
@@ -5592,7 +5577,7 @@
                     <!--Pen and ink image -->
                     <span style="padding-right:2mm">
                     <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Other Income Column (v) - Allocation of domestic losses Indicator
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Other Income Column (iii) - Allocation of domestic losses Indicator
 						  </xsl:with-param>
                       <xsl:with-param name="TargetNode" 
 						  select="$FormData/AdjSepLmtOtherIncome[1]/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
@@ -5606,7 +5591,7 @@
                     <!--Pen and ink image -->
                    <span style="padding-right:2mm">
                    <xsl:call-template name="LinkToLeftoverDataTableInline">
-                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 U.S. Income Column (vi) - Allocation of domestic losses Indicator
+                      <xsl:with-param name="Desc">Form 1118 Schedule J, Schedule J Line 10 Other Income Column (iv) - Allocation of domestic losses Indicator
 						</xsl:with-param>
                       <xsl:with-param name="TargetNode" select="$FormData/AdjSepLmtUSIncome/RcptrOverallDomesticLossesAmt/@allocationDomesticLossesCd"/>
                     </xsl:call-template>

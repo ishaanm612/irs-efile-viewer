@@ -1,35 +1,33 @@
+import argparse
 import asyncio
 import concurrent.futures
-from functools import partial
 import gc
-from operator import methodcaller
+import json
+import logging
 import os
 import shutil
 import subprocess
 import sys
 import time
-
-import botocore.exceptions
-import aiofiles
-import aiohttp
-import libarchive
-import psutil
 import zipfile
-import json
 from collections import defaultdict
+from concurrent.futures import TimeoutError as PebbleTimeoutError
+from datetime import datetime
+from functools import partial
+from operator import methodcaller
 from pathlib import Path
 
-from transform_utils import TransformError, transform_xml_to_html, transform_xml_to_pdf
-
-from tqdm import tqdm
-import argparse
-
-from pebble import ProcessPool
-from concurrent.futures import TimeoutError as PebbleTimeoutError
-
 import aioboto3
-import logging
-from datetime import datetime
+import aiofiles
+import aiohttp
+import botocore.exceptions
+import libarchive
+import nest_asyncio
+import psutil
+from pebble import ProcessPool
+from tqdm import tqdm
+
+from transform_utils import TransformError, transform_xml_to_html, transform_xml_to_pdf
 
 # Global failure counter
 failure_count = 0
@@ -40,16 +38,16 @@ def log_failure(context: str, exc: Exception):
     """Log a failure with context and exception details, increment failure counter."""
     global failure_count
     failure_count += 1
-    if not os.path.exists(FAILURE_LOGFILE):
-        with open(FAILURE_LOGFILE, "w", encoding="utf-8") as logf:
-            logf.write(f"[{datetime.now().isoformat()}] {context}: {repr(exc)}\n")
-    with open(FAILURE_LOGFILE, "a", encoding="utf-8") as logf:
-        logf.write(f"[{datetime.now().isoformat()}] {context}: {repr(exc)}\n")
+    # if not os.path.exists(FAILURE_LOGFILE):
+    #     with open(FAILURE_LOGFILE, "w", encoding="utf-8") as logf:
+    #         logf.write(f"[{datetime.now().isoformat()}] {context}: {repr(exc)}\n")
+    # with open(FAILURE_LOGFILE, "a", encoding="utf-8") as logf:
+    #     logf.write(f"[{datetime.now().isoformat()}] {context}: {repr(exc)}\n")
 
 
 YEARS = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"]
 
-CONCURRENT_UPLOAD_LIMIT = 200
+CONCURRENT_UPLOAD_LIMIT = 400
 
 # -----------------------------------------------------------------------------
 # Helpers
@@ -296,13 +294,15 @@ async def download_handler(
             html_output_dir=html_output_dir,
             s3_bucket=None,  # Do not upload in worker
         )
-        results = []
         completed = 0
+        sem = asyncio.Semaphore(CONCURRENT_UPLOAD_LIMIT)
+        batch_upload_tasks = []  # Store background upload/cleanup tasks
         with ProcessPool(max_workers=max_concurrent) as pool:
             with tqdm(
                 total=total_files, desc="XML→HTML", unit="file", leave=False
             ) as pbar:
                 for batch in batches:
+                    results = []
                     futures = [
                         pool.schedule(worker_func, args=(str(xml_file),), timeout=300)
                         for xml_file in batch
@@ -321,7 +321,6 @@ async def download_handler(
                                 log_failure(f"ProcessPool XML→HTML: {year}", res)
                             else:
                                 log_failure(f"ProcessPool XML→HTML: {year}", res)
-                                continue
                         except PebbleTimeoutError as exc:
                             tqdm.write(
                                 "A file transformation timed out after 5 minutes and was killed."
@@ -331,50 +330,106 @@ async def download_handler(
                             log_failure(f"ProcessPool XML→HTML: {year}", exc)
                         completed += 1
                         pbar.update(1)
+
+                    # Per-batch S3 upload and deletion (run concurrently)
+                    if s3_bucket_name and results:
+                        session = aioboto3.Session()
+                        upload_tasks = []
+                        # Count files to upload before scheduling the coroutine
+                        num_files_to_upload = sum(
+                            1 for r in results if r[4] and os.path.exists(r[4])
+                        )
+
+                        async def upload_and_cleanup():
+                            tqdm.write(
+                                f"STARTED: upload/cleanup for batch with {num_files_to_upload} files"
+                            )
+                            async with session.client("s3") as s3:
+                                for (
+                                    ein,
+                                    s3_uri,
+                                    form_id,
+                                    tax_year,
+                                    html_path,
+                                ) in results:
+                                    if html_path and os.path.exists(html_path):
+                                        s3_key = os.path.basename(html_path)
+                                        upload_tasks.append(
+                                            asyncio.create_task(
+                                                async_upload_to_s3(
+                                                    html_path,
+                                                    s3_bucket_name,
+                                                    s3_key,
+                                                    s3,
+                                                    sem,
+                                                )
+                                            )
+                                        )
+                                if upload_tasks:
+                                    with tqdm(
+                                        total=len(upload_tasks),
+                                        desc="HTML→S3 (batch)",
+                                        unit="file",
+                                        leave=False,
+                                    ) as upload_pbar:
+                                        for coro in asyncio.as_completed(upload_tasks):
+                                            await coro
+                                            upload_pbar.update(1)
+                                # Delete local files after upload
+                                for (
+                                    _,
+                                    _,
+                                    _,
+                                    _,
+                                    html_path,
+                                ) in results:
+                                    if html_path and os.path.exists(html_path):
+                                        os.remove(html_path)
+
+                        # Schedule the upload_and_cleanup coroutine as a background task
+                        batch_upload_tasks.append(
+                            asyncio.create_task(upload_and_cleanup())
+                        )
+                        tqdm.write(
+                            f"Scheduled upload and cleanup for {num_files_to_upload} files (batch)."
+                        )
+                        await asyncio.sleep(
+                            0
+                        )  # Yield to event loop so the task can start
+                    # Update summary_map for this batch
+                    for ein, s3_uri, form_id, tax_year, html_path in results:
+                        if s3_uri:
+                            summary_map[ein].append(
+                                {
+                                    "form_type": form_id,
+                                    "s3_uri": s3_uri,
+                                    "tax_year": tax_year,
+                                }
+                            )
+            # Await all outstanding upload/cleanup tasks after all batches
+            if batch_upload_tasks:
+                await asyncio.gather(*batch_upload_tasks)
         tqdm.write("Completed Process Pool (XML→HTML)")
 
-        # Async S3 upload after pool
-        sem = asyncio.Semaphore(CONCURRENT_UPLOAD_LIMIT)
-        if s3_bucket_name:
-            session = aioboto3.Session()
-            upload_tasks = []
-            async with session.client("s3") as s3:
-                for ein, s3_uri, form_id, tax_year, html_path in results:
-                    if html_path and os.path.exists(html_path):
-                        s3_key = os.path.basename(html_path)
-                        upload_tasks.append(
-                            async_upload_to_s3(
-                                html_path, s3_bucket_name, s3_key, s3, sem
-                            )
-                        )
-            if upload_tasks:
-                with tqdm(
-                    total=len(upload_tasks),
-                    desc="HTML→S3",
-                    unit="file",
-                    leave=False,
-                ) as upload_pbar:
-                    for coro in asyncio.as_completed(upload_tasks):
-                        await coro
-                        upload_pbar.update(1)
-                # Delete local files after upload
-                for ein, s3_uri, form_id, tax_year, html_path in results:
-                    if html_path and os.path.exists(html_path):
-                        os.remove(html_path)
-                tqdm.write(
-                    f"Uploaded {len(upload_tasks)} files to S3 and deleted local copies."
-                )
+        # Write summary JSON for the year
+        end_time = time.monotonic()
+        elapsed_time = end_time - start_time
+        hours, rem = divmod(elapsed_time, 3600)
+        minutes, seconds = divmod(rem, 60)
+        if hours >= 1:
+            tqdm.write(f"Time taken: {int(hours)}h {int(minutes)}m {seconds:.2f}s")
+        elif minutes >= 1:
+            tqdm.write(f"Time taken: {int(minutes)}m {seconds:.2f}s")
+        else:
+            tqdm.write(f"Time taken: {seconds:.2f}s")
+        summary_out = os.path.join(output_dir, f"{year}_summary.json")
+        Path(summary_out).parent.mkdir(parents=True, exist_ok=True)
+        with open(summary_out, "w", encoding="utf-8") as fp:
+            json.dump({k: v for k, v in summary_map.items()}, fp, indent=2)
 
-        # Update summary_map with S3 URIs if uploaded
-        for ein, s3_uri, form_id, tax_year, html_path in results:
-            if s3_uri:
-                summary_map[ein].append(
-                    {
-                        "form_type": form_id,
-                        "s3_uri": s3_uri,
-                        "tax_year": tax_year,
-                    }
-                )
+        tqdm.write(f"Summary for {year} written to {summary_out}")
+        tqdm.write(f"Failures so far: {failure_count}")
+
     else:
         tqdm.write("No XML files found for transformation.")
 
@@ -387,25 +442,6 @@ async def download_handler(
     else:
         tqdm.write(f"Skipping deletion of {dest_dir} due to --skip-delete flag.")
 
-    # Write summary JSON for the year
-    end_time = time.monotonic()
-    elapsed_time = end_time - start_time
-    hours, rem = divmod(elapsed_time, 3600)
-    minutes, seconds = divmod(rem, 60)
-    if hours >= 1:
-        tqdm.write(f"Time taken: {int(hours)}h {int(minutes)}m {seconds:.2f}s")
-    elif minutes >= 1:
-        tqdm.write(f"Time taken: {int(minutes)}m {seconds:.2f}s")
-    else:
-        tqdm.write(f"Time taken: {seconds:.2f}s")
-    summary_out = os.path.join(output_dir, f"{year}_summary.json")
-    Path(summary_out).parent.mkdir(parents=True, exist_ok=True)
-    with open(summary_out, "w", encoding="utf-8") as fp:
-        json.dump({k: v for k, v in summary_map.items()}, fp, indent=2)
-
-    tqdm.write(f"Summary for {year} written to {summary_out}")
-    tqdm.write(f"Failures so far: {failure_count}")
-
 
 async def main(
     *,
@@ -415,9 +451,10 @@ async def main(
     skip_delete: bool = False,
 ):
     set_process_priority(0)
-    BATCH_SIZE = 10000  # Set your desired batch size here
+    BATCH_SIZE = 100000  # Set your desired batch size here
+
     async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as client:
-        for year in YEARS[3:4]:
+        for year in YEARS[-1:]:
             tqdm.write(f"Starting {year}")
             await download_handler(
                 client,

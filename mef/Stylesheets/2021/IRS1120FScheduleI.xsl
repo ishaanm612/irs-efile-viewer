@@ -157,9 +157,9 @@
                 <xsl:call-template name="PopulateLabel">
                   <xsl:with-param name="TargetNode" select="$FormData/AdjustedUSBookedLiabMthdInd"/>
                   <xsl:with-param name="BackupName">IRS1120FSchIAdjustedUSBooked</xsl:with-param>
-                </xsl:call-template>				 
+                </xsl:call-template>
+				  Adjusted U.S. booked liabilities method under Regs. sec. 1.8825(d). <b>Complete lines 1 through 15 and 21 through 25.</b>
               </label>
-               Adjusted U.S. booked liabilities method under Regs. sec. 1.8825(d). <b>Complete lines 1 through 15 and 21 through 25.</b>
             </div>
             <div class="sty1120FSchILineABNum" style="float:left;clear:none"/>
             <div class="sty1120FSchILineABDesc" style="width:181mm;height:6mm;float:left;clear:none;border-right-width:0">
@@ -174,9 +174,9 @@
                   <xsl:with-param name="TargetNode" select="$FormData/SeparateCurrencyPoolsMethodInd"/>
                   <xsl:with-param name="BackupName">IRS1120FSchISeparateCurrencyPools</xsl:with-param>
                 </xsl:call-template>
-                <span style="width:1mm"/>				  
+                <span style="width:1mm"/>
+				  Separate currency pools method under Regs. sec. 1.8825(e). <b>Complete lines 1 through 9 and 16a through 25.</b>
               </label>
-              Separate currency pools method under Regs. sec. 1.8825(e). <b>Complete lines 1 through 9 and 16a through 25.</b>
             </div>
           </div>
           <!--Begin Step 1-->

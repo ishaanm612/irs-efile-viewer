@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Last Modified by Eugenia McDonald on 09/30/2021 -->
+<!-- Last Modified by Eugenia McDonald on 07/27/2021 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" indent="yes"/>
   <xsl:strip-space elements="*"/>
@@ -15,7 +15,7 @@
     <table id="ILSTbl" class="styDepTbl" style="text-align:center;">
       <thead class="styTableThead">
         <tr class="styDepTblHdr">          
-           <th class="styDepTblCell" scope="col" style="width:93mm;">Other Tax Literal Code or Other Tax Text</th>        
+           <th class="styDepTblCell" scope="col" style="width:93mm;">Other Tax Literal or Tax Text</th>        
            <th class="styDepTblCell" scope="col" style="width:93mm;">Other Tax Amount</th>        
         </tr>
       </thead>

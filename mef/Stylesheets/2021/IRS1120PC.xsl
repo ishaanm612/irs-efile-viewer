@@ -119,11 +119,11 @@
 			  <div class="styComType" style="width:33.3mm;border-bottom:0px;border-right-width: 1px;">
 				<div class="styBoldText" style="height:7mm;width:3mm;float:left;clear:none;padding-top:2mm;">1</div>
 				<div class="styGenericDiv" style="height:7mm;width:25mm;padding-top:2mm;">
-				  <label>
+				  <label>Consolidated return (attach Form 851)
 					<xsl:call-template name="PopulateLabel">
 					  <xsl:with-param name="TargetNode" select="$Form1120PCData/ConsolidatedReturnInd"/>
 					  <xsl:with-param name="BackupName">IRS1120IsConsolidatedReturn</xsl:with-param>
-					</xsl:call-template>Consolidated return (attach Form 851)
+					</xsl:call-template>
                     <!-- Form to Form Link -->
 					<xsl:call-template name="SetFormLinkInline">
 					  <xsl:with-param name="TargetNode" select="$Form1120PCData/ConsolidatedReturnInd"/>
@@ -337,11 +337,11 @@
 				  <xsl:with-param name="BackupName">Section831bElectionInd</xsl:with-param>
 				</xsl:call-template>
 			  </input>
-			  <label>
+			  <label>831(b)
 				<xsl:call-template name="PopulateLabel">
 				  <xsl:with-param name="TargetNode" select="$Form1120PCData/Section831bElectionInd"/>
 				  <xsl:with-param name="BackupName">Section831bElectionLabel</xsl:with-param>
-				</xsl:call-template>831(b)
+				</xsl:call-template>
 			  </label>	
 			  <span style="padding-left:2mm;"/>
 			  <input type="checkbox" alt="Election made under section 953(c)(3)(C)" class="styCkbox">
@@ -350,11 +350,11 @@
 				  <xsl:with-param name="BackupName">Section953C3CElectionInd</xsl:with-param>
 				</xsl:call-template>
 			  </input>
-			  <label>
+			  <label>953(c)(3)(C)
 				<xsl:call-template name="PopulateLabel">
 				  <xsl:with-param name="TargetNode" select="$Form1120PCData/Section953c3CElectionInd"/>
 				  <xsl:with-param name="BackupName">Section953C3CElectionLabel</xsl:with-param>				  
-				</xsl:call-template>953(c)(3)(C)
+				</xsl:call-template>
 			  </label>
 			  <!--D Check boxes -->
 			  <br/>
@@ -364,11 +364,11 @@
 				  <xsl:with-param name="BackupName">Section953DElectionInd</xsl:with-param>
 			    </xsl:call-template>
 			  </input>
-			  <label>
+			  <label>953(d)
 			    <xsl:call-template name="PopulateLabel">
 				  <xsl:with-param name="TargetNode" select="$Form1120PCData/Section953dElectionInd"/>
 				  <xsl:with-param name="BackupName">Section953DElectionLabel</xsl:with-param>
-			    </xsl:call-template>953(d)
+			    </xsl:call-template>
 			  </label>
 			  <xsl:call-template name="SetFormLinkInline">
 			    <xsl:with-param name="TargetNode" select="$Form1120PCData/Section953dElectionInd"/>

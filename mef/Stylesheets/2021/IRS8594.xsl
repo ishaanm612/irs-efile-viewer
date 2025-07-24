@@ -502,10 +502,12 @@
 									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/BuyerOrSellerProvAllocnPrcInd"/>
 									</xsl:call-template>
-									<input type="checkbox" class="styCkbox"  alt=" Yes Buyer Or Seller Provided Allocation Price Indicator">
+									<input type="checkbox" class="styCkbox" name="Checkbox">
 										<xsl:call-template name="PopulateYesCheckbox">
 											<xsl:with-param name="TargetNode" select="$Form8594Data/BuyerOrSellerProvAllocnPrcInd"/>
-											<xsl:with-param name="BackupName">IRS8594BuyerOrSellerProvAllocnPrice</xsl:with-param>
+											<xsl:with-param name="BackupName">
+                        IRS8594BuyerOrSellerProvAllocnPrice
+                      </xsl:with-param>
 										</xsl:call-template>
 									</input>
 								</span>
@@ -513,19 +515,24 @@
 								<label>
 									<xsl:call-template name="PopulateLabelYes">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/BuyerOrSellerProvAllocnPrcInd"/>
-										<xsl:with-param name="BackupName">IRS8594BuyerOrSellerProvAllocnPrice</xsl:with-param>
-									</xsl:call-template>Yes
-								</label>
+										<xsl:with-param name="BackupName">
+                      IRS8594BuyerOrSellerProvAllocnPrice
+                    </xsl:with-param>
+									</xsl:call-template>
+                  Yes
+                </label>
 							</div>
 							<div class="styLNDesc" style="width:15mm;height:4.5mm;text-align:right;">
 								<span>
 									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/BuyerOrSellerProvAllocnPrcInd"/>
 									</xsl:call-template>
-									<input type="checkbox" class="styCkbox"  alt=" No Buyer Or Seller Provided Allocation Price Indicator">
+									<input type="checkbox" class="styCkbox" name="Checkbox">
 										<xsl:call-template name="PopulateNoCheckbox">
 											<xsl:with-param name="TargetNode" select="$Form8594Data/BuyerOrSellerProvAllocnPrcInd"/>
-											<xsl:with-param name="BackupName">IRS8594BuyerOrSellerProvAllocnPrice</xsl:with-param>
+											<xsl:with-param name="BackupName">
+                        IRS8594BuyerOrSellerProvAllocnPrice
+                      </xsl:with-param>
 										</xsl:call-template>
 									</input>
 								</span>
@@ -533,9 +540,12 @@
 								<label>
 									<xsl:call-template name="PopulateLabelNo">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/BuyerOrSellerProvAllocnPrcInd"/>
-										<xsl:with-param name="BackupName">IRS8594BuyerOrSellerProvAllocnPrice</xsl:with-param>
-									</xsl:call-template>No
-								</label>
+										<xsl:with-param name="BackupName">
+                      IRS8594BuyerOrSellerProvAllocnPrice
+                    </xsl:with-param>
+									</xsl:call-template>
+                  No
+                </label>
 							</div>
 						</div>
 					</div>
@@ -553,10 +563,12 @@
 									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/AggregateValuesListedInd"/>
 									</xsl:call-template>
-									<input type="checkbox" class="styCkbox"  alt=" Yes Aggregate Values Listed Indicator">
+									<input type="checkbox" class="styCkbox" name="Checkbox">
 										<xsl:call-template name="PopulateYesCheckbox">
 											<xsl:with-param name="TargetNode" select="$Form8594Data/AggregateValuesListedInd"/>
-											<xsl:with-param name="BackupName">IRS8594AggregateValuesListed</xsl:with-param>
+											<xsl:with-param name="BackupName">
+                        IRS8594AggregateValuesListed
+                      </xsl:with-param>
 										</xsl:call-template>
 									</input>
 								</span>
@@ -564,19 +576,24 @@
 								<label>
 									<xsl:call-template name="PopulateLabelYes">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/AggregateValuesListedInd"/>
-										<xsl:with-param name="BackupName">IRS8594AggregateValuesListed</xsl:with-param>
-									</xsl:call-template>Yes
-								</label>
+										<xsl:with-param name="BackupName">
+                      IRS8594AggregateValuesListed
+                    </xsl:with-param>
+									</xsl:call-template>
+                  Yes
+                </label>
 							</div>
 							<div class="styLNDesc" style="width:15mm;height:4.5mm;text-align:right;">
 								<span>
 									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/AggregateValuesListedInd"/>
 									</xsl:call-template>
-									<input type="checkbox" class="styCkbox" alt=" No Aggregate Values Listed Indicator">
+									<input type="checkbox" class="styCkbox" name="Checkbox">
 										<xsl:call-template name="PopulateNoCheckbox">
 											<xsl:with-param name="TargetNode" select="$Form8594Data/AggregateValuesListedInd"/>
-											<xsl:with-param name="BackupName">IRS8594AggregateValuesListed</xsl:with-param>
+											<xsl:with-param name="BackupName">
+                        IRS8594AggregateValuesListed
+                      </xsl:with-param>
 										</xsl:call-template>
 									</input>
 								</span>
@@ -584,9 +601,12 @@
 								<label>
 									<xsl:call-template name="PopulateLabelNo">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/AggregateValuesListedInd"/>
-										<xsl:with-param name="BackupName">IRS8594AggregateValuesListed</xsl:with-param>
-									</xsl:call-template>No
-								</label>
+										<xsl:with-param name="BackupName">
+                      IRS8594AggregateValuesListed
+                    </xsl:with-param>
+									</xsl:call-template>
+                  No
+                </label>
 							</div>
 						</div>
 					</div>
@@ -616,10 +636,12 @@
 									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/PrchsOrEntrAgrmtWithSellrInd"/>
 									</xsl:call-template>
-									<input type="checkbox" class="styCkbox" alt=" Yes Purchase Or Entered Arrangement With Seller Indicator">
+									<input type="checkbox" class="styCkbox" name="Checkbox">
 										<xsl:call-template name="PopulateYesCheckbox">
 											<xsl:with-param name="TargetNode" select="$Form8594Data/PrchsOrEntrAgrmtWithSellrInd"/>
-											<xsl:with-param name="BackupName">IRS8594PurchaseOrEnterAgrmtWithSeller</xsl:with-param>
+											<xsl:with-param name="BackupName">
+                        IRS8594PurchaseOrEnterAgrmtWithSeller
+                      </xsl:with-param>
 										</xsl:call-template>
 									</input>
 								</span>
@@ -627,19 +649,24 @@
 								<label>
 									<xsl:call-template name="PopulateLabelYes">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/PrchsOrEntrAgrmtWithSellrInd"/>
-										<xsl:with-param name="BackupName">IRS8594PurchaseOrEnterAgrmtWithSeller</xsl:with-param>
-									</xsl:call-template>Yes
-								</label>
+										<xsl:with-param name="BackupName">
+                      IRS8594PurchaseOrEnterAgrmtWithSeller
+                    </xsl:with-param>
+									</xsl:call-template>
+                  Yes
+                </label>
 							</div>
 							<div class="styLNDesc" style="width:15mm;height:4.5mm;text-align:right;">
 								<span>
 									<xsl:call-template name="PopulateSpan">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/PrchsOrEntrAgrmtWithSellrInd"/>
 									</xsl:call-template>
-									<input type="checkbox" class="styCkbox"  alt=" No Purchase Or Entered Arrangement With Seller Indicator">
+									<input type="checkbox" class="styCkbox" name="Checkbox">
 										<xsl:call-template name="PopulateNoCheckbox">
 											<xsl:with-param name="TargetNode" select="$Form8594Data/PrchsOrEntrAgrmtWithSellrInd"/>
-											<xsl:with-param name="BackupName">IRS8594PurchaseOrEnterAgrmtWithSeller</xsl:with-param>
+											<xsl:with-param name="BackupName">
+                        IRS8594PurchaseOrEnterAgrmtWithSeller
+                      </xsl:with-param>
 										</xsl:call-template>
 									</input>
 								</span>
@@ -647,9 +674,12 @@
 								<label>
 									<xsl:call-template name="PopulateLabelNo">
 										<xsl:with-param name="TargetNode" select="$Form8594Data/PrchsOrEntrAgrmtWithSellrInd"/>
-										<xsl:with-param name="BackupName">IRS8594PurchaseOrEnterAgrmtWithSeller</xsl:with-param>
-									</xsl:call-template>No
-								</label>
+										<xsl:with-param name="BackupName">
+                      IRS8594PurchaseOrEnterAgrmtWithSeller
+                    </xsl:with-param>
+									</xsl:call-template>
+                  No
+                </label>
 							</div>
 						</div>
 					</div>
