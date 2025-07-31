@@ -1,29 +1,13 @@
-# IRS e-File Viewer
+# IRS eFile PDF Generator
 
-In June 2016, the [IRS released](https://aws.amazon.com/blogs/publicsector/irs-990-filing-data-now-available-as-an-aws-public-data-set/) over a million electronic 990 filings (nonprofit annual tax filings) as XML documents. These filings are accessible on [AWS](https://aws.amazon.com/public-datasets/irs-990/) and at [IRS.gov](https://www.irs.gov/charities-non-profits/tax-exempt-organization-search).
+## Recommended Specifications
 
-This utility allows users to visualize individual 990 XML filings in a format representing a standard IRS form.
+It is recommended that you use at least 64 cores when running this script, memory is generally not an issue.
 
-![Form Transformation](img/xml_to_form.png)
+### Running the Script
 
-## Project Structure
-The IRS publishes stylesheets that can be used to transform an XML document into HTML. Specifically, these XSLT (eXtensible Stylesheet Language Transformation) files are distributed each year by the IRS so that tax preparers can generate tools that submit tax filings in the proper format. The [/mef](/mef) directory contains the full set of stylesheets provided by the IRS. This tool can be used to transform and visualize any IRS e-file document. However, since only the form 990s and related schedules are available, these are the only ones that have been tested.
+To run this, simply run `fetch_irs_files.py` with max-workers set as high as possible.
 
-Standard libraries exist to execute XML transformations; however, modern browsers are also able to execute these tranformations natively. Preventing the need for backend processing, all XML modifications and transformations are applied client-side in the browser. Thus, this utility is able to hosted as a [static site](https://betson.github.io/irs-efile-viewer).
+### Adding New Tax Years
 
-This repository is configured as a Jekyll project in order to support the relative links that exist throughout the IRS stylesheets. These links need to be processed through Jekyll in order to route properly, so a number of the stylesheets have been modified to include Jekyll front matter and variables.
-
-## Setup
-**Dependencies**: git, Ruby, Bundler Rubygem, [ack](https://beyondgrep.com/)
-
-```
-gem install bundler
-cd /path/to/repository
-bundle install
-```
-
-## Develop
-`script/server`
-
-## Compatibility
-This application is designed to work on the most recent versions of major browsers (Chrome, Firefox, Safari, Edge), as well as IE11.
+For info on how to import a new tax year, it is recommended that you look at the instructions in the mef/ directory README. However, after running this, you **must** remove all the Jekyll front matter in the mef/ directories (simply find and replace will do) and remove all instances of {{ github.site_url }}. Once this is done, the script will be ready to run.
