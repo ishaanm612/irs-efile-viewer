@@ -6,7 +6,7 @@ It is recommended that you use at least 64 cores when running this script, memor
 
 ### Running the Script
 
-To run this, simply run `fetch_irs_files.py` with max-workers set as high as possible.
+To run this, simply run [fetch_irs_files.py](fetch_irs_files.py) with max-workers set as high as possible.
 
 ### Adding New Tax Years
 
