@@ -245,7 +245,6 @@ def batched_file_generator(directory, batch_size):
 
 
 async def download_handler(
-    client: aiohttp.ClientSession,
     year: str,
     *,
     max_concurrent: int = 6,
@@ -371,10 +370,10 @@ async def download_handler(
                                     f"STARTED: upload/cleanup for batch with {num_files_to_upload} files"
                                 )
                                 for (
-                                    ein,
-                                    s3_uri,
-                                    form_id,
-                                    tax_year,
+                                    _,
+                                    _,
+                                    _,
+                                    _,
                                     html_path,
                                 ) in results:
                                     if html_path and os.path.exists(html_path):
@@ -477,20 +476,18 @@ async def main(
     set_process_priority(0)
     BATCH_SIZE = 100000  # Set your desired batch size here
 
-    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as client:
-        for year in YEARS[0:1]:
-            tqdm.write(f"Starting {year}")
-            await download_handler(
-                client,
-                year,
-                max_concurrent=max_workers,
-                skip=skip,
-                output_dir=output_dir,
-                batch_size=BATCH_SIZE,
-                skip_delete=skip_delete,
-            )
-            columns, _ = shutil.get_terminal_size(fallback=(100, 24))
-            tqdm.write(f"Finished {year}\n{'=' * columns}\n")
+    for year in YEARS[0:1]:
+        tqdm.write(f"Starting {year}")
+        await download_handler(
+            year,
+            max_concurrent=max_workers,
+            skip=skip,
+            output_dir=output_dir,
+            batch_size=BATCH_SIZE,
+            skip_delete=skip_delete,
+        )
+        columns, _ = shutil.get_terminal_size(fallback=(100, 24))
+        tqdm.write(f"Finished {year}\n{'=' * columns}\n")
         tqdm.write(f"Total failures: {failure_count}")
 
 
