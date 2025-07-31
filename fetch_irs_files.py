@@ -17,7 +17,6 @@ from functools import partial
 from pathlib import Path
 
 import aioboto3
-import aiohttp
 import botocore.exceptions
 import libarchive
 import psutil
