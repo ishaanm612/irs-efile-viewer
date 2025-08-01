@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 """Utility helpers for converting IRS e-file XML returns to HTML and PDF.
 
+This module provides core functionality for transforming IRS e-file XML documents
+into HTML and PDF formats. The transformation process involves:
+
+1. XML preprocessing (namespace removal, cleaning)
+2. Template-based form generation
+3. XSLT transformation using IRS-provided stylesheets
+4. Standalone HTML generation with inlined CSS and images
+5. Metadata extraction (EIN, tax year, form types)
+
 The core logic is extracted from `main.py` so other scripts (e.g. the batch
 pipeline) can reuse it without duplicating code.
 
 Example
 -------
->>> from transform_utils import transform_xml_to_pdf
->>> transform_xml_to_pdf(
+>>> from transform_utils import transform_xml_to_html
+>>> result = transform_xml_to_html(
 ...     xml_path="202400829349300020_public.xml",
-...     pdf_path="out.pdf",
+...     form_id="IRS990"
 ... )
-returns a dict with metadata such as EIN, TaxYear, FormId.
+>>> print(f"EIN: {result['ein']}, Year: {result['tax_year']}")
 """
 
 from __future__ import annotations
@@ -40,7 +49,22 @@ S3_BUCKET = os.getenv("S3_BUCKET_NAME")
 
 
 class TransformError(Exception):
-    """Custom exception for errors during XML transformation."""
+    """Custom exception for errors during XML transformation.
+
+    This exception is raised when errors occur during the XML to HTML/PDF
+    transformation process. It includes a descriptive message about what
+    went wrong.
+
+    Parameters
+    ----------
+    message : str
+        Descriptive error message explaining the transformation failure
+
+    Attributes
+    ----------
+    message : str
+        The error message passed to the constructor
+    """
 
     def __init__(self, message: str):
         super().__init__(message)
@@ -56,7 +80,26 @@ class TransformError(Exception):
 
 
 def _remove_namespaces(xml_string: str) -> str:
-    """Remove xmlns declarations so that XPath queries don’t need namespaces."""
+    """Remove xmlns declarations so that XPath queries don't need namespaces.
+
+    IRS XML files contain namespace declarations that can complicate XPath
+    queries. This function removes these declarations to simplify processing.
+
+    Parameters
+    ----------
+    xml_string : str
+        Raw XML string with namespace declarations
+
+    Returns
+    -------
+    str
+        XML string with namespace declarations removed
+
+    Notes
+    -----
+    Removes xmlns, xmlns:*, and xsi:schemaLocation attributes from the XML.
+    This allows XPath queries to work without namespace prefixes.
+    """
     xml_string = re.sub(r"\s*xmlns:[^=]+=\"[^\"]*\"", "", xml_string)
     xml_string = re.sub(r"\s*xmlns=\"[^\"]*\"", "", xml_string)
     xml_string = re.sub(r"\s*xsi:schemaLocation=\"[^\"]*\"", "", xml_string)
@@ -64,24 +107,101 @@ def _remove_namespaces(xml_string: str) -> str:
 
 
 def _format_tin(tin: str | None) -> str | None:
+    """Format TIN (Taxpayer Identification Number) with dashes.
+
+    Converts a 9-digit TIN to the standard format with dashes (XX-XXXXXXX).
+
+    Parameters
+    ----------
+    tin : str or None
+        Raw TIN string (e.g., "123456789")
+
+    Returns
+    -------
+    str or None
+        Formatted TIN (e.g., "12-3456789") or None if input is None/empty
+
+    Notes
+    -----
+    Only formats TINs that are at least 9 digits long. Returns the original
+    value for shorter strings or None values.
+    """
     if not tin or len(tin) < 9:
         return tin
     return f"{tin[:2]}-{tin[2:]}"
 
 
 def _format_date(date: str | None) -> str | None:
+    """Format date string by removing time component.
+
+    Extracts just the date portion from a datetime string, removing
+    the time component and any extra spaces.
+
+    Parameters
+    ----------
+    date : str or None
+        Date string that may contain time component (e.g., "2023-01-01T00:00:00")
+
+    Returns
+    -------
+    str or None
+        Date-only string (e.g., "2023-01-01") or None if input is None/empty
+
+    Notes
+    -----
+    Splits on 'T' to separate date and time, then removes any spaces.
+    """
     if not date:
         return date
     return date.split("T")[0].replace(" ", "")
 
 
 def _set_node_value(dom: etree._ElementTree, node_name: str, value: str | None) -> None:  # type: ignore[name-defined]
+    """Set the text value of an XML node in the DOM.
+
+    Finds a node by name in the DOM and sets its text content if the node
+    exists and the value is not None.
+
+    Parameters
+    ----------
+    dom : etree._ElementTree
+        XML DOM tree to modify
+    node_name : str
+        Name of the node to find and update
+    value : str or None
+        New text value to set, or None to leave unchanged
+
+    Notes
+    -----
+    Uses XPath-like syntax to find nodes. Only updates the node if both
+    the node exists and the value is not None.
+    """
     node = dom.find(".//" + node_name)
     if node is not None and value is not None:
         node.text = value
 
 
 def _move_header_and_main_form(input_dom: etree._ElementTree, template_dom: etree._ElementTree, form_id: str) -> None:  # type: ignore[name-defined]
+    """Move header and main form data from input DOM to template DOM.
+
+    Extracts the ReturnHeader and specified form from the input XML and
+    merges them into the template XML structure.
+
+    Parameters
+    ----------
+    input_dom : etree._ElementTree
+        Source XML DOM containing the form data
+    template_dom : etree._ElementTree
+        Template XML DOM to receive the form data
+    form_id : str
+        Name of the form to extract (e.g., "IRS990")
+
+    Notes
+    -----
+    This function modifies the template_dom in place. It replaces the
+    ReturnHeader in the template with the one from input_dom, and appends
+    the specified form to the SubmissionDocument section.
+    """
     form_data = input_dom.find(".//" + form_id)
     form_header = input_dom.find(".//ReturnHeader")
     t_header = template_dom.find(".//ReturnHeader")
@@ -93,11 +213,53 @@ def _move_header_and_main_form(input_dom: etree._ElementTree, template_dom: etre
 
 
 def _get_stylesheet_path(stylesheet_root: str | Path, year: str, form_id: str) -> str:
+    """Construct the path to the XSLT stylesheet for a specific form and year.
+
+    Parameters
+    ----------
+    stylesheet_root : str or Path
+        Root directory containing stylesheet folders
+    year : str
+        Tax year (e.g., "2023")
+    form_id : str
+        Form identifier (e.g., "IRS990")
+
+    Returns
+    -------
+    str
+        Full path to the XSLT stylesheet file
+
+    Notes
+    -----
+    Constructs path as: {stylesheet_root}/{year}/{form_id}.xsl
+    """
     return os.path.join(str(stylesheet_root), year, f"{form_id}.xsl")
 
 
 def _make_html_standalone(html_bytes: bytes) -> bytes:
-    """Convert HTML to standalone format with inlined CSS and images."""
+    """Convert HTML to standalone format with inlined CSS and images.
+
+    Processes HTML to make it completely self-contained by:
+    1. Inlining all CSS stylesheets
+    2. Converting images to base64 data URLs
+    3. Removing external JavaScript references
+
+    Parameters
+    ----------
+    html_bytes : bytes
+        Raw HTML bytes to process
+
+    Returns
+    -------
+    bytes
+        Standalone HTML bytes with all external dependencies inlined
+
+    Notes
+    -----
+    Creates a temporary file for processing, then uses BeautifulSoup to
+    parse and modify the HTML. All CSS and images are converted to data URLs
+    to make the HTML completely self-contained.
+    """
     declared_charset = "iso-8859-1"
     m = re.search(rb"charset=([A-Za-z0-9_-]+)", html_bytes[:200])
     if m:
@@ -161,7 +323,29 @@ def _make_html_standalone(html_bytes: bytes) -> bytes:
 
 
 def _inline_css_imports_and_images(css_text: str, base_dir: Path) -> str:
-    """Inline CSS @import statements and convert images to data URLs."""
+    """Inline CSS @import statements and convert images to data URLs.
+
+    Processes CSS text to:
+    1. Replace @import statements with the actual CSS content
+    2. Convert image URLs to base64 data URLs
+
+    Parameters
+    ----------
+    css_text : str
+        Raw CSS text to process
+    base_dir : Path
+        Base directory for resolving relative paths
+
+    Returns
+    -------
+    str
+        Processed CSS with imports inlined and images converted to data URLs
+
+    Notes
+    -----
+    Uses regex to find @import statements and url() references, then
+    reads the referenced files and converts them to data URLs.
+    """
     # inline @import
     css_text = re.sub(
         r"@import\s+url\(['\"]?(.*?)['\"]?\);",
@@ -200,15 +384,51 @@ def transform_xml_to_html(
     ) = "/home/ec2-user/DonorAtlas/irs-efile-viewer/mef/Stylesheets",
     form_id: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """Convert *xml_path* to HTML and return metadata & html bytes.
+    """Convert XML file to HTML and return metadata & html bytes.
 
-    Returns a dict::
-        {
-            "html": bytes,
-            "ein": str | None,
-            "tax_year": str | None,
-            "form_id": str,
-        }
+    This is the main transformation function that converts IRS XML files
+    to HTML format. It handles the complete pipeline from XML parsing
+    through XSLT transformation to final HTML generation.
+
+    Parameters
+    ----------
+    xml_path : str or Path
+        Path to the XML file to transform
+    template_path : str or Path, optional
+        Path to the form template XML file, defaults to form_template.xml
+    stylesheet_root : str or Path, optional
+        Root directory containing XSLT stylesheets, defaults to mef/Stylesheets
+    form_id : str or None, optional
+        Specific form to process (e.g., "IRS990"). If None, auto-detects
+        the first form in ReturnData section.
+
+    Returns
+    -------
+    Dict[str, Any]
+        Dictionary containing:
+        - html: bytes - The generated HTML content
+        - ein: str or None - Employer Identification Number
+        - tax_year: str or None - Tax year of the filing
+        - form_id: str - The form that was processed
+
+    Raises
+    ------
+    ValueError
+        If form_id cannot be determined from XML
+    FileNotFoundError
+        If required template or stylesheet files are missing
+
+    Notes
+    -----
+    The function automatically detects the form type if not specified,
+    extracts metadata from the XML, and applies the appropriate XSLT
+    transformation. The resulting HTML is not standalone (external
+    CSS and images are referenced).
+
+    Example
+    -------
+    >>> result = transform_xml_to_html("filing.xml", form_id="IRS990")
+    >>> print(f"Processed {result['form_id']} for EIN {result['ein']}")
     """
     xml_path = Path(xml_path)
     template_path = Path(template_path)
@@ -367,11 +587,26 @@ def get_forms_list(xml_path: str | Path) -> list[str]:
     Similar to JS getListOfForms() - returns list of form tag names
     like ['IRS990', 'IRS990ScheduleA', 'IRS990ScheduleB', ...]
 
-    Args:
-        xml_path: Path to the XML file
+    Parameters
+    ----------
+    xml_path : str or Path
+        Path to the XML file to analyze
 
-    Returns:
-        List of form names found in ReturnData
+    Returns
+    -------
+    list[str]
+        List of form names found in ReturnData section
+
+    Notes
+    -----
+    Loads and cleans the XML, then extracts all child element tag names
+    from the ReturnData section. Returns empty list if ReturnData is
+    missing or if an error occurs during processing.
+
+    Example
+    -------
+    >>> forms = get_forms_list("filing.xml")
+    >>> print(f"Found forms: {forms}")
     """
     xml_path = Path(xml_path)
 
@@ -407,15 +642,47 @@ def transform_xml_to_standalone_html(
     """Generate standalone HTML for a specific form.
 
     Always generates standalone HTML with inlined CSS/images for all forms.
+    This function is similar to transform_xml_to_html but always produces
+    standalone HTML that can be viewed without external dependencies.
 
-    Args:
-        xml_path: Path to the XML file
-        form_id: Specific form to process (e.g., 'IRS990', 'IRS990ScheduleA')
-        template_path: Path to the form template XML
-        stylesheet_root: Root directory containing XSLT stylesheets
+    Parameters
+    ----------
+    xml_path : str or Path
+        Path to the XML file to transform
+    form_id : str
+        Specific form to process (e.g., 'IRS990', 'IRS990ScheduleA')
+    template_path : str or Path, optional
+        Path to the form template XML, defaults to form_template.xml
+    stylesheet_root : str or Path, optional
+        Root directory containing XSLT stylesheets, defaults to mef/Stylesheets
 
-    Returns:
-        Dict containing standalone HTML bytes, EIN, tax year, form ID
+    Returns
+    -------
+    Dict[str, Any]
+        Dictionary containing:
+        - html: bytes - Standalone HTML content with inlined CSS/images
+        - ein: str or None - Employer Identification Number
+        - tax_year: str or None - Tax year of the filing
+        - form_id: str - The form that was processed
+
+    Raises
+    ------
+    ValueError
+        If the specified form_id is not found in the XML
+    FileNotFoundError
+        If required template or stylesheet files are missing
+
+    Notes
+    -----
+    The resulting HTML is completely self-contained with all CSS and images
+    inlined as data URLs. This makes it suitable for distribution or
+    viewing without external dependencies.
+
+    Example
+    -------
+    >>> result = transform_xml_to_standalone_html("filing.xml", "IRS990")
+    >>> with open("output.html", "wb") as f:
+    ...     f.write(result["html"])
     """
     xml_path = Path(xml_path)
     template_path = Path(template_path)
@@ -582,14 +849,52 @@ def generate_html_files_for_xml(
 ) -> Dict[str, Any]:
     """Generate HTML files for all forms in an XML file.
 
-    Args:
-        xml_path: Path to the XML file
-        output_dir: Directory to save HTML files
-        template_path: Path to the form template XML
-        stylesheet_root: Root directory containing XSLT stylesheets
+    Processes an XML file and generates standalone HTML files for each form
+    found in the ReturnData section. Each form gets its own HTML file with
+    a standardized naming convention.
 
-    Returns:
-        Dict with metadata about generated files and any errors
+    Parameters
+    ----------
+    xml_path : str or Path
+        Path to the XML file to process
+    output_dir : str or Path
+        Directory where HTML files will be saved
+    template_path : str or Path, optional
+        Path to the form template XML, defaults to form_template.xml
+    stylesheet_root : str or Path, optional
+        Root directory containing XSLT stylesheets, defaults to mef/Stylesheets
+    s3_bucket : str or None, optional
+        S3 bucket name for generating S3 URIs (no actual upload performed)
+
+    Returns
+    -------
+    Dict[str, Any]
+        Dictionary containing:
+        - xml_path: str - Path to the processed XML file
+        - ein: str or None - Employer Identification Number
+        - tax_year: str or None - Tax year of the filing
+        - generated_files: list - List of file information dictionaries
+        - errors: list - List of error messages encountered
+        - total_forms: int - Total number of forms found
+        - successful_forms: int - Number of forms successfully processed
+
+    Notes
+    -----
+    Creates the output directory if it doesn't exist. File naming convention:
+    {EIN}_{TAX_YEAR}_{FORM_ID}.html
+
+    Each generated file info includes:
+    - form_id: Form type (e.g., "IRS990")
+    - filename: Generated filename
+    - path: Local file path (if s3_bucket is None)
+    - s3_uri: S3 URI (if s3_bucket is provided)
+    - ein: Employer Identification Number
+    - tax_year: Tax year
+
+    Example
+    -------
+    >>> result = generate_html_files_for_xml("filing.xml", "output/")
+    >>> print(f"Generated {result['successful_forms']} HTML files")
     """
     xml_path = Path(xml_path)
     output_dir = Path(output_dir)
@@ -664,10 +969,38 @@ def transform_xml_to_pdf(
     output_path: str | Path,  # Can be a directory or a full path
     s3_bucket: str | None = None,
 ) -> Dict[str, Any]:
-    """High-level helper that transforms *xml_path* to PDF saved at *pdf_path*.
+    """High-level helper that transforms XML to PDF saved at output_path.
 
-    Returns the same metadata dict as `transform_xml_to_html` plus the final
-    `pdf_path`.
+    This function is deprecated. Use transform_xml_to_html instead for
+    HTML generation, or implement PDF generation separately.
+
+    Parameters
+    ----------
+    xml_path : str or Path
+        Path to the XML file to transform
+    output_path : str or Path
+        Output path for the generated file (can be directory or full path)
+    s3_bucket : str or None, optional
+        S3 bucket name for generating S3 URIs
+
+    Returns
+    -------
+    Dict[str, Any]
+        Dictionary containing metadata about the transformation, including:
+        - html_path: str - Path to the generated HTML file
+        - s3_uri: str - S3 URI for the generated file
+        - ein: str or None - Employer Identification Number
+        - tax_year: str or None - Tax year of the filing
+        - form_id: str - The form that was processed
+
+    Notes
+    -----
+    This function actually generates HTML files, not PDF files, despite
+    the function name. It's kept for backward compatibility but is
+    deprecated in favor of transform_xml_to_html.
+
+    The function creates standalone HTML with inlined CSS and images,
+    then saves it to the specified output path.
     """
     try:
         meta = transform_xml_to_html(

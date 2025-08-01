@@ -1,3 +1,23 @@
+#!/usr/bin/env python3
+"""IRS e-file processing pipeline for downloading, extracting, and converting XML files to HTML.
+
+This module provides functionality to:
+- Download IRS e-file ZIP archives from S3
+- Extract XML files from ZIP archives
+- Convert XML files to standalone HTML files
+- Upload generated HTML files back to S3
+- Generate summary reports of processed files
+
+The pipeline processes files by year and supports concurrent processing with configurable
+batch sizes and worker limits.
+
+Example
+-------
+>>> import asyncio
+>>> from fetch_irs_files import main
+>>> asyncio.run(main(max_workers=4, output_dir="output"))
+"""
+
 import argparse
 import asyncio
 import concurrent.futures
@@ -19,14 +39,13 @@ from pathlib import Path
 import aioboto3
 import botocore.exceptions
 import libarchive
-import psutil
 from pebble import ProcessPool
 from tqdm import tqdm
 
 from transform_utils import generate_html_files_for_xml
 
 # Global failure counter
-failure_count = 0
+FAILURE_COUNT = 0
 FAILURE_LOGFILE = "failures.log"
 
 # S3 Configuration
@@ -34,9 +53,25 @@ S3_BUCKET = "da-990-filings"
 
 
 def log_failure(context: str, exc: Exception):
-    """Log a failure with context and exception details, increment failure counter."""
-    global failure_count
-    failure_count += 1
+    """Log a failure with context and exception details, increment failure counter.
+
+    This function maintains a global failure counter and logs failure details
+    for debugging and monitoring purposes.
+
+    Parameters
+    ----------
+    context : str
+        Contextual information about where the failure occurred
+    exc : Exception
+        The exception that caused the failure
+
+    Notes
+    -----
+    Currently logs are commented out but the failure counter is still incremented
+    for monitoring purposes.
+    """
+    global FAILURE_COUNT
+    FAILURE_COUNT += 1
     # if not os.path.exists(FAILURE_LOGFILE):
     #     with open(FAILURE_LOGFILE, "w", encoding="utf-8") as logf:
     #         logf.write(f"[{datetime.now().isoformat()}] {context}: {repr(exc)}\n")
@@ -56,7 +91,31 @@ CONCURRENT_UPLOAD_LIMIT = 400
 def process_xml_to_html_files(xml_path: str, html_output_dir: str):
     """Worker helper to convert a single XML file to multiple HTML files.
 
-    Returns metadata about generated files on success or None on failure.
+    This function is designed to be called from a ProcessPool worker. It takes
+    an IRS XML file and converts it to standalone HTML files for all forms
+    contained in the XML.
+
+    Parameters
+    ----------
+    xml_path : str
+        Path to the XML file to process
+    html_output_dir : str
+        Directory where generated HTML files will be saved
+
+    Returns
+    -------
+    dict or None
+        Metadata about generated files on success, including:
+        - generated_files: List of file information dictionaries
+        - ein: Employer Identification Number
+        - tax_year: Tax year of the filing
+        - errors: List of any errors encountered
+        Returns None on failure.
+
+    Notes
+    -----
+    This function is designed to be called from a ProcessPool worker and handles
+    exceptions gracefully, logging failures without crashing the worker process.
     """
     try:
         meta = generate_html_files_for_xml(
@@ -73,17 +132,26 @@ def process_xml_to_html_files(xml_path: str, html_output_dir: str):
         return None
 
 
-def set_process_priority(nice_value=0):
-    """Set process priority for current process"""
-    try:
-        process = psutil.Process(os.getpid())
-        process.nice(nice_value)
-    except Exception as e:
-        pass
-
-
 def extract_zip_libarchive(zip_path, out_dir):
-    set_process_priority(0)
+    """Extract ZIP file using libarchive with fallback to zipfile and system unzip.
+
+    Attempts to extract a ZIP file using multiple methods in order of preference:
+    1. libarchive (fastest, handles various archive formats)
+    2. zipfile (Python standard library)
+    3. system unzip command (fallback)
+
+    Parameters
+    ----------
+    zip_path : str
+        Path to the ZIP file to extract
+    out_dir : str
+        Directory where files should be extracted
+
+    Notes
+    -----
+    Creates the output directory if it doesn't exist. Handles various ZIP file
+    formats and corruption gracefully by trying multiple extraction methods.
+    """
     os.makedirs(out_dir, exist_ok=True)
     try:
         with libarchive.file_reader(zip_path) as entries:
@@ -120,7 +188,25 @@ def extract_zip_libarchive(zip_path, out_dir):
 
 
 async def list_s3_files_by_year(year: str, bucket: str = S3_BUCKET):
-    """List all zip files in S3 for a specific year"""
+    """List all zip files in S3 for a specific year.
+
+    Parameters
+    ----------
+    year : str
+        The year to list files for (e.g., "2023")
+    bucket : str, optional
+        S3 bucket name, defaults to S3_BUCKET constant
+
+    Returns
+    -------
+    list[str]
+        List of S3 keys for ZIP files in the specified year folder
+
+    Notes
+    -----
+    Only returns files that end with '.zip' extension. Returns empty list
+    if no files found or if an error occurs.
+    """
     try:
         session = aioboto3.Session()
         async with session.client("s3") as s3_client:
@@ -139,7 +225,27 @@ async def list_s3_files_by_year(year: str, bucket: str = S3_BUCKET):
 
 
 async def download_from_s3(s3_key: str, local_path: str, bucket: str = S3_BUCKET):
-    """Download a file from S3"""
+    """Download a file from S3 to local filesystem.
+
+    Parameters
+    ----------
+    s3_key : str
+        S3 key (path) of the file to download
+    local_path : str
+        Local file path where the file should be saved
+    bucket : str, optional
+        S3 bucket name, defaults to S3_BUCKET constant
+
+    Returns
+    -------
+    bool
+        True if download was successful, False otherwise
+
+    Notes
+    -----
+    Creates parent directories for local_path if they don't exist.
+    Logs errors but doesn't raise exceptions.
+    """
     try:
         session = aioboto3.Session()
         async with session.client("s3") as s3_client:
@@ -153,7 +259,32 @@ async def download_from_s3(s3_key: str, local_path: str, bucket: str = S3_BUCKET
 async def download_and_extract_s3_with_semaphore(
     s3_key: str, dest_dir: str, sem: asyncio.Semaphore, pbar
 ):
-    """Download and extract a zip file from S3 with semaphore control"""
+    """Download and extract a zip file from S3 with semaphore control.
+
+    Downloads a ZIP file from S3, extracts it, and removes the ZIP file.
+    Uses a semaphore to limit concurrent operations.
+
+    Parameters
+    ----------
+    s3_key : str
+        S3 key of the ZIP file to download
+    dest_dir : str
+        Local directory where files should be extracted
+    sem : asyncio.Semaphore
+        Semaphore to control concurrent operations
+    pbar : tqdm.tqdm
+        Progress bar to update
+
+    Returns
+    -------
+    bool
+        True if operation was successful, False otherwise
+
+    Notes
+    -----
+    The ZIP file is automatically deleted after extraction to save disk space.
+    Updates the progress bar regardless of success/failure.
+    """
     async with sem:
         try:
             # Download from S3
@@ -188,6 +319,31 @@ async def async_upload_to_s3(
     s3: aioboto3.Session.client,
     sem: asyncio.Semaphore,
 ):
+    """Upload a file to S3 with semaphore control.
+
+    Uploads a file to S3 and then deletes the local file. Uses a semaphore
+    to limit concurrent uploads. Only uploads files that don't contain "Schedule"
+    in the key name.
+
+    Parameters
+    ----------
+    file_path : str
+        Local path to the file to upload
+    s3_bucket : str
+        S3 bucket name
+    s3_key : str
+        S3 key (path) where the file should be uploaded
+    s3 : aioboto3.Session.client
+        S3 client instance
+    sem : asyncio.Semaphore
+        Semaphore to control concurrent uploads
+
+    Notes
+    -----
+    Only uploads files that don't contain "Schedule" in the S3 key name.
+    Deletes the local file after successful upload to save disk space.
+    Logs failures but doesn't raise exceptions.
+    """
     if not "Schedule" in s3_key:
         return
     async with sem:
@@ -211,7 +367,30 @@ async def async_upload_to_s3(
 
 
 def batched_file_generator(directory, batch_size):
-    """Yield batches of XML files from a directory."""
+    """Yield batches of XML files from a directory.
+
+    Generator function that yields batches of XML files from a directory tree.
+    Useful for processing large numbers of files without loading them all
+    into memory at once.
+
+    Parameters
+    ----------
+    directory : str
+        Directory path to search for XML files
+    batch_size : int
+        Number of files to include in each batch
+
+    Yields
+    ------
+    list[Path]
+        Batch of Path objects pointing to XML files
+
+    Notes
+    -----
+    Recursively searches for all .xml files in the directory tree.
+    The last batch may be smaller than batch_size if there are fewer
+    remaining files.
+    """
     batch = []
     for file in Path(directory).rglob("*.xml"):
         batch.append(file)
@@ -231,6 +410,41 @@ async def download_handler(
     batch_size: int = 10000,
     skip_delete: bool = False,
 ):
+    """Main handler for processing a single year of IRS e-file data.
+
+    This function orchestrates the entire pipeline for a single year:
+    1. Downloads ZIP files from S3 (unless skip=True)
+    2. Extracts XML files from ZIP archives
+    3. Converts XML files to standalone HTML files
+    4. Uploads HTML files to S3
+    5. Generates summary reports
+    6. Cleans up temporary files (unless skip_delete=True)
+
+    Parameters
+    ----------
+    year : str
+        The year to process (e.g., "2023")
+    max_concurrent : int, optional
+        Maximum number of concurrent workers for processing, default 6
+    skip : bool, optional
+        Skip download and extraction steps, process only existing files, default False
+    output_dir : str, optional
+        Directory for output files and summaries, default "output"
+    batch_size : int, optional
+        Number of XML files to process in each batch, default 10000
+    skip_delete : bool, optional
+        Don't delete temporary files after processing, default False
+
+    Notes
+    -----
+    Creates a background thread for S3 uploads to avoid blocking the main
+    processing pipeline. Generates summary JSON files with metadata about
+    processed files. Handles failures gracefully and maintains a global
+    failure counter.
+
+    The function processes files in batches to manage memory usage and
+    provides progress bars for monitoring.
+    """
     # --- Upload thread/event loop setup ---
     if not hasattr(download_handler, "upload_loop"):
 
@@ -450,7 +664,7 @@ async def download_handler(
             json.dump({k: v for k, v in summary_map.items()}, fp, indent=2)
 
         tqdm.write(f"Summary for {year} written to {summary_out}")
-        tqdm.write(f"Failures so far: {failure_count}")
+        tqdm.write(f"Failures so far: {FAILURE_COUNT}")
 
     else:
         tqdm.write("No XML files found for transformation.")
@@ -472,7 +686,32 @@ async def main(
     max_workers: int = 6,
     skip_delete: bool = False,
 ):
-    set_process_priority(0)
+    """Main entry point for the IRS e-file processing pipeline.
+
+    Processes IRS e-file data for multiple years, downloading ZIP files from S3,
+    extracting XML files, converting them to standalone HTML, and uploading
+    the results back to S3.
+
+    Parameters
+    ----------
+    skip : bool, optional
+        Skip download and extraction steps, process only existing files, default False
+    output_dir : str, optional
+        Directory for output files and summaries, default "output"
+    max_workers : int, optional
+        Maximum number of concurrent workers for processing, default 6
+    skip_delete : bool, optional
+        Don't delete temporary files after processing, default False
+
+    Notes
+    -----
+    Processes the last 3 years from the YEARS list by default. Each year is
+    processed sequentially to avoid overwhelming system resources. Progress
+    is displayed with progress bars and timing information.
+
+    The function handles keyboard interrupts gracefully and performs garbage
+    collection on exit.
+    """
     BATCH_SIZE = 50000  # Set your desired batch size here
 
     for year in YEARS[-3:]:
@@ -487,10 +726,25 @@ async def main(
         )
         columns, _ = shutil.get_terminal_size(fallback=(100, 24))
         tqdm.write(f"Finished {year}\n{'=' * columns}\n")
-        tqdm.write(f"Total failures: {failure_count}")
+        tqdm.write(f"Total failures: {FAILURE_COUNT}")
 
 
 def parse_args():
+    """Parse command line arguments for the IRS e-file processing pipeline.
+
+    Returns
+    -------
+    argparse.Namespace
+        Parsed command line arguments with the following attributes:
+        - skip: bool - Skip download and extraction steps
+        - max_workers: int - Maximum parallel workers
+        - skip_delete: bool - Don't delete temporary files
+
+    Notes
+    -----
+    Sets up argument parser with help text for each option. All arguments
+    are optional with sensible defaults.
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--skip",
