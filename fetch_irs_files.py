@@ -23,7 +23,7 @@ import psutil
 from pebble import ProcessPool
 from tqdm import tqdm
 
-from transform_utils import transform_xml_to_pdf
+from transform_utils import generate_html_files_for_xml
 
 # Global failure counter
 failure_count = 0
@@ -53,32 +53,23 @@ CONCURRENT_UPLOAD_LIMIT = 400
 # -----------------------------------------------------------------------------
 
 
-def process_xml_to_pdf(xml_path: str, html_output_dir: str, s3_bucket: str | None):
-    """Worker helper to convert a single XML file and upload it to S3.
+def process_xml_to_html_files(xml_path: str, html_output_dir: str):
+    """Worker helper to convert a single XML file to multiple HTML files.
 
-    Returns (ein, s3_uri, form_id) on success or None on failure.
+    Returns metadata about generated files on success or None on failure.
     """
     try:
-        # A dummy path is needed. Its parent directory will be used for output files.
-        dummy_path = Path(html_output_dir) / (Path(xml_path).stem + ".dummy")
-
-        meta = transform_xml_to_pdf(
-            xml_path=xml_path, output_path=dummy_path, s3_bucket=s3_bucket
+        meta = generate_html_files_for_xml(
+            xml_path=xml_path, output_dir=html_output_dir
         )
 
-        if type(meta).__name__ == "TransformError" or not meta:
+        if "error" in meta:
             return meta
 
-        return (
-            meta.get("ein"),
-            meta.get("s3_uri"),
-            meta.get("form_id"),
-            meta.get("tax_year"),
-            meta.get("html_path"),
-        )
+        return meta
     except Exception as exc:
-        tqdm.write(f"Error converting {xml_path}: {exc}")
-        log_failure(f"process_xml_to_pdf: {xml_path}", exc)
+        tqdm.write(f"Error converting {xml_path} to HTML files: {exc}")
+        log_failure(f"process_xml_to_html_files: {xml_path}", exc)
         return None
 
 
@@ -126,21 +117,6 @@ def extract_zip_libarchive(zip_path, out_dir):
                 tqdm.write(
                     f"All extraction methods failed for {zip_path}: {unzip_error}"
                 )
-
-
-def run_process_board_on_year(year: str, data_dir: str):
-    output_csv = f"results/{year}_results.csv"
-    # Set priority for the subprocess
-    try:
-        # Use subprocess with preexec_fn to set priority
-        subprocess.run(
-            ["python", "process_board.py", data_dir, output_csv],
-            check=True,
-            preexec_fn=lambda: os.nice(0) if hasattr(os, "nice") else None,
-        )
-    except AttributeError:
-        # Fallback if preexec_fn not available
-        subprocess.run(["python", "process_board.py", data_dir, output_csv], check=True)
 
 
 async def list_s3_files_by_year(year: str, bucket: str = S3_BUCKET):
@@ -212,6 +188,8 @@ async def async_upload_to_s3(
     s3: aioboto3.Session.client,
     sem: asyncio.Semaphore,
 ):
+    if not "Schedule" in s3_key:
+        return
     async with sem:
         try:
             if not os.path.exists(file_path):
@@ -221,6 +199,7 @@ async def async_upload_to_s3(
                 )
                 return
             await s3.upload_file(file_path, s3_bucket, s3_key)
+            os.remove(file_path)
         except botocore.exceptions.NoCredentialsError as e:
             tqdm.write(f"No credentials found for {s3_bucket}: {e}")
             log_failure(f"async_upload_to_s3: {file_path} to {s3_bucket}/{s3_key}", e)
@@ -298,11 +277,11 @@ async def download_handler(
     else:
         tqdm.write(f"Skipping download and unzip for {year}")
 
+        # ------------------------------------------------------------------
+    # Convert extracted XML files to standalone HTML files
     # ------------------------------------------------------------------
-    # Convert extracted XML files to PDFs (always run this part)
-    # ------------------------------------------------------------------
-    html_output_dir = os.path.join(output_dir, "html")
-    os.makedirs(html_output_dir, exist_ok=True)
+    forms_html_output_dir = os.path.join(output_dir, "forms_html")
+    os.makedirs(forms_html_output_dir, exist_ok=True)
 
     xml_dir = dest_dir
     # Use batched_file_generator instead of flat list
@@ -312,11 +291,13 @@ async def download_handler(
     if total_files:
         s3_bucket_name = os.environ.get("S3_BUCKET_NAME")
         worker_func = partial(
-            process_xml_to_pdf,
-            html_output_dir=html_output_dir,
-            s3_bucket=None,  # Do not upload in worker
+            process_xml_to_html_files,
+            html_output_dir=forms_html_output_dir,
         )
+
         completed = 0
+        progress_update_counter = 0
+        PROGRESS_BATCH_SIZE = 1000
         sem = asyncio.Semaphore(CONCURRENT_UPLOAD_LIMIT)
         batch_upload_futures = []  # Store concurrent.futures.Future objects
         async with session.client("s3") as s3:
@@ -325,69 +306,81 @@ async def download_handler(
                     total=total_files, desc="XML→HTML", unit="file", leave=False
                 ) as pbar:
                     for batch in batches:
-                        results = []
-                        futures = [
+                        html_results = []
+
+                        # Schedule HTML files generation jobs
+                        html_futures = [
                             pool.schedule(
                                 worker_func, args=(str(xml_file),), timeout=300
                             )
                             for xml_file in batch
                         ]
-                        for future in concurrent.futures.as_completed(futures):
+
+                        # Process HTML results
+                        for future in concurrent.futures.as_completed(html_futures):
                             try:
                                 res = future.result()
-                                if (
-                                    res
-                                    and not type(res).__name__ == "TransformError"
-                                    and res[0]
-                                    and res[2]
-                                ):
-                                    results.append(res)
-                                elif type(res).__name__ == "TransformError":
-                                    log_failure(f"ProcessPool XML→HTML: {year}", res)
+                                if res and "error" not in res:
+                                    html_results.append(res)
                                 else:
-                                    log_failure(f"ProcessPool XML→HTML: {year}", res)
+                                    log_failure(
+                                        f"ProcessPool XML→HTML Forms: {year}", res
+                                    )
                             except PebbleTimeoutError as exc:
                                 tqdm.write(
-                                    "A file transformation timed out after 5 minutes and was killed."
+                                    "An HTML forms transformation timed out after 5 minutes and was killed."
                                 )
-                                log_failure(f"ProcessPool XML→HTML: {year}", exc)
+                                log_failure(f"ProcessPool XML→HTML Forms: {year}", exc)
                             except Exception as exc:
-                                log_failure(f"ProcessPool XML→HTML: {year}", exc)
+                                log_failure(f"ProcessPool XML→HTML Forms: {year}", exc)
                             completed += 1
-                            pbar.update(1)
+                            progress_update_counter += 1
+
+                            # Update progress bar in batches of 1000
+                            if progress_update_counter >= PROGRESS_BATCH_SIZE:
+                                pbar.update(progress_update_counter)
+                                progress_update_counter = 0
 
                         # Per-batch S3 upload and deletion (run concurrently)
-                        if s3_bucket_name and results:
+                        if s3_bucket_name and html_results:
                             upload_tasks = []
-                            # Count files to upload before scheduling the coroutine
-                            num_files_to_upload = sum(
-                                1 for r in results if r[4] and os.path.exists(r[4])
-                            )
+
+                            # Count form HTML files from HTML generation
+                            num_form_files = 0
+                            for html_result in html_results:
+                                if html_result and "generated_files" in html_result:
+                                    for file_info in html_result["generated_files"]:
+                                        if os.path.exists(file_info["path"]):
+                                            num_form_files += 1
+
+                            total_files_to_upload = num_form_files
 
                             async def upload_and_cleanup():
                                 tqdm.write(
-                                    f"STARTED: upload/cleanup for batch with {num_files_to_upload} files"
+                                    f"STARTED: upload/cleanup for batch with {total_files_to_upload} HTML files"
                                 )
-                                for (
-                                    _,
-                                    _,
-                                    _,
-                                    _,
-                                    html_path,
-                                ) in results:
-                                    if html_path and os.path.exists(html_path):
-                                        s3_key = os.path.basename(html_path)
-                                        upload_tasks.append(
-                                            asyncio.create_task(
-                                                async_upload_to_s3(
-                                                    html_path,
-                                                    s3_bucket_name,
-                                                    s3_key,
-                                                    s3,
-                                                    sem,
+                                tqdm.write(
+                                    "NOTE: All forms are converted to standalone HTML and uploaded to S3, but only main forms are tracked in summary"
+                                )
+
+                                # Upload form HTML files from HTML generation
+                                for html_result in html_results:
+                                    if html_result and "generated_files" in html_result:
+                                        for file_info in html_result["generated_files"]:
+                                            if os.path.exists(file_info["path"]):
+                                                s3_key = file_info["filename"]
+                                                upload_tasks.append(
+                                                    asyncio.create_task(
+                                                        async_upload_to_s3(
+                                                            file_info["path"],
+                                                            s3_bucket_name,
+                                                            s3_key,
+                                                            s3,
+                                                            sem,
+                                                        )
+                                                    )
                                                 )
-                                            )
-                                        )
+
                                 if upload_tasks:
                                     with tqdm(
                                         total=len(upload_tasks),
@@ -398,16 +391,6 @@ async def download_handler(
                                         for coro in asyncio.as_completed(upload_tasks):
                                             await coro
                                             upload_pbar.update(1)
-                                # Delete local files after upload
-                                for (
-                                    _,
-                                    _,
-                                    _,
-                                    _,
-                                    html_path,
-                                ) in results:
-                                    if html_path and os.path.exists(html_path):
-                                        os.remove(html_path)
 
                             # Schedule the upload_and_cleanup coroutine as a background task in the upload thread
                             fut = asyncio.run_coroutine_threadsafe(
@@ -415,22 +398,39 @@ async def download_handler(
                             )
                             batch_upload_futures.append(fut)
                             tqdm.write(
-                                f"Scheduled upload and cleanup for {num_files_to_upload} files (batch)."
+                                f"Scheduled upload and cleanup for {total_files_to_upload} files (batch)."
                             )
-                        # Update summary_map for this batch
-                        for ein, s3_uri, form_id, tax_year, html_path in results:
-                            if s3_uri:
-                                summary_map[ein].append(
-                                    {
-                                        "form_type": form_id,
-                                        "s3_uri": s3_uri,
-                                        "tax_year": tax_year,
-                                    }
-                                )
+
+                        # Update summary_map for HTML form files (exclude schedules)
+                        if html_results:
+                            for html_result in html_results:
+                                if html_result and "generated_files" in html_result:
+                                    ein = html_result.get("ein", "UNKNOWN")
+                                    tax_year = html_result.get("tax_year", "UNKNOWN")
+                                    for file_info in html_result["generated_files"]:
+                                        # Only include main forms in summary, not schedules
+                                        if (
+                                            s3_bucket_name
+                                            and "Schedule" not in file_info["form_id"]
+                                        ):
+                                            s3_uri = f"s3://{s3_bucket_name}/{file_info['filename']}"
+                                            summary_map[ein].append(
+                                                {
+                                                    "form_type": file_info["form_id"],
+                                                    "s3_uri": s3_uri,
+                                                    "tax_year": tax_year,
+                                                    "file_type": "standalone_html",
+                                                }
+                                            )
                 # Await all outstanding upload/cleanup tasks after all batches
                 if batch_upload_futures:
                     tqdm.write("Waiting for all upload/cleanup tasks to finish...")
                     futures_wait(batch_upload_futures)
+
+                # Final progress update for any remaining files
+                if progress_update_counter > 0:
+                    pbar.update(progress_update_counter)
+
         tqdm.write("Completed Process Pool (XML→HTML)")
 
         # Write summary JSON for the year
@@ -473,9 +473,9 @@ async def main(
     skip_delete: bool = False,
 ):
     set_process_priority(0)
-    BATCH_SIZE = 100000  # Set your desired batch size here
+    BATCH_SIZE = 50000  # Set your desired batch size here
 
-    for year in YEARS[0:1]:
+    for year in YEARS[-3:]:
         tqdm.write(f"Starting {year}")
         await download_handler(
             year,
@@ -508,6 +508,7 @@ def parse_args():
         action="store_true",
         help="Do not delete the data XML files after processing",
     )
+
     return parser.parse_args()
 
 

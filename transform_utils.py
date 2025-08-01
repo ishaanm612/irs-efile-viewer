@@ -23,6 +23,7 @@ import os
 import re
 import sys
 import tempfile
+from typing_extensions import deprecated
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -93,6 +94,94 @@ def _move_header_and_main_form(input_dom: etree._ElementTree, template_dom: etre
 
 def _get_stylesheet_path(stylesheet_root: str | Path, year: str, form_id: str) -> str:
     return os.path.join(str(stylesheet_root), year, f"{form_id}.xsl")
+
+
+def _make_html_standalone(html_bytes: bytes) -> bytes:
+    """Convert HTML to standalone format with inlined CSS and images."""
+    declared_charset = "iso-8859-1"
+    m = re.search(rb"charset=([A-Za-z0-9_-]+)", html_bytes[:200])
+    if m:
+        declared_charset = m.group(1).decode("ascii", "ignore")
+
+    html_text = html_bytes.decode(declared_charset, errors="replace")
+
+    repo_root = "/home/ec2-user/DonorAtlas/irs-efile-viewer"  # repo root absolute
+
+    # Adjust root-relative paths first
+    html_text = html_text.replace("/mef/", f"{repo_root}/mef/")
+
+    # Create temporary HTML file for processing
+    with tempfile.NamedTemporaryFile(
+        delete=False, suffix=".html", mode="w", encoding="utf-8"
+    ) as tmp:
+        tmp.write(html_text)
+        tmp_path = Path(tmp.name)
+
+    try:
+        # Apply standalone conversion
+        soup = BeautifulSoup(
+            tmp_path.read_text("utf-8", errors="ignore"), "html.parser"
+        )
+
+        # inline stylesheets
+        for link in soup.find_all("link", rel="stylesheet"):
+            href_str = link.get("href", "")
+            if not href_str or href_str.startswith("http"):
+                continue
+
+            css_path = Path(href_str)
+            if css_path.exists():
+                css = css_path.read_text("utf-8", errors="ignore")
+                css = _inline_css_imports_and_images(css, css_path.parent)
+                style = soup.new_tag("style")
+                style.string = css
+                link.replace_with(style)
+
+        # inline images
+        for img in soup.find_all("img", src=True):
+            src_str = img.get("src", "")
+            if src_str and not src_str.startswith("http"):
+                src_path = Path(src_str)
+                if src_path.exists():
+                    mime = (
+                        mimetypes.guess_type(src_path)[0] or "application/octet-stream"
+                    )
+                    data = base64.b64encode(src_path.read_bytes()).decode()
+                    img["src"] = f"data:{mime};base64,{data}"
+
+        # drop external JS
+        for script in soup.find_all("script", src=True):
+            script.decompose()
+
+        standalone_html = str(soup)
+        return standalone_html.encode("utf-8")
+
+    finally:
+        tmp_path.unlink(missing_ok=True)
+
+
+def _inline_css_imports_and_images(css_text: str, base_dir: Path) -> str:
+    """Inline CSS @import statements and convert images to data URLs."""
+    # inline @import
+    css_text = re.sub(
+        r"@import\s+url\(['\"]?(.*?)['\"]?\);",
+        lambda m: (
+            (base_dir / m.group(1)).read_text("utf-8")
+            if (base_dir / m.group(1)).exists()
+            else ""
+        ),
+        css_text,
+    )
+
+    def repl(match):
+        p = base_dir / match.group(1)
+        if not p.exists():
+            return match.group(0)
+        mime = mimetypes.guess_type(p)[0] or "application/octet-stream"
+        data = base64.b64encode(p.read_bytes()).decode()
+        return f"url(data:{mime};base64,{data})"
+
+    return re.sub(r"url\(['\"]?(.*?)['\"]?\)", repl, css_text)
 
 
 # ---------------------------------------------------------------------------
@@ -272,6 +361,304 @@ def transform_xml_to_html(
     }
 
 
+def get_forms_list(xml_path: str | Path) -> list[str]:
+    """Extract all form names from XML ReturnData section.
+
+    Similar to JS getListOfForms() - returns list of form tag names
+    like ['IRS990', 'IRS990ScheduleA', 'IRS990ScheduleB', ...]
+
+    Args:
+        xml_path: Path to the XML file
+
+    Returns:
+        List of form names found in ReturnData
+    """
+    xml_path = Path(xml_path)
+
+    try:
+        # Load & clean XML
+        clean_xml = _remove_namespaces(xml_path.read_text(encoding="utf-8"))
+        input_dom = etree.fromstring(clean_xml.encode("utf-8"))
+
+        # Find ReturnData element
+        return_data = input_dom.find(".//ReturnData")
+        if return_data is None:
+            return []
+
+        # Extract all child element tag names
+        return [child.tag for child in return_data]
+
+    except Exception as e:
+        print(f"Error extracting forms from {xml_path}: {e}")
+        return []
+
+
+def transform_xml_to_standalone_html(
+    xml_path: str | Path,
+    form_id: str,
+    *,
+    template_path: (
+        str | Path
+    ) = "/home/ec2-user/DonorAtlas/irs-efile-viewer/form_template.xml",
+    stylesheet_root: (
+        str | Path
+    ) = "/home/ec2-user/DonorAtlas/irs-efile-viewer/mef/Stylesheets",
+) -> Dict[str, Any]:
+    """Generate standalone HTML for a specific form.
+
+    Always generates standalone HTML with inlined CSS/images for all forms.
+
+    Args:
+        xml_path: Path to the XML file
+        form_id: Specific form to process (e.g., 'IRS990', 'IRS990ScheduleA')
+        template_path: Path to the form template XML
+        stylesheet_root: Root directory containing XSLT stylesheets
+
+    Returns:
+        Dict containing standalone HTML bytes, EIN, tax year, form ID
+    """
+    xml_path = Path(xml_path)
+    template_path = Path(template_path)
+    stylesheet_root = Path(stylesheet_root)
+
+    # 1. Load & clean XML
+    clean_xml = _remove_namespaces(xml_path.read_text(encoding="utf-8"))
+    input_dom = etree.fromstring(clean_xml.encode("utf-8"))
+
+    # 2. Verify form exists
+    form_element = input_dom.find(f".//{form_id}")
+    if form_element is None:
+        raise ValueError(f"Form {form_id} not found in {xml_path}")
+
+    # 3. Prepare template DOM and merge
+    template_dom = etree.parse(str(template_path))
+    _move_header_and_main_form(input_dom, template_dom, form_id)
+
+    # 4. Populate template parameters (reuse existing logic)
+    props_to_transfer = [
+        ("/Return/@returnVersion", "ReturnVersion", None),
+        ("/Return/@returnVersion", "SubmissionVersion", None),
+        ("//ReturnHeader/TaxYr", "TaxYear", None),
+        (
+            "//ReturnHeader/ReturnTs|//ReturnHeader/Timestamp",
+            "SystemMode",
+            _format_date,
+        ),
+        (
+            "//ReturnHeader/ReturnTypeCd|//ReturnHeader/ReturnType",
+            "SubmissionType",
+            None,
+        ),
+        ("//ReturnHeader/Filer/EIN", "TINLatest", _format_tin),
+        ("//ReturnHeader/Filer/EIN", "TIN", _format_tin),
+        (f"//{form_id}/@documentId", "DocumentId", None),
+    ]
+
+    for xpath, dest, transform in props_to_transfer:
+        val = None
+        if "|" in xpath:
+            for xp in xpath.split("|"):
+                try:
+                    result = input_dom.xpath(xp.strip())
+                    if result:
+                        val = (
+                            result[0].text
+                            if isinstance(result[0], etree._Element)  # type: ignore[attr-defined, protected-access]
+                            else result[0]
+                        )
+                        break
+                except Exception:
+                    continue
+        else:
+            try:
+                result = input_dom.xpath(xpath)
+                if result:
+                    val = (
+                        result[0].text
+                        if isinstance(result[0], etree._Element)  # type: ignore[attr-defined, protected-access]
+                        else result[0]
+                    )
+            except Exception:
+                val = None
+        if transform and val:
+            val = transform(val)  # type: ignore[arg-type]
+        _set_node_value(template_dom, dest, val)
+
+    # 5. Resolve year and stylesheet
+    year_node = template_dom.find(".//ReturnVersion")
+    year = (
+        re.search(r"\d{4}", year_node.text).group(0)  # type: ignore[arg-type]
+        if year_node is not None and year_node.text
+        else "2023"
+    )
+    stylesheet_path = _get_stylesheet_path(stylesheet_root, year, form_id)
+    if not Path(stylesheet_path).is_file():
+        raise FileNotFoundError(f"Stylesheet not found: {stylesheet_path}")
+
+    # 6. Run XSLT
+    xslt = etree.parse(stylesheet_path)
+    transform = etree.XSLT(xslt)
+    html_dom = transform(template_dom)
+    html_bytes = etree.tostring(html_dom, pretty_print=True, method="html")
+
+    # 7. Convert to standalone HTML (always for all forms)
+    html_bytes = _make_html_standalone(html_bytes)
+
+    # 7. Extract metadata (reuse existing logic)
+    ns_irs = {"irs": "http://www.irs.gov/efile"}
+
+    # Attempt namespaced retrieval first (original XML with namespaces)
+    try:
+        ns = {"irs": "http://www.irs.gov/efile"}
+        tree = ET.parse(xml_path)
+        root = tree.getroot()
+        header = root.find(".//irs:ReturnHeader", ns)
+        ein = None
+        if header is not None:
+            filer = header.find(".//irs:Filer", ns)
+            if filer is not None:
+                ein = filer.findtext(".//irs:EIN", namespaces=ns)
+    except Exception:
+        ein = None
+
+    if not ein:
+        # Primary non-namespaced path (after namespace removal)
+        result = input_dom.xpath("//ReturnHeader/Filer/EIN/text()")
+        if result:
+            ein = result[0].strip()
+
+    if not ein:
+        # search 9-digit number inside Filer element
+        filer_el = input_dom.find(".//Filer")
+        if filer_el is not None:
+            m = re.search(r"\b(\d{9})\b", etree.tostring(filer_el, encoding="unicode"))
+            if m:
+                ein = m.group(1)
+
+    tax_year = None
+    # 1) explicit TaxYr element (namespaced then non-ns)
+    tax_year = input_dom.findtext(".//irs:TaxYr", namespaces=ns_irs)
+    if tax_year:
+        tax_year = tax_year.strip()
+
+    if not tax_year:
+        result = input_dom.xpath("//ReturnHeader/TaxYr/text()")
+        if result:
+            tax_year = result[0].strip()
+
+    if not tax_year:
+        # 2) year inside returnVersion attribute
+        rv = input_dom.get("returnVersion") or ""
+        m = re.search(r"(\d{4})", rv)
+        if m:
+            tax_year = m.group(1)
+        else:
+            # 3) year from TaxPeriodEndDt
+            tax_year = input_dom.findtext(".//irs:TaxPeriodEndDt", namespaces=ns_irs)
+            if not tax_year:
+                result = input_dom.xpath("//ReturnHeader/TaxPeriodEndDt/text()")
+                if result and len(result[0]) >= 4:
+                    tax_year = result[0][:4]
+
+    return {
+        "html": html_bytes,
+        "ein": ein,
+        "tax_year": tax_year,
+        "form_id": form_id,
+    }
+
+
+def generate_html_files_for_xml(
+    xml_path: str | Path,
+    output_dir: str | Path,
+    *,
+    template_path: (
+        str | Path
+    ) = "/home/ec2-user/DonorAtlas/irs-efile-viewer/form_template.xml",
+    stylesheet_root: (
+        str | Path
+    ) = "/home/ec2-user/DonorAtlas/irs-efile-viewer/mef/Stylesheets",
+    s3_bucket: str | None = None,
+) -> Dict[str, Any]:
+    """Generate HTML files for all forms in an XML file.
+
+    Args:
+        xml_path: Path to the XML file
+        output_dir: Directory to save HTML files
+        template_path: Path to the form template XML
+        stylesheet_root: Root directory containing XSLT stylesheets
+
+    Returns:
+        Dict with metadata about generated files and any errors
+    """
+    xml_path = Path(xml_path)
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Get all forms in the XML
+    forms = get_forms_list(xml_path)
+    if not forms:
+        return {"error": f"No forms found in {xml_path}", "generated_files": []}
+
+    generated_files = []
+    errors = []
+    ein = None
+    tax_year = None
+
+    for form_id in forms:
+        try:
+            # Generate standalone HTML for this form
+            meta = transform_xml_to_standalone_html(
+                xml_path,
+                form_id,
+                template_path=template_path,
+                stylesheet_root=stylesheet_root,
+            )
+
+            # Extract common metadata from first successful form
+            if ein is None:
+                ein = meta.get("ein", "UNKNOWN")
+            if tax_year is None:
+                tax_year = meta.get("tax_year", "UNKNOWN")
+
+            # Build filename: {EIN}_{TAX_YEAR}_{FORM_ID}.html
+            filename = f"{ein}_{tax_year}_{form_id}.html"
+            output_file = output_dir / filename
+
+            # Write standalone HTML file
+            html_content = meta["html"].decode("utf-8", errors="replace")
+            output_file.write_text(html_content, encoding="utf-8")
+
+            # Upload to S3 if requested
+            s3_uri = None
+            s3_uri = f"s3://{s3_bucket}/{filename}"
+
+            generated_files.append(
+                {
+                    "form_id": form_id,
+                    "filename": filename,
+                    "path": str(output_file) if not s3_bucket else None,
+                    "s3_uri": s3_uri,
+                    "ein": ein,
+                    "tax_year": tax_year,
+                }
+            )
+
+        except Exception as e:
+            errors.append(f"Error processing {form_id}: {str(e)}")
+
+    return {
+        "xml_path": str(xml_path),
+        "ein": ein,
+        "tax_year": tax_year,
+        "generated_files": generated_files,
+        "errors": errors,
+        "total_forms": len(forms),
+        "successful_forms": len(generated_files),
+    }
+
+
+@deprecated("Use transform_xml_to_html instead")
 def transform_xml_to_pdf(
     xml_path: str | Path,
     output_path: str | Path,  # Can be a directory or a full path
@@ -407,23 +794,50 @@ def transform_xml_to_pdf(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--xml-path", type=str, required=True)
-    parser.add_argument("--output-path", type=str, required=True)
-    parser.add_argument("--s3-bucket", type=str)
+    parser = argparse.ArgumentParser(
+        description="Transform IRS XML files to HTML or PDF"
+    )
+    parser.add_argument("--xml-path", type=str, required=True, help="Path to XML file")
+    parser.add_argument(
+        "--output-dir", type=str, help="Output directory for HTML generation"
+    )
+    parser.add_argument("--s3-bucket", type=str, help="S3 bucket for uploads")
+
     args = parser.parse_args()
 
-    res = transform_xml_to_pdf(
+    if not args.output_dir:
+        tqdm.write("Error: --output-dir is required for HTML generation")
+        sys.exit(1)
+
+    res = generate_html_files_for_xml(
         xml_path=args.xml_path,
-        output_path=Path(args.output_path),
+        output_dir=args.output_dir,
         s3_bucket=args.s3_bucket,
     )
 
-    if type(res).__name__ == "TransformError":
-        tqdm.write(f"{res}")
+    if "error" in res:
+        tqdm.write(f"Error: {res['error']}")
         sys.exit(1)
 
-    if "s3_uri" in res:
-        tqdm.write(f"Uploaded to {res['s3_uri']}")
+    if args.s3_bucket:
+        tqdm.write(
+            f"Generated and uploaded {res['successful_forms']}/{res['total_forms']} standalone HTML files to S3:"
+        )
+        for file_info in res["generated_files"]:
+            if file_info.get("s3_uri"):
+                tqdm.write(f"  - {file_info['s3_uri']} ({file_info['form_id']})")
+            else:
+                tqdm.write(
+                    f"  - {file_info['filename']} ({file_info['form_id']}) - UPLOAD FAILED"
+                )
     else:
-        tqdm.write(f"Standalone HTML: {res['html_path']}")
+        tqdm.write(
+            f"Generated {res['successful_forms']}/{res['total_forms']} standalone HTML files:"
+        )
+        for file_info in res["generated_files"]:
+            tqdm.write(f"  - {file_info['filename']} ({file_info['form_id']})")
+
+    if res["errors"]:
+        tqdm.write("Errors encountered:")
+        for error in res["errors"]:
+            tqdm.write(f"  - {error}")
