@@ -32,7 +32,7 @@ The main scripts are [fetch_irs_files](fetch_irs_files.py) and [transform_utils]
 
 ### Configuration
 
-There are several absolute paths configured in both [fetch_irs_files.py](fetch_irs_files.py) (namely dest*dir), and in [transform_utils.py](transform_utils.py) (stylesheet paths, standalone transformation, etc). In order for the pipeline to function properly, you \*\*\_must*\*\* change these to suit your system's path structure.
+There are several absolute paths configured in both [fetch_irs_files.py](fetch_irs_files.py) (namely destdir), and in [transform_utils.py](transform_utils.py) (stylesheet paths, standalone transformation, etc). In order for the pipeline to function properly, you **_must_** change these to suit your system's path structure.
 
 ---
 
@@ -42,7 +42,7 @@ To run this, simply run [fetch_irs_files.py](fetch_irs_files.py) with max-worker
 
 **Notes:**
 
-- There are several absolute paths configured in both [fetch_irs_files.py](fetch_irs_files.py) (namely dest*dir), and in [transform_utils.py](transform_utils.py) (stylesheet paths, standalone transformation, etc). In order for the pipeline to function properly, you \*\*\_must*\*\* change these to suit your system's path structure.
+- There are several absolute paths configured in both [fetch_irs_files.py](fetch_irs_files.py) (namely dest\_dir), and in [transform_utils.py](transform_utils.py) (stylesheet paths, standalone transformation, etc). In order for the pipeline to function properly, you **_must_** change these to suit your system's path structure.
 
 ---
 
